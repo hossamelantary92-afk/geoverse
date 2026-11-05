@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#061525">
+<meta name="description" content="GeoVerse — اكتشف العالم وتعلم الجغرافيا من خلال الخرائط والتحديات التفاعلية.">
+<title>GeoVerse | Explore Beyond Borders</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzxZalK7x0I7TE6cTZ9a2zB0=" crossorigin="">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div id="app">
+<header class="topbar"><button id="menuBtn" class="icon-btn mobile-menu" aria-label="القائمة">☰</button><button class="brand" data-page="home" aria-label="الرئيسية"><span class="brand-icon">🌍</span><span><strong>Geo<span>Verse</span></strong><small>Explore Beyond Borders</small></span></button><nav class="topnav" id="topnav"><button data-page="home" class="active">⌂ <span data-i18n="home">الرئيسية</span></button><button data-page="explore">♧ <span data-i18n="explore">استكشف</span></button><button data-page="learn">▤ <span data-i18n="learn">تعلم</span></button><button data-page="play">♧ <span data-i18n="play">الألعاب</span></button><button data-page="progress">▥ <span data-i18n="progress">تقدمي</span></button></nav><div class="head-actions"><button id="languageBtn" class="icon-btn language">EN</button><button id="searchBtn" class="icon-btn" title="بحث">⌕</button><button id="modeBtn" class="icon-btn" title="تبديل الوضع">☾</button></div></header>
+<div class="layout"><aside class="sidebar" id="sidebar"><div class="side-title">◈ <span data-i18n="topics">أقسام GeoVerse</span></div><div id="categoryMenu"></div><button class="all-cats" id="allCategories">▦ <span data-i18n="allTopics">عرض جميع الأقسام</span></button></aside><main id="main"></main></div>
+<div id="searchOverlay" class="overlay hidden"><div class="dialog"><div class="dialog-head"><h2 data-i18n="searchTitle">ابحث في العالم</h2><button id="closeSearch" class="icon-btn">✕</button></div><input id="globalSearch" type="search" placeholder="اسم دولة أو عاصمة أو نهر أو قارة..."><div id="searchResults" class="search-results"></div></div></div>
+<footer>GeoVerse © 2026 · Explore Beyond Borders <span>🌍</span></footer>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="./app.js"></script>
+</body></html>
