@@ -1,0 +1,70 @@
+/* GeoVerse Phase 3.4 — one-map, concise field-guide detail pages */
+.gv14-detail{max-width:1280px;margin:0 auto;padding-bottom:24px}
+.gv14-back{margin:0 0 15px}
+.gv14-head{position:relative;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);align-items:stretch;gap:0;overflow:hidden;border:1px solid #408ba38a;border-radius:22px;min-height:285px;background:radial-gradient(ellipse at 100% 0%,#0a6b8655,transparent 72%),linear-gradient(145deg,#092f46,#06192d);box-shadow:0 19px 43px #0008}
+.gv14-photo{position:relative;display:grid;place-items:center;min-height:285px;isolation:isolate;background:radial-gradient(ellipse at 48% 40%,#216b8975,transparent 65%),linear-gradient(140deg,#0b4054,#071a2f);overflow:hidden}
+.gv14-photo:after{content:"";position:absolute;pointer-events:none;inset:0;z-index:1;background:linear-gradient(0deg,#052337a5,transparent 45%)}
+.gv14-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;display:block}
+.gv14-photo-placeholder{position:relative;z-index:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:#b4dbe4;padding:24px;text-align:center;font-size:12px;line-height:1.7}
+.gv14-photo-placeholder svg{width:66px!important;height:66px!important;color:#79e5df}
+.gv14-photo.gv14-has-photo .gv14-photo-placeholder{display:none}
+.gv14-photo .gv-image-credit,.gv14-image-credit{position:absolute!important;z-index:3!important;bottom:12px;inset-inline-end:13px;font-size:10px!important;color:#ecfbff!important;background:#032237cf;border:1px solid #5aabbba0;border-radius:9px;padding:7px 11px;text-decoration:none;backdrop-filter:blur(7px)}
+.gv14-photo .gv-image-credit a{color:#e0faff;text-decoration:none}
+.gv14-heading{display:flex;flex-direction:column;justify-content:center;min-width:0;gap:15px;padding:clamp(22px,3vw,38px)}
+.gv14-kicker{display:flex;gap:9px;align-items:center;color:#e6c689;font-size:11px;font-weight:900;letter-spacing:.8px}
+.gv14-kicker svg{width:21px;height:21px;color:#81f0df}
+.gv14-heading h1{color:#f6ffff;font-weight:950;font-size:clamp(29px,3.5vw,46px);line-height:1.38;margin:0;overflow-wrap:anywhere}
+.gv14-head-description{color:#c6dfe9;font-size:13px;line-height:2;margin:0;max-width:470px}
+.gv14-learned{display:inline-flex;align-items:center;justify-content:center;align-self:flex-start;gap:8px;min-height:37px;border:1px solid #59a4a7;border-radius:999px;padding:8px 13px;background:#0c3a4f;color:#c8f1ec;font-size:11px;font-weight:900}
+.gv14-learned svg{color:#8abac7}
+.gv14-learned.is-learned{color:#093a37;border-color:#6af0ba;background:#89f9c9}
+.gv14-learned.is-learned svg{color:#08634d}
+.gv14-learned:hover{border-color:#a2ffed}
+.gv14-overview,.gv14-map{margin-top:18px;background:linear-gradient(135deg,#0a2c40,#061d31);border:1px solid #3d7b917d;border-radius:19px;padding:clamp(18px,2.7vw,29px);box-shadow:0 12px 29px #0005}
+.gv14-section-heading{margin-bottom:12px}
+.gv14-section-heading span{font:900 10px Outfit,Cairo,sans-serif;letter-spacing:1.2px;color:#eacb8b}
+.gv14-section-heading h2{font-size:clamp(19px,2.3vw,26px);font-weight:900;line-height:1.5;color:#f1fdff;margin:6px 0}
+.gv14-overview>p{font-size:clamp(12px,1.15vw,14px);line-height:2.1;color:#d4e6ec;margin:0 0 16px;max-width:850px}
+.gv14-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:10px}
+.gv14-fact{border:1px solid #4b819287;border-radius:12px;background:#0d394d;padding:13px 15px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.gv14-fact small{color:#93c9d6;font-size:11px;line-height:1.6}
+.gv14-fact strong{color:#f3ffff;font-size:13px;font-weight:800;line-height:1.8;overflow-wrap:anywhere}
+.gv14-globe{height:clamp(310px,44vw,510px);border-radius:14px;border:1px solid #438ca5;background:radial-gradient(ellipse at center,#063958,#041627);box-shadow:inset 0 0 60px #0009;overflow:hidden}
+.gv14-map-caption{font-size:10px;color:#8fb7c3;line-height:1.9;margin:11px 0 0}
+.gv14-more{margin-top:17px;padding:15px 18px;background:#061c2c;border:1px solid #37677c8c;border-radius:13px}
+.gv14-more summary{color:#a6e7df;font-size:12px;font-weight:900;cursor:pointer;line-height:1.8}
+.gv14-more[open] summary{margin-bottom:12px}
+.gv14-more #gvWikiArticle{padding:0!important;background:none!important;border:0!important;box-shadow:none!important;margin:0!important}
+.gv14-more #gvWikiArticle p{color:#bbd6df;font-size:12px;line-height:2.1}
+.gv14-data-note{color:#8badb8;font-size:10px;line-height:1.9;margin:14px 0 0}
+.gv14-next{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:19px;padding:15px 18px;border:1px solid #397890;border-radius:15px;background:#092c42}
+.gv14-next>span{font-size:11px;font-weight:900;letter-spacing:.8px;color:#e6c68b}
+.gv14-next button{border:1px solid #62aeb9;border-radius:11px;background:#0b4053;color:#ebffff;padding:9px 15px;font-size:12px;font-weight:850}
+.gv14-next button:hover{background:#14536a;border-color:#89f7e6}
+/* Keep the historical, useful continent country-grid but eliminate two duplicate map displays. */
+.gv14-continent-page .gv-continent-intro{border-radius:17px;overflow:hidden}
+.gv14-continent-page .gv-continent-intro .gv-continent-3d{height:clamp(310px,42vw,500px)}
+.gv14-continent-page .gv14-continent-progress{padding:11px 17px;border-radius:13px;box-shadow:none}
+.gv14-continent-page .gv14-continent-progress .actions{margin:0}
+.gv14-continent-page .gv14-continent-progress #toggleSeen{width:auto;min-height:36px;font-size:11px;padding:8px 14px}
+@media(max-width:900px){.gv14-head{grid-template-columns:1fr}.gv14-photo{min-height:285px;height:285px}.gv14-heading{gap:10px;padding:22px}.gv14-heading h1{font-size:32px}}
+@media(max-width:700px){
+.gv14-detail{padding-bottom:26px}
+.gv14-head{border-radius:16px}
+.gv14-photo{height:223px;min-height:223px}
+.gv14-heading{padding:16px;gap:9px}
+.gv14-heading h1{font-size:27px}
+.gv14-head-description{font-size:11px;line-height:1.9}
+.gv14-kicker{font-size:10px}
+.gv14-learned{font-size:10px;min-height:34px;padding:6px 11px}
+.gv14-overview,.gv14-map{padding:15px;margin-top:12px;border-radius:14px}
+.gv14-section-heading h2{font-size:19px}
+.gv14-overview>p{font-size:12px}
+.gv14-facts{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.gv14-fact{padding:11px;gap:6px}.gv14-fact strong{font-size:11px}.gv14-fact small{font-size:10px}
+.gv14-globe{height:330px}
+.gv14-next{padding:13px 11px;flex-wrap:wrap}
+.gv14-next button{font-size:11px}
+}
+@media(max-width:375px){.gv14-photo{height:190px;min-height:190px}.gv14-heading h1{font-size:25px}.gv14-globe{height:305px}.gv14-facts{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.gv14-learned,.gv14-next button{transition:none}}
