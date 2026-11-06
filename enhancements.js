@@ -29,7 +29,7 @@ grasslands:'<path d="M12 22V5M12 13c-5 0-8-4-8-8 5 0 8 3 8 8ZM12 17c6 0 9-4 9-9-
 function svgIcon(name,size=21){return '<svg class="gv-icon" aria-hidden="true" width="'+size+'" height="'+size+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">'+(iconPaths[name]||iconPaths.continents)+'</svg>'}
 cats.forEach(c=>{c.emoji=svgIcon(c.id)});
 gameModes.forEach(g=>{let id=['mixed','capitals','classify','definitions','locations','flags','mapfind'].indexOf(g[0]);g[1]=svgIcon(['continents','countries','islands','climate','mountains','countries','continents'][id]||'continents',24)});
-const flag=(code,alt)=>code&&/^[A-Z]{2}$/.test(code)?'<img class="gv-flag" loading="lazy" src="https://flagcdn.com/'+code.toLowerCase()+'.svg" alt="'+escapeHTML(alt||'Flag')+'" onerror="this.style.display=\'none\'">':svgIcon('countries');
+const flag=(code,alt)=>code&&/^[A-Z]{2}$/.test(code)?'<img class="gv-flag" loading="lazy" src="https://flagcdn.com/'+(code==='UK'?'gb':code.toLowerCase())+'.svg" alt="'+escapeHTML(alt||'Flag')+'" onerror="this.style.display=\'none\'">':svgIcon('countries');
 const allGeo=geo.countries.slice();
 const store={ready:false,countries:[],byName:new Map(),byCode:new Map(),countryFeatures:[],featLookup:new Map(),continentGeo:new Map(),status:'loading'};
 function norm(v){return String(v||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z]/g,'')}
