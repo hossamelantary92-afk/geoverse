@@ -521,3 +521,95 @@ body{overflow-x:hidden}
  }
 }
 @media(max-width:365px){.gv11-hero .gv11-stats{bottom:63px!important}}
+
+
+/* Phase 4.9 — journey dashboard identity and intentional game selection.
+   Visual-only styles; progress remains saved on the user's current browser. */
+.gv17-progress{margin-top:30px!important}
+.gv17-progress .gv17-heading{margin-bottom:18px!important}
+.gv17-progress .gv17-overline{color:#efd08b!important}
+.gv17-progress .gv17-heading h2{font-weight:950!important;letter-spacing:-.25px!important}
+.gv17-progress-grid{gap:14px!important}
+.gv17-progress-main{
+ position:relative!important;isolation:isolate!important;overflow:hidden!important;
+ min-height:248px!important;padding:25px!important;gap:22px!important;
+ border:1px solid rgba(109,223,221,.68)!important;border-radius:22px!important;
+ background:linear-gradient(120deg,rgba(5,43,61,.90),rgba(5,25,46,.94)),
+ url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1000&q=75") center/cover!important;
+ box-shadow:0 16px 37px rgba(0,7,23,.39),inset 0 1px rgba(209,255,248,.2)!important;
+}
+.gv17-progress-main::after{
+ content:"";pointer-events:none;position:absolute;inset:0;z-index:-1;
+ background:radial-gradient(ellipse at 78% 35%,rgba(25,201,210,.18),transparent 60%);
+}
+.gv17-progress-main .gv17-ring{
+ width:170px!important;height:170px!important;
+ background:conic-gradient(#53f0d7 var(--gv17-progress,0%),rgba(96,157,182,.21) 0)!important;
+ box-shadow:0 0 0 1px rgba(163,239,242,.22),0 0 34px rgba(29,194,203,.16)!important;
+}
+.gv17-progress-main .gv17-ring::before{
+ inset:15px!important;
+ background:radial-gradient(circle at 50% 38%,#0e3d51,#031a30 82%)!important;
+ box-shadow:inset 0 4px 20px #0006,0 0 0 1px #c4ffff17!important;
+}
+.gv17-ring strong{font-size:35px!important;letter-spacing:-1.1px}
+.gv17-ring small{font-size:11px!important;color:#bce5ea!important}
+.gv17-progress-summary{gap:9px!important}
+.gv17-progress-summary>span{color:#7ff5df!important;letter-spacing:.6px}
+.gv17-progress-summary .gv49-progress-count{font-size:clamp(29px,3vw,39px)!important;color:#fff!important;font-weight:950!important}
+.gv17-progress-summary .gv49-progress-count small{font-size:18px!important;color:#b9d8df!important}
+.gv17-progress-summary p{font-size:12px!important;color:#d4ecf0!important}
+.gv17-progress-summary button{
+ border-radius:12px!important;border:1px solid #7bf2dc!important;
+ background:linear-gradient(125deg,#0a807c,#07585d)!important;color:#f5fffd!important;
+ box-shadow:0 8px 18px #001d2c70!important;
+}
+.gv17-progress-categories{
+ padding:15px!important;gap:10px!important;border-radius:22px!important;
+ background:linear-gradient(150deg,rgba(8,49,69,.96),rgba(4,28,48,.97))!important;
+ border:1px solid rgba(98,189,207,.65)!important;
+ box-shadow:0 14px 30px #0006,inset 0 1px #c4ffff17!important;
+}
+.gv17-progress-row{
+ position:relative!important;overflow:hidden!important;
+ min-height:100px!important;padding:16px!important;gap:17px!important;
+ border:1px solid rgba(110,193,210,.35)!important;border-radius:15px!important;
+ background:linear-gradient(140deg,rgba(20,75,96,.7),rgba(8,39,60,.87))!important;
+ box-shadow:inset 0 1px rgba(211,255,252,.11)!important;
+}
+.gv17-progress-row:hover{border-color:#81f0dc!important}
+.gv17-progress-label strong{color:#f2fdff!important;font-size:12px!important;font-weight:900!important}
+.gv17-progress-label span{color:#b5dfec!important;font-size:11px!important;font-variant-numeric:tabular-nums!important}
+.gv17-track{height:7px!important;background:rgba(93,155,175,.31)!important;box-shadow:inset 0 1px 3px #00131e8a!important}
+.gv17-track i{background:linear-gradient(90deg,#10b8c4,#8cfbe0)!important;box-shadow:0 0 10px rgba(62,225,211,.31)!important}
+.gv49-game-intro{
+ margin:16px 0 24px;padding:30px 22px;text-align:center;
+ border:1px solid rgba(92,188,204,.59);border-radius:20px;
+ background:radial-gradient(ellipse at 50% 0%,rgba(17,118,142,.21),transparent 70%),linear-gradient(135deg,#0b354b,#061d31);
+ box-shadow:0 12px 29px #0005;
+}
+.gv49-game-intro-eyebrow{display:block;color:#edc981;font:850 10px Outfit,Cairo,sans-serif;letter-spacing:1.4px;margin-bottom:8px}
+.gv49-game-intro h2{margin:0 0 8px;color:#f5fdff;font-size:clamp(20px,3vw,27px);font-weight:950}
+.gv49-game-intro p{margin:0;color:#bad6de;line-height:1.8;font-size:12px}
+@media(max-width:700px){
+ .gv17-progress{margin-top:26px!important}
+ .gv17-progress-main{min-height:210px!important;padding:18px 15px!important;gap:15px!important;border-radius:18px!important}
+ .gv17-progress-main .gv17-ring{width:134px!important;height:134px!important;flex:none!important}
+ .gv17-progress-main .gv17-ring::before{inset:12px!important}
+ .gv17-ring strong{font-size:30px!important}
+ .gv17-progress-summary .gv49-progress-count{font-size:29px!important;white-space:nowrap!important}
+ .gv17-progress-summary .gv49-progress-count small{font-size:14px!important}
+ .gv17-progress-summary p{font-size:11px!important}
+ .gv17-progress-summary button{min-height:40px!important;padding:8px 11px!important;font-size:10px!important}
+ .gv17-progress-categories{padding:10px!important;gap:9px!important;border-radius:18px!important}
+ .gv17-progress-row{padding:13px 11px!important;min-height:95px!important;gap:12px!important}
+ .gv17-progress-label strong{font-size:11px!important}
+ .gv17-progress-label span{font-size:10px!important}
+}
+@media(max-width:370px){
+ .gv17-progress-main{gap:10px!important;padding:14px 11px!important}
+ .gv17-progress-main .gv17-ring{width:113px!important;height:113px!important}
+ .gv17-progress-summary .gv49-progress-count{font-size:25px!important}
+ .gv17-progress-summary button{padding:8px!important;font-size:9px!important}
+}
+@media(prefers-reduced-motion:reduce){.gv17-progress-row{transition:none!important}}
