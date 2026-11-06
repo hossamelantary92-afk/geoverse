@@ -829,3 +829,27 @@ body{overflow-x:hidden}
  .gv-comprehensive-section p{font-size:12px!important}
 }
 @media(prefers-reduced-motion:reduce){.gv-comprehensive-arrow{transition:none}}
+
+
+/* Comprehensive Atlas v5.7 — concise editorial overview and grouped reading notes. */
+.gv-comprehensive{scroll-margin-top:100px!important}
+.gv-comprehensive-lead{font-size:14px!important;line-height:2!important;margin:12px 0 10px!important}
+.gv-atlas-instruction{margin:0 0 16px!important;font-size:12px!important;color:#7cdbd1!important}
+.gv-comprehensive-section{margin:9px 0!important}
+.gv-comprehensive-section summary{min-height:58px!important}
+.gv-atlas-section-body{padding:0 17px 16px!important}
+.gv-atlas-section-body>p{padding:0!important;margin:0 0 12px!important;line-height:1.95!important}
+.gv-atlas-note{padding:12px 0!important;border-top:1px solid rgba(126,203,206,.20)!important}
+.gv-atlas-note h4{margin:0 0 6px!important;font-size:13px!important;color:#93f6df!important;font-weight:850!important}
+.gv-atlas-note p{margin:0!important;padding:0!important;font-size:12px!important;line-height:1.95!important;color:#c4dfe7!important}
+.gv9-primary-globe,.gv-globe-detail,.gv9-primary-globe canvas,.gv-globe-detail canvas{touch-action:none!important;overscroll-behavior:contain!important}
+.light .gv-atlas-instruction{color:#147f83!important}
+.light .gv-atlas-section-body>p{color:#28556a!important}
+.light .gv-atlas-note{border-color:rgba(56,125,142,.22)!important}
+.light .gv-atlas-note h4{color:#087d7c!important}
+.light .gv-atlas-note p{color:#315d6d!important}
+@media(max-width:700px){
+ .gv-comprehensive-lead{font-size:13px!important}
+ .gv-atlas-section-body{padding:0 13px 13px!important}
+ .gv-atlas-note h4{font-size:12px!important}
+}
