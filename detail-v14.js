@@ -98,10 +98,19 @@ function hydrate(){
   }
  }
 }
+function tidyCountry(){
+ const root=document.getElementById('main');if(!root)return;
+ root.classList.add('gv14-country-page');
+ // Capital and continent already appear in Quick Facts; this block repeated them
+ // and showed an unhelpful ISO code as a full-sized fact card.
+ const repeated=root.querySelector('.gv9-extra-facts');
+ repeated?.closest('.gv9-section')?.remove();
+}
 render=function(){
  earlierRender();
  if(state.page==='detail'&&state.category==='continents')tidyContinent();
  else if(state.page==='detail')hydrate();
+ else if(state.page==='country-v4')tidyCountry();
 };
 Promise.allSettled([fetch('./geo-stories.json').then(r=>{if(!r.ok)throw Error('stories');return r.json()}),fetch('./photo-manifest-v13.json').then(r=>{if(!r.ok)throw Error('photos');return r.json()})])
 .then(result=>{
@@ -109,5 +118,5 @@ Promise.allSettled([fetch('./geo-stories.json').then(r=>{if(!r.ok)throw Error('s
  if(result[1].status==='fulfilled')content.photos=result[1].value.photos||{};
  hydrate();
 });
-window.GeoVerseDetailV14={hydrate,singlePage,tidyContinent,hasStories:()=>!!content.stories};
+window.GeoVerseDetailV14={hydrate,singlePage,tidyContinent,tidyCountry,hasStories:()=>!!content.stories};
 })();
