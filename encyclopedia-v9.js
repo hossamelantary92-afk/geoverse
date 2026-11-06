@@ -25,15 +25,25 @@ function capital(r){
  return r.capital||'—';
 }
 function money(r){
+ const code=countryInfo.facts?.[r.code]?.cc;
+ if(code&&/^[A-Z]{3}$/.test(code)){
+  try{return new Intl.DisplayNames([state.lang==='ar'?'ar':'en'],{type:'currency'}).of(code)}catch(e){}
+ }
  const raw=r.currency||'';
  if(state.lang==='en')return raw||'—';
  return countryInfo.locales?.currencies?.[raw]||lang('غير متاحة بالعربية','Not available in Arabic');
 }
 function officialLanguages(info){
- if(!info?.l?.length)return lang('غير متاحة','Not listed');
- const values=info.l.slice(0,5).map(x=>state.lang==='ar'?languageAr[x]||null:x).filter(Boolean);
- if(!values.length)return lang('لا تتوفر ترجمة عربية معتمدة','Arabic labels unavailable');
- return values.join(lang('، ', ', '))+(info.l.length>5?lang(' وغيرها',' and others'):'');
+ if(!info?.l?.length&&!info?.lc?.length)return lang('غير متاحة','Not listed');
+ const codes=info?.lc||[],fallback=info?.l||[];
+ const values=Array.from({length:Math.min(5,Math.max(codes.length,fallback.length))},(_,i)=>{
+  if(codes[i]){
+   try{const v=new Intl.DisplayNames([state.lang==='ar'?'ar':'en'],{type:'language'}).of(codes[i]);if(v&&v!==codes[i])return v}catch(e){}
+  }
+  return state.lang==='ar'?languageAr[fallback[i]]||null:fallback[i];
+ }).filter(Boolean);
+ if(!values.length)return lang('لا تتوفر ترجمة عربية معتمدة','Not available');
+ return values.join(lang('، ', ', '))+(Math.max(codes.length,fallback.length)>5?lang(' وغيرها',' and others'):'');
 }
 function tile(icon,label,value,detail=''){
  return '<div class="gv9-stat"><span class="gv9-stat-icon">'+icon+'</span><div class="gv9-stat-content"><span class="gv9-stat-label">'+label+'</span><strong>'+value+'</strong>'+(detail?'<small>'+detail+'</small>':'')+'</div></div>';
