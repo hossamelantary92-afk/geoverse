@@ -498,3 +498,26 @@ body{overflow-x:hidden}
  .gv12-card .gv12-card-copy small{font-size:10px!important}
  .gv12-card{padding:13px!important;padding-bottom:16px!important}
 }
+
+
+/* Phase 4.8 — elevated, lighter glass panel integrated into the Earth.
+   Keep hero clipping and the readable statistics unchanged. */
+.gv11-hero .gv11-stats{
+ bottom:59px!important;
+ background:linear-gradient(125deg,rgba(5,47,66,.25),rgba(3,30,48,.31))!important;
+ border:1px solid rgba(121,227,233,.55)!important;
+ border-radius:17px!important;
+ box-shadow:0 13px 31px rgba(0,12,25,.19),inset 0 1px rgba(225,255,255,.14)!important;
+ -webkit-backdrop-filter:blur(13px) saturate(1.22)!important;
+ backdrop-filter:blur(13px) saturate(1.22)!important;
+}
+.gv11-hero .gv11-stat{background:transparent!important}
+@media(max-width:700px){
+ .gv11-hero .gv11-stats{
+  bottom:70px!important;
+  background:linear-gradient(120deg,rgba(5,47,67,.24),rgba(3,28,47,.30))!important;
+  -webkit-backdrop-filter:blur(14px) saturate(1.24)!important;
+  backdrop-filter:blur(14px) saturate(1.24)!important;
+ }
+}
+@media(max-width:365px){.gv11-hero .gv11-stats{bottom:63px!important}}
