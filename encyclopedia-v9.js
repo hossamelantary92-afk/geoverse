@@ -1,0 +1,115 @@
+/* GeoVerse v9: sourced country encyclopedia, one primary map per place. */
+(function(){
+'use strict';
+const G=window;
+const countryInfo={facts:null,locales:null,ready:false};
+const lang=(ar,en)=>state.lang==='ar'?ar:en;
+const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const meta=()=>G.GeoVerseV4?.store;
+const arRegion={Africa:'أفريقيا',Asia:'آسيا',Europe:'أوروبا','North America':'أمريكا الشمالية','South America':'أمريكا الجنوبية',Oceania:'أوقيانوسيا',Antarctica:'أنتاركتيكا'};
+const languageAr={'Icelandic':'الآيسلندية','English':'الإنجليزية','Arabic':'العربية','French':'الفرنسية','German':'الألمانية','Spanish':'الإسبانية','Portuguese':'البرتغالية','Italian':'الإيطالية','Russian':'الروسية','Chinese':'الصينية','Mandarin':'الماندرينية','Hindi':'الهندية','Bengali':'البنغالية','Urdu':'الأردية','Turkish':'التركية','Persian':'الفارسية','Japanese':'اليابانية','Korean':'الكورية','Dutch':'الهولندية','Swedish':'السويدية','Norwegian':'النرويجية','Danish':'الدنماركية','Finnish':'الفنلندية','Greek':'اليونانية','Hebrew':'العبرية','Polish':'البولندية','Romanian':'الرومانية','Czech':'التشيكية','Slovak':'السلوفاكية','Hungarian':'المجرية','Ukrainian':'الأوكرانية','Indonesian':'الإندونيسية','Malay':'الملايوية','Vietnamese':'الفيتنامية','Thai':'التايلاندية','Swahili':'السواحيلية','Amharic':'الأمهرية','Afrikaans':'الأفريقانية','Tamil':'التاميلية','Telugu':'التيلوغوية','Punjabi':'البنجابية','Gujarati':'الغوجاراتية','Nepali':'النيبالية','Filipino':'الفلبينية','Tagalog':'التاغالوغية','Albanian':'الألبانية','Serbian':'الصربية','Croatian':'الكرواتية','Bosnian':'البوسنية','Bulgarian':'البلغارية','Georgian':'الجورجية','Armenian':'الأرمنية','Azerbaijani':'الأذرية','Kazakh':'الكازاخية','Uzbek':'الأوزبكية','Mongolian':'المنغولية','Pashto':'البشتوية','Dari':'الدارية','Somali':'الصومالية','Hausa':'الهوسا','Yoruba':'اليوروبا','Igbo':'الإيغبو','Zulu':'الزولو','Xhosa':'الخوسا','Catalan':'الكتالونية','Basque':'الباسكية','Irish':'الأيرلندية','Welsh':'الويلزية','Scottish Gaelic':'الغيلية الاسكتلندية','Lithuanian':'الليتوانية','Latvian':'اللاتفية','Estonian':'الإستونية','Maltese':'المالطية','Slovenian':'السلوفينية','Macedonian':'المقدونية','Belarusian':'البيلاروسية','Burmese':'البورمية','Khmer':'الخميرية','Lao':'اللاوية','Sinhala':'السنهالية','Dzongkha':'الدزونخية','Fijian':'الفيجية','Samoan':'الساموية','Tongan':'التونغية'};
+const number=x=>new Intl.NumberFormat(state.lang==='ar'?'ar-EG':'en-US',{maximumFractionDigits:0}).format(x);
+function nativeName(code){
+ if(!code)return lang('دولة غير محددة','Unknown country');
+ if(state.lang==='en')return meta()?.byCode?.get(code)?.name||countryInfo.facts?.[code]?.n||code;
+ try{return new Intl.DisplayNames(['ar'],{type:'region'}).of(code)||code}catch(e){return code}
+}
+const cca3=()=>{
+ const m=new Map();
+ for(const [code,info] of Object.entries(countryInfo.facts||{}))if(info.c3)m.set(info.c3,code);
+ return m;
+};
+function capital(r){
+ const ar=countryInfo.locales?.capitals?.[r.code];
+ if(state.lang==='ar')return ar||lang('غير محددة بالعربية','Not localized');
+ return r.capital||'—';
+}
+function money(r){
+ const raw=r.currency||'';
+ if(state.lang==='en')return raw||'—';
+ return countryInfo.locales?.currencies?.[raw]||lang('غير متاحة بالعربية','Not available in Arabic');
+}
+function officialLanguages(info){
+ if(!info?.l?.length)return lang('غير متاحة','Not listed');
+ const values=info.l.slice(0,5).map(x=>state.lang==='ar'?languageAr[x]||null:x).filter(Boolean);
+ if(!values.length)return lang('لا تتوفر ترجمة عربية معتمدة','Arabic labels unavailable');
+ return values.join(lang('، ', ', '))+(info.l.length>5?lang(' وغيرها',' and others'):'');
+}
+function tile(icon,label,value,detail=''){
+ return '<div class="gv9-stat"><span class="gv9-stat-icon">'+icon+'</span><div class="gv9-stat-content"><span class="gv9-stat-label">'+label+'</span><strong>'+value+'</strong>'+(detail?'<small>'+detail+'</small>':'')+'</div></div>';
+}
+const icon=name=>{const icons={area:'scan',population:'users',capital:'landmark',language:'languages',money:'wallet',region:'globe-2',time:'clock',land:'map-pin'};const paths={area:'<rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 4v16M4 8h16"/>',population:'<circle cx="9" cy="8" r="3"/><path d="M3 20v-2c0-3 3-5 6-5s6 2 6 5v2M17 5a3 3 0 0 1 0 6M18 14c2 1 3 3 3 5"/>',capital:'<path d="M3 10 12 3l9 7M5 11h14M7 12v8m5-8v8m5-8v8M4 21h16"/>',language:'<path d="M4 5h12M10 3v2m-3 4 5 6m2-7c-2 5-5 9-9 11M14 16l4-10 4 10m-6-3h4"/>',money:'<rect x="2" y="6" width="20" height="14" rx="3"/><path d="M2 10h20m-5 5h2"/>',region:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-6 6-6 12 0 18 6-6 6-12 0-18"/>',time:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',land:'<path d="M12 22s8-7 8-13a8 8 0 0 0-16 0c0 6 8 13 8 13Z"/><circle cx="12" cy="9" r="2"/>'};return '<svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+paths[name]+'</svg>'};
+function neighbors(info,code){
+ const cross=cca3(),list=(info?.b||[]).map(c=>cross.get(c)).filter(c=>c&&c!==code);
+ if(!list.length)return '<div class="gv9-neighbors-empty">'+lang('لا توجد حدود برية مسجلة في مجموعة البيانات المرجعية.','No land borders recorded in this source.')+'</div>';
+ return '<div class="gv9-neighbors">'+[...new Set(list)].map(c=>'<button type="button" class="gv9-neighbor" data-v4-country="'+esc(c)+'"><img alt="" loading="lazy" src="https://flagcdn.com/'+c.toLowerCase()+'.svg"><span>'+esc(nativeName(c))+'</span><span aria-hidden="true">↗</span></button>').join('')+'</div>';
+}
+function countryArticle(){
+ const code=state.v4Code,r=meta()?.byCode?.get(code);if(!r)return '<div class="notice">'+lang('تعذر العثور على الدولة','Country not available')+'</div>';
+ const info=countryInfo.facts?.[code]||null,c=state.lang==='ar'?(arRegion[r.continent]||r.continent):r.continent;
+ const pop=info&&Number.isFinite(info.p)?number(info.p):lang('غير متاح','Unavailable');
+ const area=info&&Number.isFinite(info.a)?number(info.a)+' '+lang('كم²','km²'):lang('غير متاح','Unavailable');
+ const populationNote=lang('تقدير مرجعي · سنة التقدير غير محددة','Dataset estimate · reference year unspecified');
+ const areaNote=lang('المساحة وفق المصدر المرجعي','Area according to the referenced dataset');
+ const title=esc(nativeName(code)),eng=esc(r.name);
+ const subtitle=state.lang==='ar'?'<span class="gv9-country-en" lang="en">'+eng+'</span> · '+esc(c):esc(c);
+ return '<button class="back gv9-back" data-page="countries-v4">← '+lang('العودة إلى الدول','Back to countries')+'</button>'+
+ '<header class="gv9-hero"><div class="gv9-hero-title"><span class="gv9-eyebrow">'+lang('الموسوعة الجغرافية · الدول','COUNTRY ENCYCLOPEDIA')+'</span><h1>'+title+'</h1><p>'+subtitle+'</p></div><div class="gv9-flag"><img alt="'+lang('علم ','Flag of ')+title+'" src="https://flagcdn.com/'+code.toLowerCase()+'.svg"></div></header>'+
+ '<section class="gv9-section"><div class="gv9-section-title"><span class="gv9-eyebrow">'+lang('نظرة سريعة','AT A GLANCE')+'</span><h2>'+lang('أهم المعلومات','Key facts')+'</h2></div><div class="gv9-stats">'+
+ tile(icon('capital'),lang('العاصمة','Capital'),esc(capital(r)))+
+ tile(icon('area'),lang('المساحة','Area'),area,areaNote)+
+ tile(icon('population'),lang('عدد السكان','Population'),pop,populationNote)+
+ tile(icon('language'),lang('اللغات الرسمية','Official languages'),esc(officialLanguages(info)))+
+ tile(icon('region'),lang('القارة','Continent'),esc(c))+
+ tile(icon('money'),lang('العملة','Currency'),esc(money(r)))+
+ '</div></section>'+
+ '<section class="gv9-section gv9-earth"><div class="gv9-section-title"><span class="gv9-eyebrow">EXPLORE EARTH</span><h2>'+lang('شاهد موقع الدولة على الكرة الأرضية','Explore the country in 3D')+'</h2><p>'+lang('تظهر حدود الدولة من داخل طبقة الخريطة. حرّك الكرة للتجول، أو قرّب لرؤية موقعها.','Country geometry is highlighted directly on the globe. Drag to explore or zoom closer.')+'</p></div><div class="gv-globe-detail gv9-primary-globe" id="gvDetailGlobe" role="group" aria-label="'+lang('كرة أرضية تفاعلية لموقع الدولة','Interactive 3D country globe')+'"></div><p class="gv9-geo-footnote">'+lang('الحدود مستمدة من خريطة تعليمية مبسطة؛ ليست مرجعًا للفصل في النزاعات الحدودية.','Boundaries follow simplified educational geometry, not an official border adjudication.')+'</p></section>'+
+ '<section class="gv9-section"><div class="gv9-section-title"><span class="gv9-eyebrow">'+lang('الجغرافيا والموقع','GEOGRAPHY & LOCATION')+'</span><h2>'+lang('عن هذه الدولة','About this country')+'</h2></div><p class="gv9-summary">'+lang('تقع '+title+' في '+esc(c)+'. عاصمتها '+esc(capital(r))+'. يمكنك التعرف على موقعها الجغرافي وحدودها والدول المجاورة من الخريطة والمعلومات الموجودة في هذه الصفحة.',title+' is located in '+esc(c)+'. Its capital is '+esc(capital(r))+'. Explore its geographic position, bordering countries, and main facts using this profile.')+'</p><div class="gv9-extra-facts">'+tile(icon('time'),lang('التوقيت','Time zones'),lang('يختلف باختلاف المنطقة','Varies by region'),lang('ارجع إلى التوقيت المحلي الحالي عند الحاجة','Check local time when needed'))+tile(icon('land'),lang('رمز الدولة','Country code'),esc(code))+'</div></section>'+
+ '<section class="gv9-section"><div class="gv9-section-title"><span class="gv9-eyebrow">'+lang('الدول القريبة','NEIGHBORING COUNTRIES')+'</span><h2>'+lang('الدول ذات الحدود البرية المشتركة','Land neighbors')+'</h2><p>'+lang('اضغط على أي علم لفتح صفحة الدولة.','Select a neighboring country to open its profile.')+'</p></div>'+neighbors(info,code)+'</section>'+
+ '<section class="gv9-sources"><details><summary>'+lang('المصادر وملاحظات البيانات','Sources and data notes')+'</summary><div><p>'+lang('أرقام السكان تقديرات موجودة في لقطة بيانات مرجعية، ولا نملك سنة موثقة موحدة لها؛ لا تعتبر أرقامًا رسمية لعام 2026. وتختلف بعض الحدود والتصنيفات السياسية بحسب المصدر.','Population numbers come from a reference dataset without a verified common year; they are not official 2026 counts. Border conventions may vary by source.')+'</p><a target="_blank" rel="noopener noreferrer" href="https://github.com/mariuspatru/restcountries/blob/main/all-countries-v3.1.json">'+lang('بيانات السكان والمساحة والجيران واللغات','Population, area, borders and languages data')+'</a><a target="_blank" rel="noopener noreferrer" href="https://github.com/johan/world.geo.json">'+lang('بيانات الحدود الجغرافية','Geographic boundaries data')+'</a></div></details></section>';
+}
+function cleanLandmark(){
+ const root=document.getElementById('main');if(!root)return;
+ // Retain 3D globe as the sole map in the landmark page.
+ root.querySelector('#detailMap')?.remove();
+ root.querySelector('.gv-inline-map-title')?.remove();
+ const card=root.querySelector('.detail-card');if(card){
+  card.classList.add('gv9-learned-card');
+  card.querySelector('h2')?.remove();
+  card.querySelector('p')?.remove();
+  card.querySelector('.detail-meta')?.remove();
+  const btn=card.querySelector('#showMapPoint');if(btn){btn.textContent=lang('شاهد على الكرة الأرضية','Explore on 3D globe');btn.addEventListener('click',()=>root.querySelector('#gvDetailGlobe')?.scrollIntoView({behavior:'smooth',block:'center'}))}
+ }
+ // Avoid repetitive summaries: retain the curated field guide and one secondary reference section.
+ root.querySelector('.gv-source-note')?.remove();
+ root.querySelector('#gvPhotoGallery')?.remove(); // Do not mix unrelated article images into a place gallery.
+ root.querySelectorAll('.gv-article-body>.eyebrow').forEach(n=>n.textContent=lang('ملف جغرافي','GEOGRAPHY PROFILE'));
+ const intro=root.querySelector('.gv-article-body>p');
+ if(intro&&root.querySelector('.gv-curated-story'))intro.remove();
+ const story=root.querySelector('.gv-curated-story .eyebrow');if(story)story.textContent='';
+ const heading=root.querySelector('.gv-curated-story h3');if(heading)heading.textContent=lang('لمحة جغرافية','Geographic overview');
+ const title=root.querySelector('.gv-article-body>h2');if(title)title.textContent=lang('تعرف على المكان','About this place');
+ const marker=root.querySelector('.gv-feature-globe .eyebrow');if(marker)marker.textContent='';
+ const wiki=root.querySelector('#gvWikiArticle');if(wiki)wiki.classList.add('gv9-secondary-source');
+}
+const prevRender=render;
+render=function(){
+ prevRender();
+ if(state.page==='country-v4'){
+  const root=document.getElementById('main');if(root)root.innerHTML=countryArticle();
+ }else if(state.page==='detail')cleanLandmark();
+};
+document.addEventListener('click',e=>{
+ const btn=e.target.closest?.('.gv9-neighbor[data-v4-country]');
+ if(btn){e.preventDefault();e.stopImmediatePropagation();setPage('country-v4',btn.dataset.v4Country)}
+},true);
+async function load(){
+ try{
+  const [facts,locales]=await Promise.all([fetch('./country-facts.json').then(r=>{if(!r.ok)throw Error('facts unavailable');return r.json()}),fetch('./geo-localization.json').then(r=>r.json())]);
+  countryInfo.facts=facts.byCode;countryInfo.locales=locales;countryInfo.ready=true;
+  if(state.page==='country-v4')render();
+ }catch(err){console.warn('Some encyclopedia facts unavailable',err);countryInfo.ready=false}
+}
+load();
+G.GeoVersePhase2={countryInfo,countryArticle,cleanLandmark};
+})();
