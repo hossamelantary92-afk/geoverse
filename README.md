@@ -1,3 +1,31 @@
+# GeoVerse v4 — Premium Cinematic Geography Atlas
+
+## Implemented
+
+- WebGL 3D Earth using Globe.gl on the homepage and on geographic profiles, with rotate, zoom, atmospheric glow and country polygons. 2D world map remains as a fallback.
+- All 18 original topics retained; premium responsive RTL/LTR interface and custom SVG category icons.
+- Countries & Capitals: 241 country and territory metadata records sourced from samayo/country-json, with ISO code, SVG flag, capital, continent and currency where available. Alphabetical country browser grouped by continent.
+- Boundaries: local world.geojson has 180 geometries; 169 match country metadata. Missing independent geometries cannot be highlighted. Continental and transcontinental conventions are explicitly approximate.
+- Country profiles and natural-feature pages: 3D location and sourced Wikipedia summaries and photos when a matching article exists; optional Wikimedia Commons photo gallery drawn only from the matching article.
+- Selected thematic area highlights and river/mountain paths on globe are illustrative rather than authoritative survey geometry; remaining places use location markers.
+- SVG flag questions and enlarged capitals question pool. Hidden SVG title/labels scrubbed for click-country quiz fairness.
+- Browser local progress preserved; no account sync.
+
+## Core files
+
+- index.html, styles.css, app.js: original website and map/games.
+- enhancements.css, enhancements.js: V4 3D globe and high-end encyclopedia layout.
+- country-meta.json: country metadata from https://github.com/samayo/country-json.
+- world.geojson: local political geometry from https://github.com/johan/world.geo.json.
+
+## Operational notes
+
+Globe.gl, D3, FlagCDN, Wikipedia and some imagery need network access. Some country metadata (capitals/currencies/geopolitical definitions) may be outdated; do not use as an authoritative government registry. Not all entries have verified photographs, and not all natural-feature overlays represent exact boundaries. 3D requires WebGL, with 2D as fallback.
+
+Test with python3 -m http.server 8080 from the repository root. Code syntax and DOM smoke tests passed; production visual/browser tests remain recommended before certifying WebGL behavior on every device.
+
+---
+
 # GeoVerse 🌍 · v3 Cinematic Atlas
 
 An Arabic-first, bilingual geography learning platform built as a responsive static website.
