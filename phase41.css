@@ -404,3 +404,60 @@ body{overflow-x:hidden}
  .game-modes .game-mode:last-child:nth-child(odd){min-height:106px!important}
 }
 @media(prefers-reduced-motion:reduce){.game-modes .game-mode{transition:none!important}}
+
+
+/* Phase 4.5 — floating glass stats and photographic game cards.
+   Keep the interactive globe, existing quiz state and seven original modes. */
+.gv11-hero .gv11-stats{
+ bottom:35px!important;
+ background:linear-gradient(125deg,rgba(5,45,64,.57),rgba(4,31,49,.61))!important;
+ border:1px solid rgba(110,227,228,.62)!important;
+ box-shadow:0 12px 32px rgba(0,10,24,.30),inset 0 1px rgba(190,255,252,.16)!important;
+ -webkit-backdrop-filter:blur(11px) saturate(1.22)!important;
+ backdrop-filter:blur(11px) saturate(1.22)!important;
+}
+.game-modes .game-mode{
+ background:#0a3046!important;
+ isolation:isolate!important;
+ position:relative!important;
+ overflow:hidden!important;
+}
+.game-modes .gv45-game-photo{
+ position:absolute!important;inset:0!important;
+ z-index:0!important;width:100%!important;height:100%!important;
+ display:block!important;object-fit:cover!important;object-position:center!important;
+ filter:saturate(1.12) contrast(1.07)!important;
+ pointer-events:none!important;
+ transition:transform .35s ease!important;
+}
+.game-modes .gv45-game-shade{
+ position:absolute!important;inset:0!important;z-index:1!important;
+ display:block!important;pointer-events:none!important;
+ background:linear-gradient(180deg,rgba(1,15,28,.18),rgba(1,19,32,.43) 45%,rgba(2,15,29,.85) 100%)!important;
+}
+.game-modes .game-mode::before{
+ z-index:1!important;
+ background:radial-gradient(ellipse at 50% 4%,rgba(48,211,220,.15),transparent 62%)!important;
+}
+.game-modes .game-mode > .gv18-game-symbol,
+.game-modes .game-mode > b{
+ position:relative!important;z-index:2!important;
+}
+.game-modes .game-mode > .gv18-game-symbol{
+ -webkit-backdrop-filter:blur(9px)!important;
+ backdrop-filter:blur(9px)!important;
+}
+.game-modes .game-mode:hover .gv45-game-photo{transform:scale(1.045)!important}
+.game-modes .game-mode.selected .gv45-game-shade{
+ background:linear-gradient(180deg,rgba(0,52,66,.15),rgba(1,41,49,.45) 50%,rgba(2,22,34,.86) 100%)!important;
+}
+@media(max-width:700px){
+ .gv11-hero .gv11-stats{
+  bottom:35px!important;
+  background:linear-gradient(125deg,rgba(5,51,68,.56),rgba(3,30,49,.62))!important;
+  -webkit-backdrop-filter:blur(10px) saturate(1.2)!important;
+  backdrop-filter:blur(10px) saturate(1.2)!important;
+ }
+ .game-modes .game-mode:last-child:nth-child(odd) .gv45-game-photo{object-position:center 43%!important}
+}
+@media(prefers-reduced-motion:reduce){.game-modes .gv45-game-photo{transition:none!important}}
