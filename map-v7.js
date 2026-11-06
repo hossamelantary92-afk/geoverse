@@ -89,7 +89,7 @@
  function answerMessage(){
   const target=quiz[state.quizIndex][7],m=metadata(target),name=titleCountry(target),ok=state.quizSelected===0;
   const flag=m?.code?'<img loading="lazy" src="https://flagcdn.com/'+m.code.toLowerCase()+'.svg" alt="'+lang('علم الدولة','Country flag')+'">':'';
-  return '<div class="gv7-answer '+(ok?'right':'wrong')+'">'+flag+'<div><strong>'+(ok?lang('إجابة صحيحة!','Correct answer!'):lang('الإجابة الصحيحة: ','Correct answer: '))+safe(ok?'':name)+'</strong><small>'+safe(name)+'</small></div></div>';
+  return '<div class="gv7-answer '+(ok?'right':'wrong')+'">'+flag+'<div><strong>'+(ok?lang('أحسنت! إجابة صحيحة','Well done! Correct answer'):lang('إجابة غير صحيحة','Not quite right'))+'</strong><small>'+(ok?safe(name):lang('اخترت: ','You chose: ')+safe(titleCountry(game.selected))+' · '+lang('الصحيح: ','Correct: ')+safe(name))+'</small></div></div>';
  }
  function draw(){
   if(!active())return;
