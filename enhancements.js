@@ -137,9 +137,12 @@ render=function(){
  oldRender();
  if(state.page==='countries-v4')main.innerHTML=countriesPage();
  if(state.page==='country-v4')main.innerHTML=countryPage();
+ if(state.page==='explore')main.innerHTML='<section class="gv-story-card gv-explore-3d"><span class="eyebrow">WORLD EXPLORER / INTERACTIVE 3D EARTH</span><h2>'+lang('دور الكرة الأرضية واستكشف العالم','Rotate Earth & Explore the World')+'</h2><p>'+lang('حرّك الكرة بإصبعك أو الماوس، واضغط على الدول لمعرفة علمها وعاصمتها.','Drag the globe and select a country to explore its flag and capital.')+'</p><div class="gv-globe-detail gv-explore-globe" id="gvExploreGlobe"></div></section>'+main.innerHTML;
  // When countries category chosen via original nav, show the new encyclopedia.
  if(state.page==='category'&&state.category==='countries')main.innerHTML=countriesPage();
  document.body.classList.toggle('gv-game-mode',state.page==='play'&&selectedGameMode==='mapfind');
+ const insightNode=document.getElementById('insights');
+ if(insightNode)insightNode.innerHTML=insightNode.innerHTML.replaceAll('🧭',svgIcon('continents',28)).replaceAll('🏆',svgIcon('countries',25)).replaceAll('🌍',svgIcon('continents',25));
  const navNames={home:'continents',explore:'countries',learn:'oceans',play:'mountains',progress:'grasslands'};
  document.querySelectorAll('.topnav button[data-page]').forEach(b=>{
   const iconName=navNames[b.dataset.page];
@@ -208,7 +211,7 @@ const earthBump='https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-topo
 function isGlobeAvailable(){return !!G.Globe}
 function continentZoom(key){return ({Asia:{lat:38,lng:91,altitude:1.72},Africa:{lat:3,lng:20,altitude:1.7},Europe:{lat:50,lng:15,altitude:1.65},'North America':{lat:41,lng:-104,altitude:1.74},'South America':{lat:-18,lng:-63,altitude:1.72},Oceania:{lat:-23,lng:133,altitude:1.8},Antarctica:{lat:-79,lng:30,altitude:2.1}})[key]||{lat:16,lng:22,altitude:2.3}}
 function initGlobe(){
- const node=document.getElementById(state.page==='home'?'gvHomeGlobe':state.page==='detail'&&state.category==='continents'?'gvContinentGlobe':'gvDetailGlobe');
+ const node=document.getElementById(state.page==='home'?'gvHomeGlobe':state.page==='explore'?'gvExploreGlobe':state.page==='detail'&&state.category==='continents'?'gvContinentGlobe':'gvDetailGlobe');
  if(!node||node===globeNode)return;
  globeNode=node;globeInstance=null;
  if(!isGlobeAvailable()){node.innerHTML='<div class="gv-globe-fallback"><span>'+lang('الكرة ثلاثية الأبعاد غير متاحة حاليًا؛ الخريطة الثنائية الأبعاد ما زالت تعمل.','3D view unavailable; use the 2D atlas.')+'</span></div>';return}
@@ -251,7 +254,7 @@ function initGlobe(){
 }
 function scheduleEnhancements(){
  clearTimeout(globeTimer);globeNode=null;
- globeTimer=setTimeout(()=>{if(['home','detail','country-v4'].includes(state.page)){initGlobe();if(state.page!=='home')loadWiki()}},40);
+ globeTimer=setTimeout(()=>{if(['home','detail','country-v4','explore'].includes(state.page)){initGlobe();if(state.page!=='home')loadWiki()}},40);
 }
 function continentKeyForItem(){return state.category==='continents'?geo.continents[state.item]?.[1]:null}
 function paintContinent2D(layer,center){
