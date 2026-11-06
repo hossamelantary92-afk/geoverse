@@ -461,3 +461,40 @@ body{overflow-x:hidden}
  .game-modes .game-mode:last-child:nth-child(odd) .gv45-game-photo{object-position:center 43%!important}
 }
 @media(prefers-reduced-motion:reduce){.game-modes .gv45-game-photo{transition:none!important}}
+
+
+/* Phase 4.7 — reliable atlas card labels and refined premium Earth. */
+.gv12-card{position:relative!important;isolation:isolate!important}
+.gv12-card .gv12-image{z-index:0!important}
+.gv12-card .gv12-card-bg{
+ z-index:1!important;display:block!important;
+ background:linear-gradient(180deg,rgba(1,12,24,.02) 0%,rgba(1,15,27,.12) 35%,rgba(0,16,29,.82) 83%,rgba(0,12,24,.96) 100%)!important;
+}
+.gv12-card .gv12-card-copy{
+ position:relative!important;z-index:3!important;
+ display:flex!important;flex-direction:column!important;align-items:flex-start!important;
+ width:100%!important;max-width:100%!important;visibility:visible!important;opacity:1!important;
+ padding:0 2px 2px!important;transform:none!important;
+}
+.gv12-card .gv12-card-copy strong{
+ display:block!important;color:#f5ffff!important;font-weight:900!important;
+ font-size:clamp(15px,1.65vw,21px)!important;line-height:1.45!important;
+ text-shadow:0 2px 13px #00121e,0 1px 5px #00121e!important;
+}
+.gv12-card .gv12-card-copy small{
+ display:block!important;color:#cbe9ed!important;font-size:11px!important;
+ text-shadow:0 2px 9px #00121e!important;
+}
+.gv11-hero .gv11-globe canvas{
+ filter:brightness(1.23) contrast(1.07) saturate(1.14)
+ drop-shadow(0 0 18px rgba(28,182,216,.24))!important;
+}
+.gv11-hero .gv11-earth-glow{
+ background:radial-gradient(circle,rgba(27,143,203,.21) 20%,rgba(41,164,223,.15) 48%,transparent 73%)!important;
+ opacity:.84!important;filter:blur(22px)!important;
+}
+@media(max-width:700px){
+ .gv12-card .gv12-card-copy strong{font-size:clamp(14px,3.8vw,17px)!important}
+ .gv12-card .gv12-card-copy small{font-size:10px!important}
+ .gv12-card{padding:13px!important;padding-bottom:16px!important}
+}
