@@ -138,3 +138,20 @@ The homepage was redesigned from a text/planet overlap to a responsive two-colum
 **QA:** Real Chromium browser rendering against a locally served v10 branch at 390px and 360px phone widths and 1440px desktop showed no horizontal overflow and no overlap between text and globe; tested both CTAs and the functioning single mobile menu, preserved country pages and neighboring links, 3D canvas initialization, Arabic/English switching, light theme, reduced motion and no JavaScript page errors in those tested flows. Physical iOS Safari visual QA remains desirable before considering the redesign completely validated.
 
 **Next:** Further 3D detail refinement may include local offline-ready texture assets, sourced daytime/nighttime globe illumination, high-resolution elevation for selected mountains, country border geometry verification, a unified visual pass over the remaining atlas/learning/game screens, and improved educational imagery. Any added image/texture layers should respect mobile battery, bandwidth and performance.
+
+
+## GeoVerse v11 — Approved cinematic design alignment
+
+The user's mobile concept image is the approved visual reference for the GeoVerse UI. Phase 3.1 implements it as functional responsive code rather than a static image:
+
+- Home hero with the **existing interactive Globe.GL Earth**, refined dark sky, atmospheric glow, noninteractive cloud haze, mountain horizon, a clear Arabic/English editorial title and two genuine navigation actions.
+- A translucent four-part stats ribbon: 250 country/territory reference records, 18 actual geography categories, the actual quiz mode count, and a calculated number of named places. Numbers are displayed as labels from existing sources, not a claim of 250 sovereign countries.
+- Six image-driven category cards for oceans, rivers, volcanoes, forests, mountains and deserts, using already configured authentic category photo assets and linking to the existing category pages. The full 18-topic sidebar and All Topics page remain available.
+- Featured image of Petra/Al Khazneh in Jordan, courtesy of [Rhys Davenport / Wikimedia Commons (CC BY 2.0)](https://commons.wikimedia.org/wiki/File:The_Treasury,_Petra.jpg), linked to the [UNESCO Petra World Heritage profile](https://whc.unesco.org/en/list/326), not to an unrelated internal topic.
+- A real five-item, mobile-only bottom navigation (Home, Map, Encyclopedia, Games, Progress), synchronizing active state with existing routes and opening real pages. “Progress” intentionally replaces the mockup's “Account” because the site does not yet have a user-account product.
+- One sidebar menu trigger on mobile, without duplicate hamburger icons; consistent header spacing and persistent navigation across learning/quiz/country pages.
+- Desktop uses a two-column cinematic globe/text hero; mobile uses compact layered composition, real 3D Earth and photo grid.
+
+**Browser QA:** Playwright/Chromium verified loaded Earth canvas, all six photographs, four stats, five real bottom-nav actions, sidebar opening, category navigation, mobile overflow and page errors at 390px and 360px, and desktop 1440px. All passed in simulated browser test. This does not replace hands-on iPhone Safari testing. WebGL, external photos and textures need network access. The visual mockup is design inspiration, not an exact pixel-perfect raster source.
+
+**Next:** (1) get main production release live when Vercel permits new deployment, (2) extend the visual identity to topic/encyclopedia/game screens and fully optimize iOS physical-device touch behavior, (3) improve cinematic globe with richer licensed cloud/terrain assets, mindful of battery/connection constraints, (4) enrich geographic media and verify geospatial/educational sourcing.
