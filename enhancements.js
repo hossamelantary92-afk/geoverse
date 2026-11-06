@@ -239,7 +239,7 @@ async function loadWiki(){
   if(!summary)summary=fallbackArabic(v);
  }
  // Only use a photograph attached to the exact named article.
- if(photo&&page.thumbnail?.source){photo.innerHTML='<img alt="'+escapeHTML(title)+'" loading="lazy" src="'+escapeHTML(page.thumbnail.source)+'"><div class="gv-image-credit">'+lang('صورة من مقالة','Photo linked from')+' <a href="'+escapeHTML(page.fullurl||'https://en.wikipedia.org/wiki/'+encodeURIComponent(title))+'" target="_blank" rel="noopener noreferrer">Wikipedia</a></div>'}
+ if(photo&&page.thumbnail?.source){photo.innerHTML='<img alt="'+escapeHTML(title)+'" loading="lazy" src="'+escapeHTML(page.thumbnail.source)+'"><div class="gv-image-credit"><a href="'+escapeHTML(page.fullurl||'https://en.wikipedia.org/wiki/'+encodeURIComponent(title))+'" target="_blank" rel="noopener noreferrer">'+lang('مصدر الصورة','Image source')+'</a></div>'}
  
  // Additional photographs must be sourced from images embedded in the matched article.
  if(photo){
@@ -255,8 +255,8 @@ async function loadWiki(){
  
 const url=sourceUrl;
  if(state.page==='country-v4'){
-  target.innerHTML='<span class="eyebrow">'+(arabicArticle?'ويكيبيديا العربية':'GEOVERSE / COUNTRY PROFILE')+'</span><h2>'+lang('الموقع والجغرافيا','Geography & Context')+'</h2>'+(page.thumbnail?.source?'<img class="gv-country-wiki-photo" src="'+escapeHTML(page.thumbnail.source)+'" alt="'+escapeHTML(title)+'" loading="lazy">':'')+'<p>'+escapeHTML(summary||lang('راجع الصفحة الموسوعية للمزيد من المعلومات.','See the article for more context.'))+'</p><a href="'+escapeHTML(url)+'" target="_blank" rel="noopener noreferrer">'+lang('اقرأ المصدر الأصلي','Read source article')+' ↗</a>';
- }else{target.innerHTML='<div class="gv-source-heading">'+lang('معلومات إضافية بلغة سهلة','Additional Encyclopedia Context')+'</div><p>'+escapeHTML(summary||lang('لا توجد نبذة إضافية متاحة.','No additional summary available.'))+'</p><a href="'+escapeHTML(url)+'" target="_blank" rel="noopener noreferrer">Wikipedia ↗</a>'}
+  target.innerHTML='<span class="eyebrow">'+(arabicArticle?lang('معلومات إضافية','More information'):'GEOVERSE / COUNTRY PROFILE')+'</span><h2>'+lang('الموقع والجغرافيا','Geography & Context')+'</h2>'+(page.thumbnail?.source?'<img class="gv-country-wiki-photo" src="'+escapeHTML(page.thumbnail.source)+'" alt="'+escapeHTML(title)+'" loading="lazy">':'')+'<p>'+escapeHTML(summary||lang('راجع الصفحة الموسوعية للمزيد من المعلومات.','See the article for more context.'))+'</p><a href="'+escapeHTML(url)+'" target="_blank" rel="noopener noreferrer">'+lang('اقرأ المصدر الأصلي','Read source article')+' ↗</a>';
+ }else{target.innerHTML='<div class="gv-source-heading">'+lang('معلومات إضافية بلغة سهلة','Additional Encyclopedia Context')+'</div><p>'+escapeHTML(summary||lang('لا توجد نبذة إضافية متاحة.','No additional summary available.'))+'</p><a href="'+escapeHTML(url)+'" target="_blank" rel="noopener noreferrer">'+lang('اقرأ المزيد','Read more')+' ↗</a>'}
  }catch(e){if(current!==wikiSequence)return;target.innerHTML='<p class="gv-muted">'+lang('لا تتوفر حاليًا صورة أو مقالة مطابقة موثقة لهذا المعلم. يمكنك مواصلة استكشاف الإحداثيات والخريطة.','No matching article or photograph is currently available for this exact place. Explore its mapped location instead.')+'</p>'}
 }
 let globeInstance=null,globeNode=null,globeTimer=0;
@@ -291,9 +291,9 @@ function initGlobe(){
  }
  const countryShapes=store.countryFeatures.filter(f=>f.properties.name!=='Antarctica'||isCont);
  if(countryShapes.length){
-  g.polygonsData(featureOverlay?[...countryShapes,featureOverlay]:countryShapes).polygonAltitude(f=>f.properties.gvOverlay?.064:(isCountry&&f===selectedFeature)?0.055:(isCont&&f.properties.gvContinent===selectedContinent||isCont&&selectedContinent==='Asia'&&['Russia','Turkey'].includes(f.properties.name))?.025:.008).polygonCapColor(f=>{
+  g.polygonsData(featureOverlay?[...countryShapes,featureOverlay]:countryShapes).polygonAltitude(f=>f.properties.gvOverlay?.064:(isCountry&&f===selectedFeature)?0.006:(isCont&&f.properties.gvContinent===selectedContinent||isCont&&selectedContinent==='Asia'&&['Russia','Turkey'].includes(f.properties.name))?.005:.0015).polygonCapColor(f=>{
    if(f.properties.gvOverlay)return 'rgba(240,183,67,.47)';
-   if(isCountry)return f===selectedFeature?'rgba(244,200,114,0.66)':'rgba(11,59,82,0.045)';
+   if(isCountry)return f===selectedFeature?'rgba(39,221,193,0.50)':'rgba(11,59,82,0.045)';
    if(isCont)return f.properties.gvContinent===selectedContinent||selectedContinent==='Asia'&&['Russia','Turkey'].includes(f.properties.name)?'rgba(19,221,217,0.48)':'rgba(3,30,50,0.13)';
    return 'rgba(17,115,145,0.13)'
   }).polygonSideColor(()=>'rgba(17,224,219,.1)').polygonStrokeColor(f=>f.properties.gvOverlay?'#ffdd8f':(isCountry&&f===selectedFeature)||(isCont&&f.properties.gvContinent===selectedContinent)?'#ffe1a0':'rgba(157,224,239,0.22)').polygonLabel(f=>f.properties.gvOverlay?'<div class="gv-globe-label">'+escapeHTML(f.properties.name)+' · '+lang('نطاق تقريبي','approximate area')+'</div>':state.page==='play'?'':'<div class="gv-globe-label">'+escapeHTML(f.properties.gvArabic&&state.lang==='ar'?f.properties.gvArabic:f.properties.name)+'</div>').onPolygonClick(f=>{if(f.properties.gvOverlay)return;const r=recordFor(f.properties.name);if(r&&state.page!=='play')setPage('country-v4',r.code)});
