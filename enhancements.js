@@ -112,8 +112,15 @@ async function loadCardsMedia(){
    const res=await fetch('https://en.wikipedia.org/w/api.php?'+params);if(!res.ok)continue;
    const data=await res.json();if(current!==cardPhotoSequence||state.category!==group||state.page!=='category')return;
    const pages=Object.values(data.query?.pages||{});
+   // Wikipedia often normalizes and redirects precise article titles (e.g. Nile River -> Nile).
+   // Resolve only the API's own explicit title-redirect chain, never a fuzzy search.
+   const redirects=new Map();
+   for(const r of [...(data.query?.normalized||[]),...(data.query?.redirects||[])])redirects.set(norm(r.from),r.to);
+   const byTitle=new Map(pages.map(p=>[norm(p.title),p]));
    for(const row of chunk){
-    const matching=pages.find(p=>norm(p.title)===norm(row.title));if(!matching?.thumbnail?.source)continue;
+    let name=row.title;
+    for(let hop=0;hop<5;hop++){const dest=redirects.get(norm(name));if(!dest||norm(dest)===norm(name))break;name=dest}
+    const matching=byTitle.get(norm(name));if(!matching?.thumbnail?.source)continue;
     const image=matching.thumbnail.source;
     if(!/^https:\/\/upload\.wikimedia\.org\//.test(image))continue;
     // Reject SVG maps, diagrams, icons and artwork that could be mistaken for a real place photograph.
