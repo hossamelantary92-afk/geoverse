@@ -239,7 +239,7 @@ async function loadWiki(){
   if(!summary)summary=fallbackArabic(v);
  }
  // Only use a photograph attached to the exact named article.
- if(photo&&page.thumbnail?.source){photo.innerHTML='<img alt="'+escapeHTML(title)+'" loading="lazy" src="'+escapeHTML(page.thumbnail.source)+'"><div class="gv-image-credit">'+lang('صورة من مقالة','Photo linked from')+' <a href="'+escapeHTML(page.fullurl||'https://en.wikipedia.org/wiki/'+encodeURIComponent(title))+'" target="_blank" rel="noopener noreferrer">Wikipedia</a></div>'}
+ if(photo&&page.thumbnail?.source){photo.innerHTML='<img alt="'+escapeHTML(title)+'" loading="lazy" src="'+escapeHTML(page.thumbnail.source)+'"><div class="gv-image-credit">'+lang('صورة من مقالة','Photo linked from')+' <a href="'+escapeHTML(page.fullurl||'https://en.wikipedia.org/wiki/'+encodeURIComponent(title))+'" target="_blank" rel="noopener noreferrer">'+lang('مصدر الصورة','Image source')+'</a></div>'}
  
  // Additional photographs must be sourced from images embedded in the matched article.
  if(photo){
@@ -255,8 +255,8 @@ async function loadWiki(){
  
 const url=sourceUrl;
  if(state.page==='country-v4'){
-  target.innerHTML='<span class="eyebrow">'+(arabicArticle?'ويكيبيديا العربية':'GEOVERSE / COUNTRY PROFILE')+'</span><h2>'+lang('الموقع والجغرافيا','Geography & Context')+'</h2>'+(page.thumbnail?.source?'<img class="gv-country-wiki-photo" src="'+escapeHTML(page.thumbnail.source)+'" alt="'+escapeHTML(title)+'" loading="lazy">':'')+'<p>'+escapeHTML(summary||lang('راجع الصفحة الموسوعية للمزيد من المعلومات.','See the article for more context.'))+'</p><a href="'+escapeHTML(url)+'" target="_blank" rel="noopener noreferrer">'+lang('اقرأ المصدر الأصلي','Read source article')+' ↗</a>';
- }else{target.innerHTML='<div class="gv-source-heading">'+lang('معلومات إضافية بلغة سهلة','Additional Encyclopedia Context')+'</div><p>'+escapeHTML(summary||lang('لا توجد نبذة إضافية متاحة.','No additional summary available.'))+'</p><a href="'+escapeHTML(url)+'" target="_blank" rel="noopener noreferrer">Wikipedia ↗</a>'}
+  target.innerHTML='<span class="eyebrow">'+(arabicArticle?lang('معلومات إضافية','More information'):'GEOVERSE / COUNTRY PROFILE')+'</span><h2>'+lang('الموقع والجغرافيا','Geography & Context')+'</h2>'+(page.thumbnail?.source?'<img class="gv-country-wiki-photo" src="'+escapeHTML(page.thumbnail.source)+'" alt="'+escapeHTML(title)+'" loading="lazy">':'')+'<p>'+escapeHTML(summary||lang('راجع الصفحة الموسوعية للمزيد من المعلومات.','See the article for more context.'))+'</p><a href="'+escapeHTML(url)+'" target="_blank" rel="noopener noreferrer">'+lang('اقرأ المصدر الأصلي','Read source article')+' ↗</a>';
+ }else{target.innerHTML='<div class="gv-source-heading">'+lang('معلومات إضافية بلغة سهلة','Additional Encyclopedia Context')+'</div><p>'+escapeHTML(summary||lang('لا توجد نبذة إضافية متاحة.','No additional summary available.'))+'</p><a href="'+escapeHTML(url)+'" target="_blank" rel="noopener noreferrer">'+lang('اقرأ المزيد','Read more')+' ↗</a>'}
  }catch(e){if(current!==wikiSequence)return;target.innerHTML='<p class="gv-muted">'+lang('لا تتوفر حاليًا صورة أو مقالة مطابقة موثقة لهذا المعلم. يمكنك مواصلة استكشاف الإحداثيات والخريطة.','No matching article or photograph is currently available for this exact place. Explore its mapped location instead.')+'</p>'}
 }
 let globeInstance=null,globeNode=null,globeTimer=0;
