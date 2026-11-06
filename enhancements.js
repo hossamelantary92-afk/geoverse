@@ -104,7 +104,10 @@ async function loadCardsMedia(){
  if(state.page!=='category'||state.category==='countries')return;
  const current=++cardPhotoSequence;
  const group=state.category, items=geo[group]||[];
- const targets=items.map((v,i)=>({i,title:wikiTitle(v)})).filter(x=>!!x.title).slice(0,180);
+ // The local, verified 133-photo index resolves first; only missing subjects query Wikipedia.
+ if(window.GeoVersePlacesV13?.ready)await window.GeoVersePlacesV13.ready;
+ if(current!==cardPhotoSequence||state.page!=='category'||state.category!==group)return;
+ const targets=items.map((v,i)=>({i,title:wikiTitle(v)})).filter(x=>!!x.title&&!window.GeoVersePlacesV13?.has?.(group,x.i)).slice(0,180);
  const chunks=[];for(let i=0;i<targets.length;i+=30)chunks.push(targets.slice(i,i+30));
  for(const chunk of chunks){
   try{
