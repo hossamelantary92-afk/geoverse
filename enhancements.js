@@ -284,14 +284,14 @@ function initGlobe(){
  globeNode=node;globeInstance=null;
  if(!isGlobeAvailable()){node.innerHTML='<div class="gv-globe-fallback"><span>'+lang('الكرة ثلاثية الأبعاد غير متاحة حاليًا؛ الخريطة الثنائية الأبعاد ما زالت تعمل.','3D view unavailable; use the 2D atlas.')+'</span></div>';return}
  const isHero=state.page==='home',isCont=state.page==='detail'&&state.category==='continents',isCountry=state.page==='country-v4';
- let target={lat:20,lng:15,altitude:2.12};let selectedFeature=null,selectedContinent=null;
+ let target={lat:20,lng:15,altitude:1.96};let selectedFeature=null,selectedContinent=null;
  if(isCont){const v=geo.continents[state.item];selectedContinent=v?.[1];target=continentZoom(selectedContinent)}
  else if(isCountry){const r=store.byCode.get(state.v4Code);selectedFeature=store.featLookup.get(r?.code);const p=selectedFeature&&window.d3?d3.geoCentroid(selectedFeature):[0,0];target={lat:p[1],lng:p[0],altitude:1.8}}
  else if(state.page==='detail'){const v=geo[state.category]?.[state.item];if(v)target={lat:v[4],lng:v[5],altitude:1.7}}
  try{
  const w=node.clientWidth||550,h=node.clientHeight||400;
  const g=new G.Globe(node,{animateIn:false}).width(w).height(h).globeImageUrl(earthTexture).bumpImageUrl(earthBump).backgroundColor('rgba(0,0,0,0)').showAtmosphere(true).atmosphereColor('#73cffa').atmosphereAltitude(.19);
- if(typeof g.globeMaterial==='function'){try{const m=g.globeMaterial();if(m){m.shininess=8;m.specular?.set?.('#253b52');m.needsUpdate=true}}catch(e){console.debug('Globe material tuning skipped',e)}}
+ if(typeof g.globeMaterial==='function'){try{const m=g.globeMaterial();if(m){m.shininess=isHero?13:8;m.specular?.set?.(isHero?'#436b80':'#253b52');m.needsUpdate=true}}catch(e){console.debug('Globe material tuning skipped',e)}}
  
  let featureOverlay=null, featureLine=null;
  if(!isHero&&!isCountry&&!isCont&&state.category!=='countries'){
