@@ -132,7 +132,7 @@ function gvRelatedCountryPlaces(code){
   const name=esc(row[state.lang==='ar'?0:1]);
   const about=esc(description[state.lang==='ar'?0:1]);
   return '<button type="button" class="gv-knowledge-link" data-item="'+esc(category)+':'+idx+'">'+
-   '<span class="gv-knowledge-icon" aria-hidden="true">'+nativeIcons[category]||'🌍'+'</span>'+
+   '<span class="gv-knowledge-icon" aria-hidden="true">'+(nativeIcons[category]||'🌍')+'</span>'+
    '<span class="gv-knowledge-text"><strong>'+name+'</strong><small>'+about+'</small></span>'+
    '<span class="gv-knowledge-go" aria-hidden="true">↗</span></button>';
  }).filter(Boolean);
