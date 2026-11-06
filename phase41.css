@@ -232,3 +232,42 @@ body{overflow-x:hidden}
 @media(prefers-reduced-motion:reduce){
  .gv11-hero .gv11-globe canvas,.gv11-card{transition:none!important}
 }
+
+
+/* Phase 4.2 — Premium Glowing Globe
+   Keep the genuine interactive 3D globe. Lift it behind the headline, brighten
+   the globe selectively, and preserve readable copy and usable CTAs. */
+.gv11-hero{
+ background:radial-gradient(ellipse at 24% 51%,rgba(12,118,166,.35),transparent 62%),
+            linear-gradient(125deg,#031527 5%,#08283f 58%,#041527)!important;
+}
+.gv11-hero .gv11-planet{top:-48px!important}
+.gv11-hero .gv11-globe canvas{
+ filter:brightness(1.13) contrast(1.085) saturate(1.16)!important;
+}
+.gv11-hero .gv11-earth-glow{
+ opacity:.95!important;filter:blur(25px)!important;
+}
+.gv11-hero .gv11-orbit{border-color:rgba(123,225,245,.39)!important}
+@media(max-width:700px){
+ .gv11-hero{
+  background:radial-gradient(ellipse at 50% 51%,rgba(11,123,165,.34),transparent 66%),
+             linear-gradient(170deg,#031426,#051d32 73%,#031524)!important;
+ }
+ /* Move the globe visibly upward without changing any hero text/stats positioning. */
+ .gv11-hero .gv11-planet{top:38px!important}
+ /* Allow the illuminated northern rim to show behind the copy while keeping
+    a readable dark gradient over the headline and CTAs. */
+ .gv11-hero::before{
+  background:linear-gradient(180deg,rgba(3,16,30,.82) 0%,
+   rgba(3,17,31,.66) 23%,rgba(2,18,34,.31) 43%,
+   rgba(2,18,34,.08) 62%,transparent 79%,rgba(2,14,27,.63) 100%)!important;
+ }
+ .gv11-hero .gv11-earth-glow{
+  inset:-9%!important;opacity:.95!important;filter:blur(21px)!important;
+ }
+ .gv11-hero .gv11-orbit{opacity:.67!important}
+}
+@media(max-width:380px){
+ .gv11-hero .gv11-planet{top:42px!important}
+}
