@@ -189,16 +189,16 @@ const atlasOverlays={
 function isLayerShape(layer,place){return atlasOverlays[layer]&&atlasOverlays[layer][place[0]]}
 function atlasCreate(id,center=null){
  const node=document.getElementById(id);if(!node)return;
- if(!window.d3||!window.topojson){node.innerHTML='<div class="notice">تعذر تحميل مكتبة الخرائط؛ تحقق من الاتصال بالإنترنت ثم أعد المحاولة.</div>';return;}
+ if(!window.d3){node.innerHTML='<div class="notice">تعذر تحميل مكتبة الخرائط؛ تحقق من الاتصال بالإنترنت ثم أعد المحاولة.</div>';return;}
  const proj=d3.geoNaturalEarth1().fitExtent([[15,15],[985,505]],{type:'Sphere'});
  const path=d3.geoPath(proj);
  node.innerHTML='<div class="atlas-stage"><svg viewBox="0 0 1000 520" class="atlas-svg" role="img" aria-label="Interactive world atlas"><defs><radialGradient id="atlasSea"><stop stop-color="#145b7c"/><stop offset="1" stop-color="#061a31"/></radialGradient></defs><path class="atlas-ocean" d="'+path({type:'Sphere'})+'"/><path class="atlas-grid" d="'+path(d3.geoGraticule10())+'"/><g class="atlas-land"></g><g class="atlas-selected"></g><g class="atlas-pins"></g></svg><div class="atlas-tools"><button data-map-zoom="in" title="Zoom in">+</button><button data-map-zoom="out" title="Zoom out">−</button><button data-map-zoom="reset" title="Reset">⌖</button></div><div class="atlas-key">🌐 '+lang('حدود الدول: دقيقة وفق بيانات الخريطة · نطاق الظواهر الطبيعية: تقريبي','Country borders: dataset geometry · Natural-area extents: illustrative')+'</div><div class="atlas-popup hidden"></div></div>';
  const runtime={node,id,proj,path,center,features:[],view:[0,0,1000,520],remove(){this.node.innerHTML=''}};
  atlasRuntime=runtime;state.map=runtime;
- const dataUrl='https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
+ const dataUrl='./world.geojson';
  fetch(dataUrl).then(r=>{if(!r.ok)throw Error('atlas unavailable');return r.json()}).then(j=>{
   if(state.map!==runtime)return;
-  runtime.features=topojson.feature(j,j.objects.countries).features;
+  runtime.features=j.features;
   node.querySelector('.atlas-land').innerHTML=runtime.features.map((f,i)=>'<path tabindex="0" role="button" aria-label="'+escapeHTML(f.properties.name||'Country')+'" class="atlas-country" data-map-country="'+i+'" d="'+path(f)+'"><title>'+escapeHTML(f.properties.name||'Country')+'</title></path>').join('');
   atlasDraw(activeLayer,center);
  }).catch(()=>{
