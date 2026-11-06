@@ -54,7 +54,7 @@ function neighbors(info,code){
  if(!list.length)return '<div class="gv9-neighbors-empty">'+lang('لا توجد حدود برية مسجلة في مجموعة البيانات المرجعية.','No land borders recorded in this source.')+'</div>';
  return '<div class="gv9-neighbors">'+[...new Set(list)].map(c=>'<button type="button" class="gv9-neighbor" data-v4-country="'+esc(c)+'"><img alt="" loading="lazy" src="https://flagcdn.com/'+c.toLowerCase()+'.svg"><span>'+esc(nativeName(c))+'</span><span aria-hidden="true">↗</span></button>').join('')+'</div>';
 }
-function countryArticle(){
+function coreCountryArticle(){
  const code=state.v4Code,r=meta()?.byCode?.get(code);if(!r)return '<div class="notice">'+lang('تعذر العثور على الدولة','Country not available')+'</div>';
  const info=countryInfo.facts?.[code]||null,c=state.lang==='ar'?(arRegion[r.continent]||r.continent):r.continent;
  const pop=info&&Number.isFinite(info.p)?number(info.p):lang('غير متاح','Unavailable');
@@ -112,6 +112,31 @@ function cleanLandmark(){
    details.appendChild(summary);details.appendChild(wiki);
   }
  }
+}
+
+/* Comprehensive Atlas K1.1 — integrate the pilot into the final active
+   country renderer, which replaces the earlier enhancements.js markup. */
+function countryArticle(){
+ const base=coreCountryArticle();
+ const pilot=G.GeoVerseAtlasPilot?.[state.v4Code];
+ if(!pilot)return base;
+ const ar=state.lang==='ar';
+ const choose=pair=>esc(pair[ar?0:1]);
+ const sections=pilot.sections.map((part,i)=>
+  '<details class="gv-comprehensive-section" '+(i===0?'open':'')+'>'+
+  '<summary><span class="gv-comprehensive-num">'+String(i+1).padStart(2,'0')+'</span><strong>'+choose(part)+'</strong><span class="gv-comprehensive-arrow" aria-hidden="true">⌄</span></summary>'+
+  '<p>'+esc(part[ar?2:3])+'</p></details>'
+ ).join('');
+ const panel='<section class="gv9-section gv-story-card gv-comprehensive" aria-labelledby="gvComprehensiveHeading">'+
+  '<span class="eyebrow">COMPREHENSIVE ATLAS · PILOT</span>'+
+  '<h2 id="gvComprehensiveHeading">'+choose(pilot.title)+'</h2>'+
+  '<p class="gv-comprehensive-lead">'+lang('استكشف المعلومات الموسوعية من خلال الأقسام التالية.','Explore this country through six structured sections.')+'</p>'+
+  sections+
+  '<div class="gv-comprehensive-source"><strong>'+lang('مصدر إضافي','Additional source')+'</strong>'+
+  '<a href="'+esc(pilot.source)+'" target="_blank" rel="noopener noreferrer">'+lang('الاطلاع على المصدر','View source')+' ↗</a>'+
+  '<small>'+lang('محتوى تجريبي قيد التحقق التحريري. الإحصاءات المتغيرة تُذكر منفصلة مع مصدرها وسنتها.','Pilot educational content pending editorial review. Dynamic statistics are separately sourced and dated.')+'</small></div></section>';
+ const marker='<section class="gv9-section gv9-earth">';
+ return base.includes(marker)?base.replace(marker,panel+marker):base+panel;
 }
 const prevRender=render;
 render=function(){
