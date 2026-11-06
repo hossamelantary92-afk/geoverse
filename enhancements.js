@@ -203,8 +203,8 @@ const url=page.fullurl||'https://en.wikipedia.org/wiki/'+encodeURIComponent(titl
  }catch(e){if(current!==wikiSequence)return;target.innerHTML='<p class="gv-muted">'+lang('لا تتوفر حاليًا صورة أو مقالة مطابقة موثقة لهذا المعلم. يمكنك مواصلة استكشاف الإحداثيات والخريطة.','No matching article or photograph is currently available for this exact place. Explore its mapped location instead.')+'</p>'}
 }
 let globeInstance=null,globeNode=null,globeTimer=0;
-const earthTexture='https://cdn.jsdelivr.net/npm/three-globe@2.45.0/example/img/earth-blue-marble.jpg';
-const earthBump='https://cdn.jsdelivr.net/npm/three-globe@2.45.0/example/img/earth-topology.png';
+const earthTexture='https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-blue-marble.jpg';
+const earthBump='https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-topology.png';
 function isGlobeAvailable(){return !!G.Globe}
 function continentZoom(key){return ({Asia:{lat:38,lng:91,altitude:1.72},Africa:{lat:3,lng:20,altitude:1.7},Europe:{lat:50,lng:15,altitude:1.65},'North America':{lat:41,lng:-104,altitude:1.74},'South America':{lat:-18,lng:-63,altitude:1.72},Oceania:{lat:-23,lng:133,altitude:1.8},Antarctica:{lat:-79,lng:30,altitude:2.1}})[key]||{lat:16,lng:22,altitude:2.3}}
 function initGlobe(){
