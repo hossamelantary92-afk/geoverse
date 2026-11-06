@@ -784,3 +784,48 @@ body{overflow-x:hidden}
 .light .gv11-bottom-nav button{color:#d7f6f7!important}
 .light .gv11-bottom-nav button.active{color:#072f3b!important}
 @media(prefers-reduced-motion:reduce){.topbar #searchBtn .gv-search-icon{transition:none}}
+
+
+/* Comprehensive Atlas K1 — country pilot bilingual reading panels */
+.gv-comprehensive{margin:17px 0!important;overflow:hidden!important}
+.gv-comprehensive>.eyebrow{color:#eac977!important}
+.gv-comprehensive>h2{margin:10px 0!important;font-size:clamp(20px,3vw,28px)!important;line-height:1.55!important}
+.gv-comprehensive-lead{margin:4px 0 18px!important;color:#b7d8e3!important;line-height:1.85!important}
+.gv-comprehensive-section{
+ margin:9px 0;border:1px solid rgba(115,203,216,.35);border-radius:13px;
+ background:linear-gradient(135deg,rgba(14,69,85,.50),rgba(6,33,54,.65));
+ overflow:hidden;
+}
+.gv-comprehensive-section summary{
+ display:flex;align-items:center;gap:12px;padding:13px 15px;
+ cursor:pointer;list-style:none;color:#efffff;font-weight:850;
+}
+.gv-comprehensive-section summary::-webkit-details-marker{display:none}
+.gv-comprehensive-num{font:700 11px Outfit,sans-serif;color:#eace89;flex:none}
+.gv-comprehensive-section summary strong{flex:1;font-size:14px}
+.gv-comprehensive-arrow{color:#88efde;font-size:22px;line-height:1;transition:transform .2s}
+.gv-comprehensive-section[open] .gv-comprehensive-arrow{transform:rotate(180deg)}
+.gv-comprehensive-section[open]{border-color:rgba(113,236,219,.64);background:linear-gradient(130deg,rgba(12,79,88,.5),rgba(4,31,52,.74))}
+.gv-comprehensive-section p{padding:0 16px 17px!important;margin:0!important;line-height:2!important;color:#d5eaf0!important;font-size:13px!important}
+.gv-comprehensive-source{
+ display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;
+ padding:16px 2px 0;margin-top:17px;border-top:1px solid rgba(107,178,193,.31)
+}
+.gv-comprehensive-source strong{font-size:12px;color:#d6f5ef}
+.gv-comprehensive-source a{color:#8cf6df;text-decoration:underline;text-underline-offset:3px;font-size:12px}
+.gv-comprehensive-source small{width:100%;color:#a6cbd4;font-size:11px;line-height:1.7}
+.light .gv-comprehensive{background:#f5fbfc!important;border-color:#a8d0d9!important}
+.light .gv-comprehensive>h2{color:#143e50!important}
+.light .gv-comprehensive-lead{color:#3d6575!important}
+.light .gv-comprehensive-section{background:#e5f4f6;border-color:#9cc9d0}
+.light .gv-comprehensive-section[open]{background:#d8eff0;border-color:#47a6a5}
+.light .gv-comprehensive-section summary{color:#133a4e!important}
+.light .gv-comprehensive-section p{color:#28556a!important}
+.light .gv-comprehensive-source strong{color:#1e495a}
+.light .gv-comprehensive-source a{color:#087a7e}
+.light .gv-comprehensive-source small{color:#436e7e}
+@media(max-width:700px){
+ .gv-comprehensive-section summary{padding:12px!important;gap:9px!important}
+ .gv-comprehensive-section p{font-size:12px!important}
+}
+@media(prefers-reduced-motion:reduce){.gv-comprehensive-arrow{transition:none}}
