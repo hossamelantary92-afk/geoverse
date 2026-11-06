@@ -28,7 +28,7 @@ const I={
 const PHOTO={
  islands:'photo-1612866506179-25d8ca1d1519',volcanoes:'photo-1663877254454-5e669a7b27e6',glaciers:'photo-1741388336551-753dc0ead7c6',
  lakes:'photo-1501785888041-af3ef285b470',
- valleys:'photo-1473448912268-2022ce9509d8',
+ valleys:'https://commons.wikimedia.org/wiki/Special:FilePath/Colorful_Grand_Canyon_(Unsplash).jpg?width=840',
  climate:'photo-1534088568595-a066f410bcda'
 };
 const THEMES={countries:'aqua',continents:'aqua',oceans:'blue',seas:'blue',deserts:'gold',rivers:'blue',waterfalls:'blue',forests:'green',mountains:'aqua',lakes:'blue',islands:'aqua',volcanoes:'gold',straits:'blue',gulfs:'blue',glaciers:'aqua',valleys:'gold',climate:'aqua',grasslands:'green'};
@@ -37,7 +37,7 @@ const tx=(ar,en)=>state.lang==='ar'?ar:en;
 const labelFor=c=>state.lang==='ar'?c.ar:c.en;
 function urlFor(c,size){
  // Actual source photography from Unsplash. No photo duplicates for different topic cards.
- return im(PHOTO[c.id]||c.img,size||840);
+ const u=PHOTO[c.id]||c.img;return u.startsWith('https://')?u:im(u,size||840);
 }
 function topicCard(c){
  const name=labelFor(c),n=geo[c.id]?.length||0,theme=THEMES[c.id]||'aqua';
@@ -54,11 +54,11 @@ allCategories=function(){
   '<div class="gv12-directory-tools"><label for="gv12Search">'+tx('ابحث عن قسم','Find a category')+'</label><input type="search" id="gv12Search" autocomplete="off" placeholder="'+tx('اكتب اسم القسم...','Search categories...')+'" aria-controls="gv12Cards"><span class="gv12-count-note" id="gv12VisibleCount">'+cats.length+' / '+cats.length+'</span></div>'+
   '<div class="gv12-grid" id="gv12Cards">'+cats.map(topicCard).join('')+'</div>'+
   '<div id="gv12Empty" class="gv12-empty" hidden>'+tx('لا توجد أقسام مطابقة للبحث.','No matching categories.')+'</div>'+
-  '<p class="gv12-directory-footnote">'+tx('الصور تعبر عن طبيعة كل قسم، وليست بالضرورة صورة لمعلم محدد داخله.','Photographs illustrate each topic and do not always depict a particular listed location.')+'</p>'+
+  '<p class="gv12-directory-footnote">'+tx('الصور تعبر عن طبيعة كل قسم، وليست بالضرورة صورة لمعلم محدد داخله.','Photographs illustrate each topic and do not always depict a particular listed location.')+' <a href="https://commons.wikimedia.org/wiki/File:Colorful_Grand_Canyon_(Unsplash).jpg" target="_blank" rel="noopener noreferrer">'+tx('مصدر صورة الأخاديد','Canyon photo credit')+'</a></p>'+
   '</section>';
 };
 // Refresh all 18 existing topic-image references so topic banners share the same photography.
-cats.forEach(c=>{if(PHOTO[c.id])c.img=PHOTO[c.id]});
+cats.forEach(c=>{if(PHOTO[c.id]&&!PHOTO[c.id].startsWith('https://'))c.img=PHOTO[c.id]});
 categoryButtons=function(limit){
  return cats.slice(0,limit||cats.length).map(c=>topicCard(c)).join('');
 };
@@ -72,7 +72,9 @@ const previousCategoryPage=categoryPage;
 categoryPage=function(){
  const c=cats.find(x=>x.id===state.category);const html=previousCategoryPage();
  if(!c)return html;
- return html.replace('<h1>'+c.emoji+' '+escapeHTML(labelFor(c))+'</h1>','<h1><span class="gv12-banner-icon">'+icon(c.id)+'</span>'+escapeHTML(labelFor(c))+'</h1>');
+ let cleaned=html.replace('<h1>'+c.emoji+' '+escapeHTML(labelFor(c))+'</h1>','<h1><span class="gv12-banner-icon">'+icon(c.id)+'</span>'+escapeHTML(labelFor(c))+'</h1>');
+ if(c.id==='valleys')cleaned=cleaned.replace(im(c.img,1400),PHOTO.valleys);
+ return cleaned;
 };
 document.addEventListener('input',event=>{
  if(event.target?.id!=='gv12Search')return;
