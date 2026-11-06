@@ -1,0 +1,200 @@
+/* GeoVerse visual refinement — iPhone feedback, 2026-11-06.
+   This is a design-only layer. The live Globe.GL canvas, 18 topic routes and
+   mobile bottom tabs are unchanged. Never replace Earth with a static bitmap. */
+
+/* Keep the cards themselves clickable; their symbols are decorative cues only. */
+.gv11-card-icon,
+.gv12-card-mark,
+.gv11-card-gradient,
+.gv12-card-bg,
+.gv11-card-chevron,
+.gv12-card-link{
+ pointer-events:none!important;
+}
+.gv11-card-chevron,
+.gv12-card-link{display:none!important}
+.gv11-card-icon{
+ width:30px;height:30px;min-width:30px;
+ border:1px solid rgba(123,229,225,.37);
+ border-radius:10px;
+ background:rgba(4,27,39,.51);
+ box-shadow:none;
+ backdrop-filter:blur(5px);
+ margin-bottom:7px;
+ opacity:.95;
+}
+.gv11-card-icon svg{width:20px;height:20px}
+.gv12-card-mark{
+ width:34px;height:34px;
+ border:1px solid rgba(154,235,231,.36);
+ border-radius:10px;
+ background:rgba(5,35,45,.53);
+ box-shadow:none;
+ backdrop-filter:blur(5px);
+ margin-bottom:9px;
+}
+.gv12-card-mark svg{width:22px;height:22px}
+.gv12-card-copy{gap:3px}
+.gv12-card-copy strong,.gv11-card strong{letter-spacing:0}
+.gv12-card-copy small,.gv11-card small{opacity:.9}
+
+/* The approved cinematic Earth should occupy its own full-width zone, not be
+   clipped into the left 60% of the phone with empty space on the right. */
+@media(max-width:700px){
+ .gv11-hero{
+  display:flex;
+  flex-direction:column;
+  min-height:0!important;
+  overflow:hidden;
+  padding:clamp(18px,5vw,25px) 14px 14px!important;
+  background:
+    radial-gradient(ellipse at 50% 59%,rgba(24,139,171,.21),transparent 54%),
+    radial-gradient(ellipse at 50% 87%,rgba(10,110,153,.17),transparent 52%),
+    linear-gradient(165deg,#041426 0%,#041a30 63%,#031322 100%);
+ }
+ .gv11-copy{
+  flex:none;
+  width:100%!important;
+  max-width:100%;
+  min-height:0!important;
+  margin:0!important;
+  text-align:center;
+  align-items:center!important;
+  justify-content:flex-start;
+  gap:0;
+  z-index:6;
+ }
+ .gv11-eyebrow{
+  justify-content:center;
+  font-size:10px;
+  line-height:1.5;
+ }
+ .gv11-copy h1{
+  align-self:center!important;
+  max-width:100%;
+  font-size:clamp(32px,8.6vw,43px)!important;
+  line-height:1.35;
+  text-align:center;
+  text-wrap:balance;
+  margin:12px 0 9px;
+ }
+ .gv11-copy p{
+  align-self:center!important;
+  max-width:340px!important;
+  width:100%;
+  min-height:0!important;
+  margin:0 auto!important;
+  color:#d0e6ef;
+  font-size:clamp(11px,2.9vw,13px)!important;
+  line-height:1.95;
+  text-align:center;
+ }
+ .gv11-actions{
+  justify-content:center;
+  align-self:center!important;
+  flex-wrap:wrap!important;
+  margin:17px 0 0!important;
+  gap:9px;
+  width:100%;
+ }
+ .gv11-actions button{
+  min-height:43px!important;
+  font-size:11px!important;
+  padding:10px 13px!important;
+  flex:0 1 auto;
+ }
+ .gv11-planet{
+  position:relative!important;
+  inset:auto!important;
+  top:auto!important;
+  bottom:auto!important;
+  left:auto!important;
+  right:auto!important;
+  width:min(100%,370px)!important;
+  max-width:370px;
+  height:clamp(260px,83vw,365px)!important;
+  min-height:260px;
+  margin:4px auto 2px!important;
+  flex:none;
+  z-index:2;
+  overflow:visible;
+  pointer-events:none;
+  filter:none;
+ }
+ .gv11-globe{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  border-radius:50%;
+  overflow:hidden;
+  pointer-events:auto;
+ }
+ .gv11-planet .gv11-earth-glow{
+  inset:-6%;
+  opacity:1;
+  background:radial-gradient(circle at 50% 53%,rgba(72,200,249,.24),rgba(0,129,207,.17) 42%,transparent 71%);
+  filter:blur(23px);
+ }
+ .gv11-planet .gv11-orbit{
+  width:94%;
+  max-height:94%;
+  border-color:rgba(130,228,250,.24);
+  box-shadow:0 0 21px rgba(41,147,197,.10);
+ }
+ .gv11-horizon{
+  position:absolute;
+  z-index:3;
+  bottom:89px!important;
+  left:0;right:0;
+  height:98px!important;
+  pointer-events:none;
+  opacity:.83;
+ }
+ .gv11-horizon svg{height:88px!important;bottom:-21px!important;opacity:.65!important}
+ .gv11-cloud{
+  bottom:7px!important;
+  left:10%;
+  width:80%;
+  opacity:.43!important;
+  filter:blur(16px);
+ }
+ .gv11-stats{
+  z-index:5;
+  order:3;
+  flex:none;
+  width:100%;
+  margin:1px 0 0!important;
+  padding:12px 3px!important;
+  gap:0;
+  border-radius:13px;
+  background:linear-gradient(130deg,rgba(7,52,78,.94),rgba(3,34,55,.94));
+  backdrop-filter:blur(12px);
+ }
+ .gv11-stat svg{width:20px!important;height:20px!important}
+ .gv11-stat strong{font-size:clamp(18px,4.7vw,22px)!important}
+ .gv11-stat span{font-size:9px!important}
+ .gv11-grid{gap:10px}
+ .gv11-card-icon{width:28px!important;height:28px!important;margin-bottom:6px}
+ .gv11-card-icon svg{width:19px!important;height:19px!important}
+ .gv11-card{padding:10px!important}
+ .gv12-card-mark{width:30px!important;height:30px!important;margin-bottom:8px}
+ .gv12-card-mark svg{width:20px!important;height:20px!important}
+ .gv12-card{padding:12px!important}
+ .gv12-card-copy strong{padding-inline-end:3px}
+}
+
+/* The smallest phones still get a centered, complete Earth: never a clipped half planet. */
+@media(max-width:390px){
+ .gv11-hero{padding:17px 11px 12px!important}
+ .gv11-copy h1{font-size:clamp(30px,8.3vw,35px)!important}
+ .gv11-copy p{font-size:11px!important}
+ .gv11-actions{gap:7px}
+ .gv11-actions button{font-size:10px!important;padding:9px 11px!important}
+ .gv11-planet{width:100%!important;height:clamp(256px,84vw,320px)!important}
+ .gv11-stat span{font-size:8px!important}
+ .gv11-card-icon{width:26px!important;height:26px!important}
+}
+@media(min-width:701px){
+ .gv11-planet{filter:drop-shadow(0 0 11px rgba(28,142,186,.1))}
+}
