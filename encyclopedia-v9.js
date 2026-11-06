@@ -101,7 +101,17 @@ function cleanLandmark(){
  const title=root.querySelector('.gv-article-body>h2');if(title)title.textContent=lang('تعرف على المكان','About this place');
  const marker=root.querySelector('.gv-feature-globe .eyebrow');if(marker)marker.textContent='';
  root.querySelector('.gv-photo-gallery')?.remove();
- const wiki=root.querySelector('#gvWikiArticle');if(wiki)wiki.classList.add('gv9-secondary-source');
+ const wiki=root.querySelector('#gvWikiArticle');
+ if(wiki){
+  wiki.classList.add('gv9-secondary-source');
+  if(!wiki.closest('.gv9-more')){
+   const details=document.createElement('details'),summary=document.createElement('summary');
+   details.className='gv9-more';
+   summary.textContent=lang('معلومات إضافية','Additional information');
+   wiki.before(details);
+   details.appendChild(summary);details.appendChild(wiki);
+  }
+ }
 }
 const prevRender=render;
 render=function(){
