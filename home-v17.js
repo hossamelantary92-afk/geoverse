@@ -63,7 +63,7 @@ document.addEventListener('click',event=>{
  selectedGameMode=id;
  quiz=createGame(id);
  state.quizIndex=0;state.quizScore=0;state.quizSelected=null;state.quizComplete=false;
- setPage('play');
+ setPage('play',null,null,true);
 });
 window.GeoVerseHomeV17={games,progress,numbers};
 })();
