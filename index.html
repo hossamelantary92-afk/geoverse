@@ -2,11 +2,11 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#061525">
-<meta name="description" content="GeoVerse — اكتشف العالم وتعلم الجغرافيا من خلال الخرائط والتحديات التفاعلية.">
+<meta name="color-scheme" content="dark light"><meta name="description" content="GeoVerse — اكتشف العالم وتعلم الجغرافيا من خلال الخرائط والتحديات التفاعلية.">
 <title>GeoVerse | Explore Beyond Borders</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
+
 <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -16,6 +16,6 @@
 <div id="searchOverlay" class="overlay hidden"><div class="dialog"><div class="dialog-head"><h2 data-i18n="searchTitle">ابحث في العالم</h2><button id="closeSearch" class="icon-btn">✕</button></div><input id="globalSearch" type="search" placeholder="اسم دولة أو عاصمة أو نهر أو قارة..."><div id="searchResults" class="search-results"></div></div></div>
 <footer>GeoVerse © 2026 · Explore Beyond Borders <span>🌍</span></footer>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script><script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-geo@3/dist/d3-geo.min.js"></script><script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
 <script src="./app.js"></script>
 </body></html>
