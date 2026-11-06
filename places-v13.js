@@ -4,6 +4,7 @@
 (function(){
 'use strict';
 const photo=window.GeoVersePlaceMedia={};
+const previousItemCards=itemCards;
 const langText=(ar,en)=>state.lang==='ar'?ar:en;
 const safe=x=>escapeHTML(String(x??''));
 const labels={
@@ -14,12 +15,9 @@ const labels={
  valleys:['وادٍ أو أخدود','Valley or canyon'],climate:['منطقة مناخية','Climate zone'],
  grasslands:['سهول ومراعٍ','Grassland'],continents:['قارة','Continent']
 };
-const svgFor=id=>window.GeoVerseTopicsV12?document.createElement('span'):null;
 function logo(id){
- const node=document.querySelector('.gv12-side-icon svg');
- // Inlined icon from the existing local geography icon collection, never remote emoji.
- if(typeof svgIcon==='function')return svgIcon(id,38);
- return node?node.outerHTML:'';
+ // Use the approved topic's own SVG icon; no generic/repeated emoji.
+ return window.GeoVerseTopicsV12?.iconFor?.(id)||'';
 }
 function truncate(x,max=130){
  const input=String(x||'').replace(/\s+/g,' ').trim();
@@ -40,7 +38,7 @@ function card(item,index,id){
  '</span></button>';
 }
 itemCards=function(items){
- if(state.category==='countries')return oldItemCards(items);
+ if(state.category==='countries')return previousItemCards(items);
  const q=(state.filter||'').trim().toLocaleLowerCase();
  const matches=items.map((v,i)=>({v,i})).filter(({v})=>!q||String(v[0]+' '+v[1]).toLocaleLowerCase().includes(q));
  return matches.length?matches.map(({v,i})=>card(v,i,state.category)).join(''):'<div class="empty gv13-empty">'+langText('لا توجد معالم مطابقة للبحث','No matching places')+'</div>';
