@@ -39,3 +39,34 @@
 
 /* The integrated answer card replaces the older duplicate quiz feedback. */
 .map-question:has(.gv7-map-root)>.quiz-feedback{display:none}
+
+
+/* v8 — Answers are a deliberate teaching moment. */
+.gv8-answer-card{width:100%;display:flex;align-items:center;gap:13px;min-width:0;padding:15px 16px;border:1px solid rgba(111,195,210,.4);border-radius:16px;background:linear-gradient(130deg,#0b394b,#082337);box-shadow:0 10px 34px #0004;text-align:start}
+.gv8-answer-card.right{border-color:#3ac69c99;background:linear-gradient(130deg,#103f48,#0d3741)}
+.gv8-answer-card.wrong{border-color:#e4ad8f8c;background:linear-gradient(130deg,#443246,#1b2b40)}
+.gv8-status-icon{flex:none;display:grid;place-items:center;width:37px;height:37px;font-size:21px;font-weight:900;color:#d4fff0;background:#16856665;border:1px solid #71dab4a3;border-radius:50%}
+.gv8-answer-card.wrong .gv8-status-icon{color:#ffe5d8;background:#9c5d505e;border-color:#f3b0a1a3}
+.gv8-result-copy{flex:1;min-width:0}.gv8-result-copy h3{font-size:15px;font-weight:900;color:#f9faff;line-height:1.55;margin:0 0 10px}
+.gv8-answer-card>img{width:55px;height:38px;object-fit:contain;flex:none;filter:drop-shadow(0 4px 8px #0009)}
+.gv8-comparison{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.gv8-comparison>div,.gv8-summary{display:flex;flex-direction:column;align-items:start;gap:5px}
+.gv8-comparison b,.gv8-summary strong{font-size:13px;line-height:1.6;color:#effffe;overflow-wrap:anywhere}
+.gv8-chip{display:inline-block;font-size:10px;font-weight:800;color:#b9cfda}
+.gv8-chip.correct{color:#82f5d3}.gv8-chip.wrong{color:#ffc0ad}
+.gv8-answer-actions{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;width:100%;margin-top:11px}
+.gv8-answer-actions button{font-size:11px;font-weight:850;padding:9px 15px;min-height:38px;border:1px solid #76c9d5;border-radius:11px;background:#0d3d51;color:#efffff}
+.gv8-answer-actions button:hover{background:#125369;border-color:#8be4dd}
+.gv8-answer-actions button:first-child{color:#092a34;background:linear-gradient(120deg,#84f2dc,#59cedb);border-color:#78e4d9}
+.gv8-map-legend{position:absolute;z-index:2;inset-inline-start:11px;bottom:11px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:#061b2de6;border:1px solid #669ab06b;border-radius:9px;padding:7px 10px;color:#e5f6f6;font-size:10px;box-shadow:0 5px 15px #0006}
+.gv8-map-legend span{display:inline-flex;gap:5px;align-items:center}
+.gv8-dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+.gv8-dot.correct{background:#38ce9c}.gv8-dot.wrong{background:#d77d8d}
+.gv8-correct-pin{filter:drop-shadow(0 3px 8px #000a)}
+.gv8-pin-ring{fill:#20cfa740;stroke:#d2ffee;stroke-width:1.5;animation:gv8-pulse 1.8s ease-out infinite;transform-origin:center}
+.gv8-pin-core{fill:#d8fff5;stroke:#087d6d;stroke-width:1.3}
+.gv8-pin-label-bg{fill:#063f49;stroke:#66ead9;stroke-width:1.2}
+.gv8-pin-label{fill:#fff;font-family:Cairo,system-ui,sans-serif;font-weight:900}
+@keyframes gv8-pulse{0%{opacity:1;transform:scale(.75)}65%{opacity:.8;transform:scale(1.5)}100%{opacity:1;transform:scale(.75)}}
+@media(max-width:600px){.gv8-answer-card{padding:12px 10px;gap:9px}.gv8-status-icon{width:32px;height:32px;font-size:17px}.gv8-answer-card>img{width:43px;height:29px}.gv8-result-copy h3{font-size:13px}.gv8-comparison b{font-size:12px}.gv8-map-legend{font-size:9px;gap:7px;max-width:85%}}
+@media(prefers-reduced-motion:reduce){.gv8-pin-ring{animation:none}}
