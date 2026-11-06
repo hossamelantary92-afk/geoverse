@@ -3,11 +3,12 @@
 'use strict';
 let capitals={};
 const previousGame=createGame;
+const countryAr=r=>{try{return new Intl.DisplayNames(['ar'],{type:'region'}).of(r.code)}catch{return r.name}};
 const hasArabic=s=>/[\u0600-\u06ff]/.test(s||'')&&!/[A-Za-z]{3,}/.test(s||'');
 createGame=function(mode){
  if(mode!=='capitals')return previousGame(mode);
  const records=window.GeoVerseV4?.store?.countries||[];
- const pool=records.filter(r=>r.code&&r.capital&&hasArabic(capitals[r.code])&&hasArabic(arName(r)));
+ const pool=records.filter(r=>r.code&&r.capital&&hasArabic(capitals[r.code])&&hasArabic(countryAr(r)));
  if(pool.length<4)return previousGame(mode);
  const mix=a=>a.slice().sort(()=>Math.random()-.5),questions=[];
  for(const target of mix(pool)){
@@ -18,7 +19,7 @@ createGame=function(mode){
   }
   if(choices.length!==4)continue;
   const options=mix(choices);
-  questions.push(['ما عاصمة '+arName(target)+'؟','What is the capital of '+target.name+'?',options.map(x=>capitals[x.code]),options.map(x=>x.capital),options.indexOf(target),'العاصمة: '+capitals[target.code],'Capital: '+target.capital]);
+  questions.push(['ما عاصمة '+countryAr(target)+'؟','What is the capital of '+target.name+'?',options.map(x=>capitals[x.code]),options.map(x=>x.capital),options.indexOf(target),'العاصمة: '+capitals[target.code],'Capital: '+target.capital]);
   if(questions.length===12)break;
  }
  return questions.length?questions:previousGame(mode);
