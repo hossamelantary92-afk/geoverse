@@ -90,5 +90,5 @@ document.addEventListener('input',event=>{
  if(n)n.textContent=count+' / '+cats.length;
  if(empty)empty.hidden=count!==0;
 });
-window.GeoVerseTopicsV12={topicCard,allCategories:()=>allCategories(),getPhotos:()=>PHOTO};
+window.GeoVerseTopicsV12={topicCard,allCategories:()=>allCategories(),getPhotos:()=>PHOTO,iconFor:id=>icon(id)};
 })();

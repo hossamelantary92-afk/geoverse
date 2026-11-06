@@ -104,7 +104,10 @@ async function loadCardsMedia(){
  if(state.page!=='category'||state.category==='countries')return;
  const current=++cardPhotoSequence;
  const group=state.category, items=geo[group]||[];
- const targets=items.map((v,i)=>({i,title:wikiTitle(v)})).filter(x=>!!x.title).slice(0,180);
+ // The local, verified 133-photo index resolves first; only missing subjects query Wikipedia.
+ if(window.GeoVersePlacesV13?.ready)await window.GeoVersePlacesV13.ready;
+ if(current!==cardPhotoSequence||state.page!=='category'||state.category!==group)return;
+ const targets=items.map((v,i)=>({i,title:wikiTitle(v)})).filter(x=>!!x.title&&!window.GeoVersePlacesV13?.has?.(group,x.i)).slice(0,180);
  const chunks=[];for(let i=0;i<targets.length;i+=30)chunks.push(targets.slice(i,i+30));
  for(const chunk of chunks){
   try{
@@ -112,12 +115,23 @@ async function loadCardsMedia(){
    const res=await fetch('https://en.wikipedia.org/w/api.php?'+params);if(!res.ok)continue;
    const data=await res.json();if(current!==cardPhotoSequence||state.category!==group||state.page!=='category')return;
    const pages=Object.values(data.query?.pages||{});
+   // Wikipedia often normalizes and redirects precise article titles (e.g. Nile River -> Nile).
+   // Resolve only the API's own explicit title-redirect chain, never a fuzzy search.
+   const redirects=new Map();
+   for(const r of [...(data.query?.normalized||[]),...(data.query?.redirects||[])])redirects.set(norm(r.from),r.to);
+   const byTitle=new Map(pages.map(p=>[norm(p.title),p]));
    for(const row of chunk){
-    const matching=pages.find(p=>norm(p.title)===norm(row.title));if(!matching?.thumbnail?.source)continue;
+    let name=row.title;
+    for(let hop=0;hop<5;hop++){const dest=redirects.get(norm(name));if(!dest||norm(dest)===norm(name))break;name=dest}
+    const matching=byTitle.get(norm(name));if(!matching?.thumbnail?.source)continue;
     const image=matching.thumbnail.source;
-    if(!/^https:\/\/upload\.wikimedia\.org\//.test(image))continue;
+    if(!/^https:\/\/(?:upload|thumb)\.wikimedia\.org\//.test(image))continue;
+    // Reject SVG maps, diagrams, icons and artwork that could be mistaken for a real place photograph.
+    if(/\.(?:svg)(?:\?|$)/i.test(image)||/(?:map[_-]|locator|blank[_-]map|flag[_-]|coat[_-]of[_-]arms|logo[_-]|diagram|schematic|emblem)/i.test(decodeURIComponent(image)))continue;
     const box=document.querySelector('[data-photo-index="'+row.i+'"]');if(!box)continue;
-    box.innerHTML='<img loading="lazy" src="'+escapeHTML(image)+'" alt="'+escapeHTML(lang(items[row.i][0],items[row.i][1]))+'">';
+    const placeName=lang(items[row.i][0],items[row.i][1]);
+    if(window.GeoVersePlacesV13?.mount)window.GeoVersePlacesV13.mount(box,image,placeName,matching.fullurl);
+    else box.innerHTML='<img loading="lazy" src="'+escapeHTML(image)+'" alt="'+escapeHTML(placeName)+'">';
    }
   }catch(e){/* Keep attractive vector placeholder when source is unavailable */ }
  }
@@ -299,7 +313,7 @@ function initGlobe(){
    return isHero?'rgba(9,57,77,0.018)':'rgba(17,115,145,0.09)'
   }).polygonSideColor(()=>'rgba(17,224,219,.1)').polygonStrokeColor(f=>f.properties.gvOverlay?'#ffdd8f':(isCountry&&f===selectedFeature)||(isCont&&f.properties.gvContinent===selectedContinent)?'#ffe1a0':(isHero?'rgba(171,228,243,0.12)':'rgba(157,224,239,0.24)')).polygonLabel(f=>f.properties.gvOverlay?'<div class="gv-globe-label">'+escapeHTML(f.properties.name)+' · '+lang('نطاق تقريبي','approximate area')+'</div>':state.page==='play'?'':'<div class="gv-globe-label">'+escapeHTML(f.properties.gvArabic&&state.lang==='ar'?f.properties.gvArabic:f.properties.name)+'</div>').onPolygonClick(f=>{if(f.properties.gvOverlay)return;const r=recordFor(f.properties.name);if(r&&state.page!=='play')setPage('country-v4',r.code)});
  }
- if(featureLine){g.pathsData([featureLine]).pathPoints('points').pathPointLat('lat').pathPointLng('lng').pathColor(()=>['#ffe3a5']).pathStroke(.9).pathAltitude(.07)}
+ if(featureLine){g.pathsData([featureLine]).pathPoints('points').pathPointLat('lat').pathPointLng('lng').pathColor(()=>'#ffe3a5').pathStroke(.9).pathAltitude(.07)}
  if(!isHero&&!isCountry&&!isCont&&state.category!=='countries'){const v=geo[state.category]?.[state.item];if(v){g.pointsData([{lat:v[4],lng:v[5],name:lang(v[0],v[1])}]).pointLat('lat').pointLng('lng').pointAltitude(.06).pointRadius(.65).pointColor(()=>'#f3ca7d').pointLabel(d=>escapeHTML(d.name));}}
  g.pointOfView(target,isHero?0:1200);
  const ctrl=g.controls();ctrl.autoRotate=isHero&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches;ctrl.autoRotateSpeed=.16;ctrl.enableDamping=true;ctrl.enablePan=false;ctrl.dampingFactor=.08;ctrl.minDistance=160;ctrl.maxDistance=700;
