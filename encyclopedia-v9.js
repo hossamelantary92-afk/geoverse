@@ -143,9 +143,95 @@ function gvRelatedCountryPlaces(code){
   '<p>'+lang('معالم وأنظمة طبيعية مرتبطة بالدولة؛ اضغط لفتح معلوماتها على الخريطة.','Discover features linked to this country and open their geography profiles.')+'</p></div>'+
   '<div class="gv-knowledge-grid">'+items.join('')+'</div></section>';
 }
+
+/* GeoVerse v7.1 — data-backed baseline atlas coverage for the remaining
+   country/territory records. Never invent unsourced economic, cultural or
+   natural-feature facts. The original 20 editorial profiles take precedence. */
+function gvAtlasBaseline(code){
+ const record=meta()?.byCode?.get(code);
+ if(!record)return null;
+ const info=countryInfo.facts?.[code]||{};
+ const nameAr=new Intl.DisplayNames(['ar'],{type:'region'});
+ const names=[nameAr.of(code)||record.name,record.name];
+ const regionAr=arRegion[record.continent]||'منطقة جغرافية غير محددة';
+ const regionEn=record.continent||'an unspecified geographic region';
+ const region=[regionAr,regionEn];
+ const infoArea=Number.isFinite(info.a)&&info.a>0;
+ const infoPop=Number.isFinite(info.p)&&info.p>0;
+ const area=infoArea?number(info.a):null;
+ const population=infoPop?number(info.p):null;
+ const time=Number.isInteger(info.py)?String(info.py):null;
+ const knownLanguages=officialLanguages(info);
+ const currency=money(record);
+ const capitalName=capital(record);
+ const borderCodes=[...new Set((info.b||[]).map(x=>cca3().get(x)).filter(x=>x&&x!==code))];
+ const borderNames=borderCodes.slice(0,9).map(nativeName).join(state.lang==='ar'?'، ':', ');
+ const moreBorders=borderCodes.length>9?lang(' وغيرها',' and others'):'';
+ const density=infoArea&&infoPop&&time?Math.round(info.p/info.a):null;
+ const hasRegion=!!record.continent;
+ // Both languages are created at render time, using the actual selected
+ // language to respect DisplayNames localization, rather than translated
+ // names inferred for potentially disputed or exceptional entries.
+ const loc=state.lang==='ar';
+ const choose=(ar,en)=>loc?ar:en;
+ const country=esc(choose(names[0],names[1]));
+ const title=loc?names[0]:names[1];
+ const summary=choose(
+  'يقع '+country+' ضمن '+regionAr+'. تعرض الصفحة بيانات جغرافية أساسية مستمدة من مجموعة البيانات المرجعية؛ ويجري استكمال التفاصيل المتخصصة تدريجيًا.',
+  country+' is listed in '+regionEn+'. This profile presents available reference geography data while specialist editorial material is expanded.'
+ );
+ const context=choose(
+  'تُصنّف هذه المنطقة ضمن '+regionAr+'. يساعد عرض موقعها على الكرة الأرضية في فهم موقعها بالنسبة للأقاليم والبلدان المجاورة.',
+  'This area is classified within '+regionEn+'. The globe helps place it in context with neighboring regions and countries.'
+ );
+ const borderText=borderCodes.length
+  ?choose('تسجل البيانات '+borderCodes.length+' دولة أو إقليمًا بحدود برية مشتركة: '+borderNames+moreBorders+'.',
+           'The reference data lists '+borderCodes.length+' land neighbors: '+borderNames+moreBorders+'.')
+  :choose('لا تُسجّل مجموعة البيانات حدودًا برية مجاورة؛ هذا لا يعني بالضرورة عدم وجودها.',
+           'No land borders are recorded in this dataset; this is not proof that none exist.');
+ const geography=choose(
+  (infoArea?'تبلغ المساحة المرجعية '+area+' كم². ':'المساحة غير متاحة في المصدر الحالي. ')+borderText,
+  (infoArea?'Reference area: '+area+' km². ':'Area is not available in the current source. ')+borderText
+ );
+ const people=choose(
+  (infoPop&&time?'يبلغ عدد السكان '+population+' وفق بيانات سنة '+time+'. ':infoPop?'يوجد تقدير سكاني غير مؤرخ؛ يلزم التحقق من سنته قبل استخدامه. ':'لا توجد قيمة سكانية موثوقة متاحة هنا. ')+
+  (knownLanguages&&knownLanguages!=='غير متاحة'?'اللغات المدرجة: '+knownLanguages+'.':'تفاصيل اللغات غير مكتملة في المصدر.'),
+  (infoPop&&time?'Population: '+population+' ('+time+'). ':infoPop?'The available population estimate has no verified reference year. ':'No dated population figure is available here. ')+
+  (info?.l?.length?'Listed languages: '+info.l.join(', ')+'.':'Language data has not yet been completed.')
+ );
+ const econ=choose(
+  'العملة المدرجة: '+currency+'. لا تتوفر بعد بيانات اقتصادية مدققة لهذا الملف؛ ستضاف القطاعات والناتج المحلي عندما تتوفر أرقام موثقة بسنة مرجعية.',
+  'Listed currency: '+currency+'. This profile does not yet include editorially verified economic indicators; sectors and GDP will be added with dated sources.'
+ );
+ const nature=choose(
+  'تعرّف على موقع '+country+' ضمن '+regionAr+' باستخدام الكرة الأرضية التفاعلية. تحتاج التضاريس والمناخ والأنهار والمعالم إلى استكمال موثق خاص بهذا الموقع.',
+  'Explore the location of '+country+' in '+regionEn+' on the interactive globe. Detailed terrain, climate, rivers and landmarks await place-specific verification.'
+ );
+ const facts=[];
+ if(time&&infoPop&&infoArea&&density>0)facts.push(choose(
+  'تبلغ الكثافة السكانية الحسابية نحو '+number(density)+' نسمة/كم² وفق عدد السكان لسنة '+time+' والمساحة المرجعية؛ وهي متوسط وليست توزيعًا فعليًا للسكان.',
+  'Calculated population density is roughly '+number(density)+' people/km² using '+time+' population and reference area; this is an average, not a settlement map.'
+ ));
+ if(borderCodes.length)facts.push(borderText);
+ if(infoArea)facts.push(choose('مساحة المنطقة المسجلة هي '+area+' كم²، وقد تختلف وفق حدود وتعريفات المصادر.',
+                                 'Recorded area is '+area+' km²; measurement can vary by source and territorial definition.'));
+ if(!facts.length)facts.push(choose('هذه بطاقة مرجعية أولية، وتُستكمل المعلومات عند توفر مصدر جغرافي مناسب.',
+                                    'This is an initial reference profile; more facts require geographic source verification.'));
+ const sections=[
+  ['نظرة عامة','Overview',summary,summary],
+  ['الجغرافيا','Geography',geography,geography,
+    ['الموقع الإقليمي','Regional position',context,context],
+    ['الحدود البرية','Land neighbors',borderText,borderText]],
+  ['السكان والثقافة','People & Culture',people,people],
+  ['الاقتصاد','Economy',econ,econ],
+  ['الطبيعة والمعالم','Nature & Landmarks',nature,nature],
+  ['هل تعلم؟','Did You Know?',facts.join(' '),facts.join(' ')]
+ ];
+ return {title:[title,title],sections,baseline:true};
+}
 function countryArticle(){
  const base=coreCountryArticle();
- const pilot=gvAtlasContent[state.v4Code];
+ const pilot=gvAtlasContent[state.v4Code]||gvAtlasBaseline(state.v4Code);
  if(!pilot)return base;
  const ar=state.lang==='ar';
  const choose=pair=>esc(pair[ar?0:1]);
@@ -156,7 +242,7 @@ function countryArticle(){
     '<div class="gv-atlas-section-body"><p>'+esc(part[ar?2:3])+'</p>'+details+'</div></details>';
  }).join('');
  const panel='<section class="gv9-section gv-story-card gv-comprehensive" aria-labelledby="gvComprehensiveHeading">'+
- '<span class="eyebrow">COMPREHENSIVE ATLAS</span><h2 id="gvComprehensiveHeading">'+choose(pilot.title)+'</h2>'+
+ '<span class="eyebrow">'+(pilot.baseline?lang('الملف الجغرافي · بيانات مرجعية','COUNTRY FIELD GUIDE · REFERENCE DATA'):'COMPREHENSIVE ATLAS')+'</span><h2 id="gvComprehensiveHeading">'+choose(pilot.title)+'</h2>'+
  '<p class="gv-comprehensive-lead">'+esc(overview[ar?2:3])+'</p>'+
  '<p class="gv-atlas-instruction">'+lang('اختر موضوعًا لاستكشاف تفاصيله.','Choose a topic to explore more.')+'</p>'+sections+
  '</section>';
