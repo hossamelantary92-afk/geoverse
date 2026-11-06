@@ -270,13 +270,14 @@ function initGlobe(){
  globeNode=node;globeInstance=null;
  if(!isGlobeAvailable()){node.innerHTML='<div class="gv-globe-fallback"><span>'+lang('الكرة ثلاثية الأبعاد غير متاحة حاليًا؛ الخريطة الثنائية الأبعاد ما زالت تعمل.','3D view unavailable; use the 2D atlas.')+'</span></div>';return}
  const isHero=state.page==='home',isCont=state.page==='detail'&&state.category==='continents',isCountry=state.page==='country-v4';
- let target={lat:20,lng:15,altitude:2.3};let selectedFeature=null,selectedContinent=null;
+ let target={lat:20,lng:15,altitude:2.12};let selectedFeature=null,selectedContinent=null;
  if(isCont){const v=geo.continents[state.item];selectedContinent=v?.[1];target=continentZoom(selectedContinent)}
  else if(isCountry){const r=store.byCode.get(state.v4Code);selectedFeature=store.featLookup.get(r?.code);const p=selectedFeature&&window.d3?d3.geoCentroid(selectedFeature):[0,0];target={lat:p[1],lng:p[0],altitude:1.8}}
  else if(state.page==='detail'){const v=geo[state.category]?.[state.item];if(v)target={lat:v[4],lng:v[5],altitude:1.7}}
  try{
  const w=node.clientWidth||550,h=node.clientHeight||400;
- const g=new G.Globe(node,{animateIn:false}).width(w).height(h).globeImageUrl(earthTexture).bumpImageUrl(earthBump).backgroundColor('rgba(0,0,0,0)').showAtmosphere(true).atmosphereColor('#37d8ff').atmosphereAltitude(.23);
+ const g=new G.Globe(node,{animateIn:false}).width(w).height(h).globeImageUrl(earthTexture).bumpImageUrl(earthBump).backgroundColor('rgba(0,0,0,0)').showAtmosphere(true).atmosphereColor('#73cffa').atmosphereAltitude(.19);
+ if(typeof g.globeMaterial==='function'){try{const m=g.globeMaterial();if(m){m.shininess=8;m.specular?.set?.('#253b52');m.needsUpdate=true}}catch(e){console.debug('Globe material tuning skipped',e)}}
  
  let featureOverlay=null, featureLine=null;
  if(!isHero&&!isCountry&&!isCont&&state.category!=='countries'){
@@ -295,13 +296,13 @@ function initGlobe(){
    if(f.properties.gvOverlay)return 'rgba(240,183,67,.47)';
    if(isCountry)return f===selectedFeature?'rgba(39,221,193,0.50)':'rgba(11,59,82,0.045)';
    if(isCont)return f.properties.gvContinent===selectedContinent||selectedContinent==='Asia'&&['Russia','Turkey'].includes(f.properties.name)?'rgba(19,221,217,0.48)':'rgba(3,30,50,0.13)';
-   return 'rgba(17,115,145,0.13)'
-  }).polygonSideColor(()=>'rgba(17,224,219,.1)').polygonStrokeColor(f=>f.properties.gvOverlay?'#ffdd8f':(isCountry&&f===selectedFeature)||(isCont&&f.properties.gvContinent===selectedContinent)?'#ffe1a0':'rgba(157,224,239,0.22)').polygonLabel(f=>f.properties.gvOverlay?'<div class="gv-globe-label">'+escapeHTML(f.properties.name)+' · '+lang('نطاق تقريبي','approximate area')+'</div>':state.page==='play'?'':'<div class="gv-globe-label">'+escapeHTML(f.properties.gvArabic&&state.lang==='ar'?f.properties.gvArabic:f.properties.name)+'</div>').onPolygonClick(f=>{if(f.properties.gvOverlay)return;const r=recordFor(f.properties.name);if(r&&state.page!=='play')setPage('country-v4',r.code)});
+   return isHero?'rgba(9,57,77,0.018)':'rgba(17,115,145,0.09)'
+  }).polygonSideColor(()=>'rgba(17,224,219,.1)').polygonStrokeColor(f=>f.properties.gvOverlay?'#ffdd8f':(isCountry&&f===selectedFeature)||(isCont&&f.properties.gvContinent===selectedContinent)?'#ffe1a0':(isHero?'rgba(171,228,243,0.12)':'rgba(157,224,239,0.24)')).polygonLabel(f=>f.properties.gvOverlay?'<div class="gv-globe-label">'+escapeHTML(f.properties.name)+' · '+lang('نطاق تقريبي','approximate area')+'</div>':state.page==='play'?'':'<div class="gv-globe-label">'+escapeHTML(f.properties.gvArabic&&state.lang==='ar'?f.properties.gvArabic:f.properties.name)+'</div>').onPolygonClick(f=>{if(f.properties.gvOverlay)return;const r=recordFor(f.properties.name);if(r&&state.page!=='play')setPage('country-v4',r.code)});
  }
  if(featureLine){g.pathsData([featureLine]).pathPoints('points').pathPointLat('lat').pathPointLng('lng').pathColor(()=>['#ffe3a5']).pathStroke(.9).pathAltitude(.07)}
  if(!isHero&&!isCountry&&!isCont&&state.category!=='countries'){const v=geo[state.category]?.[state.item];if(v){g.pointsData([{lat:v[4],lng:v[5],name:lang(v[0],v[1])}]).pointLat('lat').pointLng('lng').pointAltitude(.06).pointRadius(.65).pointColor(()=>'#f3ca7d').pointLabel(d=>escapeHTML(d.name));}}
  g.pointOfView(target,isHero?0:1200);
- const ctrl=g.controls();ctrl.autoRotate=isHero&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches;ctrl.autoRotateSpeed=.28;ctrl.enableDamping=true;ctrl.dampingFactor=.08;ctrl.minDistance=160;ctrl.maxDistance=700;
+ const ctrl=g.controls();ctrl.autoRotate=isHero&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches;ctrl.autoRotateSpeed=.16;ctrl.enableDamping=true;ctrl.enablePan=false;ctrl.dampingFactor=.08;ctrl.minDistance=160;ctrl.maxDistance=700;
  try{
   // Cap device pixel ratio to preserve GPU memory on high-density iPhones.
   const renderer=g.renderer?.();

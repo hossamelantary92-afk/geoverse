@@ -1,0 +1,85 @@
+/* GeoVerse Phase 3 — considered responsive cinematic direction. */
+.gv10-hero{--gv10-ink:#eaf9ff;position:relative;isolation:isolate;overflow:hidden;min-height:585px;border-radius:25px;background:radial-gradient(ellipse at 64% 47%,#12678442,transparent 56%),linear-gradient(135deg,#071b2e 0%,#05162a 45%,#030d1d 100%);border:1px solid #4b98b085;box-shadow:0 30px 75px #000b,inset 0 1px 0 #a0edff36;color:var(--gv10-ink);padding:clamp(24px,3.6vw,46px) clamp(22px,3.6vw,48px) 18px}
+.gv10-hero:after{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(0deg,#041426b8,transparent 28%),radial-gradient(ellipse at 74% 49%,#0095b328,transparent 52%)}
+.gv10-nebula{position:absolute;z-index:0;pointer-events:none;inset:-30%;background:radial-gradient(circle at 64% 47%,#0476b43a,transparent 20%),radial-gradient(circle at 46% 62%,#07a3b717,transparent 26%),radial-gradient(circle at 80% 25%,#a3b8ef10,transparent 26%);filter:blur(31px)}
+.gv10-starfield{position:absolute;inset:0;pointer-events:none;opacity:.6;background-image:radial-gradient(circle at 11% 16%,#fff9 1px,transparent 1.9px),radial-gradient(circle at 73% 13%,#a6e8ff99 1.2px,transparent 1.9px),radial-gradient(circle at 91% 75%,#eafaffb3 1px,transparent 1.8px),radial-gradient(circle at 28% 77%,#b7efffac 1px,transparent 2px);background-size:363px 233px,229px 325px,413px 217px,337px 441px}
+.gv10-inner{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:8px;min-height:445px;align-items:center}
+.gv10-copy{position:relative;z-index:5;min-width:0;padding:14px 0 22px;max-width:475px}
+.gv10-eyebrow{display:flex;align-items:center;gap:10px;color:#ebc983;font-size:10px;font-weight:850;letter-spacing:1.5px;line-height:1.7}
+.gv10-eyebrow-diamond{display:grid;place-items:center;font-size:21px;color:#f6d594;filter:drop-shadow(0 0 9px #ffd29199)}
+.gv10-copy h1{font-size:clamp(39px,4.4vw,66px);font-weight:900;letter-spacing:-1.4px;line-height:1.29;color:#f9ffff;margin:17px 0 19px;text-shadow:0 7px 25px #000b;text-wrap:balance}
+.gv10-copy h1 em{font-style:normal;color:#79fae6}
+.gv10-lead{font-size:clamp(13px,1.25vw,16px);line-height:2.12;color:#c4e0ea;max-width:420px;margin:0}
+.gv10-actions{display:flex;align-items:center;gap:11px;margin-top:30px;flex-wrap:wrap}
+.gv10-actions button{min-height:49px;border-radius:12px;padding:11px 17px;font-size:12px;font-weight:900;display:inline-flex;justify-content:center;align-items:center;gap:9px;white-space:nowrap;transition:transform .2s,border-color .2s,box-shadow .2s}
+.gv10-actions button:hover{transform:translateY(-2px)}
+.gv10-primary{background:linear-gradient(125deg,#7aeedc,#14c9bc);border:1px solid #a2fff1;color:#032937;box-shadow:0 10px 29px #06ae9f45}
+.gv10-primary:hover{box-shadow:0 12px 30px #09dac464}
+.gv10-secondary{color:#f3faff;background:#09283fcf;border:1px solid #74b6c6a3}
+.gv10-secondary:hover{border-color:#b0ffef}
+.gv10-actions .gv-icon{width:19px;height:19px}
+.gv10-arrow{font-size:16px;margin-inline-start:2px}
+.gv10-visual{position:relative;align-self:center;min-width:0;width:100%;height:440px;display:grid;place-items:center;isolation:isolate}
+.gv10-glow{position:absolute;z-index:-1;inset:10% 3%;border-radius:50%;background:radial-gradient(circle,#00adef3c,transparent 66%);filter:blur(29px);pointer-events:none}
+.gv10-orbit{position:absolute;z-index:1;border:1px solid #7bcce022;border-radius:50%;pointer-events:none}
+.gv10-orbit-one{width:min(94%,480px);aspect-ratio:1;transform:rotate(-19deg) scaleY(.78)}
+.gv10-orbit-two{width:min(105%,560px);aspect-ratio:1;transform:rotate(28deg) scaleY(.68);border-color:#d4a96a1b}
+.gv10-hero .gv10-visual .gv-home-globe{position:absolute;inset:0!important;top:0!important;left:0!important;right:0!important;width:100%!important;height:100%!important;z-index:2;filter:none}
+.gv10-globe canvas{display:block;max-width:100%!important;filter:drop-shadow(0 0 20px #23bcf77c)}
+.gv10-globe-caption{position:absolute;z-index:4;inset-inline-end:4%;bottom:9px;display:flex;gap:8px;align-items:center;padding:8px 12px;border:1px solid #71c8ce70;background:#07263acb;border-radius:999px;backdrop-filter:blur(8px);font:800 10px Outfit,system-ui,sans-serif;letter-spacing:.8px;color:#d0eff2;pointer-events:none}
+.gv10-live-dot{width:7px;height:7px;border-radius:50%;background:#72f9d3;box-shadow:0 0 12px #38eec8}
+.gv10-bottomline{z-index:3;position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px;border-top:1px solid #80c9d329;padding:17px 0 2px;margin-top:13px}
+.gv10-numbers{display:flex;align-items:center;gap:0;min-width:0;flex:1}
+.gv10-number{min-width:0;display:flex;flex-direction:column;gap:3px;padding:2px 17px;border-inline-end:1px solid #5596a564}
+.gv10-number:first-child{padding-inline-start:0}
+.gv10-number:last-child{border:0}
+.gv10-number strong{font:900 clamp(18px,1.8vw,25px) Outfit,system-ui,sans-serif;color:#f8fbff;line-height:1.2}
+.gv10-number span{font-size:10px;color:#a8ccd6;white-space:nowrap}
+.gv10-scroll-note{display:inline-flex;align-items:center;gap:7px;font-size:10px;color:#9fc9d4;white-space:nowrap}
+.gv10-scroll-note .gv-icon{color:#72eee1}
+.gv10-at-home .home-section-head{margin:45px 0 21px}
+.gv10-at-home .home-section-head .eyebrow{color:#c6a875;font-size:10px;letter-spacing:1.3px}
+.gv10-at-home .home-section-head h2{font-size:clamp(24px,2.5vw,32px);line-height:1.5;margin-top:8px}
+.gv10-at-home .category-showcase{gap:14px}
+.gv10-at-home .category-showcase .category-card{height:185px;border-radius:17px;box-shadow:0 11px 28px #0008}
+.gv10-at-home .category-showcase .category-card:hover{transform:translateY(-4px)}
+.gv10-at-home .category-showcase .category-card img{filter:saturate(.93) contrast(1.1)}
+.gv10-at-home .category-showcase .category-card .label{padding:11px 13px;font-size:12px}
+.gv10-at-home .planet-facts{margin-top:20px}
+@media(max-width:1190px){.gv10-inner{grid-template-columns:minmax(0,1fr) minmax(0,.93fr)}.gv10-visual{height:400px}.gv10-copy h1{font-size:clamp(37px,4vw,56px)}.gv10-actions button{padding:10px 12px}}
+@media(max-width:820px){.gv10-hero{padding:24px 22px 18px;min-height:0}.gv10-inner{grid-template-columns:1fr;gap:0}.gv10-copy{max-width:100%;text-align:center;padding:8px 0 0}.gv10-eyebrow{justify-content:center}.gv10-copy h1{font-size:clamp(35px,6vw,48px);margin:13px 0 11px}.gv10-lead{max-width:590px;margin:auto;font-size:13px;line-height:1.95}.gv10-actions{justify-content:center;margin-top:20px}.gv10-visual{height:370px;margin-top:6px}.gv10-bottomline{margin-top:0;padding-top:15px}.gv10-scroll-note{display:none}.gv10-numbers{justify-content:space-around}.gv10-number{text-align:center;padding-inline:13px}.gv10-at-home .category-showcase{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){
+ .gv10-hero{border-radius:21px;padding:20px 15px 15px;box-shadow:0 22px 52px #000b}
+ .gv10-eyebrow{font-size:9px;letter-spacing:.8px}
+ .gv10-copy h1{font-size:clamp(31px,8.2vw,42px);line-height:1.35;margin:12px 0 10px;letter-spacing:-.7px}
+ .gv10-lead{font-size:12px;line-height:1.9;max-width:330px}
+ .gv10-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:18px}
+ .gv10-actions button{width:100%;min-height:43px;padding:9px 8px;gap:5px;white-space:normal;font-size:11px;line-height:1.5}
+ .gv10-actions .gv-icon{width:16px;height:16px;flex:none}
+ .gv10-arrow{display:none}
+ .gv10-visual{width:100%;height:330px;margin:5px auto 0}
+ .gv10-orbit-one{width:92%}.gv10-orbit-two{width:100%}
+ .gv10-globe-caption{bottom:8px;inset-inline-end:0;font-size:9px;padding:6px 9px}
+ .gv10-bottomline{padding-top:14px;justify-content:center}
+ .gv10-numbers{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+ .gv10-number{padding:0 6px;gap:4px}
+ .gv10-number strong{font-size:19px}
+ .gv10-number span{font-size:9px;white-space:normal;line-height:1.5}
+ .gv10-at-home .home-section-head{margin-top:33px}
+ .gv10-at-home .category-showcase{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .gv10-at-home .category-showcase .category-card{height:156px;border-radius:13px}
+ /* One mobile menu trigger, never two mirrored hamburger buttons. */
+ .topbar #menuBtn{display:none!important}
+ .topbar{height:74px;padding:8px 11px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px}
+ .topbar .brand{grid-column:1;grid-row:1;min-width:0;justify-self:start;gap:6px}
+ .topbar .brand-icon svg{width:39px!important;height:39px!important}
+ .topbar .brand strong{font-size:clamp(20px,5.6vw,26px)}
+ .topbar .brand small{font-size:7px;letter-spacing:.7px}
+ .topbar .head-actions{grid-column:2;grid-row:1;display:flex;align-items:center;gap:5px;direction:rtl}
+ .topbar .head-actions .icon-btn{width:36px;height:36px;flex:none}
+ .topbar #menuTopics{order:-1}
+ .topbar .topnav{grid-column:1 / -1}
+ html[dir="rtl"] .topbar .brand{direction:ltr}
+}
+@media(max-width:390px){.gv10-hero{padding:17px 12px}.gv10-visual{height:290px}.gv10-copy h1{font-size:31px}.gv10-lead{font-size:11px}.topbar .brand-icon svg{width:33px!important;height:33px!important}.topbar .brand strong{font-size:21px}.topbar .brand small{display:none}.topbar .head-actions .icon-btn{width:32px;height:32px}.topbar{padding:7px 8px}}
+@media(prefers-reduced-motion:reduce){.gv10-actions button,.gv10-at-home .category-card{transition:none!important}.gv10-nebula{filter:none!important}}
