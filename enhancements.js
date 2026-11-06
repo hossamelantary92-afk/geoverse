@@ -73,7 +73,7 @@ home=function(){
 function getCountryName(r){return state.lang==='ar'?arName(r):r.name}
 function countryCards(list){return list.map(r=>'<button class="gv-country-row" data-v4-country="'+escapeHTML(r.code)+'"><span class="gv-country-flag">'+flag(r.code,'Flag of '+r.name)+'</span><span class="gv-country-name"><b>'+escapeHTML(getCountryName(r))+'</b><small>'+escapeHTML(r.name)+'</small></span><span class="gv-capital">'+escapeHTML(r.capital||'—')+'</span><span class="gv-country-chevron">↗</span></button>').join('')}
 function countriesPage(){
- const c=state.v4Continent||'Asia';
+ const c=state.v4Continent||'all';
  const options=['all',...continentKeys];
  const countries=store.countries.filter(r=>c==='all'||r.continent===c||c==='Asia'&&twoRegion.has(r.name)).sort((a,b)=>(state.v4Sort==='en'?a.name.localeCompare(b.name):getCountryName(a).localeCompare(getCountryName(b),state.lang==='ar'?'ar':'en')));
  const filtered=countries.filter(x=>(getCountryName(x)+' '+x.name+' '+x.capital).toLowerCase().includes((state.v4Search||'').trim().toLowerCase()));
@@ -177,6 +177,7 @@ const oldSetPage=setPage;
 setPage=function(page,cat=null,item=null,startGame=false){
  if(globeInstance){try{globeInstance.pauseAnimation?.();globeInstance._destructor?.()}catch(e){}globeInstance=null;globeNode=null;}
  if(page==='country-v4'){state.v4Code=cat;state.page='country-v4';state.category='countries';state.item=null;render();window.scrollTo(0,0);return}
+ if(page==='category'&&cat==='countries'){state.v4Continent='all';state.v4Search='';}
  if(page==='countries-v4'){state.page='countries-v4';state.category='countries';state.item=null;render();window.scrollTo(0,0);return}
  oldSetPage(page,cat,item,startGame);
 };
@@ -387,7 +388,7 @@ document.addEventListener('click',e=>{
  const region=e.target.closest?.('[data-v4-continent]');if(region){e.preventDefault();e.stopImmediatePropagation();state.v4Continent=region.dataset.v4Continent;state.v4Search='';setPage('countries-v4');return}
  const sorting=e.target.closest?.('[data-v4-sort]');if(sorting){e.preventDefault();e.stopImmediatePropagation();state.v4Sort=sorting.dataset.v4Sort;render();return}
 },true);
-document.addEventListener('input',e=>{if(e.target.id==='categoryFilter')setTimeout(loadCardsMedia,130);if(e.target.id==='gvCountrySearch'){state.v4Search=e.target.value;const c=state.v4Continent||'Asia';const filtered=store.countries.filter(r=>(c==='all'||r.continent===c||c==='Asia'&&twoRegion.has(r.name))&&(getCountryName(r)+' '+r.name+' '+r.capital).toLowerCase().includes(state.v4Search.toLowerCase()));const grid=document.getElementById('gvCountryGrid');if(grid)grid.innerHTML=countryCards(filtered)}});
+document.addEventListener('input',e=>{if(e.target.id==='categoryFilter')setTimeout(loadCardsMedia,130);if(e.target.id==='gvCountrySearch'){state.v4Search=e.target.value;const c=state.v4Continent||'all';const filtered=store.countries.filter(r=>(c==='all'||r.continent===c||c==='Asia'&&twoRegion.has(r.name))&&(getCountryName(r)+' '+r.name+' '+r.capital).toLowerCase().includes(state.v4Search.toLowerCase()));const grid=document.getElementById('gvCountryGrid');if(grid)grid.innerHTML=countryCards(filtered)}});
 document.addEventListener('mouseover',e=>{if(state.page==='play'&&selectedGameMode==='mapfind'){const p=e.target.closest?.('[data-map-country]');if(p){p.removeAttribute('aria-label');p.querySelectorAll('title').forEach(t=>t.remove())}}},true);
 document.addEventListener('focusin',e=>{if(state.page==='play'&&selectedGameMode==='mapfind'){const p=e.target.closest?.('[data-map-country]');if(p){p.removeAttribute('aria-label');p.querySelectorAll('title').forEach(t=>t.remove())}}},true);
 const originalCreate=createGame;
