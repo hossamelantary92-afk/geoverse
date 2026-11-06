@@ -193,3 +193,20 @@ Addressed user's three iPhone screenshots: the Earth hero was left-heavy with em
 **QA:** JavaScript syntax, HTML/stylesheet integration, responsive CSS structure passed. An isolated JavaScript runtime harness confirmed four game cards, one daily shortcut, actual `data-gv17-game` click starting the correct quiz, dynamic progress, photo-only home category cards, bilingual output and omission of old panels. **No physical iPhone/browser screenshot test yet**, so visual review on the GitHub Pages URL is still required after it updates.
 
 **Publishing preference:** User previously prohibited manual Vercel deployments on November 6; release intended for GitHub Pages, **no manual Vercel deployment requested**. GitHub Pages should be validated after merge and may reflect changes with a cache delay.
+
+
+## GeoVerse v18 — Overlay Earth hero, photo-only atlas, professional game glyphs (2026-11-06)
+
+User reviewed real iPhone screenshots of the successful GitHub Pages v17 release. The globe is now better centered but user asked whether it can become a **cinematic image behind the hero text**, rather than a separate row. User explicitly asked that **all 18 All Topics photo cards** drop their floating emojis/SVG icons and keep them only in the sidebar. Game-mode icons also needed a more unified visual system; the user likes the current premium game cards.
+
+**Implemented:**
+- `visual-v18.css`: mobile-only scene places the original interactive WebGL globe behind the center-aligned heading, subtitle and CTA buttons, with a readable dark gradient overlay for contrast. The globe occupies a broad centered stage behind the copy; lower exposed portion stays touch-interactive. Statistics remain visually above the bottom edge. No static Earth screenshot replaces the real 3D globe. Desktop layout remains as before.
+- `topics-v12.js`: removes icon and chevron overlay markup **from every 18 photo topic cards**, while retaining category photos, counts, actual navigation and all original 18 distinct SVG sidebar icons and featured category/landmark data.
+- `home-v17.js`: replaces former generic crown, map, layered items and globe glyphs with coherent outline icons for landmarks, location pins, classification and exploration across the four playable home game cards.
+- `icons-v18.js`: supplies seven consistent, non-emoji SVG glyphs in the existing game-mode selector UI after rendering; real game logic/buttons are unchanged.
+- `index.html`: loads CSS after the previous responsive layers and the game icon module after the existing game UI.
+- Added contrast safeguards, pointer-event handling, accessible click targets and reduced visual clutter.
+
+**QA:** All modified JavaScript passes syntax tests; CSS braces are balanced. Verified correct loading order, icon-free full topic cards, preserved sidebar SVG icons, all seven game icons, centered absolute mobile 3D stage and touch-enabled exposed globe. Physical iPhone Safari visual inspection still required. All modifications are additive or targeted; no new geography data or storage changes.
+
+**Release:** User requested GitHub Pages rather than manual Vercel work. Do not manually call Vercel. Once merged into main, verify the GitHub Pages Actions run matches the merge SHA and succeeds. The repository's separate external hosting integrations may react to main commits independently.
