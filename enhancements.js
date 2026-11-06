@@ -176,14 +176,28 @@ function initGlobe(){
  try{
  const w=node.clientWidth||550,h=node.clientHeight||400;
  const g=new G.Globe(node,{animateIn:false}).width(w).height(h).globeImageUrl(earthTexture).bumpImageUrl(earthBump).backgroundColor('rgba(0,0,0,0)').showAtmosphere(true).atmosphereColor('#37d8ff').atmosphereAltitude(.23);
+ 
+ let featureOverlay=null, featureLine=null;
+ if(!isHero&&!isCountry&&!isCont&&state.category!=='countries'){
+  const v=geo[state.category]?.[state.item];
+  const coords=v&&typeof isLayerShape==='function'?isLayerShape(state.category,v):null;
+  if(coords&&Array.isArray(coords)&&coords.length){
+   const multi=Array.isArray(coords[0][0]);
+   if(state.category==='rivers'||state.category==='mountains')featureLine={points:coords.map(([lng,lat])=>({lng,lat}))};
+   else if(multi)featureOverlay={type:'Feature',properties:{gvOverlay:true,name:lang(v[0],v[1])},geometry:{type:'MultiPolygon',coordinates:coords.map(p=>[p])}};
+   else if(coords.length>=4)featureOverlay={type:'Feature',properties:{gvOverlay:true,name:lang(v[0],v[1])},geometry:{type:'Polygon',coordinates:[coords]}};
+  }
+ }
  const countryShapes=store.countryFeatures.filter(f=>f.properties.name!=='Antarctica'||isCont);
  if(countryShapes.length){
-  g.polygonsData(countryShapes).polygonAltitude(f=>(isCountry&&f===selectedFeature)?0.055:(isCont&&f.properties.gvContinent===selectedContinent||isCont&&selectedContinent==='Asia'&&['Russia','Turkey'].includes(f.properties.name))?.025:.008).polygonCapColor(f=>{
+  g.polygonsData(featureOverlay?[...countryShapes,featureOverlay]:countryShapes).polygonAltitude(f=>f.properties.gvOverlay?.064:(isCountry&&f===selectedFeature)?0.055:(isCont&&f.properties.gvContinent===selectedContinent||isCont&&selectedContinent==='Asia'&&['Russia','Turkey'].includes(f.properties.name))?.025:.008).polygonCapColor(f=>{
+   if(f.properties.gvOverlay)return 'rgba(240,183,67,.47)';
    if(isCountry)return f===selectedFeature?'rgba(244,200,114,0.66)':'rgba(11,59,82,0.045)';
    if(isCont)return f.properties.gvContinent===selectedContinent||selectedContinent==='Asia'&&['Russia','Turkey'].includes(f.properties.name)?'rgba(19,221,217,0.48)':'rgba(3,30,50,0.13)';
    return 'rgba(17,115,145,0.13)'
-  }).polygonSideColor(()=>'rgba(17,224,219,.1)').polygonStrokeColor(f=>(isCountry&&f===selectedFeature)||(isCont&&f.properties.gvContinent===selectedContinent)?'#ffe1a0':'rgba(157,224,239,0.22)').polygonLabel(f=>state.page==='play'?'':'<div class="gv-globe-label">'+escapeHTML(f.properties.gvArabic&&state.lang==='ar'?f.properties.gvArabic:f.properties.name)+'</div>').onPolygonClick(f=>{const r=recordFor(f.properties.name);if(r&&state.page!=='play')setPage('country-v4',r.code)});
+  }).polygonSideColor(()=>'rgba(17,224,219,.1)').polygonStrokeColor(f=>f.properties.gvOverlay?'#ffdd8f':(isCountry&&f===selectedFeature)||(isCont&&f.properties.gvContinent===selectedContinent)?'#ffe1a0':'rgba(157,224,239,0.22)').polygonLabel(f=>f.properties.gvOverlay?'<div class="gv-globe-label">'+escapeHTML(f.properties.name)+' · '+lang('نطاق تقريبي','approximate area')+'</div>':state.page==='play'?'':'<div class="gv-globe-label">'+escapeHTML(f.properties.gvArabic&&state.lang==='ar'?f.properties.gvArabic:f.properties.name)+'</div>').onPolygonClick(f=>{if(f.properties.gvOverlay)return;const r=recordFor(f.properties.name);if(r&&state.page!=='play')setPage('country-v4',r.code)});
  }
+ if(featureLine){g.pathsData([featureLine]).pathPoints('points').pathPointLat('lat').pathPointLng('lng').pathColor(()=>['#ffe3a5']).pathStroke(.9).pathAltitude(.07)}
  if(!isHero&&!isCountry&&!isCont&&state.category!=='countries'){const v=geo[state.category]?.[state.item];if(v){g.pointsData([{lat:v[4],lng:v[5],name:lang(v[0],v[1])}]).pointLat('lat').pointLng('lng').pointAltitude(.06).pointRadius(.65).pointColor(()=>'#f3ca7d').pointLabel(d=>escapeHTML(d.name));}}
  g.pointOfView(target,isHero?0:1200);
  const ctrl=g.controls();ctrl.autoRotate=isHero&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches;ctrl.autoRotateSpeed=.28;ctrl.enableDamping=true;ctrl.dampingFactor=.08;ctrl.minDistance=160;ctrl.maxDistance=700;
