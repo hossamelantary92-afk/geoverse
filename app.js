@@ -102,32 +102,108 @@ function play(){let q=quiz[state.quizIndex],selected=state.quizSelected;const pi
 function progress(){let p=saved(),seen=Object.keys(p).filter(k=>k.includes('_')&&p[k]).length,best=p.quizBest??null,total=Object.values(geo).reduce((n,v)=>n+v.length,0);return `<div class="page-heading"><h1>📊 ${lang('تقدمي في GeoVerse','My GeoVerse Progress')}</h1><p>${lang('الإنجازات محفوظة محليًا في المتصفح على هذا الجهاز.','Progress is saved locally in this browser on this device.')}</p></div><div class="stats-grid"><div class="stat"><span>📍</span><strong>${seen}</strong><small>${lang('أماكن تعلمتها','Places learned')}</small></div><div class="stat"><span>🗺️</span><strong>${total}</strong><small>${lang('أمثلة متاحة','Available examples')}</small></div><div class="stat"><span>🏆</span><strong>${best===null?'—':best+'/'+quiz.length}</strong><small>${lang('أفضل اختبار','Best quiz score')}</small></div><div class="stat"><span>📚</span><strong>${cats.length}</strong><small>${lang('أقسام','Topics')}</small></div></div>${sectionTitle(lang('تقدمك حسب القسم','Progress by Topic'))}<div class="panel">${cats.map(c=>`<div class="progress-item"><div class="progress-top"><span>${c.emoji} ${escapeHTML(label(c))}</span><span>${progressValue(c.id)}%</span></div><div class="progress-track"><div class="progress-fill" style="width:${progressValue(c.id)}%"></div></div></div>`).join('')}</div><div class="notice">${lang('لحفظ التقدم بين الأجهزة، سنحتاج إضافة تسجيل دخول ومزامنة سحابية في مرحلة لاحقة.','Cross-device sync will require login and a cloud database in a later phase.')}</div>`}
 function explore(){return `<div class="page-heading"><h1>🗺️ ${lang('الخريطة التفاعلية','Interactive World Map')}</h1><p>${lang('اختر نوع الأماكن ثم اضغط على العلامات لمعرفة تفاصيلها. يمكنك التكبير والتحريك بحرية.','Choose a geography layer, then select map pins for details. Zoom and pan freely.')}</p></div><div class="map-toolbar" id="mapToolbar"><button class="active" data-layer="countries">🌍 ${lang('الدول','Countries')}</button>${['continents','oceans','seas','deserts','rivers','waterfalls','forests','mountains','lakes','volcanoes','straits'].map(id=>`<button data-layer="${id}">${cats.find(c=>c.id===id).emoji} ${escapeHTML(label(cats.find(c=>c.id===id)))}</button>`).join('')}<button data-layer="all">✦ ${lang('الكل','All')}</button></div><div class="map-container" id="worldMap"></div><div class="notice">${lang('خريطة حدود الدول متجهة بدون مربعات صور. يلزم اتصال أولي لتحميل البيانات؛ العلامات تمثل مواقع تقريبية للظواهر الممتدة.','The vector world map replaces raster tiles. Initial data download requires internet; markers approximate extensive features.')}</div>`}
 function render(){document.documentElement.lang=state.lang;document.documentElement.dir=state.lang==='ar'?'rtl':'ltr';document.body.classList.toggle('light',state.theme==='light');document.getElementById('languageBtn').textContent=state.lang==='ar'?'EN':'عربي';document.querySelectorAll('[data-i18n]').forEach(e=>{const t={home:['الرئيسية','Home'],explore:['استكشف','Explore'],learn:['تعلم','Learn'],play:['الألعاب','Play'],progress:['تقدمي','Progress'],topics:['أقسام GeoVerse','GeoVerse Topics'],allTopics:['عرض جميع الأقسام','View all topics'],searchTitle:['ابحث في العالم','Search the World']}[e.dataset.i18n];if(t)e.textContent=lang(...t)});document.querySelectorAll('.topnav button').forEach(b=>b.classList.toggle('active',b.dataset.page===state.page));renderMenu();main.innerHTML=state.page==='home'?home():state.page==='all'?allCategories():state.page==='category'?categoryPage():state.page==='detail'?detail():state.page==='explore'?explore():state.page==='learn'?learn():state.page==='play'?play():state.page==='progress'?progress():home();if(state.page==='explore')setTimeout(initWorldMap,10);if(state.page==='detail')setTimeout(initDetailMap,10)}
-function makeMap(id,coords,zoom){
- const node=document.getElementById(id);
- if(!window.L){node.innerHTML='<div class="empty">تعذر تحميل مكتبة الخريطة. أعد تحميل الصفحة عند توفر الإنترنت.</div>';return null;}
- const m=L.map(id,{worldCopyJump:true,scrollWheelZoom:false,zoomSnap:.25,attributionControl:false,minZoom:1,maxZoom:8}).setView(coords,zoom);
- L.control.attribution({prefix:false}).addAttribution('World Atlas · Natural Earth / world-atlas').addTo(m);
- // Country outlines instead of third-party tile squares; cached for subsequent visits.
- const url='https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
- function showError(){node.insertAdjacentHTML('beforeend','<div class="map-status">تعذر تحميل حدود الدول مؤقتًا؛ تظهر العلامات ويمكن إعادة المحاولة بتحديث الصفحة.</div>');}
- if(window.topojson){
-  fetch(url).then(r=>{if(!r.ok)throw Error('map data');return r.json()}).then(data=>{
-   const features=topojson.feature(data,data.objects.countries);
-   const layer=L.geoJSON(features,{style:{color:'#64c7e4',weight:.7,fillColor:'#135074',fillOpacity:.65,opacity:.65},onEachFeature:(f,l)=>l.on('mouseover',()=>l.setStyle({fillColor:'#1fa5b9',fillOpacity:.9})).on('mouseout',()=>layer.resetStyle(l))}).addTo(m);
-   m.invalidateSize();
-  }).catch(showError);
- }else showError();
- setTimeout(()=>m.invalidateSize(),130);
- return m;
+
+/* Projection-safe vector atlas. Unlike the original equirectangular straight-line
+   renderer, d3 geoPath clips the antimeridian so country outlines do not streak across the map. */
+let activeLayer='countries', atlasRuntime=null, countryTopology=null;
+const atlasSize=[1000,520];
+const atlasOverlays={
+ rivers:{
+ 'النيل':[[31,0],[32,9],[32,16],[31.8,22],[31.2,27],[31.25,31.5]],
+ 'الأمازون':[[-73,-11],[-70,-9],[-66,-5],[-62,-4],[-58,-3],[-54,-2],[-49,-1]],
+ 'الدانوب':[[8.2,48],[13,48.2],[19,47.8],[24,45],[29.7,45.2]],
+ 'المسيسيبي':[[-95,47],[-93,44],[-92,39],[-90,35],[-90,30]],
+ 'الكونغو':[[28,-5],[25,-3],[21,-1],[17,-4],[12,-6]],
+ 'الزامبيزي':[[24,-12],[26,-17],[29,-17],[34,-18],[36,-18]],
+ 'الراين':[[9,47.5],[7.7,49],[6.5,51],[4,52]],
+ 'الغانج':[[78,30],[82,26],[87,25],[89,23]]
+ },
+ deserts:{
+ 'الصحراء الكبرى':[[-16,28],[-11,31],[2,33],[17,33],[29,29],[34,24],[24,16],[10,17],[-4,17],[-16,20],[-16,28]],
+ 'الربع الخالي':[[44,21],[47,24],[54,23],[56,18],[51,17],[44,19],[44,21]],
+ 'جوبي':[[87,44],[93,46],[106,46],[114,43],[110,39],[98,39],[87,44]],
+ 'أتاكاما':[[-70,27*-1],[-68,-24],[-69,-18],[-71,-20],[-70,-27]]
+ },
+ forests:{
+ 'غابات الأمازون':[[-79,-5],[-71,1],[-64,5],[-53,3],[-48,-3],[-52,-10],[-63,-13],[-73,-10],[-79,-5]],
+ 'غابات الكونغو':[[12,4],[21,5],[30,1],[29,-6],[22,-7],[14,-5],[12,4]],
+ 'غابات التايغا':[[-165,58],[-127,62],[-95,59],[-65,54],[-60,65],[-95,70],[-150,68],[-165,58]]
+ },
+ mountains:{
+ 'جبال الأنديز':[[-77,8],[-76,-5],[-73,-14],[-70,-24],[-70,-33],[-73,-46],[-73,-54]],
+ 'جبال الألب':[[6.5,45.7],[9,46.5],[12,46.6],[15,47]],
+ 'جبال الأطلس':[[-10,31],[-6,33],[0,35],[8,36]]
+ },
+ oceans:{
+ 'المحيط الأطلسي':[[-64,52],[-42,66],[-18,58],[-5,27],[-15,-5],[-25,-46],[-47,-55],[-58,-16],[-64,52]],
+ 'المحيط الهندي':[[42,15],[74,15],[105,-6],[112,-33],[70,-58],[42,-40],[42,15]],
+ 'المحيط الهادئ':[[127,54],[165,50],[178,30],[175,-25],[160,-52],[132,-35],[127,54]],
+ 'المحيط الجنوبي':[[-170,-57],[-90,-62],[-20,-63],[70,-63],[145,-61],[179,-60]]
+ }
+};
+function isLayerShape(layer,place){return atlasOverlays[layer]&&atlasOverlays[layer][place[0]]}
+function atlasCreate(id,center=null){
+ const node=document.getElementById(id);if(!node)return;
+ if(!window.d3||!window.topojson){node.innerHTML='<div class="notice">تعذر تحميل مكتبة الخرائط؛ تحقق من الاتصال بالإنترنت ثم أعد المحاولة.</div>';return;}
+ const proj=d3.geoNaturalEarth1().fitExtent([[15,15],[985,505]],{type:'Sphere'});
+ const path=d3.geoPath(proj);
+ node.innerHTML='<div class="atlas-stage"><svg viewBox="0 0 1000 520" class="atlas-svg" role="img" aria-label="Interactive world atlas"><defs><radialGradient id="atlasSea"><stop stop-color="#145b7c"/><stop offset="1" stop-color="#061a31"/></radialGradient></defs><path class="atlas-ocean" d="'+path({type:'Sphere'})+'"/><path class="atlas-grid" d="'+path(d3.geoGraticule10())+'"/><g class="atlas-land"></g><g class="atlas-selected"></g><g class="atlas-pins"></g></svg><div class="atlas-tools"><button data-map-zoom="in" title="Zoom in">+</button><button data-map-zoom="out" title="Zoom out">−</button><button data-map-zoom="reset" title="Reset">⌖</button></div><div class="atlas-key">🌐 '+lang('حدود الدول: دقيقة وفق بيانات الخريطة · نطاق الظواهر الطبيعية: تقريبي','Country borders: dataset geometry · Natural-area extents: illustrative')+'</div><div class="atlas-popup hidden"></div></div>';
+ const runtime={node,id,proj,path,center,features:[],view:[0,0,1000,520],remove(){this.node.innerHTML=''}};
+ atlasRuntime=runtime;state.map=runtime;
+ const dataUrl='https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
+ fetch(dataUrl).then(r=>{if(!r.ok)throw Error('atlas unavailable');return r.json()}).then(j=>{
+  if(state.map!==runtime)return;
+  runtime.features=topojson.feature(j,j.objects.countries).features;
+  node.querySelector('.atlas-land').innerHTML=runtime.features.map((f,i)=>'<path tabindex="0" role="button" aria-label="'+escapeHTML(f.properties.name||'Country')+'" class="atlas-country" data-map-country="'+i+'" d="'+path(f)+'"><title>'+escapeHTML(f.properties.name||'Country')+'</title></path>').join('');
+  atlasDraw(activeLayer,center);
+ }).catch(()=>{
+  if(state.map===runtime)node.querySelector('.atlas-land').innerHTML='<text x="500" y="260" fill="#fff" text-anchor="middle">تعذر تحميل بيانات الحدود. أعد المحاولة.</text>';
+ });
+ // Wheel zoom and drag are client-only; regular controls remain keyboard accessible.
+ const svg=node.querySelector('svg');
+ let grab=null;
+ svg.addEventListener('pointerdown',e=>{if(e.target.closest('[data-map-country],[data-map-pin]'))return;grab={x:e.clientX,y:e.clientY,view:runtime.view.slice()};svg.setPointerCapture?.(e.pointerId)});
+ svg.addEventListener('pointermove',e=>{if(!grab)return;const rect=svg.getBoundingClientRect();const kx=grab.view[2]/rect.width,ky=grab.view[3]/rect.height;atlasView([grab.view[0]-(e.clientX-grab.x)*kx,grab.view[1]-(e.clientY-grab.y)*ky,grab.view[2],grab.view[3]])});
+ svg.addEventListener('pointerup',()=>grab=null);
+ svg.addEventListener('wheel',e=>{e.preventDefault();atlasZoom(e.deltaY<0?'in':'out')},{passive:false});
 }
-let activeLayer='countries';
-function drawMarkers(layer){if(!state.map)return;if(state.markers)state.map.removeLayer(state.markers);state.markers=L.layerGroup().addTo(state.map);let keys=layer==='all'?Object.keys(geo):[layer];keys.forEach(key=>(geo[key]||[]).forEach((v,i)=>{let col=key==='countries'?'#14d5c5':key==='oceans'?'#279eef':'#efbd59';let icon=L.divIcon({className:'',html:`<span style="display:block;width:13px;height:13px;background:${col};border:2px solid white;box-shadow:0 0 0 4px #0aa8c055,0 1px 9px #001;border-radius:100%"></span>`,iconSize:[13,13]});L.marker([v[4],v[5]],{icon}).addTo(state.markers).bindPopup(`<strong>${escapeHTML(lang(v[0],v[1]))}</strong><br>${escapeHTML(lang(v[2],v[3]))}<br><button onclick="window.GeoVerseOpen('${key}',${i})" style="margin-top:8px;background:#10ccb4;padding:5px 11px;border:0;border-radius:6px">${lang('التفاصيل','Details')}</button>`)}))}
-function initWorldMap(){state.map=makeMap('worldMap',[19,10],2);if(state.map)drawMarkers(activeLayer);document.querySelectorAll('[data-layer]').forEach(b=>b.classList.toggle('active',b.dataset.layer===activeLayer))}
-function initDetailMap(){let v=geo[state.category][state.item];state.map=makeMap('detailMap',[v[4],v[5]],state.category==='countries'?4:5);if(state.map)L.marker([v[4],v[5]]).addTo(state.map).bindPopup(escapeHTML(lang(v[0],v[1]))).openPopup()}
+function atlasView(v){const r=atlasRuntime;if(!r)return;let w=Math.max(75,Math.min(1000,v[2])),h=Math.max(39,Math.min(520,v[3]));const x=Math.max(0,Math.min(1000-w,v[0])),y=Math.max(0,Math.min(520-h,v[1]));r.view=[x,y,w,h];r.node.querySelector('svg')?.setAttribute('viewBox',[x,y,w,h].join(' '))}
+function atlasZoom(direction){const r=atlasRuntime;if(!r)return;const v=r.view;if(direction==='reset'){atlasView([0,0,1000,520]);return}const f=direction==='in'?.68:1.46;const w=v[2]*f,h=v[3]*f;atlasView([v[0]+(v[2]-w)/2,v[1]+(v[3]-h)/2,w,h])}
+function atlasDraw(layer,center=null){
+ const r=atlasRuntime;if(!r||!r.node.isConnected)return;
+ r.node.querySelectorAll('.atlas-country').forEach(el=>el.classList.remove('highlight'));
+ const highlight=r.node.querySelector('.atlas-selected'),pins=r.node.querySelector('.atlas-pins');
+ const keys=layer==='all'?Object.keys(geo):[layer];
+ const items=keys.flatMap(id=>(geo[id]||[]).map((v,i)=>({id,i,v})));
+ if(center){const match=r.features.findIndex(f=>d3.geoContains(f,[center[1],center[0]]));if(match>=0)r.node.querySelector('[data-map-country="'+match+'"]')?.classList.add('highlight')}
+ let outlines='';
+ if(layer!=='countries'&&layer!=='all'){
+  for(const item of items){
+   const coords=isLayerShape(layer,item.v);if(!coords)continue;
+   const polygon=layer!=='rivers'&&layer!=='mountains'&&coords.length>=4;
+   const geometry={type:polygon?'Polygon':'LineString',coordinates:polygon?[coords]:coords};
+   outlines+='<path class="atlas-feature '+(polygon?'atlas-area':'atlas-route')+'" d="'+r.path(geometry)+'"><title>'+escapeHTML(lang(item.v[0],item.v[1]))+' — '+lang('حدود تقريبية','approximate region')+'</title></path>';
+  }
+ }
+ highlight.innerHTML=outlines;
+ pins.innerHTML=items.slice(0,layer==='all'?120:220).map(({v,id,i})=>{const p=r.proj([v[5],v[4]]);if(!p)return '';return '<g class="atlas-pin" tabindex="0" role="button" data-map-pin="'+id+':'+i+'" transform="translate('+p[0].toFixed(1)+' '+p[1].toFixed(1)+')"><circle r="8" class="atlas-pin-halo"/><circle r="3" class="atlas-pin-dot"/><title>'+escapeHTML(lang(v[0],v[1]))+'</title></g>'}).join('');
+ if(center){const p=r.proj([center[1],center[0]]);if(p)atlasView([p[0]-180,p[1]-100,360,200])}else atlasView([0,0,1000,520]);
+}
+function drawMarkers(layer){activeLayer=layer;atlasDraw(layer)}
+function initWorldMap(){atlasCreate('worldMap')}
+function initDetailMap(){const v=geo[state.category][state.item];activeLayer=state.category;atlasCreate('detailMap',[v[4],v[5]])}
+
 window.GeoVerseOpen=(id,i)=>setPage('detail',id,i);
 function searchResults(term){const matches=[];const t=term.trim().toLowerCase();if(t){for(const c of cats){if(`${c.ar} ${c.en}`.toLowerCase().includes(t))matches.push({title:`${c.emoji} ${label(c)}`,meta:lang('قسم','Category'),cat:c.id});(geo[c.id]||[]).forEach((v,i)=>{if(`${v[0]} ${v[1]} ${v[2]} ${v[3]}`.toLowerCase().includes(t))matches.push({title:lang(v[0],v[1]),meta:label(c),cat:c.id,item:i})})}}document.getElementById('searchResults').innerHTML=matches.slice(0,30).map(x=>`<button class="search-row" data-search-cat="${x.cat}" ${x.item!==undefined?`data-search-item="${x.item}"`:''}><strong>${escapeHTML(x.title)}</strong> <small>· ${escapeHTML(x.meta)}</small></button>`).join('')||`<div class="empty">${t?lang('لا توجد نتائج في البيانات الحالية','No results in current sample data'):lang('اكتب للبحث في الأقسام والأماكن','Type to search topics and places')}</div>`}
 function openSearch(){document.getElementById('searchOverlay').classList.remove('hidden');document.getElementById('globalSearch').value='';searchResults('');document.getElementById('globalSearch').focus()}
 function closeSearch(){document.getElementById('searchOverlay').classList.add('hidden')}
+document.addEventListener('click',e=>{
+ const zoom=e.target.closest('[data-map-zoom]');if(zoom){atlasZoom(zoom.dataset.mapZoom);return;}
+ const pin=e.target.closest('[data-map-pin]');if(pin){const [id,i]=pin.dataset.mapPin.split(':');const v=geo[id][Number(i)];const pop=atlasRuntime?.node.querySelector('.atlas-popup');if(!pop)return;pop.innerHTML='<strong>'+escapeHTML(lang(v[0],v[1]))+'</strong><p>'+escapeHTML(lang(v[2],v[3]))+'</p><button data-atlas-open="'+id+':'+i+'">'+lang('عرض التفاصيل','See details')+' ←</button>';pop.classList.remove('hidden');return;}
+ const open=e.target.closest('[data-atlas-open]');if(open){const [id,i]=open.dataset.atlasOpen.split(':');setPage('detail',id,Number(i));return;}
+ const country=e.target.closest('[data-map-country]');if(country){const i=Number(country.dataset.mapCountry),f=atlasRuntime?.features[i];if(!f)return;atlasRuntime.node.querySelectorAll('.atlas-country').forEach(x=>x.classList.remove('highlight'));country.classList.add('highlight');const pop=atlasRuntime.node.querySelector('.atlas-popup');pop.innerHTML='<strong>'+escapeHTML(f.properties.name||'Country')+'</strong><p>'+lang('تم تحديد حدود الدولة على الخريطة.','Country outline highlighted on the map.')+'</p>';pop.classList.remove('hidden');return;}
+});
+
 document.addEventListener('click',e=>{let b=e.target.closest('button');if(!b)return;if(b.dataset.page){setPage(b.dataset.page);return}if(b.dataset.cat){setPage('category',b.dataset.cat);return}if(b.dataset.item){let [cat,idx]=b.dataset.item.split(':');setPage('detail',cat,+idx);return}if(b.dataset.layer){activeLayer=b.dataset.layer;document.querySelectorAll('[data-layer]').forEach(x=>x.classList.toggle('active',x===b));drawMarkers(activeLayer);return}if(b.dataset.game){selectedGameMode=b.dataset.game;quiz=createGame(selectedGameMode);state.quizIndex=0;state.quizScore=0;state.quizSelected=null;state.quizComplete=false;render();return}if(b.dataset.answer!==undefined&&state.quizSelected===null){state.quizSelected=+b.dataset.answer;if(state.quizSelected===quiz[state.quizIndex][4])state.quizScore++;render();return}if(b.id==='nextQuiz'){if(state.quizIndex===quiz.length-1){state.quizComplete=true;let p=saved();p.quizBest=Math.max(p.quizBest||0,state.quizScore);p['best_'+selectedGameMode]=Math.max(p['best_'+selectedGameMode]||0,state.quizScore);save(p)}else{state.quizIndex++;state.quizSelected=null}render();return}if(b.id==='restartQuiz'){state.quizIndex=0;state.quizScore=0;state.quizSelected=null;state.quizComplete=false;render();return}if(b.id==='toggleSeen'){let p=saved();p[`${state.category}_${state.item}`]=!p[`${state.category}_${state.item}`];p[state.category]=geo[state.category].filter((_,i)=>p[`${state.category}_${i}`]).length;save(p);render();return}if(b.id==='showMapPoint'){document.getElementById('detailMap')?.scrollIntoView({behavior:'smooth',block:'center'});return}if(b.id==='languageBtn'){state.lang=state.lang==='ar'?'en':'ar';localStorage.setItem('gv_lang',state.lang);render();return}if(b.id==='modeBtn'){state.theme=state.theme==='dark'?'light':'dark';localStorage.setItem('gv_theme',state.theme);render();return}if(b.id==='searchBtn'){openSearch();return}if(b.id==='closeSearch'){closeSearch();return}if(b.id==='menuBtn'){document.getElementById('sidebar').classList.toggle('open');return}if(b.id==='allCategories'){setPage('all');return}if(b.dataset.searchCat){closeSearch();setPage(b.dataset.searchItem!==undefined?'detail':'category',b.dataset.searchCat,b.dataset.searchItem!==undefined?+b.dataset.searchItem:null)}});
 document.addEventListener('input',e=>{if(e.target.id==='categoryFilter'){state.filter=e.target.value;document.getElementById('categoryItems').innerHTML=itemCards(geo[state.category])}if(e.target.id==='globalSearch')searchResults(e.target.value)});
 document.getElementById('searchOverlay').addEventListener('click',e=>{if(e.target.id==='searchOverlay')closeSearch()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSearch();if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();openSearch()}});
