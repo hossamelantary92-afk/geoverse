@@ -1,0 +1,94 @@
+/* GeoVerse v19 — iOS-specific hero layering and cache-safe visual correction.
+   This last stylesheet must load after all previous responsive CSS. */
+.gv12-card-mark,.gv12-card-link{display:none!important}
+.gv12-card .gv12-card-bg{pointer-events:none}
+@media(max-width:700px){
+ .gv11-hero{
+  position:relative!important;
+  isolation:isolate!important;
+  display:block!important;
+  min-height:clamp(550px,156vw,650px)!important;
+  padding:19px 12px 12px!important;
+  overflow:hidden!important;
+  background:radial-gradient(ellipse at 50% 56%,rgba(15,115,165,.22),transparent 63%),linear-gradient(160deg,#031326,#051c31 72%,#061a2c)!important;
+ }
+ .gv11-hero::before{
+  content:"";position:absolute!important;inset:0!important;z-index:4!important;
+  pointer-events:none!important;
+  background:linear-gradient(180deg,rgba(2,15,29,.94) 0%,rgba(2,16,31,.78) 18%,rgba(3,19,35,.43) 38%,transparent 60%,rgba(3,21,36,.1) 81%,rgba(2,18,32,.75) 100%)!important;
+ }
+ .gv11-hero .gv11-stars{z-index:1!important}
+ .gv11-hero .gv11-copy{
+  display:flex!important;position:relative!important;
+  z-index:6!important;flex-direction:column!important;
+  width:100%!important;max-width:100%!important;
+  margin:0!important;padding:0!important;
+  align-items:center!important;justify-content:flex-start!important;
+  text-align:center!important;
+ }
+ .gv11-hero .gv11-eyebrow{justify-content:center!important}
+ .gv11-hero .gv11-copy h1{
+  text-align:center!important;align-self:center!important;
+  font-size:clamp(31px,8.3vw,43px)!important;
+  margin:9px 0 8px!important;
+  line-height:1.32!important;
+  text-shadow:0 4px 14px #061527,0 1px 28px #061527!important;
+ }
+ .gv11-hero .gv11-copy p{
+  align-self:center!important;max-width:335px!important;width:100%!important;
+  text-align:center!important;font-size:clamp(11px,2.85vw,13px)!important;
+  min-height:0!important;margin:0 auto!important;line-height:1.85!important;
+  color:#e9f7fa!important;text-shadow:0 3px 12px #001522,0 2px 25px #001522;
+ }
+ .gv11-hero .gv11-actions{
+  display:flex!important;justify-content:center!important;align-self:center!important;
+  width:100%!important;gap:8px!important;
+  margin:15px 0 0!important;flex-wrap:wrap!important;
+ }
+ .gv11-hero .gv11-actions button{min-height:43px!important;font-size:11px!important;box-shadow:0 8px 22px rgba(0,13,30,.73)}
+ .gv11-hero .gv11-planet{
+  position:absolute!important;
+  inset:auto!important;
+  top:78px!important;left:50%!important;right:auto!important;bottom:auto!important;
+  transform:translateX(-50%)!important;
+  width:min(116%,430px)!important;height:clamp(330px,112vw,430px)!important;
+  max-width:430px!important;min-height:330px!important;
+  margin:0!important;z-index:2!important;
+  opacity:1!important;pointer-events:none!important;
+ }
+ .gv11-hero .gv11-globe{
+  position:absolute!important;inset:0!important;
+  width:100%!important;height:100%!important;
+  transform:none!important;display:block!important;
+  pointer-events:auto!important;overflow:hidden!important;
+  border-radius:50%!important;
+ }
+ .gv11-hero .gv11-globe canvas{display:block!important;max-width:100%!important;max-height:100%!important}
+ .gv11-hero .gv11-earth-glow{inset:-7%!important;opacity:.78!important;filter:blur(20px)!important}
+ .gv11-hero .gv11-orbit{opacity:.66!important;border-color:rgba(134,223,244,.34)!important}
+ .gv11-hero .gv11-horizon{
+  position:absolute!important;bottom:53px!important;left:0!important;right:0!important;
+  z-index:3!important;height:99px!important;opacity:.48!important;pointer-events:none!important;
+ }
+ .gv11-hero .gv11-cloud{opacity:.32!important}
+ .gv11-hero .gv11-stats{
+  position:absolute!important;z-index:7!important;
+  bottom:12px!important;top:auto!important;left:12px!important;right:12px!important;
+  width:auto!important;max-width:none!important;margin:0!important;
+  display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  padding:11px 3px!important;backdrop-filter:blur(15px);
+ }
+ .gv11-hero .gv11-stat{min-width:0!important}
+ .gv11-hero .gv11-stat strong{font-size:clamp(18px,4.8vw,23px)!important}
+ .gv11-hero .gv11-stat span{font-size:clamp(7px,2vw,9px)!important}
+}
+@media(max-width:380px){
+ .gv11-hero{min-height:548px!important}
+ .gv11-hero .gv11-planet{top:83px!important;height:clamp(320px,111vw,400px)!important;min-height:320px!important}
+ .gv11-hero .gv11-copy h1{font-size:30px!important}
+ .gv11-hero .gv11-actions{gap:6px!important}
+ .gv11-hero .gv11-actions button{font-size:10px!important;padding:9px 10px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ .gv11-hero .gv11-globe canvas{transition:none!important}
+}

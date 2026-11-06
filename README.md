@@ -210,3 +210,17 @@ User reviewed real iPhone screenshots of the successful GitHub Pages v17 release
 **QA:** All modified JavaScript passes syntax tests; CSS braces are balanced. Verified correct loading order, icon-free full topic cards, preserved sidebar SVG icons, all seven game icons, centered absolute mobile 3D stage and touch-enabled exposed globe. Physical iPhone Safari visual inspection still required. All modifications are additive or targeted; no new geography data or storage changes.
 
 **Release:** User requested GitHub Pages rather than manual Vercel work. Do not manually call Vercel. Once merged into main, verify the GitHub Pages Actions run matches the merge SHA and succeeds. The repository's separate external hosting integrations may react to main commits independently.
+
+
+## GeoVerse v19 — iPhone stale-assets fix and reliable globe-over-text layout (2026-11-06)
+
+**Issue confirmed by the user's actual 7:08–7:09 PM Riyadh iPhone screenshots:** The screenshot still showed unique category-icon badges over the 18 photographic All Topics cards, despite v18 source code in GitHub main containing **no icon/card-arrow markup at all**. GitHub Pages Actions had successfully deployed exact v18 main SHA `14f1930`. Therefore a stale HTML/JavaScript/CSS asset cache in the mobile browser is the strongest supported diagnosis, though the exact mobile cache layer is not directly inspectable.
+
+**Implemented:**
+- In `index.html`, append a unique `?v=gv19-6b4f9` query to **all 30 local CSS and JS requests**, not only to the site URL. This makes a fresh retrieval by iPhone Safari/in-app browser significantly more reliable and prevents the old `topics-v12.js` from reintroducing photo-card icons. The new stylesheet `visual-v19.css` is also explicitly versioned. Inserted `<meta name="geoverse-release"...>` and a small `v19` footer label for on-screen version verification.
+- `visual-v19.css`: robust final mobile layout under all prior CSS media queries, with a centrally positioned interactive Globe.GL canvas **behind** a legible heading, descriptive text and CTA buttons. The globe is placed at 78px from the top of the compact 550–650px hero with a subtle dark gradient; stats sit in an anchored strip at the bottom. The exposed globe remains pointer-interactive. Redundant class/arrow badges are also hidden in CSS as a safety net, even if stale topic markup is encountered.
+- `topics-v12.js` already contains the correct icon-free All Topics cards from v18, sidebar SVG icons preserved; `icons-v18.js` is already correct for seven quiz-mode symbols and will now be loaded from a new versioned URL.
+
+**Validation:** latest branch CSS braces balanced; all 31 local CSS/JS references are versioned, the v19 layer loads last, JS syntax validated for topics and game icons, photo cards are icon-free in source, globe is still interactive. Full physical iPhone browser visual QA and exact live page-cache header analysis are not yet possible; opening the newly versioned GitHub Pages URL and looking for `v19` in the footer is the user-side verification.
+
+**Publish:** update GitHub Pages through normal GitHub main merge; verify Actions build and deployment exact SHA. No manual Vercel calls. Site URL after publication https://hossamelantary92-afk.github.io/geoverse/?release=gv19-6b4f9 .
