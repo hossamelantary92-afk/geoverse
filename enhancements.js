@@ -174,11 +174,11 @@ render=function(){
  if(state.page==='category'&&state.category!=='countries')setTimeout(loadCardsMedia,80);
 };
 const oldSetPage=setPage;
-setPage=function(page,cat=null,item=null){
+setPage=function(page,cat=null,item=null,startGame=false){
  if(globeInstance){try{globeInstance.pauseAnimation?.();globeInstance._destructor?.()}catch(e){}globeInstance=null;globeNode=null;}
  if(page==='country-v4'){state.v4Code=cat;state.page='country-v4';state.category='countries';state.item=null;render();window.scrollTo(0,0);return}
  if(page==='countries-v4'){state.page='countries-v4';state.category='countries';state.item=null;render();window.scrollTo(0,0);return}
- oldSetPage(page,cat,item);
+ oldSetPage(page,cat,item,startGame);
 };
 function wikiTitle(v){return String(v[1]||'').replace(/^Mount /,'Mount ').trim()}
 
