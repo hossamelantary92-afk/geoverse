@@ -271,3 +271,39 @@ body{overflow-x:hidden}
 @media(max-width:380px){
  .gv11-hero .gv11-planet{top:42px!important}
 }
+
+
+/* Phase 4.3 — borderless, fuller premium Earth.
+   Eliminate the decorative orbit ring and close the gap above the planet. */
+.gv11-hero .gv11-orbit{display:none!important}
+.gv11-hero .gv11-planet{top:-57px!important}
+.gv11-hero .gv11-globe canvas{
+ filter:brightness(1.19) contrast(1.075) saturate(1.17)
+        drop-shadow(0 0 15px rgba(22,181,228,.25))!important;
+}
+.gv11-hero .gv11-earth-glow{
+ opacity:.82!important;
+ filter:blur(24px)!important;
+ background:radial-gradient(circle,rgba(8,145,214,.26) 18%,rgba(22,167,226,.19) 47%,transparent 72%)!important;
+}
+@media(max-width:700px){
+ .gv11-hero .gv11-planet{
+  top:-19px!important;
+  width:min(125%,465px)!important;
+  max-width:465px!important;
+  height:clamp(370px,118vw,460px)!important;
+ }
+ .gv11-hero::before{
+  background:linear-gradient(180deg,rgba(3,16,30,.88) 0%,
+   rgba(3,17,31,.71) 21%,rgba(2,18,34,.28) 42%,
+   rgba(2,18,34,.06) 63%,transparent 78%,rgba(2,14,27,.64) 100%)!important;
+ }
+ .gv11-hero .gv11-earth-glow{opacity:.76!important}
+}
+@media(max-width:380px){
+ .gv11-hero .gv11-planet{
+  top:-13px!important;
+  width:125%!important;
+  height:clamp(350px,119vw,430px)!important;
+ }
+}
