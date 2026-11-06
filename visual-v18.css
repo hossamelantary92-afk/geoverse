@@ -71,11 +71,11 @@
  .gv11-planet{
   position:absolute!important;
   z-index:2!important;
+  inset:auto!important;
   top:118px!important;
   bottom:auto!important;
   left:50%!important;
   right:auto!important;
-  inset:auto!important;
   transform:translateX(-50%)!important;
   width:min(112%,420px)!important;
   height:clamp(340px,108vw,430px)!important;
@@ -95,7 +95,6 @@
   border-radius:50%!important;
   transform:none!important;
   pointer-events:auto!important;
-  touch-action:pan-y;
  }
  .gv11-earth-glow{inset:-8%!important;filter:blur(19px)!important;opacity:.8}
  .gv11-orbit{border-color:#7fcde84c!important;opacity:.75}
