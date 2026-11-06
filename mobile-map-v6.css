@@ -24,3 +24,5 @@ html[lang="ar"] .gv-quality-lesson h3,html[lang="ar"] .gv-arabic-source h3{font-
  .map-question .quiz-question{font-size:22px}
 }
 @media(prefers-reduced-motion:reduce){#gameMap .atlas-country{transition:none}}
+
+.gv-feature-top{margin:14px 0 18px;border-color:#58b9c477;box-shadow:0 18px 45px #0008}.gv-feature-top .gv-article-photo{height:clamp(220px,27vw,380px)}.gv-feature-top .gv-article-body{padding:clamp(16px,3vw,28px)}.gv-feature-top .gv-photo-gallery{display:flex;gap:9px;overflow-x:auto;padding:12px}.gv-feature-top .gv-photo-gallery a{min-width:165px;border-radius:12px;overflow:hidden}.gv-feature-top .gv-photo-gallery img{width:100%;height:120px;object-fit:cover}.gv-inline-map-title{font-size:20px;margin:24px 0 11px;border-inline-start:3px solid #4ce0d3;padding-inline-start:14px}.gv-feature-globe{margin-top:24px}@media(max-width:650px){.gv-feature-top .gv-article-photo{height:225px}.gv-inline-map-title{font-size:17px}}
