@@ -178,3 +178,18 @@ This is the single consolidated branch `geoverse-v16-consolidated-mobile-details
 **Verification:** source-based JS syntax checks for the combined modules and structural CSS brace checks passed. The `index.html` stylesheet and module order is correct; original bottom-navigation, 133-photo manifest and 65 curated stories remain. This is **not** a full browser/physical-iPhone visual verification; the combined branch has not been deployed to GitHub Pages or Vercel.
 
 **Release hold:** Per explicit user request, do not merge into `main` or attempt Vercel deployment on Nov 6. Tomorrow, after checking the quota and preferably a real mobile screenshot, publish **one** merged and tested release. Existing PR #15 and #16 remain unmerged; use the consolidated release PR rather than double-merging the individual branches.
+
+
+## GeoVerse Homepage Phase 3.5 — Cinematic hero, photo-only categories, premium games and progress (2026-11-06)
+
+Addressed user's three iPhone screenshots: the Earth hero was left-heavy with empty right space, home category pictures looked good but the extra icons visually cluttered them, and the games/challenges/learning-progress cards felt sparse compared to the rest of the cinematic interface.
+
+- Mobile hero uses a deliberate three-row CSS grid: centered copy + actual CTA buttons, a dedicated large fully centered **interactive Globe.GL Earth**, and the four existing metrics directly underneath. It keeps subtle star/cloud/mountain backdrops and existing desktop composition. This fixes the inherited left-aligned fixed-inset problem rather than hiding the empty region with decorative artwork.
+- Homepage's six real-photo category cards show only their photo, title and genuine feature count. All cards remain fully clickable and the existing unique SVG topic icons remain in the side menu / visual atlas (18 sections).
+- Four designed functional game cards — Capitals, Find on Map, Classification and Mixed — now link directly to their existing `createGame` game-mode routes, resetting quiz state appropriately. A **Today's Challenge** strip launches a new mixed quiz from the existing question generator; it is a thematic shortcut, **not** a once-per-day stored challenge with rewards.
+- Home learning progress shows genuine overall marked-learned counts, a derived circle %, and four per-category progress meters that navigate to the actual topic. No invented user progress data or account is claimed.
+- Removed legacy redundant planet fact tiles, elementary emoji mini-game squares and duplicate generic promotional block under the home categories. Preserved real Petra feature, the complete knowledge directory, 3D exploration, games, and the five-item mobile bottom navigation.
+
+**QA:** JavaScript syntax, HTML/stylesheet integration, responsive CSS structure passed. An isolated JavaScript runtime harness confirmed four game cards, one daily shortcut, actual `data-gv17-game` click starting the correct quiz, dynamic progress, photo-only home category cards, bilingual output and omission of old panels. **No physical iPhone/browser screenshot test yet**, so visual review on the GitHub Pages URL is still required after it updates.
+
+**Publishing preference:** User previously prohibited manual Vercel deployments on November 6; release intended for GitHub Pages, **no manual Vercel deployment requested**. GitHub Pages should be validated after merge and may reflect changes with a cache delay.
