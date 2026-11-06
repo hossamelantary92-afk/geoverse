@@ -238,3 +238,20 @@ User reviewed real iPhone screenshots of the successful GitHub Pages v17 release
 - Tests: newly modified JavaScript syntax validated, CSS braces balanced, correct responsive layering source order and selectors, 4 photographic game sources, 32 versioned local assets, original 7 SVG game selectors and sidebar icons preserved. A **real iPhone Safari visual screenshot test remains outstanding**, so the next user screenshot is the decisive visual check.
 - Publishing: use normal main → GitHub Pages workflow; no manual Vercel deployment; check Actions status and link to `https://hossamelantary92-afk.github.io/geoverse/?v=gv20-7cd2e`.
 - Next: evaluate real iPhone screenshot and real game-card background-image loading; improve in-game multiple choice and map quiz panels and more useful learning progression.
+
+
+## Phase 4.1 — Premium Homepage & Navigation (2026-11-06)
+
+**Scope:** user approved the cinematic visual reference and explicitly asked for a real implementation, not another mockup. This release replaces the accumulated mobile hero positioning with a final responsive stylesheet `phase41.css` loaded last; no app data, user progress, country facts, games or API routes were changed.
+
+**Visual design:** desktop hero is a balanced 440px-wide cinematic landscape with the live 3D Earth on the left, Arabic/English intro + two working calls to action on the right, luminous haze, stars and atmospheric mountain detail, and four factual statistic tiles anchored at the bottom. On phones, the hero occupies a compact 430–500px area with centered text/buttons in front, centered real rotating globe behind, a readable dark contrast gradient, and a floating four-statistic ribbon. Removed excessive vertical empty space. Photo-first geography category cards stay untouched except their mobile grid is now consistently two columns for clearer labels and bigger images; no category emoji badges are reintroduced.
+
+**Mobile navigation:** reduced fixed bottom bar to a 65px height with five original working routes, preserving its design while adding enough bottom padding on pages and footer for scrolling the final content above the bar and iOS browser chrome. Header is a compact 65px high. Desktop sidebar and large-screen navigation remain available.
+
+**Technical fix:** in `enhancements.js`, replaced one-shot resize handler with a container `ResizeObserver` for the Globe.GL renderer to adapt to iOS browser viewport and device rotation without assuming initial canvas dimensions. Fallback to resize listener if ResizeObserver is unavailable.
+
+**QA:** real browser tests with Playwright Chromium at 390px iPhone simulation, 360px small mobile, 768px tablet and 1440px laptop verified functional WebGL canvas, 6 primary photo cards, 18 category entries, all 7 game modes, single properly layered globe behind foreground content, fixed mobile navigation, **no horizontal overflow or JS page exceptions**. Clicked 'Explore map' and 'Encyclopedia' bottom navigation and confirmed correct routing. Tested viewport resize from 390px to 360px and verified actual WebGL canvas eventually matches the resized 390x345px globe container after settling (~850 ms). The footer is reachable above the fixed nav and the bottom safe-area spacing is applied. The browser is not physical Safari; review on the user's iPhone remains recommended.
+
+**Release:** Updated `index.html` to load `phase41.css` last and version every local JS/CSS with `?v=phase41-a91d6`, adds visible `4.1` footer label to tell fresh Pages HTML from older cache. Publish on GitHub Pages via GitHub main merge; no manual Vercel production deployment involved.
+
+**Next:** Phase 4.2 rebuild all seven **in-game** quiz and results screens (not only the homepage game cards), accessible mobile answers and map feedback. Phase 4.3 country/landmark encyclopedia layout and fallback map; Phase 4.4 unified progress and final physical Safari QA.

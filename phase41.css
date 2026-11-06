@@ -1,0 +1,234 @@
+/* GeoVerse Phase 4.1 — approved cinematic layout / navigation
+   One authoritative responsive layer replaces the accumulated v15/v18/v19/v20
+   hero positioning rules. 3D Globe.GL remains a live, interactive canvas. */
+:root{--gv41-ice:#72f4e5;--gv41-gold:#eac46d;--gv41-navy:#031625}
+body{overflow-x:hidden}
+.layout{max-width:1550px;gap:14px}
+#main{min-width:0}
+.gv11-home #main{overflow:visible}
+.topbar{box-shadow:0 12px 30px #0005;border-bottom-color:#236b82}
+.topbar .brand-icon{filter:drop-shadow(0 0 13px #2beee3a3)}
+.gv11-hero{
+ position:relative!important;isolation:isolate!important;display:block!important;
+ min-height:440px!important;height:440px!important;
+ padding:0!important;border:1px solid #357f96!important;border-radius:21px!important;
+ overflow:hidden!important;
+ background:radial-gradient(ellipse at 25% 55%,#07689c66,transparent 61%),
+ linear-gradient(125deg,#031527 5%,#08283f 58%,#041527)!important;
+ box-shadow:0 20px 44px #0009,inset 0 1px #d2ffff2b!important;
+}
+.gv11-hero:before{
+ content:"";pointer-events:none!important;position:absolute!important;inset:0!important;
+ z-index:4!important;
+ background:linear-gradient(270deg,rgba(2,16,29,.78),rgba(2,17,30,.49) 31%,transparent 65%),
+ linear-gradient(0deg,rgba(2,15,29,.52),transparent 38%)!important
+}
+.gv11-hero .gv11-stars{position:absolute;inset:0;z-index:1}
+.gv11-hero .gv11-copy{
+ display:flex!important;flex-direction:column!important;align-items:flex-start!important;
+ text-align:start!important;
+ position:absolute!important;z-index:6!important;
+ top:49px!important;inset-inline-start:4%!important;inset-inline-end:auto!important;
+ width:49%!important;max-width:570px!important;
+ margin:0!important;padding:0!important;min-height:0!important;
+}
+.gv11-hero .gv11-eyebrow{font-size:11px!important;color:#f4d492!important;letter-spacing:2px}
+.gv11-hero .gv11-copy h1{
+ text-align:start!important;align-self:flex-start!important;
+ font-size:clamp(38px,4.7vw,65px)!important;line-height:1.28!important;
+ margin:14px 0 9px!important;font-weight:950!important;
+ text-shadow:0 4px 22px #00111efa!important;
+}
+.gv11-hero .gv11-copy p{
+ align-self:flex-start!important;min-height:0!important;max-width:440px!important;
+ width:100%!important;margin:0!important;
+ font-size:clamp(12px,1.1vw,15px)!important;line-height:1.9!important;
+ color:#e2f2f6!important;text-align:start!important;
+ text-shadow:0 2px 15px #02121ae6;
+}
+.gv11-hero .gv11-actions{
+ align-self:flex-start!important;justify-content:flex-start!important;gap:10px!important;
+ margin:20px 0 0!important;width:auto!important;flex-wrap:wrap!important;
+}
+.gv11-hero .gv11-actions button{min-height:45px!important;padding:10px 16px!important;
+ font-size:12px!important;border-radius:12px!important}
+.gv11-hero .gv11-planet{
+ position:absolute!important;inset:auto!important;
+ top:-35px!important;left:-1%!important;right:auto!important;bottom:auto!important;
+ transform:none!important;z-index:2!important;
+ width:57%!important;max-width:675px!important;height:430px!important;
+ min-height:0!important;margin:0!important;pointer-events:none!important;
+}
+.gv11-hero .gv11-globe{
+ position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+ pointer-events:auto!important;display:block!important;overflow:hidden!important;
+ border-radius:50%!important;transform:none!important;
+}
+.gv11-hero .gv11-globe canvas{display:block;max-width:100%;max-height:100%}
+.gv11-hero .gv11-earth-glow{inset:-4%!important;opacity:.86!important;filter:blur(22px)!important}
+.gv11-hero .gv11-orbit{border-color:#84e4fc55!important;opacity:.74!important}
+.gv11-hero .gv11-horizon{
+ z-index:3!important;position:absolute!important;left:0!important;right:0!important;
+ bottom:60px!important;height:99px!important;pointer-events:none!important;opacity:.6!important;
+}
+.gv11-hero .gv11-cloud{opacity:.37!important;filter:blur(13px)}
+.gv11-hero .gv11-stats{
+ display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;
+ position:absolute!important;z-index:7!important;
+ top:auto!important;bottom:13px!important;left:4%!important;right:4%!important;
+ width:auto!important;max-width:none!important;min-height:0!important;
+ margin:0!important;padding:10px 5px!important;
+ border:1px solid #48c6d3a6!important;border-radius:15px!important;
+ background:linear-gradient(115deg,#07354aca,#052437e8)!important;
+ backdrop-filter:blur(15px)!important;
+}
+.gv11-hero .gv11-stat{min-width:0!important;gap:2px!important;padding:0 6px!important}
+.gv11-hero .gv11-stat svg{width:20px!important;height:20px!important}
+.gv11-hero .gv11-stat strong{font-size:clamp(18px,2.1vw,26px)!important}
+.gv11-hero .gv11-stat span{font-size:clamp(9px,.8vw,11px)!important}
+.gv11-categories{margin-top:24px!important}
+.gv11-section-title{margin-bottom:12px!important}
+.gv11-section-title h2{font-size:clamp(21px,2.4vw,28px)}
+.gv11-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+.gv11-card{min-height:174px!important;border-radius:14px!important;box-shadow:0 10px 24px #0007}
+.gv11-card img{object-fit:cover!important}
+.gv11-card-icon,.gv11-card-chevron{display:none!important}
+.gv11-feature{margin-top:14px!important}
+.gv17-games,.gv17-progress{margin-top:23px!important}
+.gv11-bottom-nav{scrollbar-width:none}
+@media(min-width:1150px){
+ .gv11-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .gv11-hero .gv11-planet{width:58%!important;max-width:745px!important;height:455px!important}
+}
+@media(min-width:701px) and (max-width:1080px){
+ .gv11-hero{height:400px!important;min-height:400px!important}
+ .gv11-hero .gv11-copy{top:42px!important;width:54%!important;inset-inline-start:3%!important}
+ .gv11-hero .gv11-copy h1{font-size:clamp(30px,4.6vw,48px)!important}
+ .gv11-hero .gv11-copy p{font-size:12px!important}
+ .gv11-hero .gv11-planet{width:62%!important;height:385px!important;top:-13px!important}
+ .gv11-hero .gv11-stats{left:3%!important;right:3%!important}
+}
+@media(max-width:700px){
+ body{padding-bottom:calc(112px + env(safe-area-inset-bottom))!important}
+ #main{padding-bottom:30px!important}
+ footer{padding-bottom:calc(105px + env(safe-area-inset-bottom))!important}
+ .layout{padding:9px 11px 0!important;gap:0!important}
+ .topbar{height:65px!important;min-height:65px;padding:7px 10px!important;gap:4px!important}
+ .topbar .brand{gap:4px!important}
+ .topbar .brand strong{font-size:clamp(19px,5.1vw,24px)!important}
+ .topbar .brand small{font-size:7px!important}
+ .topbar .brand-icon svg{width:37px!important;height:37px!important}
+ .topbar .head-actions{gap:4px!important}
+ .topbar .head-actions .icon-btn,.topbar #menuBtn{
+  width:33px!important;height:33px!important;min-width:33px!important;
+ }
+ .gv11-hero{
+  display:block!important;position:relative!important;isolation:isolate!important;
+  width:100%!important;height:clamp(430px,116vw,500px)!important;min-height:0!important;
+  border-radius:17px!important;padding:0!important;
+  overflow:hidden!important;
+  background:radial-gradient(ellipse at 50% 54%,#086b9e5c,transparent 62%),
+   linear-gradient(170deg,#04172a,#05243b 67%,#02182c)!important;
+ }
+ .gv11-hero:before{
+  content:"";position:absolute!important;z-index:4!important;inset:0!important;pointer-events:none!important;
+  background:linear-gradient(180deg,rgba(2,15,30,.91) 0%,rgba(2,17,31,.73) 28%,
+  rgba(3,16,29,.37) 44%,transparent 69%,rgba(2,15,28,.65) 100%)!important;
+ }
+ .gv11-hero .gv11-copy{
+  position:absolute!important;z-index:6!important;inset:auto!important;
+  top:19px!important;left:12px!important;right:12px!important;
+  display:flex!important;flex-direction:column!important;align-items:center!important;
+  width:auto!important;max-width:none!important;text-align:center!important;
+  margin:0!important;padding:0!important;min-height:0!important;
+ }
+ .gv11-hero .gv11-eyebrow{align-self:center!important;justify-content:center!important;font-size:9px!important}
+ .gv11-hero .gv11-eyebrow i{width:25px}
+ .gv11-hero .gv11-copy h1{
+  align-self:center!important;text-align:center!important;
+  font-size:clamp(30px,8.2vw,39px)!important;line-height:1.23!important;
+  margin:9px 0 5px!important;letter-spacing:-.6px!important;
+  text-shadow:0 4px 14px #011424,0 0 28px #011424!important;
+ }
+ .gv11-hero .gv11-copy p{
+  align-self:center!important;max-width:355px!important;width:100%!important;
+  font-size:clamp(10px,2.9vw,12px)!important;line-height:1.75!important;
+  color:#e6f6f8!important;text-align:center!important;
+  min-height:0!important;margin:0 auto!important;
+  text-shadow:0 3px 14px #001726,0 3px 24px #001726;
+ }
+ .gv11-hero .gv11-actions{
+  align-self:center!important;justify-content:center!important;
+  display:flex!important;flex-wrap:wrap!important;gap:8px!important;
+  margin:14px 0 0!important;width:100%!important;
+ }
+ .gv11-hero .gv11-actions button{
+  min-height:39px!important;padding:8px 12px!important;gap:6px!important;
+  font-size:clamp(10px,2.65vw,12px)!important;border-radius:11px!important;
+  box-shadow:0 5px 17px #031727c2;
+ }
+ .gv11-hero .gv11-planet{
+  position:absolute!important;inset:auto!important;
+  top:75px!important;left:50%!important;right:auto!important;bottom:auto!important;
+  width:min(116%,425px)!important;max-width:425px!important;
+  height:clamp(330px,105vw,420px)!important;
+  min-height:0!important;transform:translateX(-50%)!important;
+  z-index:2!important;pointer-events:none!important;margin:0!important;
+ }
+ .gv11-hero .gv11-globe{
+  display:block!important;position:absolute!important;inset:0!important;
+  width:100%!important;height:100%!important;
+  pointer-events:auto!important;border-radius:50%!important;overflow:hidden!important;
+ }
+ .gv11-hero .gv11-earth-glow{opacity:.77!important;filter:blur(18px)!important}
+ .gv11-hero .gv11-orbit{opacity:.67!important}
+ .gv11-hero .gv11-horizon{
+  z-index:3!important;position:absolute!important;bottom:62px!important;
+  left:0!important;right:0!important;height:77px!important;opacity:.40!important;
+ }
+ .gv11-hero .gv11-cloud{opacity:.30!important}
+ .gv11-hero .gv11-stats{
+  position:absolute!important;z-index:7!important;
+  left:11px!important;right:11px!important;bottom:10px!important;top:auto!important;
+  width:auto!important;margin:0!important;
+  padding:9px 3px!important;display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  border-radius:12px!important;
+ }
+ .gv11-hero .gv11-stat{padding:0 3px!important}
+ .gv11-hero .gv11-stat svg{height:17px!important;width:17px!important}
+ .gv11-hero .gv11-stat strong{font-size:clamp(16px,4.5vw,20px)!important}
+ .gv11-hero .gv11-stat span{font-size:clamp(7px,1.85vw,9px)!important}
+ .gv11-categories{margin-top:18px!important}
+ .gv11-section-title{gap:7px!important;margin-bottom:10px!important}
+ .gv11-section-title h2{font-size:20px!important}
+ .gv11-section-title button{font-size:10px!important;padding:7px 9px!important}
+ .gv11-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}
+ .gv11-card{min-height:161px!important;padding:11px!important;border-radius:12px!important}
+ .gv11-card strong{font-size:14px!important}
+ .gv11-card small{font-size:10px!important}
+ .gv11-feature{min-height:156px!important}
+ .gv11-bottom-nav{
+  position:fixed!important;z-index:300!important;
+  height:65px!important;min-height:65px!important;max-height:65px!important;
+  bottom:max(7px,env(safe-area-inset-bottom))!important;
+  inset-inline:9px!important;
+  padding:5px!important;border-radius:18px!important;
+  background:#052b41f2!important;
+  box-shadow:0 10px 31px #000c,inset 0 1px #acffff2e!important;
+ }
+ .gv11-bottom-nav button{gap:2px!important;border-radius:13px!important;font-size:9px!important}
+ .gv11-bottom-nav button svg{height:19px!important;width:19px!important}
+ .gv11-bottom-nav button.active{box-shadow:inset 0 1px #d4ffff80,0 0 12px #29cbbf75!important}
+ .gv17-games,.gv17-progress{margin-top:21px!important}
+}
+@media(max-width:365px){
+ .gv11-hero{height:430px!important}
+ .gv11-hero .gv11-copy h1{font-size:29px!important}
+ .gv11-hero .gv11-planet{top:82px!important;height:345px!important}
+ .gv11-hero .gv11-actions button{padding:8px 9px!important}
+ .gv11-hero .gv11-stat span{font-size:7px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ .gv11-hero .gv11-globe canvas,.gv11-card{transition:none!important}
+}
