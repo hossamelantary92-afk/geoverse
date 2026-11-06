@@ -323,7 +323,19 @@ function initGlobe(){
   renderer?.setPixelRatio?.(Math.min(window.devicePixelRatio||1,window.innerWidth<750?1.35:1.75));
  }catch(e){console.debug('Adaptive resolution unavailable',e)}
  globeInstance=g;node.classList.add('gv-3d-loaded');
- G.addEventListener('resize',()=>{if(globeNode===node&&node.isConnected)g.width(node.clientWidth||w).height(node.clientHeight||h)},{once:true});
+ // Follow the actual globe container size on mobile rotation or browser chrome changes.
+ const syncGlobeSize=()=>{
+  if(globeNode!==node||!node.isConnected)return false;
+  const width=Math.round(node.clientWidth||w),height=Math.round(node.clientHeight||h);
+  if(width>0&&height>0&&
+     (Math.round(g.width())!==width||Math.round(g.height())!==height))
+   g.width(width).height(height);
+  return true;
+ };
+ if(typeof ResizeObserver==='function'){
+  const observer=new ResizeObserver(()=>{if(!syncGlobeSize())observer.disconnect()});
+  observer.observe(node);
+ }else G.addEventListener('resize',syncGlobeSize,{passive:true});
  }catch(err){console.warn('Globe WebGL init unavailable:',err);node.innerHTML='<div class="gv-globe-fallback">'+lang('تعذر تشغيل العرض ثلاثي الأبعاد على هذا الجهاز. استخدم الخريطة الثنائية الأبعاد.','3D rendering unavailable on this device. Use the 2D map.')+'</div>'}
 }
 function scheduleEnhancements(){
