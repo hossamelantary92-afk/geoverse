@@ -5,11 +5,11 @@ const previousHome=home;
 const T=(a,b)=>state.lang==='ar'?a:b;
 const I={
  compass:'<circle cx="12" cy="12" r="9"/><path d="m15.9 8.1-2.6 5.2-5.2 2.6 2.6-5.2 5.2-2.6z"/>',
- globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-5 6-5 12 0 18 5-6 5-12 0-18"/>',
- crown:'<path d="m2 7 5 5 5-8 5 8 5-5-2 12H4L2 7z"/>',
- map:'<path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3zM9 3v15m6-12v15"/>',
+ globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-5 6-5 12 0 18 5-6 5-12 0-18"/><path d="m15.5 8.5-2 5-5 2 2-5z"/>',
+ crown:'<path d="M4 21h16M6 18h12M5 9l7-5 7 5M7 18v-8m5 8v-8m5 8v-8M4 10h16"/>',
+ map:'<path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="2.5"/>',
  trophy:'<path d="M7 3h10v7a5 5 0 0 1-10 0V3zm0 2H4v3a4 4 0 0 0 4 4m9-7h3v3a4 4 0 0 1-4 4M12 15v5m-4 1h8"/>',
- layers:'<path d="m12 2 9 5-9 5-9-5 9-5zm-9 10 9 5 9-5m-18 5 9 5 9-5"/>',
+ layers:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',
  bolt:'<path d="m13 2-9 12h7l-1 8 10-13h-7z"/>',
  arrow:'<path d="M5 12h14m-6-6 6 6-6 6"/>',
  book:'<path d="M4 3h15v18H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm0 15a2 2 0 0 1 2-2h13M8 7h7m-7 4h7"/>'
