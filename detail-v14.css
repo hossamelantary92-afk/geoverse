@@ -68,3 +68,10 @@
 }
 @media(max-width:375px){.gv14-photo{height:190px;min-height:190px}.gv14-heading h1{font-size:25px}.gv14-globe{height:305px}.gv14-facts{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.gv14-learned,.gv14-next button{transition:none}}
+
+
+/* Country profile: no redundant "capital/continent again" block or full-size country-code tile. */
+.gv14-country-page .gv9-section{margin-bottom:13px}
+.gv14-country-page .gv9-hero{margin-bottom:14px}
+.gv14-country-page .gv9-stats{gap:10px}
+.gv14-country-page .gv9-sources{margin-top:10px}
