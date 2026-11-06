@@ -307,3 +307,100 @@ body{overflow-x:hidden}
   height:clamp(350px,119vw,430px)!important;
  }
 }
+
+
+/* Phase 4.4 — borderless globe and premium mobile game picker
+   Scoped changes only: the 3D Earth and existing game handlers remain intact. */
+.gv11-hero .gv11-orbit,
+.gv11-hero .gv11-planet > .gv11-orbit{
+ display:none!important;
+ visibility:hidden!important;
+ opacity:0!important;
+ border:0!important;
+ box-shadow:none!important;
+}
+.gv11-hero .gv11-planet::before,
+.gv11-hero .gv11-planet::after{content:none!important;display:none!important}
+.gv11-hero .gv11-earth-glow{
+ border:0!important;outline:0!important;box-shadow:none!important;
+ background:radial-gradient(ellipse at center,rgba(25,154,214,.23),rgba(22,145,205,.13) 48%,transparent 70%)!important;
+}
+.game-modes{
+ align-items:stretch!important;
+ gap:12px!important;
+}
+.game-modes .game-mode{
+ position:relative!important;
+ isolation:isolate!important;
+ overflow:hidden!important;
+ min-width:0!important;
+ min-height:145px!important;
+ padding:18px 11px 15px!important;
+ border:1px solid rgba(106,185,202,.66)!important;
+ border-radius:18px!important;
+ background-color:#0a3046!important;
+ background-image:linear-gradient(180deg,rgba(5,31,48,.46),rgba(2,19,35,.87)),
+   var(--game-photo,linear-gradient(145deg,#17556a,#092338))!important;
+ background-position:center!important;
+ background-size:cover!important;
+ box-shadow:inset 0 1px rgba(209,253,255,.18),0 12px 25px rgba(0,0,0,.32)!important;
+ display:flex!important;
+ flex-direction:column!important;
+ justify-content:center!important;
+ align-items:center!important;
+ gap:12px!important;
+ transform:none!important;
+ transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease!important;
+}
+.game-modes .game-mode::before{
+ content:""!important;display:block!important;
+ position:absolute!important;z-index:-1!important;inset:0!important;
+ background:radial-gradient(ellipse at 50% 6%,rgba(77,216,222,.20),transparent 61%)!important;
+ pointer-events:none!important;
+}
+.game-modes .game-mode:hover{transform:translateY(-2px)!important;border-color:#8cf5e8!important}
+.game-modes .game-mode.selected{
+ border-color:#70f4d9!important;
+ box-shadow:inset 0 1px rgba(215,255,249,.34),0 0 0 1px rgba(91,230,206,.64),0 12px 25px rgba(2,90,104,.34)!important;
+}
+.game-modes .game-mode .gv18-game-symbol{
+ display:grid!important;place-items:center!important;
+ width:50px!important;height:50px!important;
+ border-radius:15px!important;
+ color:#b9fff1!important;
+ background:linear-gradient(145deg,rgba(9,74,91,.85),rgba(6,38,59,.84))!important;
+ border:1px solid rgba(135,239,224,.64)!important;
+ box-shadow:0 5px 16px rgba(0,10,21,.3)!important;
+}
+.game-modes .game-mode .gv18-game-symbol svg{width:27px!important;height:27px!important}
+.game-modes .game-mode b{
+ font-size:clamp(12px,3.35vw,16px)!important;
+ font-weight:900!important;
+ line-height:1.5!important;
+ color:#f5feff!important;
+ text-shadow:0 2px 10px rgba(0,7,22,.95)!important;
+}
+.game-modes .game-mode:nth-child(1){--game-photo:url("https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=700&q=75")}
+.game-modes .game-mode:nth-child(2){--game-photo:url("https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=700&q=75")}
+.game-modes .game-mode:nth-child(3){--game-photo:url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&q=75")}
+.game-modes .game-mode:nth-child(4){--game-photo:url("https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=700&q=75")}
+.game-modes .game-mode:nth-child(5){--game-photo:url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=700&q=75")}
+.game-modes .game-mode:nth-child(6){--game-photo:url("https://images.unsplash.com/photo-1500534623283-312aade485b7?w=700&q=75")}
+.game-modes .game-mode:nth-child(7){--game-photo:url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&q=75")}
+@media(max-width:700px){
+ .game-modes{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;margin-bottom:19px!important}
+ .game-modes .game-mode{min-height:133px!important;padding:15px 8px 13px!important;gap:10px!important}
+ /* Seven modes: use an intentional wide feature instead of a half-empty last row. */
+ .game-modes .game-mode:last-child:nth-child(odd){
+  grid-column:1 / -1!important;min-height:116px!important;
+  flex-direction:row!important;gap:16px!important;
+ }
+ .game-modes .game-mode:last-child:nth-child(odd) .gv18-game-symbol{flex:none!important}
+ .game-modes + .page-heading{margin-top:13px!important}
+ .game-modes + .page-heading h1{margin-top:0!important}
+}
+@media(max-width:380px){
+ .game-modes .game-mode{min-height:123px!important}
+ .game-modes .game-mode:last-child:nth-child(odd){min-height:106px!important}
+}
+@media(prefers-reduced-motion:reduce){.game-modes .game-mode{transition:none!important}}
