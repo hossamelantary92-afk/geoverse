@@ -98,3 +98,5 @@
 }
 @media(max-width:390px){.gv11-hero{padding:16px 12px 11px}.gv11-copy p{max-width:78%}.gv11-copy h1{font-size:30px}.gv11-planet{inset:158px 24% 68px -14%}.gv11-stats{margin-top:235px}.gv11-card{min-height:119px}.gv11-card strong{font-size:10px}.topbar .head-actions{gap:3px}.topbar .head-actions .icon-btn,.topbar #menuBtn{width:30px;height:30px;min-width:30px}.topbar .brand strong{font-size:19px}.topbar .brand small{display:none}}
 @media(prefers-reduced-motion:reduce){.gv11-card img,.gv11-card,.gv11-actions button{transition:none!important}}
+
+.gv11-feature-go{display:grid;place-items:center;text-decoration:none}
