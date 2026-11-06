@@ -87,7 +87,7 @@ function countryPage(){
  return '<button class="back" data-page="countries-v4">→ '+lang('العودة للدول','Back to countries')+'</button><div class="gv-country-profile"><span class="eyebrow">WORLD ATLAS / COUNTRY PROFILE</span><div class="gv-profile-head"><div class="gv-profile-flag">'+flag(r.code,r.name+' flag')+'</div><div><h1>'+escapeHTML(getCountryName(r))+'</h1><p>'+escapeHTML(r.name)+' · '+escapeHTML(c)+'</p></div></div><div class="gv-profile-facts"><div><small>'+lang('العاصمة','Capital')+'</small><strong>'+escapeHTML(state.lang==='ar'?capitalAr(r):r.capital||'—')+'</strong></div><div><small>'+lang('القارة','Continent')+'</small><strong>'+escapeHTML(c)+'</strong></div><div><small>'+lang('العملة','Currency')+'</small><strong>'+escapeHTML(r.currency||'—')+'</strong></div><div><small>ISO</small><strong>'+escapeHTML(r.code)+'</strong></div></div></div><div class="gv-story-layout"><section><div class="gv-story-card"><span class="eyebrow">EXPLORE FROM SPACE</span><h2>'+lang('موقع الدولة على الكرة الأرضية','Explore this country in 3D')+'</h2><p>'+lang('تظهر حدود الدولة بلون مميز. يمكنك تدوير الكرة والتكبير والتصغير.','Country borders are highlighted. Drag, rotate and zoom around the planet.')+'</p><div class="gv-globe-detail" id="gvDetailGlobe"></div><div class="gv-map-attribution">'+lang('حدود توضيحية وفق مجموعة بيانات العالم، وليست مرجعًا رسميًا للنزاعات الحدودية.','Country boundaries are dataset approximations, not official dispute adjudications.')+'</div></div><div class="gv-story-card" id="gvWikiArticle"><h2>'+lang('معلومات جغرافية','Geographic Profile')+'</h2><p>'+lang('جاري استدعاء مصادر معلومات وصور هذا المكان...','Loading place facts and photographs...')+'</p></div></section><aside><div class="gv-story-card"><h3>'+lang('دول مرتبطة','Explore Nearby')+'</h3><p>'+lang('اختار قارة الدولة لتشاهد الدول المرتبطة بها.','Browse other countries in the same continent.')+'</p><button class="secondary" data-v4-continent="'+r.continent+'">'+lang('استكشف','Explore')+' '+escapeHTML(c)+'</button></div><div class="gv-story-card"><h3>'+lang('مصادر المعلومات','Sources')+'</h3><a href="https://github.com/samayo/country-json" target="_blank" rel="noopener noreferrer">Country metadata</a><a href="https://github.com/johan/world.geo.json" target="_blank" rel="noopener noreferrer">Geographic geometry</a><p class="gv-muted">'+lang('بيانات العواصم والعملة قد تحتاج تحديثًا؛ لا تعتمد عليها كمصدر رسمي وحيد.','Capitals and currencies may require updating; do not treat the dataset as official.')+'</p></div></aside></div>';
 }
 function extendedArticle(v){
- return '<div class="gv-article-photobar"><div class="gv-article-photo" id="gvArticlePhoto"><span class="gv-photo-loading">'+lang('جاري تحميل صورة حقيقية للمعلم','Loading a location photo')+'</span></div></div><div class="gv-photo-gallery" id="gvPhotoGallery"></div><section class="gv-article-body"><div class="eyebrow">'+lang('الدليل الجغرافي','THE FIELD GUIDE')+'</div><h2>'+lang('اكتشف المكان','Discover the Place')+'</h2><p>'+escapeHTML(lang(v[2],v[3]))+'</p><div id="gvWikiArticle" class="gv-wiki-summary"><p>'+lang('جاري تحميل تفاصيل إضافية من مصادر موسوعية...','Loading additional reference details...')+'</p></div><div class="gv-travel-facts"><span>'+svgIcon('continents')+'</span><div><b>'+lang('أين يقع؟','Where is it?')+'</b><small>'+v[4].toFixed(2)+'° / '+v[5].toFixed(2)+'°</small></div><span>'+svgIcon('countries')+'</span><div><b>'+lang('التصنيف','Classification')+'</b><small>'+escapeHTML(label(cats.find(c=>c.id===state.category)))+'</small></div></div><div class="gv-source-note">'+lang('الصور والمعلومات الموسوعية تظهر فقط عند مطابقة صفحة المصدر لاسم المعلم؛ قد لا تتوفر صورة لكل مكان.','Photos and article summaries appear when a named source article can be matched; some places have no suitable verified photo.')+'</div></section>';
+ return '<div class="gv-article-photobar"><div class="gv-article-photo" id="gvArticlePhoto"><span class="gv-photo-loading">'+lang('جاري تحميل صورة حقيقية للمعلم','Loading a location photo')+'</span></div></div><div class="gv-photo-gallery" id="gvPhotoGallery"></div><section class="gv-article-body"><div class="eyebrow">'+lang('الدليل الجغرافي','THE FIELD GUIDE')+'</div><h2>'+lang('اكتشف المكان','Discover the Place')+'</h2><p>'+escapeHTML(lang(v[2],v[3]))+'</p>'+storyPanel(storyFor(v))+'<div id="gvWikiArticle" class="gv-wiki-summary"><p>'+lang('جاري تحميل تفاصيل إضافية من مصادر موسوعية...','Loading additional reference details...')+'</p></div><div class="gv-travel-facts"><span>'+svgIcon('continents')+'</span><div><b>'+lang('أين يقع؟','Where is it?')+'</b><small>'+v[4].toFixed(2)+'° / '+v[5].toFixed(2)+'°</small></div><span>'+svgIcon('countries')+'</span><div><b>'+lang('التصنيف','Classification')+'</b><small>'+escapeHTML(label(cats.find(c=>c.id===state.category)))+'</small></div></div><div class="gv-source-note">'+lang('الصور والمعلومات الموسوعية تظهر فقط عند مطابقة صفحة المصدر لاسم المعلم؛ قد لا تتوفر صورة لكل مكان.','Photos and article summaries appear when a named source article can be matched; some places have no suitable verified photo.')+'</div></section>';
 }
 detail=function(){const base=oldDetail();if(state.category==='continents'){const v=geo.continents[state.item],key=v[1];const countryList=store.countries.filter(r=>r.continent===key||key==='Asia'&&twoRegion.has(r.name));return base.replace('</div><div class="detail-card">','</div><div class="gv-continent-intro"><h2>'+lang('حدود القارة ودولها','Continent Boundaries & Countries')+'</h2><p>'+lang('الدول التابعة للقارة ستظهر بلون مضيء على الكرة ثلاثية الأبعاد.','The continent countries will glow together on the 3D Earth.')+'</p><div class="gv-continent-3d" id="gvContinentGlobe"></div><div class="gv-boundary-key">'+lang('حدود القارات تصنيف جغرافي تقريبي، وليست حدودًا سياسية رسمية.','Continental divisions are geographic conventions, not political borders.')+'</div></div><div class="detail-card">')+'<div class="gv-story-card"><h2>'+lang('دول القارة','Countries in this continent')+'</h2><div class="gv-country-grid">'+countryCards(countryList)+'</div></div>'}
  const v=geo[state.category][state.item];return base+'<section class="gv-feature-article">'+extendedArticle(v)+'</section><section class="gv-story-card gv-feature-globe"><span class="eyebrow">3D WORLD ATLAS</span><h2>'+lang('شاهد المعلم على الكرة الأرضية','Explore this place in 3D')+'</h2><div class="gv-globe-detail" id="gvDetailGlobe"></div><p class="gv-map-attribution">'+lang('قد يكون الموضع نقطة تمثيلية عندما لا تتوفر حدود جغرافية موثقة لهذا المعلم.','A representative location point is shown where documented geographic extents are unavailable.')+'</p></section>';
@@ -167,6 +167,36 @@ setPage=function(page,cat=null,item=null){
  oldSetPage(page,cat,item);
 };
 function wikiTitle(v){return String(v[1]||'').replace(/^Mount /,'Mount ').trim()}
+
+const gvStories=new Map();
+async function loadCuratedStories(){
+ try{
+  const r=await fetch('./geo-stories.json');
+  if(!r.ok)throw Error('No curriculum file');
+  const j=await r.json();
+  for(const [name,entry] of Object.entries(j.stories||{}))gvStories.set(norm(name),entry);
+  if(state.page==='detail'&&state.category!=='continents')render();
+ }catch(e){console.warn('Curated lessons unavailable',e)}
+}
+function storyFor(v){return gvStories.get(norm(v?.[1]))||null}
+function storyPanel(story){
+ if(!story)return '';
+ const body=state.lang==='ar'?story.ar:story.en;
+ const facts=state.lang==='ar'?(story.factsAr||[]):[];
+ return '<section class="gv-curated-story"><span class="eyebrow">GEOVERSE · FIELD NOTES</span><h3>'+lang('معلومات سهلة ومفيدة','Easy geography facts')+'</h3><p>'+escapeHTML(body||'')+'</p>'+(facts.length?'<div class="gv-curated-facts">'+facts.map(([k,v])=>'<div><small>'+escapeHTML(k)+'</small><strong>'+escapeHTML(v)+'</strong></div>').join('')+'</div>':'')+'</section>';
+}
+function cleanArabicSummary(s){
+ const clean=String(s||'').replace(/\[[0-9،,\s]+\]/g,'').replace(/\s+/g,' ').trim();
+ return (clean.match(/[^.!؟\n]+[.!؟]?/g)||[clean]).slice(0,6).join(' ').trim().slice(0,1350);
+}
+function fallbackArabic(v){
+ if(state.page==='country-v4'){
+  const r=store.byCode.get(state.v4Code);
+  if(r)return 'تقع '+arName(r)+' في '+(continentAr[r.continent]||r.continent)+'. عاصمتها '+capitalAr(r)+'. تستطيع استكشاف حدودها وموقعها على الكرة الأرضية.';
+ }
+ return storyFor(v)?.ar||v?.[2]||'';
+}
+
 let wikiSequence=0;
 async function loadWiki(){
  const current=++wikiSequence;
@@ -177,13 +207,37 @@ async function loadWiki(){
  if(!target)return;
  try{
  // Query an exact page title first. Never insert a result from a loosely related search.
- const params=new URLSearchParams({action:'query',prop:'extracts|pageimages|info',inprop:'url',exintro:'1',explaintext:'1',piprop:'thumbnail',pithumbsize:'1200',redirects:'1',titles:title,format:'json',origin:'*'});
+ const params=new URLSearchParams({action:'query',prop:'extracts|pageimages|info|langlinks',lllang:'ar',llprop:'url',inprop:'url',exintro:'1',explaintext:'1',piprop:'thumbnail',pithumbsize:'1200',redirects:'1',titles:title,format:'json',origin:'*'});
  const res=await fetch('https://en.wikipedia.org/w/api.php?'+params);
  if(!res.ok)throw Error('Wikimedia HTTP '+res.status);
  const json=await res.json();if(current!==wikiSequence)return;
  const page=Object.values(json.query?.pages||{})[0];
  if(!page||page.missing!==undefined)throw Error('No exact article');
- const summary=(page.extract||'').trim().slice(0,1800);
+ let summary=(page.extract||'').trim().slice(0,1800);
+ let sourceUrl=page.fullurl||'https://en.wikipedia.org/wiki/'+encodeURIComponent(title);
+ let arabicArticle=false;
+ if(state.lang==='ar'){
+  // Prefer a real Arabic article. English article prose must never appear in Arabic mode.
+  summary='';
+  const link=(page.langlinks||[]).find(x=>x.lang==='ar');
+  if(link?.['*']){
+   try{
+    const q=new URLSearchParams({action:'query',prop:'extracts|info',inprop:'url',exintro:'1',explaintext:'1',redirects:'1',titles:link['*'],format:'json',origin:'*'});
+    const response=await fetch('https://ar.wikipedia.org/w/api.php?'+q);
+    if(response.ok){
+     const result=await response.json();
+     if(current!==wikiSequence)return;
+     const article=Object.values(result.query?.pages||{})[0];
+     if(article&&article.missing===undefined&&article.extract){
+      summary=cleanArabicSummary(article.extract);
+      sourceUrl=article.fullurl||link.url||sourceUrl;
+      arabicArticle=true;
+     }
+    }
+   }catch(e){console.debug('No Arabic encyclopedia entry',e)}
+  }
+  if(!summary)summary=fallbackArabic(v);
+ }
  // Only use a photograph attached to the exact named article.
  if(photo&&page.thumbnail?.source){photo.innerHTML='<img alt="'+escapeHTML(title)+'" loading="lazy" src="'+escapeHTML(page.thumbnail.source)+'"><div class="gv-image-credit">'+lang('صورة من مقالة','Photo linked from')+' <a href="'+escapeHTML(page.fullurl||'https://en.wikipedia.org/wiki/'+encodeURIComponent(title))+'" target="_blank" rel="noopener noreferrer">Wikipedia</a></div>'}
  
@@ -199,10 +253,10 @@ async function loadWiki(){
   }catch(e){console.debug('No extra encyclopedia photos',e)}
  }
  
-const url=page.fullurl||'https://en.wikipedia.org/wiki/'+encodeURIComponent(title);
+const url=sourceUrl;
  if(state.page==='country-v4'){
-  target.innerHTML='<span class="eyebrow">WIKIPEDIA / PLACE REFERENCES</span><h2>'+lang('الموقع والجغرافيا','Geography & Context')+'</h2>'+(page.thumbnail?.source?'<img class="gv-country-wiki-photo" src="'+escapeHTML(page.thumbnail.source)+'" alt="'+escapeHTML(title)+'" loading="lazy">':'')+'<p>'+escapeHTML(summary||lang('راجع الصفحة الموسوعية للمزيد من المعلومات.','See the article for more context.'))+'</p><a href="'+escapeHTML(url)+'" target="_blank" rel="noopener noreferrer">'+lang('اقرأ المصدر الأصلي','Read source article')+' ↗</a>';
- }else{target.innerHTML='<div class="gv-source-heading">'+lang('نبذة موسوعية إضافية','Additional Encyclopedia Context')+'</div><p>'+escapeHTML(summary||lang('لا توجد نبذة إضافية متاحة.','No additional summary available.'))+'</p><a href="'+escapeHTML(url)+'" target="_blank" rel="noopener noreferrer">Wikipedia ↗</a>'}
+  target.innerHTML='<span class="eyebrow">'+(arabicArticle?'ويكيبيديا العربية':'GEOVERSE / COUNTRY PROFILE')+'</span><h2>'+lang('الموقع والجغرافيا','Geography & Context')+'</h2>'+(page.thumbnail?.source?'<img class="gv-country-wiki-photo" src="'+escapeHTML(page.thumbnail.source)+'" alt="'+escapeHTML(title)+'" loading="lazy">':'')+'<p>'+escapeHTML(summary||lang('راجع الصفحة الموسوعية للمزيد من المعلومات.','See the article for more context.'))+'</p><a href="'+escapeHTML(url)+'" target="_blank" rel="noopener noreferrer">'+lang('اقرأ المصدر الأصلي','Read source article')+' ↗</a>';
+ }else{target.innerHTML='<div class="gv-source-heading">'+lang('معلومات إضافية بلغة سهلة','Additional Encyclopedia Context')+'</div><p>'+escapeHTML(summary||lang('لا توجد نبذة إضافية متاحة.','No additional summary available.'))+'</p><a href="'+escapeHTML(url)+'" target="_blank" rel="noopener noreferrer">Wikipedia ↗</a>'}
  }catch(e){if(current!==wikiSequence)return;target.innerHTML='<p class="gv-muted">'+lang('لا تتوفر حاليًا صورة أو مقالة مطابقة موثقة لهذا المعلم. يمكنك مواصلة استكشاف الإحداثيات والخريطة.','No matching article or photograph is currently available for this exact place. Explore its mapped location instead.')+'</p>'}
 }
 let globeInstance=null,globeNode=null,globeTimer=0;
@@ -305,5 +359,6 @@ createGame=function(mode){
  const q=originalCreate(mode);if(mode==='mapfind'&&store.ready)return q.filter(x=>store.countries.some(r=>norm(r.name)===norm(x[7])));return q;
 };
 loadCatalogue();
+loadCuratedStories();
 render();
 })();
