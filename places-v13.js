@@ -46,7 +46,7 @@ itemCards=function(items){
 // Called only after the existing wiki title was matched exactly and its thumbnail
 // host was checked against upload.wikimedia.org.
 photo.mount=function(box,src,name,articleUrl){
- if(!box?.isConnected||!/^https:\/\/upload\.wikimedia\.org\//.test(src))return;
+ if(!box?.isConnected||!/^https:\/\/(?:upload|thumb)\.wikimedia\.org\//.test(src))return;
  const img=document.createElement('img');
  img.loading='lazy';img.decoding='async';img.alt=name;
  img.referrerPolicy='no-referrer';img.src=src;
