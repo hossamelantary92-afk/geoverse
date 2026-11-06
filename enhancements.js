@@ -291,9 +291,9 @@ function initGlobe(){
  }
  const countryShapes=store.countryFeatures.filter(f=>f.properties.name!=='Antarctica'||isCont);
  if(countryShapes.length){
-  g.polygonsData(featureOverlay?[...countryShapes,featureOverlay]:countryShapes).polygonAltitude(f=>f.properties.gvOverlay?.064:(isCountry&&f===selectedFeature)?0.055:(isCont&&f.properties.gvContinent===selectedContinent||isCont&&selectedContinent==='Asia'&&['Russia','Turkey'].includes(f.properties.name))?.025:.008).polygonCapColor(f=>{
+  g.polygonsData(featureOverlay?[...countryShapes,featureOverlay]:countryShapes).polygonAltitude(f=>f.properties.gvOverlay?.064:(isCountry&&f===selectedFeature)?0.006:(isCont&&f.properties.gvContinent===selectedContinent||isCont&&selectedContinent==='Asia'&&['Russia','Turkey'].includes(f.properties.name))?.005:.0015).polygonCapColor(f=>{
    if(f.properties.gvOverlay)return 'rgba(240,183,67,.47)';
-   if(isCountry)return f===selectedFeature?'rgba(244,200,114,0.66)':'rgba(11,59,82,0.045)';
+   if(isCountry)return f===selectedFeature?'rgba(39,221,193,0.50)':'rgba(11,59,82,0.045)';
    if(isCont)return f.properties.gvContinent===selectedContinent||selectedContinent==='Asia'&&['Russia','Turkey'].includes(f.properties.name)?'rgba(19,221,217,0.48)':'rgba(3,30,50,0.13)';
    return 'rgba(17,115,145,0.13)'
   }).polygonSideColor(()=>'rgba(17,224,219,.1)').polygonStrokeColor(f=>f.properties.gvOverlay?'#ffdd8f':(isCountry&&f===selectedFeature)||(isCont&&f.properties.gvContinent===selectedContinent)?'#ffe1a0':'rgba(157,224,239,0.22)').polygonLabel(f=>f.properties.gvOverlay?'<div class="gv-globe-label">'+escapeHTML(f.properties.name)+' · '+lang('نطاق تقريبي','approximate area')+'</div>':state.page==='play'?'':'<div class="gv-globe-label">'+escapeHTML(f.properties.gvArabic&&state.lang==='ar'?f.properties.gvArabic:f.properties.name)+'</div>').onPolygonClick(f=>{if(f.properties.gvOverlay)return;const r=recordFor(f.properties.name);if(r&&state.page!=='play')setPage('country-v4',r.code)});
