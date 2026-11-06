@@ -95,3 +95,21 @@ Serve the folder with `python3 -m http.server 8080` and open `http://localhost:8
 1. Expand clear bilingual summaries and verified images and data sources to every landmark.
 2. Audit the 241 usable country and territory entries against authoritative, current references.
 3. Increase sourced geographic geometry quality while avoiding claims of exact boundaries for illustrative natural features.
+
+
+## GeoVerse v7 — Geographic Map Challenge Rebuild
+
+This release replaces **only the Find on Map quiz** with a separate, touch-first 2D map. All 18 geography topic sections, the 3D Earth, existing learning and locally saved progress remain unchanged.
+
+- **Continent-first quiz:** each question starts with the relevant continent in view rather than a too-small global map. The seven region controls include World, Asia, Africa, Europe, North America, South America and Oceania (the country challenge pool currently includes no Antarctica targets).
+- **Interaction:** drag from land or ocean, two-pointer pinch to zoom, wheel zoom, zoom +/- and reset-to-region controls. Short, stationary taps select countries; dragging never submits answers.
+- **Quiz feedback:** before answering, country names are hidden from visual hover, SVG title elements, and DOM map labels. After choosing, the selected wrong country and correct country receive different highlights, and the correct country's genuine SVG flag appears with simple bilingual feedback.
+- **No regression:** questions, scoring, next-question transitions and stored best results continue to use the existing quiz state machine. The new challenge intentionally avoids reusing the old atlas element, eliminating event-capture conflicts with the general 2D atlas.
+- **Educational library:** `geo-stories.json` grows from 37 to **65** curated bilingual, short, plain-Arabic educational entries. All added keys were checked against existing geography place IDs.
+
+### Validation (Nov 6, 2026)
+
+Real browser smoke tests were run against a local static server using an iPhone-sized viewport and **Chromium and WebKit** headless engines. They covered country-tap answer selection, feedback, next question, region switching, manual zoom, two-finger zoom, drag without submitting answers, page console/runtime errors, correct/missing shape coverage, country name hiding and no mobile horizontal scrolling. All listed checks passed in those environments.
+
+**Caveats:** these are browser-engine simulations, not tests on the user's physical iPhone. Narrow borders and countries may still require zooming; WebGL satellite textures and Wikimedia images remain subject to external network resources. Country shapes come from an educational simplified GeoJSON dataset, not official political-border adjudication. The 65 short articles are introductory learning content rather than an exhaustively sourced encyclopedia.
+

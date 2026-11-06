@@ -1,0 +1,41 @@
+/* GeoVerse v7 — premium interactive geography challenge */
+.gv7-map-root{margin:16px 0 8px;border:1px solid rgba(79,190,212,.42);border-radius:21px;overflow:hidden;background:linear-gradient(145deg,rgba(9,42,65,.96),rgba(3,20,39,.98));box-shadow:0 24px 56px #0008,inset 0 1px #6ccbd428;position:relative;isolation:isolate}
+.gv7-map-heading{padding:18px 19px 10px;display:flex;align-items:start;justify-content:space-between;flex-wrap:wrap;gap:7px 18px}
+.gv7-map-caption{font-family:Outfit,system-ui,sans-serif;color:#f3d28d;font-size:10px;letter-spacing:2px;font-weight:800}
+.gv7-map-tip{font-size:12px;color:#d4e6ed;line-height:1.85}
+.gv7-regions{display:flex;gap:7px;padding:10px 15px 15px;flex-wrap:wrap;justify-content:center}
+.gv7-region{border:1px solid #356d8199;border-radius:999px;background:#0b2e45;color:#c4e2e9;font-size:11px;font-weight:750;min-height:34px;padding:7px 13px;cursor:pointer;white-space:nowrap;transition:background .15s,border-color .15s}
+.gv7-region.active{color:#091e31;background:linear-gradient(110deg,#75e9dc,#37b8bf);border-color:#6de5dc;box-shadow:0 4px 17px #18c8c53e}
+.gv7-region:hover:not(.active){border-color:#74d1df;background:#15455b}
+.gv7-map-stage{position:relative;margin:0 14px;border:1px solid rgba(82,174,201,.48);border-radius:18px;overflow:hidden;background:radial-gradient(ellipse at 45% 43%,#205c7a,#092641 72%,#05182d);box-shadow:inset 0 0 70px #02172b;height:clamp(350px,47vw,575px)}
+.gv7-map-mount,.gv7-map-mount svg{width:100%;height:100%;display:block}
+.gv7-svg{touch-action:none;overscroll-behavior:contain;-webkit-user-select:none;user-select:none}
+.gv7-ocean{fill:url(#gv7Ocean);stroke:#6bb7ce99;stroke-width:1}
+.gv7-graticule{fill:none;stroke:#6cbcd333;stroke-width:.42;pointer-events:none}
+.gv7-country{fill:#15506b;stroke:#7bbdd0c9;stroke-width:.85;cursor:crosshair;outline:none;transition:fill .08s}
+.gv7-country:hover{fill:#1d7895;stroke:#b7e8e9}
+.gv7-country:focus-visible{fill:#216d85;stroke:#ffd38e;stroke-width:2}
+.gv7-country.gv7-correct{fill:#33b88e;stroke:#b3ffdb;stroke-width:1.75;filter:drop-shadow(0 0 6px #6cffce9e)}
+.gv7-country.gv7-wrong{fill:#ad4e67;stroke:#ffd3db;stroke-width:1.5}
+.gv7-map-tools{position:absolute;inset-inline-end:12px;top:14px;display:grid;gap:7px;z-index:2}
+.gv7-map-tools button{width:42px;height:42px;border:1px solid rgba(151,223,228,.7);border-radius:11px;background:#06293ddd;color:#eefcff;font-size:24px;box-shadow:0 6px 18px #0008;cursor:pointer}
+.gv7-map-tools button:hover{border-color:#f6c978;color:#f6d49a}
+.gv7-scale{position:absolute;bottom:12px;inset-inline-end:15px;padding:6px 11px;border-radius:9px;background:#032339d9;border:1px solid #367b90;color:#cfedf2;font:800 11px Outfit,system-ui;direction:ltr}
+.gv7-map-loading,.gv7-map-error{height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:#bce5ee;font-size:14px}
+.gv7-map-error{display:grid;align-content:center;gap:10px}
+.gv7-map-error button{border:1px solid #6ce6d7;border-radius:11px;padding:9px 15px;color:#8bf2e2;background:#0c3949}
+.gv7-feedback{min-height:67px;display:flex;justify-content:center;align-items:center;text-align:center;padding:11px 18px;color:#a9d9e2;font-size:12px}
+.gv7-answer{display:flex;justify-content:center;align-items:center;gap:13px;width:min(100%,540px);padding:9px 17px;border:1px solid #429d9f66;border-radius:12px;background:#103e50;text-align:start}
+.gv7-answer.right{border-color:#2fc4a0;background:#0e4b4c}
+.gv7-answer.wrong{border-color:#d78b76;background:#573c4b}
+.gv7-answer img{width:52px;height:34px;object-fit:contain;filter:drop-shadow(0 2px 7px #0007)}
+.gv7-answer strong{display:block;color:#f4fcff;font-size:13px}.gv7-answer small{display:block;font-size:11px;color:#d6edf2}
+.map-question:has(.gv7-map-root){max-width:1100px;overflow:hidden}
+.map-question:has(.gv7-map-root) .quiz-question{font-size:clamp(21px,2.5vw,31px)}
+.map-question:has(.gv7-map-root) .quiz-feedback{max-width:600px;margin:12px auto}
+.map-question:has(.gv7-map-root) #nextQuiz{display:block;min-width:138px;margin:15px auto}
+@media(max-width:690px){.map-question:has(.gv7-map-root){padding:12px 10px 18px}.gv7-map-heading{padding:13px 12px 6px}.gv7-map-tip{font-size:11px}.gv7-regions{gap:5px;padding:7px 8px 11px;flex-wrap:nowrap;overflow-x:auto;justify-content:start;scrollbar-width:thin}.gv7-region{padding:7px 10px;min-height:31px;font-size:10px}.gv7-map-stage{height:400px;margin:0 7px;border-radius:13px}.gv7-map-tools{top:8px;inset-inline-end:8px;gap:5px}.gv7-map-tools button{width:39px;height:39px}.gv7-feedback{min-height:62px;padding:9px}.gv7-answer{padding:9px 11px}.gv7-country{stroke-width:1.2}}
+@media(prefers-reduced-motion:reduce){.gv7-region,.gv7-country{transition:none}}
+
+/* The integrated answer card replaces the older duplicate quiz feedback. */
+.map-question:has(.gv7-map-root)>.quiz-feedback{display:none}
