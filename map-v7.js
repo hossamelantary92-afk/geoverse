@@ -7,7 +7,7 @@
  const minSize=75, WORLD={x:0,y:0,w:1000,h:520};
  const regions=['World','Asia','Africa','Europe','North America','South America','Oceania'];
  const arRegion={'World':'العالم','Asia':'آسيا','Africa':'أفريقيا','Europe':'أوروبا','North America':'أمريكا الشمالية','South America':'أمريكا الجنوبية','Oceania':'أوقيانوسيا'};
- const shapes={data:null,promise:null},game={key:null,selected:null,correct:null,view:null,region:null};
+ const shapes={data:null,promise:null},game={key:null,selected:null,correct:null,view:null,region:null,showingAnswer:false};
  const lang=(ar,en)=>state.lang==='ar'?ar:en;
  const safe=s=>String(s??'').replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
  const norm=s=>String(s??'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z]/g,'');
@@ -74,22 +74,68 @@
  function mapMarkup(){
   const target=quiz[state.quizIndex][7];
   if(game.key!==questionKey()){
-   game.key=questionKey();game.selected=null;game.correct=null;game.region=getRegion(target);game.view=frame(game.region);
+   game.key=questionKey();game.selected=null;game.correct=null;game.region=getRegion(target);game.view=frame(game.region);game.showingAnswer=false;
   }
-  const label=lang('اسحب الخريطة للتنقل، وقرّب بإصبعين، واضغط على الدولة للإجابة.','Drag to explore, pinch to zoom, tap a country to answer.');
+  const label=state.quizSelected===null?lang('اسحب الخريطة للتنقل، وقرّب بإصبعين، واضغط على الدولة للإجابة.','Drag to explore, pinch to zoom, tap a country to answer.'):lang('الدولة الصحيحة محددة بالتركواز؛ يمكنك تحريك الخريطة للمقارنة.','The correct country is highlighted in teal. Drag to compare locations.');
   const regionButtons=regions.map(r=>'<button type="button" class="gv7-region'+(r===game.region?' active':'')+'" data-v7-region="'+safe(r)+'">'+safe(state.lang==='ar'?arRegion[r]:r)+'</button>').join('');
   return '<section id="gameGeoMap" class="gv7-map-root" aria-label="'+lang('لعبة تحديد الدول على الخريطة','Find the country map quiz')+'">'+
    '<div class="gv7-map-heading"><span class="gv7-map-caption">'+lang('WORLD ATLAS / اختر دولة','WORLD ATLAS / FIND A COUNTRY')+'</span><span class="gv7-map-tip">'+label+'</span></div>'+
    '<div class="gv7-regions" aria-label="'+lang('اختيار المنطقة','Choose map region')+'">'+regionButtons+'</div>'+
    '<div class="gv7-map-stage"><div class="gv7-map-mount" id="gv7MapMount"><div class="gv7-map-loading">'+lang('جارٍ تحميل الخريطة الجغرافية...','Loading the geographic map...')+'</div></div>'+
    '<div class="gv7-map-tools"><button type="button" data-v7-zoom="in" aria-label="'+lang('تكبير','Zoom in')+'">+</button><button type="button" data-v7-zoom="out" aria-label="'+lang('تصغير','Zoom out')+'">−</button><button type="button" data-v7-zoom="reset" aria-label="'+lang('إعادة ضبط','Reset map')+'">⌖</button></div>'+
-   '<span data-v7-zoom-level class="gv7-scale">100%</span></div>'+
+   '<span data-v7-zoom-level class="gv7-scale">100%</span>'+(state.quizSelected!==null?'<div class="gv8-map-legend"><span><i class="gv8-dot correct"></i>'+lang('الإجابة الصحيحة','Correct location')+'</span>'+(state.quizSelected!==0?'<span><i class="gv8-dot wrong"></i>'+lang('اختيارك','Your choice')+'</span>':'')+'</div>':'')+'</div>'+
    '<div class="gv7-feedback" aria-live="polite">'+(state.quizSelected===null?'<span>'+lang('لن تظهر أسماء الدول قبل الإجابة.','Country names are hidden until you answer.')+'</span>':answerMessage())+'</div></section>';
  }
  function answerMessage(){
   const target=quiz[state.quizIndex][7],m=metadata(target),name=titleCountry(target),ok=state.quizSelected===0;
   const flag=m?.code?'<img loading="lazy" src="https://flagcdn.com/'+m.code.toLowerCase()+'.svg" alt="'+lang('علم الدولة','Country flag')+'">':'';
-  return '<div class="gv7-answer '+(ok?'right':'wrong')+'">'+flag+'<div><strong>'+(ok?lang('أحسنت! إجابة صحيحة','Well done! Correct answer'):lang('إجابة غير صحيحة','Not quite right'))+'</strong><small>'+(ok?safe(name):lang('اخترت: ','You chose: ')+safe(titleCountry(game.selected))+' · '+lang('الصحيح: ','Correct: ')+safe(name))+'</small></div></div>';
+  const icon=ok?'✓':'!';
+  const title=ok?lang('إجابة صحيحة!','Correct answer!'):lang('الإجابة غير صحيحة','Not quite right');
+  const details=ok?'<div class="gv8-summary"><span class="gv8-chip correct">'+lang('الدولة الصحيحة','Correct country')+'</span><strong>'+safe(name)+'</strong></div>':
+   '<div class="gv8-comparison"><div><span class="gv8-chip wrong">'+lang('اخترت','You selected')+'</span><b>'+safe(titleCountry(game.selected))+'</b></div><div><span class="gv8-chip correct">'+lang('الصحيح','Correct answer')+'</span><b>'+safe(name)+'</b></div></div>';
+  return '<div class="gv8-answer-card '+(ok?'right':'wrong')+'"><div class="gv8-status-icon">'+icon+'</div><div class="gv8-result-copy"><h3>'+title+'</h3>'+details+'</div>'+flag+'</div>'+
+   '<div class="gv8-answer-actions"><button type="button" data-gv8-focus="correct">'+lang('شاهد الموقع الصحيح','Show correct location')+'</button>'+
+   (!ok?'<button type="button" data-gv8-focus="compare">'+lang('قارن بين الموقعين','Compare locations')+'</button>':'')+'</div>';
+ }
+ function featureBounds(name){
+  const f=shapes.data?.features?.find(x=>sameCountry(countryName(x),name));
+  if(!f||!G.d3)return null;
+  const proj=d3.geoNaturalEarth1().fitExtent([[10,10],[990,510]],{type:'Sphere'});
+  const p=d3.geoPath(proj),b=p.bounds(f),cx=(b[0][0]+b[1][0])/2,cy=(b[0][1]+b[1][1])/2;
+  if(!isFinite(cx)||!isFinite(cy))return null;
+  return {bbox:b,cx,cy,w:Math.max(2,b[1][0]-b[0][0]),h:Math.max(2,b[1][1]-b[0][1])};
+ }
+ function focusCorrect(mode='correct',animate=true){
+  if(state.quizSelected===null||!game.correct)return;
+  const a=featureBounds(game.correct),b=mode==='compare'?featureBounds(game.selected):null;
+  if(!a)return;
+  let minX=a.bbox[0][0],maxX=a.bbox[1][0],minY=a.bbox[0][1],maxY=a.bbox[1][1];
+  if(b){minX=Math.min(minX,b.bbox[0][0]);maxX=Math.max(maxX,b.bbox[1][0]);minY=Math.min(minY,b.bbox[0][1]);maxY=Math.max(maxY,b.bbox[1][1])}
+  const centerX=(minX+maxX)/2,centerY=(minY+maxY)/2;
+  const w=Math.max(mode==='compare'?180:125,(maxX-minX)*2.4),h=Math.max(mode==='compare'?92:75,(maxY-minY)*2.4);
+  const initial=game.view?.slice()||frame(game.region),desired=[centerX-w/2,centerY-h/2,w,h];
+  game.showingAnswer=true;
+  const svg=document.querySelector('#gameGeoMap svg');
+  if(!animate||!svg||typeof requestAnimationFrame!=='function'){game.view=desired;updateView();return}
+  const key=game.key,began=performance.now(),duration=450;
+  function tick(now){
+   if(game.key!==key||state.quizSelected===null||!document.contains(svg))return;
+   const t=Math.min(1,(now-began)/duration),ease=1-Math.pow(1-t,3);
+   game.view=initial.map((x,i)=>x+(desired[i]-x)*ease);
+   updateView();
+   if(t<1)requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+ }
+
+ function answerPin(proj){
+  const p=featureBounds(game.correct);if(!p)return '';
+  const name=titleCountry(game.correct),text=safe(name);
+  // Annotation is SVG-rendered at the exact projected country position, not a detached map overlay.
+  const x=Math.max(48,Math.min(950,p.cx)),y=Math.max(34,Math.min(480,p.cy));
+  return '<g class="gv8-correct-pin" pointer-events="none" transform="translate('+x+' '+y+')">'+
+   '<circle r="11" class="gv8-pin-ring"/><circle r="4.5" class="gv8-pin-core"/>'+
+   '<g transform="translate(-42 -37)"><rect width="84" height="22" rx="6" class="gv8-pin-label-bg"/><text x="42" y="15" text-anchor="middle" font-size="10" class="gv8-pin-label">'+text+'</text></g></g>';
  }
  function draw(){
   if(!active())return;
@@ -109,7 +155,7 @@
     const name=countryName(f),isRight=state.quizSelected!==null&&sameCountry(name,quiz[state.quizIndex][7]),
      isWrong=state.quizSelected!==null&&sameCountry(name,game.selected)&&!isRight;
     return '<path tabindex="0" role="button" aria-label="'+(state.quizSelected===null?lang('اختيار دولة','Select country'):safe(titleCountry(name)))+'" data-gv7-country="'+i+'" class="gv7-country'+(isRight?' gv7-correct':isWrong?' gv7-wrong':'')+'" d="'+path(f)+'"></path>';
-   }).join('')+'</g></svg>';
+   }).join('')+'</g>'+(state.quizSelected!==null?answerPin(proj):'')+'</svg>';
   installTouch(mount.querySelector('svg'));
   bindControls(root);
   updateView();
@@ -123,10 +169,13 @@
   state.quizSelected=right?0:1;
   if(right)state.quizScore++;
   render(); // Re-renders the existing next-question button and correct/missed highlights.
+  // Reveal the correct location automatically after the answer, never before it.
+  setTimeout(()=>{if(state.quizSelected!==null&&game.correct===correct)focusCorrect('correct')},170);
  }
  function bindControls(root){
   root.querySelectorAll('[data-v7-region]').forEach(b=>b.addEventListener('click',()=>{fitRegion(b.dataset.v7Region);root.querySelectorAll('[data-v7-region]').forEach(x=>x.classList.toggle('active',x===b))}));
   root.querySelectorAll('[data-v7-zoom]').forEach(b=>b.addEventListener('click',()=>{const d=b.dataset.v7Zoom;if(d==='reset')fitRegion(game.region);else zoom(d==='in'?.72:1.4)}));
+  root.querySelectorAll('[data-gv8-focus]').forEach(b=>b.addEventListener('click',()=>focusCorrect(b.dataset.gv8Focus)));
  }
  function installTouch(svg){
   const pointers=new Map();
@@ -201,5 +250,5 @@
  };
  // Existing game event delegation and quiz score persistence remain authoritative.
  // The v3/v6 atlas scheduler looks for #gameMap, absent during v7 quiz, so it cannot collide.
- G.GeoVerseMapV7={loadShapes,choose,zoom,fitRegion,getRegion,getState:()=>({...game}),sameCountry};
+ G.GeoVerseMapV7={loadShapes,choose,zoom,fitRegion,focusCorrect,getRegion,getState:()=>({...game}),sameCountry};
 })();
