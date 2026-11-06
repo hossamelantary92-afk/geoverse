@@ -43,7 +43,7 @@ function topicCard(c){
  const name=labelFor(c),n=geo[c.id]?.length||0,theme=THEMES[c.id]||'aqua';
  return '<button type="button" class="gv12-card gv12-'+theme+'" data-cat="'+c.id+'" aria-label="'+escapeHTML(name)+'">'+
   '<img class="gv12-image" loading="lazy" decoding="async" src="'+urlFor(c,840)+'" alt="'+escapeHTML(tx('صورة فوتوغرافية: '+name,'Real photograph: '+name))+'">'+
-  '<span class="gv12-card-bg" aria-hidden="true"></span>'
+  '<span class="gv12-card-bg" aria-hidden="true"></span>'+
   '<span class="gv12-card-copy"><strong>'+escapeHTML(name)+'</strong><small>'+n+' '+tx('موقعًا ومعلمًا','places & landmarks')+'</small></span>'+
   '</button>';
 }
