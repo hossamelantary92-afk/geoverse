@@ -127,11 +127,12 @@ function gvRelatedCountryPlaces(code){
  const items=entries.map(([category,english,description])=>{
   const idx=(geo[category]||[]).findIndex(row=>row[1]===english);
   if(idx<0)return '';
-  const row=geo[category][idx],cat=cats.find(x=>x.id===category);
+  const row=geo[category][idx];
+  const nativeIcons={rivers:'🏞️',deserts:'🏜️',seas:'🌊',straits:'🚢',mountains:'🏔️',oceans:'🌊',volcanoes:'🌋',forests:'🌳',waterfalls:'💦',lakes:'🏞️',islands:'🏝️'};
   const name=esc(row[state.lang==='ar'?0:1]);
   const about=esc(description[state.lang==='ar'?0:1]);
   return '<button type="button" class="gv-knowledge-link" data-item="'+esc(category)+':'+idx+'">'+
-   '<span class="gv-knowledge-icon" aria-hidden="true">'+esc(cat?.emoji||'🌍')+'</span>'+
+   '<span class="gv-knowledge-icon" aria-hidden="true">'+nativeIcons[category]||'🌍'+'</span>'+
    '<span class="gv-knowledge-text"><strong>'+name+'</strong><small>'+about+'</small></span>'+
    '<span class="gv-knowledge-go" aria-hidden="true">↗</span></button>';
  }).filter(Boolean);
