@@ -122,7 +122,7 @@ async function loadCardsMedia(){
     for(let hop=0;hop<5;hop++){const dest=redirects.get(norm(name));if(!dest||norm(dest)===norm(name))break;name=dest}
     const matching=byTitle.get(norm(name));if(!matching?.thumbnail?.source)continue;
     const image=matching.thumbnail.source;
-    if(!/^https:\/\/upload\.wikimedia\.org\//.test(image))continue;
+    if(!/^https:\/\/(?:upload|thumb)\.wikimedia\.org\//.test(image))continue;
     // Reject SVG maps, diagrams, icons and artwork that could be mistaken for a real place photograph.
     if(/\.(?:svg)(?:\?|$)/i.test(image)||/(?:map[_-]|locator|blank[_-]map|flag[_-]|coat[_-]of[_-]arms|logo[_-]|diagram|schematic|emblem)/i.test(decodeURIComponent(image)))continue;
     const box=document.querySelector('[data-photo-index="'+row.i+'"]');if(!box)continue;
