@@ -97,6 +97,7 @@ categoryPage=(function(old){return function(){if(state.category==='countries'){r
 const originalSetPage=setPage;
 G.gvCountryOpen=function(code){state.page='country-v4';state.v4Code=code;state.category='countries';state.item=null;render();window.scrollTo(0,0)};
 const oldPlayDisplay=play;
+const oldMode=null;
 play=function(){
  let h=oldPlayDisplay().replaceAll('class="quiz-card"','class="quiz-card gv-quiz-premium"');
  if(selectedGameMode==='flags'&&!state.quizComplete){const question=quiz[state.quizIndex];if(question?.[7])h=h.replace('<h2 class="quiz-question">','<div class="gv-flag-challenge">'+flag(question[7],lang('علم دولة مطلوب التعرف عليها','Country flag to identify'))+'</div><h2 class="quiz-question">');}
@@ -109,10 +110,24 @@ render=function(){
  // When countries category chosen via original nav, show the new encyclopedia.
  if(state.page==='category'&&state.category==='countries')main.innerHTML=countriesPage();
  document.body.classList.toggle('gv-game-mode',state.page==='play'&&selectedGameMode==='mapfind');
+ const navNames={home:'continents',explore:'countries',learn:'oceans',play:'mountains',progress:'grasslands'};
+ document.querySelectorAll('.topnav button[data-page]').forEach(b=>{
+  const iconName=navNames[b.dataset.page];
+  if(!iconName)return;
+  const label=b.querySelector('span');
+  if(label){b.innerHTML=svgIcon(iconName,17)+' '+label.outerHTML;}
+ });
+ const icons={'🌍':'continents','🗺️':'continents','🏆':'countries','🎮':'mountains','🎓':'countries','📍':'countries','📚':'continents','🌊':'oceans','🏔️':'mountains','🏜️':'deserts','🌳':'forests','🌋':'volcanoes','💦':'waterfalls','🧭':'continents','🌿':'forests','⭐':'countries','✦':'continents'};
+ if(state.page!=='play'||selectedGameMode!=='flags'){
+  let html=main.innerHTML;
+  for(const [em,ic] of Object.entries(icons))html=html.replaceAll(em,svgIcon(ic,19));
+  if(html!==main.innerHTML)main.innerHTML=html;
+ }
  scheduleEnhancements();
 };
 const oldSetPage=setPage;
 setPage=function(page,cat=null,item=null){
+ if(globeInstance){try{globeInstance.pauseAnimation?.();globeInstance._destructor?.()}catch(e){}globeInstance=null;globeNode=null;}
  if(page==='country-v4'){state.v4Code=cat;state.page='country-v4';state.category='countries';state.item=null;render();window.scrollTo(0,0);return}
  if(page==='countries-v4'){state.page='countries-v4';state.category='countries';state.item=null;render();window.scrollTo(0,0);return}
  oldSetPage(page,cat,item);
