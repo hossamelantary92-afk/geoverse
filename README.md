@@ -57,3 +57,26 @@ Serve the folder with `python3 -m http.server 8080` and open `http://localhost:8
 - Verified GeoJSON layers for the Nile, Amazon, forests, deserts, oceans and major watersheds.
 - More country profiles, capitals, flags, and country-level maps.
 - Offline caching of map libraries, image optimization, keyboard accessibility, localization audit, and optional cloud sync.
+
+
+## GeoVerse v4 Premium Cinematic Atlas
+
+**Status:** v4 enhancement layer over v3. The original 18 topic categories, bilingual learning, progress, and quiz modes remain in place.
+
+### Experience
+- New real-time 3D Earth explorer using Globe.GL (WebGL/Three.js), with interactive drag/zoom, atmospheric halo, satellite-like Blue Marble surface, and camera focus on selected places.
+- 3D views in the hero, Atlas Explore, selected continent detail, geographic landmark detail, and country profiles. 2D atlas remains available as a fallback and complement.
+- Premium dark atlas visual layer and unified SVG icons for navigation, topic categories, and geography cards.
+- 241 selectable country/territory metadata entries from a 251-row source (entries without region or ISO code are excluded), grouped by continent; original educational dataset still supplements profiles. Real ISO-linked SVG flags use FlagCDN, rather than emoji flags.
+- Continent selection in 3D highlights groupings of countries in the current polygon dataset, with full-world dimming. Several transcontinental cases (e.g., Turkey, Russia) have approximate whole-country highlights and are *not an exact continental fault line*; overlays and contested borders require a more detailed spatial dataset.
+- Rich landmark pages contain geolocation, original short descriptions, optional exact-title Wikipedia article excerpt and photo with a source link. Topic cards attempt to retrieve exact-match Wikimedia thumbnails and leave a clear icon placeholder if unavailable rather than showing a misleading picture of another place.
+- Additional real-flag and capitals quiz questions generated from the full catalogue. Interactive map guessing suppresses native country titles, hover popups and labels until a response.
+
+### Source notes and known limits
+- Country metadata: [samayo/country-json](https://github.com/samayo/country-json), which is not an official or reliably current source of political, population or capital details. Specific special-capital, country naming, and border disputes need source-by-source review before educational publication.
+- Country geometry: [johan/world.geo.json](https://github.com/johan/world.geo.json), a simplified global dataset with 180 features; not all dependent territories are represented with separate polygons.
+- Globe textures: publicly served example images from Three-Globe. 3D renderer: Globe.GL (MIT).
+- SVG flags: [FlagCDN](https://flagcdn.com), based on country ISO codes. Photos/articles are loaded from Wikipedia/Wikimedia only when title matching succeeds. Media requires an active internet connection; Wikimedia image licensing and author attribution should be checked per item.
+- Some descriptions for geographic landmarks remain introductory; additional detailed bilingual content is a future expansion and is not claimed as completed. For natural features like rivers, deserts and oceans, where verified polygon/line geometry isn't available, the 3D globe shows a representative point. The existing 2D illustrative overlays explicitly remain approximate.
+- Geographical category membership is conventional for some transcontinental countries and territories; the default country list includes some territories alongside sovereign states. Region counts should not be presented as UN-member counts.
+- Not yet verified through a real interactive browser screenshot on iPhone/desktop; JS syntax and simulated navigation/globe/quiz tests were conducted before merge. QA should include WebGL resource availability, focus accessibility, Wikimedia image loading, and country quiz tooltips on hover.
