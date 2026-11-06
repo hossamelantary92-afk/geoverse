@@ -166,3 +166,28 @@ The user's mobile concept image is the approved visual reference for the GeoVers
 **QA.** Chromium mobile browser simulations at 390px and 360px and desktop at 1440px verified all **18/18 cards and images load**, original sidebar renders 18 SVG icons, Arabic and English search each returns the expected one-card match, each selected card navigates correctly (tested Islands), relevant category headings carry SVG icons, the homepage still has its six flagship cards, 5-tab mobile navigation and functioning 3D Earth canvas, and no horizontal viewport overflow or page JavaScript errors in tested flows. External images require network access; real physical iPhone Safari testing is still encouraged.
 
 **Next improvements.** Extend the approved photo-card design to individual geographic place listings (with carefully matched image + source per place), enrich the number of verified educational entries, optimize mobile image loading/quality and provide explicit source/credit detail, then continue the unified premium redesign across quiz and progress pages. As of the preceding Phase 3 release, Vercel production was blocked by a daily deployment quota; verify deployment separately before announcing it as live.
+
+
+## GeoVerse Phase 3.4 — Cleaner Place Details (2026-11-06)
+
+**Status: implemented on branch `geoverse-v14-detail-cleanup` for review; deliberately NOT deployed to Vercel today.** The user explicitly requested no Vercel deployment attempts until the free-plan daily limit resets tomorrow. Do not merge this PR today if the project's GitHub integration automatically publishes main.
+
+### What changed
+- New `detail-v14.js` / `detail-v14.css` renders a concise place-detail page: one real subject-linked article image or an honest SVG fallback, clear location title, short summary, a small functioning "Mark as learned" pill, curated key fact tiles when recorded (from existing 65 bilingual story profiles), **exactly one interactive 3D globe**, a collapsed additional-information/source area and a next-place link. The category and raw coordinate tiles, repeated text, huge secondary buttons, duplicate maps and technical prose are no longer in the standard detail layout.
+- Language is consistently Arabic or English according to site state. Facts that only exist as Arabic labels are shown in Arabic mode; English narrative remains from the bilingual story or existing bilingual place descriptions. No unsourced area/length/depth metrics are fabricated.
+- Existing `toggleSeen`, `data-item` and `data-cat` events and persisted learning progress remain intact. No new storage schema or login required.
+- Continent details preserve their existing country list and continent globe while removing duplicate article/map blocks and repetitive coordinate/category cards.
+- Country encyclopedia retains its sourced World Bank population, area, currencies, languages, one globe, real national flag and bordering countries, but removes an extra page block repeating the capital and continent and showing an oversized ISO code.
+- Photo verification was tightened in the existing article loader: only official Wikimedia image hosts can populate the hero, with map/locator/flag/diagram/SVG thumbnails excluded. Link to the named source page is preserved.
+
+### Checks performed
+- JavaScript syntax checks for both modified modules passed.
+- Isolated runtime tests with simulated geographical data validated one and only one map/photo/source container in natural-feature detail, a working `toggleSeen` target, the correct next-location link, Arabic and English titles, no raw coordinate panel, and asynchronous hydration of existing curated Arabic facts.
+- Repository checks validated that the module and stylesheet load **after** the existing Phase 3.3 module and that the 65-story and 133-photo source files are still present.
+- **Limitation:** A full browser visual/regression run against the current GitHub version was not performed because the remote session expired; no Vercel sandbox, preview, production build or deployment was invoked for this phase. Physical mobile QA should be done after the deployment limit resets.
+
+### Next
+1. When allowed, verify and merge the tested PR, then perform a single controlled production release of the latest main rather than many small pushes.
+2. Test the actual iPhone Safari layout, photo source credits, learned pill, continent country grid and one 3D globe.
+3. Expand sourced length/depth/area/border facts per natural feature, where reputable source data exists; improve English localized fact tiles.
+4. Revisit per-photo licensing, mobile performance, and the remaining quiz/progress screens.
