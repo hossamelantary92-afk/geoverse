@@ -16,7 +16,7 @@
   beforeRender();
   if(state.page!=='play')return;
   document.querySelectorAll('.game-mode[data-game]').forEach(btn=>{
-   const part=btn.querySelector('span');
+   const part=btn.querySelector(':scope > span:not(.gv45-game-shade)');
    if(part)part.innerHTML=icon(btn.dataset.game);
   });
  };
