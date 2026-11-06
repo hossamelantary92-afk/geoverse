@@ -73,7 +73,7 @@ home=function(){
 function getCountryName(r){return state.lang==='ar'?arName(r):r.name}
 function countryCards(list){return list.map(r=>'<button class="gv-country-row" data-v4-country="'+escapeHTML(r.code)+'"><span class="gv-country-flag">'+flag(r.code,'Flag of '+r.name)+'</span><span class="gv-country-name"><b>'+escapeHTML(getCountryName(r))+'</b><small>'+escapeHTML(r.name)+'</small></span><span class="gv-capital">'+escapeHTML(r.capital||'—')+'</span><span class="gv-country-chevron">↗</span></button>').join('')}
 function countriesPage(){
- const c=state.v4Continent||'all';
+ const c=state.v4Continent||'Asia';
  const options=['all',...continentKeys];
  const countries=store.countries.filter(r=>c==='all'||r.continent===c||c==='Asia'&&twoRegion.has(r.name)).sort((a,b)=>(state.v4Sort==='en'?a.name.localeCompare(b.name):getCountryName(a).localeCompare(getCountryName(b),state.lang==='ar'?'ar':'en')));
  const filtered=countries.filter(x=>(getCountryName(x)+' '+x.name+' '+x.capital).toLowerCase().includes((state.v4Search||'').trim().toLowerCase()));
@@ -92,7 +92,37 @@ function extendedArticle(v){
 detail=function(){const base=oldDetail();if(state.category==='continents'){const v=geo.continents[state.item],key=v[1];const countryList=store.countries.filter(r=>r.continent===key||key==='Asia'&&twoRegion.has(r.name));return base.replace('</div><div class="detail-card">','</div><div class="gv-continent-intro"><h2>'+lang('حدود القارة ودولها','Continent Boundaries & Countries')+'</h2><p>'+lang('الدول التابعة للقارة ستظهر بلون مضيء على الكرة ثلاثية الأبعاد.','The continent countries will glow together on the 3D Earth.')+'</p><div class="gv-continent-3d" id="gvContinentGlobe"></div><div class="gv-boundary-key">'+lang('حدود القارات تصنيف جغرافي تقريبي، وليست حدودًا سياسية رسمية.','Continental divisions are geographic conventions, not political borders.')+'</div></div><div class="detail-card">')+'<div class="gv-story-card"><h2>'+lang('دول القارة','Countries in this continent')+'</h2><div class="gv-country-grid">'+countryCards(countryList)+'</div></div>'}
  const v=geo[state.category][state.item];return base+'<section class="gv-feature-article">'+extendedArticle(v)+'</section><section class="gv-story-card gv-feature-globe"><span class="eyebrow">3D WORLD ATLAS</span><h2>'+lang('شاهد المعلم على الكرة الأرضية','Explore this place in 3D')+'</h2><div class="gv-globe-detail" id="gvDetailGlobe"></div><p class="gv-map-attribution">'+lang('قد يكون الموضع نقطة تمثيلية عندما لا تتوفر حدود جغرافية موثقة لهذا المعلم.','A representative location point is shown where documented geographic extents are unavailable.')+'</p></section>';
 };
-itemCards=function(items){const original=oldItemCards(items);if(state.category==='countries')return original;return original.replace(/<span class="item-icon">/g,'<span class="item-icon gv-item-icon">')};
+
+itemCards=function(items){
+ if(state.category==='countries')return oldItemCards(items);
+ const q=(state.filter||'').trim().toLowerCase();
+ const list=items.map((v,i)=>({v,i})).filter(x=>!q||(x.v[0]+' '+x.v[1]).toLowerCase().includes(q));
+ return list.length?list.map(({v,i})=>'<button class="gv-place-card" data-item="'+state.category+':'+i+'"><span class="gv-place-media" data-photo-index="'+i+'">'+svgIcon(state.category,34)+'<small>'+lang('صورة المعلم','Place photograph')+'</small></span><span class="gv-place-copy"><strong>'+escapeHTML(lang(v[0],v[1]))+'</strong><small>'+escapeHTML(lang(v[2],v[3]))+'</small><span class="gv-place-explore">'+lang('اكتشف الموقع والتفاصيل','Discover location & facts')+' ↗</span></span></button>').join(''):'<div class="empty">'+lang('لا توجد نتائج','No results')+'</div>';
+};
+let cardPhotoSequence=0;
+async function loadCardsMedia(){
+ if(state.page!=='category'||state.category==='countries')return;
+ const current=++cardPhotoSequence;
+ const group=state.category, items=geo[group]||[];
+ const targets=items.map((v,i)=>({i,title:wikiTitle(v)})).filter(x=>!!x.title).slice(0,180);
+ const chunks=[];for(let i=0;i<targets.length;i+=30)chunks.push(targets.slice(i,i+30));
+ for(const chunk of chunks){
+  try{
+   const params=new URLSearchParams({action:'query',prop:'pageimages',piprop:'thumbnail',pithumbsize:'640',redirects:'1',titles:chunk.map(x=>x.title).join('|'),format:'json',origin:'*'});
+   const res=await fetch('https://en.wikipedia.org/w/api.php?'+params);if(!res.ok)continue;
+   const data=await res.json();if(current!==cardPhotoSequence||state.category!==group||state.page!=='category')return;
+   const pages=Object.values(data.query?.pages||{});
+   for(const row of chunk){
+    const matching=pages.find(p=>norm(p.title)===norm(row.title));if(!matching?.thumbnail?.source)continue;
+    const image=matching.thumbnail.source;
+    if(!/^https:\/\/upload\.wikimedia\.org\//.test(image))continue;
+    const box=document.querySelector('[data-photo-index="'+row.i+'"]');if(!box)continue;
+    box.innerHTML='<img loading="lazy" src="'+escapeHTML(image)+'" alt="'+escapeHTML(lang(items[row.i][0],items[row.i][1]))+'">';
+   }
+  }catch(e){/* Keep attractive vector placeholder when source is unavailable */ }
+ }
+}
+
 categoryPage=(function(old){return function(){if(state.category==='countries'){return countriesPage()}return old()}})(categoryPage);
 const originalSetPage=setPage;
 G.gvCountryOpen=function(code){state.page='country-v4';state.v4Code=code;state.category='countries';state.item=null;render();window.scrollTo(0,0)};
@@ -124,6 +154,7 @@ render=function(){
   if(html!==main.innerHTML)main.innerHTML=html;
  }
  scheduleEnhancements();
+ if(state.page==='category'&&state.category!=='countries')setTimeout(loadCardsMedia,80);
 };
 const oldSetPage=setPage;
 setPage=function(page,cat=null,item=null){
@@ -252,7 +283,7 @@ document.addEventListener('click',e=>{
  const region=e.target.closest?.('[data-v4-continent]');if(region){e.preventDefault();e.stopImmediatePropagation();state.v4Continent=region.dataset.v4Continent;state.v4Search='';setPage('countries-v4');return}
  const sorting=e.target.closest?.('[data-v4-sort]');if(sorting){e.preventDefault();e.stopImmediatePropagation();state.v4Sort=sorting.dataset.v4Sort;render();return}
 },true);
-document.addEventListener('input',e=>{if(e.target.id==='gvCountrySearch'){state.v4Search=e.target.value;const c=state.v4Continent||'all';const filtered=store.countries.filter(r=>(c==='all'||r.continent===c||c==='Asia'&&twoRegion.has(r.name))&&(getCountryName(r)+' '+r.name+' '+r.capital).toLowerCase().includes(state.v4Search.toLowerCase()));const grid=document.getElementById('gvCountryGrid');if(grid)grid.innerHTML=countryCards(filtered)}});
+document.addEventListener('input',e=>{if(e.target.id==='categoryFilter')setTimeout(loadCardsMedia,130);if(e.target.id==='gvCountrySearch'){state.v4Search=e.target.value;const c=state.v4Continent||'Asia';const filtered=store.countries.filter(r=>(c==='all'||r.continent===c||c==='Asia'&&twoRegion.has(r.name))&&(getCountryName(r)+' '+r.name+' '+r.capital).toLowerCase().includes(state.v4Search.toLowerCase()));const grid=document.getElementById('gvCountryGrid');if(grid)grid.innerHTML=countryCards(filtered)}});
 document.addEventListener('mouseover',e=>{if(state.page==='play'&&selectedGameMode==='mapfind'){const p=e.target.closest?.('[data-map-country]');if(p){p.removeAttribute('aria-label');p.querySelectorAll('title').forEach(t=>t.remove())}}},true);
 document.addEventListener('focusin',e=>{if(state.page==='play'&&selectedGameMode==='mapfind'){const p=e.target.closest?.('[data-map-country]');if(p){p.removeAttribute('aria-label');p.querySelectorAll('title').forEach(t=>t.remove())}}},true);
 const originalCreate=createGame;
