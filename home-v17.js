@@ -23,15 +23,15 @@ function numbers(){
 }
 function games(){
  const items=[
-  {id:'capitals',icon:'crown',color:'gold',name:T('تحدي العواصم','Capital challenge'),desc:T('هل تعرف عواصم دول العالم؟','Can you name the world capitals?')},
-  {id:'mapfind',icon:'map',color:'cyan',name:T('تحديد المواقع','Locate the country'),desc:T('اعثر على الدولة على الخريطة.','Find the country on the map.')},
-  {id:'classify',icon:'layers',color:'violet',name:T('تصنيف الأماكن','Classify places'),desc:T('ميّز بين الجبال والأنهار وغيرها.','Identify mountains, rivers and more.')},
-  {id:'mixed',icon:'globe',color:'green',name:T('التحدي المتنوع','Mixed geography quiz'),desc:T('مجموعة متنوعة من أسئلة الجغرافيا.','A mix of geography questions.')}
+  {id:'capitals',icon:'crown',color:'gold',photo:'photo-1519501025264-65ba15a82390',level:T('العواصم','CAPITALS'),name:T('تحدي العواصم','Capital challenge'),desc:T('هل تعرف عواصم دول العالم؟','Can you name the world capitals?')},
+  {id:'mapfind',icon:'map',color:'cyan',photo:'photo-1526778548025-fa2f459cd5c1',level:T('المواقع','LOCATION'),name:T('تحديد المواقع','Locate the country'),desc:T('اعثر على الدولة على الخريطة.','Find the country on the map.')},
+  {id:'classify',icon:'layers',color:'violet',photo:'photo-1464822759023-fed622ff2c3b',level:T('الطبيعة','NATURE'),name:T('تصنيف الأماكن','Classify places'),desc:T('ميّز بين الجبال والأنهار وغيرها.','Identify mountains, rivers and more.')},
+  {id:'mixed',icon:'globe',color:'green',photo:'photo-1518837695005-2083093ee35b',level:T('اختبار متنوع','MIXED QUIZ'),name:T('التحدي المتنوع','Mixed geography quiz'),desc:T('مجموعة متنوعة من أسئلة الجغرافيا.','A mix of geography questions.')}
  ];
  return '<section class="gv17-games" aria-labelledby="gv17GamesTitle">'+
   '<div class="gv17-heading"><div><span class="gv17-overline">'+T('اختبر معرفتك','PUT YOUR KNOWLEDGE TO THE TEST')+'</span><h2 id="gv17GamesTitle">'+T('الألعاب والتحديات','Games & Challenges')+'</h2><p>'+T('اختبر نفسك في ألعاب جغرافية تفاعلية، واكتشف العالم بطريقة ممتعة.','Play interactive geography challenges and discover how much you know.')+'</p></div><button type="button" class="gv17-text-action" data-page="play">'+T('جميع الألعاب','All games')+' '+icon('arrow',16)+'</button></div>'+
   '<div class="gv17-games-grid">'+items.map((g,i)=>'<button type="button" class="gv17-game gv17-game-'+g.color+'" data-gv17-game="'+g.id+'">'+
-   '<span class="gv17-game-num">0'+(i+1)+'</span><span class="gv17-game-icon">'+icon(g.icon,30)+'</span>'+
+   '<img class="gv20-game-photo" loading="lazy" decoding="async" src="'+im(g.photo,700)+'" alt="" aria-hidden="true"><span class="gv20-game-shade" aria-hidden="true"></span><span class="gv20-game-head"><span class="gv17-game-num">0'+(i+1)+'</span><span class="gv17-game-icon">'+icon(g.icon,30)+'</span></span><span class="gv20-game-kicker">'+g.level+'</span>'+
    '<strong>'+g.name+'</strong><small>'+g.desc+'</small><span class="gv17-game-launch">'+T('العب الآن','Play now')+' '+icon('arrow',16)+'</span></button>').join('')+'</div>'+
   '<div class="gv17-daily"><div class="gv17-daily-mark">'+icon('bolt',29)+'</div><div class="gv17-daily-copy"><span>'+T('تحدّي اليوم','TODAY’S CHALLENGE')+'</span><strong>'+T('جاهز لجولة جغرافية؟','Ready for a geography round?')+'</strong><small>'+T('ابدأ جولة جديدة من أسئلة التحدي المتنوع.','Start a fresh round of mixed geography questions.')+'</small></div><button data-gv17-game="mixed">'+T('ابدأ التحدي','Start challenge')+' '+icon('arrow',17)+'</button></div>'+
  '</section>';
