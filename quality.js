@@ -41,6 +41,27 @@ if(typeof nativeGlobe==='function'){
  };
 }
 const stories=new Map();
+
+const arabicCapitals=new Map(),arabicCurrencies=new Map();
+function decorateArabicNames(){
+ const s=currentState();if(!s||s.lang!=='ar')return;
+ const root=document.getElementById('main');if(!root)return;
+ root.querySelectorAll('.gv-country-row[data-v4-country]').forEach(row=>{
+  const name=arabicCapitals.get(row.dataset.v4Country);
+  const node=row.querySelector('.gv-capital');
+  if(name&&node)node.textContent=name;
+ });
+ if(s.page==='country-v4'){
+  const record=win.GeoVerseV4?.store?.byCode?.get(s.v4Code);
+  const facts=root.querySelectorAll('.gv-profile-facts > div');
+  if(record&&facts?.length>=3){
+   const cap=facts[0].querySelector('strong'),currency=facts[2].querySelector('strong');
+   if(cap&&arabicCapitals.has(record.code))cap.textContent=arabicCapitals.get(record.code);
+   if(currency&&arabicCurrencies.has(record.currency))currency.textContent=arabicCurrencies.get(record.currency);
+  }
+ }
+}
+
 let articleKey='',articleRun=0;
 const normalize=x=>String(x||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z]/g,'');
 const escapeText=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -118,6 +139,7 @@ function addArticle(){
  });
 }
 function decorate(){
+ decorateArabicNames();
  const s=currentState();if(!s)return;
  if(s.page!=='detail'&&s.page!=='country-v4'){articleKey='';articleRun++;return;}
  addArticle();
@@ -132,6 +154,12 @@ fetch('./geo-stories.json').then(r=>r.ok?r.json():null).then(data=>{
  for(const [name,story] of Object.entries(data?.stories||{}))stories.set(normalize(name),story);
  decorate();
 }).catch(()=>decorate());
+fetch('./geo-localization.json').then(r=>r.ok?r.json():null).then(data=>{
+ Object.entries(data?.capitals||{}).forEach(([code,text])=>arabicCapitals.set(code,text));
+ Object.entries(data?.currencies||{}).forEach(([name,text])=>arabicCurrencies.set(name,text));
+ decorate();
+}).catch(()=>{});
+document.addEventListener('input',e=>{if(e.target?.id==='gvCountrySearch')setTimeout(decorateArabicNames,30)});
 setTimeout(decorate,80);
 win.GeoVerseQuality={stories,decorate,shortArabicExtract,arabicArticle};
 })();
