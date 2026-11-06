@@ -80,3 +80,18 @@ Serve the folder with `python3 -m http.server 8080` and open `http://localhost:8
 - Some descriptions for geographic landmarks remain introductory; additional detailed bilingual content is a future expansion and is not claimed as completed. For natural features like rivers, deserts and oceans, where verified polygon/line geometry isn't available, the 3D globe shows a representative point. The existing 2D illustrative overlays explicitly remain approximate.
 - Geographical category membership is conventional for some transcontinental countries and territories; the default country list includes some territories alongside sovereign states. Region counts should not be presented as UN-member counts.
 - Not yet verified through a real interactive browser screenshot on iPhone/desktop; JS syntax and simulated navigation/globe/quiz tests were conducted before merge. QA should include WebGL resource availability, focus accessibility, Wikimedia image loading, and country quiz tooltips on hover.
+
+
+## GeoVerse v5 — Quality + Arabic Encyclopedia Starter
+
+- **Plain Arabic by default:** the Arabic interface now prefers the corresponding Arabic Wikipedia article instead of presenting raw English-language extracts. When an Arabic article is unavailable, an original Arabic introductory summary is shown instead. The English interface remains unchanged.
+- **37 curated bilingual geography field notes:** geo-stories.json supplies accessible Arabic explanations for selected deserts, oceans, seas, rivers, falls, forests, mountains, lakes, islands, volcanoes, waterways, and climate types. These are educational introductions, not exhaustive biographies. Other entries still use existing Arabic introductions.
+- **Map quiz fair play:** SVG country shapes in the map-based answer game are generated without country-name native title tooltips or answer-leaking aria labels before selection. Ordinary exploration labels are retained. Accessibility alternatives for nonvisual map play remain a future requirement.
+- **Globe performance:** cap WebGL renderer pixel ratio (especially on phones) and pause animation while the browser tab is hidden, where the Globe.GL API supports it.
+- **Visual enhancement:** premium responsive field-note cards with simple localized text and facts.
+- **QA:** JavaScript syntax, mocked DOM page navigation, Arabic field-note rendering, country/continent pages, and flag quiz smoke checks passed. A full real-browser screenshot/visual QA, measured mobile FPS, and review of every Arabic detail remain outstanding.
+
+### Future content work
+1. Expand clear bilingual summaries and verified images and data sources to every landmark.
+2. Audit the 241 usable country and territory entries against authoritative, current references.
+3. Increase sourced geographic geometry quality while avoiding claims of exact boundaries for illustrative natural features.

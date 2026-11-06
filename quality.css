@@ -1,0 +1,22 @@
+/* GeoVerse v5: concise Arabic learning panels, editorial content, 3D polish */
+html[lang="ar"] #gvWikiArticle{display:none!important}
+.gv-quality-lesson,.gv-arabic-source{background:linear-gradient(135deg,rgba(11,47,64,.84),rgba(5,28,43,.92));border:1px solid rgba(92,201,206,.28);border-radius:15px;padding:20px;margin:16px 0;color:#edf9fa;box-shadow:inset 0 1px 0 rgba(255,255,255,.045)}
+.gv-quality-lesson h3,.gv-arabic-source h3{font-size:19px;line-height:1.6;margin:7px 0 11px;color:#f6e5b9}
+.gv-quality-caption{font:700 10px 'Outfit',sans-serif;letter-spacing:2px;color:#6ce9d5}
+.gv-quality-lesson p,.gv-arabic-source p{font-size:14px;line-height:2.15;color:#daedf1;margin:8px 0 13px;max-width:880px}
+.gv-quality-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:18px}
+.gv-quality-facts>div{background:linear-gradient(115deg,rgba(29,74,95,.72),rgba(10,37,55,.8));border:1px solid rgba(103,177,193,.26);border-radius:11px;padding:13px 15px}
+.gv-quality-facts small{display:block;color:#9dc7d2;margin-bottom:7px;font-size:11px}
+.gv-quality-facts strong{font-size:14px;line-height:1.6;font-weight:800}
+.gv-arabic-source a{display:inline-flex;align-items:center;color:#8aeedf;font-weight:800;text-decoration:none;border-bottom:1px solid #55c8c399;padding-bottom:3px;font-size:12px}
+.gv-arabic-source a:hover{color:#f1d39a}
+.gv-quality-muted,.gv-quality-loading{color:#9eb9c5!important;font-size:12px!important}
+.gv-quality-loading:before{content:'';display:inline-block;width:10px;height:10px;border:2px solid #52d7ce;border-top-color:transparent;border-radius:50%;margin-inline-end:9px;animation:gv-spin 1.2s linear infinite}
+@keyframes gv-spin{to{transform:rotate(360deg)}}
+.gv-hero-v4:focus-within{border-color:rgba(152,237,236,.68)}
+.gv-home-globe canvas,.gv-globe-detail canvas,.gv-continent-3d canvas{display:block;max-width:100%}
+.gv-hero-v4 .hero-content{filter:drop-shadow(0 3px 15px rgba(2,12,28,.24))}
+.gv-story-card,.gv-country-profile,.gv-feature-article{backdrop-filter:blur(10px)}
+.gv-globe-detail{box-shadow:inset 0 0 50px rgba(23,126,166,.10),0 14px 35px rgba(0,0,0,.26)}
+@media(max-width:620px){.gv-quality-lesson,.gv-arabic-source{padding:14px}.gv-quality-lesson p,.gv-arabic-source p{font-size:12px;line-height:2}.gv-quality-facts{gap:8px}.gv-quality-facts>div{padding:10px}.gv-quality-facts strong{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.gv-quality-loading:before{animation:none}}
