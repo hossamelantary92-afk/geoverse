@@ -615,19 +615,18 @@ body{overflow-x:hidden}
 @media(prefers-reduced-motion:reduce){.gv17-progress-row{transition:none!important}}
 
 
-/* Phase 5.0 — compact hero without the dead zone beneath the glass stats.
-   Shift the hero's bottom edge up while preserving the position of its
-   globe/stats overlap in the viewport. Scoped to mobile only. */
+/* Phase 5.1 — remove residual space below the floating stats panel.
+   Keep Earth and action positions, compact only the hero's lower edge. */
 @media(max-width:700px){
  .gv11-hero{
-  height:clamp(390px,calc(116vw - 40px),460px)!important;
+  height:clamp(358px,calc(116vw - 75px),427px)!important;
   min-height:0!important;
  }
  .gv11-hero .gv11-stats{
-  bottom:30px!important;
+  bottom:12px!important;
  }
 }
 @media(max-width:365px){
- .gv11-hero{height:390px!important}
- .gv11-hero .gv11-stats{bottom:27px!important}
+ .gv11-hero{height:358px!important}
+ .gv11-hero .gv11-stats{bottom:11px!important}
 }
