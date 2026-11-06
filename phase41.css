@@ -698,3 +698,89 @@ body{overflow-x:hidden}
  }
 }
 @media(prefers-reduced-motion:reduce){.topbar .icon-btn{transition:none!important}}
+
+
+/* GeoVerse v5.3 — clear search control and accessible Premium Light Mode.
+   Photographic/space hero cards intentionally retain white text on dark overlays. */
+.topbar #searchBtn .gv-search-icon{
+ display:block!important;width:20px!important;height:20px!important;
+ stroke-width:2.2!important;filter:drop-shadow(0 0 3px rgba(124,249,235,.24));
+ transition:transform .18s ease;
+}
+.topbar #searchBtn:hover .gv-search-icon{transform:scale(1.07)}
+.light{
+ --text:#12364b!important;
+ --muted:#456879!important;
+ background:linear-gradient(160deg,#edf8fa 0%,#e3f2f5 60%,#edf8fa 100%)!important;
+ color:#12364b!important;
+}
+.light .topbar{
+ background:linear-gradient(180deg,rgba(239,251,252,.96),rgba(217,241,246,.93))!important;
+ border-bottom-color:rgba(42,129,151,.26)!important;
+ box-shadow:0 8px 22px rgba(34,105,125,.13),inset 0 1px #fff!important;
+}
+.light .topbar .brand strong{color:#13374b!important}
+.light .topbar .brand strong span{color:#008e93!important}
+.light .topbar .brand small{color:#426d7f!important}
+.light .topbar .icon-btn{
+ color:#154b61!important;
+ border-color:rgba(36,126,151,.38)!important;
+ background:radial-gradient(circle at 25% 10%,rgba(147,244,233,.32),transparent 60%),linear-gradient(155deg,#f5fcff,#d7edf1)!important;
+ text-shadow:none!important;
+ box-shadow:inset 0 1px #fff,0 3px 10px rgba(42,107,130,.14)!important;
+}
+.light .topbar #languageBtn{
+ color:#71521c!important;border-color:rgba(173,126,39,.50)!important;
+ background:linear-gradient(145deg,#fff7df,#f3e1af)!important;
+}
+.light .gv11-hero,.light .gv11-hero .gv11-copy h1,.light .gv11-hero .gv11-copy p,
+.light .gv11-hero .gv11-stats,.light .gv11-hero .gv11-stat strong,.light .gv11-hero .gv11-stat span{
+ color:#f5fdff!important;
+}
+.light .gv11-hero .gv11-stats{
+ background:linear-gradient(120deg,rgba(4,34,51,.37),rgba(3,25,42,.51))!important;
+}
+.light .gv11-categories .gv11-section-title h2,
+.light .gv17-heading h2,.light .gv17-heading p,
+.light .gv17-overline,.light .gv11-section-title h2,
+.light .gv11-section-title p{
+ color:#123b50!important;text-shadow:none!important;
+}
+.light .gv17-overline{color:#9b691e!important}
+.light .gv17-text-action{
+ color:#075b66!important;background:#def2f4!important;
+ border-color:#428f9e!important;
+}
+.light .gv17-progress .gv17-heading h2,
+.light .gv17-games .gv17-heading h2{color:#123b50!important}
+.light .gv17-progress .gv17-heading p,
+.light .gv17-games .gv17-heading p{color:#466e7c!important}
+.light .gv11-card strong,.light .gv11-card small,
+.light .gv12-card-copy strong,.light .gv12-card-copy small,
+.light .gv17-game strong,.light .gv17-game small,
+.light .gv17-progress-main,.light .gv17-progress-main strong,
+.light .gv17-progress-main p,.light .gv17-progress-row,
+.light .gv17-progress-row strong,.light .gv17-progress-row span{
+ color:#f6ffff!important;
+}
+.light .gv17-daily{color:#f8fdff!important}
+.light .gv17-daily strong,.light .gv17-daily small{color:#f8fdff!important}
+.light .gv17-daily .gv17-daily-copy>span{color:#f5d28a!important}
+.light .gv11-feature-copy h2,.light .gv11-feature-copy p{color:#f8fdff!important}
+.light .page-heading h1,.light .page-heading p,
+.light .section-head h2,.light .section-head p{color:#153e51!important;text-shadow:none!important}
+.light .gv49-game-intro h2,.light .gv49-game-intro p{color:#f5ffff!important}
+.light .game-modes .game-mode b,.light .quiz-card .quiz-question{color:#f7fdff!important}
+.light .quiz-card .quiz-question{color:#15394d!important}
+.light .quiz-choice{background:#effaff!important;color:#143f53!important;border-color:#8dbfca!important}
+.light .quiz-choice:hover{background:#d8f4f3!important}
+.light .panel,.light .stats-grid .stat{
+ background:#f5fbfc!important;color:#15394d!important;border-color:#9fcbd4!important;
+}
+.light .panel h3,.light .progress-top,.light .stat strong{color:#154c60!important}
+.light .stat small,.light .notice{color:#476d7c!important}
+.light footer{color:#507585!important}
+.light .gv11-bottom-nav{background:linear-gradient(150deg,#0b3a51f5,#082b43f5)!important}
+.light .gv11-bottom-nav button{color:#d7f6f7!important}
+.light .gv11-bottom-nav button.active{color:#072f3b!important}
+@media(prefers-reduced-motion:reduce){.topbar #searchBtn .gv-search-icon{transition:none}}
