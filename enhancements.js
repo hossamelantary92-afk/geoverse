@@ -302,6 +302,11 @@ function initGlobe(){
  if(!isHero&&!isCountry&&!isCont&&state.category!=='countries'){const v=geo[state.category]?.[state.item];if(v){g.pointsData([{lat:v[4],lng:v[5],name:lang(v[0],v[1])}]).pointLat('lat').pointLng('lng').pointAltitude(.06).pointRadius(.65).pointColor(()=>'#f3ca7d').pointLabel(d=>escapeHTML(d.name));}}
  g.pointOfView(target,isHero?0:1200);
  const ctrl=g.controls();ctrl.autoRotate=isHero&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches;ctrl.autoRotateSpeed=.28;ctrl.enableDamping=true;ctrl.dampingFactor=.08;ctrl.minDistance=160;ctrl.maxDistance=700;
+ try{
+  // Cap device pixel ratio to preserve GPU memory on high-density iPhones.
+  const renderer=g.renderer?.();
+  renderer?.setPixelRatio?.(Math.min(window.devicePixelRatio||1,window.innerWidth<750?1.35:1.75));
+ }catch(e){console.debug('Adaptive resolution unavailable',e)}
  globeInstance=g;node.classList.add('gv-3d-loaded');
  G.addEventListener('resize',()=>{if(globeNode===node&&node.isConnected)g.width(node.clientWidth||w).height(node.clientHeight||h)},{once:true});
  }catch(err){console.warn('Globe WebGL init unavailable:',err);node.innerHTML='<div class="gv-globe-fallback">'+lang('تعذر تشغيل العرض ثلاثي الأبعاد على هذا الجهاز. استخدم الخريطة الثنائية الأبعاد.','3D rendering unavailable on this device. Use the 2D map.')+'</div>'}
@@ -358,6 +363,10 @@ createGame=function(mode){
  }
  const q=originalCreate(mode);if(mode==='mapfind'&&store.ready)return q.filter(x=>store.countries.some(r=>norm(r.name)===norm(x[7])));return q;
 };
+document.addEventListener('visibilitychange',()=>{
+ if(document.hidden)globeInstance?.pauseAnimation?.();
+ else if(globeInstance?.resumeAnimation)globeInstance.resumeAnimation();
+});
 loadCatalogue();
 loadCuratedStories();
 render();
