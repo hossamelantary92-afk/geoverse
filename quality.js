@@ -112,7 +112,7 @@ function addArticle(){
    panel.innerHTML='<p class="gv-quality-muted">المعلومات الأساسية موجودة بالأعلى بالعربية المبسطة. لا توجد مقالة عربية مطابقة لهذا المعلم حاليًا.</p>';
    return;
   }
-  panel.innerHTML='<div class="gv-quality-caption">ويكيبيديا العربية</div><h3>معلومات إضافية</h3><p>'+escapeText(article.text)+'</p><a href="'+escapeText(article.url)+'" target="_blank" rel="noopener noreferrer">اقرأ المقال الأصلي بالعربية ↗</a>';
+  panel.innerHTML='<div class="gv-quality-caption">معلومات موسعة</div><h3>معلومات إضافية</h3><p>'+escapeText(article.text)+'</p><a href="'+escapeText(article.url)+'" target="_blank" rel="noopener noreferrer">اقرأ المزيد ↗</a>';
  }).catch(()=>{
   if(run===articleRun&&panel.isConnected)panel.innerHTML='<p class="gv-quality-muted">تعذر تحميل المعلومات الإضافية. يمكنك قراءة الشرح المبسط الموجود بالأعلى.</p>';
  });
