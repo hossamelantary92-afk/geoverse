@@ -150,9 +150,9 @@ function gvRelatedCountryPlaces(code){
 function gvAtlasBaseline(code){
  const record=meta()?.byCode?.get(code);
  if(!record)return null;
- const info=countryInfo.facts?.[code]||{};
+ const info=code==='GB'&&record.name==='Northern Ireland'?{}:(countryInfo.facts?.[code]||{});
  const nameAr=new Intl.DisplayNames(['ar'],{type:'region'});
- const names=[nameAr.of(code)||record.name,record.name];
+ const names=[code==='GB'&&record.name==='Northern Ireland'?'أيرلندا الشمالية':(nameAr.of(code)||record.name),record.name];
  const regionAr=arRegion[record.continent]||'منطقة جغرافية غير محددة';
  const regionEn=record.continent||'an unspecified geographic region';
  const region=[regionAr,regionEn];
