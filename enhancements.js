@@ -239,7 +239,7 @@ async function loadWiki(){
   if(!summary)summary=fallbackArabic(v);
  }
  // Only use a photograph attached to the exact named article.
- if(photo&&page.thumbnail?.source){photo.innerHTML='<img alt="'+escapeHTML(title)+'" loading="lazy" src="'+escapeHTML(page.thumbnail.source)+'"><div class="gv-image-credit">'+lang('صورة من مقالة','Photo linked from')+' <a href="'+escapeHTML(page.fullurl||'https://en.wikipedia.org/wiki/'+encodeURIComponent(title))+'" target="_blank" rel="noopener noreferrer">'+lang('مصدر الصورة','Image source')+'</a></div>'}
+ if(photo&&page.thumbnail?.source){photo.innerHTML='<img alt="'+escapeHTML(title)+'" loading="lazy" src="'+escapeHTML(page.thumbnail.source)+'"><div class="gv-image-credit"><a href="'+escapeHTML(page.fullurl||'https://en.wikipedia.org/wiki/'+encodeURIComponent(title))+'" target="_blank" rel="noopener noreferrer">'+lang('مصدر الصورة','Image source')+'</a></div>'}
  
  // Additional photographs must be sourced from images embedded in the matched article.
  if(photo){
