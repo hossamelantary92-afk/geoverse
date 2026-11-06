@@ -161,7 +161,7 @@ function countryArticle(){
  '</section>';
  const marker='<section class="gv9-section gv9-earth">';
  const network=gvRelatedCountryPlaces(state.v4Code);
- return base.includes(marker)?base.replace(marker,panel+marker+network):base+panel+network;
+ return base.includes(marker)?base.replace(marker,panel+network+marker):base+panel+network;
 }
 const prevRender=render;
 render=function(){
