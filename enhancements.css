@@ -1,0 +1,155 @@
+
+/* GeoVerse V4 — Cinematic Earth visual system, intentionally overrides v3 */
+:root{--gv-navy:#030b19;--gv-space:#07182b;--gv-border:rgba(113,200,221,.24);--gv-gold:#f1c77e;--gv-ice:#9aeafa;--gv-teal:#4ce0d3;--gv-card:rgba(7,28,46,.75)}
+html{background:#030b19}
+body{background:radial-gradient(ellipse 75% 52% at 58% -20%,rgba(34,109,150,.26),transparent 90%),radial-gradient(ellipse 60% 48% at 10% 55%,rgba(5,99,137,.11),transparent),#030b19;color:#f5fcff;font-size:13px}
+body:before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;background-image:radial-gradient(circle,rgba(206,238,255,.55) .45px,transparent .8px);background-size:71px 79px;opacity:.19}
+.topbar{height:83px;background:rgba(4,13,26,.86);border-bottom:1px solid rgba(67,172,200,.24);box-shadow:0 4px 50px #020713b3;backdrop-filter:blur(24px);padding-inline:24px;gap:14px}
+.brand strong{font-size:28px;letter-spacing:-.8px;color:#fff}
+.brand strong span{background:linear-gradient(115deg,#95fef1,#29bac4);-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand small{color:#91b8c5;font-size:9px;letter-spacing:1.7px}
+.brand-icon{filter:drop-shadow(0 0 10px #39ebda75)}
+.topnav{gap:5px;padding:4px;border:1px solid #27516969;border-radius:15px;background:#081d2c65}
+.topnav button{font-size:12px;padding:10px 12px;color:#b5cad7;border-radius:10px}
+.topnav button.active{color:#d9fffb;background:linear-gradient(130deg,#1b67837a,#12384799);border-color:#3dc5d27d;box-shadow:inset 0 0 20px #31ced220}
+.icon-btn{border:1px solid #3f76825c;background:#0c2738c4;color:#d2f5f6}
+.layout{max-width:1920px;grid-template-columns:223px minmax(0,1fr) 223px;gap:16px;padding:17px;align-items:start}
+.sidebar{top:100px;padding:13px;background:linear-gradient(165deg,rgba(11,39,59,.89),rgba(5,20,34,.96));border:1px solid var(--gv-border);border-radius:17px;box-shadow:0 10px 50px #0009}
+.side-title{font-size:14px;letter-spacing:.1px;color:#f1faff;border-bottom-color:#31546b77}
+.side-item{font-size:11.5px;line-height:1.4;padding:9px 8px;gap:9px;border-bottom-color:#2d587048;transition:background .2s,color .2s}
+.side-item:hover,.side-item.current{background:linear-gradient(100deg,#16758446,#0d304066);color:#8cfaf1;box-shadow:inset 3px 0 0 #3fdbd1}
+.gv-icon{flex-shrink:0;display:inline-block;vertical-align:middle}
+.side-emoji{display:flex;align-items:center;justify-content:center;min-width:26px;color:#85cfd6}
+.side-item.current .side-emoji{color:var(--gv-gold)}
+.side-arrow{opacity:.5}
+.insights{top:100px;gap:13px}
+.insight-card{background:linear-gradient(145deg,rgba(12,43,65,.91),rgba(5,21,37,.93));border-color:var(--gv-border);border-radius:17px;box-shadow:0 10px 37px #02081788}
+.insight-card h3{font-size:12px}
+.insight-row{font-size:11px}
+.insight-row svg{width:17px;height:17px}
+.hero-v3.gv-hero-v4{min-height:475px;border-radius:22px;padding:50px clamp(22px,4.3vw,56px);overflow:hidden;isolation:isolate;background:radial-gradient(ellipse at 30% 53%,#14567955,transparent 58%),linear-gradient(115deg,#061325 8%,#09273b 58%,#050e1e);border:1px solid rgba(84,188,214,.43);box-shadow:0 22px 70px #0009,inset 0 1px 0 #84dce622}
+.hero-v3.gv-hero-v4:before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,#020817e8,transparent 44%),url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1600&q=78') center bottom / cover;mask-image:linear-gradient(to top,#000,transparent 62%);opacity:.29}
+.hero-v3.gv-hero-v4:after{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(270deg,rgba(3,14,27,.02),rgba(4,15,29,.56) 48%,rgba(3,14,27,.96) 100%);opacity:1}
+.gv-hero-grain{position:absolute;inset:0;pointer-events:none;z-index:1;opacity:.5;background:radial-gradient(circle at 78% 10%,#b5deff 1px,transparent 2px),radial-gradient(circle at 4% 19%,#dafaff 1px,transparent 2px),radial-gradient(circle at 38% 44%,#e4faff 1px,transparent 2px);background-size:310px 250px,460px 360px,550px 450px}
+.gv-hero-light{position:absolute;width:48%;height:115%;border-radius:50%;right:-3%;top:-12%;background:radial-gradient(ellipse,#64ccff55,transparent 70%);filter:blur(31px);pointer-events:none}
+.gv-home-globe{position:absolute;z-index:2;width:min(67%,770px);height:115%;right:-3%;top:-5%;overflow:visible}
+.gv-home-globe canvas{filter:drop-shadow(0 0 18px #20bced77)}
+.gv-hero-v4 .hero-content{z-index:4;max-width:540px;margin-left:0;position:relative}
+.gv-hero-v4 .eyebrow{font-size:11px;color:var(--gv-gold);font-weight:700;letter-spacing:2.8px}
+.gv-hero-v4 h1{font-size:clamp(38px,4.15vw,64px);letter-spacing:-1.4px;margin:19px 0;line-height:1.35;text-shadow:0 6px 30px #000a}
+.gv-hero-v4 h1 .accent{color:#73fae6}
+.gv-hero-v4 p{font-size:15px;max-width:395px;line-height:2.2;color:#c7e0ed}
+.gv-hero-v4 .actions{margin-top:30px}
+.gv-hero-v4 .actions button{padding:12px 20px;border-radius:11px;font-size:12px}
+.gv-hero-v4 .hero-quick{margin-top:31px;gap:14px;color:#bfd5de;font-size:10px}
+.gv-hero-index{position:absolute;bottom:-41px;inset-inline-start:0;color:#81aebc;font-family:Outfit,sans-serif;font-size:9px;letter-spacing:2px}
+.gv-globe-fallback{position:absolute;inset:0;background:radial-gradient(circle at 52% 50%,transparent 7%,#043f6655 22%,transparent 53%),url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=1200&q=82') center/contain no-repeat;display:flex;align-items:end;justify-content:center;color:#a9cedb;font-size:10px}
+.gv-home-globe .gv-globe-fallback span{background:#061c2ec9;border:1px solid #1a637c;padding:7px 10px;border-radius:10px}
+.home-section-head{margin:28px 0 17px}
+.home-section-head h2{font-size:24px}
+.category-showcase{gap:12px;grid-template-columns:repeat(5,minmax(0,1fr))}
+.category-showcase .category-card{height:152px;border-radius:15px;border-color:#316c8288;box-shadow:0 12px 33px #0009}
+.category-card{transition:transform .22s,border-color .22s,box-shadow .22s}
+.category-card:hover{transform:translateY(-5px);border-color:#80ddd7;box-shadow:0 14px 40px #3f9cc62b}
+.category-card img{filter:saturate(.86) contrast(1.04)}
+.category-card .label{font-size:12px;display:flex;align-items:center;gap:7px}
+.category-card .label span{display:inline-flex;justify-content:center;align-items:center;width:30px;height:30px;border:1px solid #78c8d15c;border-radius:10px;background:#051f32e8;color:#a1fff5}
+.category-card .label span svg{width:18px;height:18px}
+.planet-facts{border-color:rgba(71,155,182,.43);background:linear-gradient(135deg,#0d3045bf,#07192deb);border-radius:17px;padding:17px}
+.feature-panel{background:linear-gradient(120deg,#0c293ecd,#06182beb);border:1px solid var(--gv-border);border-radius:17px;box-shadow:0 12px 35px #0005}
+.feature-panel svg{color:var(--gv-ice)}
+.mini-games button{background:linear-gradient(140deg,#17405a,#071d31);border-color:#255c76;color:#e8f8fa;transition:transform .2s}
+.mini-games button span{display:flex;color:#f0ce89}
+.spotlight-v3{border-radius:19px;box-shadow:0 18px 45px #000a}
+.page-heading h1,.gv-page-heading h1{font-size:clamp(23px,2.4vw,36px);letter-spacing:-.6px}
+.gv-page-heading{margin:12px 0 23px}
+.gv-page-heading p{font-size:13px;color:#9cbec9;margin-top:8px;line-height:1.8}
+.gv-country-controls,.gv-country-profile,.gv-story-card,.gv-continent-intro,.gv-feature-article{border:1px solid var(--gv-border);background:linear-gradient(135deg,rgba(13,43,64,.83),rgba(5,22,39,.95));box-shadow:0 11px 39px #0005;border-radius:18px}
+.gv-country-controls{padding:17px;margin-bottom:17px}
+.gv-tabs{display:flex;gap:8px;flex-wrap:wrap}
+.gv-tabs button{border:1px solid #3970807c;background:#09283c;color:#b7d5dd;padding:8px 14px;font-size:11px;font-weight:800;border-radius:9px}
+.gv-tabs button.active,.gv-tabs button:hover{border-color:#52d9c8;color:#affff3;background:#135263a9}
+.gv-country-toolbar{display:flex;gap:12px;margin-top:14px}
+.gv-country-toolbar input{flex:1;min-width:0;background:#061a2c;border:1px solid #376c80;color:#eaffff;border-radius:10px;padding:10px 13px}
+.gv-country-toolbar button{border:1px solid #47748e;background:#0e3448;border-radius:10px;padding:8px 14px;color:#e7f9ff;font-weight:800}
+.gv-result-head{display:flex;justify-content:space-between;align-items:center;gap:8px;color:#d5f5f5;margin-bottom:12px}
+.gv-result-head span{color:#7fabbc;font-size:11px}
+.gv-country-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.gv-country-row{display:flex;align-items:center;gap:10px;min-width:0;padding:12px 11px;text-align:start;background:linear-gradient(100deg,#10374c,#071d32);color:white;border:1px solid #27607b9b;border-radius:13px;transition:transform .2s,border-color .2s}
+.gv-country-row:hover{transform:translateY(-2px);border-color:#46dfd3}
+.gv-country-flag{width:50px;flex:none;display:flex;align-items:center;justify-content:center}
+.gv-flag{width:45px;height:30px;object-fit:contain;filter:drop-shadow(0 3px 6px #0009);border-radius:2px}
+.gv-country-name{display:flex;flex-direction:column;min-width:0;flex:1;gap:1px}
+.gv-country-name b{font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gv-country-name small{color:#8fb7c5;font-size:10px}
+.gv-capital{font-size:11px;color:#bbd3dc;max-width:95px;text-align:center}
+.gv-country-chevron{color:#edc57e;font-size:14px}
+.gv-data-source{font-size:10px;color:#8facb9;margin:18px 0;line-height:1.8}
+.gv-data-source a{color:#68daca}
+.gv-country-profile{padding:24px;margin:15px 0 20px;position:relative;overflow:hidden}
+.gv-country-profile:before{content:'';position:absolute;inset:-35% -6% auto auto;width:48%;height:110%;border-radius:50%;background:radial-gradient(#1789a63d,transparent 75%);pointer-events:none}
+.gv-profile-head{display:flex;align-items:center;gap:18px;margin:20px 0}
+.gv-profile-head h1{margin:0;font-size:35px}
+.gv-profile-head p{margin:0;color:#b1d0dc}
+.gv-profile-flag{padding:11px;border:1px solid #4d91aa7c;background:#0a2539;border-radius:13px}
+.gv-profile-flag .gv-flag{width:108px;height:70px}
+.gv-profile-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}
+.gv-profile-facts>div{border:1px solid #316b8177;border-radius:12px;background:#071f32aa;padding:14px}
+.gv-profile-facts small,.gv-profile-facts strong{display:block}
+.gv-profile-facts small{color:#9dbbc6;font-size:10px;margin-bottom:5px}
+.gv-profile-facts strong{font-size:12px;overflow-wrap:anywhere}
+.gv-story-layout{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(230px,.7fr);align-items:start;gap:14px}
+.gv-story-layout>section,.gv-story-layout>aside{display:grid;gap:14px}
+.gv-story-card,.gv-continent-intro{padding:20px;margin:0 0 15px}
+.gv-story-layout .gv-story-card{margin:0}
+.gv-story-card h2,.gv-continent-intro h2{font-size:18px;margin:4px 0 9px}
+.gv-story-card h3{font-size:15px;margin:4px 0 9px}
+.gv-story-card p{line-height:2;color:#c3d9e1;font-size:13px}
+.gv-story-card a{color:#74e6d4;display:inline-block;margin-inline-end:9px;overflow-wrap:anywhere}
+.gv-globe-detail,.gv-continent-3d{position:relative;min-height:385px;height:410px;background:radial-gradient(ellipse at 50% 52%,#1954768c,transparent 58%),#06182b;border-radius:15px;border:1px solid #215d7a;overflow:hidden;margin:12px 0}
+.gv-continent-3d{height:420px}
+.gv-boundary-key,.gv-map-attribution{font-size:11px;color:#a0c2d0;line-height:1.8}
+.gv-country-wiki-photo{max-width:260px;max-height:170px;border-radius:11px;margin:11px 0;object-fit:cover;display:block}
+.gv-muted{font-size:11px!important;color:#a6beca!important}
+.gv-feature-article{margin-top:18px;overflow:hidden}
+.gv-article-photo{height:260px;background:linear-gradient(140deg,#104868,#092337);display:grid;place-items:center;position:relative;overflow:hidden}
+.gv-article-photo img{width:100%;height:100%;object-fit:cover}
+.gv-photo-loading{color:#9fc0cf;font-size:13px}
+.gv-image-credit{position:absolute;bottom:10px;inset-inline-start:12px;background:#041928d9;color:white;font-size:10px;padding:7px 11px;border-radius:8px}
+.gv-image-credit a{color:#7af4e4}
+.gv-article-body{padding:25px}
+.gv-article-body h2{font-size:22px;margin:6px 0}
+.gv-article-body p{font-size:14px;line-height:2;color:#c7e3ee}
+.gv-source-heading{font-weight:900;color:#f0cc84;margin-top:20px}
+.gv-wiki-summary a{color:#78e5d8}
+.gv-travel-facts{display:flex;align-items:center;flex-wrap:wrap;gap:13px;border:1px solid #275c75;background:#08273a;border-radius:12px;padding:14px;margin:20px 0}
+.gv-travel-facts svg{color:#84e7de}
+.gv-travel-facts b,.gv-travel-facts small{display:block}
+.gv-travel-facts b{font-size:11px}
+.gv-travel-facts small{color:#9bc6d0;font-size:11px}
+.gv-source-note{color:#7fa9b9;font-size:11px}
+.gv-feature-globe{margin-top:18px}
+.gv-continent-intro{margin:18px 0}
+.gv-continent-selected{fill:#28c9c3!important;stroke:#fff3ba!important;stroke-width:1.25!important;filter:drop-shadow(0 0 3px #49f7ef66)}
+.gv-continent-dim{fill:#0b2d43!important;stroke:#38718d55!important;opacity:.51}
+.gv-globe-label{background:#041726d9;border:1px solid #43cfc0;border-radius:7px;padding:6px 10px;color:#f4ffff;font-family:Cairo,sans-serif;font-weight:800;font-size:11px}
+.gv-game-mode .atlas-country{cursor:crosshair}
+.gv-game-mode .atlas-country:hover{fill:#24536c;stroke:#6ba6bb;filter:none}
+.gv-game-mode .atlas-country.highlight{fill:#2b6479}
+.gv-game-mode .atlas-popup{display:none!important}
+.gv-quiz-premium{background:linear-gradient(145deg,#0d3046,#051b30);border-color:#36819b;border-radius:18px;box-shadow:0 18px 44px #0008}
+.gv-quiz-premium .quiz-choice{border-color:#326984;transition:background .2s,border-color .2s}
+.gv-quiz-premium .quiz-choice:hover{border-color:#6fdfd2}
+.gv-quiz-premium .quiz-choice.correct{border-color:#1bd5ab;background:#165e5e}
+.gv-quiz-premium .quiz-choice.wrong{border-color:#d76b7c;background:#552f46}
+.game-mode span{display:flex;align-items:center;justify-content:center;color:#e8cb92}
+.item-card .item-icon{display:flex;align-items:center;justify-content:center}
+.category-detail-banner{box-shadow:0 16px 48px #0009}
+.light .gv-country-controls,.light .gv-country-profile,.light .gv-story-card,.light .gv-continent-intro,.light .gv-feature-article{background:linear-gradient(130deg,#f1faff,#dceef7);color:#113548}
+.light .gv-story-card p,.light .gv-article-body p{color:#275365}
+.light .gv-country-row{background:#e5f0f6;color:#113649}
+@media(max-width:1500px){.layout{grid-template-columns:215px minmax(0,1fr)}.insights{display:none}.gv-home-globe{right:-12%;width:67%}}
+@media(max-width:1120px){.gv-home-globe{right:-15%;width:75%}.gv-hero-v4 .hero-content{max-width:430px}.gv-hero-v4 h1{font-size:clamp(30px,4vw,49px)}.category-showcase{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:850px){.layout{display:block}.hero-v3.gv-hero-v4{min-height:410px;padding:24px}.gv-home-globe{right:-29%;top:0;width:80%;height:110%}.gv-hero-v4 .hero-content{max-width:52%}.gv-hero-v4 h1{font-size:32px}.gv-story-layout{grid-template-columns:1fr}.gv-profile-facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.topbar{height:68px}.hero-v3.gv-hero-v4{min-height:520px;align-items:start;padding:23px 18px;background:#03152a}.hero-v3.gv-hero-v4:after{background:linear-gradient(180deg,#03142ae8 0%,#04162b61 44%,#031329e8 100%)}.gv-home-globe{right:-28%;top:25%;width:120%;height:76%;opacity:.95}.gv-hero-v4 .hero-content{max-width:100%;width:100%}.gv-hero-v4 .eyebrow{font-size:9px;letter-spacing:1px}.gv-hero-v4 h1{font-size:34px;margin:8px 0}.gv-hero-v4 p{font-size:12px;line-height:1.95;max-width:310px}.gv-hero-v4 .actions{margin-top:12px}.gv-hero-v4 .actions button{font-size:10px;padding:8px 12px}.gv-hero-v4 .hero-quick{position:absolute;top:394px;gap:6px;font-size:9px;width:340px;max-width:90vw}.gv-hero-index{display:none}.category-showcase{grid-template-columns:repeat(2,minmax(0,1fr))}.category-showcase .category-card{height:150px}.gv-country-grid{grid-template-columns:1fr}.gv-country-profile{padding:16px}.gv-profile-head h1{font-size:25px}.gv-profile-flag .gv-flag{width:75px;height:50px}.gv-profile-facts{gap:7px}.gv-profile-facts>div{padding:10px}.gv-story-card,.gv-continent-intro{padding:13px}.gv-globe-detail,.gv-continent-3d{min-height:320px;height:340px}.gv-article-photo{height:210px}.gv-article-body{padding:15px}.gv-country-toolbar{flex-direction:column}.gv-country-row{padding:10px 8px}.gv-country-flag{width:46px}.gv-capital{max-width:90px}.gv-article-body p{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.category-card,.gv-country-row,.item-card{transition:none!important}.gv-hero-light{filter:none}}
