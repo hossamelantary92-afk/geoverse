@@ -1,0 +1,46 @@
+/* GeoVerse v9 — premium editorial geography encyclopedia, mobile first */
+.gv9-back{margin:8px 0 15px}
+.gv9-hero{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:clamp(20px,3.1vw,33px);background:radial-gradient(ellipse at 80% 14%,#117d8e3b,transparent 65%),linear-gradient(130deg,#082e46,#05182a);border:1px solid rgba(90,193,208,.42);border-radius:20px;box-shadow:0 20px 45px #0006,inset 0 1px #b5f5ff19;margin-bottom:17px}
+.gv9-hero-title{min-width:0}.gv9-eyebrow{display:block;font:800 10px Outfit,sans-serif;letter-spacing:1.75px;text-transform:uppercase;color:#e6bf7d;margin:0 0 10px}
+.gv9-hero-title h1{font-size:clamp(27px,3.2vw,46px);line-height:1.35;margin:0 0 9px;color:#f4fcff}
+.gv9-hero-title p{color:#bbd8e1;font-size:13px;line-height:1.9;margin:0}
+.gv9-country-en{font-family:Outfit,system-ui,sans-serif;font-size:12px;color:#b8d6df;direction:ltr;unicode-bidi:isolate;display:inline-block}
+.gv9-flag{display:flex;align-items:center;justify-content:center;padding:13px;min-width:126px;min-height:90px;border:1px solid #65aabb73;background:linear-gradient(125deg,#0a374c,#09263a);border-radius:16px;box-shadow:0 10px 35px #0007}
+.gv9-flag img{width:118px;max-height:80px;object-fit:contain;filter:drop-shadow(0 5px 11px #0008)}
+.gv9-section{padding:clamp(16px,2.7vw,26px);margin-bottom:17px;border:1px solid rgba(88,179,200,.32);border-radius:19px;background:linear-gradient(130deg,#09273d,#061b2e);box-shadow:0 13px 32px #0005}
+.gv9-section-title{margin:0 0 19px}.gv9-section-title h2{font-size:clamp(19px,2vw,25px);margin:0 0 8px;line-height:1.5;color:#f6fcfe}.gv9-section-title p{color:#accbd5;line-height:1.9;font-size:12px}
+.gv9-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+.gv9-stat{display:flex;gap:10px;align-items:start;padding:16px 13px;background:linear-gradient(125deg,rgba(17,65,86,.76),rgba(8,35,54,.9));border:1px solid #3a748b73;border-radius:13px;min-height:103px}
+.gv9-stat-icon{display:grid;place-items:center;flex:none;width:30px;height:30px;color:#8ce5e3;border-radius:8px;background:#0a3046;border:1px solid #4e9ba46b}
+.gv9-stat-content{flex:1;min-width:0}.gv9-stat-label{display:block;font-size:11px;color:#a3c8d2;margin-bottom:9px;line-height:1.6}
+.gv9-stat strong{display:block;font-size:clamp(12px,1.35vw,16px);color:#f0faff;font-weight:800;line-height:1.6;overflow-wrap:anywhere}
+.gv9-stat small{display:block;color:#8faebd;font-size:10px;line-height:1.8;margin-top:7px}
+.gv9-primary-globe{margin-top:14px;height:clamp(320px,41vw,510px);border-color:#4088a5;box-shadow:inset 0 0 58px #0e658a35,0 18px 36px #0008}
+.gv9-geo-footnote{font-size:11px;line-height:1.8;color:#9bbdca;margin-top:8px}
+.gv9-summary{font-size:14px;line-height:2.1;color:#d3e7eb;margin:0 0 15px}
+.gv9-extra-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.gv9-neighbors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.gv9-neighbor{display:flex;align-items:center;text-align:start;gap:10px;min-height:63px;border:1px solid #3d788c88;background:#0d3448;border-radius:12px;padding:10px;color:#efffff;font-size:12px;font-weight:800;transition:background .18s,border-color .18s;cursor:pointer;min-width:0}
+.gv9-neighbor:hover{border-color:#6ae4d7;background:#15506a}
+.gv9-neighbor img{width:44px;height:30px;object-fit:contain;flex:none;filter:drop-shadow(0 3px 7px #0007)}
+.gv9-neighbor span:nth-child(2){flex:1;min-width:0;overflow-wrap:anywhere}
+.gv9-neighbor span:last-child{color:#ebc781}
+.gv9-neighbors-empty{padding:14px 17px;border:1px dashed #527a8c;color:#b0d1dd;border-radius:12px;font-size:12px}
+.gv9-sources{margin:8px 0 25px;font-size:11px;color:#9fbdc9}
+.gv9-sources details{border:1px solid #24586b86;border-radius:12px;background:#071c30;padding:13px 17px}
+.gv9-sources summary{color:#95cdd5;font-weight:800;cursor:pointer;line-height:1.7}
+.gv9-sources p{line-height:2;color:#abc7d2;margin:12px 0}
+.gv9-sources a{color:#76dfd8;display:block;margin:7px 0;overflow-wrap:anywhere}
+.gv9-learned-card{padding:14px!important;border-color:#366b7e82!important;box-shadow:none!important}
+.gv9-learned-card .actions{margin:0!important}
+.gv9-learned-card .actions button{min-height:41px}
+#main:has(.gv-feature-article) .gv-quality-lesson{display:none!important}
+#main:has(.gv-feature-article) .gv-arabic-source .gv-quality-caption{display:none!important}
+#main:has(.gv-feature-article) .gv-source-note{display:none!important}
+#main:has(.gv-feature-article) .gv-curated-story{padding:18px;background:linear-gradient(130deg,#0e4051,#0a293c);border:1px solid #44889688;border-radius:13px}
+#main:has(.gv-feature-article) .gv-secondary-source{font-size:13px;line-height:2}
+#main:has(.gv-feature-article) .gv-article-body{padding-bottom:18px}
+#main:has(.gv-feature-article) .gv-photo-gallery{display:none}
+#main:has(.gv-feature-article) .gv-feature-globe{margin-top:17px}
+@media(max-width:1050px){.gv9-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.gv9-neighbors{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.gv9-hero{padding:17px;gap:13px}.gv9-flag{min-width:88px;min-height:75px;padding:8px}.gv9-flag img{width:75px;max-height:58px}.gv9-hero-title h1{font-size:26px}.gv9-section{padding:14px}.gv9-stats{gap:9px}.gv9-stat{padding:12px 10px;gap:7px;min-height:101px}.gv9-stat-icon{width:24px;height:25px}.gv9-stat-icon svg{width:17px;height:17px}.gv9-stat-label{font-size:10px;margin-bottom:5px}.gv9-stat strong{font-size:12px}.gv9-stat small{font-size:9px}.gv9-extra-facts{gap:9px}.gv9-neighbors{gap:8px}.gv9-neighbor{min-height:61px;padding:8px;gap:7px;font-size:11px}.gv9-neighbor img{width:33px;height:23px}.gv9-primary-globe{height:350px}.gv9-summary{font-size:12px}}
