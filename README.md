@@ -224,3 +224,17 @@ User reviewed real iPhone screenshots of the successful GitHub Pages v17 release
 **Validation:** latest branch CSS braces balanced; all 31 local CSS/JS references are versioned, the v19 layer loads last, JS syntax validated for topics and game icons, photo cards are icon-free in source, globe is still interactive. Full physical iPhone browser visual QA and exact live page-cache header analysis are not yet possible; opening the newly versioned GitHub Pages URL and looking for `v19` in the footer is the user-side verification.
 
 **Publish:** update GitHub Pages through normal GitHub main merge; verify Actions build and deployment exact SHA. No manual Vercel calls. Site URL after publication https://hossamelantary92-afk.github.io/geoverse/?release=gv19-6b4f9 .
+
+
+## GeoVerse v20 — Actual Earth Behind Words and Photo-led Games (Nov 6, 2026)
+
+**User verified on real iPhone GitHub Pages screenshot 7:18 PM Riyadh:** All Topics photo cards are now corrected (no visual icons), **but** the globe still sits mostly below the subtitle/buttons instead of genuinely behind the hero text, and the games still look like their old plain gradient cards. This release specifically addresses those two remaining failures; do not claim those problems solved until user sees the revised GitHub Pages version.
+
+**Changes:**
+- `visual-v20.css`: final responsive hero layout layer (loaded after v19), 488–555px tall on mobile. Full-size genuine live Globe.GL globe starts at approximately 6px from hero top, **behind** centered title/description/CTA, with a dark graduated legibility gradient and fixed four-stat bar at the bottom. Touch interaction remains available on exposed globe region. Strong visual contrast and less vertical empty space. Desktop experience preserved.
+- `home-v17.js`: each of the four real interactive quiz mode shortcut cards now has a different **real photographic** background (capital city skyline, Earth world map imagery, high mountains, ocean), a readable dark foreground gradient, category kicker and original functional launch button. Photo background is not a separate image-only mockup: the whole button still triggers its existing `createGame` route.
+- `visual-v20.css`: strong new image-card layout with restrained luxury typography/color; improved old `game-mode` picker within the game page; atmospheric photo texture behind the mixed challenge banner; no emoji replacement trick only.
+- Cache: all 31 previous local CSS/JS assets and new v20 stylesheet use `?v=gv20-7cd2e`, plus visible footer label `v20` to distinguish the published version from old cached files. All 18 photo-only All Topics sections retained from v19.
+- Tests: newly modified JavaScript syntax validated, CSS braces balanced, correct responsive layering source order and selectors, 4 photographic game sources, 32 versioned local assets, original 7 SVG game selectors and sidebar icons preserved. A **real iPhone Safari visual screenshot test remains outstanding**, so the next user screenshot is the decisive visual check.
+- Publishing: use normal main → GitHub Pages workflow; no manual Vercel deployment; check Actions status and link to `https://hossamelantary92-afk.github.io/geoverse/?v=gv20-7cd2e`.
+- Next: evaluate real iPhone screenshot and real game-card background-image loading; improve in-game multiple choice and map quiz panels and more useful learning progression.
