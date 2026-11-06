@@ -62,6 +62,8 @@ const oldHome=home,oldRender=render,oldDetail=detail,oldItemCards=itemCards,oldD
 function spotlightBackdrop(){return '<div class="gv-hero-grain"></div><div class="gv-hero-light"></div><div id="gvHomeGlobe" class="gv-home-globe" aria-label="'+lang('كرة أرضية ثلاثية الأبعاد قابلة للدوران','Interactive 3D Earth globe')+'"></div>'}
 home=function(){
  let h=oldHome();
+ h=h.replaceAll('🌊',svgIcon('oceans')).replaceAll('🏔️',svgIcon('mountains')).replaceAll('🌍',svgIcon('continents')).replaceAll('🏆',svgIcon('countries')).replaceAll('🎮',svgIcon('continents')).replaceAll('🎓',svgIcon('countries'));
+
  h=h.replace('<section class="hero hero-v3"><div class="hero-stars"></div>', '<section class="hero hero-v3 gv-hero-v4">'+spotlightBackdrop()+'<div class="hero-stars"></div>');
  h=h.replace('GEOVERSE · EXPLORE BEYOND BORDERS','GEOVERSE &nbsp; / &nbsp; EXPLORE BEYOND BORDERS');
  h=h.replace(lang('استكشف <span class="accent">كوكبنا</span>','Explore <span class="accent">Our Planet</span>'),lang('العالم بين <span class="accent">إيديك</span>','The World in <span class="accent">Your Hands</span>'));
@@ -95,7 +97,11 @@ categoryPage=(function(old){return function(){if(state.category==='countries'){r
 const originalSetPage=setPage;
 G.gvCountryOpen=function(code){state.page='country-v4';state.v4Code=code;state.category='countries';state.item=null;render();window.scrollTo(0,0)};
 const oldPlayDisplay=play;
-play=function(){return oldPlayDisplay().replaceAll('class="quiz-card"','class="quiz-card gv-quiz-premium"')};
+play=function(){
+ let h=oldPlayDisplay().replaceAll('class="quiz-card"','class="quiz-card gv-quiz-premium"');
+ if(selectedGameMode==='flags'&&!state.quizComplete){const question=quiz[state.quizIndex];if(question?.[7])h=h.replace('<h2 class="quiz-question">','<div class="gv-flag-challenge">'+flag(question[7],lang('علم دولة مطلوب التعرف عليها','Country flag to identify'))+'</div><h2 class="quiz-question">');}
+ return h;
+};
 render=function(){
  oldRender();
  if(state.page==='countries-v4')main.innerHTML=countriesPage();
@@ -207,7 +213,21 @@ document.addEventListener('click',e=>{
 document.addEventListener('input',e=>{if(e.target.id==='gvCountrySearch'){state.v4Search=e.target.value;const c=state.v4Continent||'all';const filtered=store.countries.filter(r=>(c==='all'||r.continent===c||c==='Asia'&&twoRegion.has(r.name))&&(getCountryName(r)+' '+r.name+' '+r.capital).toLowerCase().includes(state.v4Search.toLowerCase()));const grid=document.getElementById('gvCountryGrid');if(grid)grid.innerHTML=countryCards(filtered)}});
 document.addEventListener('mouseover',e=>{if(state.page==='play'&&selectedGameMode==='mapfind'){const p=e.target.closest?.('[data-map-country]');if(p){p.removeAttribute('aria-label');p.querySelectorAll('title').forEach(t=>t.remove())}}},true);
 document.addEventListener('focusin',e=>{if(state.page==='play'&&selectedGameMode==='mapfind'){const p=e.target.closest?.('[data-map-country]');if(p){p.removeAttribute('aria-label');p.querySelectorAll('title').forEach(t=>t.remove())}}},true);
-const originalCreate=createGame;createGame=function(mode){const q=originalCreate(mode);if(mode==='mapfind'&&store.ready)return q.filter(x=>store.countries.some(r=>norm(r.name)===norm(x[7])));return q};
+const originalCreate=createGame;
+createGame=function(mode){
+ if(store.ready&&(mode==='flags'||mode==='capitals')){
+  const shuffled=a=>a.slice().sort(()=>Math.random()-.5);
+  const accepted=store.countries.filter(r=>r.code&&r.name&&r.capital&&store.featLookup.has(r.code));
+  const targets=shuffled(accepted).slice(0,12);
+  return targets.map(r=>{
+   const choices=shuffled([r,...shuffled(accepted.filter(o=>o.code!==r.code)).slice(0,3)]);
+   return mode==='flags'?
+   [lang('ما اسم الدولة صاحبة العلم؟','Which country has this flag?'),'Which country has this flag?',choices.map(x=>arName(x)),choices.map(x=>x.name),choices.indexOf(r),'هذا علم '+arName(r),'This is the flag of '+r.name,r.code]:
+   ['ما عاصمة '+arName(r)+'؟','What is the capital of '+r.name+'?',choices.map(x=>capitalAr(x)),choices.map(x=>x.capital),choices.indexOf(r),'العاصمة: '+capitalAr(r),'Capital: '+r.capital];
+  });
+ }
+ const q=originalCreate(mode);if(mode==='mapfind'&&store.ready)return q.filter(x=>store.countries.some(r=>norm(r.name)===norm(x[7])));return q;
+};
 loadCatalogue();
 render();
 })();
