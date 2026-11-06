@@ -1,0 +1,131 @@
+/* GeoVerse v18 — cinematic text-over-Earth composition & clean atlas cards.
+   Mobile globe stays a genuine Globe.GL canvas, never a static background. */
+.gv12-card-mark,.gv12-card-link{display:none!important}
+.gv12-card{padding-bottom:17px}
+.gv12-card-copy{padding-inline-end:5px}
+.gv12-card-bg{background:linear-gradient(0deg,rgba(0,17,27,.96),rgba(2,35,50,.69) 30%,rgba(1,27,42,.12) 76%)}
+.gv18-game-symbol{display:inline-flex;align-items:center;justify-content:center;flex:none;color:#83e8df}
+.gv18-game-symbol svg{width:26px;height:26px;stroke-width:1.6}
+.game-mode .gv18-game-symbol{width:40px;height:40px;border-radius:12px;border:1px solid #5598a89e;background:linear-gradient(140deg,#133c51,#09273b)}
+.game-mode .gv18-game-symbol svg{width:25px;height:25px}
+.game-mode.selected .gv18-game-symbol{color:#b7ffec;border-color:#7af3d8}
+.gv17-game-icon{box-shadow:inset 0 1px 0 #d8ffff17,0 5px 14px #0005}
+.gv17-game-icon svg{stroke-width:1.7}
+@media(max-width:700px){
+ .gv11-hero{
+  position:relative!important;
+  isolation:isolate!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:space-between!important;
+  min-height:610px!important;
+  padding:24px 13px 13px!important;
+  overflow:hidden!important;
+  background:radial-gradient(ellipse at 50% 48%,#06517b40,transparent 60%),linear-gradient(165deg,#041528,#051b2b 72%,#031322)!important;
+ }
+ .gv11-hero:before{
+  content:"";position:absolute;z-index:4;inset:0;pointer-events:none;
+  background:linear-gradient(to bottom,#031222e8 0%,#031629b8 20%,#03162975 34%,transparent 55%,transparent 80%,#041829ba 100%);
+ }
+ .gv11-copy{
+  position:relative!important;
+  z-index:6!important;
+  order:0!important;
+  width:100%!important;
+  max-width:100%!important;
+  margin:0!important;
+  padding:0!important;
+  display:flex!important;
+  align-items:center!important;
+  text-align:center!important;
+  flex-direction:column!important;
+ }
+ .gv11-copy h1{
+  align-self:center!important;
+  text-align:center!important;
+  font-size:clamp(31px,8.2vw,41px)!important;
+  margin:9px 0 5px!important;
+  text-shadow:0 3px 15px #031727,0 3px 27px #031727!important;
+ }
+ .gv11-copy p{
+  align-self:center!important;
+  text-align:center!important;
+  max-width:340px!important;
+  min-height:0!important;
+  width:100%!important;
+  margin:0 auto!important;
+  line-height:1.85!important;
+  color:#e3f2f5!important;
+  font-size:clamp(11px,2.9vw,13px)!important;
+  text-shadow:0 2px 10px #021422,0 2px 20px #021422;
+ }
+ .gv11-eyebrow{align-self:center!important}
+ .gv11-actions{
+  align-self:center!important;
+  justify-content:center!important;
+  flex-wrap:wrap!important;
+  margin:15px 0 0!important;
+  gap:8px!important;
+ }
+ .gv11-actions button{min-height:41px!important;box-shadow:0 5px 18px #031625c4}
+ .gv11-planet{
+  position:absolute!important;
+  z-index:2!important;
+  top:118px!important;
+  bottom:auto!important;
+  left:50%!important;
+  right:auto!important;
+  inset:auto!important;
+  transform:translateX(-50%)!important;
+  width:min(112%,420px)!important;
+  height:clamp(340px,108vw,430px)!important;
+  min-height:340px!important;
+  max-width:420px!important;
+  margin:0!important;
+  opacity:1!important;
+  pointer-events:none;
+ }
+ .gv11-globe{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  display:block!important;
+  overflow:hidden!important;
+  border-radius:50%!important;
+  transform:none!important;
+  pointer-events:auto!important;
+  touch-action:pan-y;
+ }
+ .gv11-earth-glow{inset:-8%!important;filter:blur(19px)!important;opacity:.8}
+ .gv11-orbit{border-color:#7fcde84c!important;opacity:.75}
+ .gv11-horizon{
+  position:absolute!important;
+  z-index:3!important;
+  bottom:60px!important;
+  left:0!important;
+  right:0!important;
+  height:105px!important;
+  opacity:.48!important;
+ }
+ .gv11-cloud{opacity:.34!important}
+ .gv11-stats{
+  position:relative!important;
+  z-index:7!important;
+  order:2!important;
+  flex:none!important;
+  width:100%!important;
+  grid-row:auto!important;
+  grid-column:auto!important;
+  align-self:stretch!important;
+  margin:350px 0 0!important;
+  padding:12px 3px!important;
+  backdrop-filter:blur(14px);
+ }
+}
+@media(max-width:390px){
+ .gv11-hero{min-height:585px!important;padding-top:19px!important}
+ .gv11-planet{top:121px!important;height:clamp(312px,108vw,390px)!important;min-height:312px!important}
+ .gv11-stats{margin-top:326px!important}
+}
+@media(min-width:701px){.gv11-hero:before{display:none}}
