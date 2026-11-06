@@ -316,7 +316,22 @@ function initGlobe(){
  if(featureLine){g.pathsData([featureLine]).pathPoints('points').pathPointLat('lat').pathPointLng('lng').pathColor(()=>'#ffe3a5').pathStroke(.9).pathAltitude(.07)}
  if(!isHero&&!isCountry&&!isCont&&state.category!=='countries'){const v=geo[state.category]?.[state.item];if(v){g.pointsData([{lat:v[4],lng:v[5],name:lang(v[0],v[1])}]).pointLat('lat').pointLng('lng').pointAltitude(.06).pointRadius(.65).pointColor(()=>'#f3ca7d').pointLabel(d=>escapeHTML(d.name));}}
  g.pointOfView(target,isHero?0:1200);
- const ctrl=g.controls();ctrl.autoRotate=isHero&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches;ctrl.autoRotateSpeed=.16;ctrl.enableDamping=true;ctrl.enablePan=false;ctrl.dampingFactor=.08;ctrl.minDistance=160;ctrl.maxDistance=700;
+ const ctrl=g.controls();
+ ctrl.autoRotate=isHero&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ ctrl.autoRotateSpeed=.16;
+ ctrl.enableDamping=true;
+ ctrl.dampingFactor=isHero?.08:.13;
+ ctrl.enablePan=false;
+ ctrl.rotateSpeed=isHero?.65:.55;
+ ctrl.zoomSpeed=isHero?.85:.55;
+ ctrl.enableZoom=true;
+ ctrl.zoomToCursor=false;
+ ctrl.minDistance=isCountry?185:160;
+ ctrl.maxDistance=isCountry?540:700;
+ // On touch screens keep drag/pinch inside the globe rather than scrolling the page.
+ if(!isHero&&node){node.style.touchAction='none';const canvas=node.querySelector('canvas');if(canvas)canvas.style.touchAction='none'}
+ // Don't mix two-finger orbit rotation with pinch zoom on mobile.
+ if(ctrl.touches&&typeof THREE!=='undefined'&&THREE.TOUCH){ctrl.touches.ONE=THREE.TOUCH.ROTATE;ctrl.touches.TWO=THREE.TOUCH.DOLLY}
  try{
   // Cap device pixel ratio to preserve GPU memory on high-density iPhones.
   const renderer=g.renderer?.();
