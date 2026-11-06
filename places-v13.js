@@ -4,6 +4,7 @@
 (function(){
 'use strict';
 const photo=window.GeoVersePlaceMedia={};
+const verifiedPhotos={};
 const previousItemCards=itemCards;
 const langText=(ar,en)=>state.lang==='ar'?ar:en;
 const safe=x=>escapeHTML(String(x??''));
@@ -41,15 +42,17 @@ itemCards=function(items){
  if(state.category==='countries')return previousItemCards(items);
  const q=(state.filter||'').trim().toLocaleLowerCase();
  const matches=items.map((v,i)=>({v,i})).filter(({v})=>!q||String(v[0]+' '+v[1]).toLocaleLowerCase().includes(q));
+ setTimeout(()=>photo.hydrate(),0);
  return matches.length?matches.map(({v,i})=>card(v,i,state.category)).join(''):'<div class="empty gv13-empty">'+langText('لا توجد معالم مطابقة للبحث','No matching places')+'</div>';
 };
 // Called only after the existing wiki title was matched exactly and its thumbnail
-// host was checked against upload.wikimedia.org.
+// host was checked against the two official Wikimedia image CDNs.
 photo.mount=function(box,src,name,articleUrl){
- if(!box?.isConnected||!/^https:\/\/(?:upload|thumb)\.wikimedia\.org\//.test(src))return;
+ if(!box?.isConnected||box.querySelector('img')||!/^https:\/\/(?:upload|thumb)\.wikimedia\.org\//.test(src))return;
  const img=document.createElement('img');
  img.loading='lazy';img.decoding='async';img.alt=name;
  img.referrerPolicy='no-referrer';img.src=src;
+ if(articleUrl&&/^https:\/\/en\.wikipedia\.org\/wiki\//.test(articleUrl))box.dataset.articleSource=articleUrl;
  img.addEventListener('load',()=>{
   if(!box.isConnected)return;
   box.querySelector('.gv13-photo-fallback')?.remove();
@@ -64,5 +67,34 @@ photo.mount=function(box,src,name,articleUrl){
  img.addEventListener('error',()=>{img.remove();box.classList.remove('gv13-has-photo')});
  box.appendChild(img);
 };
+
+// A small, versioned set of exact-title, photo-only Wikipedia pageimages
+// avoids refetching the same Wikimedia metadata on every search or navigation.
+photo.has=(category,index)=>!!verifiedPhotos[category+':'+index];
+photo.hydrate=function(){
+ if(state.page!=='category'||state.category==='countries')return;
+ document.querySelectorAll('#categoryItems .gv13-photo[data-photo-index]').forEach(box=>{
+  const index=Number(box.dataset.photoIndex);
+  const item=verifiedPhotos[state.category+':'+index];
+  if(!item||!Number.isInteger(index))return;
+  const src=item[0],canonical=item[1];
+  if(typeof src!=='string'||typeof canonical!=='string')return;
+  const article='https://en.wikipedia.org/wiki/'+encodeURIComponent(canonical.replace(/ /g,'_'));
+  photo.mount(box,src,box.dataset.placeName||'',article);
+ });
+};
+photo.ready=fetch('./photo-manifest-v13.json').then(r=>{
+ if(!r.ok)throw Error('Photo reference manifest unavailable');
+ return r.json();
+}).then(data=>{
+ for(const [key,item] of Object.entries(data.photos||{})){
+  if(!/^[a-z]+:\d+$/.test(key)||!Array.isArray(item)||item.length!==2)continue;
+  if(!/^https:\/\/(?:upload|thumb)\.wikimedia\.org\//.test(item[0]))continue;
+  verifiedPhotos[key]=item;
+ }
+ photo.hydrate();
+}).catch(e=>{console.warn('Offline photo index unavailable; falling back to live exact article lookup.',e.message)});
+photo.stats=()=>({indexed:Object.keys(verifiedPhotos).length});
+
 window.GeoVersePlacesV13=photo;
 })();
