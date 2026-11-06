@@ -8,7 +8,7 @@ const nativeGlobe=win.Globe;
 if(typeof nativeGlobe==='function'){
  win.Globe=function GeoVerseQualityGlobe(node,options){
   const globe=new nativeGlobe(node,options);
-  let visibilityObserver=null;
+  let visibilityObserver=null,resizeObserver=null;
   try{
    const ratio=Math.min(win.devicePixelRatio||1,win.matchMedia?.('(pointer:coarse)').matches?1.2:1.6);
    globe.renderer?.()?.setPixelRatio?.(ratio);
@@ -20,6 +20,10 @@ if(typeof nativeGlobe==='function'){
     },{rootMargin:'120px',threshold:0.01});
     visibilityObserver.observe(node);
    }
+   if(win.ResizeObserver){
+    resizeObserver=new win.ResizeObserver(()=>{if(node.isConnected){globe.width?.(node.clientWidth||550);globe.height?.(node.clientHeight||400)}});
+    resizeObserver.observe(node);
+   }
   }catch(err){console.debug('Adaptive globe renderer unavailable',err)}
   const onVisibility=()=>{
    if(document.hidden)globe.pauseAnimation?.();
@@ -29,6 +33,7 @@ if(typeof nativeGlobe==='function'){
   const originalCleanup=globe._destructor;
   globe._destructor=function(){
    visibilityObserver?.disconnect();
+   resizeObserver?.disconnect();
    document.removeEventListener('visibilitychange',onVisibility);
    return originalCleanup?.apply(globe,arguments);
   };
@@ -94,7 +99,7 @@ function addArticle(){
   }
  }
  if(langCode!=='ar')return;
- if(articleKey===key)return;
+ if(articleKey===key&&target.parentElement?.querySelector('.gv-arabic-source'))return;
  articleKey=key;const run=++articleRun;
  let panel=target.parentElement?.querySelector('.gv-arabic-source');
  if(!panel){
