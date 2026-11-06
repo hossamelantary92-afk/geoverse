@@ -64,7 +64,7 @@ function coreCountryArticle(){
  const title=esc(nativeName(code)),eng=esc(r.name);
  const subtitle=esc(c);
  return '<button class="back gv9-back" data-page="countries-v4">← '+lang('العودة إلى الدول','Back to countries')+'</button>'+
- '<header class="gv9-hero"><div class="gv9-hero-title"><span class="gv9-eyebrow">'+lang('الموسوعة الجغرافية · الدول','COUNTRY ENCYCLOPEDIA')+'</span><h1>'+title+'</h1><p>'+subtitle+'</p></div><div class="gv9-flag"><img alt="'+lang('علم ','Flag of ')+title+'" src="https://flagcdn.com/'+code.toLowerCase()+'.svg"></div></header>'+
+ '<header class="gv9-hero"><div class="gv9-hero-title"><span class="gv9-eyebrow">'+lang('الموسوعة الجغرافية · الدول','COUNTRY ENCYCLOPEDIA')+'</span><h1>'+title+'</h1><p>'+subtitle+'</p></div><div class="gv9-flag"><img alt="'+lang('علم ','Flag of ')+title+'" src="https://flagcdn.com/'+(code==='UK'?'gb':code.toLowerCase())+'.svg"></div></header>'+
  '<section class="gv9-section"><div class="gv9-section-title"><span class="gv9-eyebrow">'+lang('نظرة سريعة','AT A GLANCE')+'</span><h2>'+lang('أهم المعلومات','Key facts')+'</h2></div><div class="gv9-stats">'+
  tile(icon('capital'),lang('العاصمة','Capital'),esc(capital(r)))+
  tile(icon('area'),lang('المساحة','Area'),area,areaNote)+
