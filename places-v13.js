@@ -51,7 +51,7 @@ photo.mount=function(box,src,name,articleUrl){
  if(!box?.isConnected||box.querySelector('img')||!/^https:\/\/(?:upload|thumb)\.wikimedia\.org\//.test(src))return;
  const img=document.createElement('img');
  img.loading='lazy';img.decoding='async';img.alt=name;
- img.referrerPolicy='no-referrer';img.src=src;
+ img.referrerPolicy='no-referrer';
  if(articleUrl&&/^https:\/\/en\.wikipedia\.org\/wiki\//.test(articleUrl))box.dataset.articleSource=articleUrl;
  img.addEventListener('load',()=>{
   if(!box.isConnected)return;
@@ -65,7 +65,7 @@ photo.mount=function(box,src,name,articleUrl){
   }
  });
  img.addEventListener('error',()=>{img.remove();box.classList.remove('gv13-has-photo')});
- box.appendChild(img);
+ box.appendChild(img);img.src=src;
 };
 
 // A small, versioned set of exact-title, photo-only Wikipedia pageimages
