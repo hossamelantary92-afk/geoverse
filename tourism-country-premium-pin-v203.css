@@ -102,3 +102,30 @@
  #categoryItems .gv181-country-grid{grid-template-columns:1fr!important}
  #categoryItems .gv181-country.gv203-country{min-height:156px!important}
 }
+
+/* GeoVerse v204 — genuine country flags instead of Windows letter-code emoji. */
+#categoryItems .gv203-country .gv204-flag{
+ box-sizing:border-box!important;
+ display:grid!important;
+ place-items:center!important;
+ width:61px!important;
+ height:48px!important;
+ padding:5px!important;
+ border-radius:12px!important;
+ overflow:hidden!important;
+ background:rgba(2,30,48,.74)!important;
+}
+#categoryItems .gv203-country .gv204-flag-img{
+ display:block!important;
+ width:100%!important;
+ height:100%!important;
+ border-radius:5px!important;
+ object-fit:contain!important;
+ filter:drop-shadow(0 3px 5px rgba(0,0,0,.28));
+}
+@media(max-width:650px){
+ #categoryItems .gv203-country .gv204-flag{
+  width:49px!important;height:40px!important;padding:4px!important;
+  border-radius:10px!important;
+ }
+}
