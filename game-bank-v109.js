@@ -83,5 +83,6 @@ document.addEventListener('click',e=>{
  const restart=e.target.closest?.('#restartQuiz');
  if(restart&&selectedGameMode!=='mapfind')quiz=createGame(selectedGameMode);
 },true);
+window.GeoVerseQuestionPools={capitals,facts,randomize,makeCapital,makeFlag,makeFact,makeClassify,makeDefinitions,makeLocations};
 window.GeoVerseGameBankStats={capitals:capitals.length,geographyFacts:facts.length,gameTypes:7};
 })();
