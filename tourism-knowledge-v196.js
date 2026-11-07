@@ -86,7 +86,6 @@ function detailPage(row){
    '<h1 id="gv14Name">'+name+'</h1>'+
    '<p class="gv196-hero-english" dir="auto">'+alternate+'</p>'+
    '<div class="gv196-hero-subtitle">'+esc(t(...type(i)))+'</div>'+
-   '<p id="gv14Lead" class="gv196-hero-lead">'+description+'</p>'+
    '<button id="toggleSeen" class="gv14-learned gv196-learned'+(learned?' is-learned':'')+'" aria-pressed="'+learned+'">'+(learned?t('✓ تمت إضافته لمعرفتي','✓ Marked as learned'):t('✓ تعلمت هذا المكان','✓ Mark as learned'))+'</button>'+
   '</section>'+
   '<section class="gv196-facts-section" aria-labelledby="gv196FactsTitle"><div class="gv196-section-kicker">'+t('في لمحة','AT A GLANCE')+'</div><h2 id="gv196FactsTitle">'+t('حقائق سريعة','Quick facts')+'</h2>'+
@@ -99,7 +98,6 @@ function detailPage(row){
    '<div class="gv196-section-kicker">'+t('تعرّف على المكان','THE STORY')+'</div>'+
    '<h2 id="gv14About">'+t('لماذا يُعد هذا المعلم مميزًا؟','Why does this landmark matter?')+'</h2>'+
    '<p id="gv14Description">'+description+'</p><div id="gv14Facts"></div>'+
-   '<div class="gv196-note"><span aria-hidden="true">✧</span><div><strong>'+t('ما يميّزه','The distinctive feature')+'</strong><p>'+description+'</p></div></div>'+
   '</section>'+
   '<section class="gv9-more gv196-additional" aria-labelledby="gv196AdditionalTitle">'+
    '<div class="gv196-section-kicker">'+t('تعمّق في المعرفة','DEEPER KNOWLEDGE')+'</div>'+
