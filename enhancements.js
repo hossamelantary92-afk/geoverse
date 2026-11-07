@@ -415,9 +415,9 @@ function initGlobe(){
  if(!node||node===globeNode)return;
  globeNode=node;globeInstance=null;
  if(!isGlobeAvailable()){
-  requestGlobeLibrary().then(available=>{
+  requestGlobeLibrary().then(ok=>{
    if(!node.isConnected||document.getElementById(node.id)!==node)return;
-   if(available){globeNode=null;initGlobe()}else{globeInteractiveFallback(node);globeNode=node}
+   if(ok){globeNode=null;initGlobe()}else{globeInteractiveFallback(node);globeNode=node}
   });
   return;
  }
@@ -431,14 +431,11 @@ function initGlobe(){
  if(isExplorer)target={lat:21,lng:15,altitude:1.28};
  try{
  const w=node.clientWidth||550,h=node.clientHeight||400;
- const lean=globeInitAttempts.get(node)>0;
- const g=new G.Globe(node,{animateIn:false});
- // Track a partly initialized renderer too: errors during polygon setup
- // must not leak another WebGL context on iOS.
+ // Preserve the proven Globe.gl initialization sequence.
+ const g=new G.Globe(node,{animateIn:false}).width(w).height(h).globeImageUrl(earthTexture).backgroundColor('rgba(0,0,0,0)').showAtmosphere(true).atmosphereColor('#73cffa').atmosphereAltitude(.19);
  globeInstance=g;
- g.width(w).height(h).globeImageUrl(earthTexture).backgroundColor('rgba(0,0,0,0)').showAtmosphere(!lean).atmosphereColor('#73cffa').atmosphereAltitude(.19);
- const mobileLowMemory=/iPhone|iPad|iPod/i.test(navigator.userAgent||'');
- if(!lean&&!mobileLowMemory)g.bumpImageUrl(earthBump);
+ // On iPhone omit the bump texture to reduce GPU pressure.
+ if(!/iPhone|iPad|iPod/i.test(navigator.userAgent||''))g.bumpImageUrl(earthBump);
  if(typeof g.globeMaterial==='function'){try{const m=g.globeMaterial();if(m){m.shininess=isHero?13:8;m.specular?.set?.(isHero?'#436b80':'#253b52');m.needsUpdate=true}}catch(e){console.debug('Globe material tuning skipped',e)}}
  
  let featureOverlay=null, featureLine=null;
@@ -523,18 +520,6 @@ function initGlobe(){
  ctrl.maxDistance=isExplorer?550:(isCountry?540:700);
  // On touch screens keep drag/pinch inside the globe rather than scrolling the page.
  if(!isHero&&node){node.style.touchAction='none';const canvas=node.querySelector('canvas');if(canvas)canvas.style.touchAction='none'}
- // Recover if Safari loses its GPU context after an otherwise successful start.
- const globeCanvas=node.querySelector('canvas');
- if(globeCanvas){
-  globeCanvas.addEventListener('webglcontextlost',event=>{
-   event.preventDefault();
-   if(globeNode!==node||!node.isConnected)return;
-   disposeGlobe();
-   node.replaceChildren();
-   globeInteractiveFallback(node);
-   globeNode=node;
-  },{once:true});
- }
  // Don't mix two-finger orbit rotation with pinch zoom on mobile.
  if(ctrl.touches&&typeof THREE!=='undefined'&&THREE.TOUCH){ctrl.touches.ONE=THREE.TOUCH.ROTATE;ctrl.touches.TWO=THREE.TOUCH.DOLLY}
  try{
@@ -542,7 +527,7 @@ function initGlobe(){
   const renderer=g.renderer?.();
   renderer?.setPixelRatio?.(Math.min(window.devicePixelRatio||1,window.innerWidth<750?1.35:1.75));
  }catch(e){console.debug('Adaptive resolution unavailable',e)}
- node.classList.add('gv-3d-loaded');
+ globeInstance=g;node.classList.add('gv-3d-loaded');
  if(isExplorer){
   node.classList.add('gv117-explorer');
   exploreNameLabel=document.createElement('div');
@@ -563,19 +548,25 @@ function initGlobe(){
  };
  if(typeof ResizeObserver==='function'){
   const observer=new ResizeObserver(()=>{if(!syncGlobeSize())observer.disconnect()});
-  globeResizeObserver=observer;
   observer.observe(node);
  }else G.addEventListener('resize',syncGlobeSize,{passive:true});
  }catch(err){
-  console.warn('Globe WebGL init unavailable:',err);
-  const tries=globeInitAttempts.get(node)||0;
+  const reason=String(err?.message||err||'unknown').slice(0,220);
+  console.warn('GeoVerse 3D globe failed:',err);
   disposeGlobe();
-  node.classList.remove('gv-3d-loaded');
-  node.replaceChildren();
-  if(tries<1&&node.isConnected){
-   globeInitAttempts.set(node,tries+1);
-   requestAnimationFrame(()=>{if(node.isConnected&&document.getElementById(node.id)===node)initGlobe()});
-  }else{globeInteractiveFallback(node);globeNode=node}
+  globeInteractiveFallback(node);
+  globeNode=node;
+  const card=node.querySelector('.gv132-fallback-map')||node.querySelector('.gv132-globe-error');
+  if(card){
+   const details=document.createElement('details');
+   details.className='gv134-diagnostic';
+   const summary=document.createElement('summary');
+   summary.textContent=lang('تفاصيل المشكلة','Troubleshooting details');
+   const line=document.createElement('code');
+   line.textContent=reason;
+   details.append(summary,line);
+   card.appendChild(details);
+  }
  }
 }
 function scheduleEnhancements(){
