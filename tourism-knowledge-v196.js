@@ -77,7 +77,7 @@ function detailPage(row){
  const next=catalogue()[(i+1)%catalogue().length];
  const article=window.GeoVerseTourismEditorial202?.points(i,ar()?'ar':'en')
   ||[t(row.factAr,row.factEn)];
- const enriched=ar()?window.GeoVerseTourismEnrichment206?.get(i):null;
+ const enriched=ar()?(window.GeoVerseTourismEnrichment207?.get(i)||window.GeoVerseTourismEnrichment206?.get(i)):null;
  const learningPoints=enriched?enriched.points:article;
  const points=learningPoints.filter(Boolean).map(p=>'<li>'+esc(p)+'</li>').join('');
  const enrichedIntro=enriched?'<div class="gv206-story"><h3>القصة والتاريخ</h3><p>'+esc(enriched.story)+'</p></div>':'';
