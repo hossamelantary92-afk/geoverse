@@ -39,11 +39,11 @@ function singlePage(){
  '<button class="back gv14-back" data-cat="'+cat.id+'">← '+t('العودة إلى '+cat.ar,'Back to '+cat.en)+'</button>'+
  '<section class="gv14-head" aria-labelledby="gv14Name">'+
   '<div class="gv14-photo" id="gvArticlePhoto" role="group" aria-label="'+t('صورة جغرافية: ','Photo of ')+esc(title)+'">'+
-   '<div class="gv14-photo-placeholder">'+icon(cat.id)+'<span>'+t('صورة موثقة غير متاحة حاليًا','Verified place photograph unavailable')+'</span></div></div>'+
+   '<div class="gv14-photo-placeholder">'+icon(cat.id)+'<span>'+t('لا توجد صورة حاليًا','No photo available')+'</span></div></div>'+
   '<div class="gv14-heading"><span class="gv14-kicker">'+icon(cat.id)+esc(t(cat.ar,cat.en))+'</span>'+
    '<h1 id="gv14Name">'+esc(title)+'</h1>'+
    '<p class="gv14-head-description" id="gv14Lead">'+esc(sentence(t(v[2],v[3]),220))+'</p>'+
-   (cat.id==='climate'?'<p class="gv14-data-note">'+t('الصورة مثال توضيحي لمنطقة بهذا المناخ، وليست موقعًا جغرافيًا محددًا.','Photo shows one example of this climate, not a single defined geographic location.')+'</p>':'')+
+   ''+
    '<button id="toggleSeen" class="gv14-learned '+(done?'is-learned':'')+'" aria-pressed="'+(done?'true':'false')+'">'+
     '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>'+
     (done?t('تم التعلّم','Learned'):t('تحديد كمعلومة تعلمتها','Mark as learned'))+'</button>'+
@@ -52,10 +52,10 @@ function singlePage(){
   '<p id="gv14Description">'+esc(overview)+'</p><div id="gv14Facts">'+factRows(story)+'</div></section>'+
  '<section class="gv14-map" aria-labelledby="gv14MapTitle"><div class="gv14-section-heading"><span>'+t('استكشف الموقع','EXPLORE LOCATION')+'</span><h2 id="gv14MapTitle">'+t('موقع المعلم على الأرض','Location on Earth')+'</h2></div>'+
   '<div id="gvDetailGlobe" class="gv-globe-detail gv14-globe" role="group" aria-label="'+t('كرة أرضية تفاعلية لعرض موقع المعلم','Interactive 3D globe showing the location')+'"></div>'+
-  '<p class="gv14-map-caption">'+t('الموقع تمثيلي عند عدم توفر حدود جغرافية موثقة.','Location may be representative when verified boundaries are unavailable.')+'</p></section>'+
+  '</section>'+
  '<details class="gv9-more gv14-more"><summary>'+t('مصادر ومعلومات إضافية','Sources and more information')+'</summary>'+
-  '<div id="gvWikiArticle" class="gv-wiki-summary"><p>'+t('جارٍ التحقق من المعلومات الإضافية…','Checking additional reference information…')+'</p></div>'+
-  '<p class="gv14-data-note">'+t('الصور من مقالات مرتبطة بالمعلم، والحدود الطبيعية قد تكون تقريبية.','Photographs are tied to named articles; some natural boundaries are approximate.')+'</p>'+
+  '<div id="gvWikiArticle" class="gv-wiki-summary"><p>'+t('جارٍ تحميل المزيد من المعلومات…','Loading more information…')+'</p></div>'+
+  ''+
   '</details>'+
  (next===null?'':'<div class="gv14-next"><span>'+t('واصل الاستكشاف','KEEP EXPLORING')+'</span><button type="button" data-item="'+cat.id+':'+next+'">'+
   esc(t(same[next][0],same[next][1]))+' <span aria-hidden="true">↗</span></button></div>')+
