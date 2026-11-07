@@ -7,18 +7,43 @@
 'use strict';
 const source='https://commons.wikimedia.org/wiki/';
 const chosen={
- 2:{file:'Temple at Karnak.jpg',credit:'Karelj'},
- 3:{file:'The great temple of Abu simbel..JPG',credit:'Bionet'},
- 4:{file:'Eiffel tower from trocadero.jpg',credit:'Wikimedia Commons'},
+ 2:{file:'Temple at Karnak.jpg',credit:'Maddy'},
+ 3:{file:'The great temple of Abu simbel..JPG',credit:'Abumalek ahmed mohamed'},
+ 4:{file:'Eiffel tower from trocadero.jpg',credit:'NonOmnisMoriar'},
  6:{file:'Exterior of Palace of Versailles Aug 2026 02.jpg',credit:'Heidi Meudt'},
- 18:{file:'Topkapı Palace gate.JPG',credit:'Wikimedia Commons'},
+ 18:{file:'Topkapı Palace gate.JPG',credit:'Mattias811'},
  19:{file:'Göremeopenairmuseum.jpg',credit:'Eminebeyzagn'},
- 20:{file:'View of Sagrada Familia 2026 corrected.jpg',credit:'Wikimedia Commons'},
+ 20:{file:'View of Sagrada Familia 2026 corrected.jpg',credit:'Lojwe'},
  23:{file:'Córdoba, exterior de la catedral-mezquita.jpg',credit:'Macarrones'}
 };
 const local=(id)=>chosen[id];
 function url(file,width){return 'https://commons.wikimedia.org/wiki/Special:FilePath/'+encodeURIComponent(file)+'?width='+width}
 function article(file){return source+'File:'+encodeURIComponent(file)}
+
+const normalizeTitle=name=>String(name||'').replace(/_/g,' ').normalize('NFC').toLocaleLowerCase();
+let apiPromise=null;
+function imageSources(){
+ if(apiPromise)return apiPromise;
+ const titles=Object.values(chosen).map(x=>'File:'+x.file);
+ const params=new URLSearchParams({
+  action:'query',prop:'imageinfo',iiprop:'url',iiurlwidth:'1440',
+  titles:titles.join('|'),redirects:'1',format:'json',origin:'*'
+ });
+ apiPromise=fetch('https://commons.wikimedia.org/w/api.php?'+params)
+  .then(response=>{if(!response.ok)throw Error('media resolution failed');return response.json()})
+  .then(data=>{
+   const resolved=new Map();
+   for(const page of Object.values(data.query?.pages||{})){
+    const media=page.imageinfo?.[0];
+    const link=media?.thumburl||media?.url;
+    if(!link||!/^https:\/\/(?:upload|thumb)\.wikimedia\.org\//.test(link))continue;
+    resolved.set(normalizeTitle(page.title),link);
+   }
+   return resolved;
+  }).catch(()=>new Map());
+ return apiPromise;
+}
+
 function setImage(parent,id,w){
  const spec=local(id);if(!parent||!spec)return;
  const current=parent.querySelector('img[data-gv182-index]');
@@ -43,7 +68,17 @@ function setImage(parent,id,w){
    parent.appendChild(credit);
   }
  });
- img.addEventListener('error',()=>img.remove());
+ let triedApi=false;
+ img.addEventListener('error',()=>{
+  if(triedApi){img.remove();return}
+  triedApi=true;
+  imageSources().then(links=>{
+   if(!img.isConnected)return;
+   const resolved=links.get(normalizeTitle('File:'+spec.file));
+   if(resolved&&resolved!==img.src){img.src=resolved;return}
+   img.remove();
+  });
+ });
  parent.insertBefore(img,parent.firstChild);
  img.src=url(spec.file,w);
 }
