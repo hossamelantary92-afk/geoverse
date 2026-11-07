@@ -287,9 +287,11 @@ function initGlobe(){
  const isHero=state.page==='home',isCont=state.page==='detail'&&state.category==='continents',isCountry=state.page==='country-v4';
  let target={lat:20,lng:15,altitude:1.96};let selectedFeature=null,selectedContinent=null,selectedExploreFeature=null;
  const isExplorer=state.page==='explore';let exploreNameLabel=null;
+ const reducedMotion=window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches||false;
  if(isCont){const v=geo.continents[state.item];selectedContinent=v?.[1];target=continentZoom(selectedContinent)}
  else if(isCountry){const r=store.byCode.get(state.v4Code);selectedFeature=store.featLookup.get(r?.code);const p=selectedFeature&&window.d3?d3.geoCentroid(selectedFeature):[0,0];target={lat:p[1],lng:p[0],altitude:1.8}}
  else if(state.page==='detail'){const v=geo[state.category]?.[state.item];if(v)target={lat:v[4],lng:v[5],altitude:1.7}}
+ if(isExplorer)target={lat:21,lng:15,altitude:1.52};
  try{
  const w=node.clientWidth||550,h=node.clientHeight||400;
  const g=new G.Globe(node,{animateIn:false}).width(w).height(h).globeImageUrl(earthTexture).bumpImageUrl(earthBump).backgroundColor('rgba(0,0,0,0)').showAtmosphere(true).atmosphereColor('#73cffa').atmosphereAltitude(.19);
@@ -314,7 +316,7 @@ function initGlobe(){
    if(isExplorer)return f===selectedExploreFeature?'rgba(27,232,210,0.49)':'rgba(6,51,76,0.035)';
    if(isCont)return f.properties.gvContinent===selectedContinent||selectedContinent==='Asia'&&['Russia','Turkey'].includes(f.properties.name)?'rgba(19,221,217,0.48)':'rgba(3,30,50,0.13)';
    return isHero?'rgba(9,57,77,0.018)':'rgba(17,115,145,0.09)'
-  }).polygonSideColor(()=>'rgba(17,224,219,.1)').polygonStrokeColor(f=>f.properties.gvOverlay?'#ffdd8f':(isCountry&&f===selectedFeature)||(isExplorer&&f===selectedExploreFeature)||(isCont&&f.properties.gvContinent===selectedContinent)?'#ffe1a0':(isHero?'rgba(171,228,243,0.12)':'rgba(157,224,239,0.24)')).polygonLabel(f=>f.properties.gvOverlay?'<div class="gv-globe-label">'+escapeHTML(f.properties.name)+' · '+lang('نطاق تقريبي','approximate area')+'</div>':state.page==='play'?'':'<div class="gv-globe-label">'+escapeHTML(f.properties.gvArabic&&state.lang==='ar'?f.properties.gvArabic:f.properties.name)+'</div>').onPolygonClick(f=>{
+  }).polygonSideColor(()=>'rgba(17,224,219,.1)').polygonStrokeColor(f=>f.properties.gvOverlay?'#ffdd8f':(isCountry&&f===selectedFeature)||(isExplorer&&f===selectedExploreFeature)||(isCont&&f.properties.gvContinent===selectedContinent)?'#ffe1a0':(isHero?'rgba(171,228,243,0.12)':'rgba(157,224,239,0.24)')).polygonLabel(f=>isExplorer?'':f.properties.gvOverlay?'<div class="gv-globe-label">'+escapeHTML(f.properties.name)+' · '+lang('نطاق تقريبي','approximate area')+'</div>':state.page==='play'?'':'<div class="gv-globe-label">'+escapeHTML(f.properties.gvArabic&&state.lang==='ar'?f.properties.gvArabic:f.properties.name)+'</div>').onPolygonClick(f=>{
     if(f.properties.gvOverlay)return;
     if(isExplorer){
      selectedExploreFeature=f;
@@ -329,6 +331,17 @@ function initGlobe(){
      g.polygonAltitude(v=>v===selectedExploreFeature?.011:.0015);
      g.polygonCapColor(v=>v===selectedExploreFeature?'rgba(27,232,210,0.49)':'rgba(6,51,76,0.035)');
      g.polygonStrokeColor(v=>v===selectedExploreFeature?'#8ffff0':'rgba(157,224,239,0.24)');
+     if(window.d3?.geoCentroid){
+      try{
+       const center=d3.geoCentroid(f);
+       if(Number.isFinite(center[0])&&Number.isFinite(center[1])){
+        // Preserve context around large nations; zoom deeper for smaller ones.
+        const area=typeof d3.geoArea==='function'?d3.geoArea(f):0;
+        const altitude=area>.45?1.45:area>.09?1.32:area>.018?1.17:1.03;
+        g.pointOfView({lat:center[1],lng:center[0],altitude},reducedMotion?0:950);
+       }
+      }catch(e){console.debug('Country camera focus unavailable',e)}
+     }
      return;
     }
     const r=recordFor(f.properties.name);
@@ -339,17 +352,17 @@ function initGlobe(){
  if(!isHero&&!isCountry&&!isCont&&state.category!=='countries'){const v=geo[state.category]?.[state.item];if(v){g.pointsData([{lat:v[4],lng:v[5],name:lang(v[0],v[1])}]).pointLat('lat').pointLng('lng').pointAltitude(.06).pointRadius(.65).pointColor(()=>'#f3ca7d').pointLabel(d=>escapeHTML(d.name));}}
  g.pointOfView(target,isHero?0:1200);
  const ctrl=g.controls();
- ctrl.autoRotate=isHero&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ ctrl.autoRotate=isHero&&!reducedMotion;
  ctrl.autoRotateSpeed=.16;
  ctrl.enableDamping=true;
- ctrl.dampingFactor=isHero?.08:.13;
+ ctrl.dampingFactor=isExplorer?.085:(isHero?.08:.13);
  ctrl.enablePan=false;
- ctrl.rotateSpeed=isHero?.65:.55;
- ctrl.zoomSpeed=isHero?.85:.55;
+ ctrl.rotateSpeed=isExplorer?.43:(isHero?.65:.55);
+ ctrl.zoomSpeed=isExplorer?.48:(isHero?.85:.55);
  ctrl.enableZoom=true;
  ctrl.zoomToCursor=false;
- ctrl.minDistance=isCountry?185:160;
- ctrl.maxDistance=isCountry?540:700;
+ ctrl.minDistance=isExplorer?185:(isCountry?185:160);
+ ctrl.maxDistance=isExplorer?550:(isCountry?540:700);
  // On touch screens keep drag/pinch inside the globe rather than scrolling the page.
  if(!isHero&&node){node.style.touchAction='none';const canvas=node.querySelector('canvas');if(canvas)canvas.style.touchAction='none'}
  // Don't mix two-finger orbit rotation with pinch zoom on mobile.
