@@ -114,6 +114,36 @@ function decorate(r){
    setTimeout(()=>{if(atlasRuntime===r&&r.node.isConnected)showCountry(r,index,el)},0);
   }
  };
+ // On mobile, allow a drag starting on country polygons (the original
+ // atlas only panned if the user first touched empty ocean).
+ let gesture=null,ignoreClickUntil=0;
+ svg.addEventListener('pointerdown',event=>{
+  if(event.button!==0&&!['touch','pen'].includes(event.pointerType))return;
+  if(!event.target.closest?.('[data-map-country]'))return;
+  gesture={id:event.pointerId,x:event.clientX,y:event.clientY,view:r.view.slice(),moved:false};
+ },true);
+ svg.addEventListener('pointermove',event=>{
+  if(!gesture||gesture.id!==event.pointerId)return;
+  const dx=event.clientX-gesture.x,dy=event.clientY-gesture.y;
+  if(!gesture.moved&&Math.hypot(dx,dy)<7)return;
+  gesture.moved=true;
+  const rect=svg.getBoundingClientRect();
+  if(!(rect.width>0&&rect.height>0))return;
+  atlasView([gesture.view[0]-dx*gesture.view[2]/rect.width,gesture.view[1]-dy*gesture.view[3]/rect.height,gesture.view[2],gesture.view[3]]);
+  event.stopImmediatePropagation();
+ },true);
+ const finishGesture=event=>{
+  if(!gesture||event.pointerId!==gesture.id)return;
+  if(gesture.moved)ignoreClickUntil=performance.now()+420;
+  gesture=null;
+ };
+ svg.addEventListener('pointerup',finishGesture,true);
+ svg.addEventListener('pointercancel',finishGesture,true);
+ svg.addEventListener('click',event=>{
+  if(performance.now()>=ignoreClickUntil)return;
+  event.preventDefault();
+  event.stopImmediatePropagation();
+ },true);
  svg.addEventListener('click',selectionHandler);
  svg.addEventListener('keydown',e=>{
   if(e.key!=='Enter'&&e.key!==' ')return;
