@@ -1,0 +1,33 @@
+/* GeoVerse v188 — consistent documentary photography, no crop of real monument.
+   The blurred backdrop repeats the SAME photograph, not a different scene. */
+#categoryItems .gv181-landmarks .gv13-photo{
+ position:relative!important;
+ isolation:isolate!important;
+ overflow:hidden!important;
+ background:#0b283b!important;
+}
+#categoryItems .gv181-landmarks .gv13-photo > img.gv188-image-backdrop{
+ position:absolute!important;
+ inset:-12px!important;
+ width:calc(100% + 24px)!important;
+ height:calc(100% + 24px)!important;
+ object-fit:cover!important;
+ object-position:center!important;
+ transform:scale(1.07)!important;
+ filter:blur(16px) brightness(.35) saturate(.7)!important;
+ opacity:.8!important;
+ pointer-events:none!important;
+ z-index:0!important;
+}
+#categoryItems .gv181-landmarks .gv13-photo > img[data-gv186-photo]{
+ position:absolute!important;inset:0!important;
+ width:100%!important;height:100%!important;
+ object-fit:contain!important;object-position:center!important;
+ transform:none!important;
+ filter:none!important;
+ z-index:1!important;
+}
+#categoryItems .gv181-landmarks .gv13-photo:after{
+ display:none!important;
+}
+/* Match the existing 185 release geometry, preserving card alignment on all widths. */
