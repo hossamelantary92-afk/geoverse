@@ -1,0 +1,50 @@
+/* GeoVerse v150: minimal ocean dots, no floating permanent names. */
+.gv140-map .gv147-ocean-labels,
+.gv140-map .gv148-ocean-overlay,
+.gv140-map .gv145-label,
+.gv140-map .gv147-ocean-name,
+.gv140-map .gv148-ocean-label{display:none!important;pointer-events:none!important}
+.gv140-map .atlas-pin.gv150-ocean-pin{cursor:pointer;outline:0}
+.gv140-map .atlas-pin.gv150-ocean-pin .atlas-pin-halo{
+ fill:rgba(63,231,222,.85)!important;opacity:.28!important;stroke:rgba(114,255,240,.22);
+ stroke-width:1.1;
+}
+.gv140-map .atlas-pin.gv150-ocean-pin .atlas-pin-dot{
+ fill:#d0fff7!important;stroke:#40e9df!important;stroke-width:1.5!important;
+}
+.gv140-map .atlas-pin.gv150-ocean-pin .gv150-dot-touch{
+ fill:rgba(42,220,216,.015);stroke:none;pointer-events:all;
+}
+.gv140-map .atlas-pin.gv150-ocean-pin:focus-visible .atlas-pin-halo,
+.gv140-map .atlas-pin.gv150-ocean-pin:hover .atlas-pin-halo,
+.gv140-map .atlas-pin.gv150-ocean-pin.gv150-ocean-active .atlas-pin-halo{
+ opacity:.72!important;fill:#40eed9!important;stroke:#a4fff4;
+ filter:drop-shadow(0 0 7px rgba(78,245,220,.65));
+}
+.gv140-map .atlas-pin.gv150-ocean-pin.gv150-ocean-active .atlas-pin-dot{
+ fill:#f8fffd!important;stroke:#7cf6e3!important;
+}
+.gv140-map .gv150-ocean-bubble{
+ position:absolute;z-index:9;max-width:min(200px,70%);min-width:90px;
+ transform:translate(-50%,-100%);box-sizing:border-box;
+ border:1px solid rgba(112,245,224,.85);border-radius:12px;
+ background:linear-gradient(145deg,rgba(6,55,70,.97),rgba(3,35,53,.98));
+ box-shadow:0 10px 26px rgba(0,13,26,.42),inset 0 1px rgba(232,255,250,.14);
+ padding:9px 13px;color:#effffb;font:800 13px/1.6 Cairo,Tahoma,system-ui,sans-serif;
+ text-align:center;overflow-wrap:break-word;white-space:normal;
+ direction:rtl;unicode-bidi:isolate;pointer-events:auto;
+}
+.gv140-map .gv150-ocean-bubble[dir="ltr"]{
+ direction:ltr;font-family:Outfit,system-ui,sans-serif;
+}
+.gv140-map .gv150-ocean-bubble::after{
+ content:"";position:absolute;bottom:-6px;left:calc(50% - 5px);
+ width:10px;height:10px;background:#04364b;border-right:1px solid #64dfcf;
+ border-bottom:1px solid #64dfcf;transform:rotate(45deg);
+}
+@media(max-width:700px){
+ .gv140-map .gv150-ocean-bubble{
+  font-size:12px;line-height:1.5;padding:8px 11px;
+  border-radius:10px;max-width:160px;
+ }
+}
