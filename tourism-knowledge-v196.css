@@ -143,3 +143,69 @@
  #categoryItems .gv196-card{padding:11px!important}
  #main .gv196-facts{gap:8px}
 }
+
+/* GeoVerse v198 — fully expanded, readable information section above the map. */
+#main .gv196-detail .gv196-additional{
+ box-sizing:border-box;
+ display:block!important;
+ width:100%;
+ padding:clamp(21px,3vw,32px)!important;
+ margin:0!important;
+ border-radius:21px;
+ border:1px solid rgba(102,201,190,.42);
+ background:linear-gradient(145deg,#0b3447,#071f31);
+ box-shadow:0 12px 30px rgba(0,13,25,.25);
+}
+#main .gv196-additional h2{
+ margin:5px 0 18px!important;
+ padding:0 0 12px;
+ border-bottom:1px solid rgba(109,187,188,.25);
+ font-size:clamp(20px,2.5vw,27px);
+}
+#main .gv196-additional-content{
+ color:#dcecf0!important;
+ font-size:clamp(14px,1.3vw,16px)!important;
+ line-height:2.1!important;
+ max-width:960px;
+ overflow-wrap:anywhere;
+ text-align:start;
+}
+#main .gv196-additional-content p{
+ margin:0 0 16px!important;
+ line-height:2.1!important;
+}
+#main .gv196-additional-content h3,
+#main .gv196-additional-content h4{
+ color:#eafff9!important;
+ margin:18px 0 8px!important;
+ line-height:1.55!important;
+}
+#main .gv196-additional-content img{display:none!important}
+#main .gv196-additional-source{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ flex-wrap:wrap;
+ gap:10px;
+ margin-top:18px;
+ padding-top:15px;
+ border-top:1px solid rgba(109,187,188,.25);
+ color:#abcbd0;
+ font-size:12px;
+}
+#main .gv196-additional .gv196-reference{
+ display:inline-flex;
+ align-items:center;
+ color:#8ff2d9;
+ font-weight:800;
+ text-decoration:underline;
+ text-underline-offset:4px;
+}
+@media(max-width:700px){
+ #main .gv196-detail .gv196-additional{
+  padding:18px 16px!important;
+  border-radius:16px;
+ }
+ #main .gv196-additional-content{font-size:14px!important;line-height:1.95!important}
+ #main .gv196-additional-content p{line-height:1.95!important}
+}
