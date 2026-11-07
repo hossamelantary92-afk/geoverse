@@ -46,6 +46,9 @@ const rules={
 };
 function cleanDescription(desc,name,id){
  let v=String(desc||'').trim();
+ // Preserve grammatical forms rather than replacing stems within adjectives.
+ if(id==='volcanoes')v=v.replace(/بركانية/g,'نارية').replace(/\bvolcanic\b/gi,'igneous');
+ if(id==='mountains')v=v.replace(/جبال/g,'مرتفعات').replace(/\bmountains\b/gi,'highlands');
  if(!v||/معلم جغرافي|geographic feature|اضغط للخريطة|explore its map|illustrative example|مثال توضيحي/i.test(v))return '';
  if(name){const escaped=name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');try{v=v.replace(new RegExp(escaped,'gi'),'هذا الموقع')}catch{}}
  const [pattern,replacement]=rules[id]||[];
@@ -132,8 +135,12 @@ createGame=function(mode){
  if(mode==='mixed'){
   // Preserve valid existing mixed-game content while enriching it with audited questions.
   const core=originalCreate(mode).filter(q=>integrity.safe(q,mode));
-  const extra=[...makeConceptQuestions(),...bank.makeClassify(),...makeClassificationQuestions(),...bank.makeLocations(),...makeCountryLocations()];
-  return rotate(mode,[...core,...extra]);
+  const concept=makeConceptQuestions(),classify=[...bank.makeClassify(),...makeClassificationQuestions()];
+  const locations=[...bank.makeLocations(),...makeCountryLocations()];
+  // Balanced mix: factual challenge, definitions, classification and locations.
+  const candidates=[...shuffle(core).slice(0,3),...shuffle(concept).slice(0,3),...shuffle(classify).slice(0,3),...shuffle(locations).slice(0,3)];
+  const selected=rotate(mode,candidates);
+  return selected.length===12?selected:rotate(mode,[...candidates,...core,...concept,...classify,...locations]);
  }
  return originalCreate(mode);
 };
