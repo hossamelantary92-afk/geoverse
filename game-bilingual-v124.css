@@ -1,0 +1,8 @@
+/* GeoVerse v124 — bilingual answer cards, mobile first. */
+.quiz-choice:has(.gv124-choice-text){display:flex;align-items:center;justify-content:center;gap:12px;position:relative;min-height:74px;padding:11px 15px!important;text-align:center!important;}
+.gv124-choice-text{display:flex;flex:1;min-width:0;flex-direction:column;align-items:center;justify-content:center;gap:3px;line-height:1.45;overflow-wrap:anywhere}
+.gv124-choice-en{display:block;max-width:100%;font-family:Outfit,system-ui,sans-serif;font-size:clamp(15px,3.4vw,18px);font-weight:750;letter-spacing:.01em;text-align:center;unicode-bidi:isolate}
+.gv124-choice-ar{display:block;max-width:100%;font-family:Cairo,system-ui,sans-serif;font-size:clamp(12px,2.8vw,14px);font-weight:650;opacity:.79;text-align:center;unicode-bidi:isolate}
+.gv124-check{display:inline-flex;align-items:center;justify-content:center;flex:0 0 24px;width:24px;height:24px;border-radius:50%;background:rgba(19,220,153,.25);color:#f0fff8;font-size:17px;font-weight:900}
+.quiz-choice.correct .gv124-choice-ar,.quiz-choice.wrong .gv124-choice-ar{opacity:.94}
+@media(max-width:480px){.quiz-choice:has(.gv124-choice-text){min-height:72px;margin:8px 0!important;border-radius:13px;padding:11px 12px!important}.gv124-choice-text{gap:2px}}
