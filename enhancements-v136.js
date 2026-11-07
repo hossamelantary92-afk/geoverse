@@ -265,7 +265,8 @@ function fallbackArabic(v){
 let wikiSequence=0;
 async function loadWiki(){
  const current=++wikiSequence;
- if(!['detail','country-v4'].includes(state.page)||state.category==='continents')return;
+ // Tourist attractions now have one curated educational overview; the automatic encyclopedia extract duplicated it.
+ if(!['detail','country-v4'].includes(state.page)||state.category==='continents'||(state.page==='detail'&&state.category==='tourism'))return;
  const v=state.page==='country-v4'?[null,store.byCode.get(state.v4Code)?.name]:geo[state.category]?.[state.item];
  if(!v?.[1])return;
  const title=wikiTitle(v),target=document.getElementById('gvWikiArticle'),photo=document.getElementById('gvArticlePhoto');
