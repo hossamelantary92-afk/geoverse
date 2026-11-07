@@ -14,7 +14,7 @@ if(!Array.isArray(geo?.tourism)||geo.tourism.length!==48)return;
 // Each destination has four geographically positioned attractions in the v168 catalogue.
 for(let i=0;i<48;i++){
  const place=geo.tourism[i],country=countries[Math.floor(i/4)],pair=facts[i];
- place[2]=pair[0]+' · '+country[1]+'، '+['الجيزة','الأقصر','أسوان'][0]; // replaced with precise city below
+ place[2]=pair[0];
  place[3]=pair[1];
 }
 // City labels are parsed from existing v168 descriptions, so the page never guesses locality.
@@ -73,9 +73,13 @@ function photoFor(item,wrapper){
 }
 function hydrateCountry(){
  if(state.page!=='country-v4'||!root)return;
- const code=state.v4Code,section=countrySection(code);
- root.querySelector('.gv170-tourism')?.remove();
+ const code=state.v4Code==='UK'?'GB':state.v4Code;
+ const existing=root.querySelector('.gv170-tourism');
+ if(existing?.dataset.gv170Country===code&&existing?.dataset.gv170Lang===state.lang)return;
+ const section=countrySection(code);
+ existing?.remove();
  if(!section)return;
+ section.dataset.gv170Country=code;section.dataset.gv170Lang=state.lang;
  const anchor=root.querySelector('.gv9-earth');
  if(anchor)root.insertBefore(section,anchor);else root.append(section);
  const items=byCode.get(code)||[];
