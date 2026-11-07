@@ -30,16 +30,16 @@ const rules={
  oceans:[/محيط|محيطات|ocean/gi,'مسطح مائي'],
  seas:[/\bseas?\b|بحر|البحر|بحار/gi,'مسطح مائي'],
  deserts:[/صحراء|صحاري|\bdesert\b/gi,'منطقة جافة'],
- rivers:[/نهر|أنهار|\brivers?\b/gi,'مجرى مائي'],
- waterfalls:[/شلالات|شلال|\bwaterfalls?\b/gi,'سقوط مائي'],
+ rivers:[/نهر|أنهار|\brivers?\b/gi,'مجرى متدفق'],
+ waterfalls:[/شلالات|شلال|\bwaterfalls?\b/gi,'اندفاع متساقط'],
  forests:[/غابات|غابة|\bforests?\b|\brainforest\b/gi,'غطاء نباتي'],
  mountains:[/جبال|جبل|سلسلة جبلية|\bmountains?\b/gi,'تضاريس مرتفعة'],
  lakes:[/بحيرات|بحيرة|\blakes?\b/gi,'مسطح مائي داخلي'],
  islands:[/جزر|جزيرة|\bislands?\b|\barchipelago\b/gi,'كتل يابسة'],
- volcanoes:[/براكين|بركان|بركانية|\bvolcano(?:es)?\b|\bvolcanic\b/gi,'نشاط صخري ناري'],
+ volcanoes:[/براكين|بركان|بركانية|\bvolcano(?:es)?\b|\bvolcanic\b/gi,'تكوين صخري'],
  straits:[/مضيق|مضايق|قناة|\bstraits?\b|\bcanal\b/gi,'ممر مائي'],
  gulfs:[/خليج|خلجان|\bgulfs?\b|\bbays?\b/gi,'امتداد مائي ساحلي'],
- glaciers:[/أنهار جليدية|نهر جليدي|\bglaciers?\b|\bice sheet\b|\bice cap\b/gi,'كتلة جليدية'],
+ glaciers:[/أنهار جليدية|نهر جليدي|\bglaciers?\b|\bice sheet\b|\bice cap\b/gi,'معلم قطبي'],
  valleys:[/أودية|وادي|أخدود|\bvalleys?\b|\bcanyons?\b/gi,'منخفض صخري'],
  climate:[/مناخ|\bclimate\b/gi,'نمط طقس'],
  grasslands:[/سهول|سهوب|مراعي|سافانا|\bgrasslands?\b|\bplains?\b|\bsavanna\b|\bsteppe\b/gi,'مساحة طبيعية مفتوحة']
@@ -49,7 +49,11 @@ function cleanDescription(desc,name,id){
  if(!v||/معلم جغرافي|geographic feature|اضغط للخريطة|explore its map|illustrative example|مثال توضيحي/i.test(v))return '';
  if(name){const escaped=name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');try{v=v.replace(new RegExp(escaped,'gi'),'هذا الموقع')}catch{}}
  const [pattern,replacement]=rules[id]||[];
- if(pattern)v=v.replace(pattern,replacement);
+ if(pattern)v=v.replace(pattern,(token,offset,text)=>{
+  const before=text[offset-1]||'',after=text[offset+token.length]||'';
+  // Prevent mangling a larger word, e.g. البحرية or volcanic.
+  return /[\\p{L}]/u.test(before)||/[\\p{L}]/u.test(after)?token:replacement;
+ });
  v=v.replace(/\s+/g,' ').trim();
  return v;
 }
@@ -106,9 +110,25 @@ function rotate(mode,list){
 }
 const originalCreate=createGame;
 createGame=function(mode){
- if(mode==='definitions')return rotate(mode,makeConceptQuestions());
- if(mode==='classify')return rotate(mode,[...bank.makeClassify(),...makeClassificationQuestions()]);
- if(mode==='locations')return rotate(mode,[...bank.makeLocations(),...makeCountryLocations()]);
+ if(mode==='definitions'){
+  const all=makeConceptQuestions();
+  const groups=level()==='easy'?['rivers','water','land','biome','human']:level()==='medium'?['maps','climate','arid','earth','water']:['earth','ice','arid','maps','climate'];
+  const subset=all.filter(q=>conceptItems.some(v=>groups.includes(v.group)&&q[1].includes(v.descEn)));
+  return rotate(mode,subset.length>=12?subset:all);
+ }
+ if(mode==='classify'){
+  const all=[...bank.makeClassify(),...makeClassificationQuestions()];
+  const groups=level()==='easy'?['rivers','lakes','seas','oceans','mountains','islands','deserts','forests','waterfalls']:level()==='hard'?['straits','gulfs','glaciers','valleys','volcanoes','climate','grasslands','continents']:categoryList;
+  const subset=all.filter(q=>groups.some(id=>q[3][q[4]]===categoryLabel(id)?.en));
+  return rotate(mode,subset.length>=12?subset:all);
+ }
+ if(mode==='locations'){
+  const base=bank.makeLocations();
+  const countries=makeCountryLocations();
+  const knownCodes=new Set(bank.capitals.slice(0,74).map(x=>x[4]?.toUpperCase()));
+  const allowed=level()==='easy'?countries.filter(q=>countryRecords.some(r=>knownCodes.has(r[0])&&q[3][q[4]]===r[1])):level()==='medium'?countries.filter(q=>countryRecords.some(r=>['Asia','Europe','Africa','North America','South America','Oceania'].includes(r[3])&&q[3][q[4]]===r[1])):countries;
+  return rotate(mode,[...base,...(allowed.length>=12?allowed:countries)]);
+ }
  if(mode==='mixed'){
   // Preserve valid existing mixed-game content while enriching it with audited questions.
   const core=originalCreate(mode).filter(q=>integrity.safe(q,mode));
