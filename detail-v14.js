@@ -92,8 +92,9 @@ function hydrate(){
    photo.insertBefore(img,photo.firstChild);
    img.src=entry[0];
    const link=document.createElement('a');link.className='gv14-image-credit';link.target='_blank';link.rel='noopener noreferrer';
-   link.href='https://en.wikipedia.org/wiki/'+encodeURIComponent(String(entry[1]||v[1]).replace(/ /g,'_'));
-   link.textContent=t('مصدر الصورة','Image source');
+   const canonical=String(entry[1]||v[1]).replace(/ /g,'_');
+   link.href=(canonical.startsWith('File:')?'https://commons.wikimedia.org/wiki/':'https://en.wikipedia.org/wiki/')+encodeURIComponent(canonical);
+   link.textContent=entry[2]?t('تصوير: ','Photo: ')+entry[2]:t('مصدر الصورة','Image source');
    photo.appendChild(link);
   }
  }
@@ -112,7 +113,7 @@ render=function(){
  else if(state.page==='detail')hydrate();
  else if(state.page==='country-v4')tidyCountry();
 };
-Promise.allSettled([fetch('./geo-stories.json?v=gv96-expanded-natural-atlas').then(r=>{if(!r.ok)throw Error('stories');return r.json()}),fetch('./photo-manifest-v13.json?v=gv97-photo-integrity').then(r=>{if(!r.ok)throw Error('photos');return r.json()})])
+Promise.allSettled([fetch('./geo-stories.json?v=gv96-expanded-natural-atlas').then(r=>{if(!r.ok)throw Error('stories');return r.json()}),fetch('./photo-manifest-v13.json?v=gv98-authentic-photos').then(r=>{if(!r.ok)throw Error('photos');return r.json()})])
 .then(result=>{
  if(result[0].status==='fulfilled')content.stories=result[0].value.stories||{};
  if(result[1].status==='fulfilled')content.photos=result[1].value.photos||{};
