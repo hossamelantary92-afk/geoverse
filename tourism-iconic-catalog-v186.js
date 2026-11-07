@@ -76,10 +76,11 @@ function linkPhoto(host,spec,result){
   host.querySelector('.gv13-photo-fallback')?.remove();
   host.querySelector('.gv13-photo-status')?.remove();
   if(host.id==='gvArticlePhoto'){
+   host.querySelectorAll('.gv14-image-credit,.gv182-credit').forEach(old=>old.remove());
    const sourceLink=host.querySelector('.gv186-source')||document.createElement('a');
    sourceLink.className='gv186-source';sourceLink.target='_blank';sourceLink.rel='noopener noreferrer';
    sourceLink.href=result.via==='Commons'?articleUrl(spec):'https://en.wikipedia.org/wiki/'+encodeURIComponent(spec.wiki);
-   sourceLink.textContent=spec.author?'Photo: '+spec.author+' · Wikimedia Commons':'Photo source: Wikimedia';
+   sourceLink.textContent=result.via==='Commons'&&spec.author?'Photo: '+spec.author+' · Wikimedia Commons':'Photo source: Wikimedia';
    if(!sourceLink.isConnected)host.appendChild(sourceLink);
   }
  });
