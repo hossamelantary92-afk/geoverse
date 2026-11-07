@@ -38,7 +38,39 @@ const twoRegion=new Set(['Russia','Turkey','Kazakhstan','Georgia','Azerbaijan'])
 const centerOverrides={'Egypt':[26.8,30.8],'Russia':[60,90],'Turkey':[39,35],'United States':[39,-98],'Antarctica':[-78,0]};
 function regionFor(name){if(name==='Antarctica')return 'Antarctica';return store.byName.get(norm(name))?.continent||null}
 function recordFor(name){return store.byName.get(norm(name))||store.byName.get(norm(alias[norm(name)]))||null}
-function arName(r){if(!r)return '';try{return new Intl.DisplayNames(['ar'],{type:'region'}).of(r.code)||r.name}catch{return r.name}}
+const globeArabicNameOverrides={
+ 'French Southern and Antarctic Lands':'الأقاليم الجنوبية الفرنسية',
+ 'The Bahamas':'جزر البهاما',
+ 'Northern Cyprus':'شمال قبرص',
+ 'Kosovo':'كوسوفو',
+ 'Macedonia':'مقدونيا الشمالية',
+ 'Somaliland':'صوماليلاند',
+ 'Republic of Serbia':'صربيا',
+ 'Swaziland':'إسواتيني',
+ 'East Timor':'تيمور الشرقية',
+ 'Turkey':'تركيا',
+ 'Taiwan':'تايوان',
+ 'West Bank':'الضفة الغربية',
+ 'Antarctica':'القارة القطبية الجنوبية'
+};
+function arName(r){
+ if(!r)return '';
+ try{
+  const result=new Intl.DisplayNames(['ar'],{type:'region'}).of(r.code);
+  return result&&/[\\u0600-\\u06FF]/.test(result)?result:(globeArabicNameOverrides[r.name]||r.name);
+ }catch{return globeArabicNameOverrides[r.name]||r.name}
+}
+function globeCountryName(feature){
+ const name=feature?.properties?.name||'';
+ if(state.lang!=='ar')return name;
+ const translated=feature?.properties?.gvArabic;
+ if(translated&&/[\\u0600-\\u06FF]/.test(translated))return translated;
+ const special=globeArabicNameOverrides[name];
+ if(special)return special;
+ const r=recordFor(name);
+ if(r)return arName(r);
+ return name;
+}
 function resolvedContinent(name){const r=recordFor(name);return r?.continent||((name==='Antarctica')?'Antarctica':null)}
 async function loadCatalogue(){
  try{
@@ -330,14 +362,13 @@ function initGlobe(){
    if(isExplorer)return f===selectedExploreFeature?'rgba(27,232,210,0.49)':'rgba(6,51,76,0.035)';
    if(isCont)return f.properties.gvContinent===selectedContinent||selectedContinent==='Asia'&&['Russia','Turkey'].includes(f.properties.name)?'rgba(19,221,217,0.48)':'rgba(3,30,50,0.13)';
    return isHero?'rgba(9,57,77,0.018)':'rgba(17,115,145,0.09)'
-  }).polygonSideColor(()=>'rgba(17,224,219,.1)').polygonStrokeColor(f=>f.properties.gvOverlay?'#ffdd8f':(isCountry&&f===selectedFeature)||(isExplorer&&f===selectedExploreFeature)||(isCont&&f.properties.gvContinent===selectedContinent)?'#ffe1a0':(isHero?'rgba(171,228,243,0.12)':'rgba(157,224,239,0.24)')).polygonLabel(f=>isExplorer?'':f.properties.gvOverlay?'<div class="gv-globe-label">'+escapeHTML(f.properties.name)+' · '+lang('نطاق تقريبي','approximate area')+'</div>':state.page==='play'?'':'<div class="gv-globe-label">'+escapeHTML(f.properties.gvArabic&&state.lang==='ar'?f.properties.gvArabic:f.properties.name)+'</div>').onPolygonClick(f=>{
+  }).polygonSideColor(()=>'rgba(17,224,219,.1)').polygonStrokeColor(f=>f.properties.gvOverlay?'#ffdd8f':(isCountry&&f===selectedFeature)||(isExplorer&&f===selectedExploreFeature)||(isCont&&f.properties.gvContinent===selectedContinent)?'#ffe1a0':(isHero?'rgba(171,228,243,0.12)':'rgba(157,224,239,0.24)')).polygonLabel(f=>isExplorer?'':f.properties.gvOverlay?'<div class="gv-globe-label">'+escapeHTML(f.properties.name)+' · '+lang('نطاق تقريبي','approximate area')+'</div>':state.page==='play'?'':'<div class="gv-globe-label">'+escapeHTML(globeCountryName(f))+'</div>').onPolygonClick(f=>{
     if(f.properties.gvOverlay)return;
     if(isExplorer){
      selectedExploreFeature=f;
      if(exploreNameLabel){
       const value=exploreNameLabel.querySelector('.gv117-name');
-      const r=recordFor(f.properties.name);
-      if(value)value.textContent=state.lang==='ar'?(f.properties.gvArabic||r?.ar||f.properties.name):f.properties.name;
+      if(value)value.textContent=globeCountryName(f);
       exploreNameLabel.classList.remove('gv117-visible');
       void exploreNameLabel.offsetWidth;
       exploreNameLabel.classList.add('gv117-visible');
