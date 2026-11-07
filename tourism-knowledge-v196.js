@@ -101,13 +101,17 @@ function detailPage(row){
    '<p id="gv14Description">'+description+'</p><div id="gv14Facts"></div>'+
    '<div class="gv196-note"><span aria-hidden="true">✧</span><div><strong>'+t('ما يميّزه','The distinctive feature')+'</strong><p>'+description+'</p></div></div>'+
   '</section>'+
+  '<section class="gv9-more gv196-additional" aria-labelledby="gv196AdditionalTitle">'+
+   '<div class="gv196-section-kicker">'+t('تعمّق في المعرفة','DEEPER KNOWLEDGE')+'</div>'+
+   '<h2 id="gv196AdditionalTitle">'+t('معلومات إضافية','Additional information')+'</h2>'+
+   '<div id="gvWikiArticle" class="gv-wiki-summary gv196-additional-content"></div>'+
+   '<div class="gv196-additional-source"><span>'+t('المصدر والمزيد من القراءة','Source & further reading')+'</span>'+
+    '<a class="gv196-reference" href="'+esc(source)+'" target="_blank" rel="noopener noreferrer">'+t('افتح الصفحة المرجعية','Open reference article')+' ↗</a></div>'+
+  '</section>'+
   '<section class="gv14-map gv196-map" aria-labelledby="gv14MapTitle"><div class="gv196-section-kicker">'+t('اكتشف موقعه','EXPLORE THE LOCATION')+'</div><h2 id="gv14MapTitle">'+t('المعلم على الكرة الأرضية','Find it on the globe')+'</h2>'+
    '<p class="gv196-coordinates">'+t('الإحداثيات التقريبية','Approximate coordinates')+': <span dir="ltr">'+esc(coordinates)+'</span></p>'+
    '<div id="gvDetailGlobe" class="gv-globe-detail gv14-globe" role="group" aria-label="'+t('كرة أرضية تفاعلية لتحديد موقع المعلم','Interactive globe showing landmark location')+'"></div>'+
   '</section>'+
-  '<details class="gv9-more gv14-more gv196-sources"><summary>'+t('المصادر ومعلومات إضافية','Sources and further reading')+'</summary>'+
-    '<a class="gv196-reference" href="'+esc(source)+'" target="_blank" rel="noopener noreferrer">'+t('الصفحة المرجعية عن المعلم','Landmark reference article')+' ↗</a>'+
-    '<div id="gvWikiArticle" class="gv-wiki-summary"></div></details>'+
   (next?'<div class="gv14-next gv196-next"><span>'+t('واصل الاستكشاف','KEEP EXPLORING')+'</span><button type="button" data-item="tourism:'+next.index+'">'+esc(t(next.nameAr,next.nameEn))+' <span aria-hidden="true">↗</span></button></div>':'')+
  '</div>';
 }
