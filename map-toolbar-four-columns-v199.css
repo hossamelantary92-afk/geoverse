@@ -1,0 +1,63 @@
+/* GeoVerse v199 — uniform four-column map taxonomy.
+ * Desktop water group: 4 + 4; land group: 4 + 3.
+ * Preserve original data-layer buttons, active state and click handlers.
+ */
+#mapToolbar.gv146-toolbar .gv146-group-grid{
+ display:grid!important;
+ grid-template-columns:repeat(4,minmax(0,1fr))!important;
+ gap:11px!important;
+ width:100%;
+ direction:rtl;
+ align-items:stretch;
+}
+#mapToolbar.gv146-toolbar .gv146-group-grid > button{
+ box-sizing:border-box!important;
+ min-width:0!important;
+ width:100%!important;
+ min-height:54px!important;
+ display:flex!important;
+ align-items:center!important;
+ justify-content:center!important;
+ flex-wrap:nowrap;
+ gap:8px!important;
+ padding:11px 12px!important;
+ border-radius:12px!important;
+ text-align:center!important;
+ line-height:1.55!important;
+}
+#mapToolbar.gv146-toolbar .gv146-group-grid > button .gv-icon{
+ flex:0 0 20px;
+ width:20px;
+ height:20px;
+}
+#mapToolbar.gv146-toolbar .gv146-group{
+ width:100%;
+ min-width:0;
+ gap:9px!important;
+ margin:0;
+}
+#mapToolbar.gv146-toolbar .gv146-group-title{
+ margin:0!important;
+ padding:0 2px!important;
+}
+@media(max-width:760px){
+ #mapToolbar.gv146-toolbar .gv146-group-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:8px!important;
+ }
+ #mapToolbar.gv146-toolbar .gv146-group-grid > button{
+  min-height:48px!important;
+  font-size:11px!important;
+  padding:9px 7px!important;
+  gap:6px!important;
+ }
+ #mapToolbar.gv146-toolbar .gv146-group-grid > button .gv-icon{
+  flex-basis:18px;width:18px;height:18px;
+ }
+}
+@media(max-width:360px){
+ #mapToolbar.gv146-toolbar .gv146-group-grid > button{
+  font-size:10px!important;
+  padding:8px 4px!important;
+ }
+}
