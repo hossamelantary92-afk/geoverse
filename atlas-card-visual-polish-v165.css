@@ -1,0 +1,58 @@
+/* GeoVerse v165 — compact landmark-card polish. Keeps map controls and gestures untouched. */
+#worldMap.gv140-map .gv140-country-card.gv154-smart-card.gv164-enhanced:not([hidden]),
+#detailMap.gv140-map .gv140-country-card.gv154-smart-card.gv164-enhanced:not([hidden]){
+  bottom:112px!important;
+  width:min(308px,calc(100% - 26px))!important;
+  max-height:min(57%,242px)!important;
+  padding:10px 12px!important;
+  border-radius:15px!important;
+}
+.gv140-map .gv164-enhanced .gv153-card-heading{gap:6px!important}
+.gv140-map .gv164-enhanced .gv140-card-title{
+  margin:3px 0 5px!important;
+  font-size:16px!important;
+  line-height:1.35!important;
+}
+.gv140-map .gv164-enhanced .gv164-body{
+  margin-top:5px!important;
+  display:flex!important;
+  gap:10px!important;
+  align-items:stretch!important;
+}
+.gv140-map .gv164-enhanced .gv164-visual{
+  flex:0 0 92px!important;
+  width:92px!important;
+  height:102px!important;
+  align-self:flex-start!important;
+  border-radius:11px!important;
+}
+.gv140-map .gv164-enhanced .gv164-visual img{object-fit:cover!important;object-position:center!important}
+.gv140-map .gv164-enhanced .gv164-copy .gv142-landmark-description{
+  font-size:11px!important;
+  line-height:1.55!important;
+  max-height:52px!important;
+  -webkit-line-clamp:3!important;
+}
+.gv140-map .gv164-enhanced .gv164-facts{gap:3px!important;margin-top:5px!important}
+.gv140-map .gv164-enhanced .gv164-facts>div{gap:2px 5px!important}
+.gv140-map .gv164-enhanced .gv142-view-detail{
+  min-height:34px!important;
+  margin-top:7px!important;
+  padding:6px 11px!important;
+}
+@media(max-width:700px){
+  #worldMap.gv140-map .gv140-country-card.gv154-smart-card.gv164-enhanced:not([hidden]),
+  #detailMap.gv140-map .gv140-country-card.gv154-smart-card.gv164-enhanced:not([hidden]){
+    bottom:109px!important;
+    right:10px!important;
+    width:min(308px,calc(100% - 20px))!important;
+    max-height:min(57%,236px)!important;
+    padding:10px 11px!important;
+  }
+  .gv140-map .gv164-enhanced .gv164-visual{flex-basis:87px!important;width:87px!important;height:100px!important}
+  .gv140-map .gv164-enhanced .gv164-body{gap:9px!important}
+}
+@media(max-width:360px){
+  .gv140-map .gv164-enhanced .gv164-visual{flex-basis:76px!important;width:76px!important;height:94px!important}
+  .gv140-map .gv164-enhanced .gv164-copy .gv142-landmark-description{-webkit-line-clamp:2!important}
+}
