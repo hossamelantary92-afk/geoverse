@@ -98,11 +98,13 @@ function hydrate(){
    img.addEventListener('error',()=>{img.remove();photo.classList.remove('gv14-has-photo')});
    photo.insertBefore(img,photo.firstChild);
    img.src=entry[0];
-   const link=document.createElement('a');link.className='gv14-image-credit';link.target='_blank';link.rel='noopener noreferrer';
-   const canonical=String(entry[1]||v[1]).replace(/ /g,'_');
-   link.href=(canonical.startsWith('File:')?'https://commons.wikimedia.org/wiki/':'https://en.wikipedia.org/wiki/')+encodeURIComponent(canonical);
-   link.textContent=entry[2]?t('تصوير: ','Photo: ')+entry[2]:t('مصدر الصورة','Image source');
-   photo.appendChild(link);
+   if(entry[2]){
+    const link=document.createElement('a');link.className='gv14-image-credit';link.target='_blank';link.rel='noopener noreferrer';
+    const canonical=String(entry[1]||v[1]).replace(/ /g,'_');
+    link.href=(canonical.startsWith('File:')?'https://commons.wikimedia.org/wiki/':'https://en.wikipedia.org/wiki/')+encodeURIComponent(canonical);
+    link.textContent=t('تصوير: ','Photo: ')+entry[2];
+    photo.appendChild(link);
+   }
   }
  }
 }
