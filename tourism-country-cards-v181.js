@@ -23,7 +23,7 @@ function countryCards(){
   if(!landmarks.length)return '';
   if(q&&!((ar+' '+en+' '+landmarks.map(x=>x.nameAr+' '+x.nameEn).join(' ')).toLocaleLowerCase().includes(q)))return '';
   return '<button type="button" class="gv181-country gv203-country" data-gv181-country="'+code+'" aria-label="'+esc(t('استكشف مزارات '+ar,'Explore attractions in '+en))+'">'+
-   '<span class="gv203-card-top"><span class="gv203-flag" aria-hidden="true">'+flag+'</span><span class="gv203-card-arrow" aria-hidden="true">↗</span></span>'+
+   '<span class="gv203-card-top"><span class="gv203-flag gv204-flag"><img class="gv204-flag-img" src="https://flagcdn.com/w80/'+code.toLowerCase()+'.png" srcset="https://flagcdn.com/w160/'+code.toLowerCase()+'.png 2x" alt="'+esc(t('علم '+ar,'Flag of '+en))+'" width="60" height="45" loading="lazy" decoding="async"></span><span class="gv203-card-arrow" aria-hidden="true">↗</span></span>'+
    '<span class="gv203-country-copy"><strong class="gv203-country-english" lang="en" dir="ltr">'+esc(en)+'</strong>'+
     '<span class="gv203-country-arabic" lang="ar" dir="rtl">'+esc(ar)+'</span>'+
     '<span class="gv203-country-count">'+landmarks.length+' '+t('مزارات سياحية','tourist attractions')+'</span></span>'+
