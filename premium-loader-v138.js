@@ -49,7 +49,8 @@ function bootCheck(){
   const elapsed=performance.now()-splashStarted;
   const minimum=reduceMotion?120:620;
   const globeWait=globeSettled()||elapsed>=2000;
-  if(elapsed<minimum||!globeWait){
+  const fontsReady=!document.fonts||document.fonts.status==='loaded'||elapsed>=1500;
+  if(elapsed<minimum||!globeWait||!fontsReady){
    checkTimer=setTimeout(bootCheck,Math.min(120,Math.max(35,minimum-elapsed)));
    return;
   }
