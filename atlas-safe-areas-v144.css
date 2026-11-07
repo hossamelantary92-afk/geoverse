@@ -1,0 +1,12 @@
+/* GeoVerse v144 — robust approximation rendering for 2D forests and deserts.
+ * Natural areas have indicative anchor points; do not paint invalid full-earth fills.
+ * Applies only to the educational 2D atlas, not globe or quiz. */
+.gv140-map .atlas-feature.atlas-area{display:none!important}
+.gv140-map .gv142-feature-hit[fill]:not([fill="none"]){display:none!important;pointer-events:none!important}
+.gv140-map .gv144-area-glow{pointer-events:none;stroke-width:1.5;vector-effect:non-scaling-stroke}
+.gv140-map .gv144-area-glow.gv144-forest{fill:rgba(35,221,148,.13);stroke:rgba(60,228,166,.47)}
+.gv140-map .gv144-area-glow.gv144-desert{fill:rgba(246,195,94,.13);stroke:rgba(252,215,120,.53)}
+.gv140-map .atlas-pin.gv142-landmark-pin:hover .gv144-area-glow,
+.gv140-map .atlas-pin.gv142-landmark-pin.gv142-current .gv144-area-glow{stroke-width:2.5;fill:rgba(76,232,197,.20)}
+.gv140-map .atlas-pin .atlas-pin-halo{pointer-events:none}
+.gv140-map .atlas-pin .atlas-pin-dot{pointer-events:none}
