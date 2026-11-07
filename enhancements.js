@@ -351,7 +351,7 @@ function initGlobe(){
        if(Number.isFinite(center[0])&&Number.isFinite(center[1])){
         // Preserve context around large nations; zoom deeper for smaller ones.
         const area=typeof d3.geoArea==='function'?d3.geoArea(f):0;
-        const altitude=area>.45?1.22:area>.09?1.07:area>.018?.92:.78;
+        const altitude=area>.45?1.22:area>.09?1.05:area>.018?.83:area>.002?.62:.43;
         g.pointOfView({lat:center[1],lng:center[0],altitude},reducedMotion?0:950);
        }
       }catch(e){console.debug('Country camera focus unavailable',e)}
@@ -372,10 +372,10 @@ function initGlobe(){
  ctrl.dampingFactor=isExplorer?.085:(isHero?.08:.13);
  ctrl.enablePan=false;
  ctrl.rotateSpeed=isExplorer?.43:(isHero?.65:.55);
- ctrl.zoomSpeed=isExplorer?.48:(isHero?.85:.55);
+ ctrl.zoomSpeed=isExplorer?.62:(isHero?.85:.55);
  ctrl.enableZoom=true;
  ctrl.zoomToCursor=false;
- ctrl.minDistance=isExplorer?150:(isCountry?185:160);
+ ctrl.minDistance=isExplorer?124:(isCountry?185:160);
  ctrl.maxDistance=isExplorer?550:(isCountry?540:700);
  // On touch screens keep drag/pinch inside the globe rather than scrolling the page.
  if(!isHero&&node){node.style.touchAction='none';const canvas=node.querySelector('canvas');if(canvas)canvas.style.touchAction='none'}
