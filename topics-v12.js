@@ -37,6 +37,7 @@ const tx=(ar,en)=>state.lang==='ar'?ar:en;
 const labelFor=c=>state.lang==='ar'?c.ar:c.en;
 function urlFor(c,size){
  // Actual source photography from Unsplash. No photo duplicates for different topic cards.
+ const premium=window.GeoVersePremiumCovers?.get(c.id,size||840);if(premium)return premium;
  const u=PHOTO[c.id]||c.img;return u.startsWith('https://')?u:im(u,size||840);
 }
 function topicCard(c){
