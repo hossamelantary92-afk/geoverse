@@ -5,6 +5,12 @@
 'use strict';
 const photo=window.GeoVersePlaceMedia={};
 const verifiedPhotos={};
+function isPlacePhoto(src){
+ if(typeof src!=='string'||!/^https:\/\/(?:upload|thumb)\.wikimedia\.org\//.test(src))return false;
+ let name='';try{name=decodeURIComponent(src.split('?')[0]).split('/').pop().replace(/^\d+px-/,'')}catch{return false}
+ return !/(?:\.svg(?:\.png)?$|(?:^|[_ -])(?:map|locator|orthographic|projection|diagram|schematic|globe)(?:[_ .-]|$)|cia[_ -]?wfb|location[_ -]|_in_its_region)/i.test(name);
+}
+
 const previousItemCards=itemCards;
 const langText=(ar,en)=>state.lang==='ar'?ar:en;
 const safe=x=>escapeHTML(String(x??''));
@@ -48,7 +54,7 @@ itemCards=function(items){
 // Called only after the existing wiki title was matched exactly and its thumbnail
 // host was checked against the two official Wikimedia image CDNs.
 photo.mount=function(box,src,name,articleUrl){
- if(!box?.isConnected||box.querySelector('img')||!/^https:\/\/(?:upload|thumb)\.wikimedia\.org\//.test(src))return;
+ if(!box?.isConnected||box.querySelector('img')||!isPlacePhoto(src))return;
  const img=document.createElement('img');
  img.loading='lazy';img.decoding='async';img.alt=name;
  img.referrerPolicy='no-referrer';
@@ -83,13 +89,13 @@ photo.hydrate=function(){
   photo.mount(box,src,box.dataset.placeName||'',article);
  });
 };
-photo.ready=fetch('./photo-manifest-v13.json?v=gv99-all-natural-photos').then(r=>{
+photo.ready=fetch('./photo-manifest-v13.json?v=gv100-photo-first-mobile').then(r=>{
  if(!r.ok)throw Error('Photo reference manifest unavailable');
  return r.json();
 }).then(data=>{
  for(const [key,item] of Object.entries(data.photos||{})){
   if(!/^[a-z]+:\d+$/.test(key)||!Array.isArray(item)||item.length<2)continue;
-  if(!/^https:\/\/(?:upload|thumb)\.wikimedia\.org\//.test(item[0]))continue;
+  if(!isPlacePhoto(item[0]))continue;
   verifiedPhotos[key]=item;
  }
  photo.hydrate();
