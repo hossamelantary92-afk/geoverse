@@ -1,0 +1,66 @@
+/* GeoVerse v140 — editorial 2D atlas. Scoped: never applies to gameMap or 3D. */
+#worldMap.gv140-map,#detailMap.gv140-map{position:relative;isolation:isolate;min-height:405px;overflow:hidden;border:1px solid rgba(77,202,216,.42);border-radius:23px;box-shadow:0 23px 58px rgba(0,8,24,.34),inset 0 1px rgba(200,255,255,.15)}
+#worldMap.gv140-map{height:clamp(430px,50vw,630px)}
+#detailMap.gv140-map{min-height:310px}
+.gv140-map .atlas-stage{background:radial-gradient(ellipse at 51% 38%,#144664 0%,#072a45 62%,#031526 100%)}
+.gv140-map .atlas-svg{touch-action:none;filter:drop-shadow(0 4px 16px rgba(0,20,36,.3))}
+.gv140-map .atlas-ocean{fill:#072b47;stroke:rgba(79,183,216,.56);stroke-width:1}
+.gv140-map .atlas-grid{stroke:rgba(148,216,234,.58);stroke-width:.6;opacity:.25}
+.gv140-map .atlas-country{fill:#155368;stroke:rgba(142,225,229,.66);stroke-width:.76;vector-effect:non-scaling-stroke;transition:fill .18s ease,stroke .18s ease;outline:none}
+.gv140-map .atlas-country:nth-child(3n){fill:#1a6170}
+.gv140-map .atlas-country:nth-child(7n){fill:#176175}
+.gv140-map .atlas-country:hover,.gv140-map .atlas-country:focus-visible{fill:#2a9b9a;stroke:#d6fff7;stroke-width:1.5;filter:drop-shadow(0 0 5px rgba(76,231,211,.4))}
+.gv140-map .atlas-country.highlight,.gv140-map .atlas-country.gv140-active{fill:#2bc1a4!important;stroke:#e2fff6!important;stroke-width:1.8;filter:drop-shadow(0 0 6px rgba(79,247,217,.48))}
+.gv140-map .atlas-route{stroke:#ffe099;stroke-width:3}
+.gv140-map .atlas-area{fill:rgba(229,183,78,.34);stroke:#e9ca78}
+.gv140-map .atlas-pin-dot{fill:#f2d48e}
+.gv140-map .atlas-tools{top:91px;left:15px;z-index:5;gap:8px}
+.gv140-map .atlas-tools button{width:43px;height:43px;background:#062b42e8;color:#e7ffff;border:1px solid rgba(125,223,225,.6);border-radius:13px;box-shadow:0 6px 16px rgba(0,9,19,.25);font-family:Outfit,sans-serif;font-size:22px}
+.gv140-map .atlas-tools button:hover,.gv140-map .atlas-tools button:focus-visible{background:#0f6574;border-color:#7df9df}
+.gv140-map .atlas-key{display:none!important}
+.gv140-map .atlas-popup{display:none!important}
+.gv140-map .gv140-topbar{position:absolute;top:0;left:0;right:0;z-index:4;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:15px 17px 18px;direction:ltr;pointer-events:none;background:linear-gradient(180deg,rgba(2,16,30,.93),rgba(2,18,32,.65) 73%,transparent)}
+.gv140-map .gv140-map-brand{display:flex;gap:10px;align-items:center;color:#e9ffff}
+.gv140-map .gv140-brand-orbit{width:34px;height:34px;border:1px solid rgba(84,237,225,.42);border-radius:11px;display:grid;place-items:center;font:25px Outfit,sans-serif;color:#68f1dc;background:rgba(5,75,85,.45)}
+.gv140-map .gv140-map-brand strong{display:block;font:800 15px/1.2 Outfit,sans-serif;letter-spacing:.025em}
+.gv140-map .gv140-map-brand small{display:block;margin-top:4px;color:#a6cdd9;font:11px/1.25 Cairo,Outfit,sans-serif}
+.gv140-map .gv140-map-live{display:flex;align-items:center;gap:7px;padding:7px 9px;background:rgba(4,48,61,.75);border:1px solid rgba(90,218,205,.27);border-radius:100px;color:#c2ede9;font:700 9px Outfit,Cairo,sans-serif;letter-spacing:.06em;white-space:nowrap}
+.gv140-map .gv140-map-live span{width:6px;height:6px;background:#65efd7;border-radius:50%;box-shadow:0 0 11px #41f3df}
+.gv140-map .gv140-region-strip{position:absolute;top:16px;left:50%;z-index:5;max-width:calc(100% - 300px);transform:translateX(-50%);display:flex;align-items:center;gap:5px;overflow:auto;scrollbar-width:none;padding:2px;direction:rtl}
+.gv140-map .gv140-region-strip::-webkit-scrollbar{display:none}
+.gv140-map .gv140-region{border:1px solid transparent;border-radius:10px;padding:8px 10px;min-height:33px;background:rgba(10,46,67,.78);color:#bbd6df;font:700 11px Cairo,Outfit,sans-serif;white-space:nowrap;cursor:pointer}
+.gv140-map .gv140-region:hover,.gv140-map .gv140-region.gv140-current{color:#072d38;background:#69e9d7;border-color:#b1fff1}
+.gv140-map .gv140-country-card{position:absolute;z-index:6;right:14px;bottom:52px;width:min(270px,calc(100% - 85px));direction:rtl;padding:16px 16px 13px;border-radius:17px;background:linear-gradient(145deg,rgba(6,47,65,.97),rgba(3,24,41,.97));border:1px solid rgba(124,232,222,.68);box-shadow:0 13px 35px rgba(0,10,22,.5);color:#f2ffff}
+.gv140-map .gv140-country-card[hidden]{display:none!important}
+.gv140-map .gv140-card-overline{font:700 10px Cairo,Outfit,sans-serif;color:#72e9d8;letter-spacing:.06em}
+.gv140-map .gv140-card-title{font:900 clamp(18px,2.8vw,23px)/1.4 Cairo,Outfit,sans-serif;margin-top:5px}
+.gv140-map .gv140-card-meta{font:600 12px/1.7 Cairo,Outfit,sans-serif;color:#d2e7ef;margin-top:7px}
+.gv140-map .gv140-card-continent{font:600 11px Cairo,Outfit,sans-serif;color:#9ed5db;margin-top:3px}
+.gv140-map .gv140-map-clear{font:800 11px Cairo,Outfit,sans-serif;margin-top:12px;border-radius:9px;padding:8px 12px;background:#1a6d74;color:#eafffd;border:1px solid rgba(123,230,216,.5);cursor:pointer}
+.gv140-map .gv140-foot-hint{position:absolute;left:15px;bottom:12px;z-index:4;pointer-events:none;max-width:calc(100% - 30px);padding:7px 11px;background:rgba(2,26,43,.79);border:1px solid rgba(85,176,202,.32);border-radius:10px;color:#b5d7e1;font:600 10px/1.5 Cairo,Outfit,sans-serif;direction:auto}
+.light .gv140-map .atlas-stage{background:radial-gradient(ellipse at 48% 40%,#c8e7ed,#8cb9d0 75%,#73adc9)}
+.light .gv140-map .atlas-ocean{fill:#8dc4d6}
+.light .gv140-map .atlas-country{fill:#a4cec5;stroke:#4f919c}
+.light .gv140-map .atlas-country:nth-child(3n){fill:#9abfbc}
+.light .gv140-map .atlas-country:nth-child(7n){fill:#94c6bd}
+@media(max-width:950px){
+ .gv140-map .gv140-topbar{padding:12px 13px}
+ .gv140-map .gv140-map-live{display:none}
+ .gv140-map .gv140-region-strip{top:67px;left:12px;right:12px;max-width:none;transform:none;justify-content:flex-start}
+ .gv140-map .atlas-tools{top:119px;left:12px}
+}
+@media(max-width:700px){
+ #worldMap.gv140-map{height:clamp(410px,116vw,570px);min-height:410px;border-radius:18px}
+ #detailMap.gv140-map{border-radius:16px}
+ .gv140-map .gv140-topbar{padding:12px}
+ .gv140-map .gv140-brand-orbit{width:30px;height:30px}
+ .gv140-map .gv140-map-brand strong{font-size:14px}
+ .gv140-map .gv140-map-brand small{font-size:10px}
+ .gv140-map .gv140-region-strip{top:58px}
+ .gv140-map .gv140-region{font-size:10px;padding:7px 11px;min-height:34px}
+ .gv140-map .atlas-tools{top:108px;left:9px;gap:6px}
+ .gv140-map .atlas-tools button{width:40px;height:40px;border-radius:11px}
+ .gv140-map .gv140-foot-hint{font-size:9px;left:9px;bottom:8px}
+ .gv140-map .gv140-country-card{bottom:48px;right:9px;padding:11px 12px;width:min(225px,calc(100% - 67px))}
+}
+@media(prefers-reduced-motion:reduce){.gv140-map .atlas-country{transition:none}}
