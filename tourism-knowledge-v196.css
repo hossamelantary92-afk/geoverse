@@ -209,3 +209,66 @@
  #main .gv196-additional-content{font-size:14px!important;line-height:1.95!important}
  #main .gv196-additional-content p{line-height:1.95!important}
 }
+
+/* v200: restore reading hierarchy and contain all landmark modules. */
+#main .gv196-detail{
+ width:100%!important;max-width:1120px!important;
+ margin-inline:auto!important;box-sizing:border-box!important;
+ gap:16px!important;min-width:0!important;
+}
+#main .gv196-detail > *{box-sizing:border-box!important;min-width:0!important;max-width:100%!important}
+#main .gv196-detail .gv196-hero{
+ min-height:0!important;height:auto!important;
+ padding:clamp(19px,2.8vw,30px)!important;
+ gap:0!important;justify-content:flex-start!important;
+}
+#main .gv196-hero h1{font-size:clamp(26px,3.4vw,40px)!important;margin:8px 0 5px!important;line-height:1.3!important}
+#main .gv196-hero-location{margin-top:7px!important}
+#main .gv196-hero-subtitle{margin:12px 0!important}
+#main .gv196-detail .gv196-overview,
+#main .gv196-detail .gv196-additional,
+#main .gv196-detail .gv196-map{
+ padding:clamp(18px,2.8vw,27px)!important;
+ overflow:hidden!important;
+}
+#main .gv196-additional .gv9-secondary-source,
+#main .gv196-additional-content{
+ display:block!important;
+ max-width:100%!important;
+ width:100%!important;
+ min-height:0!important;
+ background:none!important;
+ box-shadow:none!important;
+ border:0!important;
+ padding:0!important;
+ margin:0!important;
+ line-height:1.95!important;
+ text-align:start!important;
+}
+#main .gv196-additional-content p,
+#main .gv196-additional-content li{
+ font-size:clamp(13px,1.2vw,15px)!important;
+ line-height:1.95!important;
+ margin-block:0 13px!important;
+ overflow-wrap:anywhere!important;
+}
+#main .gv196-additional-content a{overflow-wrap:anywhere!important}
+#main .gv196-map #gvDetailGlobe{
+ position:relative!important;
+ display:block!important;
+ width:100%!important;
+ height:clamp(340px,42vw,475px)!important;
+ min-height:340px!important;
+ max-width:100%!important;
+ overflow:hidden!important;
+ border-radius:16px!important;
+}
+#main .gv196-map #gvDetailGlobe canvas{display:block;max-width:100%;touch-action:pan-y}
+@media(max-width:700px){
+ #main .gv196-detail{gap:12px!important}
+ #main .gv196-map #gvDetailGlobe{
+  height:clamp(300px,85vw,410px)!important;
+  min-height:300px!important;
+ }
+ #main .gv196-hero-english{font-size:12px!important}
+}
