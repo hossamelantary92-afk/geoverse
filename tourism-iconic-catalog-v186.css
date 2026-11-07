@@ -21,3 +21,10 @@
  background:rgba(2,26,40,.82);color:#c9efed;
  font-size:10px;line-height:1.4;text-decoration:none;
 }
+
+/* Country encyclopedia uses the identical image without cutting iconic details. */
+.gv170-tourism-card .gv170-tourism-photo img{
+ width:100%!important;height:100%!important;
+ object-fit:contain!important;object-position:center!important;
+ transform:none!important;background:#0b283b;
+}
