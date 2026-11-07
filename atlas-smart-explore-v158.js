@@ -108,7 +108,7 @@ function navigate(r,item){
    }
   }
  };
- requestAnimationFrame(()=>requestAnimationFrame(mark));
+ setTimeout(mark,480);
  // Smoothly bring the atlas into view without jumping within the map itself.
  r.node.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
