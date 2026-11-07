@@ -1,0 +1,24 @@
+/* GeoVerse v166 — highlight only the selected educational landmark. */
+#worldMap.gv140-map .atlas-pin.gv153-selected .atlas-pin-halo,
+#detailMap.gv140-map .atlas-pin.gv153-selected .atlas-pin-halo{
+  fill:#65f6dc!important;stroke:#e1fff8!important;opacity:.77!important;
+  filter:drop-shadow(0 0 9px rgba(61,241,221,.85))!important;
+  animation:gv166-focus-pulse 1.9s ease-in-out infinite!important;
+}
+#worldMap.gv140-map .atlas-pin.gv153-selected .atlas-pin-dot,
+#detailMap.gv140-map .atlas-pin.gv153-selected .atlas-pin-dot{
+  fill:#fff!important;stroke:#29deca!important;stroke-width:2.1!important;
+}
+#worldMap.gv140-map .gv142-feature-hit.gv153-selected,
+#detailMap.gv140-map .gv142-feature-hit.gv153-selected{
+ stroke:#7ff7e4!important;stroke-opacity:.82!important;
+ filter:drop-shadow(0 0 5px #4debd8)!important;
+}
+@keyframes gv166-focus-pulse{
+  0%,100%{opacity:.60;stroke-width:1.5}
+  50%{opacity:1;stroke-width:3.2}
+}
+@media(prefers-reduced-motion:reduce){
+ #worldMap.gv140-map .atlas-pin.gv153-selected .atlas-pin-halo,
+ #detailMap.gv140-map .atlas-pin.gv153-selected .atlas-pin-halo{animation:none!important}
+}
