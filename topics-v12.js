@@ -54,7 +54,7 @@ allCategories=function(){
   '<div class="gv12-directory-tools"><label for="gv12Search">'+tx('ابحث عن قسم','Find a category')+'</label><input type="search" id="gv12Search" autocomplete="off" placeholder="'+tx('اكتب اسم القسم...','Search categories...')+'" aria-controls="gv12Cards"><span class="gv12-count-note" id="gv12VisibleCount">'+cats.length+' / '+cats.length+'</span></div>'+
   '<div class="gv12-grid" id="gv12Cards">'+cats.map(topicCard).join('')+'</div>'+
   '<div id="gv12Empty" class="gv12-empty" hidden>'+tx('لا توجد أقسام مطابقة للبحث.','No matching categories.')+'</div>'+
-  '<p class="gv12-directory-footnote">'+tx('الصور تعبر عن طبيعة كل قسم، وليست بالضرورة صورة لمعلم محدد داخله.','Photographs illustrate each topic and do not always depict a particular listed location.')+' <a href="https://commons.wikimedia.org/wiki/File:Colorful_Grand_Canyon_(Unsplash).jpg" target="_blank" rel="noopener noreferrer">'+tx('مصدر صورة الأخاديد','Canyon photo credit')+'</a></p>'+
+  '<p class="gv12-directory-footnote">'+tx('الصور تعبر عن طبيعة كل قسم، وليست بالضرورة صورة لمعلم محدد داخله.','Photographs illustrate each topic and do not always depict a particular listed location.')+'</p>'+
   '</section>';
 };
 // Refresh all 18 existing topic-image references so topic banners share the same photography.
