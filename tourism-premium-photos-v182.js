@@ -7,14 +7,14 @@
 'use strict';
 const source='https://commons.wikimedia.org/wiki/';
 const chosen={
- 2:{file:'Karnak_temple_1.jpg',credit:'Karelj'},
- 3:{file:'Abou_simbel_face.jpg',credit:'Bionet'},
- 4:{file:'Paris_Eiffel_Tower_from_Trocadero.jpg',credit:'Wikimedia Commons'},
- 6:{file:'Exterior_of_Palace_of_Versailles_Aug_2026_02.jpg',credit:'Heidi Meudt'},
- 18:{file:'Topkapı_Palace_gate.JPG',credit:'Wikimedia Commons'},
+ 2:{file:'Temple at Karnak.jpg',credit:'Karelj'},
+ 3:{file:'The great temple of Abu simbel..JPG',credit:'Bionet'},
+ 4:{file:'Eiffel tower from trocadero.jpg',credit:'Wikimedia Commons'},
+ 6:{file:'Exterior of Palace of Versailles Aug 2026 02.jpg',credit:'Heidi Meudt'},
+ 18:{file:'Topkapı Palace gate.JPG',credit:'Wikimedia Commons'},
  19:{file:'Göremeopenairmuseum.jpg',credit:'Eminebeyzagn'},
- 20:{file:'View_of_Sagrada_Familia_2026_corrected.jpg',credit:'Wikimedia Commons'},
- 23:{file:'Córdoba,_exterior_de_la_catedral-mezquita.jpg',credit:'Macarrones'}
+ 20:{file:'View of Sagrada Familia 2026 corrected.jpg',credit:'Wikimedia Commons'},
+ 23:{file:'Córdoba, exterior de la catedral-mezquita.jpg',credit:'Macarrones'}
 };
 const local=(id)=>chosen[id];
 function url(file,width){return 'https://commons.wikimedia.org/wiki/Special:FilePath/'+encodeURIComponent(file)+'?width='+width}
