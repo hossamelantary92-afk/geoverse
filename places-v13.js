@@ -32,7 +32,7 @@ function truncate(x,max=130){
  return input.length>max?input.slice(0,max).replace(/\s+\S*$/,'')+'…':input;
 }
 function card(item,index,id){
- const name=langText(item[0],item[1]),summary=truncate(langText(item[2],item[3]),state.lang==='ar'?105:115)+(id==='climate'?' · '+langText('الصورة مثال توضيحي لمناخ مشابه','Photo is an illustrative climate example'):'');
+ const name=langText(item[0],item[1]),summary=truncate(langText(item[2],item[3]),state.lang==='ar'?105:115);
  const seen=!!saved()[id+'_'+index],tag=labels[id]||[id,id];
  return '<button type="button" class="gv13-place" data-item="'+id+':'+index+'" aria-label="'+safe(name)+'">'+
  '<span class="gv13-photo" data-photo-index="'+index+'" data-place-name="'+safe(name)+'">'+
