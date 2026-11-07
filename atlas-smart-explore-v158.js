@@ -33,15 +33,30 @@ function continent(lat,lon){
  if(lon>=-30&&lon<60&&lat<-38)return 'antarctica';
  return 'oceania';
 }
-function regionOf(item){return continent(item.lat,item.lon)}
+function regionOf(item){
+ if(item.region)return item.region;
+ return continent(item.lat,item.lon);
+}
+function regionFromMeta(value){
+ const c=String(value||'').toLowerCase();
+ return {'africa':'africa','asia':'asia','europe':'europe','north america':'north',
+  'south america':'south','oceania':'oceania','antarctica':'antarctica'}[c]||null;
+}
+function getMeta(name){
+ const store=window.GeoVerseV4?.store;
+ if(!store?.ready)return null;
+ const key=String(name||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z]/g,'');
+ return store.byName?.get?.(key)||store.countries?.find(x=>String(x.name||'').toLowerCase()===String(name||'').toLowerCase())||null;
+}
 function catalogue(r){
  const results=[],all=typeof geo!=='undefined'?geo:{};
  for(const [category,items] of Object.entries(all)){
   if(excluded.has(category)||!Array.isArray(items))continue;
   items.forEach((entry,index)=>{
    if(!Array.isArray(entry)||entry.length<6||!Number.isFinite(entry[4])||!Number.isFinite(entry[5]))return;
+   const meta=category==='countries'?getMeta(entry[1]):null;
    results.push({id:category+':'+index,category,index,ar:String(entry[0]),en:String(entry[1]),
-    lat:entry[4],lon:entry[5],source:'place'});
+    lat:entry[4],lon:entry[5],region:regionFromMeta(meta?.continent),source:'place'});
   });
  }
  // Add all GeoJSON countries, beyond the short curated sample.
@@ -53,13 +68,20 @@ function catalogue(r){
    const centre=window.d3?.geoCentroid?.(feature);
    if(!centre?.every(Number.isFinite))return;
    const known=results.find(item=>item.category==='countries'&&normalize(item.en)===normalize(n));
+   const meta=getMeta(n);
    let ar=known?.ar||'';
+   if(!ar&&meta?.code){
+    try{
+     const translated=new Intl.DisplayNames(['ar'],{type:'region'}).of(meta.code);
+     if(/[\u0600-\u06ff]/.test(translated))ar=translated;
+    }catch(e){}
+   }
    if(!ar){
     const alpha2=feature.properties?.ISO_A2||feature.properties?.iso_a2||feature.properties?.cca2;
     if(alpha2&&alpha2!=='-99')try{ar=new Intl.DisplayNames(['ar'],{type:'region'}).of(alpha2)||''}catch(e){}
    }
    results.push({id:'feature:'+index,category:'countries',index,ar:ar||n,en:n,
-    lat:centre[1],lon:centre[0],source:'feature'});
+    lat:centre[1],lon:centre[0],region:regionFromMeta(meta?.continent),source:'feature'});
   });
  }
  return results;
