@@ -51,6 +51,7 @@ function countrySection(code){
 }
 const previewCache=new Map(),requested=new Set();
 function photoFor(item,wrapper){
+ if(window.GeoVerseTourismKnowledgeV196)return; // Image-free tourism knowledge mode.
  if(!wrapper||requested.has(wrapper))return;
  requested.add(wrapper);
  const shared=window.GeoVerseTourismPhotoCatalog;
