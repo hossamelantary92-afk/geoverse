@@ -56,9 +56,10 @@ itemCards=function(items){
  const seenPlaceKeys=new Set();
  const matches=items.map((v,i)=>({v,i})).filter(({v,i})=>{
   const key=normalizedPlace(v);
+  if(q&&!String(v[0]+' '+v[1]).toLocaleLowerCase().includes(q))return false;
   if(seenPlaceKeys.has(key))return false;
   seenPlaceKeys.add(key);
-  return !q||String(v[0]+' '+v[1]).toLocaleLowerCase().includes(q);
+  return true;
  });
  setTimeout(()=>photo.hydrate(),0);
  return matches.length?matches.map(({v,i})=>card(v,i,state.category)).join(''):'<div class="empty gv13-empty">'+langText('لا توجد معالم مطابقة للبحث','No matching places')+'</div>';
