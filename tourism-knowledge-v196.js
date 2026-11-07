@@ -105,6 +105,10 @@ categoryPage=function(){
  const doc=new DOMParser().parseFromString('<main>'+html+'</main>','text/html');
  const banner=doc.querySelector('.category-detail-banner');
  if(banner){banner.removeAttribute('style');banner.classList.add('gv196-category-banner')}
+ // Tourism has its own country/landmark navigation below; remove redundant
+ // instructional tip and explore action bar, without touching other topics.
+ doc.querySelector('.topic-intro .topic-tip')?.remove();
+ doc.querySelector('.topic-actionbar')?.remove();
  return doc.body.querySelector('main')?.innerHTML||html;
 };
 const oldDetail=detail;
