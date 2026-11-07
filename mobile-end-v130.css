@@ -1,0 +1,28 @@
+/* GeoVerse v130 — mobile page-end and bottom navigation correction.
+   Keep one safe navigation clearance at the very end, never stack body/footer gaps. */
+@media(max-width:700px){
+  html,body{min-height:100%;overscroll-behavior-y:auto}
+  body{padding-bottom:0!important}
+  #app{min-height:100vh;min-height:100dvh}
+  .layout{min-height:0!important;height:auto!important;padding-bottom:0!important}
+  #main{min-height:0!important;padding-bottom:8px!important}
+  #app>footer{
+    box-sizing:border-box;
+    margin:0!important;
+    padding:18px 14px calc(92px + env(safe-area-inset-bottom,0px))!important;
+    min-height:0!important;
+    height:auto!important;
+    text-align:center;
+    line-height:1.7
+  }
+  .gv11-bottom-nav,
+  .light .gv11-bottom-nav{
+    background:#052b41!important;
+    background-image:none!important;
+    opacity:1!important;
+    -webkit-backdrop-filter:none!important;
+    backdrop-filter:none!important;
+    isolation:isolate;
+    box-shadow:0 10px 32px rgba(0,8,20,.75),inset 0 1px rgba(172,255,255,.18)!important
+  }
+}
