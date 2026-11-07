@@ -92,6 +92,11 @@ setPage=function(page,cat,item,startGame){
  if(page==='category'&&cat==='tourism'&&state.category!=='tourism')selected='';
  return previousSetPage.apply(this,arguments);
 };
+// Expose the currently selected tourism country to the refresh state handler.
+window.GeoVerseTourismCountryNavigation={
+ getSelected:()=>selected,
+ setSelected:code=>{selected=countries.some(c=>c[0]===code)?code:''}
+};
 const originalRender=render;
 render=function(){
  const result=originalRender.apply(this,arguments);
