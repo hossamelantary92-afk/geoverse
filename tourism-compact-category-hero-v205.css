@@ -1,0 +1,73 @@
+/* GeoVerse v205 — compact tourism section masthead.
+ * Override historical 260-280px category banner min-height only in tourism.
+ * The country cards now follow the banner without a repeated intro panel. */
+#main .category-detail-banner.gv196-category-banner{
+ box-sizing:border-box!important;
+ display:flex!important;
+ flex-direction:column!important;
+ justify-content:center!important;
+ align-items:stretch!important;
+ width:100%!important;
+ height:auto!important;
+ min-height:126px!important;
+ max-height:none!important;
+ aspect-ratio:auto!important;
+ padding:0!important;
+ margin:0 0 14px!important;
+ background:radial-gradient(ellipse at 85% 15%,rgba(47,163,166,.21),transparent 55%),linear-gradient(125deg,#0b3547,#061e33)!important;
+ border-radius:17px!important;
+ overflow:hidden!important;
+}
+#main .category-detail-banner.gv196-category-banner > div{
+ box-sizing:border-box!important;
+ display:flex!important;
+ flex-direction:column!important;
+ justify-content:center!important;
+ align-items:flex-start!important;
+ width:100%!important;
+ max-width:100%!important;
+ min-height:0!important;
+ height:auto!important;
+ margin:0!important;
+ padding:19px 25px!important;
+ background:none!important;
+ gap:5px!important;
+}
+#main .gv196-category-banner .eyebrow{
+ margin:0!important;
+ font-size:10px!important;
+ line-height:1.5!important;
+}
+#main .gv196-category-banner h1{
+ margin:0!important;
+ font-size:clamp(23px,2.7vw,32px)!important;
+ font-weight:900!important;
+ line-height:1.45!important;
+}
+#main .gv196-category-banner p{
+ margin:0!important;
+ font-size:clamp(11px,1.05vw,13px)!important;
+ line-height:1.75!important;
+ max-width:850px!important;
+}
+#main .gv196-category-banner .banner-count{
+ align-self:flex-start!important;
+ margin-top:5px!important;
+ padding:4px 11px!important;
+ font-size:10px!important;
+ line-height:1.5!important;
+}
+#categoryItems:has(.gv181-overview),#categoryItems:has(.gv196-country-landmarks){
+ margin-top:0!important;
+}
+#categoryItems .gv181-overview .gv181-heading{margin-bottom:13px!important}
+@media(max-width:700px){
+ #main .category-detail-banner.gv196-category-banner{
+  min-height:0!important;margin-bottom:11px!important;border-radius:15px!important;
+ }
+ #main .category-detail-banner.gv196-category-banner > div{
+  padding:16px 17px!important;gap:4px!important;
+ }
+ #main .gv196-category-banner h1{font-size:24px!important}
+ #main .gv196-category-banner .banner-count{font-size:10px!important}
+}
