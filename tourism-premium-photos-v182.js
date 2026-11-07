@@ -1,13 +1,13 @@
-/* GeoVerse v182 — eight curated, sourced tourist site photos.
+/* GeoVerse v184 — hand-selected landmark photos and educational image standards.
  * Wikimedia Commons real photos, each tied to the exact attraction index.
  * Honor complete-structure framing on mobile, desktop and details.
- * Non-blocking fallbacks leave the legacy photo pipeline available.
+ * Criteria: recognizable landmark first; no people as foreground subjects;\n * no irrelevant stock / cropped main structure; graceful source fallback.\n * A missing picture never justifies substituting another landmark.
  */
 (function(){
 'use strict';
 const source='https://commons.wikimedia.org/wiki/';
 const chosen={
- 2:{file:'Temple at Karnak.jpg',credit:'Maddy'},
+ 2:{file:'Columns in Karnak Temple , Luxor.JPG',credit:'Belmahdy',license:'CC BY-SA 4.0',focus:'Great Hypostyle Hall'},
  3:{file:'The great temple of Abu simbel..JPG',credit:'Abumalek ahmed mohamed'},
  4:{file:'Eiffel tower from trocadero.jpg',credit:'NonOmnisMoriar'},
  6:{file:'Exterior of Palace of Versailles Aug 2026 02.jpg',credit:'Heidi Meudt'},
@@ -52,7 +52,7 @@ function setImage(parent,id,w){
  img.dataset.gv182Index=String(id);
  img.loading=parent.id==='gvArticlePhoto'?'eager':'lazy';
  img.decoding='async';
- img.alt=(typeof state!=='undefined'&&state.lang==='ar'?'صورة كاملة: ':'Full view: ')+(geo.tourism?.[id]?.[state.lang==='ar'?0:1]||'Tourist attraction');
+ img.alt=(typeof state!=='undefined'&&state.lang==='ar'?'صورة للمعلم: ':'Landmark: ')+(geo.tourism?.[id]?.[state.lang==='ar'?0:1]||'Tourist attraction');
  img.style.objectFit='contain';img.style.objectPosition='center center';
  img.addEventListener('load',()=>{
   if(!parent.isConnected)return;
