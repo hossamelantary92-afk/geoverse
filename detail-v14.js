@@ -37,6 +37,7 @@ function singlePage(){
   '<div class="gv14-heading"><span class="gv14-kicker">'+icon(cat.id)+esc(t(cat.ar,cat.en))+'</span>'+
    '<h1 id="gv14Name">'+esc(title)+'</h1>'+
    '<p class="gv14-head-description" id="gv14Lead">'+esc(sentence(t(v[2],v[3]),220))+'</p>'+
+   (cat.id==='climate'?'<p class="gv14-data-note">'+t('الصورة مثال توضيحي لمنطقة بهذا المناخ، وليست موقعًا جغرافيًا محددًا.','Photo shows one example of this climate, not a single defined geographic location.')+'</p>':'')+
    '<button id="toggleSeen" class="gv14-learned '+(done?'is-learned':'')+'" aria-pressed="'+(done?'true':'false')+'">'+
     '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>'+
     (done?t('تم التعلّم','Learned'):t('تحديد كمعلومة تعلمتها','Mark as learned'))+'</button>'+
@@ -113,7 +114,7 @@ render=function(){
  else if(state.page==='detail')hydrate();
  else if(state.page==='country-v4')tidyCountry();
 };
-Promise.allSettled([fetch('./geo-stories.json?v=gv96-expanded-natural-atlas').then(r=>{if(!r.ok)throw Error('stories');return r.json()}),fetch('./photo-manifest-v13.json?v=gv98-authentic-photos').then(r=>{if(!r.ok)throw Error('photos');return r.json()})])
+Promise.allSettled([fetch('./geo-stories.json?v=gv96-expanded-natural-atlas').then(r=>{if(!r.ok)throw Error('stories');return r.json()}),fetch('./photo-manifest-v13.json?v=gv99-all-natural-photos').then(r=>{if(!r.ok)throw Error('photos');return r.json()})])
 .then(result=>{
  if(result[0].status==='fulfilled')content.stories=result[0].value.stories||{};
  if(result[1].status==='fulfilled')content.photos=result[1].value.photos||{};
