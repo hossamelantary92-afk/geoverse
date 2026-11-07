@@ -1,0 +1,25 @@
+/* GeoVerse v174 — home gallery: warm/cool balance and consistently readable cards. */
+.gv11-categories .gv11-grid .gv174-card{
+ position:relative;isolation:isolate;overflow:hidden;
+ border-radius:17px;border:1px solid rgba(135,229,225,.46);
+ background:#103448;min-width:0;
+}
+.gv11-categories .gv174-card>img{
+ display:block;width:100%;height:100%;object-fit:cover;
+ transition:transform .35s ease,filter .35s ease;
+ filter:saturate(1.08) contrast(1.04) brightness(.98);
+}
+.gv11-categories .gv174-card .gv11-card-gradient{
+ position:absolute;inset:0;pointer-events:none;
+ background:linear-gradient(to bottom,rgba(2,24,37,.02) 0%,rgba(2,24,37,.04) 38%,rgba(2,24,37,.50) 72%,rgba(2,20,31,.89) 100%);
+}
+.gv11-categories .gv174-card strong,
+.gv11-categories .gv174-card small{z-index:2}
+.gv11-categories .gv174-card.gv11-countries>img{object-position:center 48%}
+.gv11-categories .gv174-card.gv11-tourism>img{object-position:center 55%}
+.gv11-categories .gv174-card.gv11-mountains>img{object-position:center 46%}
+.gv11-categories .gv174-card.gv11-oceans>img{object-position:center 55%}
+.gv11-categories .gv174-card.gv11-rivers>img{object-position:center 50%}
+.gv11-categories .gv174-card.gv11-deserts>img{object-position:center 55%}
+@media(hover:hover){.gv11-categories .gv174-card:hover>img{transform:scale(1.035)}}
+@media(prefers-reduced-motion:reduce){.gv11-categories .gv174-card>img{transition:none!important}}
