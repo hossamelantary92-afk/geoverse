@@ -151,7 +151,7 @@ render=function(){
  oldRender();
  if(state.page==='countries-v4')main.innerHTML=countriesPage();
  if(state.page==='country-v4')main.innerHTML=countryPage();
- if(state.page==='explore')main.innerHTML='<section class="gv-story-card gv-explore-3d"><span class="eyebrow">WORLD EXPLORER / INTERACTIVE 3D EARTH</span><h2>'+lang('دور الكرة الأرضية واستكشف العالم','Rotate Earth & Explore the World')+'</h2><p>'+lang('حرّك الكرة بإصبعك أو الماوس، واضغط على الدول لمعرفة علمها وعاصمتها.','Drag the globe and select a country to explore its flag and capital.')+'</p><div class="gv-globe-detail gv-explore-globe" id="gvExploreGlobe"></div></section>'+main.innerHTML;
+ if(state.page==='explore')main.innerHTML='<section class="gv-story-card gv-explore-3d"><span class="eyebrow">WORLD EXPLORER / INTERACTIVE 3D EARTH</span><h2>'+lang('دور الكرة الأرضية واستكشف العالم','Rotate Earth & Explore the World')+'</h2><p>'+lang('حرّك الكرة بإصبعك أو الماوس واضغط داخل حدود الدولة لإظهار اسمها دون مغادرة الخريطة.','Drag the globe and tap within a country to show its name without leaving the map.')+'</p><div class="gv-globe-detail gv-explore-globe" id="gvExploreGlobe"></div></section>'+main.innerHTML;
  // When countries category chosen via original nav, show the new encyclopedia.
  if(state.page==='category'&&state.category==='countries')main.innerHTML=countriesPage();
  document.body.classList.toggle('gv-game-mode',state.page==='play'&&selectedGameMode==='mapfind');
@@ -285,7 +285,8 @@ function initGlobe(){
  globeNode=node;globeInstance=null;
  if(!isGlobeAvailable()){node.innerHTML='<div class="gv-globe-fallback"><span>'+lang('الكرة ثلاثية الأبعاد غير متاحة حاليًا؛ الخريطة الثنائية الأبعاد ما زالت تعمل.','3D view unavailable; use the 2D atlas.')+'</span></div>';return}
  const isHero=state.page==='home',isCont=state.page==='detail'&&state.category==='continents',isCountry=state.page==='country-v4';
- let target={lat:20,lng:15,altitude:1.96};let selectedFeature=null,selectedContinent=null;
+ let target={lat:20,lng:15,altitude:1.96};let selectedFeature=null,selectedContinent=null,selectedExploreFeature=null;
+ const isExplorer=state.page==='explore';let exploreNameLabel=null;
  if(isCont){const v=geo.continents[state.item];selectedContinent=v?.[1];target=continentZoom(selectedContinent)}
  else if(isCountry){const r=store.byCode.get(state.v4Code);selectedFeature=store.featLookup.get(r?.code);const p=selectedFeature&&window.d3?d3.geoCentroid(selectedFeature):[0,0];target={lat:p[1],lng:p[0],altitude:1.8}}
  else if(state.page==='detail'){const v=geo[state.category]?.[state.item];if(v)target={lat:v[4],lng:v[5],altitude:1.7}}
@@ -307,12 +308,32 @@ function initGlobe(){
  }
  const countryShapes=store.countryFeatures.filter(f=>f.properties.name!=='Antarctica'||isCont);
  if(countryShapes.length){
-  g.polygonsData(featureOverlay?[...countryShapes,featureOverlay]:countryShapes).polygonAltitude(f=>f.properties.gvOverlay?.064:(isCountry&&f===selectedFeature)?0.006:(isCont&&f.properties.gvContinent===selectedContinent||isCont&&selectedContinent==='Asia'&&['Russia','Turkey'].includes(f.properties.name))?.005:.0015).polygonCapColor(f=>{
+  g.polygonsData(featureOverlay?[...countryShapes,featureOverlay]:countryShapes).polygonAltitude(f=>f.properties.gvOverlay?.064:(isCountry&&f===selectedFeature)?0.006:(isExplorer&&f===selectedExploreFeature)?0.011:(isCont&&f.properties.gvContinent===selectedContinent||isCont&&selectedContinent==='Asia'&&['Russia','Turkey'].includes(f.properties.name))?.005:.0015).polygonCapColor(f=>{
    if(f.properties.gvOverlay)return 'rgba(240,183,67,.47)';
    if(isCountry)return f===selectedFeature?'rgba(39,221,193,0.50)':'rgba(11,59,82,0.045)';
+   if(isExplorer)return f===selectedExploreFeature?'rgba(27,232,210,0.49)':'rgba(6,51,76,0.035)';
    if(isCont)return f.properties.gvContinent===selectedContinent||selectedContinent==='Asia'&&['Russia','Turkey'].includes(f.properties.name)?'rgba(19,221,217,0.48)':'rgba(3,30,50,0.13)';
    return isHero?'rgba(9,57,77,0.018)':'rgba(17,115,145,0.09)'
-  }).polygonSideColor(()=>'rgba(17,224,219,.1)').polygonStrokeColor(f=>f.properties.gvOverlay?'#ffdd8f':(isCountry&&f===selectedFeature)||(isCont&&f.properties.gvContinent===selectedContinent)?'#ffe1a0':(isHero?'rgba(171,228,243,0.12)':'rgba(157,224,239,0.24)')).polygonLabel(f=>f.properties.gvOverlay?'<div class="gv-globe-label">'+escapeHTML(f.properties.name)+' · '+lang('نطاق تقريبي','approximate area')+'</div>':state.page==='play'?'':'<div class="gv-globe-label">'+escapeHTML(f.properties.gvArabic&&state.lang==='ar'?f.properties.gvArabic:f.properties.name)+'</div>').onPolygonClick(f=>{if(f.properties.gvOverlay)return;const r=recordFor(f.properties.name);if(r&&state.page!=='play')setPage('country-v4',r.code)});
+  }).polygonSideColor(()=>'rgba(17,224,219,.1)').polygonStrokeColor(f=>f.properties.gvOverlay?'#ffdd8f':(isCountry&&f===selectedFeature)||(isExplorer&&f===selectedExploreFeature)||(isCont&&f.properties.gvContinent===selectedContinent)?'#ffe1a0':(isHero?'rgba(171,228,243,0.12)':'rgba(157,224,239,0.24)')).polygonLabel(f=>f.properties.gvOverlay?'<div class="gv-globe-label">'+escapeHTML(f.properties.name)+' · '+lang('نطاق تقريبي','approximate area')+'</div>':state.page==='play'?'':'<div class="gv-globe-label">'+escapeHTML(f.properties.gvArabic&&state.lang==='ar'?f.properties.gvArabic:f.properties.name)+'</div>').onPolygonClick(f=>{
+    if(f.properties.gvOverlay)return;
+    if(isExplorer){
+     selectedExploreFeature=f;
+     if(exploreNameLabel){
+      const value=exploreNameLabel.querySelector('.gv117-name');
+      const r=recordFor(f.properties.name);
+      if(value)value.textContent=state.lang==='ar'?(f.properties.gvArabic||r?.ar||f.properties.name):f.properties.name;
+      exploreNameLabel.classList.remove('gv117-visible');
+      void exploreNameLabel.offsetWidth;
+      exploreNameLabel.classList.add('gv117-visible');
+     }
+     g.polygonAltitude(v=>v===selectedExploreFeature?.011:.0015);
+     g.polygonCapColor(v=>v===selectedExploreFeature?'rgba(27,232,210,0.49)':'rgba(6,51,76,0.035)');
+     g.polygonStrokeColor(v=>v===selectedExploreFeature?'#8ffff0':'rgba(157,224,239,0.24)');
+     return;
+    }
+    const r=recordFor(f.properties.name);
+    if(r&&state.page!=='play')setPage('country-v4',r.code);
+   });
  }
  if(featureLine){g.pathsData([featureLine]).pathPoints('points').pathPointLat('lat').pathPointLng('lng').pathColor(()=>'#ffe3a5').pathStroke(.9).pathAltitude(.07)}
  if(!isHero&&!isCountry&&!isCont&&state.category!=='countries'){const v=geo[state.category]?.[state.item];if(v){g.pointsData([{lat:v[4],lng:v[5],name:lang(v[0],v[1])}]).pointLat('lat').pointLng('lng').pointAltitude(.06).pointRadius(.65).pointColor(()=>'#f3ca7d').pointLabel(d=>escapeHTML(d.name));}}
@@ -339,6 +360,15 @@ function initGlobe(){
   renderer?.setPixelRatio?.(Math.min(window.devicePixelRatio||1,window.innerWidth<750?1.35:1.75));
  }catch(e){console.debug('Adaptive resolution unavailable',e)}
  globeInstance=g;node.classList.add('gv-3d-loaded');
+ if(isExplorer){
+  node.classList.add('gv117-explorer');
+  exploreNameLabel=document.createElement('div');
+  exploreNameLabel.className='gv117-country-label';
+  exploreNameLabel.setAttribute('role','status');
+  exploreNameLabel.setAttribute('aria-live','polite');
+  exploreNameLabel.innerHTML='<span class="gv117-marker" aria-hidden="true"></span><span class="gv117-name"></span>';
+  node.appendChild(exploreNameLabel);
+ }
  // Follow the actual globe container size on mobile rotation or browser chrome changes.
  const syncGlobeSize=()=>{
   if(globeNode!==node||!node.isConnected)return false;
