@@ -1,0 +1,7 @@
+/* GeoVerse v147: readable Arabic/English ocean names as non-SVG overlays. */
+.gv140-map .gv145-label{display:none!important}
+.gv140-map .gv147-ocean-labels{position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden;isolation:isolate}
+.gv140-map .gv147-ocean-name{position:absolute;display:block;max-width:150px;min-width:0;transform:translate(-50%,-100%);text-align:center;direction:rtl;unicode-bidi:plaintext;white-space:normal;overflow-wrap:normal;color:#e5ffff;background:rgba(4,37,60,.8);border:1px solid rgba(112,229,232,.34);border-radius:8px;padding:3px 8px;font:800 12px/1.45 Cairo,Tahoma,system-ui,sans-serif;letter-spacing:0;box-shadow:0 3px 9px rgba(0,17,33,.55);text-shadow:none;pointer-events:none;-webkit-font-smoothing:antialiased}
+.gv140-map .gv147-ocean-name[dir="ltr"]{direction:ltr;font-family:Outfit,system-ui,sans-serif}
+.gv140-map .gv147-ocean-name[hidden]{display:none!important}
+@media(max-width:700px){.gv140-map .gv147-ocean-name{font-size:11px;padding:3px 6px;max-width:110px}}
