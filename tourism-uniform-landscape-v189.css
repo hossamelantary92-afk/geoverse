@@ -1,0 +1,80 @@
+/* GeoVerse v189 — cinematic uniform landscape cards.
+   All tourism thumbnails have EXACTLY 16:9 visible ratio, regardless of source
+   portrait/landscape orientation. Full uncropped source stays in detail view.
+   For a truly full structure in the card an appropriately framed landscape
+   source photo remains preferable; cover is a controlled card-only crop. */
+#categoryItems .gv181-detail .gv181-landmarks{
+ display:grid!important;
+ grid-template-columns:repeat(3,minmax(0,1fr))!important;
+ gap:15px!important;
+ align-items:stretch!important;
+}
+#categoryItems .gv181-detail .gv181-landmarks > .gv13-place{
+ width:100%!important;
+ min-width:0!important;
+ height:auto!important;
+ min-height:0!important;
+ max-height:none!important;
+ display:flex!important;
+ flex-direction:column!important;
+ overflow:hidden!important;
+}
+#categoryItems .gv181-detail .gv181-landmarks .gv13-photo{
+ position:relative!important;
+ isolation:isolate!important;
+ flex:0 0 auto!important;
+ box-sizing:border-box!important;
+ width:100%!important;
+ aspect-ratio:16 / 9!important;
+ height:auto!important;
+ min-height:0!important;
+ max-height:none!important;
+ padding:0!important;
+ margin:0!important;
+ background:#0a2739!important;
+ overflow:hidden!important;
+}
+#categoryItems .gv181-detail .gv181-landmarks .gv13-photo > img:not(.gv188-image-backdrop){
+ position:absolute!important;
+ display:block!important;
+ inset:0!important;
+ width:100%!important;
+ height:100%!important;
+ max-height:none!important;
+ aspect-ratio:16 / 9!important;
+ object-fit:cover!important;
+ object-position:center center!important;
+ transform:none!important;
+ filter:none!important;
+ z-index:2!important;
+}
+#categoryItems .gv181-detail .gv181-landmarks .gv13-photo > img.gv188-image-backdrop{
+ display:none!important;
+}
+#categoryItems .gv181-detail .gv181-landmarks .gv13-photo::after{display:none!important}
+#categoryItems .gv181-detail .gv181-landmarks .gv13-text{
+ flex:1 1 auto!important;
+ min-height:160px!important;
+ box-sizing:border-box!important;
+}
+#categoryItems .gv181-detail .gv181-landmarks .gv13-footer{margin-top:auto!important}
+@media(max-width:1100px){
+ #categoryItems .gv181-detail .gv181-landmarks{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+}
+@media(max-width:700px){
+ #categoryItems .gv181-detail .gv181-landmarks{gap:10px!important}
+ #categoryItems .gv181-detail .gv181-landmarks .gv13-text{min-height:152px!important}
+}
+@media(max-width:390px){
+ #categoryItems .gv181-detail .gv181-landmarks .gv13-text{min-height:162px!important}
+}
+/* Portrait monuments: shift the controlled crop to their identifying features.
+   The original full photograph remains intact on the detailed page. */
+#categoryItems .gv181-landmarks [data-item="tourism:4"] .gv13-photo img[data-gv186-photo],
+#categoryItems .gv181-landmarks [data-item="tourism:9"] .gv13-photo img[data-gv186-photo],
+#categoryItems .gv181-landmarks [data-item="tourism:20"] .gv13-photo img[data-gv186-photo],
+#categoryItems .gv181-landmarks [data-item="tourism:39"] .gv13-photo img[data-gv186-photo],
+#categoryItems .gv181-landmarks [data-item="tourism:42"] .gv13-photo img[data-gv186-photo],
+#categoryItems .gv181-landmarks [data-item="tourism:44"] .gv13-photo img[data-gv186-photo]{
+ object-position:center 35%!important;
+}
