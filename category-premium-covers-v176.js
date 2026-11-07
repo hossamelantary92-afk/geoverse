@@ -11,7 +11,7 @@ const covers=Object.freeze({
  rivers:Object.freeze({src:'https://images.unsplash.com/photo-1763688506555-c73c1b944080',position:'center 50%',source:'https://unsplash.com/photos/yQJfvo_9eBs'}),
  mountains:Object.freeze({src:'https://images.unsplash.com/photo-1747170917266-213cc5af016a',position:'center 46%',source:'https://unsplash.com/photos/h3FWIyOLFno'}),
  gulfs:Object.freeze({src:'https://images.unsplash.com/photo-1655042489679-7eab34cbcb98',position:'center 48%',source:'https://unsplash.com/photos/kRfq4thWyB8'}),
- tourism:Object.freeze({src:'https://images.unsplash.com/photo-1777541743077-de523b619fb3',position:'center 47%',source:'https://unsplash.com/photos/NVpNRCmw12Y'})
+ tourism:Object.freeze({src:'https://images.unsplash.com/photo-1738580426685-f8f0d34291dc',position:'center 47%',source:'https://unsplash.com/photos/the-sphinx-and-the-pyramids-of-giza-DCmxODj-RoY'})
 });
 function get(id,width=1100){
  const item=covers[id];if(!item)return '';
