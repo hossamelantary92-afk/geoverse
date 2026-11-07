@@ -1,0 +1,145 @@
+/* GeoVerse v196 — Premium Knowledge Atlas | Tourism only.
+   No images. Scoped to the tourism category to preserve other image galleries. */
+#main .gv196-category-banner{
+ background:radial-gradient(ellipse at 82% 15%,rgba(42,158,153,.21),transparent 57%),linear-gradient(128deg,#0b3547,#061c2d)!important;
+ border:1px solid rgba(105,228,207,.34)!important;
+}
+#categoryItems:has(.gv196-country-landmarks),
+#categoryItems:has(.gv181-overview){display:block!important}
+#categoryItems .gv196-country-landmarks{width:100%;min-width:0}
+#categoryItems .gv196-country-title{
+ padding:22px 23px;margin:0 0 19px;border:1px solid #37828d77;
+ border-radius:20px;background:linear-gradient(125deg,#0b394b,#082434);
+ box-shadow:0 12px 28px #00101d33;
+}
+.gv196-eyebrow,.gv196-section-kicker{
+ display:block;color:#8debd7;letter-spacing:.09em;font-size:11px;
+ font-weight:850;line-height:1.7;
+}
+#categoryItems .gv196-country-title h2{font-size:clamp(22px,3vw,31px);font-weight:900;margin:4px 0 7px;color:#f5fffc}
+#categoryItems .gv196-country-title p{color:#b4d6dd;margin:0;font-size:13px;line-height:1.9}
+#categoryItems .gv196-grid{
+ display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
+ gap:15px!important;align-items:stretch!important;
+}
+#categoryItems .gv196-card{
+ appearance:none;box-sizing:border-box;display:flex;flex-direction:column;min-width:0;
+ width:100%;height:100%;padding:19px!important;
+ border:1px solid rgba(112,215,211,.35);border-radius:19px;
+ background:radial-gradient(ellipse at 0% 0%,rgba(32,126,142,.14),transparent 65%),
+ linear-gradient(145deg,#0b2f44,#071e32);
+ color:#f5ffff;box-shadow:0 14px 26px #00121e55;
+ text-align:start;cursor:pointer;gap:9px;transition:border-color .2s,transform .2s,box-shadow .2s;
+}
+#categoryItems .gv196-card:hover{transform:translateY(-3px);border-color:#80ebda;box-shadow:0 19px 33px #00131d88}
+#categoryItems .gv196-card:focus-visible{outline:3px solid #a7ffe0;outline-offset:3px}
+.gv196-card-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:5px}
+.gv196-symbol{
+ width:51px;height:51px;display:grid;place-items:center;flex:0 0 51px;
+ border:1px solid #6be1d25e;border-radius:15px;
+ background:linear-gradient(140deg,#155366,#0d3648);color:#a6f8e2;
+ font-size:27px;font-weight:700;
+}
+.gv196-type{color:#b1e0de;font-size:11px;line-height:1.4;text-align:end;font-weight:700}
+.gv196-name{font-size:clamp(17px,1.7vw,21px);font-weight:900;line-height:1.5;overflow-wrap:anywhere}
+.gv196-secondary{font-size:11px;min-height:14px;color:#88c5ca;font-weight:650}
+.gv196-card-place{display:inline-block;color:#8de7d7;font-size:11px;font-weight:750;margin-top:5px;line-height:1.8}
+.gv196-card-fact{font-size:12px;line-height:1.85;color:#c4dce2;flex:1 1 auto}
+.gv196-card-foot{
+ display:flex;justify-content:space-between;align-items:center;gap:10px;
+ border-top:1px solid #43839055;margin-top:10px;padding-top:13px;
+ font-size:11px;font-weight:850;color:#8ef2d7;
+}
+.gv196-card-foot>span:last-child{font-size:19px;line-height:1}
+.gv196-empty{color:#c1dce1;padding:24px}
+#categoryItems .gv181-country{
+ padding:16px!important;gap:12px!important;min-height:172px!important;
+ background:radial-gradient(ellipse at 75% 15%,#1c647140,transparent 60%),linear-gradient(135deg,#0b3345,#082134)!important;
+}
+#categoryItems .gv181-country-photo.gv196-country-symbol{
+ height:auto!important;min-height:0!important;flex:0 0 auto!important;
+ display:flex!important;align-items:center!important;justify-content:flex-start!important;
+ background:none!important;overflow:visible!important;
+}
+#categoryItems .gv181-country .gv181-flag{font-size:45px!important;opacity:1!important;filter:none!important}
+#categoryItems .gv181-country-info{padding:0!important}
+#categoryItems .gv181-country-info strong{font-size:19px}
+#categoryItems .gv181-country-info small{color:#9fcad2}
+#categoryItems .gv181-visit{padding-top:12px}
+#main .gv196-detail{display:flex;flex-direction:column;gap:20px;min-width:0}
+#main .gv196-detail .gv14-back{align-self:flex-start}
+#main .gv196-hero{
+ position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;align-items:stretch;
+ padding:clamp(24px,4vw,42px)!important;border-radius:25px;
+ border:1px solid rgba(122,228,210,.36);
+ background:radial-gradient(ellipse at 90% 2%,rgba(36,147,137,.25),transparent 60%),
+ linear-gradient(120deg,#0d3c50,#061d30 88%);
+ box-shadow:0 16px 38px #0005;
+}
+.gv196-hero-top{display:flex;justify-content:space-between;align-items:center;gap:15px}
+.gv196-hero-symbol{
+ font-size:32px;color:#a0f6df;border-radius:18px;
+ padding:8px 14px;background:#154b5d;border:1px solid #58ccbf66;
+}
+.gv196-hero-location{color:#a9e7d9;margin-top:14px;font-size:12px;font-weight:800}
+#main .gv196-hero h1{font-size:clamp(30px,5vw,51px);line-height:1.22;color:#f8ffff;font-weight:950;margin:12px 0 4px}
+.gv196-hero-english{color:#a2cdd3;font-size:15px;line-height:1.5;margin:0}
+.gv196-hero-subtitle{align-self:flex-start;border:1px solid #68cdbf80;background:#174658;border-radius:99px;padding:6px 13px;color:#b5f3e4;font-size:11px;font-weight:850;margin:16px 0 4px}
+.gv196-hero-lead{font-size:clamp(14px,1.7vw,17px);line-height:2;color:#d6e8eb;max-width:840px;margin:12px 0 18px}
+#main .gv196-learned{align-self:flex-start;max-width:100%;white-space:normal}
+#main .gv196-facts-section,
+#main .gv196-overview,
+#main .gv196-map{
+ box-sizing:border-box;padding:clamp(19px,3vw,28px)!important;
+ border-radius:21px;border:1px solid #386f7e88;
+ background:linear-gradient(140deg,#0a2c40,#071e32);
+ box-shadow:0 10px 28px #00121e3d;
+}
+#main .gv196-detail h2{color:#f3fffc;font-size:clamp(19px,2.6vw,26px);margin:4px 0 18px;line-height:1.4}
+#main .gv196-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+#main .gv196-quick{
+ box-sizing:border-box;display:flex;flex-direction:column;gap:9px;min-width:0;
+ background:#123b4d;border:1px solid #558e9652;border-radius:15px;padding:16px;
+}
+#main .gv196-quick>span{color:#9fc9ce;font-size:12px}
+#main .gv196-quick>strong{color:#f7ffff;font-size:15px;line-height:1.5;overflow-wrap:anywhere}
+#main .gv196-overview>p{color:#d2e5e8;line-height:2.1;font-size:15px}
+#main .gv196-overview #gv14Facts{margin-top:12px}
+#main .gv196-note{display:flex;gap:14px;align-items:flex-start;padding:17px;margin-top:20px;border-radius:15px;background:#124052;border:1px solid #4eaaa27b}
+#main .gv196-note>span{color:#e3c882;font-size:25px}
+#main .gv196-note strong{color:#f0eac5;font-size:14px}
+#main .gv196-note p{color:#ccdee4;font-size:13px;line-height:2;margin:7px 0 0}
+#main .gv196-coordinates{font-size:12px;color:#a6cbd5;line-height:1.8;margin:0 0 15px}
+#main .gv196-map .gv14-globe{margin:0;max-width:100%}
+#main .gv196-sources{border-color:#3d768780;border-radius:16px}
+#main .gv196-reference{color:#8ff2d9;font-size:13px;text-decoration:underline;text-underline-offset:4px}
+#main .gv196-sources .gv-wiki-summary img{display:none!important}
+#main .gv170-tourism .gv170-tourism-photo{display:none!important}
+#main .gv170-tourism .gv170-tourism-card{min-height:0;padding:3px 0}
+#main .gv170-tourism .gv170-tourism-text{padding:15px}
+@media(max-width:1100px){
+ #categoryItems .gv196-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ #main .gv196-facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:700px){
+ #categoryItems .gv196-grid{gap:10px!important}
+ #categoryItems .gv196-card{padding:13px!important;border-radius:14px;gap:7px}
+ .gv196-symbol{width:41px;height:41px;flex-basis:41px;font-size:23px;border-radius:12px}
+ .gv196-type{font-size:10px}
+ .gv196-name{font-size:15px}
+ .gv196-secondary{font-size:10px}
+ .gv196-card-fact{font-size:11px;line-height:1.7}
+ .gv196-card-place{font-size:10px}
+ .gv196-card-foot{font-size:10px}
+ #categoryItems .gv196-country-title{padding:18px}
+ #main .gv196-detail{gap:14px}
+ #main .gv196-hero{border-radius:19px}
+ #main .gv196-quick{padding:12px}
+ #main .gv196-quick>strong{font-size:13px}
+ #main .gv196-overview>p{font-size:14px}
+ #categoryItems .gv181-country .gv181-flag{font-size:37px!important}
+}
+@media(max-width:380px){
+ #categoryItems .gv196-card{padding:11px!important}
+ #main .gv196-facts{gap:8px}
+}
