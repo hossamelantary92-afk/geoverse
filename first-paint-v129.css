@@ -1,0 +1,23 @@
+/* GeoVerse v129 — first-paint and navigation stability.
+ * These rules intentionally avoid global opacity/transition animations.
+ * No full-screen covering element, no forced delay, no white intermediate frame.
+ */
+html{background-color:#061525;min-height:100%;overscroll-behavior-y:none}
+body{background-color:#061525;min-height:100vh;min-height:100dvh}
+html[data-gv-initial-theme="light"],html[data-gv-initial-theme="light"] body{background-color:#ebf5f8}
+html[data-gv-initial-theme="dark"],html[data-gv-initial-theme="dark"] body{background-color:#061525}
+#app{min-height:100vh;min-height:100dvh}
+.layout{min-height:calc(100vh - 175px);min-height:calc(100dvh - 175px)}
+/* Stable placeholder only while the initial JavaScript bundle is loading. */
+#main:empty::before{
+ content:"";display:block;box-sizing:border-box;width:100%;
+ height:clamp(280px,52vh,550px);border-radius:21px;
+ background:linear-gradient(140deg,rgba(12,50,73,.84),rgba(6,28,48,.91));
+ border:1px solid rgba(71,142,169,.21);
+}
+html[data-gv-initial-theme="light"] #main:empty::before{
+ background:linear-gradient(140deg,#f7fcfe,#e6f2f7);border-color:#b7d9e4
+}
+/* Never animate the whole page's visibility/opacity during navigation. */
+#main,.layout{animation:none}
+@media(prefers-reduced-motion:reduce){#main:empty::before{animation:none}}
