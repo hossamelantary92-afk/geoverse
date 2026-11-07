@@ -22,9 +22,12 @@ function countryCards(){
   const landmarks=items().filter(x=>x.code===code);
   if(!landmarks.length)return '';
   if(q&&!((ar+' '+en+' '+landmarks.map(x=>x.nameAr+' '+x.nameEn).join(' ')).toLocaleLowerCase().includes(q)))return '';
-  return '<button type="button" class="gv181-country" data-gv181-country="'+code+'" aria-label="'+esc(t('استكشف مزارات '+ar,'Explore attractions in '+en))+'">'+
-   '<span class="gv181-country-photo gv196-country-symbol"><span class="gv181-flag" aria-hidden="true">'+flag+'</span></span>'+
-   '<span class="gv181-country-info"><strong>'+esc(t(ar,en))+'</strong><small>'+landmarks.length+' '+t('مزارات سياحية','tourist attractions')+'</small><span class="gv181-visit">'+t('استكشف المزارات','Explore landmarks')+' <span aria-hidden="true">↗</span></span></span></button>';
+  return '<button type="button" class="gv181-country gv203-country" data-gv181-country="'+code+'" aria-label="'+esc(t('استكشف مزارات '+ar,'Explore attractions in '+en))+'">'+
+   '<span class="gv203-card-top"><span class="gv203-flag" aria-hidden="true">'+flag+'</span><span class="gv203-card-arrow" aria-hidden="true">↗</span></span>'+
+   '<span class="gv203-country-copy"><strong class="gv203-country-english" lang="en" dir="ltr">'+esc(en)+'</strong>'+
+    '<span class="gv203-country-arabic" lang="ar" dir="rtl">'+esc(ar)+'</span>'+
+    '<span class="gv203-country-count">'+landmarks.length+' '+t('مزارات سياحية','tourist attractions')+'</span></span>'+
+   '</button>';
  }).filter(Boolean).join('');
  return '<div class="gv181-overview"><div class="gv181-heading"><strong>'+t('استكشف المزارات حسب الدولة','Discover attractions by country')+'</strong><span>'+t('اختر دولة لعرض أبرز مزاراتها','Choose a country to discover its landmarks')+'</span></div>'+
   '<div class="gv181-country-grid">'+(cards||'<p class="gv181-empty">'+t('لا توجد دول أو مزارات مطابقة للبحث','No matching countries or landmarks')+'</p>')+'</div></div>';
