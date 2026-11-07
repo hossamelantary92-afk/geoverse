@@ -509,7 +509,37 @@ function initGlobe(){
   if(typeof g.pathStroke==='function')g.pathStroke(.35);
   g.pathsData([featureLine]);
  }
- if(!isHero&&!isCountry&&!isCont&&state.category!=='countries'){const v=geo[state.category]?.[state.item];if(v){g.pointsData([{lat:v[4],lng:v[5],name:lang(v[0],v[1])}]).pointLat('lat').pointLng('lng').pointAltitude(.06).pointRadius(.65).pointColor(()=>'#f3ca7d').pointLabel(d=>escapeHTML(d.name));}}
+ if(!isHero&&!isCountry&&!isCont&&state.category!=='countries'){
+  const v=geo[state.category]?.[state.item];
+  if(v){
+   const isTouristPoint=state.page==='detail'&&state.category==='tourism';
+   const pin={lat:v[4],lng:v[5],name:lang(v[0],v[1])};
+   let focusedPin=null;
+   g.pointsData([pin]).pointLat('lat').pointLng('lng')
+    .pointAltitude(d=>d===focusedPin?.11:.065)
+    .pointRadius(d=>d===focusedPin?1.15:.72)
+    .pointColor(d=>d===focusedPin?'#67ffde':'#ffd67b')
+    .pointLabel(d=>escapeHTML(d.name));
+   if(isTouristPoint&&typeof g.onPointClick==='function'){
+    g.onPointClick(d=>{
+     if(state.page!=='detail'||state.category!=='tourism'||!node.isConnected)return;
+     focusedPin=d;
+     g.pointAltitude(x=>x===focusedPin?.11:.065)
+      .pointRadius(x=>x===focusedPin?1.15:.72)
+      .pointColor(x=>x===focusedPin?'#67ffde':'#ffd67b');
+     // Animated camera focus at the exact landmark, not at the country centroid.
+     g.pointOfView({lat:d.lat,lng:d.lng,altitude:.69},reducedMotion?0:1050);
+     let label=node.querySelector('.gv203-pin-label');
+     if(!label){label=document.createElement('div');label.className='gv203-pin-label';label.setAttribute('role','status');node.appendChild(label)}
+     label.textContent=d.name;
+     node.classList.add('gv203-point-focused');
+    });
+    if(typeof g.onPointHover==='function'){
+     g.onPointHover(d=>{const canvas=node.querySelector('canvas');if(canvas)canvas.style.cursor=d?'pointer':'grab'});
+    }
+   }
+  }
+ }
  g.pointOfView(target,isHero?0:1200);
  const ctrl=g.controls();
  ctrl.autoRotate=isHero&&!reducedMotion;
