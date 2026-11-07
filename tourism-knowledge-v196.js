@@ -84,7 +84,7 @@ function detailPage(row){
    '<div class="gv196-hero-top"><span class="gv196-eyebrow">◆ '+t('ملف مزار سياحي','LANDMARK PROFILE')+'</span><span class="gv196-hero-symbol" aria-hidden="true">'+icon(i)+'</span></div>'+
    '<div class="gv196-hero-location">⌖ '+city+' · '+country+'</div>'+
    '<h1 id="gv14Name">'+name+'</h1>'+
-   '<p class="gv196-hero-english" dir="auto">'+alternate+'</p>'+
+   (alternate!==name?'<p class="gv196-hero-english" dir="auto">'+alternate+'</p>':'')+
    '<div class="gv196-hero-subtitle">'+esc(t(...type(i)))+'</div>'+
    '<button id="toggleSeen" class="gv14-learned gv196-learned'+(learned?' is-learned':'')+'" aria-pressed="'+learned+'">'+(learned?t('✓ تمت إضافته لمعرفتي','✓ Marked as learned'):t('✓ تعلمت هذا المكان','✓ Mark as learned'))+'</button>'+
   '</section>'+
@@ -98,13 +98,7 @@ function detailPage(row){
    '<div class="gv196-section-kicker">'+t('تعرّف على المكان','THE STORY')+'</div>'+
    '<h2 id="gv14About">'+t('لماذا يُعد هذا المعلم مميزًا؟','Why does this landmark matter?')+'</h2>'+
    '<p id="gv14Description">'+description+'</p><div id="gv14Facts"></div>'+
-  '</section>'+
-  '<section class="gv9-more gv196-additional" aria-labelledby="gv196AdditionalTitle">'+
-   '<div class="gv196-section-kicker">'+t('تعمّق في المعرفة','DEEPER KNOWLEDGE')+'</div>'+
-   '<h2 id="gv196AdditionalTitle">'+t('معلومات إضافية','Additional information')+'</h2>'+
-   '<div id="gvWikiArticle" class="gv-wiki-summary gv196-additional-content"></div>'+
-   '<div class="gv196-additional-source"><span>'+t('المصدر والمزيد من القراءة','Source & further reading')+'</span>'+
-    '<a class="gv196-reference" href="'+esc(source)+'" target="_blank" rel="noopener noreferrer">'+t('افتح الصفحة المرجعية','Open reference article')+' ↗</a></div>'+
+   '<div class="gv201-reference"><span>'+t('المرجع','Source')+'</span><a href="'+esc(source)+'" target="_blank" rel="noopener noreferrer">'+t('اقرأ المزيد عن المعلم','Read more about this landmark')+' ↗</a></div>'+
   '</section>'+
   '<section class="gv14-map gv196-map" aria-labelledby="gv14MapTitle"><div class="gv196-section-kicker">'+t('اكتشف موقعه','EXPLORE THE LOCATION')+'</div><h2 id="gv14MapTitle">'+t('المعلم على الكرة الأرضية','Find it on the globe')+'</h2>'+
    '<p class="gv196-coordinates">'+t('الإحداثيات التقريبية','Approximate coordinates')+': <span dir="ltr">'+esc(coordinates)+'</span></p>'+
