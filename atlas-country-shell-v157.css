@@ -1,0 +1,50 @@
+/* GeoVerse v157 — keep zoomed map artwork inside an unobstructed viewport. */
+#worldMap.gv140-map .atlas-stage,
+#detailMap.gv140-map .atlas-stage{isolation:isolate!important}
+#worldMap.gv140-map .atlas-svg,
+#detailMap.gv140-map .atlas-svg{
+ position:absolute!important;left:0!important;right:0!important;width:100%!important;
+ top:var(--gv157-map-top,132px)!important;
+ height:calc(100% - var(--gv157-map-top,132px) - 120px)!important;
+ max-height:none!important;min-height:0!important;z-index:1!important;
+}
+#worldMap.gv140-map .gv140-topbar,
+#detailMap.gv140-map .gv140-topbar{z-index:11!important}
+#worldMap.gv140-map .gv140-region-strip,
+#detailMap.gv140-map .gv140-region-strip{z-index:12!important}
+#worldMap.gv140-map .gv140-country-card,
+#detailMap.gv140-map .gv140-country-card{z-index:16!important}
+#worldMap.gv140-map .atlas-tools,#detailMap.gv140-map .atlas-tools{
+ z-index:13!important;bottom:52px!important;
+}
+#worldMap.gv140-map .gv140-country-card.gv157-country-card:not([hidden]),
+#detailMap.gv140-map .gv140-country-card.gv157-country-card:not([hidden]){
+ box-sizing:border-box!important;top:auto!important;bottom:142px!important;
+ left:auto!important;right:12px!important;transform:none!important;
+ height:auto!important;min-height:0!important;
+ width:min(235px,calc(100% - 24px))!important;
+ max-height:185px!important;padding:11px 13px!important;
+ overflow:auto!important;border-radius:15px!important;
+}
+.gv140-map .gv157-country-card .gv155-card-heading,
+.gv140-map .gv157-country-card .gv157-country-header{
+ display:flex!important;align-items:center!important;justify-content:space-between!important;
+ gap:10px!important;margin-bottom:4px!important
+}
+.gv140-map .gv157-close{
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ width:29px!important;height:29px!important;flex:none!important;
+ margin:0!important;padding:0!important;border-radius:9px!important;
+ color:#edfffd!important;background:rgba(12,64,78,.86)!important;
+ border:1px solid rgba(120,224,216,.56)!important;font:23px/1 system-ui,sans-serif!important
+}
+.gv140-map .gv157-country-card .gv140-card-title{font-size:16px!important;margin:4px 0!important}
+@media(max-width:700px){
+ #worldMap.gv140-map .atlas-svg,#detailMap.gv140-map .atlas-svg{
+  height:calc(100% - var(--gv157-map-top,132px) - 121px)!important
+ }
+ #worldMap.gv140-map .gv140-country-card.gv157-country-card:not([hidden]),
+ #detailMap.gv140-map .gv140-country-card.gv157-country-card:not([hidden]){
+  bottom:140px!important;width:min(230px,calc(100% - 22px))!important
+ }
+}
