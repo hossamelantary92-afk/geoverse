@@ -56,13 +56,19 @@ function countryRecord(feature){
 }
 function nameFor(feature){
  const record=countryRecord(feature);
- if(!record)return feature?.properties?.name||'';
- const isArabic=document.documentElement.lang!=='en';
- if(isArabic){
-  if(typeof arName==='function')try{return arName(record)}catch(e){}
-  return record.nameAr||record.ar||record.name;
+ const fallback=feature?.properties?.name||'';
+ if(document.documentElement.lang==='en')return record?.name||fallback;
+ const translated=feature?.properties?.gvArabic;
+ if(translated&&/[\u0600-\u06ff]/.test(translated))return translated;
+ if(record?.code){
+  try{
+   const arabic=new Intl.DisplayNames(['ar'],{type:'region'}).of(record.code);
+   if(arabic&&/[\u0600-\u06ff]/.test(arabic))return arabic;
+  }catch(e){}
  }
- return record.name;
+ // Existing educational data also has Arabic country labels.
+ const legacy=typeof geo!=='undefined'?geo.countries?.find(x=>x[1]===fallback):null;
+ return legacy?.[0]||record?.nameAr||record?.ar||record?.name||fallback;
 }
 function focusCountry(r,feature){
  if(!feature||!r?.path)return;
