@@ -88,7 +88,17 @@ const label=c=>lang(c.ar,c.en);
 const im=(id,w=520)=>`https://images.unsplash.com/${id}?w=${w}&q=78&auto=format&fit=crop`;
 const main=document.getElementById('main');
 const escapeHTML=s=>String(s).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
-function setPage(page,cat=null,item=null,startGame=false){if(state.map){state.map.remove();state.map=null;}if(page==='play'&&state.page!=='play')gameStarted=!!startGame;state.page=page;state.category=cat;state.item=item;state.filter='';render();window.scrollTo({top:0,behavior:'smooth'});document.getElementById('sidebar').classList.remove('open');document.getElementById('topnav').classList.remove('open')}
+function setPage(page,cat=null,item=null,startGame=false){
+ // Scroll before replacing a tall page so mobile Safari never animates across
+ // a temporarily short/new DOM (the visible white/dark flash on navigation).
+ if(window.scrollY>0)window.scrollTo(0,0);
+ if(state.map){state.map.remove();state.map=null;}
+ if(page==='play'&&state.page!=='play')gameStarted=!!startGame;
+ state.page=page;state.category=cat;state.item=item;state.filter='';
+ render();
+ document.getElementById('sidebar').classList.remove('open');
+ document.getElementById('topnav').classList.remove('open');
+}
 function categoryButtons(limit){return cats.slice(0,limit||cats.length).map(c=>`<button class="category-card" data-cat="${c.id}"><img loading="lazy" src="${im(c.img)}" alt="${escapeHTML(label(c))}"><span class="label"><span>${c.emoji}</span>${escapeHTML(label(c))}</span></button>`).join('')}
 function renderMenu(){document.getElementById('categoryMenu').innerHTML=cats.map(c=>`<button class="side-item ${state.category===c.id?'current':''}" data-cat="${c.id}"><span class="side-emoji gv-native-emoji" aria-hidden="true">${c.emoji}</span><span>${escapeHTML(label(c))}</span><span class="side-arrow">‹</span></button>`).join('')}
 function progressValue(id){return Math.min(100,Math.round((saved()[id]||0)/(geo[id]?.length||1)*100))}
