@@ -111,6 +111,16 @@ function detailPage(row){
   (next?'<div class="gv14-next gv196-next"><span>'+t('واصل الاستكشاف','KEEP EXPLORING')+'</span><button type="button" data-item="tourism:'+next.index+'">'+esc(t(next.nameAr,next.nameEn))+' <span aria-hidden="true">↗</span></button></div>':'')+
  '</div>';
 }
+const originalCategoryPage=categoryPage;
+categoryPage=function(){
+ const html=originalCategoryPage.apply(this,arguments);
+ if(state.category!=='tourism'||typeof html!=='string')return html;
+ // Eliminate the image URL in the section banner itself, not merely by CSS.
+ const doc=new DOMParser().parseFromString('<main>'+html+'</main>','text/html');
+ const banner=doc.querySelector('.category-detail-banner');
+ if(banner){banner.removeAttribute('style');banner.classList.add('gv196-category-banner')}
+ return doc.body.querySelector('main')?.innerHTML||html;
+};
 const oldDetail=detail;
 detail=function(){
  if(state.category!=='tourism'||state.page!=='detail')return oldDetail.apply(this,arguments);
