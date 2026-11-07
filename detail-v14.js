@@ -33,7 +33,7 @@ function singlePage(){
  '<button class="back gv14-back" data-cat="'+cat.id+'">← '+t('العودة إلى '+cat.ar,'Back to '+cat.en)+'</button>'+
  '<section class="gv14-head" aria-labelledby="gv14Name">'+
   '<div class="gv14-photo" id="gvArticlePhoto" role="group" aria-label="'+t('صورة جغرافية: ','Photo of ')+esc(title)+'">'+
-   '<div class="gv14-photo-placeholder">'+icon(cat.id)+'<span>'+t('جارٍ التحقق من صورة المعلم','Checking this place’s photograph')+'</span></div></div>'+
+   '<div class="gv14-photo-placeholder">'+icon(cat.id)+'<span>'+t('صورة موثقة غير متاحة حاليًا','Verified place photograph unavailable')+'</span></div></div>'+
   '<div class="gv14-heading"><span class="gv14-kicker">'+icon(cat.id)+esc(t(cat.ar,cat.en))+'</span>'+
    '<h1 id="gv14Name">'+esc(title)+'</h1>'+
    '<p class="gv14-head-description" id="gv14Lead">'+esc(sentence(t(v[2],v[3]),220))+'</p>'+
@@ -112,7 +112,7 @@ render=function(){
  else if(state.page==='detail')hydrate();
  else if(state.page==='country-v4')tidyCountry();
 };
-Promise.allSettled([fetch('./geo-stories.json?v=gv96-expanded-natural-atlas').then(r=>{if(!r.ok)throw Error('stories');return r.json()}),fetch('./photo-manifest-v13.json').then(r=>{if(!r.ok)throw Error('photos');return r.json()})])
+Promise.allSettled([fetch('./geo-stories.json?v=gv96-expanded-natural-atlas').then(r=>{if(!r.ok)throw Error('stories');return r.json()}),fetch('./photo-manifest-v13.json?v=gv97-photo-integrity').then(r=>{if(!r.ok)throw Error('photos');return r.json()})])
 .then(result=>{
  if(result[0].status==='fulfilled')content.stories=result[0].value.stories||{};
  if(result[1].status==='fulfilled')content.photos=result[1].value.photos||{};
