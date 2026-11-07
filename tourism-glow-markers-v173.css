@@ -1,0 +1,31 @@
+/* GeoVerse v173 — tourism pins use one clear glowing circular marker.
+   Restrict to the editorial atlas; preserve touch target, cards and smart focus. */
+#worldMap.gv140-map .atlas-pin[data-map-pin^="tourism:"] .gv153-marker-symbol,
+#detailMap.gv140-map .atlas-pin[data-map-pin^="tourism:"] .gv153-marker-symbol{
+ display:none!important;
+}
+#worldMap.gv140-map .atlas-pin[data-map-pin^="tourism:"] .atlas-pin-halo,
+#detailMap.gv140-map .atlas-pin[data-map-pin^="tourism:"] .atlas-pin-halo{
+ fill:#67f2de!important;
+ stroke:#dffffb!important;
+ stroke-width:1.4!important;
+ opacity:.78!important;
+ filter:drop-shadow(0 0 8px rgba(84,239,220,.9))!important;
+}
+#worldMap.gv140-map .atlas-pin[data-map-pin^="tourism:"] .atlas-pin-dot,
+#detailMap.gv140-map .atlas-pin[data-map-pin^="tourism:"] .atlas-pin-dot{
+ fill:#f4fffe!important;
+ stroke:#2edeca!important;
+ stroke-width:2!important;
+}
+#worldMap.gv140-map .atlas-pin[data-map-pin^="tourism:"] .gv142-hit-circle,
+#detailMap.gv140-map .atlas-pin[data-map-pin^="tourism:"] .gv142-hit-circle{
+ fill:transparent!important;
+ pointer-events:all!important;
+}
+@media(prefers-reduced-motion:reduce){
+ #worldMap.gv140-map .atlas-pin[data-map-pin^="tourism:"] .atlas-pin-halo,
+ #detailMap.gv140-map .atlas-pin[data-map-pin^="tourism:"] .atlas-pin-halo{
+  animation:none!important;
+ }
+}
