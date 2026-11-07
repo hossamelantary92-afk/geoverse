@@ -74,6 +74,7 @@ for(const id of categoryList){
  }
 }
 function makeClassificationQuestions(){
+ if(window.GeoVerseClassifyV116?.questions)return window.GeoVerseClassifyV116.questions();
  return placeRecords.map(item=>{
   const opts=choicesFor(categoryList,item.id,id=>['seas','oceans','gulfs','lakes','straits','rivers','waterfalls'].includes(id)?'water':['mountains','valleys','deserts','glaciers','volcanoes'].includes(id)?'terrain':['grasslands','forests','climate'].includes(id)?'ecosystem':'land');
   const stemAr='ما التصنيف الصحيح لهذا الموقع؟ '+item.ar;
