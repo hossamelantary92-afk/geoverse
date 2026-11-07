@@ -1,0 +1,14 @@
+/* GeoVerse v145 — clean, accessible markers instead of oversized area fills */
+#worldMap.gv140-map .atlas-selected .atlas-feature.atlas-area,
+#detailMap.gv140-map .atlas-selected .atlas-feature.atlas-area{display:none!important;fill:none!important;pointer-events:none!important}
+#worldMap.gv140-map .atlas-selected .gv142-feature-hit[fill]:not([fill="none"]),
+#detailMap.gv140-map .atlas-selected .gv142-feature-hit[fill]:not([fill="none"]){display:none!important;pointer-events:none!important}
+.gv140-map .atlas-pin.gv145-point{cursor:pointer;outline:0}
+.gv140-map .atlas-pin.gv145-point .atlas-pin-halo{opacity:.27}
+.gv140-map .atlas-pin.gv145-forests .atlas-pin-halo{fill:#2ee4a9}
+.gv140-map .atlas-pin.gv145-deserts .atlas-pin-halo{fill:#f5c779}
+.gv140-map .atlas-pin.gv145-oceans .atlas-pin-halo{fill:#74e9ed;opacity:.25}
+.gv140-map .atlas-pin.gv145-oceans .atlas-pin-dot{fill:#9bfff5;stroke:#ecfffe}
+.gv140-map .atlas-pin.gv145-oceans .gv145-label{fill:#d9fffb;stroke:rgba(2,35,55,.8);stroke-width:2.4px;paint-order:stroke fill;font:700 15px Outfit,Cairo,system-ui,sans-serif;letter-spacing:.025em;pointer-events:none;filter:drop-shadow(0 2px 4px rgba(0,10,22,.65))}
+.gv140-map .atlas-pin.gv145-oceans:hover .gv145-label,.gv140-map .atlas-pin.gv145-oceans:focus-visible .gv145-label{fill:#7ffff0}
+@media(max-width:700px){.gv140-map .atlas-pin.gv145-oceans .gv145-label{font-size:13px}}
