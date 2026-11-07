@@ -51,6 +51,9 @@ detail=function(){
  return doc.body.innerHTML;
 };
 function attachPhoto(){
+ // v192: all tourism detail photography comes from GeoVerseTourismPhotoCatalog.
+ // The old Wikipedia summary thumbnail could revive an outdated image.
+ if(state.category===category)return;
  if(state.page!=='detail'||state.category!==category)return;
  const a=attractions[state.item],box=document.getElementById('gvArticlePhoto');
  if(!a||!box||box.dataset.gv168Photo)return;
