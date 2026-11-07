@@ -354,9 +354,19 @@ function initGlobe(){
    else if(coords.length>=4)featureOverlay={type:'Feature',properties:{gvOverlay:true,name:lang(v[0],v[1])},geometry:{type:'Polygon',coordinates:[coords]}};
   }
  }
+ // Render the selected country's actual outer and inner borders as crisp thin lines.
+// Keeping fill close to the surface prevents an elevated cap hiding neighbouring land.
+ const countryOutlinePaths=feature=>{
+  if(!feature?.geometry)return [];
+  const geometry=feature.geometry;
+  const polygons=geometry.type==='Polygon'?[geometry.coordinates]:geometry.type==='MultiPolygon'?geometry.coordinates:[];
+  return polygons.flatMap(poly=>poly.map(ring=>({
+   points:ring.filter(p=>Array.isArray(p)&&Number.isFinite(p[0])&&Number.isFinite(p[1])).map(([lng,lat])=>({lng,lat}))
+  }))).filter(path=>path.points.length>=3);
+ };
  const countryShapes=store.countryFeatures.filter(f=>f.properties.name!=='Antarctica'||isCont);
  if(countryShapes.length){
-  g.polygonsData(featureOverlay?[...countryShapes,featureOverlay]:countryShapes).polygonAltitude(f=>f.properties.gvOverlay?.064:(isCountry&&f===selectedFeature)?0.006:(isExplorer&&f===selectedExploreFeature)?0.011:(isCont&&f.properties.gvContinent===selectedContinent||isCont&&selectedContinent==='Asia'&&['Russia','Turkey'].includes(f.properties.name))?.005:.0015).polygonCapColor(f=>{
+  g.polygonsData(featureOverlay?[...countryShapes,featureOverlay]:countryShapes).polygonAltitude(f=>f.properties.gvOverlay?.064:(isCountry&&f===selectedFeature)?0.006:(isExplorer&&f===selectedExploreFeature)?0.0045:(isCont&&f.properties.gvContinent===selectedContinent||isCont&&selectedContinent==='Asia'&&['Russia','Turkey'].includes(f.properties.name))?.005:.0015).polygonCapColor(f=>{
    if(f.properties.gvOverlay)return 'rgba(240,183,67,.47)';
    if(isCountry)return f===selectedFeature?'rgba(39,221,193,0.50)':'rgba(11,59,82,0.045)';
    if(isExplorer)return f===selectedExploreFeature?'rgba(27,232,210,0.49)':'rgba(6,51,76,0.035)';
@@ -373,9 +383,10 @@ function initGlobe(){
       void exploreNameLabel.offsetWidth;
       exploreNameLabel.classList.add('gv117-visible');
      }
-     g.polygonAltitude(v=>v===selectedExploreFeature?.011:.0015);
+     g.polygonAltitude(v=>v===selectedExploreFeature?.0045:.0015);
      g.polygonCapColor(v=>v===selectedExploreFeature?'rgba(27,232,210,0.49)':'rgba(6,51,76,0.035)');
-     g.polygonStrokeColor(v=>v===selectedExploreFeature?'#8ffff0':'rgba(157,224,239,0.24)');
+     g.polygonStrokeColor(v=>v===selectedExploreFeature?'#9afff0':'rgba(186,226,241,0.32)');
+     g.pathsData(countryOutlinePaths(f));
      if(window.d3?.geoCentroid){
       try{
        const center=d3.geoCentroid(f);
@@ -392,6 +403,10 @@ function initGlobe(){
     const r=recordFor(f.properties.name);
     if(r&&state.page!=='play')setPage('country-v4',r.code);
    });
+ }
+ if(isExplorer){
+  g.pathsData([]).pathPoints('points').pathPointLat('lat').pathPointLng('lng')
+   .pathColor(()=>'rgba(151,255,244,.96)').pathStroke(.32).pathAltitude(.012);
  }
  if(featureLine){g.pathsData([featureLine]).pathPoints('points').pathPointLat('lat').pathPointLng('lng').pathColor(()=>'#ffe3a5').pathStroke(.9).pathAltitude(.07)}
  if(!isHero&&!isCountry&&!isCont&&state.category!=='countries'){const v=geo[state.category]?.[state.item];if(v){g.pointsData([{lat:v[4],lng:v[5],name:lang(v[0],v[1])}]).pointLat('lat').pointLng('lng').pointAltitude(.06).pointRadius(.65).pointColor(()=>'#f3ca7d').pointLabel(d=>escapeHTML(d.name));}}
