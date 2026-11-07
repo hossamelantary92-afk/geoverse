@@ -1,0 +1,14 @@
+/* GeoVerse v132 — interactive recovery map when a mobile WebGL context cannot start. */
+#gvExploreGlobe .gv132-fallback-map{position:absolute;inset:0;display:flex;flex-direction:column;align-items:stretch;justify-content:center;background:radial-gradient(ellipse at 48% 40%,#11465d 0%,#082840 53%,#041625 100%);overflow:hidden}
+#gvExploreGlobe .gv132-fallback-map svg{display:block;width:100%;height:100%;min-height:0;touch-action:manipulation}
+#gvExploreGlobe .gv132-map-country{fill:#1c6374;stroke:rgba(193,234,238,.75);stroke-width:.8px;vector-effect:non-scaling-stroke;cursor:pointer;transition:fill .15s}
+#gvExploreGlobe .gv132-map-country:nth-child(3n){fill:#20576d}
+#gvExploreGlobe .gv132-map-country:focus-visible,#gvExploreGlobe .gv132-map-country:hover{fill:#289597;outline:none}
+#gvExploreGlobe .gv132-map-country.gv132-selected{fill:#32bba8;stroke:#c8fff4;stroke-width:2px}
+#gvExploreGlobe .gv132-fallback-label{position:absolute;z-index:3;top:14px;left:50%;transform:translateX(-50%);max-width:88%;padding:8px 17px;border-radius:14px;white-space:normal;text-align:center;background:#073347;border:1px solid #68e6d7;box-shadow:0 8px 21px #001827;color:#f7fffd;font-size:clamp(16px,3.7vw,22px);font-weight:900;visibility:hidden}
+#gvExploreGlobe .gv132-fallback-label.gv132-visible{visibility:visible}
+#gvExploreGlobe .gv132-fallback-controls{position:absolute;z-index:4;bottom:12px;left:12px;display:flex;align-items:center;gap:7px;direction:ltr}
+#gvExploreGlobe .gv132-fallback-controls button{border:1px solid rgba(119,229,230,.62);border-radius:10px;min-width:39px;min-height:39px;padding:6px 10px;background:#062b41;color:#f2ffff;font-size:19px;cursor:pointer}
+#gvExploreGlobe .gv132-fallback-controls button:last-child{font-size:12px;font-weight:800}
+#gvExploreGlobe .gv132-globe-error{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:12px;width:100%;height:100%;color:#e2f6ff;font-size:14px;text-align:center;padding:16px}
+#gvExploreGlobe .gv132-globe-error button{padding:9px 13px;background:#147a85;color:white;border:1px solid #8dece0;border-radius:10px}
