@@ -1,0 +1,24 @@
+/* GeoVerse v164 — photo-first landmark cards, scoped to explorer/detail atlas only. */
+#worldMap.gv140-map .gv140-country-card.gv154-smart-card.gv164-enhanced:not([hidden]),
+#detailMap.gv140-map .gv140-country-card.gv154-smart-card.gv164-enhanced:not([hidden]){
+ max-height:min(65%,310px)!important;width:min(312px,calc(100% - 26px))!important;
+ padding:12px!important;scrollbar-width:thin!important;
+}
+.gv140-map .gv164-body{display:flex;gap:10px;align-items:flex-start;margin-top:8px;min-width:0}
+.gv140-map .gv164-visual{flex:0 0 86px;width:86px;height:94px;overflow:hidden;border-radius:10px;border:1px solid rgba(112,222,223,.4);background:#12394c}
+.gv140-map .gv164-visual img{width:100%;height:100%;object-fit:cover;display:block}
+.gv140-map .gv164-copy{flex:1 1 0;min-width:0}
+.gv140-map .gv164-copy .gv142-landmark-description{margin:0!important;max-height:76px!important;overflow:hidden!important;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4}
+.gv140-map .gv164-facts{display:grid;gap:4px;margin:7px 0 0}
+.gv140-map .gv164-facts>div{display:flex;flex-wrap:wrap;gap:3px 6px;line-height:1.4}
+.gv140-map .gv164-facts dt{font:700 10px/1.4 Cairo,Outfit,sans-serif;color:#79e4d7}
+.gv140-map .gv164-facts dd{margin:0;font:650 10px/1.4 Cairo,Outfit,sans-serif;color:#e6f4f7}
+.gv140-map .gv164-enhanced .gv142-view-detail{margin-top:9px!important}
+@media(max-width:700px){
+ #worldMap.gv140-map .gv140-country-card.gv154-smart-card.gv164-enhanced:not([hidden]),
+ #detailMap.gv140-map .gv140-country-card.gv154-smart-card.gv164-enhanced:not([hidden]){
+   max-height:min(59%,262px)!important;width:min(302px,calc(100% - 24px))!important;bottom:138px!important;
+ }
+ .gv140-map .gv164-visual{flex-basis:75px;width:75px;height:90px}
+ .gv140-map .gv164-body{gap:8px}
+}
