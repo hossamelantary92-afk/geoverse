@@ -52,7 +52,7 @@ photo.mount=function(box,src,name,articleUrl){
  const img=document.createElement('img');
  img.loading='lazy';img.decoding='async';img.alt=name;
  img.referrerPolicy='no-referrer';
- if(articleUrl&&/^https:\/\/en\.wikipedia\.org\/wiki\//.test(articleUrl))box.dataset.articleSource=articleUrl;
+ if(articleUrl&&/^https:\/\/(?:en\.wikipedia|commons\.wikimedia)\.org\/wiki\//.test(articleUrl))box.dataset.articleSource=articleUrl;
  img.addEventListener('load',()=>{
   if(!box.isConnected)return;
   box.querySelector('.gv13-photo-fallback')?.remove();
@@ -79,16 +79,16 @@ photo.hydrate=function(){
   if(!item||!Number.isInteger(index))return;
   const src=item[0],canonical=item[1];
   if(typeof src!=='string'||typeof canonical!=='string')return;
-  const article='https://en.wikipedia.org/wiki/'+encodeURIComponent(canonical.replace(/ /g,'_'));
+  const article=canonical.startsWith('File:')?'https://commons.wikimedia.org/wiki/'+encodeURIComponent(canonical.replace(/ /g,'_')):'https://en.wikipedia.org/wiki/'+encodeURIComponent(canonical.replace(/ /g,'_'));
   photo.mount(box,src,box.dataset.placeName||'',article);
  });
 };
-photo.ready=fetch('./photo-manifest-v13.json?v=gv97-photo-integrity').then(r=>{
+photo.ready=fetch('./photo-manifest-v13.json?v=gv98-authentic-photos').then(r=>{
  if(!r.ok)throw Error('Photo reference manifest unavailable');
  return r.json();
 }).then(data=>{
  for(const [key,item] of Object.entries(data.photos||{})){
-  if(!/^[a-z]+:\d+$/.test(key)||!Array.isArray(item)||item.length!==2)continue;
+  if(!/^[a-z]+:\d+$/.test(key)||!Array.isArray(item)||item.length<2)continue;
   if(!/^https:\/\/(?:upload|thumb)\.wikimedia\.org\//.test(item[0]))continue;
   verifiedPhotos[key]=item;
  }
