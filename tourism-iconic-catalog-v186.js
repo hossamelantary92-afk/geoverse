@@ -53,7 +53,7 @@ function resolve(index){
  if(photoCache.has(index))return Promise.resolve(photoCache.get(index));
  if(inflight.has(index))return inflight.get(index);
  const spec=official[index];if(!spec)return Promise.reject(Error('Unknown attraction'));
- const promise=(spec.file?commonsFile(index).catch(()=>wikipedia(index)):wikipedia(index))
+ const promise=(spec.file?commonsFile(index).catch(()=>({src:candidate(spec.file,1100),via:'Commons',title:'File:'+spec.file})):wikipedia(index))
   .then(result=>{photoCache.set(index,result);return result})
   .finally(()=>inflight.delete(index));
  inflight.set(index,promise);return promise;
@@ -118,6 +118,28 @@ function hydrate(){
   }
  }
 }
+// Keep the detail hero owned exclusively by this catalogue. Older scripts and
+// delayed asynchronous image callbacks must not reintroduce another picture.
+let observedHero=null,heroObserver=null;
+function guardHero(){
+ const hero=state.page==='detail'&&state.category==='tourism'
+  ?document.getElementById('gvArticlePhoto'):null;
+ if(!hero){
+  if(heroObserver){heroObserver.disconnect();heroObserver=null}
+  observedHero=null;return;
+ }
+ if(observedHero===hero)return;
+ if(heroObserver)heroObserver.disconnect();
+ observedHero=hero;
+ const clean=()=>{
+  hero.querySelectorAll('img:not([data-gv186-photo]),.gv14-image-credit,.gv182-credit').forEach(node=>node.remove());
+  // An old asynchronous image must not hide the neutral placeholder.
+  if(!hero.querySelector('img[data-gv186-photo]'))hero.classList.remove('gv14-has-photo');
+ };
+ clean();
+ heroObserver=new MutationObserver(clean);
+ heroObserver.observe(hero,{childList:true,subtree:false});
+}
 let scheduled=false;
 function schedule(){
  if(scheduled)return;scheduled=true;
@@ -133,9 +155,9 @@ if(window.GeoVersePlacesV13?.mount){
  };
 }
 const earlier=render;
-render=function(){const result=earlier.apply(this,arguments);schedule();return result};
+render=function(){const result=earlier.apply(this,arguments);guardHero();schedule();return result};
 const root=document.getElementById('main');
 if(root)new MutationObserver(schedule).observe(root,{childList:true,subtree:false});
-schedule();
+guardHero();schedule();
 window.GeoVerseTourismPhotoCatalog=Object.freeze({count:official.length,scenes:official,get:index=>photoCache.get(index)||null,resolve});
 })();
