@@ -128,5 +128,5 @@ render=function(){const result=earlier.apply(this,arguments);schedule();return r
 const root=document.getElementById('main');
 if(root)new MutationObserver(schedule).observe(root,{childList:true,subtree:false});
 schedule();
-window.GeoVerseTourismPhotoCatalog=Object.freeze({count:official.length,scenes:official,get:index=>photoCache.get(index)||null});
+window.GeoVerseTourismPhotoCatalog=Object.freeze({count:official.length,scenes:official,get:index=>photoCache.get(index)||null,resolve});
 })();
