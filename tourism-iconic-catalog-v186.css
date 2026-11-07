@@ -1,0 +1,23 @@
+/* GeoVerse v186: shared, complete documentary tourist photographs.
+   Existing v185 card geometry remains the single layout authority. */
+#categoryItems .gv181-landmarks .gv13-photo img[data-gv186-photo]{
+ width:100%!important;height:100%!important;
+ object-fit:contain!important;object-position:center!important;
+ transform:none!important;filter:none!important;
+}
+#categoryItems .gv181-landmarks .gv13-place:hover img[data-gv186-photo]{
+ transform:none!important;
+}
+#gvArticlePhoto img[data-gv186-photo]{
+ width:100%!important;max-width:100%!important;
+ height:100%!important;object-fit:contain!important;
+ object-position:center!important;
+}
+.gv186-source{
+ position:absolute;inset:auto 10px 9px auto;z-index:6;
+ display:inline-flex;max-width:calc(100% - 20px);
+ border:1px solid rgba(139,223,218,.35);
+ border-radius:7px;padding:4px 8px;
+ background:rgba(2,26,40,.82);color:#c9efed;
+ font-size:10px;line-height:1.4;text-decoration:none;
+}
