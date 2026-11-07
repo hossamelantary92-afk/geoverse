@@ -1,28 +1,70 @@
-/* GeoVerse v130 — mobile page-end and bottom navigation correction.
-   Keep one safe navigation clearance at the very end, never stack body/footer gaps. */
+/* GeoVerse v131 — mobile page shell and fully opaque navigation dock.
+ * Avoid stacking viewport spacers and reserve bottom navigation room exactly once.
+ */
 @media(max-width:700px){
-  html,body{min-height:100%;overscroll-behavior-y:auto}
-  body{padding-bottom:0!important}
-  #app{min-height:100vh;min-height:100dvh}
-  .layout{min-height:0!important;height:auto!important;padding-bottom:0!important}
-  #main{min-height:0!important;padding-bottom:8px!important}
-  #app>footer{
-    box-sizing:border-box;
-    margin:0!important;
-    padding:18px 14px calc(92px + env(safe-area-inset-bottom,0px))!important;
-    min-height:0!important;
-    height:auto!important;
-    text-align:center;
-    line-height:1.7
-  }
-  .gv11-bottom-nav,
-  .light .gv11-bottom-nav{
-    background:#052b41!important;
-    background-image:none!important;
-    opacity:1!important;
-    -webkit-backdrop-filter:none!important;
-    backdrop-filter:none!important;
-    isolation:isolate;
-    box-shadow:0 10px 32px rgba(0,8,20,.75),inset 0 1px rgba(172,255,255,.18)!important
-  }
+ html{min-height:100%;overscroll-behavior-y:auto}
+ body{
+   margin:0!important;
+   padding:0!important;
+   min-height:100svh!important;
+   min-height:100dvh!important;
+ }
+ #app{
+   box-sizing:border-box;
+   display:flex!important;
+   flex-direction:column!important;
+   min-height:100svh!important;
+   min-height:100dvh!important;
+   height:auto!important;
+   padding:0!important;
+ }
+ #app>.layout{
+   box-sizing:border-box;
+   flex:1 0 auto!important;
+   display:block!important;
+   height:auto!important;
+   min-height:0!important;
+   margin-bottom:0!important;
+   padding-bottom:0!important;
+ }
+ #app>.layout>#main{
+   min-height:0!important;
+   padding-bottom:8px!important;
+ }
+ #app>footer{
+   box-sizing:border-box!important;
+   flex:none!important;
+   margin:0!important;
+   padding:15px 14px calc(106px + env(safe-area-inset-bottom,0px))!important;
+   min-height:0!important;
+   height:auto!important;
+   line-height:1.65!important;
+   text-align:center!important;
+ }
+ /* Opaque docking region masks text and cards behind the floating navigation.
+    Keep it below the actual bar so buttons remain fully interactive. */
+ body::after{
+   content:"";
+   position:fixed;
+   z-index:295;
+   inset-inline:0;
+   bottom:0;
+   height:calc(91px + env(safe-area-inset-bottom,0px));
+   background:linear-gradient(to bottom,#031525 0%,#031525 100%);
+   pointer-events:auto;
+ }
+ .gv11-bottom-nav,.light .gv11-bottom-nav{
+   position:fixed!important;
+   z-index:300!important;
+   background:#052b41!important;
+   background-image:none!important;
+   opacity:1!important;
+   -webkit-backdrop-filter:none!important;
+   backdrop-filter:none!important;
+   isolation:isolate;
+   box-shadow:0 10px 30px rgba(0,8,20,.66),inset 0 1px rgba(172,255,255,.18)!important;
+ }
+ html[data-gv-initial-theme="light"] body::after{
+   background:#ebf5f8;
+ }
 }
