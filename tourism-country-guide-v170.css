@@ -1,0 +1,30 @@
+/* GeoVerse v170 – Country-first tourism; responsive image cards, calm 2D map. */
+.gv170-tourism .gv9-section-title p{color:#a8ccd5;font-size:13px;line-height:1.8;margin:8px 0 14px}
+.gv170-tourism-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.gv170-tourism-card{appearance:none;display:flex;align-items:stretch;text-align:start;min-width:0;width:100%;padding:0;overflow:hidden;border-radius:17px;border:1px solid rgba(107,229,218,.37);color:inherit;background:linear-gradient(135deg,#0a2e40,#0a2235);cursor:pointer;transition:border-color .2s,transform .2s}
+.gv170-tourism-card:hover,.gv170-tourism-card:focus-visible{border-color:#5cebd9;transform:translateY(-2px);outline-offset:3px}
+.gv170-tourism-photo{position:relative;flex:0 0 38%;min-width:0;max-width:145px;min-height:154px;display:grid;place-items:center;background:linear-gradient(140deg,#154b60,#0d3045)}
+.gv170-tourism-photo>span{font-size:28px;opacity:.65}
+.gv170-tourism-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .2s}
+.gv170-tourism-photo.gv170-photo-loaded img{opacity:1}
+.gv170-tourism-text{display:flex;flex:1;min-width:0;flex-direction:column;gap:5px;padding:13px 12px}
+.gv170-tourism-city{font-size:11px;font-weight:800;color:#7ee7d5}
+.gv170-tourism-text strong{font-size:15px;line-height:1.5;overflow-wrap:anywhere}
+.gv170-tourism-text small{color:#c9dfe4;font-size:11px;line-height:1.65;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.gv170-tourism-read{font-size:11px;margin-top:auto;font-weight:800;color:#54e7d3;padding-top:4px}
+#worldMap.gv140-map .gv170-tourism-chooser{position:absolute;z-index:9;top:66px;left:12px;right:12px;display:flex;align-items:center;flex-wrap:wrap;gap:7px;padding:8px 10px;border-radius:12px;background:rgba(4,32,48,.95);border:1px solid rgba(101,220,207,.5);box-shadow:0 8px 24px rgba(0,0,0,.3);color:#efffff}
+#worldMap.gv140-map .gv170-tourism-chooser[hidden]{display:none!important}
+.gv170-tourism-chooser span{font-size:11px;font-weight:800;color:#96e8e0}
+.gv170-tourism-chooser select{flex:1;min-width:135px;max-width:100%;border:1px solid #347b8b;border-radius:8px;padding:8px;color:#f4ffff;background:#0c3042;font:700 12px Cairo,Outfit,system-ui,sans-serif}
+.gv170-tourism-chooser small{font-size:10px;color:#9bced5}
+#worldMap.gv140-map .atlas-pin[data-map-pin^="tourism:"]:not(.gv170-tourism-visible){display:none!important}
+@media(max-width:700px){
+ .gv170-tourism-grid{grid-template-columns:1fr;gap:10px}
+ .gv170-tourism-card{border-radius:14px}
+ .gv170-tourism-photo{flex-basis:35%;min-height:145px;max-width:134px}
+ .gv170-tourism-text{padding:11px 10px;gap:4px}
+ .gv170-tourism-text strong{font-size:14px}
+ #worldMap.gv140-map .gv170-tourism-chooser{top:62px;left:9px;right:9px;gap:5px;padding:7px}
+ .gv170-tourism-chooser select{min-width:145px;font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){.gv170-tourism-card,.gv170-tourism-photo img{transition:none!important}}
