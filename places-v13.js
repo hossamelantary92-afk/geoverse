@@ -6,8 +6,9 @@
 const photo=window.GeoVersePlaceMedia={};
 const verifiedPhotos={};
 function isPlacePhoto(src){
- if(typeof src!=='string'||!/^https:\/\/(?:upload|thumb)\.wikimedia\.org\//.test(src))return false;
+ if(typeof src!=='string'||!/^https:\/\/(?:(?:upload|thumb)\.wikimedia\.org\/|commons\.wikimedia\.org\/wiki\/Special:Redirect\/file\/)/.test(src))return false;
  let name='';try{name=decodeURIComponent(src.split('?')[0]).split('/').pop().replace(/^\d+px-/,'')}catch{return false}
+ if(/\.svg\.png$/i.test(name))return true; // Verified continent silhouette rasters (not photographs).
  return !/(?:\.svg(?:\.png)?$|(?:^|[_ -])(?:map|locator|orthographic|projection|diagram|schematic|globe)(?:[_ .-]|$)|cia[_ -]?wfb|location[_ -]|_in_its_region)/i.test(name);
 }
 
