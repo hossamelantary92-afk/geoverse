@@ -127,7 +127,7 @@ async function loadCardsMedia(){
     const image=matching.thumbnail.source;
     if(!/^https:\/\/(?:upload|thumb)\.wikimedia\.org\//.test(image))continue;
     // Reject SVG maps, diagrams, icons and artwork that could be mistaken for a real place photograph.
-    if(/\.(?:svg)(?:\?|$)/i.test(image)||/(?:map[_-]|locator|blank[_-]map|flag[_-]|coat[_-]of[_-]arms|logo[_-]|diagram|schematic|emblem)/i.test(decodeURIComponent(image)))continue;
+    if(/\.(?:svg)(?:\?|$)/i.test(image)||/(?:map[_-]|locator|orthographic|projection|globe|blank[_-]map|flag[_-]|coat[_-]of[_-]arms|logo[_-]|diagram|schematic|emblem)/i.test(decodeURIComponent(image)))continue;
     const box=document.querySelector('[data-photo-index="'+row.i+'"]');if(!box)continue;
     const placeName=lang(items[row.i][0],items[row.i][1]);
     if(window.GeoVersePlacesV13?.mount)window.GeoVersePlacesV13.mount(box,image,placeName,matching.fullurl);
