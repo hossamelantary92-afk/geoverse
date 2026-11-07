@@ -40,16 +40,16 @@ function icon(i){return symbols[kind[i]||'heritage']}
 function place(i){return catalogue()[i]}
 function card(row){
  const i=row.index;
- const name=esc(t(row.nameAr,row.nameEn)),secondary=esc(t(row.nameEn,row.nameAr));
- const city=esc(t(row.cityAr,row.cityEn)),country=esc(t(row.countryAr,row.countryEn));
- const desc=esc(t(row.factAr,row.factEn));
- return '<button type="button" class="gv196-card" data-item="tourism:'+i+'" aria-label="'+esc(t('استكشف ','Explore ')+t(row.nameAr,row.nameEn))+'">'+
-  '<span class="gv196-card-head"><span class="gv196-symbol" aria-hidden="true">'+icon(i)+'</span><span class="gv196-type">'+esc(t(...type(i)))+'</span></span>'+
-  '<span class="gv196-name">'+name+'</span><span class="gv196-secondary" dir="auto">'+secondary+'</span>'+
-  '<span class="gv196-card-place"><span aria-hidden="true">⌖</span> '+city+' · '+country+'</span>'+
-  '<span class="gv196-card-fact">'+desc+'</span>'+
-  '<span class="gv196-card-foot"><span>'+t('اكتشف قصة المعلم','Discover this landmark')+'</span><span aria-hidden="true">↗</span></span></button>';
+ const name=esc(t(row.nameAr,row.nameEn));
+ const city=esc(t(row.cityAr,row.cityEn));
+ return '<button type="button" class="gv196-card gv197-minimal-card" data-item="tourism:'+i+'" aria-label="'+esc(t('تفاصيل ','Details of ')+t(row.nameAr,row.nameEn))+'">'+
+  '<span class="gv197-card-icon" aria-hidden="true">'+icon(i)+'</span>'+
+  '<span class="gv197-card-content"><strong class="gv196-name">'+name+'</strong>'+
+  '<span class="gv196-card-place"><span aria-hidden="true">⌖</span> '+city+'</span></span>'+
+  '<span class="gv197-card-arrow" aria-hidden="true">↗</span>'+
+  '</button>';
 }
+
 const oldCards=itemCards;
 itemCards=function(list){
  if(state.category!=='tourism')return oldCards.apply(this,arguments);
