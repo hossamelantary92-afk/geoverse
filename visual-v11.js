@@ -35,7 +35,7 @@ const featuredPhotos={
  tourism:'photo-1533105079780-92b9be482077',  // warm architectural heritage
  mountains:'photo-1464822759023-fed622ff2c3b', // snow-capped alpine mountains
  oceans:'photo-1518837695005-2083093ee35b',   // deep-blue ocean
- rivers:'photo-1433086966358-54859d0ed716',   // river/waterfall nature
+ rivers:'photo-1591081658714-f576fb7ea3ed',   // aerial winding river through green forest
  deserts:'photo-1509316785289-025f5b846b35'   // warm golden dunes
 };
 const motifs={oceans:'waves',rivers:'rivers',volcanoes:'volcanoes',forests:'forests',mountains:'mountains',deserts:'deserts'};
