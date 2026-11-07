@@ -1,0 +1,29 @@
+/* GeoVerse v176 — unified premium category art direction.
+ * One shared image per id; layouts differ only in crop, never the source.
+ * Scoped to the six selected sections; other imagery remains unchanged.
+ */
+.gv11-categories .gv11-card:is(.gv11-countries,.gv11-tourism,.gv11-mountains,.gv11-rivers,.gv11-oceans,.gv11-deserts){
+ isolation:isolate;overflow:hidden;position:relative;
+ border-color:rgba(153,235,232,.54)!important;
+ box-shadow:inset 0 1px rgba(245,255,255,.11),0 12px 25px rgba(0,11,23,.15);
+}
+.gv11-categories .gv11-card:is(.gv11-countries,.gv11-tourism,.gv11-mountains,.gv11-rivers,.gv11-oceans,.gv11-deserts)>img{
+ width:100%;height:100%;object-fit:cover;filter:saturate(1.09) contrast(1.07);
+}
+.gv11-categories .gv11-card .gv11-card-gradient{
+ background:linear-gradient(to bottom,rgba(0,17,27,.02) 0%,rgba(0,19,29,.06) 38%,rgba(0,16,27,.43) 70%,rgba(0,15,27,.92) 100%)!important;
+}
+.gv11-categories .gv11-countries>img{object-position:center 54%}
+.gv11-categories .gv11-tourism>img{object-position:center 47%}
+.gv11-categories .gv11-mountains>img{object-position:center 46%}
+.gv11-categories .gv11-rivers>img{object-position:center 50%}
+.gv12-card:is([data-cat="countries"],[data-cat="continents"],[data-cat="rivers"],[data-cat="mountains"],[data-cat="gulfs"],[data-cat="tourism"]) .gv12-image{
+ object-fit:cover!important;filter:saturate(1.08) contrast(1.05);
+}
+.gv12-card[data-cat="continents"] .gv12-image{object-position:center 47%}
+.gv12-card[data-cat="tourism"] .gv12-image{object-position:center 47%}
+.gv12-card[data-cat="gulfs"] .gv12-image{object-position:center 48%}
+body:has(.category-detail-banner) .category-detail-banner{
+ background-position:center center;
+ background-size:cover;
+}
