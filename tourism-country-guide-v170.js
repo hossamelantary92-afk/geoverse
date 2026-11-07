@@ -53,6 +53,22 @@ const previewCache=new Map(),requested=new Set();
 function photoFor(item,wrapper){
  if(!wrapper||requested.has(wrapper))return;
  requested.add(wrapper);
+ const shared=window.GeoVerseTourismPhotoCatalog;
+ if(shared?.resolve){
+  shared.resolve(item.index).then(result=>{
+   if(!wrapper.isConnected)return;
+   const im=document.createElement('img');im.loading='lazy';im.decoding='async';
+   im.alt=t('صورة '+item.nameAr,'Photo of '+item.nameEn);
+   im.style.objectFit='contain';
+   im.addEventListener('load',()=>{
+    wrapper.querySelectorAll('img').forEach(old=>{if(old!==im)old.remove()});
+    wrapper.classList.add('gv170-photo-loaded');
+   });
+   im.addEventListener('error',()=>im.remove());
+   wrapper.prepend(im);im.src=result.src;
+  }).catch(()=>{});
+  return;
+ }
  let title=item.wiki;
  try{title=decodeURIComponent(title)}catch(e){}
  const endpoint='https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageimages&pithumbsize=520&redirects=1&origin=*&titles='+encodeURIComponent(title.replace(/_/g,' '));
