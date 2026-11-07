@@ -1,0 +1,44 @@
+/* GeoVerse v206: editorial knowledge enrichment for first 8 tourism profiles only.
+ * Concise, readable, source-verified content without duplicating the old text.
+ */
+#main .gv206-enriched .gv202-article{display:flex;flex-direction:column;gap:17px}
+#main .gv206-enriched .gv202-article h2{margin:0!important}
+#main .gv206-story{
+ border:1px solid rgba(119,205,212,.29);
+ border-radius:16px;
+ background:linear-gradient(130deg,rgba(25,82,92,.43),rgba(7,37,57,.23));
+ padding:20px 23px;
+}
+#main .gv206-enriched h3{font-size:clamp(16px,1.65vw,20px);font-weight:900;color:#e9fffa;margin:0 0 11px;line-height:1.5}
+#main .gv206-story p,#main .gv206-deep-dive p{
+ font-size:clamp(13px,1.28vw,16px);
+ line-height:2.05;color:#d6e9ec;
+ margin:0;
+}
+#main .gv206-enriched .gv202-article-points ul{
+ display:grid!important;
+ grid-template-columns:repeat(2,minmax(0,1fr))!important;
+ gap:11px!important;
+}
+#main .gv206-deep-dive{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+#main .gv206-architecture,#main .gv206-wow{
+ box-sizing:border-box;min-width:0;
+ border-radius:17px;
+ padding:21px 23px;
+ background:linear-gradient(142deg,#0e3447,#092338);
+ border:1px solid rgba(108,197,198,.32);
+}
+#main .gv206-wow{background:linear-gradient(135deg,rgba(24,78,76,.85),rgba(6,37,49,.94));border-color:rgba(122,231,196,.41)}
+#main .gv206-wow ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+#main .gv206-wow li{
+ position:relative;padding-inline-start:20px;
+ color:#e0f5ea;
+ font-size:clamp(13px,1.15vw,15px);
+ line-height:1.9;
+}
+#main .gv206-wow li:before{content:'✦';position:absolute;inset-inline-start:0;color:#95ebc6}
+@media(max-width:760px){
+ #main .gv206-deep-dive{grid-template-columns:1fr;gap:10px}
+ #main .gv206-enriched .gv202-article-points ul{grid-template-columns:1fr!important}
+ #main .gv206-story,#main .gv206-architecture,#main .gv206-wow{padding:16px 17px;border-radius:13px}
+}
