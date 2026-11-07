@@ -61,7 +61,7 @@ itemCards=function(list){
  const first=rows[0];
  if(!first)return oldCards.apply(this,arguments);
  return '<section class="gv196-country-landmarks">'+
-  '<button type="button" class="gv181-back" data-gv181-back="1">← '+t('كل الدول','All countries')+'</button>'+
+  '<button type="button" class="gv181-back gv209-back" data-gv181-back="1"><span class="gv209-back-icon" aria-hidden="true">↩</span><span>'+t('العودة لكل الدول','Back to all countries')+'</span></button>'+
   '<header class="gv196-country-title"><span class="gv196-eyebrow">'+t('دليل المزارات','LANDMARK GUIDE')+'</span><h2>'+esc(t(first.countryAr,first.countryEn))+'</h2><p>'+t('اكتشف أبرز المعالم التاريخية والثقافية من خلال معلومات دقيقة ومختصرة.','Explore historic and cultural landmarks through concise, useful facts.')+'</p></header>'+
   '<div class="gv196-grid">'+(filtered.map(card).join('')||'<p class="gv196-empty">'+t('لا توجد معالم مطابقة للبحث','No landmarks match your search')+'</p>')+'</div>'+
  '</section>';
