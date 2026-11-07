@@ -7,8 +7,9 @@
  const previous=explore;
  const groupDefs=[
   {id:'world',ar:'العالم',en:'World',items:['countries','continents']},
-  {id:'water',ar:'المسطحات والمجاري المائية',en:'Water & waterways',items:['oceans','seas','rivers','lakes','waterfalls','straits']},
-  {id:'land',ar:'التضاريس والطبيعة',en:'Land & nature',items:['mountains','deserts','forests','volcanoes']}
+  {id:'water',ar:'المسطحات والمجاري المائية',en:'Water & waterways',items:['oceans','seas','rivers','lakes','waterfalls','straits','islands','gulfs']},
+  {id:'land',ar:'التضاريس والطبيعة',en:'Land & nature',items:['mountains','deserts','forests','volcanoes','glaciers','valleys','grasslands']},
+  {id:'climate',ar:'المناخ والأقاليم',en:'Climate & regions',items:['climate']}
  ];
  const t=(ar,en)=>document.documentElement.lang==='en'?en:ar;
  function organize(markup){
