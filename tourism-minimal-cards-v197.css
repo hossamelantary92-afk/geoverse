@@ -1,0 +1,65 @@
+/* GeoVerse v197 — quiet, minimal tourist landmark cards.
+   The country is already displayed above the grid; remove redundant category,
+   translated title, verbose description and full-width call to action. */
+#categoryItems .gv196-grid{
+ gap:12px!important;
+ align-items:stretch!important;
+}
+#categoryItems .gv196-card.gv197-minimal-card{
+ display:flex!important;
+ flex-direction:row!important;
+ align-items:center!important;
+ gap:13px!important;
+ height:auto!important;
+ min-height:112px!important;
+ padding:18px 16px!important;
+ border-radius:16px!important;
+ text-align:start!important;
+}
+#categoryItems .gv197-card-icon{
+ display:grid;place-items:center;
+ flex:0 0 43px;width:43px;height:43px;
+ border-radius:13px;
+ border:1px solid #63c9c657;
+ background:linear-gradient(140deg,#145266,#0c364a);
+ color:#abefdc;font-size:23px;line-height:1;
+}
+#categoryItems .gv197-card-content{
+ display:flex;flex-direction:column;min-width:0;
+ flex:1;gap:5px;
+}
+#categoryItems .gv197-minimal-card .gv196-name{
+ display:block;font-size:clamp(16px,1.5vw,19px);
+ line-height:1.45;overflow-wrap:anywhere;
+}
+#categoryItems .gv197-minimal-card .gv196-card-place{
+ display:block;font-size:11px;
+ line-height:1.5;margin:0;color:#9bd6d2;
+ font-weight:650;
+}
+#categoryItems .gv197-card-arrow{
+ display:grid;place-items:center;
+ flex:0 0 24px;
+ color:#9debdc;font-size:20px;
+ line-height:1;align-self:center;
+}
+@media(max-width:700px){
+ #categoryItems .gv196-grid{gap:9px!important}
+ #categoryItems .gv196-card.gv197-minimal-card{
+  min-height:105px!important;padding:12px 10px!important;
+  gap:8px!important;border-radius:13px!important;
+ }
+ #categoryItems .gv197-card-icon{
+  flex-basis:32px;width:32px;height:32px;
+  border-radius:10px;font-size:19px;
+ }
+ #categoryItems .gv197-minimal-card .gv196-name{
+  font-size:13px!important;line-height:1.45;
+ }
+ #categoryItems .gv197-minimal-card .gv196-card-place{
+  font-size:10px!important;
+ }
+ #categoryItems .gv197-card-arrow{
+  flex-basis:15px;font-size:15px;
+ }
+}
