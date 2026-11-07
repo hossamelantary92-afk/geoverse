@@ -107,7 +107,8 @@ categoryPage=function(){
  if(banner){banner.removeAttribute('style');banner.classList.add('gv196-category-banner')}
  // Tourism has its own country/landmark navigation below; remove redundant
  // instructional tip and explore action bar, without touching other topics.
- doc.querySelector('.topic-intro .topic-tip')?.remove();
+ // The introductory education panel repeats the banner and pushes the country cards down.
+ doc.querySelector('.topic-intro')?.remove();
  doc.querySelector('.topic-actionbar')?.remove();
  return doc.body.querySelector('main')?.innerHTML||html;
 };
