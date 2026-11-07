@@ -1,0 +1,36 @@
+/* GeoVerse v104 — country index: full-width All World filter, balanced continent grid. */
+.gv-country-controls .gv-tabs{
+ display:grid!important;
+ grid-template-columns:repeat(2,minmax(0,1fr))!important;
+ gap:10px!important;
+ width:100%;
+ align-items:stretch;
+}
+.gv-country-controls .gv-tabs > button{
+ width:100%!important;min-width:0!important;min-height:52px;
+ margin:0!important;display:flex;align-items:center;justify-content:center;
+ text-align:center;line-height:1.5;white-space:normal;
+ padding:11px 9px!important;border-radius:13px!important;
+ font-size:clamp(12px,2.6vw,15px)!important;transition:background .2s,border-color .2s;
+}
+.gv-country-controls .gv-tabs > button[data-v4-continent="all"]{
+ grid-column:1 / -1!important;min-height:57px;
+ font-weight:900!important;border-color:#53cfc9;
+ background:linear-gradient(110deg,rgba(13,76,94,.72),rgba(8,49,74,.88));
+}
+.gv-country-controls .gv-tabs > button[data-v4-continent="all"].active{
+ background:linear-gradient(120deg,#157a87,#0e536c)!important;
+ border-color:#80f5e1!important;color:#efffff!important;
+ box-shadow:0 0 0 1px #51e9dc35,0 6px 22px #06cbbb12;
+}
+.gv-country-controls .gv-tabs > button:not([data-v4-continent="all"]):last-child:nth-child(even){
+ grid-column:1 / -1;
+}
+@media(min-width:760px){
+ .gv-country-controls .gv-tabs{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .gv-country-controls .gv-tabs > button:not([data-v4-continent="all"]):last-child:nth-child(even){grid-column:auto}
+}
+@media(min-width:1100px){
+ .gv-country-controls .gv-tabs{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+ .gv-country-controls .gv-tabs > button:not([data-v4-continent="all"]):last-child:nth-child(even){grid-column:auto}
+}
