@@ -1,0 +1,26 @@
+/* GeoVerse v181: country-first tourist atlas. */
+#categoryItems:has(.gv181-overview),#categoryItems:has(.gv181-detail){display:block!important;min-width:0}
+.gv181-overview,.gv181-detail{width:100%;min-width:0}
+.gv181-heading{display:flex;align-items:flex-start;flex-direction:column;gap:5px;margin:0 0 17px}
+.gv181-heading strong{font-size:19px;font-weight:900;color:#f1fffc}
+.gv181-heading span{font-size:12px;color:#a9cdd6}
+.gv181-country-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.gv181-country{display:flex;flex-direction:column;min-width:0;overflow:hidden;text-align:start;appearance:none;border-radius:18px;border:1px solid rgba(104,222,218,.48);color:#fff;background:linear-gradient(140deg,#0d3044,#061c2e);padding:0;box-shadow:0 10px 30px #0005;cursor:pointer}
+.gv181-country:hover,.gv181-country:focus-visible{border-color:#7bf5e7;outline-offset:3px}
+.gv181-country-photo{display:grid;place-items:center;position:relative;width:100%;height:180px;overflow:hidden;background:radial-gradient(circle at 50% 32%,#1e819480,#0b3954 63%,#061b2b)}
+.gv181-country-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .2s}
+.gv181-country-photo.gv181-loaded img{opacity:1}
+.gv181-flag{z-index:1;font-size:68px;filter:drop-shadow(0 6px 18px #001a28a0)}
+.gv181-loaded .gv181-flag{opacity:0}
+.gv181-photo-shade{pointer-events:none;position:absolute;inset:0;background:linear-gradient(0deg,#051e30a6,transparent 65%);z-index:2}
+.gv181-country-info{display:flex;flex-direction:column;padding:16px 16px 14px;gap:6px;flex:1}
+.gv181-country-info strong{font-weight:900;font-size:18px}
+.gv181-country-info small{font-size:12px;color:#b0d2db}
+.gv181-visit{display:flex;justify-content:space-between;gap:10px;margin-top:auto;padding-top:14px;color:#77f0dd;font-weight:800;font-size:12px}
+.gv181-back{border:1px solid #408b98;background:#0b3448;border-radius:12px;color:#b9fbef;font-weight:800;padding:10px 15px;cursor:pointer;margin-bottom:18px}
+.gv181-landmarks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.gv181-landmarks .gv13-photo img{object-fit:contain!important;transform:none!important;background:#09283b}
+.gv181-landmarks .gv13-photo:after{display:none}
+.gv181-landmarks .gv13-photo{min-height:195px}
+@media(max-width:1050px){.gv181-country-grid,.gv181-landmarks{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.gv181-country-grid,.gv181-landmarks{gap:10px}.gv181-country-photo{height:150px}.gv181-country-info{padding:12px}.gv181-country-info strong{font-size:15px}.gv181-country-info small{font-size:11px}.gv181-flag{font-size:50px}.gv181-landmarks .gv13-photo{min-height:155px}.gv181-heading strong{font-size:17px}}
