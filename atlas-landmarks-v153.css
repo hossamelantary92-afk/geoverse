@@ -1,0 +1,58 @@
+/* GeoVerse v153 Phase 3 — premium landmark pins and compact smart cards */
+.gv140-map .atlas-pin.gv153-marker:not(.gv153-oceans){cursor:pointer;--gv153-accent:#72e7d6}
+.gv140-map .atlas-pin.gv153-marker:not(.gv153-oceans) .atlas-pin-halo{
+ fill:var(--gv153-accent)!important;opacity:.32;stroke:var(--gv153-accent);
+ stroke-width:1;filter:drop-shadow(0 0 4px var(--gv153-accent));
+}
+.gv140-map .atlas-pin.gv153-marker:not(.gv153-oceans) .atlas-pin-dot{
+ fill:#f5fffd!important;stroke:var(--gv153-accent)!important;stroke-width:1.8;
+}
+.gv140-map .atlas-pin.gv153-marker:not(.gv153-oceans) .gv153-marker-symbol{
+ fill:var(--gv153-accent);stroke:rgba(1,18,28,.8);stroke-width:2.5;paint-order:stroke fill;
+ font:900 13px/1 system-ui,sans-serif;pointer-events:none;
+}
+.gv140-map .atlas-pin.gv153-marker:not(.gv153-oceans):hover .atlas-pin-halo,
+.gv140-map .atlas-pin.gv153-marker.gv153-selected .atlas-pin-halo,
+.gv140-map .atlas-pin.gv153-marker:focus-visible .atlas-pin-halo{
+ opacity:.85;filter:drop-shadow(0 0 8px var(--gv153-accent));
+}
+.gv140-map .gv153-marker.gv153-oceans .gv153-marker-symbol{display:none!important}
+.gv140-map .gv140-country-card.gv153-card-open{
+ position:absolute!important;z-index:8!important;top:auto!important;
+ left:50%!important;right:auto!important;bottom:112px!important;
+ transform:translateX(-50%)!important;box-sizing:border-box!important;
+ width:min(335px,calc(100% - 38px))!important;max-height:min(45%,300px)!important;
+ padding:15px 16px 14px!important;margin:0!important;border-radius:17px!important;
+ background:linear-gradient(145deg,rgba(6,46,63,.98),rgba(2,27,43,.98))!important;
+ border:1px solid rgba(91,232,220,.67)!important;
+ box-shadow:0 15px 30px rgba(0,9,23,.46),inset 0 1px rgba(230,255,253,.10)!important;
+ overflow:auto!important;overscroll-behavior:contain;
+}
+.gv140-map .gv153-card-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:5px}
+.gv140-map .gv153-card-type{display:inline-flex;align-items:center;gap:7px;color:#88e9df;font:800 11px/1.6 Cairo,Outfit,system-ui,sans-serif}
+.gv140-map .gv153-type-symbol{color:#aef9e8;font-size:16px}
+.gv140-map .gv153-card-close{
+ width:29px;height:29px;min-width:29px;padding:0;border:1px solid rgba(123,216,219,.45);
+ border-radius:9px;background:rgba(10,59,77,.85);color:#e6ffff;
+ font:23px/1 system-ui,sans-serif;cursor:pointer
+}
+.gv140-map .gv153-card-close:hover,.gv140-map .gv153-card-close:focus-visible{background:#186777}
+.gv140-map .gv153-card-open .gv140-card-title{font:900 19px/1.45 Cairo,Outfit,system-ui,sans-serif;margin:5px 0}
+.gv140-map .gv153-card-open .gv142-landmark-description{
+ font:600 11px/1.75 Cairo,Outfit,system-ui,sans-serif;color:#c7e3eb;
+ margin:5px 0 0;max-height:85px;overflow:auto;
+}
+.gv140-map .gv153-card-open .gv142-view-detail{
+ margin-top:11px!important;min-height:36px;padding:7px 13px;
+ font:800 11px/1.45 Cairo,Outfit,system-ui,sans-serif;
+ border-radius:10px;box-shadow:none;
+}
+@media(max-width:700px){
+ .gv140-map .gv140-country-card.gv153-card-open{
+  bottom:112px!important;width:min(300px,calc(100% - 26px))!important;
+  padding:11px 13px!important;border-radius:15px!important;max-height:240px!important;
+ }
+ .gv140-map .gv153-card-open .gv140-card-title{font-size:17px}
+ .gv140-map .gv153-card-open .gv142-landmark-description{max-height:70px;font-size:10.5px}
+}
+@media(prefers-reduced-motion:reduce){.gv140-map .gv153-marker{transition:none!important}}
