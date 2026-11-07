@@ -1,0 +1,91 @@
+/* GeoVerse v202: quiet landmark headings and a fully Arabic editorial bullet atlas.
+   Scoped to tourism, without changing other atlas articles, games or maps. */
+#main .gv14-detail.gv202-detail{
+ width:100%!important;max-width:1120px!important;
+ margin:0 auto!important;
+ display:flex!important;flex-direction:column!important;
+ align-items:stretch!important;gap:14px!important;
+}
+#main .gv202-detail > header.gv202-hero{
+ display:flex!important;flex-direction:column!important;
+ align-items:flex-start!important;justify-content:center!important;
+ flex:0 0 auto!important;
+ width:100%!important;max-width:100%!important;
+ height:auto!important;min-height:0!important;max-height:none!important;
+ aspect-ratio:auto!important;
+ padding:clamp(24px,3.3vw,38px)!important;
+ margin:0!important;border-radius:20px!important;
+ text-align:start!important;gap:8px!important;
+}
+#main .gv202-hero #gv14Name{
+ font-family:Cairo,Outfit,sans-serif!important;
+ font-weight:950!important;
+ font-size:clamp(30px,4.2vw,49px)!important;
+ line-height:1.4!important;
+ margin:0!important;
+ letter-spacing:0!important;
+}
+#main .gv202-hero .gv202-location{
+ color:#b9e7e2!important;
+ font-size:clamp(13px,1.3vw,16px)!important;
+ font-weight:750!important;
+ margin:0!important;line-height:1.7!important;
+}
+#main .gv202-detail .gv202-article{
+ margin:0!important;
+ padding:clamp(20px,3vw,31px)!important;
+ min-height:0!important;
+}
+#main .gv202-article h2{
+ font-size:clamp(20px,2.35vw,27px)!important;
+ font-weight:900!important;
+ margin:0 0 18px!important;
+ padding-bottom:15px!important;
+ border-bottom:1px solid rgba(112,213,199,.23);
+}
+#main .gv202-article-points{width:100%;max-width:none;color:#e4f3f2}
+#main .gv202-article-points ul{
+ display:grid!important;
+ grid-template-columns:repeat(2,minmax(0,1fr))!important;
+ gap:13px!important;
+ list-style:none!important;
+ margin:0!important;padding:0!important;
+}
+#main .gv202-article-points li{
+ box-sizing:border-box;
+ position:relative;
+ min-width:0!important;
+ border:1px solid rgba(107,205,201,.28);
+ border-radius:15px;
+ padding:17px 19px 17px 23px!important;
+ background:linear-gradient(145deg,rgba(19,70,87,.79),rgba(9,37,55,.65));
+ color:#dfeff0!important;
+ font-size:clamp(13px,1.2vw,15px)!important;
+ font-weight:650!important;
+ line-height:2!important;
+ overflow-wrap:break-word;
+}
+#main .gv202-article-points li::before{
+ content:'';
+ display:inline-block;
+ width:7px;height:7px;
+ background:#78e8cd;
+ border-radius:50%;
+ margin-inline-end:10px;
+ vertical-align:middle;
+ box-shadow:0 0 0 4px rgba(112,225,204,.11);
+}
+#main .gv202-detail .gv202-learned{
+ align-self:flex-start!important;
+ max-width:100%!important;
+ margin:0!important;
+}
+#main .gv202-detail .gv202-map{margin:0!important}
+#main .gv202-detail .gv202-map h2{margin:0 0 18px!important}
+@media(max-width:760px){
+ #main .gv202-detail > header.gv202-hero{padding:22px 19px!important;border-radius:17px!important}
+ #main .gv202-hero #gv14Name{font-size:clamp(27px,7vw,36px)!important}
+ #main .gv202-article-points ul{grid-template-columns:1fr!important;gap:10px!important}
+ #main .gv202-article-points li{padding:14px 15px!important;font-size:13px!important;line-height:1.95!important}
+ #main .gv202-detail .gv202-article{padding:19px 16px!important}
+}
