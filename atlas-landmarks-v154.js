@@ -59,6 +59,7 @@ function chooseLandmark(r,category,index,source){
    '<button type="button" class="gv142-view-detail" data-gv142-open="'+esc(category)+':'+index+'">'+
    tr('عرض التفاصيل','View details')+' <span aria-hidden="true">←</span></button>';
  card.hidden=false;
+ window.GeoVerseFocusLandmark?.(r,category,index,source);
 }
 function interactiveOutlines(r){
  const group=r.node.querySelector('.atlas-selected');
