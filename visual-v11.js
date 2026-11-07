@@ -29,11 +29,19 @@ function hero(){
  '<div class="gv11-horizon" aria-hidden="true"><div class="gv11-cloud"></div><svg viewBox="0 0 1000 140" preserveAspectRatio="none"><path d="m0 140 75-45 62 17 90-72 85 93 110-96 80 90 100-87 105 100 83-62 100 48 110-66v80Z" fill="#07334e"/><path d="m207 65 20-25 25 30-23-9-10 11zm198-6 17-22 22 33-22-11-10 9z" fill="#a5cee0" opacity=".55"/></svg></div>'+
  '<div class="gv11-stats">'+stats.map(v=>'<div class="gv11-stat">'+icon(v[0],24)+'<strong>'+v[1]+'</strong><span>'+v[2]+'</span></div>').join('')+'</div></section>';
 }
-const featured=['oceans','rivers','volcanoes','forests','mountains','deserts'];
+const featured=['countries','tourism','mountains','oceans','rivers','deserts'];
+const featuredPhotos={
+ countries:'photo-1519501025264-65ba15a82390', // sunlit city skyline
+ tourism:'photo-1533105079780-92b9be482077',  // warm architectural heritage
+ mountains:'photo-1464822759023-fed622ff2c3b', // snow-capped alpine mountains
+ oceans:'photo-1518837695005-2083093ee35b',   // deep-blue ocean
+ rivers:'photo-1433086966358-54859d0ed716',   // river/waterfall nature
+ deserts:'photo-1509316785289-025f5b846b35'   // warm golden dunes
+};
 const motifs={oceans:'waves',rivers:'rivers',volcanoes:'volcanoes',forests:'forests',mountains:'mountains',deserts:'deserts'};
 function categories(){
  return '<section class="gv11-categories"><div class="gv11-section-title"><h2>'+t('استكشف الأقسام','Explore categories')+'</h2><button type="button" data-page="all">'+t('عرض الكل','View all')+' ↗</button></div><div class="gv11-grid">'+featured.map(id=>{
- const c=cats.find(x=>x.id===id);return '<button type="button" data-cat="'+id+'" class="gv11-card gv11-'+id+'"><img loading="lazy" src="'+im(c.img,760)+'" alt="'+escapeHTML(label(c))+'"><span class="gv11-card-gradient"></span><span class="gv11-card-icon">'+icon(motifs[id],24)+'</span><strong>'+escapeHTML(label(c))+'</strong><small>'+geo[id].length+' '+t('معلمًا','places')+'</small><span class="gv11-card-chevron">‹</span></button>';
+ const c=cats.find(x=>x.id===id);return '<button type="button" data-cat="'+id+'" class="gv11-card gv11-'+id+'"><img loading="lazy" src="'+im(featuredPhotos[id]||c.img,900)+'" alt="'+escapeHTML(label(c))+'"><span class="gv11-card-gradient"></span><span class="gv11-card-icon">'+icon(motifs[id],24)+'</span><strong>'+escapeHTML(label(c))+'</strong><small>'+geo[id].length+' '+t('معلمًا','places')+'</small><span class="gv11-card-chevron">‹</span></button>';
  }).join('')+'</div></section>'+
  '<section class="gv11-feature"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/The_Treasury%2C_Petra.jpg?width=1200" alt="'+t('الخزنة في مدينة البتراء بالأردن','The Treasury at Petra, Jordan')+'"><div class="gv11-feature-gradient"></div><div class="gv11-feature-copy"><span>'+t('من عجائب العالم','GEOGRAPHY SPOTLIGHT')+'</span><h2>'+t('البتراء — المدينة الوردية','Petra — The Rose City')+'</h2><p>'+t('مدينة أثرية في جنوب الأردن، منحوتة في الصخور الوردية.','An ancient Jordanian city carved into rose-colored sandstone.')+'</p></div><a href="https://whc.unesco.org/en/list/326" target="_blank" rel="noopener noreferrer" class="gv11-feature-go" aria-label="'+t('اقرأ عن البتراء في اليونسكو','Learn about Petra at UNESCO')+'">↗</a></section>';
 }
