@@ -103,7 +103,7 @@ function cleanLandmark(){
  const wiki=root.querySelector('#gvWikiArticle');
  if(wiki){
   wiki.classList.add('gv9-secondary-source');
-  if(!wiki.closest('.gv9-more')){
+  if(state.category!=='tourism'&&!wiki.closest('.gv9-more')){
    const details=document.createElement('details'),summary=document.createElement('summary');
    details.className='gv9-more';
    summary.textContent=lang('معلومات إضافية','Additional information');
