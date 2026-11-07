@@ -20,11 +20,31 @@ const safe=(q,mode)=>{
  if(mode==='flags')return /^[A-Z]{2}$/.test(q[7]||'')&&!q[0].includes(q[2][q[4]])&&!q[1].includes(q[3][q[4]]);
  return !whole(q[0],q[2][q[4]])&&!whole(q[1],q[3][q[4]]);
 };
-const choose=pool=>shuffle(pool).slice(0,3);
+const neighbors={
+ countries:['continents','climate','islands','grasslands'],
+ continents:['countries','islands','oceans','mountains'],
+ oceans:['seas','lakes','gulfs','straits'],
+ seas:['oceans','gulfs','lakes','straits'],
+ deserts:['grasslands','valleys','climate','forests'],
+ rivers:['lakes','waterfalls','straits','valleys'],
+ waterfalls:['rivers','lakes','glaciers','valleys'],
+ forests:['grasslands','climate','deserts','valleys'],
+ mountains:['volcanoes','valleys','glaciers','islands'],
+ lakes:['seas','rivers','gulfs','oceans'],
+ islands:['continents','mountains','volcanoes','gulfs'],
+ volcanoes:['mountains','valleys','glaciers','islands'],
+ straits:['gulfs','seas','rivers','lakes'],
+ gulfs:['seas','straits','lakes','oceans'],
+ glaciers:['mountains','lakes','valleys','waterfalls'],
+ valleys:['mountains','glaciers','deserts','grasslands'],
+ climate:['deserts','grasslands','forests','oceans'],
+ grasslands:['forests','deserts','valleys','climate']
+};
+const choose=(pool,id)=>{const neighborSet=neighbors[id]||[];const near=shuffle(pool.filter(x=>neighborSet.includes(x[0])));return [...near,...shuffle(pool.filter(x=>!neighborSet.includes(x[0])))].slice(0,3);};
 const makeDefinitions=()=>{
  const pool=definitions.filter(([id])=>cats.some(c=>c.id===id));
  return pool.map(([id,ar,en])=>{
-  const options=shuffle([id,...choose(pool.filter(x=>x[0]!==id)).map(x=>x[0])]);
+  const options=shuffle([id,...choose(pool.filter(x=>x[0]!==id),id).map(x=>x[0])]);
   const answer=cats.find(c=>c.id===id);
   return ['أي نوع جغرافي يطابق الوصف التالي: '+ar,'Which geographical category matches: '+en,options.map(k=>cats.find(c=>c.id===k).ar),options.map(k=>cats.find(c=>c.id===k).en),options.indexOf(id),answer.ar+': '+ar,answer.en+': '+en];
  });
@@ -34,7 +54,7 @@ const makeLocations=()=>{
  const categories=['deserts','rivers','waterfalls','forests','mountains','lakes','islands','volcanoes','seas','gulfs','straits','glaciers','valleys','grasslands'];
  const out=[];
  for(const id of categories){
-  const entries=(geo[id]||[]).filter(x=>x[0]&&x[1]&&x[2]&&x[3]&&!isPlaceholder(x[2]+' '+x[3]));
+  const entries=(geo[id]||[]).filter(x=>x[0]&&x[1]&&x[2]&&x[3]&&x[2].length>=44&&x[3].length>=48&&!isPlaceholder(x[2]+' '+x[3])&&!/^(من أكبر|إحدى أكبر|واحد من أكبر|تشتهر ب|مَعْلَم|one of the largest|one of the deepest)/i.test(x[2].trim())&&!/^(one of the largest|one of the deepest|a major|a famous)/i.test(x[3].trim()));
   if(entries.length<4)continue;
   for(const target of entries){
    // Skip any description that names its own answer (in either language).
@@ -56,6 +76,16 @@ const originalCreate=createGame;
 const recentByMode={};
 const identity=(q,mode)=>mode==='flags'?(q[7]||q[1]):mode==='mapfind'?q[7]:normalize(q[1]);
 createGame=function(mode){
+ if(mode==='definitions'){
+  const options=makeDefinitions().filter(q=>safe(q,'definitions'));
+  const key='definitions';
+  const history=recentByMode[key]||(recentByMode[key]=new Set());
+  let candidates=shuffle(options.filter(q=>!history.has(normalize(q[1]))));
+  if(candidates.length<12){history.clear();candidates=shuffle(options)}
+  const chosen=candidates.slice(0,12);
+  chosen.forEach(q=>history.add(normalize(q[1])));
+  return chosen;
+ }
  const initial=originalCreate(mode);
  if(mode==='mapfind')return initial.filter(q=>safe(q,mode));
  let combined=initial.filter(q=>safe(q,mode));
