@@ -210,7 +210,12 @@ function attach(r){
  }
  svg.addEventListener('click',event=>{
   const selected=pickLandmark(event);
-  if(!selected)return;
+  if(!selected){
+   // A country tap must revert to the normal full country-card layout.
+   const card=r.node.querySelector('.gv140-country-card');
+   card?.classList.remove('gv153-card-open','gv142-landmark-card');
+   return;
+  }
   event.preventDefault();
   event.stopImmediatePropagation();
   chooseLandmark(r,selected.category,selected.index,selected.source);
