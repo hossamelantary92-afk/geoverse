@@ -48,4 +48,6 @@ home=function(){
  grid.replaceChildren(fragment);
  return doc.body.innerHTML;
 };
+// The initial homepage may have been painted before extension scripts load.
+if(typeof state!=='undefined'&&state.page==='home'&&typeof render==='function')render();
 })();
