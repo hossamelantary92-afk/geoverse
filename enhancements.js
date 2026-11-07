@@ -321,6 +321,56 @@ const url=sourceUrl;
  }catch(e){if(current!==wikiSequence)return;target.innerHTML='<p class="gv-muted">'+lang('لا تتوفر حاليًا صورة أو مقالة مطابقة موثقة لهذا المعلم. يمكنك مواصلة استكشاف الإحداثيات والخريطة.','No matching article or photograph is currently available for this exact place. Explore its mapped location instead.')+'</p>'}
 }
 let globeInstance=null,globeNode=null,globeTimer=0;
+const globeInitAttempts=new WeakMap();
+function globeInteractiveFallback(node){
+ if(!node||!node.isConnected)return;
+ const features=(store.countryFeatures||[]).filter(f=>f?.geometry&&f.properties?.name!=='Antarctica');
+ if(!window.d3?.geoPath||!features.length){
+  node.innerHTML='<div class="gv132-globe-error">'+lang('تعذر تحميل الخريطة حاليًا.','The map is temporarily unavailable.')+' <button type="button" class="gv132-retry">'+lang('إعادة المحاولة','Try again')+'</button></div>';
+  node.querySelector('.gv132-retry')?.addEventListener('click',()=>{globeInitAttempts.delete(node);globeNode=null;initGlobe()});
+  return;
+ }
+ try{
+  const width=940,height=565;
+  const projection=d3.geoNaturalEarth1().fitExtent([[18,18],[width-18,height-18]],{type:'FeatureCollection',features});
+  const path=d3.geoPath(projection);
+  node.innerHTML='<div class="gv132-fallback-map"><div class="gv132-fallback-label" role="status" aria-live="polite"></div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+width+' '+height+'" role="group" aria-label="'+lang('خريطة العالم التفاعلية','Interactive world map')+'"></svg><div class="gv132-fallback-controls"><button type="button" data-action="zoom-in" aria-label="'+lang('تكبير','Zoom in')+'">+</button><button type="button" data-action="zoom-out" aria-label="'+lang('تصغير','Zoom out')+'">−</button><button type="button" data-action="reset" aria-label="'+lang('الخريطة كاملة','Reset map')+'">⌖</button><button type="button" data-action="retry">'+lang('الكرة ثلاثية الأبعاد','Try 3D again')+'</button></div></div>';
+  const svg=node.querySelector('svg'),label=node.querySelector('.gv132-fallback-label');
+  const NS='http://www.w3.org/2000/svg';
+  for(const f of features){
+   const shape=document.createElementNS(NS,'path');
+   shape.setAttribute('d',path(f)||'');
+   shape.setAttribute('class','gv132-map-country');
+   shape.setAttribute('tabindex','0');
+   shape.setAttribute('role','button');
+   const choose=()=>{
+    svg.querySelector('.gv132-selected')?.classList.remove('gv132-selected');
+    shape.classList.add('gv132-selected');
+    label.textContent=globeCountryName(f);
+    label.classList.add('gv132-visible');
+    const bounds=path.bounds(f),bw=bounds[1][0]-bounds[0][0],bh=bounds[1][1]-bounds[0][1];
+    if(bw>0&&bh>0&&Number.isFinite(bw)&&Number.isFinite(bh)){
+     const span=Math.max(bw/0.57,bh/0.63,65);
+     svg.setAttribute('viewBox',[(bounds[0][0]+bounds[1][0])/2-span*width/height/2,(bounds[0][1]+bounds[1][1])/2-span/2,span*width/height,span].join(' '));
+    }
+   };
+   shape.addEventListener('click',choose);
+   shape.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();choose()}});
+   svg.appendChild(shape);
+  }
+  let box=[0,0,width,height];
+  node.querySelector('.gv132-fallback-controls')?.addEventListener('click',event=>{
+   const action=event.target?.closest('button')?.dataset.action;
+   if(action==='retry'){globeInitAttempts.delete(node);globeNode=null;node.innerHTML='';initGlobe();return}
+   if(!action)return;
+   if(action==='reset'){box=[0,0,width,height];svg.setAttribute('viewBox',box.join(' '));return}
+   box=svg.getAttribute('viewBox').split(/[ ,]+/).map(Number);
+   const factor=action==='zoom-in'?.75:1.35,cx=box[0]+box[2]/2,cy=box[1]+box[3]/2;
+   box=[cx-box[2]*factor/2,cy-box[3]*factor/2,box[2]*factor,box[3]*factor];
+   svg.setAttribute('viewBox',box.join(' '));
+  });
+ }catch(err){console.warn('2D globe fallback unavailable',err);node.innerHTML='<div class="gv132-globe-error">'+lang('تعذر عرض الخريطة. أعد تحميل الصفحة.','Unable to display map. Reload the page.')+'</div>'}
+}
 const earthTexture='https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-blue-marble.jpg';
 const earthBump='https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-topology.png';
 function isGlobeAvailable(){return !!G.Globe}
@@ -329,7 +379,7 @@ function initGlobe(){
  const node=document.getElementById(state.page==='home'?'gvHomeGlobe':state.page==='explore'?'gvExploreGlobe':state.page==='detail'&&state.category==='continents'?'gvContinentGlobe':'gvDetailGlobe');
  if(!node||node===globeNode)return;
  globeNode=node;globeInstance=null;
- if(!isGlobeAvailable()){node.innerHTML='<div class="gv-globe-fallback"><span>'+lang('الكرة ثلاثية الأبعاد غير متاحة حاليًا؛ الخريطة الثنائية الأبعاد ما زالت تعمل.','3D view unavailable; use the 2D atlas.')+'</span></div>';return}
+ if(!isGlobeAvailable()){globeInteractiveFallback(node);return}
  const isHero=state.page==='home',isCont=state.page==='detail'&&state.category==='continents',isCountry=state.page==='country-v4';
  let target={lat:20,lng:15,altitude:1.96};let selectedFeature=null,selectedContinent=null,selectedExploreFeature=null;
  const isExplorer=state.page==='explore';let exploreNameLabel=null;
@@ -340,7 +390,9 @@ function initGlobe(){
  if(isExplorer)target={lat:21,lng:15,altitude:1.28};
  try{
  const w=node.clientWidth||550,h=node.clientHeight||400;
- const g=new G.Globe(node,{animateIn:false}).width(w).height(h).globeImageUrl(earthTexture).bumpImageUrl(earthBump).backgroundColor('rgba(0,0,0,0)').showAtmosphere(true).atmosphereColor('#73cffa').atmosphereAltitude(.19);
+ const lean=globeInitAttempts.get(node)>0;
+ const g=new G.Globe(node,{animateIn:false}).width(w).height(h).globeImageUrl(earthTexture).backgroundColor('rgba(0,0,0,0)').showAtmosphere(!lean).atmosphereColor('#73cffa').atmosphereAltitude(.19);
+ if(!lean)g.bumpImageUrl(earthBump);
  if(typeof g.globeMaterial==='function'){try{const m=g.globeMaterial();if(m){m.shininess=isHero?13:8;m.specular?.set?.(isHero?'#436b80':'#253b52');m.needsUpdate=true}}catch(e){console.debug('Globe material tuning skipped',e)}}
  
  let featureOverlay=null, featureLine=null;
@@ -455,7 +507,17 @@ function initGlobe(){
   const observer=new ResizeObserver(()=>{if(!syncGlobeSize())observer.disconnect()});
   observer.observe(node);
  }else G.addEventListener('resize',syncGlobeSize,{passive:true});
- }catch(err){console.warn('Globe WebGL init unavailable:',err);node.innerHTML='<div class="gv-globe-fallback">'+lang('تعذر تشغيل العرض ثلاثي الأبعاد على هذا الجهاز. استخدم الخريطة الثنائية الأبعاد.','3D rendering unavailable on this device. Use the 2D map.')+'</div>'}
+ }catch(err){
+  console.warn('Globe WebGL init unavailable:',err);
+  const tries=globeInitAttempts.get(node)||0;
+  globeInstance=null;globeNode=null;
+  node.classList.remove('gv-3d-loaded');
+  node.replaceChildren();
+  if(tries<1&&node.isConnected){
+   globeInitAttempts.set(node,tries+1);
+   requestAnimationFrame(()=>{if(node.isConnected&&document.getElementById(node.id)===node)initGlobe()});
+  }else{globeInteractiveFallback(node);globeNode=node}
+ }
 }
 function scheduleEnhancements(){
  clearTimeout(globeTimer);globeNode=null;
