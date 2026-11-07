@@ -51,7 +51,7 @@ function tile(icon,label,value,detail=''){
 const icon=name=>{const icons={area:'scan',population:'users',capital:'landmark',language:'languages',money:'wallet',region:'globe-2',time:'clock',land:'map-pin'};const paths={area:'<rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 4v16M4 8h16"/>',population:'<circle cx="9" cy="8" r="3"/><path d="M3 20v-2c0-3 3-5 6-5s6 2 6 5v2M17 5a3 3 0 0 1 0 6M18 14c2 1 3 3 3 5"/>',capital:'<path d="M3 10 12 3l9 7M5 11h14M7 12v8m5-8v8m5-8v8M4 21h16"/>',language:'<path d="M4 5h12M10 3v2m-3 4 5 6m2-7c-2 5-5 9-9 11M14 16l4-10 4 10m-6-3h4"/>',money:'<rect x="2" y="6" width="20" height="14" rx="3"/><path d="M2 10h20m-5 5h2"/>',region:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-6 6-6 12 0 18 6-6 6-12 0-18"/>',time:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',land:'<path d="M12 22s8-7 8-13a8 8 0 0 0-16 0c0 6 8 13 8 13Z"/><circle cx="12" cy="9" r="2"/>'};return '<svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+paths[name]+'</svg>'};
 function neighbors(info,code){
  const cross=cca3(),list=(info?.b||[]).map(c=>cross.get(c)).filter(c=>c&&c!==code);
- if(!list.length)return '<div class="gv9-neighbors-empty">'+lang('لا توجد حدود برية مسجلة في مجموعة البيانات المرجعية.','No land borders recorded in this source.')+'</div>';
+ if(!list.length)return '<div class="gv9-neighbors-empty">'+lang('لا توجد دول مجاورة برًا.','No neighboring countries by land.')+'</div>';
  return '<div class="gv9-neighbors">'+[...new Set(list)].map(c=>'<button type="button" class="gv9-neighbor" data-v4-country="'+esc(c)+'"><img alt="" loading="lazy" src="https://flagcdn.com/'+c.toLowerCase()+'.svg"><span>'+esc(nativeName(c))+'</span><span aria-hidden="true">↗</span></button>').join('')+'</div>';
 }
 function coreCountryArticle(){
@@ -59,8 +59,8 @@ function coreCountryArticle(){
  const info=countryInfo.facts?.[code]||null,c=state.lang==='ar'?(arRegion[r.continent]||r.continent):r.continent;
  const pop=info&&Number.isFinite(info.p)?number(info.p):lang('غير متاح','Unavailable');
  const area=info&&Number.isFinite(info.a)?number(info.a)+' '+lang('كم²','km²'):lang('غير متاح','Unavailable');
- const populationNote=info?.py?lang('بيانات البنك الدولي · '+info.py,'World Bank · '+info.py):lang('تقدير مرجعي · سنة التقدير غير محددة','Dataset estimate · reference year unspecified');
- const areaNote=lang('المساحة وفق المصدر المرجعي','Area according to the referenced dataset');
+ const populationNote=info?.py?lang('بيانات البنك الدولي · '+info.py,'World Bank · '+info.py):lang('عدد تقريبي','Approximate figure');
+ const areaNote=lang('المساحة التقريبية','Approximate area');
  const title=esc(nativeName(code)),eng=esc(r.name);
  const subtitle=esc(c);
  return '<button class="back gv9-back" data-page="countries-v4">← '+lang('العودة إلى الدول','Back to countries')+'</button>'+
@@ -241,7 +241,7 @@ function countryArticle(){
     '<div class="gv-atlas-section-body"><p>'+esc(part[ar?2:3])+'</p>'+details+'</div></details>';
  }).join('');
  const panel='<section class="gv9-section gv-story-card gv-comprehensive" aria-labelledby="gvComprehensiveHeading">'+
- '<span class="eyebrow">'+(pilot.baseline?lang('الملف الجغرافي · بيانات مرجعية','COUNTRY FIELD GUIDE · REFERENCE DATA'):'COMPREHENSIVE ATLAS')+'</span><h2 id="gvComprehensiveHeading">'+choose(pilot.title)+'</h2>'+
+ '<span class="eyebrow">'+(pilot.baseline?lang('تعرف على الدولة','EXPLORE THE COUNTRY'):'COMPREHENSIVE ATLAS')+'</span><h2 id="gvComprehensiveHeading">'+choose(pilot.title)+'</h2>'+
  '<p class="gv-comprehensive-lead">'+esc(overview[ar?2:3])+'</p>'+
  '<p class="gv-atlas-instruction">'+lang('اختر موضوعًا لاستكشاف تفاصيله.','Choose a topic to explore more.')+'</p>'+sections+
  '</section>';
