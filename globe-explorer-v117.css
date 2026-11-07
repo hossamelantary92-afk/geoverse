@@ -1,0 +1,31 @@
+/* GeoVerse v117 — premium, in-place 3D country identification. */
+#gvExploreGlobe.gv117-explorer{position:relative;isolation:isolate}
+#gvExploreGlobe .gv117-country-label{
+ position:absolute;z-index:9;top:clamp(13px,3.2vw,23px);left:50%;
+ max-width:min(90%,390px);min-width:clamp(155px,45%,220px);
+ display:flex;align-items:center;justify-content:center;gap:11px;
+ padding:13px 21px;border-radius:18px;
+ border:1px solid rgba(153,255,242,.65);
+ background:linear-gradient(135deg,rgba(8,48,73,.94),rgba(4,30,52,.96));
+ box-shadow:0 13px 32px rgba(1,15,35,.57),0 0 24px rgba(49,218,213,.15),inset 0 1px 0 rgba(220,255,250,.20);
+ backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);
+ color:#f6fffd;font-family:inherit;font-weight:900;font-size:clamp(19px,3.7vw,27px);
+ line-height:1.5;text-align:center;overflow-wrap:anywhere;
+ opacity:0;visibility:hidden;pointer-events:none;
+ transform:translate(-50%,-9px) scale(.95);
+ transition:opacity .28s ease,transform .35s cubic-bezier(.2,.9,.3,1),visibility .28s;
+}
+#gvExploreGlobe .gv117-country-label.gv117-visible{
+ opacity:1;visibility:visible;transform:translate(-50%,0) scale(1);
+}
+#gvExploreGlobe .gv117-marker{
+ display:inline-block;flex:0 0 10px;width:10px;height:10px;border-radius:50%;
+ background:#68fff0;box-shadow:0 0 0 4px rgba(71,237,221,.13),0 0 15px rgba(89,255,233,.85);
+}
+#gvExploreGlobe .gv117-name{min-width:0;direction:auto}
+@media(max-width:600px){
+ #gvExploreGlobe .gv117-country-label{padding:10px 17px;top:12px;max-width:88%;border-radius:15px}
+}
+@media(prefers-reduced-motion:reduce){
+ #gvExploreGlobe .gv117-country-label{transition:none}
+}
