@@ -1,0 +1,104 @@
+/* GeoVerse v203 — premium bilingual country cards and interactive landmark pin.
+   Applied to tourism country selection and tourism detail globe only. */
+#categoryItems .gv181-country-grid{
+ display:grid!important;
+ grid-template-columns:repeat(3,minmax(0,1fr))!important;
+ gap:16px!important;
+ align-items:stretch!important;
+}
+#categoryItems .gv181-country.gv203-country{
+ position:relative!important;
+ isolation:isolate;
+ display:flex!important;
+ flex-direction:column!important;
+ align-items:stretch!important;
+ justify-content:space-between!important;
+ min-height:230px!important;
+ height:100%!important;
+ padding:20px 23px 22px!important;
+ gap:23px!important;
+ border:1px solid rgba(111,205,214,.44)!important;
+ border-radius:21px!important;
+ color:#f8ffff!important;
+ background:radial-gradient(ellipse at 100% 0%,rgba(61,192,198,.23),transparent 56%),linear-gradient(145deg,#123e56 0%,#082b43 54%,#071e33 100%)!important;
+ box-shadow:0 14px 32px rgba(0,10,23,.25),inset 0 1px 0 rgba(236,255,255,.09)!important;
+ overflow:hidden!important;
+ cursor:pointer!important;
+ transition:transform .22s,border-color .22s,box-shadow .22s!important;
+}
+#categoryItems .gv203-country::after{
+ content:"";position:absolute;inset:auto -20% -55% 15%;height:70%;
+ border:1px solid rgba(125,229,215,.09);border-radius:50%;
+ pointer-events:none;z-index:-1;
+}
+#categoryItems .gv203-country:hover{
+ transform:translateY(-4px)!important;
+ border-color:#84f4e9!important;
+ box-shadow:0 19px 40px rgba(0,12,28,.40),0 0 0 1px rgba(109,239,220,.17)!important;
+}
+#categoryItems .gv203-country:focus-visible{outline:3px solid #97ffe7;outline-offset:3px}
+#categoryItems .gv203-card-top{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:46px}
+#categoryItems .gv203-flag{
+ display:grid;place-items:center;width:50px;height:46px;
+ border-radius:14px;background:rgba(5,39,55,.6);
+ border:1px solid rgba(131,211,217,.27);
+ font-size:31px;line-height:1;filter:none;
+}
+#categoryItems .gv203-card-arrow{
+ display:grid;place-items:center;width:33px;height:33px;
+ border:1px solid rgba(135,221,218,.3);border-radius:50%;
+ background:rgba(6,51,67,.5);color:#a6f9e8;
+ font-family:system-ui,sans-serif;font-size:19px;direction:ltr;
+}
+#categoryItems .gv203-country-copy{
+ display:flex;flex-direction:column;align-items:flex-start;
+ gap:5px;min-width:0;
+ text-align:start;line-height:1.45;
+}
+#categoryItems .gv203-country-english{
+ display:block;color:#fff!important;
+ font-family:Outfit,system-ui,sans-serif;
+ font-size:clamp(23px,2.6vw,32px)!important;font-weight:850!important;
+ line-height:1.17!important;letter-spacing:-.025em;
+ text-align:start;overflow-wrap:break-word;max-width:100%;
+}
+#categoryItems .gv203-country-arabic{
+ display:block;color:#cbe4e9;font-family:Cairo,sans-serif;
+ font-size:clamp(14px,1.5vw,17px)!important;
+ font-weight:800;line-height:1.65;
+}
+#categoryItems .gv203-country-count{
+ display:block;color:#85d8d8;
+ font-size:12px;line-height:1.65;font-weight:750;
+ margin-top:6px;padding-top:10px;width:100%;
+ border-top:1px solid rgba(127,214,205,.19);
+}
+#main .gv202-detail .gv202-map #gvDetailGlobe{isolation:isolate;position:relative}
+#main .gv202-detail .gv203-pin-label{
+ position:absolute;z-index:16;
+ top:14px;left:50%;transform:translateX(-50%);
+ max-width:calc(100% - 28px);
+ border:1px solid rgba(141,255,221,.82);
+ border-radius:13px;padding:9px 17px;
+ background:rgba(6,39,53,.94);
+ box-shadow:0 10px 24px rgba(0,11,23,.45);
+ color:#ecfff8;font:850 14px/1.6 Cairo,Outfit,sans-serif;
+ text-align:center;pointer-events:none;
+}
+@media(max-width:1080px){
+ #categoryItems .gv181-country-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+}
+@media(max-width:650px){
+ #categoryItems .gv181-country-grid{gap:10px!important}
+ #categoryItems .gv181-country.gv203-country{min-height:184px!important;padding:14px 13px!important;gap:17px!important;border-radius:16px!important}
+ #categoryItems .gv203-flag{width:40px;height:38px;font-size:25px;border-radius:11px}
+ #categoryItems .gv203-card-top{min-height:38px}
+ #categoryItems .gv203-card-arrow{width:26px;height:26px;font-size:16px}
+ #categoryItems .gv203-country-english{font-size:clamp(17px,4.1vw,24px)!important}
+ #categoryItems .gv203-country-arabic{font-size:12px!important}
+ #categoryItems .gv203-country-count{font-size:10px;margin-top:3px;padding-top:7px}
+}
+@media(max-width:360px){
+ #categoryItems .gv181-country-grid{grid-template-columns:1fr!important}
+ #categoryItems .gv181-country.gv203-country{min-height:156px!important}
+}
