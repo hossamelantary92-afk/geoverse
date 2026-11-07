@@ -432,8 +432,13 @@ function initGlobe(){
  try{
  const w=node.clientWidth||550,h=node.clientHeight||400;
  const lean=globeInitAttempts.get(node)>0;
- const g=new G.Globe(node,{animateIn:false}).width(w).height(h).globeImageUrl(earthTexture).backgroundColor('rgba(0,0,0,0)').showAtmosphere(!lean).atmosphereColor('#73cffa').atmosphereAltitude(.19);
- if(!lean)g.bumpImageUrl(earthBump);
+ const g=new G.Globe(node,{animateIn:false});
+ // Track a partly initialized renderer too: errors during polygon setup
+ // must not leak another WebGL context on iOS.
+ globeInstance=g;
+ g.width(w).height(h).globeImageUrl(earthTexture).backgroundColor('rgba(0,0,0,0)').showAtmosphere(!lean).atmosphereColor('#73cffa').atmosphereAltitude(.19);
+ const mobileLowMemory=/iPhone|iPad|iPod/i.test(navigator.userAgent||'');
+ if(!lean&&!mobileLowMemory)g.bumpImageUrl(earthBump);
  if(typeof g.globeMaterial==='function'){try{const m=g.globeMaterial();if(m){m.shininess=isHero?13:8;m.specular?.set?.(isHero?'#436b80':'#253b52');m.needsUpdate=true}}catch(e){console.debug('Globe material tuning skipped',e)}}
  
  let featureOverlay=null, featureLine=null;
@@ -518,6 +523,18 @@ function initGlobe(){
  ctrl.maxDistance=isExplorer?550:(isCountry?540:700);
  // On touch screens keep drag/pinch inside the globe rather than scrolling the page.
  if(!isHero&&node){node.style.touchAction='none';const canvas=node.querySelector('canvas');if(canvas)canvas.style.touchAction='none'}
+ // Recover if Safari loses its GPU context after an otherwise successful start.
+ const globeCanvas=node.querySelector('canvas');
+ if(globeCanvas){
+  globeCanvas.addEventListener('webglcontextlost',event=>{
+   event.preventDefault();
+   if(globeNode!==node||!node.isConnected)return;
+   disposeGlobe();
+   node.replaceChildren();
+   globeInteractiveFallback(node);
+   globeNode=node;
+  },{once:true});
+ }
  // Don't mix two-finger orbit rotation with pinch zoom on mobile.
  if(ctrl.touches&&typeof THREE!=='undefined'&&THREE.TOUCH){ctrl.touches.ONE=THREE.TOUCH.ROTATE;ctrl.touches.TWO=THREE.TOUCH.DOLLY}
  try{
@@ -525,7 +542,7 @@ function initGlobe(){
   const renderer=g.renderer?.();
   renderer?.setPixelRatio?.(Math.min(window.devicePixelRatio||1,window.innerWidth<750?1.35:1.75));
  }catch(e){console.debug('Adaptive resolution unavailable',e)}
- globeInstance=g;node.classList.add('gv-3d-loaded');
+ node.classList.add('gv-3d-loaded');
  if(isExplorer){
   node.classList.add('gv117-explorer');
   exploreNameLabel=document.createElement('div');
