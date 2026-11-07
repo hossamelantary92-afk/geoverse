@@ -42,12 +42,26 @@ function arName(r){if(!r)return '';try{return new Intl.DisplayNames(['ar'],{type
 function resolvedContinent(name){const r=recordFor(name);return r?.continent||((name==='Antarctica')?'Antarctica':null)}
 async function loadCatalogue(){
  try{
- const [meta,shape]=await Promise.all([fetch('./country-meta.json').then(x=>x.json()),fetch('./world.geojson').then(x=>x.json())]);
+ const [meta,shape]=await Promise.all([fetch('./country-meta.json').then(x=>x.json()),fetch('./world.geojson?v=gv119-bermuda-ring-fixed',{cache:'no-cache'}).then(x=>x.json())]);
  store.countries=meta.countries.filter(x=>x.code&&x.continent);for(const r of store.countries){store.byCode.set(r.code,r);store.byName.set(norm(r.name),r)}
  store.byName.set(norm('United States of America'),recordFor('United States'));
  store.byName.set(norm('United Republic of Tanzania'),recordFor('Tanzania'));
  store.byName.set(norm('Democratic Republic of the Congo'),recordFor('The Democratic Republic of Congo'));
  store.byName.set(norm('Republic of the Congo'),recordFor('Congo'));
+ // Defensive winding normalization: a reversed Bermuda outline paints the
+ // complement of the island on a sphere and hijacks clicks anywhere on Earth.
+ // Also protects users with an older cached GeoJSON response.
+ for(const feature of shape.features||[]){
+  if(feature.properties?.name!=='Bermuda'||feature.geometry?.type!=='Polygon')continue;
+  const ring=feature.geometry.coordinates?.[0];
+  if(!Array.isArray(ring)||ring.length<4)continue;
+  let winding=0;
+  for(let i=0;i<ring.length-1;i++){
+   const a=ring[i],b=ring[i+1];
+   winding+=a[0]*b[1]-b[0]*a[1];
+  }
+  if(winding>0)feature.geometry.coordinates[0]=ring.slice().reverse();
+ }
  for(const f of shape.features){const name=f.properties.name;const r=recordFor(name);if(r){f.properties.gvCode=r.code;f.properties.gvContinent=r.continent;f.properties.gvArabic=arName(r);store.featLookup.set(r.code,f)}else if(name==='Antarctica'){f.properties.gvContinent='Antarctica'}if(name==='Russia'||name==='Turkey'){f.properties.gvContinent='Europe';f.properties.gvTranscontinental=true}store.countryFeatures.push(f)}
  for(const c of continentKeys){store.continentGeo.set(c,store.countryFeatures.filter(f=>f.properties.gvContinent===c||(c==='Asia'&&['Russia','Turkey'].includes(f.properties.name))))}
  store.status='ready';store.ready=true;
