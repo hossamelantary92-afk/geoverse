@@ -51,6 +51,17 @@ itemCards=function(items){
  const normalizedPlace=v=>{
   const en=String(v[1]||'').toLocaleLowerCase().normalize('NFKC').replace(/[’']/g,'').trim();
   if(state.category==='glaciers'&&/^vatnaj.kull(?: glacier| ice cap)?$/.test(en))return 'vatnajokull';
+  if(state.category==='grasslands'){
+   if(['serengeti plains','serengeti savanna'].includes(en))return 'serengeti';
+   if(['prairies','north american prairies'].includes(en))return 'prairies';
+   if(['pampas'].includes(en))return 'pampas';
+  }
+  if(state.category==='climate'&&en==='mediterranean climate')return 'mediterranean climate';
+  if(state.category==='valleys'){
+   if(en==='grand canyon')return 'grand canyon';
+   if(en==='death valley')return 'death valley';
+   if(en==='valley of the kings')return 'valley of the kings';
+  }
   return en;
  };
  const seenPlaceKeys=new Set();
@@ -97,7 +108,7 @@ photo.hydrate=function(){
   photo.mount(box,src,box.dataset.placeName||'',article);
  });
 };
-photo.ready=fetch('./photo-manifest-v13.json?v=gv107-polar-gulfs-straits').then(r=>{
+photo.ready=fetch('./photo-manifest-v13.json?v=gv108-climate-grasslands-valleys').then(r=>{
  if(!r.ok)throw Error('Photo reference manifest unavailable');
  return r.json();
 }).then(data=>{
