@@ -428,7 +428,7 @@ function initGlobe(){
  const reducedMotion=window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches||false;
  if(isCont){const v=geo.continents[state.item];selectedContinent=v?.[1];target=continentZoom(selectedContinent)}
  else if(isCountry){const r=store.byCode.get(state.v4Code);selectedFeature=store.featLookup.get(r?.code);const p=selectedFeature&&window.d3?d3.geoCentroid(selectedFeature):[0,0];target={lat:p[1],lng:p[0],altitude:1.8}}
- else if(state.page==='detail'){const v=geo[state.category]?.[state.item];if(v)target={lat:v[4],lng:v[5],altitude:1.7}}
+ else if(state.page==='detail'){const v=geo[state.category]?.[state.item];if(v)target={lat:v[4],lng:v[5],altitude:state.category==='tourism'?2.35:1.7}}
  if(isExplorer)target={lat:21,lng:15,altitude:1.28};
  try{
  const w=node.clientWidth||550,h=node.clientHeight||400;
