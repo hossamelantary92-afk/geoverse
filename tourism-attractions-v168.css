@@ -1,0 +1,8 @@
+/* GeoVerse v168 tourism pilot */
+#main #mapToolbar .gv146-culture .gv146-group-grid{display:grid;grid-template-columns:1fr;max-width:100%}
+#main #mapToolbar .gv146-culture [data-layer="tourism"]{width:100%;min-width:0}
+.gv140-map .atlas-pin[data-map-pin^="tourism:"] .gv153-marker-symbol{fill:#f2d5a2!important}
+.gv168-location{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:14px 18px;margin:12px 0;border:1px solid rgba(95,224,204,.35);border-radius:14px;background:rgba(22,83,90,.15)}
+.gv168-location strong{font-weight:800}
+.gv168-location a{color:#50d8c9;text-decoration:underline;text-underline-offset:3px;font-weight:700}
+@media(max-width:700px){#main .gv160-dock #mapToolbar .gv146-culture .gv146-group-grid{grid-template-columns:1fr!important}.gv168-location{padding:12px 14px;font-size:13px}}
