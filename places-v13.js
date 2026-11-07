@@ -64,11 +64,6 @@ photo.mount=function(box,src,name,articleUrl){
   box.querySelector('.gv13-photo-fallback')?.remove();
   box.querySelector('.gv13-photo-status')?.remove();
   box.classList.add('gv13-has-photo');
-  if(!box.querySelector('.gv13-source')){
-   const credit=document.createElement('span');credit.className='gv13-source';
-   credit.textContent=langText('صورة مرتبطة بالمعلم','Image linked to this place');
-   box.appendChild(credit);
-  }
  });
  img.addEventListener('error',()=>{img.remove();box.classList.remove('gv13-has-photo')});
  box.appendChild(img);img.src=src;
@@ -89,7 +84,7 @@ photo.hydrate=function(){
   photo.mount(box,src,box.dataset.placeName||'',article);
  });
 };
-photo.ready=fetch('./photo-manifest-v13.json?v=gv100-photo-first-mobile').then(r=>{
+photo.ready=fetch('./photo-manifest-v13.json?v=gv101-cinematic-ocean-cards').then(r=>{
  if(!r.ok)throw Error('Photo reference manifest unavailable');
  return r.json();
 }).then(data=>{
