@@ -47,7 +47,9 @@ function card(item,index,id){
 itemCards=function(items){
  if(state.category==='countries')return previousItemCards(items);
  const q=(state.filter||'').trim().toLocaleLowerCase();
- const matches=items.map((v,i)=>({v,i})).filter(({v})=>!q||String(v[0]+' '+v[1]).toLocaleLowerCase().includes(q));
+ const matches=items.map((v,i)=>({v,i})).filter(({v,i})=>
+  (state.category!=='forests'||!items.slice(0,i).some(prev=>prev[1]===v[1]))&&
+  (!q||String(v[0]+' '+v[1]).toLocaleLowerCase().includes(q)));
  setTimeout(()=>photo.hydrate(),0);
  return matches.length?matches.map(({v,i})=>card(v,i,state.category)).join(''):'<div class="empty gv13-empty">'+langText('لا توجد معالم مطابقة للبحث','No matching places')+'</div>';
 };
@@ -84,7 +86,7 @@ photo.hydrate=function(){
   photo.mount(box,src,box.dataset.placeName||'',article);
  });
 };
-photo.ready=fetch('./photo-manifest-v13.json?v=gv101-cinematic-ocean-cards').then(r=>{
+photo.ready=fetch('./photo-manifest-v13.json?v=gv102-forest-river-quality').then(r=>{
  if(!r.ok)throw Error('Photo reference manifest unavailable');
  return r.json();
 }).then(data=>{
