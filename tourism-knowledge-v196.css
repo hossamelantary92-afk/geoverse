@@ -272,3 +272,46 @@
  }
  #main .gv196-hero-english{font-size:12px!important}
 }
+
+/* v201 — compact museum-style masthead, one editorial narrative instead of duplicates. */
+#main .gv14-detail.gv196-detail{
+ display:flex!important;flex-direction:column!important;
+ align-items:stretch!important;
+ gap:14px!important;
+}
+#main .gv14-detail.gv196-detail > section.gv196-hero{
+ display:flex!important;flex-direction:column!important;
+ align-items:stretch!important;justify-content:flex-start!important;
+ flex:0 0 auto!important;
+ width:100%!important;
+ height:auto!important;min-height:0!important;max-height:none!important;
+ aspect-ratio:auto!important;
+ padding:18px 25px 20px!important;
+ margin:0!important;gap:3px!important;
+ border-radius:18px!important;
+}
+#main .gv196-hero-top{align-items:center!important;gap:10px!important;min-height:0!important}
+#main .gv196-hero-symbol{font-size:20px!important;border-radius:11px!important;padding:5px 9px!important}
+#main .gv196-hero-location{margin:2px 0 0!important;font-size:11px!important}
+#main .gv196-hero h1{font-size:clamp(25px,3vw,35px)!important;line-height:1.35!important;margin:4px 0!important}
+#main .gv196-hero-english{font-size:12px!important;line-height:1.5!important;margin:0!important}
+#main .gv196-hero-subtitle{
+ margin:5px 0 9px!important;padding:4px 10px!important;
+ font-size:10px!important;line-height:1.5!important;
+}
+#main .gv196-hero .gv196-learned{min-height:33px!important;padding:6px 12px!important;margin:0!important}
+#main .gv196-detail .gv196-overview{min-height:0!important;height:auto!important}
+#main .gv196-overview #gv14Description{max-width:960px!important}
+#main .gv201-reference{
+ display:flex;align-items:center;justify-content:space-between;
+ flex-wrap:wrap;gap:8px;
+ border-top:1px solid rgba(107,195,184,.25);
+ margin-top:18px;padding-top:13px;
+ font-size:12px;color:#a6cdd2;
+}
+#main .gv201-reference a{color:#92f2df;font-weight:800;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:700px){
+ #main .gv14-detail.gv196-detail > section.gv196-hero{padding:15px 16px 17px!important}
+ #main .gv196-hero h1{font-size:clamp(24px,7vw,30px)!important}
+ #main .gv201-reference{font-size:11px}
+}
