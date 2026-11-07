@@ -481,7 +481,7 @@ function initGlobe(){
      g.polygonAltitude(v=>v===selectedExploreFeature?.0045:.0015);
      g.polygonCapColor(v=>v===selectedExploreFeature?'rgba(27,232,210,0.49)':'rgba(6,51,76,0.035)');
      g.polygonStrokeColor(v=>v===selectedExploreFeature?'#9afff0':'rgba(186,226,241,0.32)');
-     g.pathsData(countryOutlinePaths(f));
+     // Country outline is rendered by polygonStrokeColor; avoid optional paths API.
      if(window.d3?.geoCentroid){
       try{
        const center=d3.geoCentroid(f);
@@ -499,11 +499,14 @@ function initGlobe(){
     if(r&&state.page!=='play')setPage('country-v4',r.code);
    });
  }
- if(isExplorer){
-  g.pathsData([]).pathPoints('points').pathPointLat('lat').pathPointLng('lng')
-   .pathColor(()=>'rgba(151,255,244,.96)').pathStroke(.32).pathAltitude(.012);
+
+ if(featureLine&&typeof g.pathsData==='function'&&typeof g.pathPoints==='function'&&typeof g.pathPointLat==='function'&&typeof g.pathPointLng==='function'){
+  g.pathPoints('points').pathPointLat('lat').pathPointLng('lng');
+  if(typeof g.pathPointAlt==='function')g.pathPointAlt(.065);
+  if(typeof g.pathColor==='function')g.pathColor(()=>'#ffe3a5');
+  if(typeof g.pathStroke==='function')g.pathStroke(.35);
+  g.pathsData([featureLine]);
  }
- if(featureLine){g.pathsData([featureLine]).pathPoints('points').pathPointLat('lat').pathPointLng('lng').pathColor(()=>'#ffe3a5').pathStroke(.9).pathAltitude(.07)}
  if(!isHero&&!isCountry&&!isCont&&state.category!=='countries'){const v=geo[state.category]?.[state.item];if(v){g.pointsData([{lat:v[4],lng:v[5],name:lang(v[0],v[1])}]).pointLat('lat').pointLng('lng').pointAltitude(.06).pointRadius(.65).pointColor(()=>'#f3ca7d').pointLabel(d=>escapeHTML(d.name));}}
  g.pointOfView(target,isHero?0:1200);
  const ctrl=g.controls();
