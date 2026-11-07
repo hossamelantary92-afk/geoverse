@@ -90,23 +90,78 @@ function addCountryChooser(){
  const group=$(toolbar,'.gv146-culture');
  if(!map||!group||group.querySelector('.gv170-tourism-chooser'))return;
  const picker=document.createElement('div');
- picker.className='gv170-tourism-chooser';
- picker.innerHTML='<span>'+t('اعرض مزارات دولة','Choose a country')+'</span><select aria-label="'+t('اختر الدولة لعرض مزاراتها','Choose country attractions')+'">'+
- '<option value="">'+t('أبرز المزارات حول العالم','Highlights around the world')+'</option>'+
- countries.map(c=>'<option value="'+c[0]+'">'+esc(t(c[1],c[2]))+'</option>').join('')+'</select>'+
+ picker.className='gv170-tourism-chooser gv172-search-chooser';
+ const selected=map.dataset.gv170TourismCountry||'';
+ const current=countries.find(c=>c[0]===selected);
+ const accessible=t('ابحث باسم الدولة','Search by country name');
+ picker.innerHTML='<label for="gv172CountrySearch">'+accessible+'</label>'+
+ '<div class="gv172-searchbox"><span aria-hidden="true">⌕</span>'+
+ '<input id="gv172CountrySearch" class="gv172-country-input" type="search" autocomplete="off" autocorrect="off" spellcheck="false"'+
+ ' placeholder="'+t('اكتب اسم الدولة…','Type a country…')+'" aria-label="'+accessible+'"'+
+ ' aria-controls="gv172CountryResults" aria-expanded="false" aria-autocomplete="list" role="combobox" value="'+esc(current?t(current[1],current[2]):'')+'"/>'+
+ '<button type="button" class="gv172-reset" aria-label="'+t('عرض جميع المزارات','Show all highlights')+'">×</button></div>'+
+ '<div id="gv172CountryResults" class="gv172-results" role="listbox" hidden></div>'+
  '<small class="gv170-tourism-count"></small>';
  group.append(picker);
- picker.querySelector('select').addEventListener('change',function(){
-  map.dataset.gv170TourismCountry=this.value;
-  filterPins(map);if(typeof atlasView==='function'&&this.value){
-   const matches=byCode.get(this.value)||[],point=geo.tourism[matches[0]?.index];
-   const r=typeof atlasRuntime!=='undefined'?atlasRuntime:null;
-   if(r?.node===map&&point&&r.proj){
-    const p=r.proj([point[5],point[4]]);
-    if(p?.every(Number.isFinite)){const w=360,h=187;atlasView([Math.max(0,Math.min(1000-w,p[0]-w/2)),Math.max(0,Math.min(520-h,p[1]-h/2)),w,h])}
+ const input=picker.querySelector('input'),results=picker.querySelector('.gv172-results');
+ const normalize=value=>String(value||'').toLocaleLowerCase().normalize('NFKD')
+  .replace(/[\u064b-\u065f\u0670]/g,'').replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي')
+  .replace(/[^a-z0-9\u0621-\u064a]+/g,' ').trim();
+ let highlighted=0,options=[];
+ function close(){
+  results.hidden=true;input.setAttribute('aria-expanded','false');input.removeAttribute('aria-activedescendant');
+ }
+ function pick(code){
+  const country=countries.find(c=>c[0]===code);
+  map.dataset.gv170TourismCountry=country?code:'';
+  input.value=country?t(country[1],country[2]):'';
+  close();filterPins(map);
+  if(typeof atlasView!=='function')return;
+  if(!country){atlasView([0,0,1000,520]);return}
+  const matches=byCode.get(code)||[],point=geo.tourism[matches[0]?.index];
+  const r=typeof atlasRuntime!=='undefined'?atlasRuntime:null;
+  if(r?.node===map&&point&&r.proj){
+   const p=r.proj([point[5],point[4]]);
+   if(p?.every(Number.isFinite)){
+    const w=360,h=187;
+    atlasView([Math.max(0,Math.min(1000-w,p[0]-w/2)),Math.max(0,Math.min(520-h,p[1]-h/2)),w,h]);
    }
-  }else if(typeof atlasView==='function')atlasView([0,0,1000,520]);
+  }
+ }
+ function paint(){
+  results.innerHTML=options.map((c,i)=>
+   '<button type="button" role="option" id="gv172Option'+i+'" aria-selected="'+(i===highlighted)+'" class="gv172-result'+(i===highlighted?' gv172-highlight':'')+'" data-gv172-country="'+esc(c[0])+'">'+
+   '<span>'+esc(t(c[1],c[2]))+'</span><small>'+esc(t(c[2],c[1]))+'</small></button>').join('')+
+   (!options.length?'<p class="gv172-no-result">'+t('لا توجد دولة مطابقة','No matching country')+'</p>':'');
+  results.hidden=false;input.setAttribute('aria-expanded','true');
+  if(options.length)input.setAttribute('aria-activedescendant','gv172Option'+highlighted);
+  else input.removeAttribute('aria-activedescendant');
+ }
+ function search(){
+  const query=normalize(input.value);
+  options=countries.filter(c=>!query||normalize(c[1]).includes(query)||normalize(c[2]).includes(query));
+  highlighted=0;paint();
+ }
+ input.addEventListener('focus',search);
+ input.addEventListener('input',search);
+ input.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){close();return}
+  if(e.key==='ArrowDown'||e.key==='ArrowUp'){
+   e.preventDefault();if(results.hidden)search();
+   if(options.length){highlighted=(highlighted+(e.key==='ArrowDown'?1:-1)+options.length)%options.length;paint()}
+  }
+  if(e.key==='Enter'&&!results.hidden&&options.length){
+   e.preventDefault();pick(options[highlighted][0]);
+  }
  });
+ results.addEventListener('click',e=>{
+  const btn=e.target.closest('[data-gv172-country]');
+  if(btn)pick(btn.dataset.gv172Country);
+ });
+ picker.querySelector('.gv172-reset').addEventListener('click',()=>pick(''));
+ document.addEventListener('pointerdown',e=>{
+  if(picker.isConnected&&!picker.contains(e.target))close();
+ },true);
  filterPins(map);
 }
 function filterPins(map){
