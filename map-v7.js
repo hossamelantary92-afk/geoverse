@@ -87,15 +87,33 @@
    '<div class="gv7-feedback" aria-live="polite">'+(state.quizSelected===null?'<span>'+lang('لن تظهر أسماء الدول قبل الإجابة.','Country names are hidden until you answer.')+'</span>':answerMessage())+'</div></section>';
  }
  function answerMessage(){
-  const target=quiz[state.quizIndex][7],m=metadata(target),name=titleCountry(target),ok=state.quizSelected===0;
-  const flag=m?.code?'<img loading="lazy" src="https://flagcdn.com/'+m.code.toLowerCase()+'.svg" alt="'+lang('علم الدولة','Country flag')+'">':'';
-  const icon=ok?'✓':'!';
-  const title=ok?lang('إجابة صحيحة!','Correct answer!'):lang('الإجابة غير صحيحة','Not quite right');
-  const details=ok?'<div class="gv8-summary"><span class="gv8-chip correct">'+lang('الدولة الصحيحة','Correct country')+'</span><strong>'+safe(name)+'</strong></div>':
-   '<div class="gv8-comparison"><div><span class="gv8-chip wrong">'+lang('اخترت','You selected')+'</span><b>'+safe(titleCountry(game.selected))+'</b></div><div><span class="gv8-chip correct">'+lang('الصحيح','Correct answer')+'</span><b>'+safe(name)+'</b></div></div>';
-  return '<div class="gv8-answer-card '+(ok?'right':'wrong')+'"><div class="gv8-status-icon">'+icon+'</div><div class="gv8-result-copy"><h3>'+title+'</h3>'+details+'</div>'+flag+'</div>'+
-   '<div class="gv8-answer-actions"><button type="button" data-gv8-focus="correct">'+lang('شاهد الموقع الصحيح','Show correct location')+'</button>'+
-   (!ok?'<button type="button" data-gv8-focus="compare">'+lang('قارن بين الموقعين','Compare locations')+'</button>':'')+'</div>';
+  const target=quiz[state.quizIndex][7];
+  const correctMeta=metadata(target),chosenMeta=metadata(game.selected);
+  const correctName=titleCountry(target),chosenName=titleCountry(game.selected);
+  const correct=state.quizSelected===0;
+  const flagFor=(record,name)=>record?.code
+   ?'<img class="gv126-country-flag" loading="lazy" src="https://flagcdn.com/'+safe(record.code.toLowerCase())+'.svg" alt="'+safe(lang('علم '+name,'Flag of '+name))+'">'
+   :'';
+  const chosenFlag=!correct?flagFor(chosenMeta,chosenName):'';
+  const correctFlag=flagFor(correctMeta,correctName);
+  const entry=(type,label,name,flag)=>'<div class="gv126-answer-row '+type+'">'+
+   '<span class="gv126-answer-label">'+label+'</span>'+
+   '<span class="gv126-country">'+flag+'<strong>'+safe(name)+'</strong></span></div>';
+  const rows=correct
+   ?entry('correct',lang('إجابتك','Your answer'),correctName,correctFlag)
+   :entry('wrong',lang('اخترت','You selected'),chosenName,chosenFlag)+
+    entry('correct',lang('الإجابة الصحيحة','Correct answer'),correctName,correctFlag);
+  const title=correct?lang('إجابة صحيحة!','Correct answer!'):lang('الإجابة غير صحيحة','Not quite right');
+  const message=correct?lang('أحسنت! عرفت الموقع الصحيح.','Well done! You found the right location.'):'';
+  return '<div class="gv126-result '+(correct?'right':'wrong')+'" role="status">'+
+    '<div class="gv126-result-heading">'+
+     '<span class="gv126-result-icon" aria-hidden="true">'+(correct?'✓':'×')+'</span>'+
+     '<div class="gv126-result-title"><h3>'+title+'</h3>'+(message?'<p>'+message+'</p>':'')+'</div>'+
+    '</div><div class="gv126-result-rows">'+rows+'</div></div>'+
+   '<div class="gv126-actions">'+
+    '<button type="button" data-gv8-focus="correct">'+lang('شاهد الموقع الصحيح','Show correct location')+'</button>'+
+    (!correct?'<button type="button" data-gv8-focus="compare">'+lang('قارن بين الموقعين','Compare locations')+'</button>':'')+
+   '</div>';
  }
  function featureBounds(name){
   const f=shapes.data?.features?.find(x=>sameCountry(countryName(x),name));
