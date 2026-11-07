@@ -85,6 +85,13 @@ document.addEventListener('click',event=>{
  state.filter='';
  render();
 },{capture:true});
+const previousSetPage=setPage;
+setPage=function(page,cat,item,startGame){
+ // Entering tourism afresh always starts with countries; returning from a
+ // landmark detail preserves the chosen country.
+ if(page==='category'&&cat==='tourism'&&state.category!=='tourism')selected='';
+ return previousSetPage.apply(this,arguments);
+};
 const originalRender=render;
 render=function(){
  const result=originalRender.apply(this,arguments);
