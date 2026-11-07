@@ -1,0 +1,54 @@
+/* GeoVerse v156: compact uniform map details, no control collisions. */
+#worldMap.gv140-map .gv140-country-card.gv156-country:not([hidden]),
+#detailMap.gv140-map .gv140-country-card.gv156-country:not([hidden]),
+#worldMap.gv140-map .gv140-country-card.gv156-landmark:not([hidden]),
+#detailMap.gv140-map .gv140-country-card.gv156-landmark:not([hidden]){
+ top:auto!important;bottom:143px!important;
+ right:12px!important;left:auto!important;transform:none!important;
+ width:min(228px,calc(100% - 24px))!important;
+ min-height:0!important;height:auto!important;max-height:min(37%,182px)!important;
+ padding:10px 12px!important;border-radius:14px!important;
+ box-sizing:border-box!important;
+ overflow:auto!important;overscroll-behavior:contain;
+ background:linear-gradient(145deg,rgba(5,43,59,.98),rgba(2,24,41,.98))!important;
+ border:1px solid rgba(107,232,219,.63)!important;
+ box-shadow:0 12px 26px rgba(0,9,24,.43)!important
+}
+.gv140-map .gv140-country-card.gv156-country .gv155-card-heading,
+.gv140-map .gv140-country-card.gv156-landmark .gv153-card-heading{
+ display:flex!important;align-items:center!important;
+ justify-content:space-between!important;gap:8px!important;
+ margin:0 0 5px!important
+}
+.gv140-map .gv140-country-card.gv156-country .gv140-card-title,
+.gv140-map .gv140-country-card.gv156-landmark .gv140-card-title{
+ font:900 16px/1.4 Cairo,Outfit,system-ui,sans-serif!important;
+ margin:3px 0 5px!important
+}
+.gv140-map .gv140-country-card.gv156-country .gv140-card-meta,
+.gv140-map .gv140-country-card.gv156-country .gv140-card-continent{
+ font:600 11px/1.5 Cairo,Outfit,system-ui,sans-serif!important;margin:2px 0!important
+}
+.gv140-map .gv140-country-card.gv156-landmark .gv142-landmark-description{
+ max-height:45px!important;overflow:hidden!important;line-height:1.55!important;
+ margin:5px 0 0!important
+}
+.gv140-map .gv140-country-card.gv156-country button.gv140-map-clear,
+.gv140-map .gv140-country-card.gv156-landmark button.gv142-view-detail{
+ min-height:33px!important;padding:6px 12px!important;
+ margin:9px 0 0!important;font-size:11px!important
+}
+#worldMap.gv140-map .atlas-tools,#detailMap.gv140-map .atlas-tools{
+ position:absolute!important;bottom:51px!important;top:auto!important;
+ left:50%!important;right:auto!important;transform:translateX(-50%)!important;
+ z-index:7!important
+}
+@media(max-width:700px){
+ #worldMap.gv140-map .gv140-country-card.gv156-country:not([hidden]),
+ #detailMap.gv140-map .gv140-country-card.gv156-country:not([hidden]),
+ #worldMap.gv140-map .gv140-country-card.gv156-landmark:not([hidden]),
+ #detailMap.gv140-map .gv140-country-card.gv156-landmark:not([hidden]){
+  bottom:140px!important;right:10px!important;
+  width:min(225px,calc(100% - 20px))!important;max-height:180px!important
+ }
+}
