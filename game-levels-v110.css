@@ -1,0 +1,8 @@
+/* GeoVerse v110 — responsive game difficulty switch. */
+.gv110-level{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 15px;margin:4px 0 18px;border:1px solid rgba(90,210,220,.30);border-radius:17px;background:linear-gradient(120deg,rgba(8,53,75,.72),rgba(5,35,57,.55));}
+.gv110-level-label{font-size:clamp(13px,2vw,16px);font-weight:800;color:#b9e7eb;white-space:nowrap}
+.gv110-level-buttons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;flex:1;max-width:405px}
+.gv110-level-buttons button{border:1px solid rgba(126,208,225,.32);color:#d2eef0;background:rgba(4,32,52,.82);border-radius:11px;min-width:0;padding:10px 6px;font:inherit;font-size:clamp(12px,2.5vw,15px);font-weight:750;cursor:pointer}
+.gv110-level-buttons button.selected{color:#051c2c;background:linear-gradient(135deg,#61e5d4,#25abb7);border-color:#92fff0;box-shadow:0 0 0 1px rgba(85,247,232,.34),0 3px 16px rgba(37,209,204,.18)}
+.gv110-level-buttons button:focus-visible{outline:2px solid #ffe1a0;outline-offset:2px}
+@media(max-width:430px){.gv110-level{flex-wrap:wrap;padding:12px;gap:9px}.gv110-level-label{width:100%}.gv110-level-buttons{width:100%;max-width:none}.gv110-level-buttons button{padding:11px 6px}}
