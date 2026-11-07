@@ -148,7 +148,7 @@ itemCards=function(items){
 };
 let cardPhotoSequence=0;
 async function loadCardsMedia(){
- if(state.page!=='category'||state.category==='countries')return;
+ if(state.page!=='category'||state.category==='countries'||state.category==='tourism')return;
  const current=++cardPhotoSequence;
  const group=state.category, items=geo[group]||[];
  // The local, verified 133-photo index resolves first; only missing subjects query Wikipedia.
