@@ -86,15 +86,16 @@ function hydrateCountry(){
  items.forEach(item=>photoFor(item,section.querySelector('[data-gv170-photo="'+item.index+'"]')));
 }
 function addCountryChooser(){
- const map=document.getElementById('worldMap'),stage=$(map,'.atlas-stage');
- if(!map||!stage||stage.querySelector('.gv170-tourism-chooser'))return;
+ const map=document.getElementById('worldMap'),toolbar=document.getElementById('mapToolbar');
+ const group=$(toolbar,'.gv146-culture');
+ if(!map||!group||group.querySelector('.gv170-tourism-chooser'))return;
  const picker=document.createElement('div');
  picker.className='gv170-tourism-chooser';
  picker.innerHTML='<span>'+t('اعرض مزارات دولة','Choose a country')+'</span><select aria-label="'+t('اختر الدولة لعرض مزاراتها','Choose country attractions')+'">'+
  '<option value="">'+t('أبرز المزارات حول العالم','Highlights around the world')+'</option>'+
  countries.map(c=>'<option value="'+c[0]+'">'+esc(t(c[1],c[2]))+'</option>').join('')+'</select>'+
  '<small class="gv170-tourism-count"></small>';
- stage.append(picker);
+ group.append(picker);
  picker.querySelector('select').addEventListener('change',function(){
   map.dataset.gv170TourismCountry=this.value;
   filterPins(map);if(typeof atlasView==='function'&&this.value){
@@ -110,19 +111,17 @@ function addCountryChooser(){
 }
 function filterPins(map){
  if(!map)return;
- const chooser=map.querySelector('.gv170-tourism-chooser');
+ const chooser=document.querySelector('#mapToolbar .gv170-tourism-chooser');
  const layer=typeof activeLayer!=='undefined'?activeLayer:'';
  const active=layer==='tourism';
  if(chooser)chooser.hidden=!active;
  if(!active)return;
  const selected=map.dataset.gv170TourismCountry||'';
- const visible=[];
  map.querySelectorAll('.atlas-pin[data-map-pin^="tourism:"]').forEach(pin=>{
   const value=pin.getAttribute('data-map-pin')||'';
   const i=Number(value.split(':')[1]),item=originals[i];
   const show=item&&(selected?item.code===selected:i%4===0);
   pin.classList.toggle('gv170-tourism-visible',!!show);
-  if(show)visible.push(pin);
  });
  const count=$(chooser,'.gv170-tourism-count');
  if(count)count.textContent=selected?t('٤ مزارات محددة','4 selected attractions'):t('١٢ دولة · اختر دولة للمزيد','12 countries · choose one for more');
