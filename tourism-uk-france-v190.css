@@ -1,0 +1,10 @@
+/* GeoVerse v190 — Britain & France editorial photo framing.
+   Keep the same 16:9 cards, center defining architecture, no portrait source. */
+#categoryItems .gv181-landmarks [data-item="tourism:4"] .gv13-photo img[data-gv186-photo]{object-position:center 48%!important}
+#categoryItems .gv181-landmarks [data-item="tourism:5"] .gv13-photo img[data-gv186-photo]{object-position:center 56%!important}
+#categoryItems .gv181-landmarks [data-item="tourism:6"] .gv13-photo img[data-gv186-photo]{object-position:center 52%!important}
+#categoryItems .gv181-landmarks [data-item="tourism:7"] .gv13-photo img[data-gv186-photo]{object-position:center 52%!important}
+#categoryItems .gv181-landmarks [data-item="tourism:24"] .gv13-photo img[data-gv186-photo]{object-position:center 50%!important}
+#categoryItems .gv181-landmarks [data-item="tourism:25"] .gv13-photo img[data-gv186-photo]{object-position:center 50%!important}
+#categoryItems .gv181-landmarks [data-item="tourism:26"] .gv13-photo img[data-gv186-photo]{object-position:center 50%!important}
+#categoryItems .gv181-landmarks [data-item="tourism:27"] .gv13-photo img[data-gv186-photo]{object-position:center 50%!important}
