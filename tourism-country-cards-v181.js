@@ -47,7 +47,7 @@ itemCards=function(list){
   const m=/^tourism:(\d+)$/.exec(c.dataset.item||'');
   return m&&subset.has(Number(m[1]));
  }).map(x=>x.outerHTML).join('');
- return '<div class="gv181-detail"><button type="button" class="gv181-back" data-gv181-back="1">← '+t('كل الدول','All countries')+'</button>'+
+ return '<div class="gv181-detail"><button type="button" class="gv181-back gv209-back" data-gv181-back="1"><span class="gv209-back-icon" aria-hidden="true">↩</span><span>'+t('العودة لكل الدول','Back to all countries')+'</span></button>'+
   '<div class="gv181-heading gv181-detail-heading"><strong>'+info[3]+' '+esc(t(info[1],info[2]))+'</strong><span>'+subset.size+' '+t('مزارات سياحية','tourist attractions')+'</span></div>'+
   '<div class="gv181-landmarks">'+(cards||'<p>'+t('لا توجد نتائج مطابقة','No matching results')+'</p>')+'</div></div>';
 };
