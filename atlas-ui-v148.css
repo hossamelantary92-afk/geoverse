@@ -1,0 +1,33 @@
+/* GeoVerse v148 — map controls outside the cartographic footprint and genuine RTL ocean labels. */
+#worldMap.gv140-map .atlas-tools,#detailMap.gv140-map .atlas-tools{
+ top:auto!important;bottom:52px!important;left:50%!important;right:auto!important;
+ transform:translateX(-50%)!important;display:flex!important;flex-direction:row!important;
+ align-items:center;justify-content:center;gap:8px!important;direction:ltr;z-index:7!important;
+ padding:6px 8px;border:1px solid rgba(88,183,203,.24);border-radius:15px;
+ background:rgba(4,28,47,.78);box-shadow:0 8px 22px rgba(0,12,31,.35)
+}
+#worldMap.gv140-map .atlas-tools button,#detailMap.gv140-map .atlas-tools button{
+ width:43px!important;height:42px!important;min-width:43px!important;flex:none;
+ border-radius:11px!important;font-size:22px!important
+}
+.gv140-map .gv147-ocean-labels,.gv140-map .gv145-label{display:none!important}
+.gv140-map .gv148-ocean-overlay{position:absolute;inset:0;z-index:4;overflow:hidden;pointer-events:none}
+.gv140-map .gv148-ocean-label{
+ position:absolute;display:block;box-sizing:border-box;min-width:0;max-width:170px;
+ transform:translate(-50%,-100%);padding:5px 10px;border-radius:10px;
+ color:#efffff;background:rgba(3,39,59,.92);border:1px solid rgba(108,229,221,.55);
+ box-shadow:0 5px 16px rgba(0,9,25,.5);text-align:center;
+ font:800 14px/1.6 Cairo,Tahoma,system-ui,sans-serif!important;
+ letter-spacing:0!important;word-spacing:normal!important;
+ text-transform:none!important;white-space:normal;
+ unicode-bidi:isolate;direction:rtl!important;
+ -webkit-font-smoothing:antialiased;
+}
+.gv140-map .gv148-ocean-label[dir="ltr"]{direction:ltr!important;font-family:Outfit,system-ui,sans-serif!important}
+.gv140-map .gv148-ocean-label[hidden]{display:none!important}
+@media(max-width:700px){
+ #worldMap.gv140-map .atlas-tools{bottom:56px!important;gap:9px!important}
+ #worldMap.gv140-map .atlas-tools button{width:46px!important;height:45px!important}
+ #detailMap.gv140-map .atlas-tools{bottom:42px!important}
+ .gv140-map .gv148-ocean-label{font-size:12px!important;max-width:126px;padding:4px 7px}
+}
