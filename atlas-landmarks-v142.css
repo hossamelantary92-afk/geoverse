@@ -1,0 +1,18 @@
+/* GeoVerse v142 — accessible, natural-landmark interactions on premium 2D atlas only. */
+.gv140-map .gv142-landmark-pin{cursor:pointer;outline:none}
+.gv140-map .gv142-landmark-pin .gv142-hit-circle{pointer-events:all}
+.gv140-map .gv142-landmark-pin:hover .atlas-pin-halo,
+.gv140-map .gv142-landmark-pin:focus .atlas-pin-halo,
+.gv140-map .gv142-landmark-pin.gv142-current .atlas-pin-halo{fill:#62f4d8;opacity:.65;filter:drop-shadow(0 0 6px #59edcf)}
+.gv140-map .gv142-feature-hit{cursor:pointer;stroke-linecap:round;stroke-linejoin:round;outline:none}
+.gv140-map .gv142-feature-hit:focus-visible{stroke:rgba(117,255,226,.35)!important}
+.gv140-map .gv142-feature-hit.gv142-current{stroke:rgba(101,255,225,.32)!important}
+.gv140-map .gv142-landmark-card{max-height:min(65%,365px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+.gv140-map .gv142-landmark-description{color:#c7e4ed;font:600 12px/1.9 Cairo,Outfit,sans-serif;margin:9px 0 0;overflow-wrap:break-word;max-height:145px;overflow-y:auto}
+.gv140-map .gv142-view-detail{display:inline-flex;align-items:center;justify-content:center;margin-top:13px;min-height:40px;border:1px solid #79f3db;border-radius:11px;padding:9px 15px;background:#2ac7b7;color:#063341;font:800 12px/1.5 Cairo,Outfit,sans-serif;cursor:pointer;box-shadow:0 6px 18px #032b3480}
+.gv140-map .gv142-view-detail:hover,.gv140-map .gv142-view-detail:focus-visible{background:#67ebd7}
+@media(max-width:700px){
+ .gv140-map .gv142-landmark-card{max-height:min(55%,310px)}
+ .gv140-map .gv142-landmark-description{font-size:11px;max-height:112px;line-height:1.75}
+ .gv140-map .gv142-view-detail{font-size:11px;min-height:39px}
+}
