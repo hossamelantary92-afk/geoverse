@@ -194,6 +194,9 @@ play=function(){
  return h;
 };
 render=function(){
+ // Release the previous WebGL context before replacing its canvas.
+ // Data refreshes can rerender the same page several times on mobile Safari.
+ disposeGlobe();
  oldRender();
  if(state.page==='countries-v4')main.innerHTML=countriesPage();
  if(state.page==='country-v4')main.innerHTML=countryPage();
@@ -221,7 +224,7 @@ render=function(){
 };
 const oldSetPage=setPage;
 setPage=function(page,cat=null,item=null,startGame=false){
- if(globeInstance){try{globeInstance.pauseAnimation?.();globeInstance._destructor?.()}catch(e){}globeInstance=null;globeNode=null;}
+ disposeGlobe();
  if(page==='country-v4'){if(window.scrollY>0)window.scrollTo(0,0);state.v4Code=cat;state.page='country-v4';state.category='countries';state.item=null;render();return}
  if(page==='category'&&cat==='countries'){state.v4Continent='all';state.v4Search='';}
  if(page==='countries-v4'){if(window.scrollY>0)window.scrollTo(0,0);state.page='countries-v4';state.category='countries';state.item=null;render();return}
@@ -322,6 +325,38 @@ const url=sourceUrl;
 }
 let globeInstance=null,globeNode=null,globeTimer=0;
 const globeInitAttempts=new WeakMap();
+let globeResizeObserver=null;
+let globeLoadPromise=null;
+function disposeGlobe(){
+ clearTimeout(globeTimer);
+ globeTimer=0;
+ if(globeResizeObserver){try{globeResizeObserver.disconnect()}catch(e){}globeResizeObserver=null}
+ const old=globeInstance;
+ globeInstance=null;globeNode=null;
+ if(!old)return;
+ try{old.pauseAnimation?.()}catch(e){}
+ try{old._destructor?.()}catch(e){}
+ try{
+  const renderer=old.renderer?.();
+  if(renderer){
+   renderer.dispose?.();
+   renderer.forceContextLoss?.();
+  }
+ }catch(e){}
+}
+function requestGlobeLibrary(){
+ if(isGlobeAvailable())return Promise.resolve(true);
+ if(globeLoadPromise)return globeLoadPromise;
+ globeLoadPromise=new Promise(resolve=>{
+  const script=document.createElement('script');
+  script.src='https://unpkg.com/globe.gl@2.46.2/dist/globe.gl.min.js';
+  script.async=true;
+  script.onload=()=>resolve(isGlobeAvailable());
+  script.onerror=()=>resolve(false);
+  document.head.appendChild(script);
+ });
+ return globeLoadPromise;
+}
 function globeInteractiveFallback(node){
  if(!node||!node.isConnected)return;
  const features=(store.countryFeatures||[]).filter(f=>f?.geometry&&f.properties?.name!=='Antarctica');
@@ -379,7 +414,13 @@ function initGlobe(){
  const node=document.getElementById(state.page==='home'?'gvHomeGlobe':state.page==='explore'?'gvExploreGlobe':state.page==='detail'&&state.category==='continents'?'gvContinentGlobe':'gvDetailGlobe');
  if(!node||node===globeNode)return;
  globeNode=node;globeInstance=null;
- if(!isGlobeAvailable()){globeInteractiveFallback(node);return}
+ if(!isGlobeAvailable()){
+  requestGlobeLibrary().then(available=>{
+   if(!node.isConnected||document.getElementById(node.id)!==node)return;
+   if(available){globeNode=null;initGlobe()}else{globeInteractiveFallback(node);globeNode=node}
+  });
+  return;
+ }
  const isHero=state.page==='home',isCont=state.page==='detail'&&state.category==='continents',isCountry=state.page==='country-v4';
  let target={lat:20,lng:15,altitude:1.96};let selectedFeature=null,selectedContinent=null,selectedExploreFeature=null;
  const isExplorer=state.page==='explore';let exploreNameLabel=null;
@@ -505,12 +546,13 @@ function initGlobe(){
  };
  if(typeof ResizeObserver==='function'){
   const observer=new ResizeObserver(()=>{if(!syncGlobeSize())observer.disconnect()});
+  globeResizeObserver=observer;
   observer.observe(node);
  }else G.addEventListener('resize',syncGlobeSize,{passive:true});
  }catch(err){
   console.warn('Globe WebGL init unavailable:',err);
   const tries=globeInitAttempts.get(node)||0;
-  globeInstance=null;globeNode=null;
+  disposeGlobe();
   node.classList.remove('gv-3d-loaded');
   node.replaceChildren();
   if(tries<1&&node.isConnected){
@@ -520,7 +562,10 @@ function initGlobe(){
  }
 }
 function scheduleEnhancements(){
- clearTimeout(globeTimer);globeNode=null;
+ clearTimeout(globeTimer);
+ // Leave a currently working globe untouched if its DOM node was preserved.
+ if(globeInstance&&globeNode?.isConnected)return;
+ globeNode=null;
  globeTimer=setTimeout(()=>{if(['home','detail','country-v4','explore'].includes(state.page)){initGlobe();if(state.page!=='home')loadWiki()}},40);
 }
 function continentKeyForItem(){return state.category==='continents'?geo.continents[state.item]?.[1]:null}
