@@ -71,37 +71,27 @@ function fact(label,value){
 }
 function detailPage(row){
  const i=row.index;
- const name=esc(t(row.nameAr,row.nameEn)),alternate=esc(t(row.nameEn,row.nameAr));
+ const name=esc(t(row.nameAr,row.nameEn));
  const country=esc(t(row.countryAr,row.countryEn)),city=esc(t(row.cityAr,row.cityEn));
- const description=esc(t(row.factAr,row.factEn));
- const data=geo.tourism?.[i],coordinates=data?Number(data[4]).toFixed(2)+'°, '+Number(data[5]).toFixed(2)+'°':'';
  const learned=!!saved()['tourism_'+i];
  const next=catalogue()[(i+1)%catalogue().length];
- const source='https://en.wikipedia.org/wiki/'+encodeURI(row.wiki);
- return '<div class="gv14-detail gv196-detail">'+
+ const article=window.GeoVerseTourismEditorial202?.points(i,ar()?'ar':'en')
+  ||[t(row.factAr,row.factEn)];
+ const points=article.filter(Boolean).map(p=>'<li>'+esc(p)+'</li>').join('');
+ return '<div class="gv14-detail gv196-detail gv202-detail">'+
   '<button class="back gv14-back" data-cat="tourism">← '+t('العودة إلى المزارات','Back to landmarks')+'</button>'+
-  '<section class="gv196-hero" aria-labelledby="gv14Name">'+
-   '<div class="gv196-hero-top"><span class="gv196-eyebrow">◆ '+t('ملف مزار سياحي','LANDMARK PROFILE')+'</span><span class="gv196-hero-symbol" aria-hidden="true">'+icon(i)+'</span></div>'+
-   '<div class="gv196-hero-location">⌖ '+city+' · '+country+'</div>'+
+  '<header class="gv196-hero gv202-hero" aria-labelledby="gv14Name">'+
    '<h1 id="gv14Name">'+name+'</h1>'+
-   (alternate!==name?'<p class="gv196-hero-english" dir="auto">'+alternate+'</p>':'')+
-   '<div class="gv196-hero-subtitle">'+esc(t(...type(i)))+'</div>'+
-   '<button id="toggleSeen" class="gv14-learned gv196-learned'+(learned?' is-learned':'')+'" aria-pressed="'+learned+'">'+(learned?t('✓ تمت إضافته لمعرفتي','✓ Marked as learned'):t('✓ تعلمت هذا المكان','✓ Mark as learned'))+'</button>'+
+   '<p class="gv196-hero-location gv202-location">'+city+' - '+country+'</p>'+
+  '</header>'+
+  '<section class="gv14-overview gv196-overview gv202-article" aria-labelledby="gv14About">'+
+   '<h2 id="gv14About">'+t('تعرف على المعلم','About this landmark')+'</h2>'+
+   '<div id="gv14Description" class="gv202-article-points" lang="'+(ar()?'ar':'en')+'"><ul>'+points+'</ul></div>'+
+   '<div id="gv14Facts"></div>'+
   '</section>'+
-  '<section class="gv196-facts-section" aria-labelledby="gv196FactsTitle"><div class="gv196-section-kicker">'+t('في لمحة','AT A GLANCE')+'</div><h2 id="gv196FactsTitle">'+t('حقائق سريعة','Quick facts')+'</h2>'+
-   '<div class="gv196-facts">'+
-   fact(t('الدولة','Country'),country)+fact(t('المدينة / المنطقة','City / region'),city)+
-   fact(t('نوع المعلم','Landmark type'),t(...type(i)))+
-   fact(t('القارة','Continent'),t(...(region[row.code]||['—','—'])))+
-   '</div></section>'+
-  '<section class="gv14-overview gv196-overview" aria-labelledby="gv14About">'+
-   '<div class="gv196-section-kicker">'+t('تعرّف على المكان','THE STORY')+'</div>'+
-   '<h2 id="gv14About">'+t('لماذا يُعد هذا المعلم مميزًا؟','Why does this landmark matter?')+'</h2>'+
-   '<p id="gv14Description">'+description+'</p><div id="gv14Facts"></div>'+
-   '<div class="gv201-reference"><span>'+t('المرجع','Source')+'</span><a href="'+esc(source)+'" target="_blank" rel="noopener noreferrer">'+t('اقرأ المزيد عن المعلم','Read more about this landmark')+' ↗</a></div>'+
-  '</section>'+
-  '<section class="gv14-map gv196-map" aria-labelledby="gv14MapTitle"><div class="gv196-section-kicker">'+t('اكتشف موقعه','EXPLORE THE LOCATION')+'</div><h2 id="gv14MapTitle">'+t('المعلم على الكرة الأرضية','Find it on the globe')+'</h2>'+
-   '<p class="gv196-coordinates">'+t('الإحداثيات التقريبية','Approximate coordinates')+': <span dir="ltr">'+esc(coordinates)+'</span></p>'+
+  '<button id="toggleSeen" class="gv14-learned gv196-learned gv202-learned'+(learned?' is-learned':'')+'" aria-pressed="'+learned+'">'+(learned?t('✓ تمت إضافته لمعرفتي','✓ Marked as learned'):t('✓ تعلمت هذا المكان','✓ Mark as learned'))+'</button>'+
+  '<section class="gv14-map gv196-map gv202-map" aria-labelledby="gv14MapTitle">'+
+   '<h2 id="gv14MapTitle">'+t('موقع المعلم على الكرة الأرضية','Location on Earth')+'</h2>'+
    '<div id="gvDetailGlobe" class="gv-globe-detail gv14-globe" role="group" aria-label="'+t('كرة أرضية تفاعلية لتحديد موقع المعلم','Interactive globe showing landmark location')+'"></div>'+
   '</section>'+
   (next?'<div class="gv14-next gv196-next"><span>'+t('واصل الاستكشاف','KEEP EXPLORING')+'</span><button type="button" data-item="tourism:'+next.index+'">'+esc(t(next.nameAr,next.nameEn))+' <span aria-hidden="true">↗</span></button></div>':'')+
