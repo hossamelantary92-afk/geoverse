@@ -34,13 +34,13 @@ const rules={
  waterfalls:[/شلالات|شلال|\bwaterfalls?\b/gi,'اندفاع متساقط'],
  forests:[/غابات|غابة|\bforests?\b|\brainforest\b/gi,'غطاء نباتي'],
  mountains:[/جبال|جبل|سلسلة جبلية|\bmountains?\b/gi,'تضاريس مرتفعة'],
- lakes:[/بحيرات|بحيرة|\blakes?\b/gi,'مسطح مائي داخلي'],
+ lakes:[/بحيرات|بحيرة|\blakes?\b/gi,'منطقة مائية داخلية'],
  islands:[/جزر|جزيرة|\bislands?\b|\barchipelago\b/gi,'كتل يابسة'],
  volcanoes:[/براكين|بركان|بركانية|\bvolcano(?:es)?\b|\bvolcanic\b/gi,'تكوين صخري'],
  straits:[/مضيق|مضايق|قناة|\bstraits?\b|\bcanal\b/gi,'ممر مائي'],
  gulfs:[/خليج|خلجان|\bgulfs?\b|\bbays?\b/gi,'امتداد مائي ساحلي'],
  glaciers:[/أنهار جليدية|نهر جليدي|\bglaciers?\b|\bice sheet\b|\bice cap\b/gi,'معلم قطبي'],
- valleys:[/أودية|وادي|أخدود|\bvalleys?\b|\bcanyons?\b/gi,'منخفض صخري'],
+ valleys:[/أودية|وادي|وادٍ|وديان|أخدود|أخاديد|\bvalleys?\b|\bcanyons?\b/gi,'منخفض أرضي'],
  climate:[/مناخ|\bclimate\b/gi,'نمط طقس'],
  grasslands:[/سهول|سهوب|مراعي|سافانا|\bgrasslands?\b|\bplains?\b|\bsavanna\b|\bsteppe\b/gi,'مساحة طبيعية مفتوحة']
 };
