@@ -9,6 +9,10 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const categoryDef={id:category,ar:'المزارات السياحية',en:'Tourist Attractions',emoji:'🏛️',img:'photo-1488646953014-85cb44e25828',descAr:'أشهر المزارات التاريخية والثقافية والمعمارية حول العالم.',descEn:'Discover famous cultural, historic and architectural attractions.'};
 if(typeof cats==='undefined'||typeof geo==='undefined'||typeof explore!=='function')return;
 if(!cats.some(c=>c.id===category))cats.push(categoryDef);
+if(typeof topicDefinitions!=='undefined')topicDefinitions.tourism=[
+ 'المزارات السياحية مواقع تاريخية وثقافية ومعمارية وطبيعية يقصدها الزوار للتعرف على حضارات العالم وتراثه. من أشهر أمثلتها الأهرامات وأبو الهول.',
+ 'Tourist attractions are historic, cultural, architectural, and natural places visited to explore the world’s heritage, including the Pyramids and the Sphinx.'
+];
 geo[category]=attractions.map(a=>[a.ar,a.en,
  '📍 '+a.cityAr+'، '+a.countryAr+' · مزار سياحي بارز. استكشف موقعه وتعرّف على تاريخه عبر المصدر المرجعي.',
  '📍 '+a.cityEn+', '+a.countryEn+' · A notable attraction. Explore its location and historical background using the reference link.',
