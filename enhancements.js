@@ -57,14 +57,14 @@ function arName(r){
  if(!r)return '';
  try{
   const result=new Intl.DisplayNames(['ar'],{type:'region'}).of(r.code);
-  return result&&/[\\u0600-\\u06FF]/.test(result)?result:(globeArabicNameOverrides[r.name]||r.name);
+  return result&&/[\u0600-\u06FF]/.test(result)?result:(globeArabicNameOverrides[r.name]||r.name);
  }catch{return globeArabicNameOverrides[r.name]||r.name}
 }
 function globeCountryName(feature){
  const name=feature?.properties?.name||'';
  if(state.lang!=='ar')return name;
  const translated=feature?.properties?.gvArabic;
- if(translated&&/[\\u0600-\\u06FF]/.test(translated))return translated;
+ if(translated&&/[\u0600-\u06FF]/.test(translated))return translated;
  const special=globeArabicNameOverrides[name];
  if(special)return special;
  const r=recordFor(name);
