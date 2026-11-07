@@ -8,14 +8,15 @@ const labels={easy:['سهل','Easy'],medium:['متوسط','Medium'],hard:['صع�
 const shuffle=bank.randomize;
 const seenByMode={};
 function selectPool(mode,pool,max=12){
- const unique=[...new Map(pool.filter(q=>q&&q[0]&&q[1]).map(q=>[q[1],q])).values()];
+ const identity=q=>mode==='flags'?q[7]:q[1];
+ const unique=[...new Map(pool.filter(q=>q&&q[0]&&q[1]).map(q=>[identity(q),q])).values()];
  if(!unique.length)return [];
  const key=mode+'-'+difficulty;
  let used=seenByMode[key]||new Set();
- let fresh=shuffle(unique.filter(x=>!used.has(x[1])));
+ let fresh=shuffle(unique.filter(x=>!used.has(identity(x))));
  if(fresh.length<Math.min(max,unique.length)){used=new Set();fresh=shuffle(unique);}
  const chosen=fresh.slice(0,Math.min(max,fresh.length));
- chosen.forEach(q=>used.add(q[1]));seenByMode[key]=used;
+ chosen.forEach(q=>used.add(identity(q)));seenByMode[key]=used;
  return chosen;
 }
 const split=(items)=>{const n=items.length;return difficulty==='easy'?items.slice(0,Math.max(12,Math.ceil(n*.4))):difficulty==='hard'?items.slice(Math.floor(n*.55)):items.slice(Math.floor(n*.2),Math.ceil(n*.85))};
