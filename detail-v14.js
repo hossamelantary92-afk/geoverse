@@ -90,6 +90,8 @@ function hydrate(){
  if(story){target.textContent=sentence(t(story.ar,story.en)||t(v[2],v[3]),520);
   const el=document.getElementById('gv14Facts');if(el)el.innerHTML=factRows(story);
  }
+ // The tourist catalogue supplies one authoritative image for cards and details.
+ if(state.category==='tourism')return;
  const entry=content.photos?.[state.category+':'+state.item],photo=document.getElementById('gvArticlePhoto');
  if(photo&&Array.isArray(entry)&&typeof entry[0]==='string'&&isPlacePhoto(entry[0])){
   if(!photo.querySelector('img')){
