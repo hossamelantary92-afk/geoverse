@@ -49,6 +49,8 @@ function cleanDescription(desc,name,id){
  // Preserve grammatical forms rather than replacing stems within adjectives.
  if(id==='volcanoes')v=v.replace(/بركانية/g,'نارية').replace(/\bvolcanic\b/gi,'igneous');
  if(id==='mountains')v=v.replace(/جبال/g,'مرتفعات').replace(/\bmountains\b/gi,'highlands');
+ if(id==='valleys')v=v.replace(/وادٍ/g,'منخفض').replace(/وادٍ/g,'منخفض');
+ if(id==='rivers')v=v.replace(/نهري/g,'مائي').replace(/\briverine\b/gi,'fluvial');
  if(!v||/معلم جغرافي|geographic feature|اضغط للخريطة|explore its map|illustrative example|مثال توضيحي/i.test(v))return '';
  if(name){const escaped=name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');try{v=v.replace(new RegExp(escaped,'gi'),'هذا الموقع')}catch{}}
  const [pattern,replacement]=rules[id]||[];
