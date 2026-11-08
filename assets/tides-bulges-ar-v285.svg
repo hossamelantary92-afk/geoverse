@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="650" viewBox="0 0 1000 650" role="img" aria-labelledby="ttl desc">
+<title id="ttl">كيف ينشأ المد والجزر؟</title><desc id="desc">الأرض في وسط رسم مع انتفاخين مائيين متقابلين أحدهما جهة القمر والآخر في الجهة البعيدة، وجزر نسبي عند الجانبين المتعامدين. تمثيل مبسط وغير مطابق للمقياس.</desc>
+<defs>
+ <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#0a253d"/><stop offset="1" stop-color="#031426"/></linearGradient>
+ <radialGradient id="water"><stop stop-color="#1674af"/><stop offset=".67" stop-color="#108dd0"/><stop offset="1" stop-color="#35c9ea"/></radialGradient>
+ <radialGradient id="earth" cx=".28" cy=".25"><stop stop-color="#67c5e8"/><stop offset=".69" stop-color="#146d9f"/><stop offset="1" stop-color="#063358"/></radialGradient>
+ <radialGradient id="moon" cx=".3" cy=".25"><stop stop-color="#e6eff4"/><stop offset=".8" stop-color="#8497a8"/><stop offset="1" stop-color="#546777"/></radialGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="9"/></filter>
+</defs>
+<rect width="1000" height="650" rx="25" fill="url(#sky)"/>
+<g fill="#bce8ff" opacity=".6"><circle cx="68" cy="126" r="2"/><circle cx="153" cy="203" r="1.5"/><circle cx="906" cy="108" r="2"/><circle cx="930" cy="524" r="1.6"/><circle cx="90" cy="496" r="1.8"/><circle cx="698" cy="74" r="1.5"/></g>
+<text x="500" y="66" text-anchor="middle" direction="rtl" fill="#f2fcff" font-size="39" font-weight="800" font-family="Tahoma,Arial,sans-serif">المد والجزر: لماذا يرتفع الماء على جانبين؟</text>
+<!-- Tidal elongation aligned toward Moon, placed horizontally -->
+<ellipse cx="443" cy="337" rx="252" ry="124" fill="#07aaf0" opacity=".23" filter="url(#glow)"/>
+<ellipse cx="443" cy="337" rx="238" ry="111" fill="url(#water)" opacity=".78" stroke="#8feeff" stroke-width="3"/>
+<path d="M211 331 Q297 265 365 314 M523 312 Q613 260 670 327" fill="none" stroke="#bff8ff" stroke-width="3" opacity=".5"/>
+<circle cx="443" cy="337" r="125" fill="url(#earth)" stroke="#99e7ff" stroke-width="3"/>
+<path d="M395 222 Q440 215 466 241 L456 270 L475 288 L450 301 L428 286 L409 310 L384 286 Z M480 331 L519 354 L505 398 L463 445 L439 424 L453 388 L425 351 Z M366 329 L382 346 L371 370 L351 362 Z" fill="#4fa786" opacity=".88"/>
+<g fill="#ecfbff" opacity=".44"><path d="M360 273 Q425 256 488 285" fill="none" stroke="#fff" stroke-width="8"/><path d="M390 383 Q450 403 499 368" fill="none" stroke="#fff" stroke-width="7"/></g>
+<circle cx="833" cy="337" r="66" fill="url(#moon)" stroke="#c3d3e0" stroke-width="3"/>
+<g fill="#667c8d" opacity=".48"><circle cx="811" cy="314" r="15"/><circle cx="861" cy="345" r="19"/><circle cx="829" cy="375" r="12"/><circle cx="851" cy="291" r="8"/></g>
+<line x1="697" y1="337" x2="755" y2="337" stroke="#aed4df" stroke-dasharray="9 9" stroke-width="3"/>
+<g font-family="Tahoma,Arial,sans-serif" text-anchor="middle" direction="rtl" font-weight="700">
+<text x="443" y="345" fill="#fff" font-size="29">الأرض</text>
+<text x="833" y="440" fill="#eaf9ff" font-size="27">القمر</text>
+<rect x="57" y="267" width="166" height="57" rx="16" fill="#12394f" stroke="#67def4" stroke-width="2"/>
+<text x="140" y="304" fill="#b3fbfa" font-size="24">مد مرتفع</text>
+<rect x="569" y="188" width="180" height="58" rx="16" fill="#12394f" stroke="#67def4" stroke-width="2"/>
+<text x="659" y="226" fill="#b3fbfa" font-size="24">مد مرتفع</text>
+<rect x="350" y="132" width="188" height="54" rx="15" fill="#263147" stroke="#b0a8f6" stroke-width="2"/>
+<text x="444" y="167" fill="#ddd7ff" font-size="23">جزر نسبي</text>
+<rect x="350" y="486" width="188" height="54" rx="15" fill="#263147" stroke="#b0a8f6" stroke-width="2"/>
+<text x="444" y="521" fill="#ddd7ff" font-size="23">جزر نسبي</text>
+</g>
+<path d="M223 297 L261 318 M591 243 L630 280 M443 187 L443 214 M443 464 L443 485" fill="none" stroke="#d2edfa" stroke-width="2.5" stroke-linecap="round"/>
+<rect x="125" y="571" width="750" height="47" rx="12" fill="#082c43" stroke="#4b8199"/>
+<text x="500" y="603" direction="rtl" text-anchor="middle" font-family="Tahoma,Arial,sans-serif" font-size="20" fill="#d3edf5">رسم مبسط وغير مرسوم بمقياس حقيقي — المد الفعلي يختلف حسب السواحل</text>
+</svg>
