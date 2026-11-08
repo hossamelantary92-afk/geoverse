@@ -10,7 +10,7 @@ const category='tourism',root=document.getElementById('main');
 const $=(el,selector)=>el?.querySelector(selector);
 const t=(ar,en)=>document.documentElement.lang==='en'?en:ar;
 const esc=value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
-if(!Array.isArray(geo?.tourism)||geo.tourism.length!==48)return;
+if(!Array.isArray(geo?.tourism)||geo.tourism.length<48)return;
 // Each destination has four geographically positioned attractions in the v168 catalogue.
 for(let i=0;i<48;i++){
  const place=geo.tourism[i],country=countries[Math.floor(i/4)],pair=facts[i];
