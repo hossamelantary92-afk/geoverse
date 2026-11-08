@@ -328,14 +328,14 @@ catch(e){document.documentElement.dataset.gvInitialTheme='dark'}
 }
 /* The visual curvature does not modify the WebGL globe or mobile layout. */
 </style>
-<style id="gv222-final-hero-polish">
-/* Phase 4: desktop-only globe enlargement, subtle curved glass deck. */
+<style id="gv223-final-arc">
+/* Phase 4 refinement: lower globe 12px and highlight the shallow glass arc. */
 @media (min-width:901px){
   /* Keep the existing approved hero height and all functionality. */
   #main .gv11-hero .gv11-planet{
     width:min(65%,710px)!important;
     height:clamp(475px,46vw,580px)!important;
-    top:-26px!important;
+    top:-14px!important;
     left:clamp(-52px,-2vw,-18px)!important;
     right:auto!important;
     bottom:auto!important;
@@ -363,7 +363,7 @@ catch(e){document.documentElement.dataset.gvInitialTheme='dark'}
   }
   /* Very shallow top arc, not just rounded rectangle corners. */
   #main .gv11-hero .gv11-stats{
-    border-radius:50% 50% 20px 20px / 13px 13px 20px 20px!important;
+    border-radius:50% 50% 20px 20px / 25px 25px 20px 20px!important;
     border-color:rgba(151,225,242,.36)!important;
     background:linear-gradient(108deg,rgba(5,41,70,.37),rgba(6,34,59,.47) 55%,rgba(5,26,48,.54))!important;
     backdrop-filter:blur(12px) saturate(1.15)!important;
@@ -382,7 +382,7 @@ catch(e){document.documentElement.dataset.gvInitialTheme='dark'}
     width:61%!important;
     height:clamp(470px,47vw,520px)!important;
     left:-43px!important;
-    top:-4px!important;
+    top:8px!important;
   }
   #main .gv11-hero .gv11-copy{
     right:28px!important;
