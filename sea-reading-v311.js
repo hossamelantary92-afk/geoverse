@@ -106,7 +106,7 @@ function decorate(){
  }
 }
 render=function(){priorRender.apply(this,arguments);decorate()};
-fetch('./geo-stories.json?v=gv311-sea-enrichment',{cache:'no-store'})
+fetch('./geo-stories.json?v=gv319-final-seas-enrichment',{cache:'no-store'})
  .then(r=>r.ok?r.json():Promise.reject(Error('stories unavailable')))
  .then(data=>{profiles=data.stories||{};decorate()})
  .catch(()=>decorate());
