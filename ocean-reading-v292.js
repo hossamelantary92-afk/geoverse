@@ -35,7 +35,7 @@ function article(){
  '<div class="gv292-cover" id="gv292Cover" role="img" aria-label="'+escape(ar('صورة: ','Photograph: ')+name)+'"><div class="gv292-cover-empty">🌊</div></div>'+
  '<div class="gv292-hero-copy"><span class="gv292-kicker">'+ar('المحيطات • دليل جغرافي','OCEANS • FIELD GUIDE')+'</span><h1>'+escape(name)+'</h1>'+
  '<p>'+escape(ar(row[2],row[3]))+'</p>'+
- '<button id="toggleSeen" class="gv292-learned '+(done?'is-learned':'')+'" aria-pressed="'+done+'">'+(done?ar('✓ تم التعلّم','✓ Learned'):ar('✓ تحديد كمعلومة تعلمتها','✓ Mark as learned'))+'</button></div></header>'+
+ '</div></header>'+
  '<section class="gv292-panel gv292-summary"><div class="gv292-label">'+ar('اكتشف المحيط','DISCOVER THE OCEAN')+'</div><h2>'+ar('تعرف على المحيط','About the ocean')+'</h2>'+
  '<p class="gv292-lead" id="gv292Intro">'+escape(intro(summary))+'</p><div class="gv292-facts" id="gv292Facts">'+details+'</div></section>'+
  '<section class="gv292-panel gv292-details"><div class="gv292-label">'+ar('تعمّق في المعرفة','EXPLORE MORE')+'</div><h2>'+ar('معلومات إضافية','Further information')+'</h2>'+
@@ -45,7 +45,12 @@ function article(){
  '<div id="gv292WorldMap" class="gv292-world-map" role="img" aria-label="'+escape(ar('خريطة العالم مع مؤشر لموقع '+name,'World map indicating '+name))+'"><span>'+ar('جاري تجهيز الخريطة…','Preparing map…')+'</span></div>'+
  '<div class="gv292-map-footer"><small>'+ar('المؤشرات لتوضيح الموقع، وليست حدود المحيط أو مقياسًا لمساحته.','Markers show approximate location, not ocean boundaries or area.')+'</small>'+
  '<button type="button" data-page="explore">'+ar('استكشف الكرة الأرضية ↗','Explore the globe ↗')+'</button></div></section>'+
- '<details class="gv292-sources"><summary>'+sourceTitle+'</summary><div id="gvWikiArticle" class="gv-wiki-summary"><p>'+ar('جارٍ تحميل المصادر…','Loading sources…')+'</p></div></details>'+
+ '<details class="gv292-sources"><summary>'+ar('المراجع والمصادر','References and sources')+'</summary><div class="gv292-reference-links">'+
+ '<a href="https://en.wikipedia.org/wiki/'+encodeURIComponent(row[1].replaceAll(' ','_'))+'" target="_blank" rel="noopener noreferrer">'+ar('المقال الموسوعي عن المحيط ↗','Ocean encyclopedia article ↗')+'</a>'+
+ '<a id="gv292ImageSource" href="#" target="_blank" rel="noopener noreferrer" hidden>'+ar('مصدر صورة المحيط ↗','Ocean photo source ↗')+'</a></div></details>'+
+ '<section class="gv292-finish"><h2>'+ar('خلصت قراءة المحيط؟','Finished reading?')+'</h2>'+
+ '<button type="button" id="toggleSeen" class="gv292-learned gv292-finish-button '+(done?'is-learned':'')+'" aria-pressed="'+done+'">'+
+ (done?ar('✓ تعلمت هذا المحيط','✓ Ocean learned'):ar('✓ تعلمت هذا المحيط','✓ I learned this ocean'))+'</button></section>'+
  '<footer class="gv292-footer"><span>'+ar('واصل الاستكشاف','KEEP EXPLORING')+'</span><div class="gv292-nav">'+
  '<button type="button" data-item="oceans:'+prev+'"><small>'+ar('السابق','Previous')+'</small><strong>'+escape(ar(geo.oceans[prev][0],geo.oceans[prev][1]))+'</strong></button>'+
  '<button type="button" data-item="oceans:'+next+'"><small>'+ar('التالي','Next')+'</small><strong>'+escape(ar(geo.oceans[next][0],geo.oceans[next][1]))+'</strong></button></div></footer>'+
@@ -61,11 +66,14 @@ function hydrate(){
  const description=ar(story.ar,story.en);
  const lead=document.getElementById('gv292Intro');
  if(lead)lead.textContent=intro(description);
- const full=document.getElementById('gv292Full');if(full)full.textContent=description;
+ const full=document.getElementById('gv292Full');if(full){const first=intro(description),remaining=description.startsWith(first)?description.slice(first.length).trim():description;full.textContent=remaining||description;}
  const facts=document.getElementById('gv292Facts');
  if(facts&&state.lang==='ar')facts.innerHTML=(story.factsAr||[]).slice(0,2).map(pair=>'<div class="gv292-fact"><span>'+escape(pair[0])+'</span><strong>'+escape(pair[1])+'</strong></div>').join('');
  }
  const slot=document.getElementById('gv292Cover'),entry=photos['oceans:'+state.item];
+ const source=document.getElementById('gv292ImageSource');
+ if(source&&entry?.[1]){const file=String(entry[1]);source.href=file.startsWith('File:')?'https://commons.wikimedia.org/wiki/'+encodeURIComponent(file.replaceAll(' ','_')):'https://en.wikipedia.org/wiki/'+encodeURIComponent(file.replaceAll(' ','_'));source.hidden=false;}
+
  if(slot&&entry&&!slot.querySelector('img')&&typeof entry[0]==='string'&&/^https:\/\/(?:upload|thumb)\.wikimedia\.org\//.test(entry[0])){
  const im=document.createElement('img');im.alt=ar('صورة من المحيط: ','Ocean photograph: ')+ar(row[0],row[1]);im.decoding='async';im.addEventListener('load',()=>slot.classList.add('gv292-has-cover'));
  im.addEventListener('error',()=>im.remove());slot.appendChild(im);im.src=entry[0];
