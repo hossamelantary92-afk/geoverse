@@ -1,0 +1,18 @@
+/* GeoVerse v281: final completion area and compact explanatory diagrams */
+#main .gv281-finish{margin:18px 0 8px;padding:17px 15px;text-align:center;border:1px solid rgba(110,222,205,.6);border-radius:15px;background:linear-gradient(135deg,#0f3d50,#08283e)}
+#main .gv281-finish h2{font-size:clamp(16px,4vw,19px)!important;margin:0 0 10px!important;color:#edfefd!important}
+#main .gv281-finish .gv231-complete{display:inline-flex;align-items:center;justify-content:center;margin:0!important;min-height:44px;max-width:100%}
+#main .gv281-diagram{margin:17px 0 20px;padding:15px 13px;border-radius:15px;background:linear-gradient(140deg,#10384b,#081e32);border:1px solid rgba(103,203,213,.55)}
+#main .gv281-diagram h2{margin:0 0 6px!important;font-size:clamp(17px,4.2vw,21px)!important;color:#e9f9ff!important}
+#main .gv281-diagram .gv281-intro,#main .gv281-diagram .gv281-note{margin:7px 0 14px!important;color:#cae2eb!important;font-size:12px!important;line-height:1.75!important}
+#main .gv281-diagram-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+#main .gv281-diagram figure{margin:0;padding:11px 9px 10px;min-width:0;border:1px solid rgba(136,202,209,.3);border-radius:12px;background:#06182c}
+#main .gv281-diagram figcaption{font-size:13px;color:#9cefe0;font-weight:900;text-align:center;margin-bottom:5px}
+#main .gv281-diagram svg{display:block;width:100%;height:auto;direction:ltr;max-height:126px}
+#main .gv281-diagram figure>p{color:#d3e7ec;font-size:11px!important;line-height:1.65!important;margin:4px 0 0!important;text-align:center}
+#main .gv281-diagram .gv281-note{margin:13px 0 0!important}
+#main .gv281-safety{margin:16px 0;padding:15px;border:1px solid rgba(238,197,114,.7);border-radius:13px;background:rgba(94,65,20,.25)}
+#main .gv281-safety strong{color:#ffe3a0;font-weight:900}
+#main .gv281-safety p{font-size:12px!important;line-height:1.9!important;color:#e5eaf1!important;margin:8px 0!important}
+#main .gv281-safety a{color:#f3d89e;font-size:11px;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:600px){#main .gv281-diagram-grid{grid-template-columns:1fr}#main .gv281-diagram svg{max-height:145px}#main .gv281-finish{padding:15px 12px}}
