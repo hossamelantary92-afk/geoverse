@@ -97,7 +97,24 @@ function hydrate(){
   if(!photo.querySelector('img')){
    const img=document.createElement('img');img.loading='eager';img.decoding='async';img.alt=t('صورة المعلم: ','Place photograph: ')+t(v[0],v[1]);
    img.addEventListener('load',()=>{if(photo.isConnected)photo.classList.add('gv14-has-photo')});
-   img.addEventListener('error',()=>{img.remove();photo.classList.remove('gv14-has-photo')});
+   let fallbacks=Array.isArray(entry[4])?entry[4].filter(u=>typeof u==='string'&&u!==entry[0]):[];
+   let attemptedApi=false;
+   img.addEventListener('error',async()=>{
+    if(!photo.isConnected)return;
+    if(fallbacks.length){img.src=fallbacks.shift();return}
+    if(!attemptedApi&&String(entry[1]||'').startsWith('File:')){
+     attemptedApi=true;
+     try{
+      const endpoint='https://commons.wikimedia.org/w/api.php?action=query&format=json&origin=*&prop=imageinfo&iiprop=url&iiurlwidth=720&titles='+encodeURIComponent(entry[1]);
+      const response=await fetch(endpoint,{mode:'cors'});
+      const data=await response.json();
+      const record=Object.values(data.query?.pages||{})[0]?.imageinfo?.[0];
+      const recovered=record?.thumburl||record?.url;
+      if(recovered&&recovered!==img.src){img.src=recovered;return}
+     }catch(e){}
+    }
+    img.remove();photo.classList.remove('gv14-has-photo');
+   });
    photo.insertBefore(img,photo.firstChild);
    img.src=entry[0];
    if(entry[2]){
@@ -124,7 +141,7 @@ render=function(){
  else if(state.page==='detail')hydrate();
  else if(state.page==='country-v4')tidyCountry();
 };
-Promise.allSettled([fetch('./geo-stories.json?v=gv296-ocean-audit').then(r=>{if(!r.ok)throw Error('stories');return r.json()}),fetch('./photo-manifest-v13.json?v=gv308-yangtze-landscape').then(r=>{if(!r.ok)throw Error('photos');return r.json()})])
+Promise.allSettled([fetch('./geo-stories.json?v=gv296-ocean-audit').then(r=>{if(!r.ok)throw Error('stories');return r.json()}),fetch('./photo-manifest-v13.json?v=gv309-river-image-stability').then(r=>{if(!r.ok)throw Error('photos');return r.json()})])
 .then(result=>{
  if(result[0].status==='fulfilled')content.stories=result[0].value.stories||{};
  if(result[1].status==='fulfilled')content.photos=result[1].value.photos||{};
