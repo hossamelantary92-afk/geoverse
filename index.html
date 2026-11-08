@@ -78,6 +78,100 @@ catch(e){document.documentElement.dataset.gvInitialTheme='dark'}
  #app>.topbar #menuBtn{display:inline-flex!important;align-items:center;justify-content:center}
 }
 </style>
+
+<style id="gv219-laptop-polish">
+/* Desktop header: one balanced row. Existing mobile header remains intact. */
+@media (min-width:821px){
+ #app>.topbar{
+   display:grid!important;
+   grid-template-columns:minmax(190px,1fr) auto minmax(190px,1fr)!important;
+   align-items:center!important;
+   column-gap:18px!important;
+   height:76px!important;
+   padding:9px clamp(18px,2.3vw,38px)!important;
+ }
+ #app>.topbar>.brand{grid-column:1;grid-row:1;justify-self:start!important;min-width:0!important}
+ #app>.topbar>.topnav{grid-column:2;grid-row:1;justify-self:center!important;display:flex!important;align-items:center!important;gap:4px!important;min-width:0!important}
+ #app>.topbar>.topnav button{font-size:12px!important;padding:9px clamp(8px,.9vw,13px)!important;white-space:nowrap!important}
+ #app>.topbar>.head-actions{grid-column:3;grid-row:1;justify-self:end!important;display:flex!important;gap:8px!important;align-items:center!important}
+ #app>.topbar #menuBtn,#app>.topbar #menuTopics{display:none!important}
+ #app>.topbar .brand-icon svg{width:45px!important;height:45px!important}
+ #app>.topbar .brand strong{font-size:clamp(23px,2vw,29px)!important}
+ #app>.topbar .brand small{font-size:9px!important}
+}
+/* Main page cinematic header: stop inheriting large spacer margins from older mobile-first themes. */
+@media (min-width:901px){
+ #main .gv11-hero{
+   position:relative!important;
+   display:block!important;
+   height:clamp(405px,34vw,465px)!important;
+   min-height:0!important;
+   padding:0!important;
+   overflow:hidden!important;
+   isolation:isolate!important;
+ }
+ #main .gv11-hero .gv11-copy{
+   position:absolute!important;
+   z-index:6!important;
+   top:clamp(38px,5vw,69px)!important;
+   right:clamp(28px,4vw,72px)!important;
+   left:auto!important;
+   width:min(50%,555px)!important;
+   max-width:none!important;
+   margin:0!important;
+   text-align:right!important;
+ }
+ #main .gv11-hero .gv11-copy h1{font-size:clamp(35px,4vw,57px)!important;line-height:1.27!important;margin:13px 0 10px!important}
+ #main .gv11-hero .gv11-copy p{font-size:clamp(12px,1.12vw,15px)!important;line-height:1.85!important;max-width:490px!important}
+ #main .gv11-hero .gv11-actions{
+   display:flex!important;justify-content:flex-start!important;
+   align-items:center!important;flex-wrap:wrap!important;
+   gap:12px!important;margin-top:21px!important
+ }
+ #main .gv11-hero .gv11-actions button{
+   min-height:44px!important;padding:10px 18px!important;
+   white-space:nowrap!important;
+ }
+ #main .gv11-hero .gv11-planet{
+   position:absolute!important;
+   z-index:2!important;
+   inset:auto!important;
+   top:clamp(23px,3vw,40px)!important;
+   left:clamp(24px,4vw,68px)!important;
+   right:auto!important;
+   bottom:auto!important;
+   width:min(43%,440px)!important;
+   height:clamp(285px,28vw,350px)!important;
+   min-height:0!important;
+   transform:none!important;
+   margin:0!important;
+   pointer-events:none!important;
+ }
+ #main .gv11-hero .gv11-globe{width:100%!important;height:100%!important;inset:0!important;pointer-events:auto!important}
+ #main .gv11-hero .gv11-stats{
+   display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;
+   position:absolute!important;z-index:8!important;
+   inset:auto clamp(20px,2.6vw,36px) 17px clamp(20px,2.6vw,36px)!important;
+   width:auto!important;height:auto!important;min-height:69px!important;
+   margin:0!important;padding:10px 7px!important;
+   background:linear-gradient(110deg,rgba(5,37,62,.79),rgba(5,29,53,.86))!important;
+   backdrop-filter:blur(13px)!important;
+ }
+ #main .gv11-hero .gv11-horizon{bottom:0!important;height:68px!important;opacity:.35!important}
+ #main .gv11-categories{margin-top:23px!important}
+}
+@media (min-width:821px) and (max-width:1100px){
+ #app>.topbar{grid-template-columns:minmax(140px,1fr) auto minmax(115px,1fr)!important;column-gap:8px!important;padding-inline:14px!important}
+ #app>.topbar>.topnav button{font-size:11px!important;padding:8px 7px!important}
+ #app>.topbar>.head-actions{gap:4px!important}
+ #app>.topbar .brand strong{font-size:22px!important}
+}
+@media (min-width:901px) and (max-width:1100px){
+ #main .gv11-hero .gv11-copy{right:25px!important;width:53%!important}
+ #main .gv11-hero .gv11-planet{left:14px!important;width:43%!important}
+ #main .gv11-hero .gv11-copy h1{font-size:35px!important}
+}
+</style>
 </head>
 <body>
 <div id="gv137-loader" class="gv137-visible" aria-hidden="false" aria-busy="true" role="status" aria-label="GeoVerse">
