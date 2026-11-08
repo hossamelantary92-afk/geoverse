@@ -33,10 +33,10 @@
   .gv231-detail{display:block!important;min-height:0!important;}
   .gv231-detail > .gv231-detail-image{display:block!important;position:relative;height:220px!important;min-height:0!important;max-height:220px!important;overflow:hidden;}
   .gv231-detail > .gv231-detail-image img{position:absolute;inset:0;display:block;width:100%!important;height:100%!important;object-fit:cover;object-position:center center;}
-  .gv231-detail > .gv231-detail-image[data-astro-key="moon-phases"]{height:370px!important;max-height:370px!important;background:#071b30;}
+  .gv231-detail > .gv231-detail-image[data-astro-key="moon-phases"]{height:490px!important;max-height:490px!important;background:#071b30;}
   .gv231-detail > .gv231-detail-image[data-astro-key="moon-phases"] img{object-fit:contain!important;}
   .gv231-detail-image>span{top:12px;inset-inline-start:12px;}
 }
 @media(max-width:390px){
-  .gv231-detail > .gv231-detail-image[data-astro-key="moon-phases"]{height:350px!important;max-height:350px!important;}
+  .gv231-detail > .gv231-detail-image[data-astro-key="moon-phases"]{height:450px!important;max-height:450px!important;}
 }
