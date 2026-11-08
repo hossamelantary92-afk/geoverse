@@ -12,10 +12,10 @@ const regions={
 let stories={},photos={},land=null,loadStarted=false;
 const ar=(a,b)=>state.lang==='ar'?a:b;
 const escape=x=>escapeHTML(String(x??''));
-const stop=x=>String(x||'').trim().replace(/\\s+/g,' ');
+const stop=x=>String(x||'').trim().replace(/\s+/g,' ');
 function intro(text){
  const s=stop(text);
- const first=s.match(/^(.+?[.!؟])(?:\\s|$)/);
+ const first=s.match(/^(.+?[.!؟])(?:\s|$)/);
  return first?first[1]:s.slice(0,165);
 }
 const current=()=>state.page==='detail'&&state.category==='oceans';
