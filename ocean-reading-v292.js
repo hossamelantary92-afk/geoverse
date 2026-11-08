@@ -68,7 +68,7 @@ function hydrate(){
  }
  const slot=document.getElementById('gv292Cover'),entry=photos['oceans:'+state.item];
 
- if(slot&&entry&&!slot.querySelector('img')&&typeof entry[0]==='string'&&/^https:\/\/(?:upload|thumb)\.wikimedia\.org\//.test(entry[0])){
+ if(slot&&entry&&!slot.querySelector('img')&&typeof entry[0]==='string'&&/^https:\/\/(?:(?:upload|thumb)\.wikimedia\.org\/|commons\.wikimedia\.org\/wiki\/Special:Redirect\/file\/)/.test(entry[0])){
  const im=document.createElement('img');im.alt=ar('صورة من المحيط: ','Ocean photograph: ')+ar(row[0],row[1]);im.decoding='async';im.addEventListener('load',()=>slot.classList.add('gv292-has-cover'));
  im.addEventListener('error',()=>im.remove());slot.appendChild(im);im.src=entry[0];
  }
@@ -89,8 +89,8 @@ function buildMap(node,key){
 function load(){
  if(loadStarted)return;loadStarted=true;
  Promise.allSettled([
- fetch('./geo-stories.json?v=gv290-major-rivers').then(r=>r.ok?r.json():Promise.reject()),
- fetch('./photo-manifest-v13.json?v=gv291-major-river-photos').then(r=>r.ok?r.json():Promise.reject()),
+ fetch('./geo-stories.json?v=gv296-ocean-audit').then(r=>r.ok?r.json():Promise.reject()),
+ fetch('./photo-manifest-v13.json?v=gv296-ocean-covers').then(r=>r.ok?r.json():Promise.reject()),
  fetch('./world.geojson?v=gv292-ocean-map').then(r=>r.ok?r.json():Promise.reject())
  ]).then(([a,b,c])=>{
  if(a.status==='fulfilled')stories=a.value.stories||{};
