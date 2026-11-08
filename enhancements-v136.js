@@ -446,7 +446,8 @@ function initGlobe(){
   const coords=v&&typeof isLayerShape==='function'?isLayerShape(state.category,v):null;
   if(coords&&Array.isArray(coords)&&coords.length){
    const multi=Array.isArray(coords[0][0]);
-   if(state.category==='rivers'||state.category==='mountains')featureLine={points:coords.map(([lng,lat])=>({lng,lat}))};
+   if(state.category==='mountains')featureLine={points:coords.map(([lng,lat])=>({lng,lat}))};
+   // Rivers: do not draw a thick speculative route. Keep the precise, subtle position pin.
    else if(multi)featureOverlay={type:'Feature',properties:{gvOverlay:true,name:lang(v[0],v[1])},geometry:{type:'MultiPolygon',coordinates:coords.map(p=>[p])}};
    else if(coords.length>=4)featureOverlay={type:'Feature',properties:{gvOverlay:true,name:lang(v[0],v[1])},geometry:{type:'Polygon',coordinates:[coords]}};
   }
@@ -516,9 +517,9 @@ function initGlobe(){
    const pin={lat:v[4],lng:v[5],name:lang(v[0],v[1])};
    let focusedPin=null;
    g.pointsData([pin]).pointLat('lat').pointLng('lng')
-    .pointAltitude(d=>d===focusedPin?.11:.065)
-    .pointRadius(d=>d===focusedPin?1.15:.72)
-    .pointColor(d=>d===focusedPin?'#67ffde':'#ffd67b')
+    .pointAltitude(d=>state.category==='rivers'?.018:(d===focusedPin?.11:.065))
+    .pointRadius(d=>state.category==='rivers'?.28:(d===focusedPin?1.15:.72))
+    .pointColor(d=>state.category==='rivers'?'#58e7d2':(d===focusedPin?'#67ffde':'#ffd67b'))
     .pointLabel(d=>escapeHTML(d.name));
    if(isTouristPoint&&typeof g.onPointClick==='function'){
     g.onPointClick(d=>{
