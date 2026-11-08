@@ -24,7 +24,7 @@ function hero(){
  '<div class="gv11-stars" aria-hidden="true"></div>'+
  '<div class="gv11-copy"><span class="gv11-eyebrow">✧ GEOVERSE <i></i></span><h1 id="gv11Title">'+t('العالم بين <em>إيديك</em>','The World in <em>Your Hands</em>')+'</h1>'+
  '<p>'+t('اكتشف جمال عالمنا وطبيعته، من أعماق المحيطات إلى قمم الجبال، في تجربة تفاعلية غنية وممتعة.','Explore the beauty of our planet, from oceans to mountains, through immersive geography.')+'</p>'+
- '<div class="gv11-actions"><button type="button" class="gv11-gold" data-page="learn">'+icon('explore',18)+t('ابدأ الرحلة','Start learning')+'</button><button type="button" class="gv11-outline" data-page="explore">'+icon('explore',18)+t('استكشف الخريطة','Explore the map')+'</button></div></div>'+
+ '<div class="gv11-actions"><button type="button" class="gv11-gold" data-page="explore">'+icon('explore',18)+t('استكشف الخريطة','Explore the map')+'</button></div></div>'+
  '<div class="gv11-planet"><div class="gv11-earth-glow"></div><div class="gv11-orbit"></div><div id="gvHomeGlobe" class="gv-home-globe gv10-globe gv11-globe" role="group" aria-label="'+t('كرة أرضية تفاعلية ثلاثية الأبعاد','Interactive 3D Earth')+'"></div></div>'+
  '<div class="gv11-horizon" aria-hidden="true"><div class="gv11-cloud"></div><svg viewBox="0 0 1000 140" preserveAspectRatio="none"><path d="m0 140 75-45 62 17 90-72 85 93 110-96 80 90 100-87 105 100 83-62 100 48 110-66v80Z" fill="#07334e"/><path d="m207 65 20-25 25 30-23-9-10 11zm198-6 17-22 22 33-22-11-10 9z" fill="#a5cee0" opacity=".55"/></svg></div>'+
  '<div class="gv11-stats">'+stats.map(v=>'<div class="gv11-stat">'+icon(v[0],24)+'<strong>'+v[1]+'</strong><span>'+v[2]+'</span></div>').join('')+'</div></section>';
