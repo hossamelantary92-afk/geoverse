@@ -52,3 +52,18 @@ body.light .gv292-ocean .gv292-hero,body.light .gv292-ocean .gv292-panel,body.li
 @media(max-width:600px){.gv292-ocean{gap:12px;padding-bottom:25px}.gv292-hero,.gv292-panel{border-radius:17px}.gv292-cover{height:205px;min-height:205px}.gv292-hero-copy{padding:20px 19px}.gv292-hero h1{font-size:29px}.gv292-hero-copy p{font-size:13px;line-height:1.75}.gv292-panel{padding:19px 17px}.gv292-panel h2{font-size:21px;margin-bottom:11px}.gv292-lead{font-size:13px;line-height:1.95;margin-bottom:16px}.gv292-facts{gap:9px}.gv292-fact{padding:12px 11px;gap:6px}.gv292-fact span{font-size:11px}.gv292-fact strong{font-size:12px;line-height:1.7}.gv292-world-map{min-height:170px}.gv292-map-footer{flex-direction:column;align-items:stretch}.gv292-map-footer button{align-self:flex-start}.gv292-nav button{padding:12px 13px}.gv292-footer{padding:17px}.gv292-details details p{padding:15px;font-size:13px}}
 @media(max-width:365px){.gv292-facts{grid-template-columns:1fr}.gv292-cover{height:180px;min-height:180px}}
 @media(prefers-reduced-motion:reduce){.gv292-ocean *{scroll-behavior:auto!important;transition:none!important}}
+
+/* v293 — source-only references and lesson completion, without embedded legacy cards */
+.gv292-reference-links{display:flex;flex-wrap:wrap;gap:10px;padding:2px 0 21px}
+.gv292-reference-links a{display:inline-flex;align-items:center;gap:6px;border:1px solid #437c8c;background:#0b3b50;color:#baf5ed;border-radius:12px;text-decoration:none;font-size:13px;font-weight:850;padding:11px 14px;line-height:1.6}
+.gv292-reference-links a[hidden]{display:none!important}
+.gv292-reference-links a:hover{background:#12556a;color:#fff}
+.gv292-finish{margin-top:1px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:17px;padding:26px 20px 29px;border:1px solid #4fa8a7;border-radius:21px;background:linear-gradient(130deg,#0b3949,#092b3e);box-shadow:0 14px 32px #0004}
+.gv292-finish h2{margin:0;font-size:clamp(20px,2.7vw,27px);color:#f8ffff;font-weight:900;line-height:1.5}
+.gv292-finish-button{font-size:clamp(15px,2vw,19px);padding:14px 27px;min-height:55px;border-radius:17px;background:linear-gradient(115deg,#8cf0cb,#38c9c6);border:1px solid #9df7dc;color:#073a3d;box-shadow:0 9px 30px #37cec63b;font-weight:950;align-self:center}
+.gv292-finish-button.is-learned{background:#13545c;border-color:#78e1ce;color:#effffc}
+.gv292-footer{box-shadow:none;background:transparent;border:0;padding:5px 0 0}
+.gv292-footer>span{display:block;margin:0 4px 10px}
+.gv292-nav{margin-top:0}
+.gv292-nav button{min-height:68px}
+@media(max-width:600px){.gv292-finish{padding:23px 13px;gap:15px;border-radius:17px}.gv292-finish-button{font-size:16px;min-height:51px;width:min(100%,275px)}.gv292-footer{padding:2px 0 0}.gv292-reference-links a{font-size:12px}}
