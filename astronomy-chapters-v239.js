@@ -43,7 +43,7 @@ function overview(){
 function lessonCard(id){
  const {e,i}=map[id];
  return '<button type="button" class="gv239-topic" data-astro-open="'+i+'" data-astro-key="'+id+'">'+
- '<img loading="lazy" decoding="async" src="'+photo(e)+'" data-gv244-fallback="'+(e.officialImage?fallback(e):'')+'" data-gv244-kind="'+(e.id==='jupiter-moons'?'montage':(e.id==='saturn-moons'?'wide':'standard'))+'" alt="'+esc(T(e.ar,e.en))+'">'+
+ '<img loading="lazy" decoding="async" src="'+photo(e)+'" data-gv244-fallback="'+(e.officialImage?fallback(e):'')+'" data-gv244-kind="'+(['jupiter-moons','saturn-moons','moon-phases','star-life','galaxy-types','tides','expanding-universe','seasons','eclipses','system'].includes(e.id)?'montage':'standard')+'" alt="'+esc(T(e.ar,e.en))+'">'+
  '<span class="gv239-topic-copy"><small>'+T(e.typeAr,e.typeEn)+'</small><strong>'+T(e.ar,e.en)+'</strong><span>'+esc(T(e.tagAr,e.tagEn))+'</span></span>'+
  '<span class="gv239-topic-status">'+(completed(i)?T('✓ تم التعلم','✓ Learned'):T('اقرأ الدرس ↗','Read lesson ↗'))+'</span></button>';
 }
