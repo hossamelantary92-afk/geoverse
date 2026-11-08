@@ -30,6 +30,23 @@ originals.forEach((a,i)=>{
  geo.tourism[i][3]=facts[i][1]+' · '+a.cityEn+', '+a.countryEn+'.';
  const group=byCode.get(a.code)||[];group.push(a);byCode.set(a.code,group);
 });
+
+// Asian tourism expansion; preserve all prior attraction indices (0–47).
+const asianCountries=[["TH","تايلاند","Thailand"],["ID","إندونيسيا","Indonesia"],["KR","كوريا الجنوبية","South Korea"],["VN","فيتنام","Vietnam"]];
+const asianFacts=[["مجمع ملكي في بانكوك شُيّد منذ أواخر القرن الثامن عشر ويضم معبد بوذا الزمردي.","A historic Bangkok royal complex that houses the Temple of the Emerald Buddha."],["معبد بوذي على الضفة الغربية لنهر تشاو فرايا يشتهر ببرجه المزخرف بالخزف.","A riverside Buddhist temple celebrated for its porcelain-decorated central prang."],["من أقدم معابد بانكوك ويشتهر بتمثال بوذا المتكئ الضخم.","A historic Bangkok temple famous for its giant reclining Buddha."],["أطلال عاصمة مملكة أيوثايا التاريخية ومعابدها وأبراجها.","Ruins of the historic Ayutthaya kingdom's capital and its temples."],["معبد بوذي ضخم من القرن الثامن والتاسع في جاوة الوسطى.","A monumental eighth–ninth century Buddhist temple in Central Java."],["مجمع معابد هندوسية من القرن التاسع في جاوة يشتهر بأبراجه الحجرية.","A ninth-century Hindu temple compound known for soaring stone towers."],["مزار بحري في بالي قائم فوق تشكيل صخري قبالة الساحل.","A Balinese sea temple standing on an offshore rocky outcrop."],["نصب في ساحة ميرديكا بجاكرتا يخلد استقلال إندونيسيا.","A Jakarta landmark commemorating Indonesian independence."],["القصر الملكي الرئيسي في عهد سلالة جوسون وأحد أشهر معالم سيول.","The principal palace of Korea's Joseon dynasty in Seoul."],["حي تاريخي في سيول يضم منازل هانوك تقليدية وسط المدينة.","A Seoul neighborhood with preserved traditional hanok houses."],["برج اتصالات ومشاهدة على جبل نامسان يوفر إطلالات على سيول.","An observation tower on Namsan offering panoramic views of Seoul."],["معبد بوذي تاريخي قرب غيونغجو يرتبط بتراث مملكة شلا.","A Buddhist temple near Gyeongju associated with the Silla kingdom."],["مجمع تعليمي كونفوشي تاريخي تأسس في القرن الحادي عشر في هانوي.","An eleventh-century Confucian temple and historic academy in Hanoi."],["مدينة تجارية قديمة ذات شوارع ومبانٍ تاريخية متعددة التأثيرات.","A historic trading town with a mix of architectural traditions."],["خليج معروف بجزره وتكويناته الجيرية البارزة فوق المياه.","A bay of dramatic limestone islands and karst scenery."],["مجمع القلعة والقصور التاريخية المرتبط بسلالة نغوين في هيو.","A former imperial citadel and palace complex of the Nguyễn dynasty."]];
+const asianCities=[["بانكوك","Bangkok"],["بانكوك","Bangkok"],["بانكوك","Bangkok"],["أيوثايا","Ayutthaya"],["ماجيلانغ","Magelang"],["برامبانان","Prambanan"],["بالي","Bali"],["جاكرتا","Jakarta"],["سيول","Seoul"],["سيول","Seoul"],["سيول","Seoul"],["غيونغجو","Gyeongju"],["هانوي","Hanoi"],["هوي آن","Hội An"],["كوانغ نينه","Quảng Ninh"],["هيو","Huế"]];
+const asianWiki=["Grand_Palace","Wat_Arun","Wat_Pho","Ayutthaya_Historical_Park","Borobudur","Prambanan","Tanah_Lot","National_Monument_(Indonesia)","Gyeongbokgung","Bukchon_Hanok_Village","N_Seoul_Tower","Bulguksa","Temple_of_Literature,_Hanoi","Hội_An","Hạ_Long_Bay","Imperial_City_of_Huế"];
+asianCountries.forEach(c=>countries.push(c));
+for(let j=0;j<asianFacts.length;j++){
+ const i=48+j, country=countries[12+Math.floor(j/4)], p=geo.tourism[i];
+ if(!p)continue;
+ const [factAr,factEn]=asianFacts[j];
+ p[2]=factAr+' · '+asianCities[j][0]+'، '+country[1]+'.';
+ p[3]=factEn+' · '+asianCities[j][1]+', '+country[2]+'.';
+ const item={index:i,code:country[0],countryAr:country[1],countryEn:country[2],cityAr:asianCities[j][0],cityEn:asianCities[j][1],nameAr:p[0],nameEn:p[1],factAr,factEn,wiki:asianWiki[j]};
+ originals.push(item);
+ const group=byCode.get(item.code)||[];group.push(item);byCode.set(item.code,group);
+}
 window.GeoVerseTourismV170={getByCountry:code=>byCode.get(code)||[],items:originals};
 function countrySection(code){
  const items=byCode.get(code);if(!items?.length)return null;
@@ -196,7 +213,7 @@ function filterPins(map){
   pin.classList.toggle('gv170-tourism-visible',!!show);
  });
  const count=$(chooser,'.gv170-tourism-count');
- if(count)count.textContent=selected?t('٤ مزارات محددة','4 selected attractions'):t('١٢ دولة · اختر دولة للمزيد','12 countries · choose one for more');
+ if(count)count.textContent=selected?t('٤ مزارات محددة','4 selected attractions'):t('١٦ دولة · اختر دولة للمزيد','16 countries · choose one for more');
  // The initial 12 markers are entry points; the full 48 remain in data and country pages.
 }
 let queued=false;
