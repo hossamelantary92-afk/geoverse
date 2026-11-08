@@ -9,7 +9,7 @@ const countries=[
  ['TR','تركيا','Turkey','🇹🇷'],['ES','إسبانيا','Spain','🇪🇸'],
  ['GB','المملكة المتحدة','United Kingdom','🇬🇧'],['US','الولايات المتحدة','United States','🇺🇸'],
  ['CN','الصين','China','🇨🇳'],['IN','الهند','India','🇮🇳'],
- ['JP','اليابان','Japan','🇯🇵'],['AE','الإمارات','United Arab Emirates','🇦🇪']
+ ['JP','اليابان','Japan','🇯🇵'],['AE','الإمارات','United Arab Emirates','🇦🇪'],["TH","تايلاند","Thailand","🇹🇭"],["ID","إندونيسيا","Indonesia","🇮🇩"],["KR","كوريا الجنوبية","South Korea","🇰🇷"],["VN","فيتنام","Vietnam","🇻🇳"]
 ];
 let selected='';
 const t=(ar,en)=>state.lang==='ar'?ar:en;
