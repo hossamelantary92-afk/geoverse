@@ -126,7 +126,7 @@ photo.hydrate=function(){
   photo.mount(box,src,box.dataset.placeName||'',article,item[4]);
  });
 };
-photo.ready=fetch('./photo-manifest-v13.json?v=gv309-river-image-stability').then(r=>{
+photo.ready=fetch('./photo-manifest-v13.json?v=gv310-river-image-audit').then(r=>{
  if(!r.ok)throw Error('Photo reference manifest unavailable');
  return r.json();
 }).then(data=>{
