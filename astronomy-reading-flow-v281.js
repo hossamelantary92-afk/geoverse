@@ -55,6 +55,18 @@ detail=function(){
    const repeated=wrap.querySelector('.gv277-facts>li:first-child .gv277-fact-more');
    if(repeated)repeated.remove();
   }
+  if(item.id==='tides'){
+   // Visual explanation replaces the wordy three-card comparison, with identical science.
+   const panel='<section class="gv285-tides-panel" aria-label="المد القوي والمد الضعيف">'+
+    '<h2>متى يقوى المد ومتى يضعف؟</h2>'+
+    '<p>يعتمد مدى المد والجزر على موضع الشمس والقمر بالنسبة إلى الأرض، مع اختلاف النتائج الفعلية بين السواحل.</p>'+
+    '<img src="./assets/tides-spring-neap-ar-v285.svg" alt="رسم عربي يقارن المد القوي عند المحاق والبدر بالمد الضعيف عند التربيعين، ويوضح اختلاف مدى المد والجزر" loading="lazy" decoding="async">'+
+    '<small>رسم تعليمي مبسط لا يمثل الأحجام أو المسافات الحقيقية. <a href="https://oceanservice.noaa.gov/facts/springtide.html" target="_blank" rel="noopener noreferrer">المصدر العلمي: NOAA ↗</a></small>'+
+    '</section>';
+   const comparison=wrap.querySelector('.gv278-compare');
+   if(comparison){comparison.insertAdjacentHTML('beforebegin',panel);comparison.remove()}
+   else nav.insertAdjacentHTML('beforebegin',panel);
+  }
   if(item.id==='eclipses'){
    // The diagram conveys both alignments visually, so the prose comparison is redundant.
    const comparison=wrap.querySelector('.gv278-compare');
