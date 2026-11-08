@@ -83,3 +83,33 @@
  .gv239-topic img[data-gv244-kind="montage"],
  .gv239-topic img[data-gv244-kind="wide"]{padding:1px}
 }
+
+/* v246: real image elements, visible on Safari and backed by an image error fallback */
+.gv239-chapter{isolation:isolate}
+.gv239-chapter>.gv239-image{
+ position:absolute;inset:0;display:block;z-index:0!important;overflow:hidden;
+ background:#0b243b;
+}
+.gv246-cover-img{display:block;width:100%;height:100%;object-fit:cover;object-position:center center}
+.gv239-chapter>.gv239-image::after{
+ content:"";position:absolute;inset:0;pointer-events:none;
+ background:linear-gradient(180deg,rgba(2,16,30,.13) 0%,rgba(2,16,30,.22) 36%,rgba(2,16,30,.78) 70%,rgba(2,16,30,.91) 100%);
+}
+.gv239-chapter>.gv239-card-index,.gv239-chapter>.gv239-chapter-body{position:relative;z-index:2}
+.gv239-chapter[data-gv239-chapter="solar"] .gv246-cover-img{object-position:54% 38%}
+.gv239-chapter[data-gv239-chapter="earthmoon"] .gv246-cover-img{object-position:48% 30%}
+.gv239-chapter[data-gv239-chapter="small"] .gv246-cover-img{object-position:52% 28%}
+.gv239-chapter[data-gv239-chapter="galaxies"] .gv246-cover-img{object-position:center 30%}
+.gv239-chapter-hero{position:relative;isolation:isolate;overflow:hidden;background-image:none!important}
+.gv246-hero-image{position:absolute;inset:0;z-index:0;display:block;pointer-events:none}
+.gv246-hero-image::after{
+ content:"";position:absolute;inset:0;
+ background:linear-gradient(90deg,rgba(2,16,31,.91),rgba(2,20,36,.43)),linear-gradient(0deg,rgba(2,14,27,.55),transparent 65%);
+}
+.gv239-chapter-hero>.gv231-eyebrow,.gv239-chapter-hero>h2,.gv239-chapter-hero>p,.gv239-chapter-hero>div{position:relative;z-index:2}
+@media(max-width:700px){
+ .gv239-chapter>.gv239-image::after{
+ background:linear-gradient(180deg,rgba(2,16,30,.1) 0%,rgba(2,16,30,.22) 32%,rgba(2,16,30,.75) 67%,rgba(2,16,30,.92) 100%);
+ }
+ .gv246-hero-image::after{background:linear-gradient(0deg,rgba(2,14,27,.88),rgba(2,14,27,.20))}
+}
