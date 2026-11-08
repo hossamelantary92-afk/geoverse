@@ -63,7 +63,7 @@ itemCards=function(list){
  return '<section class="gv196-country-landmarks gv210-country-page">'+
   '<header class="gv196-country-title gv210-country-header">'+
    '<div class="gv210-country-heading"><div class="gv210-country-titles"><span class="gv210-section-label">'+t('مزارات سياحية','TOURIST LANDMARKS')+'</span><h2>'+esc(t(first.countryAr,first.countryEn))+'</h2><span class="gv210-count">'+rows.length+' '+t('مزارات سياحية','tourist landmarks')+'</span></div>'+
-   '<button type="button" class="gv181-back gv209-back gv210-back" data-gv181-back="1"><span class="gv209-back-icon" aria-hidden="true">↩</span><span>'+t('العودة لكل الدول','Back to all countries')+'</span></button></div>'+
+   '</div>'
   '</header>'+
   '<div class="gv196-grid gv210-landmark-grid">'+(filtered.map(card).join('')||'<p class="gv196-empty">'+t('لا توجد معالم مطابقة للبحث','No landmarks match your search')+'</p>')+'</div>'+
  '</section>';
@@ -115,6 +115,14 @@ categoryPage=function(){
  if(state.category!=='tourism'||typeof html!=='string')return html;
  // Eliminate the image URL in the section banner itself, not merely by CSS.
  const doc=new DOMParser().parseFromString('<main>'+html+'</main>','text/html');
+ // Navigation is contextual: country first, then the wider topics catalogue.
+ const topBack=doc.querySelector('button.back[data-page="all"]');
+ if(topBack&&selected()){
+  topBack.removeAttribute('data-page');
+  topBack.setAttribute('data-gv181-back','1');
+  topBack.textContent=(ar()?'↩ العودة لكل الدول':'↩ Back to all countries');
+  topBack.setAttribute('aria-label',ar()?'العودة لكل الدول':'Back to all countries');
+ }
  const banner=doc.querySelector('.category-detail-banner');
  if(banner){banner.removeAttribute('style');banner.classList.add('gv196-category-banner')}
  // Tourism has its own country/landmark navigation below; remove redundant
