@@ -63,7 +63,7 @@ function card(g,index){
  '<span class="gv239-chapter-meta"><span class="gv239-card-count"><bdi dir="ltr">'+st.count+' / '+st.total+'</bdi> '+T('مكتمل','completed')+'</span><span class="gv239-enter">'+T('استكشف','Explore')+' ↗</span></span></span></button>';
 }
 function overview(){
- return '<section class="gv239-taxonomy"><div class="gv239-head"><h2>'+T('اكتشف الجغرافيا الفلكية في 6 أقسام','Explore Astronomy in 6 Chapters')+'</h2></div><div class="gv239-summary"><span><b>'+atlas.entries.length+'</b> '+T('موضوعًا متاحًا','available lessons')+'</span><span><b>38</b> '+T('موضوعًا مستهدفًا','planned topics')+'</span><span><b>6</b> '+T('أقسام','chapters')+'</span></div>'+
+ return '<section class="gv239-taxonomy"><div class="gv239-head"><h2>'+T('أقسام الجغرافيا الفلكية','Astronomy Chapters')+'</h2></div><div class="gv239-summary"><span><b>'+atlas.entries.length+'</b> '+T('متاح','Available')+'</span><span><b>38</b> '+T('مستهدف','Planned')+'</span><span><b>6</b> '+T('أقسام','chapters')+'</span></div>'+
  '<div class="gv239-chapters">'+sections.map(card).join('')+'</div></section>';
 }
 function lessonCard(id){
