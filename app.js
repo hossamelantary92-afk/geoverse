@@ -180,7 +180,7 @@ function categoryPage(){
  return '<button class="back" data-page="all">→ '+lang('جميع الأقسام','All topics')+'</button>'+
  '<div class="category-detail-banner" style="background-image:linear-gradient(0deg,#061b2af5,#051b2b29),url(\''+(window.GeoVersePremiumCovers?.get(c.id,1400)||im(c.img,1400))+'\')"><div><span class="eyebrow">GEOVERSE FIELD GUIDE</span><h1>'+c.emoji+' '+escapeHTML(label(c))+'</h1><p>'+escapeHTML(lang(c.descAr,c.descEn))+'</p><span class="banner-count">'+items.length+' '+lang('مكانًا ومعلمًا لاستكشافه','places to explore')+'</span></div></div>'+
  '<div class="topic-intro"><span class="intro-eyebrow">📖 '+lang('أساسيات الجغرافيا · GEOGRAPHY 101','GEOGRAPHY 101 · THE BASICS')+'</span><h2>'+lang('ما المقصود بـ','What are')+' '+escapeHTML(label(c))+'؟</h2><p>'+escapeHTML(lang(...(topicDefinitions[c.id]||[c.descAr||'',c.descEn||''])))+'</p>'+gvTopicLessonHtml(c.id)+'</div>'+
- (c.id==='oceans'?'':'<div class="topic-actionbar"><div><h2>'+lang('استكشف المعالم','Explore Places')+'</h2></div><button class="secondary" data-page="explore">🗺️ '+lang('الخريطة التفاعلية','Interactive Atlas')+'</button></div>')+
+ (['oceans','rivers'].includes(c.id)?'':'<div class="topic-actionbar"><div><h2>'+lang('استكشف المعالم','Explore Places')+'</h2></div><button class="secondary" data-page="explore">🗺️ '+lang('الخريطة التفاعلية','Interactive Atlas')+'</button></div>')+
  '<input class="search-input" id="categoryFilter" placeholder="'+lang('ابحث عن دولة أو معلم داخل القسم...','Search places in this topic...')+'" value="'+escapeHTML(state.filter)+'"><div class="items-grid" id="categoryItems">'+itemCards(items)+'</div>';
 }
 
