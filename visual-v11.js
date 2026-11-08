@@ -29,16 +29,17 @@ function hero(){
  '<div class="gv11-horizon" aria-hidden="true"><div class="gv11-cloud"></div><svg viewBox="0 0 1000 140" preserveAspectRatio="none"><path d="m0 140 75-45 62 17 90-72 85 93 110-96 80 90 100-87 105 100 83-62 100 48 110-66v80Z" fill="#07334e"/><path d="m207 65 20-25 25 30-23-9-10 11zm198-6 17-22 22 33-22-11-10 9z" fill="#a5cee0" opacity=".55"/></svg></div>'+
  '<div class="gv11-stats">'+stats.map(v=>'<div class="gv11-stat">'+icon(v[0],24)+'<strong>'+v[1]+'</strong><span>'+v[2]+'</span></div>').join('')+'</div></section>';
 }
-const featured=['countries','tourism','mountains','oceans','rivers','deserts'];
+const featured=['countries','astronomy','tourism','mountains','oceans','rivers','deserts'];
 const featuredPhotos={
  countries:'photo-1519501025264-65ba15a82390', // sunlit city skyline
+ astronomy:'photo-1462331940025-496dfbfc7564', // deep-space nebula
  tourism:'photo-1533105079780-92b9be482077',  // warm architectural heritage
  mountains:'photo-1464822759023-fed622ff2c3b', // snow-capped alpine mountains
  oceans:'photo-1518837695005-2083093ee35b',   // deep-blue ocean
  rivers:'photo-1591081658714-f576fb7ea3ed',   // aerial winding river through green forest
  deserts:'photo-1509316785289-025f5b846b35'   // warm golden dunes
 };
-const motifs={oceans:'waves',rivers:'rivers',volcanoes:'volcanoes',forests:'forests',mountains:'mountains',deserts:'deserts'};
+const motifs={astronomy:'home',oceans:'waves',rivers:'rivers',volcanoes:'volcanoes',forests:'forests',mountains:'mountains',deserts:'deserts'};
 function categories(){
  return '<section class="gv11-categories"><div class="gv11-section-title"><h2>'+t('استكشف الأقسام','Explore categories')+'</h2><button type="button" data-page="all">'+t('عرض الكل','View all')+' ↗</button></div><div class="gv11-grid">'+featured.map(id=>{
  const c=cats.find(x=>x.id===id);return '<button type="button" data-cat="'+id+'" class="gv11-card gv11-'+id+' gv174-card"><img loading="lazy" src="'+(window.GeoVersePremiumCovers?.get(id,900)||im(featuredPhotos[id]||c.img,900))+'" alt="'+escapeHTML(label(c))+'"><span class="gv11-card-gradient"></span><span class="gv11-card-icon">'+icon(motifs[id],24)+'</span><strong>'+escapeHTML(label(c))+'</strong><small>'+geo[id].length+' '+t('معلمًا','places')+'</small><span class="gv11-card-chevron">‹</span></button>';
