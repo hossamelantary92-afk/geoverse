@@ -27,7 +27,7 @@ function card(doc,id){
  const count=Array.isArray(geo[id])?geo[id].length:0;
  const img=doc.createElement('img');
  img.loading='lazy';img.decoding='async';
- img.src=im(images[id]||c.img,900);
+ img.src=window.GeoVersePremiumCovers?.get(id,900)||im(images[id]||c.img,900);
  img.alt=t('صورة لقسم ','Photo for ')+categoryName(c);
  const gradient=doc.createElement('span');gradient.className='gv11-card-gradient';
  const title=doc.createElement('strong');title.textContent=categoryName(c);
