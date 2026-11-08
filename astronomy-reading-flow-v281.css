@@ -32,3 +32,12 @@
  #main .gv239-source,#main .gv244-credit{font-size:11px!important;line-height:1.7!important}
  #main .gv281-finish{margin-top:15px!important}
 }
+
+/* v285: explanatory tidal range art on Arabic science pages */
+#main .gv285-tides-panel{padding:15px;margin:16px 0 21px;border:1px solid rgba(100,195,205,.55);border-radius:16px;background:linear-gradient(150deg,#092b3e,#071b30);overflow:hidden}
+#main .gv285-tides-panel h2{margin:0 0 7px!important;color:#e7fbff;font-size:clamp(18px,4.2vw,22px)!important;line-height:1.45}
+#main .gv285-tides-panel>p{margin:0 0 12px!important;font-size:13px!important;line-height:1.85!important;color:#c6e3eb!important}
+#main .gv285-tides-panel img{display:block;width:100%;height:auto;max-height:none;object-fit:contain;background:#061a2d;border-radius:11px;border:1px solid rgba(107,175,190,.3)}
+#main .gv285-tides-panel small{display:block;margin-top:10px;color:#a7d2dd;line-height:1.7;font-size:11px}
+#main .gv285-tides-panel small a{color:#90eddd;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:740px){#main .gv285-tides-panel{padding:11px 10px 13px;margin:13px 0 16px}#main .gv285-tides-panel>p{font-size:12px!important}#main .gv285-tides-panel img{border-radius:9px}}
