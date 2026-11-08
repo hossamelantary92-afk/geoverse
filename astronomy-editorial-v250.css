@@ -5,3 +5,25 @@
 .gv250-simple{min-height:unset!important;height:auto!important}
 .gv231-period span{font-weight:750;line-height:1.7}
 @media(max-width:700px){.gv250-simple{padding:14px!important}.gv250-simple p{font-size:13px!important;line-height:1.9!important}.gv231-period{gap:8px}}
+
+/* GeoVerse v251: mobile-first editorial rhythm, preserving desktop card layout. */
+@media(max-width:700px){
+ .gv231-detail-body{padding:18px 17px 20px}
+ .gv231-detail-body h1{margin:7px 0 10px;line-height:1.33}
+ .gv231-detail-body>p{margin:0 0 12px;line-height:1.85}
+ .gv231-detail-body .gv250-simple{margin:12px 0 13px!important;padding:13px 14px!important}
+ .gv231-detail-body .gv250-simple p{margin-top:6px!important;line-height:1.85!important}
+ .gv231-detail-body .gv231-period{margin:12px 0!important;padding:12px 14px}
+ .gv231-detail-body h2{margin:16px 0 8px}
+ .gv231-detail-body ul{margin:7px 0 10px;line-height:1.8}
+ .gv231-detail-body .gv231-complete{margin-top:9px}
+ .gv238-lesson{margin:12px 0 16px;padding:13px}
+ .gv238-lesson-label{margin-bottom:11px}
+ .gv238-story-block{margin-bottom:10px;padding:13px 14px}
+ .gv238-story-block h3{margin-bottom:6px}
+ .gv238-story-block p{line-height:1.85}
+ .gv239-expanded{margin-block:12px}
+ .gv242-depth{margin:12px 0 16px}
+ .gv244-credit{margin:7px 0 13px}
+ .gv231-next{margin:14px 0 22px}
+}
