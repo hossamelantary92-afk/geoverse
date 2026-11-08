@@ -1,0 +1,15 @@
+/* GeoVerse v238 — carefully structured beginner-friendly astronomy explanations */
+.gv238-lesson{margin:19px 0 27px;padding:clamp(17px,2.4vw,26px);border:1px solid rgba(102,197,217,.42);border-radius:20px;background:linear-gradient(135deg,#092b43,#071d31);box-shadow:0 13px 30px rgba(0,0,0,.2);min-width:0}
+.gv238-lesson,.gv238-lesson *{box-sizing:border-box}
+.gv238-lesson-label{margin:0 0 17px}
+.gv238-lesson-label>span{display:block;color:#89e9dd;font:800 10px Outfit,Cairo,sans-serif;letter-spacing:.6px}
+.gv238-lesson-label h2{margin:8px 0 0;font-size:clamp(21px,2.3vw,29px);line-height:1.45;font-weight:950;color:#f1ffff}
+.gv238-story-block{position:relative;border:1px solid rgba(111,187,207,.37);border-radius:14px;padding:18px clamp(15px,2vw,22px);background:#10364a8a;margin:0 0 12px;min-width:0}
+.gv238-story-block:last-child{margin-bottom:0}
+.gv238-story-block h3{font-size:clamp(15px,1.6vw,18px);line-height:1.5;color:#b5ffef;margin:0 0 10px;font-weight:950}
+.gv238-story-block p{font-size:clamp(13px,1.15vw,15px);line-height:2.05;color:#e0f1f7;margin:0;overflow-wrap:break-word;text-wrap:pretty}
+.gv238-story-block.gv238-wow{border-color:#d9bc806b;background:linear-gradient(115deg,#5a4a263b,#0b3041b3)}
+.gv238-story-block.gv238-wow h3{color:#ffe5a0}
+.gv238-story-block.gv238-why{background:linear-gradient(120deg,#133e4aab,#0d3044)}
+@media(min-width:900px){.gv238-lesson{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.gv238-lesson-label{grid-column:1/-1;margin-bottom:2px}.gv238-story-block{margin:0}.gv238-story-block.gv238-wow{grid-column:1/-1}.gv238-story-block.gv238-wow p{max-width:100%}}
+@media(max-width:700px){.gv238-lesson{margin:15px 0 22px;padding:14px;border-radius:15px}.gv238-lesson-label h2{font-size:22px}.gv238-story-block{padding:15px 14px}.gv238-story-block p{font-size:13px;line-height:1.95}.gv238-story-block h3{font-size:16px}}
