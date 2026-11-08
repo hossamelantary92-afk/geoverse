@@ -15,10 +15,13 @@ const oceanCoverUrls=["https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/
 const ar=(a,b)=>state.lang==='ar'?a:b;
 const escape=x=>escapeHTML(String(x??''));
 const stop=x=>String(x||'').trim().replace(/\s+/g,' ');
-function intro(text){
- const s=stop(text);
- const first=s.match(/^(.+?[.!؟])(?:\s|$)/);
- return first?first[1]:s.slice(0,165);
+function sentences(text){
+ return stop(text).split(/(?<=[.!؟])\s+/u).map(x=>x.trim()).filter(Boolean);
+}
+function intro(text){return sentences(text)[0]||stop(text).slice(0,165)}
+function bulletItems(text){
+ const chunks=sentences(text);
+ return chunks.slice(1).filter(Boolean).map(x=>'<li>'+escape(x)+'</li>').join('');
 }
 const current=()=>state.page==='detail'&&state.category==='oceans';
 function article(){
@@ -37,18 +40,18 @@ function article(){
  '<div class="gv292-hero-copy"><span class="gv292-kicker">'+ar('المحيطات • دليل جغرافي','OCEANS • FIELD GUIDE')+'</span><h1>'+escape(name)+'</h1>'+
  '<p>'+escape(ar(row[2],row[3]))+'</p>'+
  '</div></header>'+
- '<section class="gv292-panel gv292-summary"><div class="gv292-label">'+ar('اكتشف المحيط','DISCOVER THE OCEAN')+'</div><h2>'+ar('تعرف على المحيط','About the ocean')+'</h2>'+
+ '<section class="gv292-panel gv292-summary"><h2>'+ar('حقائق مهمة','Essential facts')+'</h2>'+
  '<p class="gv292-lead" id="gv292Intro">'+escape(intro(summary))+'</p><div class="gv292-facts" id="gv292Facts">'+details+'</div></section>'+
- '<section class="gv292-panel gv292-details"><div class="gv292-label">'+ar('تعمّق في المعرفة','EXPLORE MORE')+'</div><h2>'+ar('معلومات إضافية','Further information')+'</h2>'+
- '<p class="gv292-visible-article" id="gv292Full">'+escape(summary)+'</p></section>'+
  '<section class="gv292-panel gv292-location"><div class="gv292-label">'+ar('الموقع الجغرافي','GEOGRAPHIC LOCATION')+'</div><h2>'+ar('أين يقع المحيط؟','Where is this ocean?')+'</h2>'+
  '<p>'+escape(ar(info.ar,info.en))+'</p>'+
  '<div id="gv292WorldMap" class="gv292-world-map" role="img" aria-label="'+escape(ar('خريطة العالم مع مؤشر لموقع '+name,'World map indicating '+name))+'"><span>'+ar('جاري تجهيز الخريطة…','Preparing map…')+'</span></div>'+
  '<div class="gv292-map-footer"><small>'+ar('المؤشرات لتوضيح الموقع، وليست حدود المحيط أو مقياسًا لمساحته.','Markers show approximate location, not ocean boundaries or area.')+'</small></div></section>'+
 
- '<section class="gv292-finish"><h2>'+ar('خلصت قراءة المحيط؟','Finished reading?')+'</h2>'+
+ '<section class="gv292-panel gv292-details"><h2>'+ar('تعرّف أكثر','Learn more')+'</h2>'+
+ '<ul class="gv292-visible-article gv292-bullets" id="gv292Full">'+bulletItems(summary)+'</ul></section>'+
+ '<section class="gv292-finish"><h2>'+ar('تعلمت هذا الموضوع','I learned this topic')+'</h2>'+
  '<button type="button" id="toggleSeen" class="gv292-learned gv292-finish-button '+(done?'is-learned':'')+'" aria-pressed="'+done+'">'+
- (done?ar('✓ تعلمت هذا المحيط','✓ Ocean learned'):ar('✓ تعلمت هذا المحيط','✓ I learned this ocean'))+'</button></section>'+
+ (done?ar('✓ تم التعلم','✓ Learned'):ar('✓ تعلمت هذا الموضوع','✓ Mark as learned'))+'</button></section>'+
  '<footer class="gv292-footer"><span>'+ar('واصل الاستكشاف','KEEP EXPLORING')+'</span><div class="gv292-nav">'+
  '<button type="button" data-item="oceans:'+prev+'"><small>'+ar('السابق','Previous')+'</small><strong>'+escape(ar(geo.oceans[prev][0],geo.oceans[prev][1]))+'</strong></button>'+
  '<button type="button" data-item="oceans:'+next+'"><small>'+ar('التالي','Next')+'</small><strong>'+escape(ar(geo.oceans[next][0],geo.oceans[next][1]))+'</strong></button></div></footer>'+
@@ -64,7 +67,7 @@ function hydrate(){
  const description=ar(story.ar,story.en);
  const lead=document.getElementById('gv292Intro');
  if(lead)lead.textContent=intro(description);
- const full=document.getElementById('gv292Full');if(full){const first=intro(description),remaining=description.startsWith(first)?description.slice(first.length).trim():description;full.textContent=remaining||description;}
+ const full=document.getElementById('gv292Full');if(full)full.innerHTML=bulletItems(description);
  const facts=document.getElementById('gv292Facts');
  if(facts&&state.lang==='ar')facts.innerHTML=(story.factsAr||[]).slice(0,2).map(pair=>'<div class="gv292-fact"><span>'+escape(pair[0])+'</span><strong>'+escape(pair[1])+'</strong></div>').join('');
  }
