@@ -328,6 +328,69 @@ catch(e){document.documentElement.dataset.gvInitialTheme='dark'}
 }
 /* The visual curvature does not modify the WebGL globe or mobile layout. */
 </style>
+<style id="gv222-final-hero-polish">
+/* Phase 4: desktop-only globe enlargement, subtle curved glass deck. */
+@media (min-width:901px){
+  /* Keep the existing approved hero height and all functionality. */
+  #main .gv11-hero .gv11-planet{
+    width:min(65%,710px)!important;
+    height:clamp(475px,46vw,580px)!important;
+    top:-26px!important;
+    left:clamp(-52px,-2vw,-18px)!important;
+    right:auto!important;
+    bottom:auto!important;
+    z-index:3!important;
+    transform:none!important;
+  }
+  #main .gv11-hero .gv11-globe{
+    inset:0!important;
+    width:100%!important;
+    height:100%!important;
+    pointer-events:auto!important;
+  }
+  #main .gv11-hero .gv11-copy{
+    top:clamp(70px,7vw,96px)!important;
+    right:clamp(42px,5.3vw,92px)!important;
+    width:min(47%,535px)!important;
+    z-index:8!important;
+  }
+  #main .gv11-hero .gv11-actions{margin-top:20px!important}
+  #main .gv11-hero .gv11-earth-glow{
+    inset:-7%!important;
+    opacity:.60!important;
+    filter:blur(26px)!important;
+    background:radial-gradient(circle,rgba(63,183,239,.21),rgba(22,118,211,.10) 46%,transparent 74%)!important;
+  }
+  /* Very shallow top arc, not just rounded rectangle corners. */
+  #main .gv11-hero .gv11-stats{
+    border-radius:50% 50% 20px 20px / 13px 13px 20px 20px!important;
+    border-color:rgba(151,225,242,.36)!important;
+    background:linear-gradient(108deg,rgba(5,41,70,.37),rgba(6,34,59,.47) 55%,rgba(5,26,48,.54))!important;
+    backdrop-filter:blur(12px) saturate(1.15)!important;
+    -webkit-backdrop-filter:blur(12px) saturate(1.15)!important;
+    box-shadow:0 14px 30px rgba(0,0,0,.19),inset 0 1px rgba(193,244,255,.13)!important;
+  }
+  #main .gv11-hero .gv11-stats::before{
+    opacity:.57!important;
+    filter:blur(22px)!important;
+  }
+  #main .gv11-hero::after{opacity:.26!important}
+}
+/* Avoid crowding text and sphere on smaller laptops. */
+@media (min-width:901px) and (max-width:1100px){
+  #main .gv11-hero .gv11-planet{
+    width:61%!important;
+    height:clamp(470px,47vw,520px)!important;
+    left:-43px!important;
+    top:-4px!important;
+  }
+  #main .gv11-hero .gv11-copy{
+    right:28px!important;
+    width:46%!important;
+    top:76px!important;
+  }
+}
+</style>
 </head>
 <body>
 <div id="gv137-loader" class="gv137-visible" aria-hidden="false" aria-busy="true" role="status" aria-label="GeoVerse">
