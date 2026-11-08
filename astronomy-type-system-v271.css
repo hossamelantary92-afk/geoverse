@@ -65,3 +65,31 @@
  #main .gv239-chapter-body{padding:11px 9px 12px!important}
  #main .gv235-feature .gv235-content{padding:16px!important}
 }
+
+/* v272: visual polish after iPhone screenshot review. */
+#main .gv235-feature .gv235-picture{background-position:center 42%}
+#main .gv235-feature .gv235-shade{background:linear-gradient(0deg,rgba(2,14,28,.97) 0%,rgba(2,14,28,.84) 29%,rgba(2,14,28,.32) 62%,rgba(2,14,28,.05) 100%)}
+#main .gv235-feature .gv235-content{position:relative;z-index:2;justify-content:flex-end;min-height:235px}
+#main .gv235-content strong{text-shadow:0 2px 14px rgba(0,0,0,.68)}
+#main .gv235-content>span:not(.gv235-launch){color:#e5f2f6!important;text-shadow:0 1px 8px #001728;max-width:42ch}
+#main .gv239-head h2{max-width:100%;font-weight:900}
+#main .gv239-summary span{white-space:nowrap}
+#main .gv239-summary b{font-variant-numeric:tabular-nums}
+@media(max-width:740px){
+ #main .gv231-hero h1{font-size:clamp(28px,7vw,35px)!important}
+ #main .gv231-hero{min-height:196px!important}
+ #main .gv235-head h2{font-size:clamp(23px,5.5vw,27px)!important}
+ #main .gv235-feature{min-height:233px!important}
+ #main .gv235-feature .gv235-content{min-height:233px;padding:19px!important;justify-content:flex-end;gap:10px!important}
+ #main .gv235-content strong{font-size:clamp(20px,4.85vw,23px)!important;line-height:1.42!important}
+ #main .gv235-content>span:not(.gv235-launch){font-size:clamp(12px,3.05vw,13px)!important;line-height:1.78!important;max-width:36ch}
+ #main .gv235-content .gv235-launch{margin-top:6px!important}
+ #main .gv239-head h2{font-size:clamp(23px,5.7vw,28px)!important;line-height:1.35!important}
+ #main .gv239-summary{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px!important}
+ #main .gv239-summary span{display:flex;flex-wrap:nowrap;gap:5px!important;padding:9px 4px!important;font-size:clamp(10px,2.65vw,12px)!important;justify-content:center;white-space:nowrap}
+ #main .gv239-summary b{font-size:clamp(16px,4.15vw,19px)!important;flex:0 0 auto}
+}
+@media(max-width:380px){
+ #main .gv239-summary span{font-size:9px!important;gap:3px!important;padding:8px 2px!important}
+ #main .gv239-summary b{font-size:16px!important}
+}
