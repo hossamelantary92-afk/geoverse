@@ -11,7 +11,7 @@ const tidy=v=>String(v||'').trim().replace(/\s+/g,' ');
 const key=v=>tidy(v).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z]/g,'');
 const icon=id=>window.GeoVerseTopicsV12?.iconFor?.(id)||'';
 function isPlacePhoto(src){
- if(typeof src!=='string'||!/^https:\/\/(?:upload|thumb)\.wikimedia\.org\//.test(src))return false;
+ if(typeof src!=='string'||!/^https:\/\/(?:(?:upload|thumb)\.wikimedia\.org\/|commons\.wikimedia\.org\/wiki\/Special:Redirect\/file\/)/.test(src))return false;
  let name='';try{name=decodeURIComponent(src.split('?')[0]).split('/').pop().replace(/^\d+px-/,'')}catch{return false}
  return !/(?:\.svg(?:\.png)?$|(?:^|[_ -])(?:map|locator|orthographic|projection|diagram|schematic|globe)(?:[_ .-]|$)|cia[_ -]?wfb|location[_ -]|_in_its_region)/i.test(name);
 }
@@ -124,7 +124,7 @@ render=function(){
  else if(state.page==='detail')hydrate();
  else if(state.page==='country-v4')tidyCountry();
 };
-Promise.allSettled([fetch('./geo-stories.json?v=gv290-major-rivers').then(r=>{if(!r.ok)throw Error('stories');return r.json()}),fetch('./photo-manifest-v13.json?v=gv289-water-photos').then(r=>{if(!r.ok)throw Error('photos');return r.json()})])
+Promise.allSettled([fetch('./geo-stories.json?v=gv290-major-rivers').then(r=>{if(!r.ok)throw Error('stories');return r.json()}),fetch('./photo-manifest-v13.json?v=gv291-major-river-photos').then(r=>{if(!r.ok)throw Error('photos');return r.json()})])
 .then(result=>{
  if(result[0].status==='fulfilled')content.stories=result[0].value.stories||{};
  if(result[1].status==='fulfilled')content.photos=result[1].value.photos||{};
