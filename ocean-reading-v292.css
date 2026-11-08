@@ -67,3 +67,8 @@ body.light .gv292-ocean .gv292-hero,body.light .gv292-ocean .gv292-panel,body.li
 .gv292-nav{margin-top:0}
 .gv292-nav button{min-height:68px}
 @media(max-width:600px){.gv292-finish{padding:23px 13px;gap:15px;border-radius:17px}.gv292-finish-button{font-size:16px;min-height:51px;width:min(100%,275px)}.gv292-footer{padding:2px 0 0}.gv292-reference-links a{font-size:12px}}
+
+/* v294: all editorial ocean information stays visible without disclosure controls */
+.gv292-visible-article{margin:0;color:#c9e1e7;font-size:clamp(13px,1.5vw,15px);line-height:2.1;max-width:950px}
+.gv292-ocean .gv292-sources{display:none!important}
+@media(max-width:600px){.gv292-visible-article{font-size:13px;line-height:2}}
