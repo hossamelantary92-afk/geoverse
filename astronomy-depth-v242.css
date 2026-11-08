@@ -1,0 +1,16 @@
+/* GeoVerse v242: optional extra depth without crowding the lesson */
+.gv242-depth{box-sizing:border-box;max-width:100%;min-width:0;margin:18px 0 22px;border:1px solid rgba(91,194,206,.55);background:linear-gradient(130deg,#0b3045,#091f36);border-radius:16px;color:#eaf9fc;overflow:hidden}
+.gv242-depth *{box-sizing:border-box}
+.gv242-depth summary{display:flex;align-items:center;gap:11px;padding:16px 19px;cursor:pointer;list-style:none;font-size:14px;font-weight:900;line-height:1.5}
+.gv242-depth summary::-webkit-details-marker{display:none}
+.gv242-depth summary:focus-visible{outline:3px solid #98f9e0;outline-offset:-4px}
+.gv242-depth-icon{width:30px;height:30px;display:grid;place-items:center;flex:0 0 30px;border-radius:10px;background:#1e5b69;color:#acfbdc}
+.gv242-plus{margin-inline-start:auto;color:#b1fce3;font-size:22px;line-height:1}
+.gv242-depth[open] .gv242-plus{transform:rotate(45deg)}
+.gv242-depth-content{border-top:1px solid #70b9c15c;padding:18px 20px 21px}
+.gv242-depth-content>p{font-size:13px;line-height:2.05;margin:0 0 13px;color:#e1f4f8;overflow-wrap:break-word}
+.gv242-misconception{padding:13px 16px;background:#153e4d;border-radius:11px;border:1px solid #83c9b35b;margin-bottom:14px}
+.gv242-misconception strong{display:block;color:#c8ffe0;font-size:12px;margin-bottom:7px}
+.gv242-misconception p{margin:0;color:#dceef4;font-size:12px;line-height:1.95}
+.gv242-depth-content a{color:#a5f5e4;font-size:12px;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:700px){.gv242-depth{border-radius:13px;margin:13px 0 18px}.gv242-depth summary{padding:13px 14px;font-size:12px}.gv242-depth-content{padding:14px}.gv242-depth-content>p{font-size:12px}.gv242-misconception{padding:12px}}
