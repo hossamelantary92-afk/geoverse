@@ -52,7 +52,6 @@ function chapter(id){
  const st=stats(g);
  return '<section class="gv239-single"><button type="button" class="gv239-back" data-gv239-chapter="overview">→ '+T('العودة إلى أقسام الجغرافيا الفلكية','Back to astronomy chapters')+'</button>'+
  '<header class="gv239-chapter-hero"><span class="gv246-hero-image" aria-hidden="true"><img class="gv246-cover-img" src="'+esc(g.officialImage)+'" data-gv246-cover-fallback="'+esc('https://images.unsplash.com/'+g.image+'?auto=format&fit=crop&w=1100&q=80')+'" alt="" loading="eager" decoding="async"></span><span class="gv231-eyebrow">ASTRONOMY · CHAPTER '+(sections.indexOf(g)+1)+'</span><h2>'+g.icon+' '+T(g.ar,g.en)+'</h2><p>'+T(g.descAr,g.descEn)+'</p><div>'+st.total+' / '+st.target+' '+T('موضوعات متاحة','available topics')+' · '+st.count+' '+T('تعلمتها','learned')+'</div></header>'+
- (id==='solar'?'<div class="gv239-shortcuts"><button type="button" data-gv235-view="solar">🪐 '+T('جولة في المجموعة الشمسية','Explore the Solar System')+' ↗</button><button type="button" data-gv235-view="journey">🚀 '+T('تخيّل رحلتك بين الكواكب','Imagine a Planet Journey')+' ↗</button></div>':'')+
  '<div class="gv239-topic-grid">'+g.ids.map(lessonCard).join('')+'</div>'+
  (st.total<st.target?'<p class="gv239-coming">'+T('سيضاف إلى هذا القسم '+(st.target-st.total)+' موضوع آخر ضمن خطة الإثراء.',''+(st.target-st.total)+' more topics are planned for this chapter.')+'</p>':'')+'</section>';
 }
@@ -65,7 +64,13 @@ categoryPage=function(){
  const end=html.indexOf('<div class="gv231-disclaimer">',start);
  if(start<0||end<=start)return html;
  let base=html.slice(0,start);
- if(current!=='overview')base=base.replace(/<section class="gv235-feature-hub">[\s\S]*?<\/section>/,'');
+ if(current!=='overview'){
+  // Each chapter has its own title and back button: keep the category introduction only in the directory.
+  base=base
+   .replace(/<section class="gv235-feature-hub">[\s\S]*?<\/section>/,'')
+   .replace(/<header class="gv231-hero">[\s\S]*?<\/header>/,'')
+   .replace(/<button class="back gv231-back" data-page="all">[\s\S]*?<\/button>/,'');
+ }
  return base+(current==='overview'?overview():chapter(current))+html.slice(end);
 };
 function article(e){
