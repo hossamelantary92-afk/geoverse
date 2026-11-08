@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1250" viewBox="0 0 900 1250" role="img" aria-labelledby="ttl dsc">
+<title id="ttl">دورة حياة النجوم</title><desc id="dsc">تبدأ النجوم بسحابة غاز وغبار ثم نجم أولي، وبعدها يتحدد مسار النجم بحسب كتلته: نجم شبيه بالشمس يتحول إلى عملاق أحمر ثم سديم كوكبي وقزم أبيض، ونجم ضخم يتحول إلى عملاق أحمر فائق ثم مستعر أعظم ثم نجم نيوتروني أو ثقب أسود.</desc>
+<defs><linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#051729"/><stop offset="1" stop-color="#10344b"/></linearGradient><radialGradient id="gold"><stop stop-color="#fff3b8"/><stop offset=".47" stop-color="#ffca59"/><stop offset="1" stop-color="#c45c2d"/></radialGradient><radialGradient id="red"><stop stop-color="#ffdc8f"/><stop offset=".56" stop-color="#ff7547"/><stop offset="1" stop-color="#96314b"/></radialGradient><radialGradient id="blue"><stop stop-color="#ffffff"/><stop offset=".5" stop-color="#b4eaff"/><stop offset="1" stop-color="#377bce"/></radialGradient><radialGradient id="cloud"><stop stop-color="#e6a9d9" stop-opacity=".65"/><stop offset="1" stop-color="#b049a8" stop-opacity=".05"/></radialGradient><marker id="arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#74d8da"/></marker></defs>
+<rect width="900" height="1250" rx="24" fill="url(#sky)"/><g fill="#d9f8ff" opacity=".65"><circle cx="72" cy="92" r="2"/><circle cx="810" cy="171" r="2"/><circle cx="181" cy="341" r="2"/><circle cx="659" cy="401" r="2"/><circle cx="835" cy="772" r="2"/><circle cx="61" cy="1066" r="2"/><circle cx="782" cy="1179" r="2"/></g>
+<g font-family="Tahoma,Arial,sans-serif" text-anchor="middle" direction="rtl">
+<text x="450" y="73" fill="#f3fbff" font-size="54" font-weight="bold">دورة حياة النجوم</text>
+<text x="450" y="119" fill="#a9d4e0" font-size="31">كتلة النجم تحدد تطوره ونهايته</text>
+<ellipse cx="450" cy="205" rx="126" ry="57" fill="url(#cloud)"/><ellipse cx="450" cy="205" rx="79" ry="39" fill="url(#red)" opacity=".45"/><circle cx="450" cy="202" r="25" fill="url(#gold)"/>
+<text x="450" y="286" fill="white" font-size="37" font-weight="bold">سديم غازي ← نجم أولي</text>
+<path d="M450 303 V350 M450 350 H240 V394 M450 350 H660 V394" fill="none" stroke="#74d8da" stroke-width="5" marker-end="url(#arrow)"/>
+<rect x="62" y="393" width="359" height="74" rx="19" fill="#123f56" stroke="#4a9bb5" stroke-width="2"/><rect x="479" y="393" width="359" height="74" rx="19" fill="#123f56" stroke="#4a9bb5" stroke-width="2"/>
+<text x="240" y="443" fill="#dffaff" font-size="39" font-weight="bold">نجم شبيه بالشمس</text><text x="660" y="443" fill="#dffaff" font-size="39" font-weight="bold">نجم ضخم</text>
+<circle cx="240" cy="543" r="45" fill="url(#gold)"/><circle cx="660" cy="543" r="64" fill="url(#blue)"/>
+<path d="M240 592 V644 M660 610 V644" fill="none" stroke="#74d8da" stroke-width="5" marker-end="url(#arrow)"/>
+<circle cx="240" cy="711" r="61" fill="url(#red)"/><circle cx="660" cy="711" r="83" fill="url(#red)"/>
+<text x="240" y="822" fill="#ffffff" font-size="36" font-weight="bold">عملاق أحمر</text><text x="660" y="822" fill="#ffffff" font-size="36" font-weight="bold">عملاق أحمر فائق</text>
+<path d="M240 841 V892 M660 841 V892" fill="none" stroke="#74d8da" stroke-width="5" marker-end="url(#arrow)"/>
+<ellipse cx="240" cy="955" rx="75" ry="51" fill="url(#cloud)" stroke="#ad9be6" stroke-width="3"/><circle cx="240" cy="955" r="23" fill="url(#blue)"/>
+<g stroke="#ffe5a7" stroke-width="5"><path d="M660 896 V1007 M606 951 H714 M622 911 L698 991 M698 911 L622 991"/></g><circle cx="660" cy="951" r="39" fill="url(#gold)"/>
+<text x="240" y="1052" fill="#ffffff" font-size="38" font-weight="bold">سديم كوكبي</text><text x="660" y="1052" fill="#ffffff" font-size="38" font-weight="bold">مستعر أعظم</text>
+<path d="M240 1067 V1110 M660 1067 V1110" fill="none" stroke="#74d8da" stroke-width="5" marker-end="url(#arrow)"/>
+<circle cx="240" cy="1145" r="24" fill="url(#blue)"/><circle cx="660" cy="1145" r="22" fill="#080b19" stroke="#ffb872" stroke-width="10"/>
+<text x="240" y="1209" fill="#c5f5ff" font-size="41" font-weight="bold">قزم أبيض</text>
+<text x="660" y="1203" fill="#c5f5ff" font-size="29" font-weight="bold">نجم نيوتروني</text><text x="660" y="1235" fill="#c5f5ff" font-size="29" font-weight="bold">أو ثقب أسود</text>
+</g></svg>
