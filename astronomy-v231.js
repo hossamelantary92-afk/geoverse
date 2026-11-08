@@ -21,7 +21,7 @@ function overview(){
  '<header class="gv231-hero"><h1>'+tx('الجغرافيا الفلكية','Astronomical Geography')+'</h1><div class="gv231-hero-stats"><span>'+entries.length+' '+tx('موضوعًا','topics')+'</span><span>'+finished+' / '+entries.length+' '+tx('مكتمل','learned')+'</span><span>'+Math.round(finished/Math.max(1,entries.length)*100)+'%</span></div></header>'+
  '<div class="gv231-section-title"><h2>'+tx('استكشف الأجرام والظواهر','Explore Celestial Worlds')+'</h2></div>'+
  '<div class="gv231-grid">'+entries.map((e,i)=>'<button class="gv231-card" data-astro-key="'+e.id+'" data-astro-open="'+i+'"><img loading="lazy" decoding="async" src="'+photo(e)+'" alt=""><span class="gv231-card-shade"></span><span class="gv231-badge">'+tx(e.typeAr,e.typeEn)+'</span><span class="gv231-card-copy"><strong>'+tx(e.ar,e.en)+'</strong><small>'+tx(e.tagAr,e.tagEn)+'</small></span><span class="gv231-index">'+String(i+1).padStart(2,'0')+(complete(i)?' ✓':'')+'</span></button>').join('')+'</div>'+
- '<div class="gv231-disclaimer">'+tx('بعض صور الخلفيات تعبيرية وليست صورًا فلكية مباشرة. الأرقام تقريبية والمقياس البصري غير حقيقي.','Some backgrounds are illustrative, not direct spacecraft imagery. Values are approximate and visual scale is not realistic.')+'</div></div>';
+ '<div class="gv270-end-marker" hidden></div></div>';
 }
 function info(){
  const i=Number(state.item);if(!Number.isInteger(i)||i<0||i>=entries.length)return overview();
