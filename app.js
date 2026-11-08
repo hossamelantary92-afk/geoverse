@@ -116,11 +116,52 @@ function home(){
 }
 function renderInsights(){
  const node=document.getElementById('insights');if(!node)return;
- const progress=saved();const seen=Object.keys(progress).filter(k=>/^[a-z]+_\d+$/.test(k)&&progress[k]).length;
- const total=Object.values(geo).reduce((n,a)=>n+a.length,0);
- node.innerHTML='<div class="insight-card profile-box"><div class="avatar-globe">🧭</div><h3>'+lang('مستكشف العالم','World Explorer')+'</h3><p>'+lang('رحلتك لاكتشاف كوكب الأرض','Your journey across Earth')+'</p><div class="insight-progress"><span>'+seen+' / '+total+'</span><div class="progress-track"><div class="progress-fill" style="width:'+(100*seen/total).toFixed(1)+'%"></div></div></div></div>'+
- '<div class="insight-card"><h3>◈ '+lang('رحلتك التعليمية','Your Journey')+'</h3>'+['continents','countries','oceans'].map(id=>{const c=cats.find(x=>x.id===id);return '<div class="insight-row" aria-label="'+escapeHTML(label(c))+' '+progressValue(id)+'%"><span>'+c.emoji+' '+escapeHTML(label(c))+'</span><small>'+progressValue(id)+'%</small></div>'}).join('')+'</div>'+
- '<div class="insight-card insight-challenge"><span class="eyebrow">'+lang('التحدي اليومي','DAILY CHALLENGE')+'</span><h3>🏆 '+lang('هل تعرف العالم؟','Know Your World?')+'</h3><p>'+lang('اختبر معلوماتك في جولة ممتعة من الأسئلة.','Try a fun geography challenge.')+'</p><button class="primary" data-page="play">'+lang('ابدأ التحدي','Play Now')+' ▶</button></div>';
+ const progress=saved();
+ const sections=cats.map((c,order)=>{
+  const items=geo[c.id]||[];
+  const total=items.length;
+  const itemKeys=items.map((_,i)=>c.id+'_'+i);
+  const recorded=itemKeys.some(key=>Object.prototype.hasOwnProperty.call(progress,key));
+  const learned=recorded
+    ?itemKeys.reduce((sum,key)=>sum+(progress[key]===true?1:0),0)
+    :Math.max(0,Math.min(total,Number(progress[c.id])||0));
+  const count=Math.min(total,Math.max(0,learned));
+  const percent=total?Math.round(count/total*100):0;
+  return {c,order,total,count,percent};
+ }).filter(section=>section.total>0);
+ const total=sections.reduce((sum,row)=>sum+row.total,0);
+ const seen=sections.reduce((sum,row)=>sum+row.count,0);
+ const completed=sections.filter(row=>row.count===row.total).length;
+ const overall=total?Math.round(100*seen/total):0;
+ const active=sections.filter(row=>row.count>0&&row.count<row.total)
+   .sort((a,b)=>b.percent-a.percent||b.count-a.count||a.order-b.order).slice(0,3);
+ const percentText=n=>'<b dir="ltr">'+n+'%</b>';
+ const preview=active.length
+  ?'<div class="gv226-current-label">'+lang('واصل من حيث توقفت','Continue where you left off')+'</div>'+
+   active.map(row=>'<div class="gv226-current-row"><div class="gv226-row-heading"><span>'+
+     row.c.emoji+' '+escapeHTML(label(row.c))+'</span>'+percentText(row.percent)+'</div>'+
+     '<div class="gv226-track"><span style="width:'+row.percent+'%"></span></div></div>').join('')
+  :'<div class="gv226-empty">'+(seen===0
+   ?lang('أول قسم تبدأه هيظهر هنا تلقائيًا.','Your first started topic will appear here.')
+   :lang('رائع! لا توجد أقسام بدأت فيها ولم تكملها حاليًا.','Great! You have no unfinished started topics.'))+'</div>';
+ node.innerHTML='<div class="insight-card profile-box"><div class="avatar-globe">🧭</div><h3>'+
+  lang('مستكشف العالم','World Explorer')+'</h3><p>'+
+  lang('رحلتك لاكتشاف كوكب الأرض','Your journey across Earth')+
+  '</p><div class="insight-progress"><span>'+seen+' / '+total+
+  '</span><div class="progress-track"><div class="progress-fill" style="width:'+overall+'%"></div></div></div></div>'+
+  '<div class="insight-card gv226-learning-card"><div class="gv226-title"><h3>◈ '+
+   lang('رحلتك التعليمية','Your Learning Journey')+'</h3><span class="gv226-total">'+sections.length+' '+
+   lang('قسمًا','topics')+'</span></div>'+
+   '<div class="gv226-summary"><strong dir="ltr">'+overall+'%</strong><span>'+
+   completed+' / '+sections.length+' '+lang('قسم مكتمل','topics completed')+'</span></div>'+
+   '<div class="gv226-track gv226-overall-track"><span style="width:'+overall+'%"></span></div>'+
+   preview+'</div>'+
+  '<div class="insight-card insight-challenge"><span class="eyebrow">'+
+   lang('التحدي اليومي','DAILY CHALLENGE')+'</span><h3>🏆 '+
+   lang('هل تعرف العالم؟','Know Your World?')+'</h3><p>'+
+   lang('اختبر معلوماتك في جولة ممتعة من الأسئلة.','Try a fun geography challenge.')+
+   '</p><button class="primary" data-page="play">'+
+   lang('ابدأ التحدي','Play Now')+' ▶</button></div>';
 }
 
 function allCategories(){return `<div class="page-heading"><h1>${lang('كل أقسام الجغرافيا','All Geography Topics')}</h1><p>${lang('اختر أي قسم لتعرف المزيد عن الأماكن الطبيعية والسياسية.','Choose a topic to learn about natural and political geography.')}</p></div><div class="category-grid">${categoryButtons()}</div>`}
