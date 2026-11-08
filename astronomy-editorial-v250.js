@@ -17,9 +17,15 @@ detail=function(){
  const label=labels[item.id];
  if(summary){
   const simple='<div class="gv232-simplified gv250-simple"><strong>'+T('ببساطة','In simple words')+'</strong><p>'+esc(T(summary[0],summary[1]))+'</p></div>';
-  const placeholder=/<div class="gv232-simplified">\s*<strong>[\s\S]*?<\/strong>\s*<p>\s*<\/p>\s*<\/div>/;
-  if(placeholder.test(html))html=html.replace(placeholder,simple);
-  else if(!html.includes('gv232-simplified')&&html.includes('<div class="gv231-period">'))html=html.replace('<div class="gv231-period">',simple+'<div class="gv231-period">');
+  // Always replace the existing simple box, including populated copy from older cached versions.
+  // Keeping a single authoritative box avoids stale wording and duplication.
+  const oldBoxes=/<div class="gv232-simplified(?:\s+[^"]*)?">[\s\S]*?<\/div>/g;
+  if(oldBoxes.test(html)){
+   let replaced=false;
+   html=html.replace(oldBoxes,()=>{if(replaced)return '';replaced=true;return simple;});
+  }else if(html.includes('<div class="gv231-period">')){
+   html=html.replace('<div class="gv231-period">',simple+'<div class="gv231-period">');
+  }
  }
  if(label){
   html=html.replace(/(<div class="gv231-period">\s*<span>)[\s\S]*?(<\/span>)/,(_whole,opening,closing)=>opening+esc(T(label[0],label[1]))+closing);
