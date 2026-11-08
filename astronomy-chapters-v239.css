@@ -44,3 +44,8 @@
 }
 @media(max-width:390px){.gv239-chapters{grid-template-columns:1fr}.gv239-chapter{min-height:220px}.gv239-topic-status{align-self:center}}
 @media(prefers-reduced-motion:reduce){.gv239-chapter,.gv239-image{transition:none}}
+
+.gv239-shortcuts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin:15px 0 4px}
+.gv239-shortcuts button{min-width:0;text-align:center;cursor:pointer;border-radius:12px;border:1px solid #9de7d4a3;background:linear-gradient(120deg,#154e61,#0b3148);color:#e7fffb;padding:15px 12px;font-weight:900;font-size:13px;line-height:1.6}
+.gv239-shortcuts button:hover{border-color:#ccfff2;background:linear-gradient(120deg,#1b6870,#11455b)}
+@media(max-width:600px){.gv239-shortcuts{grid-template-columns:1fr}.gv239-shortcuts button{font-size:12px}}
