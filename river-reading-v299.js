@@ -6,7 +6,7 @@ let profiles=null;
 const current=()=>state.page==='detail'&&state.category==='rivers';
 const tr=(ar,en)=>state.lang==='ar'?ar:en;
 const safe=s=>escapeHTML(String(s||''));
-const split=s=>String(s||'').trim().split(/(?<=[.!؟])\s+/u).map(x=>x.trim()).filter(Boolean);
+const split=s=>String(s||'').trim().split(/(?<=[.!؟])\s+/u).flatMap(x=>x.length>155?x.split(/(?<=؛)\s*/u):[x]).map(x=>x.trim()).filter(Boolean);
 function decorate(){
  if(!current())return;
  const root=document.querySelector('#main .gv14-detail');
