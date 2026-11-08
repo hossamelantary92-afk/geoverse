@@ -1,0 +1,48 @@
+/* GeoVerse v232 | friendly interactive Solar System */
+.gv232-shell{margin:21px 0 31px;padding:clamp(17px,2.6vw,29px);border:1px solid rgba(111,199,223,.43);border-radius:22px;background:radial-gradient(ellipse at 24% 7%,rgba(32,83,141,.24),transparent 55%),linear-gradient(135deg,#0a2742,#05182d);box-shadow:0 20px 43px rgba(0,0,0,.25);color:#effbff;overflow:hidden;isolation:isolate}
+.gv232-heading h2{font-size:clamp(23px,2.5vw,34px);margin:9px 0;color:#f4fcff}
+.gv232-heading p{font-size:13px;line-height:1.9;max-width:780px;color:#c4e0ef;margin:0}
+.gv232-tabs{display:flex;gap:7px;flex-wrap:wrap;margin:18px 0 17px}
+.gv232-tabs button{border:1px solid rgba(127,211,233,.35);background:#103e59;color:#d4eff8;font-weight:850;font-size:12px;border-radius:11px;padding:10px 16px;cursor:pointer}
+.gv232-tabs button.active{background:linear-gradient(125deg,#95f0e2,#41b5c9);color:#092d3e;border-color:#c3fff1}
+.gv232-layout{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(230px,.8fr);align-items:stretch;gap:14px;direction:ltr}
+.gv232-canvas,.gv232-info{min-width:0;border:1px solid rgba(105,180,204,.35);border-radius:17px;overflow:hidden;background:rgba(3,19,38,.65)}
+.gv232-scene{position:relative;min-height:410px;display:grid;place-items:center;overflow:hidden}
+.gv232-stage{position:relative;isolation:isolate;width:100%;height:410px;display:grid;place-items:center;perspective:900px;overflow:hidden;background:radial-gradient(circle at center,#17385d 0%,#071a34 44%,#041125 90%)}
+.gv232-stars{position:absolute;inset:0;opacity:.55;background-image:radial-gradient(1px 1px at 15% 22%,#fff 90%,transparent),radial-gradient(1px 1px at 80% 30%,#fff 90%,transparent),radial-gradient(2px 2px at 33% 80%,#e5f3ff 80%,transparent),radial-gradient(1px 1px at 68% 76%,#fff 90%,transparent);background-size:130px 111px;pointer-events:none}
+.gv232-orbit-ring{position:absolute;left:50%;top:50%;width:calc(2 * var(--r));height:calc(2 * var(--r));border:1px solid rgba(126,197,233,.21);border-radius:50%;transform:translate(-50%,-50%) rotateX(24deg);pointer-events:none}
+.gv232-sun{position:absolute;left:50%;top:50%;width:34px;height:34px;transform:translate(-50%,-50%);border-radius:50%;z-index:5;background:radial-gradient(circle at 33% 30%,#fff6b1,#ffc653 44%,#ff8b25 70%,#e34a13);box-shadow:0 0 24px rgba(255,151,27,.8),0 0 57px rgba(255,143,40,.32);pointer-events:none}
+.gv232-world{position:absolute;left:50%;top:50%;width:calc(2 * var(--r));height:calc(2 * var(--r));border:0;background:none;cursor:pointer;transform:translate(-50%,-50%) rotateX(24deg);border-radius:50%;padding:0;color:inherit}
+.gv232-orbit-carrier{position:absolute;inset:0;border-radius:50%;animation:gv232-orbit var(--speed) linear infinite;animation-delay:var(--delay);pointer-events:none}
+.gv232-world-disc{position:absolute;left:50%;top:0;width:var(--size);height:var(--size);transform:translate(-50%,-50%) rotateX(-24deg);display:block;border-radius:50%;border:1px solid rgba(255,255,255,.46);background:radial-gradient(circle at 32% 25%,rgba(255,255,255,.55),var(--planet) 46%,rgba(1,13,29,.9));box-shadow:0 0 14px rgba(90,170,245,.22);pointer-events:none}
+.gv232-world.selected .gv232-world-disc{outline:2px solid #a9fff1;outline-offset:4px;box-shadow:0 0 19px rgba(127,243,230,.7)}
+.gv232-world:focus-visible{outline:2px solid #b1fff5;outline-offset:2px}
+.gv232-paused .gv232-orbit-carrier{animation-play-state:paused}
+@keyframes gv232-orbit{to{transform:rotate(360deg)}}
+.gv232-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 13px;min-height:52px;background:rgba(7,33,57,.92);color:#a9ccdb;font-size:10px;line-height:1.6;direction:rtl}
+.gv232-controls button{border:1px solid #629cba;background:#13445a;color:#efffff;font-weight:850;font-size:11px;border-radius:9px;padding:8px 11px;cursor:pointer;white-space:nowrap}
+.gv232-info{display:flex;align-items:center;padding:18px;direction:rtl}
+.gv232-selected{width:100%}
+.gv232-selected-kicker{display:block;color:#81eed9;font:850 10px Cairo,Outfit,sans-serif;letter-spacing:.4px}
+.gv232-selected h3{font-size:clamp(25px,2.7vw,36px);margin:9px 0 13px;color:white}
+.gv232-selected p{font-size:13px;line-height:2;color:#d1e9f3;margin:0 0 18px}
+.gv232-selected-facts{display:grid;gap:8px}
+.gv232-selected-facts div{border:1px solid rgba(119,205,218,.24);background:rgba(24,75,98,.45);border-radius:11px;padding:11px 12px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.gv232-selected-facts small{color:#afd6e4;font-size:10px;line-height:1.65}
+.gv232-selected-facts strong{color:#f0fffd;font:850 13px Outfit,Cairo,sans-serif;text-align:left;white-space:nowrap}
+.gv232-explore{margin-top:15px;width:100%;border-radius:11px;padding:12px 13px;border:1px solid #7ef6df;background:linear-gradient(110deg,#58e1ce,#21a4bb);color:#072f3a;font-weight:900;font-size:12px;cursor:pointer}
+.gv232-legend{font-size:11px;line-height:1.9;color:#9bc4d6;margin:14px 0 0}
+.gv232-bars{display:grid;gap:12px;padding:20px 18px;width:100%;box-sizing:border-box;direction:rtl;max-height:410px;overflow-y:auto}
+.gv232-bar-row{width:100%;display:grid;grid-template-columns:75px minmax(0,1fr) 63px;align-items:center;gap:10px;border:1px solid transparent;border-radius:9px;background:transparent;color:#deeff7;padding:7px;text-align:start;cursor:pointer}
+.gv232-bar-row.selected{border-color:#8ee4de;background:rgba(22,88,109,.43)}
+.gv232-bar-label{font-size:12px;font-weight:800}
+.gv232-bar-track{height:9px;background:#2c4a60;border-radius:20px;overflow:hidden}
+.gv232-bar-track i{height:100%;display:block;border-radius:20px;min-width:2px}
+.gv232-bar-row b{font:850 11px Outfit,Cairo,sans-serif;text-align:left;white-space:nowrap}
+.gv232-simplified{border:1px solid rgba(142,234,219,.54);background:linear-gradient(130deg,rgba(29,101,111,.35),rgba(7,53,77,.52));padding:15px 16px;margin:14px 0 18px;border-radius:13px}
+.gv232-simplified strong{color:#a0ffe7;font-size:12px}
+.gv232-simplified p{font-size:13px;line-height:1.9;margin:7px 0 0;color:#e7f7f9}
+html[lang="en"] .gv232-info,html[lang="en"] .gv232-bars,html[lang="en"] .gv232-controls{direction:ltr}
+@media(max-width:1050px){.gv232-layout{grid-template-columns:minmax(0,1fr)}.gv232-info{padding:17px}.gv232-selected-facts{grid-template-columns:repeat(3,minmax(0,1fr))}.gv232-selected-facts div{display:grid;align-content:center}.gv232-selected-facts strong{text-align:start}.gv232-scene,.gv232-stage{min-height:360px;height:360px}}
+@media(max-width:700px){.gv232-shell{padding:14px;border-radius:17px}.gv232-heading h2{font-size:24px}.gv232-heading p{font-size:12px}.gv232-tabs button{flex:1;padding:9px 6px;font-size:11px}.gv232-scene,.gv232-stage{min-height:320px;height:320px}.gv232-stage{transform:none}.gv232-stage .gv232-orbit-ring,.gv232-stage .gv232-world{scale:.76}.gv232-selected-facts{grid-template-columns:1fr}.gv232-selected-facts div{display:flex}.gv232-selected h3{font-size:27px}.gv232-bars{padding:13px 8px}.gv232-bar-row{grid-template-columns:68px minmax(0,1fr) 57px;gap:5px}.gv232-bar-label{font-size:10px}.gv232-controls{flex-wrap:wrap;font-size:10px}}
+@media(prefers-reduced-motion:reduce){.gv232-orbit-carrier{animation:none!important}.gv232-world{transition:none}}
