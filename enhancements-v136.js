@@ -446,8 +446,9 @@ function initGlobe(){
   const coords=v&&typeof isLayerShape==='function'?isLayerShape(state.category,v):null;
   if(coords&&Array.isArray(coords)&&coords.length){
    const multi=Array.isArray(coords[0][0]);
-   if(state.category==='mountains')featureLine={points:coords.map(([lng,lat])=>({lng,lat}))};
-   // Rivers: do not draw a thick speculative route. Keep the precise, subtle position pin.
+   if(state.category==='rivers'){
+    // River line geometries vary in quality; use one restrained location pin instead.
+   }else if(state.category==='mountains')featureLine={points:coords.map(([lng,lat])=>({lng,lat}))};
    else if(multi)featureOverlay={type:'Feature',properties:{gvOverlay:true,name:lang(v[0],v[1])},geometry:{type:'MultiPolygon',coordinates:coords.map(p=>[p])}};
    else if(coords.length>=4)featureOverlay={type:'Feature',properties:{gvOverlay:true,name:lang(v[0],v[1])},geometry:{type:'Polygon',coordinates:[coords]}};
   }
