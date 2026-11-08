@@ -40,3 +40,22 @@
 @media(max-width:390px){
   .gv231-detail > .gv231-detail-image[data-astro-key="moon-phases"]{height:450px!important;max-height:450px!important;}
 }
+
+/* v261: preserve full scientific subjects in mobile astronomy imagery. */
+.gv231-detail-image[data-astro-key="moon"] img,
+.gv231-detail-image[data-astro-key="dwarf"] img,
+.gv231-detail-image[data-astro-key="eclipses"] img{
+ object-fit:contain!important;object-position:center!important;background:#061627;
+}
+.gv239-topic[data-astro-key="moon"] img,
+.gv239-topic[data-astro-key="dwarf"] img,
+.gv239-topic[data-astro-key="eclipses"] img{
+ object-fit:contain!important;object-position:center!important;background:#061627;
+}
+@media(max-width:700px){
+ .gv231-detail > .gv231-detail-image[data-astro-key="moon"],
+ .gv231-detail > .gv231-detail-image[data-astro-key="dwarf"],
+ .gv231-detail > .gv231-detail-image[data-astro-key="eclipses"]{
+  height:245px!important;max-height:245px!important;background:#061627;
+ }
+}
