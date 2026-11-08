@@ -116,7 +116,19 @@ function hydrate(){
     img.remove();photo.classList.remove('gv14-has-photo');
    });
    photo.insertBefore(img,photo.firstChild);
-   img.src=entry[0];
+   const approvedSea=state.category==='seas'&&[0,5,6,7,12,14,15].includes(Number(state.item));
+   if(approvedSea&&String(entry[1]||'').startsWith('File:')){
+    const endpoint='https://commons.wikimedia.org/w/api.php?action=query&format=json&origin=*&prop=imageinfo&iiprop=url&iiurlwidth=640&titles='+encodeURIComponent(entry[1]);
+    fetch(endpoint,{mode:'cors'}).then(r=>{if(!r.ok)throw Error('Commons API');return r.json()}).then(data=>{
+     const info=Object.values(data.query?.pages||{})[0]?.imageinfo?.[0];
+     const actual=info?.thumburl||info?.url;
+     if(!photo.isConnected)return;
+     if(actual&&/^https:\/\/(?:upload|thumb)\.wikimedia\.org\//.test(actual)){
+      fallbacks=[entry[0],...fallbacks].filter((x,i,a)=>x!==actual&&a.indexOf(x)===i);
+      img.src=actual;
+     }else img.src=entry[0];
+    }).catch(()=>{if(photo.isConnected)img.src=entry[0]});
+   }else img.src=entry[0];
    if(entry[2]){
     const link=document.createElement('a');link.className='gv14-image-credit';link.target='_blank';link.rel='noopener noreferrer';
     const canonical=String(entry[1]||v[1]).replace(/ /g,'_');
@@ -141,7 +153,7 @@ render=function(){
  else if(state.page==='detail')hydrate();
  else if(state.page==='country-v4')tidyCountry();
 };
-Promise.allSettled([fetch('./geo-stories.json?v=gv296-ocean-audit').then(r=>{if(!r.ok)throw Error('stories');return r.json()}),fetch('./photo-manifest-v13.json?v=gv316-seas-first-batch-repair').then(r=>{if(!r.ok)throw Error('photos');return r.json()})])
+Promise.allSettled([fetch('./geo-stories.json?v=gv296-ocean-audit').then(r=>{if(!r.ok)throw Error('stories');return r.json()}),fetch('./photo-manifest-v13.json?v=gv317-sea-image-recovery').then(r=>{if(!r.ok)throw Error('photos');return r.json()})])
 .then(result=>{
  if(result[0].status==='fulfilled')content.stories=result[0].value.stories||{};
  if(result[1].status==='fulfilled')content.photos=result[1].value.photos||{};
