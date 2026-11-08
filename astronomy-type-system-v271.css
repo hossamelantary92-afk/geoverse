@@ -166,3 +166,30 @@
 @media(max-width:380px){
  #main .gv235-feature .gv235-picture{height:175px!important;flex-basis:175px!important}
 }
+
+/* v276: compact image-first posters, tuned from installed iPhone screenshot. */
+@media(max-width:740px){
+ #main .gv235-features{gap:11px!important}
+ #main button.gv235-feature{min-height:0!important}
+ #main .gv235-feature .gv235-picture{
+   height:155px!important;flex:0 0 155px!important;
+   background-size:cover!important;background-position:center center!important;
+ }
+ #main .gv235-feature .gv235-content{
+   min-height:0!important;height:auto!important;
+   padding:13px 16px 15px!important;gap:6px!important;
+ }
+ #main .gv235-feature .gv235-content strong{
+   font-size:clamp(17px,4.55vw,21px)!important;line-height:1.38!important;
+ }
+ #main .gv235-feature .gv235-content>span:not(.gv235-launch){
+   font-size:clamp(11px,2.95vw,12px)!important;line-height:1.6!important;
+ }
+ #main .gv235-feature .gv235-content .gv235-launch{
+   min-height:37px!important;padding:8px 12px!important;margin-top:4px!important;
+   font-size:12px!important;
+ }
+}
+@media(max-width:380px){
+ #main .gv235-feature .gv235-picture{height:145px!important;flex-basis:145px!important}
+}
