@@ -62,6 +62,22 @@ catch(e){document.documentElement.dataset.gvInitialTheme='dark'}
 .game-modes .game-mode .gv45-game-shade{position:absolute!important;inset:0!important;z-index:1!important;pointer-events:none!important;background:linear-gradient(180deg,#02162736,#03182c85 52%,#031524db)!important}
 .game-modes .game-mode .gv18-game-symbol,.game-modes .game-mode>b{position:relative!important;z-index:2!important}
 </style>
+<style id="gv217-clean-layout">
+/* Country/category sidebar is redundant; preserve hidden DOM for legacy renderMenu calls. */
+#app>.layout>#sidebar{display:none!important}
+#app>.topbar #menuTopics{display:none!important}
+#app>.layout{display:grid!important;grid-template-columns:minmax(0,1fr) 230px!important;gap:18px!important;max-width:1960px!important;align-items:start!important}
+#app>.layout>#main{min-width:0!important;width:100%!important;grid-column:1!important}
+#app>.layout>#insights{min-width:0!important;grid-column:2!important}
+@media(max-width:1500px){
+ #app>.layout{grid-template-columns:minmax(0,1fr)!important}
+ #app>.layout>#insights{display:none!important}
+}
+@media(max-width:820px){
+ #app>.layout{display:block!important;padding:11px!important}
+ #app>.topbar #menuBtn{display:inline-flex!important;align-items:center;justify-content:center}
+}
+</style>
 </head>
 <body>
 <div id="gv137-loader" class="gv137-visible" aria-hidden="false" aria-busy="true" role="status" aria-label="GeoVerse">
@@ -85,7 +101,7 @@ window.__gv138BootFailsafe=setTimeout(function(){
 },10000);
 </script>
 <div id="app">
-<header class="topbar"><button id="menuBtn" class="icon-btn mobile-menu" aria-label="القائمة">☰</button><button class="brand" data-page="home" aria-label="الرئيسية"><span class="brand-icon"><svg viewBox="0 0 80 80" width="53" height="53" aria-hidden="true"><defs><linearGradient id="gvG" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7bfdf0"/><stop offset="1" stop-color="#057db5"/></linearGradient></defs><circle cx="40" cy="39" r="31" fill="#082f4b" stroke="url(#gvG)" stroke-width="3"/><path d="M13 37h54M40 8c-17 16-17 47 0 62M40 8c17 16 17 47 0 62" stroke="#57e9df" stroke-width="2" fill="none" opacity=".8"/><path d="M10 52 27 32l12 13 11-18 22 27-20-9-8 9-16-9-9 13Z" fill="#eefaff"/><path d="M5 56c12 17 44 25 70-1" stroke="#0ce5ba" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="67" cy="13" r="5" fill="#f4c65e"/></svg></span><span><strong>Geo<span>Verse</span></strong><small>Explore Beyond Borders</small></span></button><nav class="topnav" id="topnav"><button data-page="home" class="active">◈ <span data-i18n="home">الرئيسية</span></button><button data-page="explore">◎ <span data-i18n="explore">استكشف</span></button><button data-page="learn">▣ <span data-i18n="learn">تعلم</span></button><button data-page="play">◇ <span data-i18n="play">الألعاب</span></button><button data-page="progress">▥ <span data-i18n="progress">تقدمي</span></button></nav><div class="head-actions"><button id="languageBtn" class="icon-btn language">EN</button><button id="searchBtn" class="icon-btn" title="بحث" aria-label="بحث"><svg class="gv-search-icon" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.6"/><path d="m16 16 4.3 4.3"/></svg></button><button id="modeBtn" class="icon-btn" title="تبديل الوضع">☾</button><button id="menuTopics" class="icon-btn mobile-menu" title="الأقسام">☰</button></div></header>
+<header class="topbar"><button id="menuBtn" class="icon-btn mobile-menu" aria-label="جميع الأقسام" title="جميع الأقسام">▦</button><button class="brand" data-page="home" aria-label="الرئيسية"><span class="brand-icon"><svg viewBox="0 0 80 80" width="53" height="53" aria-hidden="true"><defs><linearGradient id="gvG" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7bfdf0"/><stop offset="1" stop-color="#057db5"/></linearGradient></defs><circle cx="40" cy="39" r="31" fill="#082f4b" stroke="url(#gvG)" stroke-width="3"/><path d="M13 37h54M40 8c-17 16-17 47 0 62M40 8c17 16 17 47 0 62" stroke="#57e9df" stroke-width="2" fill="none" opacity=".8"/><path d="M10 52 27 32l12 13 11-18 22 27-20-9-8 9-16-9-9 13Z" fill="#eefaff"/><path d="M5 56c12 17 44 25 70-1" stroke="#0ce5ba" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="67" cy="13" r="5" fill="#f4c65e"/></svg></span><span><strong>Geo<span>Verse</span></strong><small>Explore Beyond Borders</small></span></button><nav class="topnav" id="topnav"><button data-page="home" class="active">◈ <span data-i18n="home">الرئيسية</span></button><button data-page="all">▦ <span>الأقسام</span></button><button data-page="explore">◎ <span data-i18n="explore">استكشف</span></button><button data-page="learn">▣ <span data-i18n="learn">تعلم</span></button><button data-page="play">◇ <span data-i18n="play">الألعاب</span></button><button data-page="progress">▥ <span data-i18n="progress">تقدمي</span></button></nav><div class="head-actions"><button id="languageBtn" class="icon-btn language">EN</button><button id="searchBtn" class="icon-btn" title="بحث" aria-label="بحث"><svg class="gv-search-icon" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.6"/><path d="m16 16 4.3 4.3"/></svg></button><button id="modeBtn" class="icon-btn" title="تبديل الوضع">☾</button><button id="menuTopics" class="icon-btn mobile-menu" title="الأقسام">☰</button></div></header>
 <div class="layout"><aside class="sidebar" id="sidebar"><div class="side-title">◈ <span data-i18n="topics">أقسام GeoVerse</span></div><div id="categoryMenu"></div><button class="all-cats" id="allCategories">▦ <span data-i18n="allTopics">عرض جميع الأقسام</span></button></aside><main id="main"></main><aside class="insights" id="insights" aria-label="GeoVerse activity"></aside></div>
 <div id="searchOverlay" class="overlay hidden"><div class="dialog"><div class="dialog-head"><h2 data-i18n="searchTitle">ابحث في العالم</h2><button id="closeSearch" class="icon-btn">✕</button></div><input id="globalSearch" type="search" placeholder="اسم دولة أو عاصمة أو نهر أو قارة..."><div id="searchResults" class="search-results"></div></div></div>
 <footer>GeoVerse © 2026 · Explore Beyond Borders · 8.5 <span>🌍</span></footer>
