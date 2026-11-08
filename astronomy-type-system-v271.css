@@ -128,3 +128,41 @@
  }
  #main .gv235-content .gv235-launch{margin-top:5px!important;min-height:40px}
 }
+
+/* v275: actual split poster architecture on phones, no text over the planet image. */
+@media(max-width:740px){
+ #main .gv235-features{gap:13px!important}
+ #main button.gv235-feature{
+   display:flex!important;flex-direction:column!important;align-items:stretch!important;
+   justify-content:flex-start!important;height:auto!important;min-height:0!important;
+   background:#071c2e!important;overflow:hidden!important;
+ }
+ #main .gv235-feature .gv235-picture{
+   position:relative!important;display:block!important;inset:auto!important;
+   z-index:0!important;flex:0 0 190px!important;width:100%!important;height:190px!important;
+   background-color:#020b15!important;background-size:contain!important;
+   background-repeat:no-repeat!important;background-position:center center!important;
+   transform:none!important;
+ }
+ #main .gv235-feature .gv235-shade{display:none!important}
+ #main .gv235-feature .gv235-content{
+   position:relative!important;z-index:1!important;display:flex!important;
+   flex-direction:column!important;justify-content:flex-start!important;align-items:flex-start!important;
+   width:100%!important;min-height:0!important;height:auto!important;box-sizing:border-box!important;
+   margin:0!important;padding:17px 18px 18px!important;gap:9px!important;
+   background:linear-gradient(180deg,#0b2b40,#061b2e)!important;
+   border-top:1px solid rgba(107,188,203,.24);
+ }
+ #main .gv235-feature .gv235-content strong{
+   max-width:100%!important;font-size:clamp(19px,4.85vw,22px)!important;
+   line-height:1.4!important;text-shadow:none!important;
+ }
+ #main .gv235-feature .gv235-content>span:not(.gv235-launch){
+   font-size:clamp(12px,3vw,13px)!important;line-height:1.7!important;
+   max-width:100%!important;color:#c7deea!important;text-shadow:none!important;
+ }
+ #main .gv235-feature .gv235-content .gv235-launch{margin-top:4px!important;min-height:41px!important}
+}
+@media(max-width:380px){
+ #main .gv235-feature .gv235-picture{height:175px!important;flex-basis:175px!important}
+}
