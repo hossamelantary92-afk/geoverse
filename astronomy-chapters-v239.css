@@ -134,3 +134,22 @@
 @media(max-width:390px){
  .gv239-chapter{min-height:232px!important}
 }
+
+/* v268: breathing room for long chapter titles, with independent icons. */
+.gv268-title-row{display:flex;flex-direction:row;align-items:flex-start;gap:7px;min-width:0;width:100%;direction:rtl}
+.gv268-chapter-icon{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;font-size:18px;line-height:1.45}
+.gv239-chapter-body .gv268-chapter-title{display:block;min-width:0;flex:1;font-weight:950;text-align:start;text-wrap:balance;overflow-wrap:normal;word-break:normal;hyphens:none;line-height:1.48!important}
+.gv239-chapter-body .gv239-card-count bdi{font-family:Outfit,Cairo,Arial,sans-serif;white-space:nowrap}
+@media(max-width:700px){
+ .gv239-chapter{min-height:244px!important}
+ .gv239-chapter-body{padding:13px 13px 14px!important;gap:10px!important}
+ .gv268-title-row{gap:6px}
+ .gv268-chapter-icon{font-size:16px}
+ .gv239-chapter-body .gv268-chapter-title{font-size:clamp(15px,3.7vw,18px)!important;line-height:1.46!important}
+ .gv239-chapter-meta{gap:5px}
+}
+@media(max-width:390px){
+ .gv239-chapter{min-height:252px!important}
+ .gv239-chapter-body .gv268-chapter-title{font-size:15px!important}
+ .gv239-chapter-meta .gv239-enter{padding:5px 6px}
+}
