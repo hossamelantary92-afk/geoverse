@@ -126,7 +126,7 @@ photo.hydrate=function(){
   photo.mount(box,src,box.dataset.placeName||'',article,item[4]);
  });
 };
-photo.ready=fetch('./photo-manifest-v13.json?v=gv315-seas-premium-batch2').then(r=>{
+photo.ready=fetch('./photo-manifest-v13.json?v=gv316-seas-first-batch-repair').then(r=>{
  if(!r.ok)throw Error('Photo reference manifest unavailable');
  return r.json();
 }).then(data=>{
