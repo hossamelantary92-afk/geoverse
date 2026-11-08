@@ -10,7 +10,7 @@ geo[key]=entries.map(e=>[e.ar,e.en,e.descAr,e.descEn,0,0]);
 if(typeof topicDefinitions!=='undefined')topicDefinitions[key]=['تدرس الجغرافيا الفلكية موقع الأرض وحركتها وعلاقتها بالشمس والقمر، وتتوسع هنا لاستكشاف المجموعة الشمسية والمجرات.','Astronomical geography studies Earth’s position, movement and relationship to the Sun and Moon, expanding here into the Solar System and galaxies.'];
 const tx=(a,b)=>state.lang==='ar'?a:b;
 const esc=t=>String(t??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const photo=e=>(e.id==='moon-phases'&&state.lang==='ar'?'./assets/moon-phases-ar-final-v260.svg':e.id==='seasons'&&state.lang==='ar'?'./assets/seasons-ar-v261.svg':e.officialImage)||'https://images.unsplash.com/'+e.image+'?auto=format&fit=crop&w=1100&q=82';
+const photo=e=>(e.id==='moon-phases'&&state.lang==='ar'?'./assets/moon-phases-ar-final-v260.svg':e.id==='seasons'&&state.lang==='ar'?'./assets/seasons-ar-v261.svg':e.id==='star-life'&&state.lang==='ar'?'./assets/star-life-ar-v264.svg':e.officialImage)||'https://images.unsplash.com/'+e.image+'?auto=format&fit=crop&w=1100&q=82';
 const fallbackPhoto=e=>'https://images.unsplash.com/'+e.image+'?auto=format&fit=crop&w=1100&q=82';
 const progress=()=>{try{return JSON.parse(localStorage.getItem('gv_progress')||'{}')}catch{return {}}};
 const complete=i=>progress()[key+'_'+i]===true;
