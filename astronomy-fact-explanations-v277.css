@@ -4,3 +4,11 @@
 .gv277-facts strong{color:#edfaff;font-weight:850}
 .gv277-fact-why{font-size:clamp(12px,2.9vw,14px)!important;line-height:1.85!important;color:#bad5e1!important;margin:5px 0 0!important}
 @media(max-width:700px){.gv277-facts{gap:11px}.gv277-fact-why{font-size:12px!important;line-height:1.8!important}}
+
+.gv277-fact-more{margin:4px 0 0}
+.gv277-fact-more>summary{display:inline-flex;align-items:center;gap:6px;cursor:pointer;color:#8ce8dd;font-size:11px;font-weight:750;list-style:none}
+.gv277-fact-more>summary::-webkit-details-marker{display:none}
+.gv277-fact-more>summary::before{content:'+';display:inline-block;font-size:15px;line-height:1}
+.gv277-fact-more[open]>summary::before{content:'−'}
+.gv277-fact-more>summary:focus-visible{outline:2px solid #8ce8dd;outline-offset:4px;border-radius:3px}
+.gv277-fact-more .gv277-fact-why{margin:7px 0 3px!important}
