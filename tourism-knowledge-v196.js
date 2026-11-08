@@ -124,7 +124,16 @@ categoryPage=function(){
   topBack.setAttribute('aria-label',ar()?'العودة لكل الدول':'Back to all countries');
  }
  const banner=doc.querySelector('.category-detail-banner');
- if(banner){banner.removeAttribute('style');banner.classList.add('gv196-category-banner')}
+ if(banner){
+  banner.removeAttribute('style');
+  banner.classList.add('gv196-category-banner');
+  const cover=window.GeoVersePremiumCovers?.get('tourism',1600);
+  if(cover){
+   banner.style.setProperty('background-image','linear-gradient(90deg,rgba(3,21,36,.86),rgba(3,25,42,.55) 55%,rgba(3,21,36,.18)),url("'+cover+'")','important');
+   banner.style.setProperty('background-size','cover','important');
+   banner.style.setProperty('background-position','center 52%','important');
+  }
+ }
  // Tourism has its own country/landmark navigation below; remove redundant
  // instructional tip and explore action bar, without touching other topics.
  // The introductory education panel repeats the banner and pushes the country cards down.
