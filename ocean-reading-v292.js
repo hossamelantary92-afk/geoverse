@@ -10,6 +10,8 @@ const regions={
 'Arctic Ocean':{ar:'حول القطب الشمالي، بين شمال أمريكا وأوروبا وآسيا.',en:'Around the North Pole, between northern America, Europe and Asia.',points:[[82,0]]}
 };
 let stories={},photos={},land=null,loadStarted=false;
+// Direct, verified image URLs render with the hero immediately, before async data hydration.
+const oceanCoverUrls=["https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Hawaii_%28MODIS%29.jpg/960px-Hawaii_%28MODIS%29.jpg","https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Azores_satellite_photo-NASA.jpg/960px-Azores_satellite_photo-NASA.jpg","https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/1_Maldives%2C_Indian_Ocean%2C_Asia.jpg/960px-1_Maldives%2C_Indian_Ocean%2C_Asia.jpg","https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Icebergs_in_the_Southern_Ocean.jpg/960px-Icebergs_in_the_Southern_Ocean.jpg","https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/North_Pole%2C_Arctic_Ocean%2C_sea_ice_04_%28cropped%29.jpg/960px-North_Pole%2C_Arctic_Ocean%2C_sea_ice_04_%28cropped%29.jpg"];
 const ar=(a,b)=>state.lang==='ar'?a:b;
 const escape=x=>escapeHTML(String(x??''));
 const stop=x=>String(x||'').trim().replace(/\s+/g,' ');
@@ -31,7 +33,7 @@ function article(){
  return '<article class="gv292-ocean">'+
  '<button type="button" class="back gv292-back" data-cat="oceans">'+ar('← العودة إلى المحيطات','← Back to oceans')+'</button>'+
  '<header class="gv292-hero">'+
- '<div class="gv292-cover" id="gv292Cover" role="img" aria-label="'+escape(ar('صورة: ','Photograph: ')+name)+'"><div class="gv292-cover-empty">🌊</div></div>'+
+ '<div class="gv292-cover" id="gv292Cover" role="img" aria-label="'+escape(ar('صورة: ','Photograph: ')+name)+'"><div class="gv292-cover-empty">🌊</div><img src="'+escape(oceanCoverUrls[idx])+'" alt="'+escape(name)+'" loading="eager" decoding="async"></div>'+
  '<div class="gv292-hero-copy"><span class="gv292-kicker">'+ar('المحيطات • دليل جغرافي','OCEANS • FIELD GUIDE')+'</span><h1>'+escape(name)+'</h1>'+
  '<p>'+escape(ar(row[2],row[3]))+'</p>'+
  '</div></header>'+
@@ -66,11 +68,17 @@ function hydrate(){
  const facts=document.getElementById('gv292Facts');
  if(facts&&state.lang==='ar')facts.innerHTML=(story.factsAr||[]).slice(0,2).map(pair=>'<div class="gv292-fact"><span>'+escape(pair[0])+'</span><strong>'+escape(pair[1])+'</strong></div>').join('');
  }
- const slot=document.getElementById('gv292Cover'),entry=photos['oceans:'+state.item];
-
- if(slot&&entry&&!slot.querySelector('img')&&typeof entry[0]==='string'&&/^https:\/\/(?:(?:upload|thumb)\.wikimedia\.org\/|commons\.wikimedia\.org\/wiki\/Special:Redirect\/file\/)/.test(entry[0])){
- const im=document.createElement('img');im.alt=ar('صورة من المحيط: ','Ocean photograph: ')+ar(row[0],row[1]);im.decoding='async';im.addEventListener('load',()=>slot.classList.add('gv292-has-cover'));
- im.addEventListener('error',()=>im.remove());slot.appendChild(im);im.src=entry[0];
+ const slot=document.getElementById('gv292Cover');
+ if(slot){
+  const img=slot.querySelector('img');
+  if(img&&!img.dataset.gv297Bound){
+   img.dataset.gv297Bound='1';
+   if(img.complete&&img.naturalWidth)slot.classList.add('gv292-has-cover');
+   else{
+    img.addEventListener('load',()=>{if(slot.isConnected)slot.classList.add('gv292-has-cover')},{once:true});
+    img.addEventListener('error',()=>{img.remove();slot.classList.remove('gv292-has-cover')},{once:true});
+   }
+  }
  }
  const node=document.getElementById('gv292WorldMap');
  if(node)buildMap(node,row[1]);
@@ -89,8 +97,8 @@ function buildMap(node,key){
 function load(){
  if(loadStarted)return;loadStarted=true;
  Promise.allSettled([
- fetch('./geo-stories.json?v=gv296-ocean-audit').then(r=>r.ok?r.json():Promise.reject()),
- fetch('./photo-manifest-v13.json?v=gv296-ocean-covers').then(r=>r.ok?r.json():Promise.reject()),
+ fetch('./geo-stories.json?v=gv297-ocean-image-stability').then(r=>r.ok?r.json():Promise.reject()),
+ fetch('./photo-manifest-v13.json?v=gv297-ocean-direct-photos').then(r=>r.ok?r.json():Promise.reject()),
  fetch('./world.geojson?v=gv292-ocean-map').then(r=>r.ok?r.json():Promise.reject())
  ]).then(([a,b,c])=>{
  if(a.status==='fulfilled')stories=a.value.stories||{};
