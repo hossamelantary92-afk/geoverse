@@ -25,6 +25,24 @@ const connections={
 'Philippine Sea':['غرب المحيط الهادئ','Western Pacific Ocean'],
 'Weddell Sea':['المحيط الجنوبي قرب أنتاركتيكا','Southern Ocean near Antarctica']
 };
+const compactLocations={
+'Mediterranean Sea':['بين أوروبا وشمال أفريقيا وغرب آسيا','Between Europe, North Africa and West Asia'],
+'Red Sea':['بين شمال شرق أفريقيا وشبه الجزيرة العربية','Between northeast Africa and the Arabian Peninsula'],
+'Arabian Sea':['بين شبه الجزيرة العربية وشبه القارة الهندية','Between Arabia and the Indian subcontinent'],
+'Caribbean Sea':['بين جزر الأنتيل وأمريكا الوسطى وشمال أمريكا الجنوبية','Between the Antilles, Central America and northern South America'],
+'Sea of Japan':['بين اليابان وكوريا وروسيا','Between Japan, Korea and Russia'],
+'Baltic Sea':['شمال أوروبا','Northern Europe'],
+'Black Sea':['بين جنوب شرق أوروبا وغرب آسيا','Between southeast Europe and West Asia'],
+'North Sea':['شمال غرب أوروبا','Northwestern Europe'],
+'Bering Sea':['بين ألاسكا وروسيا','Between Alaska and Russia'],
+'Coral Sea':['شمال شرق أستراليا','Northeast of Australia'],
+'Tasman Sea':['بين أستراليا ونيوزيلندا','Between Australia and New Zealand'],
+'South China Sea':['بين جنوب الصين والفلبين وجنوب شرق آسيا','Between southern China, the Philippines and Southeast Asia'],
+'East China Sea':['بين شرق الصين وتايوان وجزر ريوكيو','Between eastern China, Taiwan and the Ryukyu Islands'],
+'Andaman Sea':['بين ميانمار وتايلاند وجزر أندامان','Between Myanmar, Thailand and the Andaman Islands'],
+'Philippine Sea':['شرق الفلبين في غرب الهادئ','East of the Philippines in the western Pacific'],
+'Weddell Sea':['شرق شبه الجزيرة القطبية الجنوبية','East of the Antarctic Peninsula']
+};
 function decorate(){
  if(!current())return;
  const root=document.querySelector('#main .gv14-detail');if(!root)return;
@@ -35,15 +53,15 @@ function decorate(){
  const parts=sentences(description);
  const title=root.querySelector('#gv14About');if(title)title.textContent=tr('حقائق مهمة','Essential facts');
  const intro=root.querySelector('#gv14Description');
- if(intro)intro.textContent=tr(v[2],v[3]);
+ if(intro){intro.textContent='';intro.hidden=true;}
  const values=state.lang==='ar'?(story?.factsAr||[]):[];
- const region=tr(v[2],v[3]);
+ const region=tr(...(compactLocations[v[1]]||[v[2],v[3]]));
  const connected=tr(...(connections[v[1]]||['المحيط العالمي','World ocean']));
  const all=[
   [tr('الموقع','Location'),region],
   [tr('الاتصال البحري','Ocean connection'),connected],
-  [tr('أبرز سمة','Key feature'),values[0]?.[1]||parts[1]||region],
-  [tr('الأهمية والبيئة','Environment & importance'),values[1]?.[1]||parts[2]||parts[1]||region]
+  [tr('أبرز سمة','Key feature'),values[0]?.[1]||parts[1]||tr(v[2],v[3])],
+  [tr('الأهمية والبيئة','Environment & importance'),values[1]?.[1]||parts[2]||parts[1]||tr(v[2],v[3])]
  ];
  const facts=root.querySelector('#gv14Facts');
  if(facts)facts.innerHTML='<div class="gv311-facts">'+all.map(([label,value])=>'<div class="gv14-fact"><small>'+safe(label)+'</small><strong>'+safe(value)+'</strong></div>').join('')+'</div>';
@@ -96,6 +114,9 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 else decorate();
 const style=document.createElement('style');style.id='gv311-sea-style';
 style.textContent=`
+.gv311-sea #gv14Description[hidden]{display:none!important}
+.gv311-sea .gv311-facts>.gv14-fact{align-items:stretch;min-width:0}
+.gv311-sea .gv311-facts strong{overflow-wrap:break-word}
 .gv311-sea .gv14-overview .gv14-section-heading span,.gv311-sea .gv14-map .gv14-section-heading span{display:none}
 .gv311-sea .gv311-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin-top:13px}
 .gv311-sea .gv311-facts>.gv14-fact{box-sizing:border-box;min-height:104px;justify-content:center;border-radius:15px;background:linear-gradient(145deg,#104456,#0c3348);border:1px solid #4c8f98;padding:14px 12px}
