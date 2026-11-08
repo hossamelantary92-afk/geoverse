@@ -77,7 +77,7 @@ itemCards=function(items){
 };
 // Called only after the existing wiki title was matched exactly and its thumbnail
 // host was checked against the two official Wikimedia image CDNs.
-photo.mount=function(box,src,name,articleUrl){
+photo.mount=function(box,src,name,articleUrl,fallbacks=[]){
  if(!box?.isConnected||box.querySelector('img')||!isPlacePhoto(src))return;
  const img=document.createElement('img');
  img.loading='lazy';img.decoding='async';img.alt=name;
@@ -89,7 +89,25 @@ photo.mount=function(box,src,name,articleUrl){
   box.querySelector('.gv13-photo-status')?.remove();
   box.classList.add('gv13-has-photo');
  });
- img.addEventListener('error',()=>{img.remove();box.classList.remove('gv13-has-photo')});
+ let retries=Array.isArray(fallbacks)?fallbacks.filter(x=>typeof x==='string'&&x!==src):[];
+ let commonsAttempted=false;
+ img.addEventListener('error',async()=>{
+  if(!box.isConnected)return;
+  if(retries.length){img.src=retries.shift();return}
+  if(!commonsAttempted&&articleUrl&&articleUrl.includes('commons.wikimedia.org')){
+   commonsAttempted=true;
+   try{
+    const title=decodeURIComponent(articleUrl.split('/wiki/').pop()||'');
+    const endpoint='https://commons.wikimedia.org/w/api.php?action=query&format=json&origin=*&prop=imageinfo&iiprop=url&iiurlwidth=720&titles='+encodeURIComponent(title);
+    const response=await fetch(endpoint,{mode:'cors'});
+    const json=await response.json();
+    const page=Object.values(json.query?.pages||{})[0];
+    const recovered=page?.imageinfo?.[0]?.thumburl||page?.imageinfo?.[0]?.url;
+    if(recovered&&recovered!==img.src){img.src=recovered;return}
+   }catch(e){}
+  }
+  img.remove();box.classList.remove('gv13-has-photo');
+ });
  box.appendChild(img);img.src=src;
 };
 
@@ -105,10 +123,10 @@ photo.hydrate=function(){
   const src=item[0],canonical=item[1];
   if(typeof src!=='string'||typeof canonical!=='string')return;
   const article=canonical.startsWith('File:')?'https://commons.wikimedia.org/wiki/'+encodeURIComponent(canonical.replace(/ /g,'_')):'https://en.wikipedia.org/wiki/'+encodeURIComponent(canonical.replace(/ /g,'_'));
-  photo.mount(box,src,box.dataset.placeName||'',article);
+  photo.mount(box,src,box.dataset.placeName||'',article,item[4]);
  });
 };
-photo.ready=fetch('./photo-manifest-v13.json?v=gv308-yangtze-landscape').then(r=>{
+photo.ready=fetch('./photo-manifest-v13.json?v=gv309-river-image-stability').then(r=>{
  if(!r.ok)throw Error('Photo reference manifest unavailable');
  return r.json();
 }).then(data=>{
