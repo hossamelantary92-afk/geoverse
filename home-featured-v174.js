@@ -6,9 +6,10 @@
 'use strict';
 if(typeof home!=='function')return;
 const previous=home;
-const order=['countries','tourism','mountains','oceans','rivers','deserts'];
+const order=['countries','astronomy','tourism','mountains','oceans','rivers','deserts'];
 const images={
  countries:'photo-1519501025264-65ba15a82390',
+ astronomy:'photo-1462331940025-496dfbfc7564',
  tourism:'photo-1533105079780-92b9be482077',
  mountains:'photo-1464822759023-fed622ff2c3b',
  oceans:'photo-1518837695005-2083093ee35b',
@@ -44,7 +45,7 @@ home=function(){
  for(const id of order){
   const b=card(doc,id);if(b)fragment.appendChild(b);
  }
- if(fragment.childElementCount!==6)return markup;
+ if(fragment.childElementCount!==7)return markup;
  grid.replaceChildren(fragment);
  return doc.body.innerHTML;
 };
