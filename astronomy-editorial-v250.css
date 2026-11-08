@@ -1,0 +1,7 @@
+/* GeoVerse v250 — astronomy content readability and numerals */
+.gv231-detail-image>span{direction:ltr!important;unicode-bidi:isolate;display:inline-flex;align-items:center;justify-content:center;min-width:64px;white-space:nowrap}
+.gv250-lesson-count{direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums;font-family:Outfit,Cairo,sans-serif;font-weight:800}
+.gv250-simple p{margin:9px 0 0!important;line-height:1.9;white-space:normal;overflow-wrap:break-word}
+.gv250-simple{min-height:unset!important;height:auto!important}
+.gv231-period span{font-weight:750;line-height:1.7}
+@media(max-width:700px){.gv250-simple{padding:14px!important}.gv250-simple p{font-size:13px!important;line-height:1.9!important}.gv231-period{gap:8px}}
