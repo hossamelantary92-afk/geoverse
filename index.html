@@ -328,8 +328,8 @@ catch(e){document.documentElement.dataset.gvInitialTheme='dark'}
 }
 /* The visual curvature does not modify the WebGL globe or mobile layout. */
 </style>
-<style id="gv223-final-arc">
-/* Phase 4 refinement: lower globe 12px and highlight the shallow glass arc. */
+<style id="gv224-lighting-arc">
+/* Final desktop polish: retain approved globe geometry while softening surface highlights and refining glass arch. */
 @media (min-width:901px){
   /* Keep the existing approved hero height and all functionality. */
   #main .gv11-hero .gv11-planet{
@@ -354,6 +354,10 @@ catch(e){document.documentElement.dataset.gvInitialTheme='dark'}
     width:min(47%,535px)!important;
     z-index:8!important;
   }
+  /* Reduce washed-out highlights only on the rendered globe; keep its size and interaction untouched. */
+  #main .gv11-hero .gv11-globe canvas{
+    filter:brightness(.91) saturate(.96) contrast(1.035) drop-shadow(0 0 13px rgba(58,178,245,.30))!important;
+  }
   #main .gv11-hero .gv11-actions{margin-top:20px!important}
   #main .gv11-hero .gv11-earth-glow{
     inset:-7%!important;
@@ -363,7 +367,7 @@ catch(e){document.documentElement.dataset.gvInitialTheme='dark'}
   }
   /* Very shallow top arc, not just rounded rectangle corners. */
   #main .gv11-hero .gv11-stats{
-    border-radius:50% 50% 20px 20px / 25px 25px 20px 20px!important;
+    border-radius:50% 50% 20px 20px / 35px 35px 20px 20px!important;
     border-color:rgba(151,225,242,.36)!important;
     background:linear-gradient(108deg,rgba(5,41,70,.37),rgba(6,34,59,.47) 55%,rgba(5,26,48,.54))!important;
     backdrop-filter:blur(12px) saturate(1.15)!important;
