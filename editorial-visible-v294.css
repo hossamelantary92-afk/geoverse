@@ -1,0 +1,10 @@
+/* GeoVerse v294 — no hidden educational disclosures, no reference UI. */
+#main details.gv294-unfolded{display:block!important}
+#main details.gv294-unfolded > :not(summary){display:revert}
+#main .gv294-unfolded-heading{color:#a9e8dd;font-size:clamp(15px,2vw,20px);font-weight:850;line-height:1.7;margin:0 0 12px}
+#main .gv294-unfolded:has(> .gv294-unfolded-heading){padding-top:16px}
+#main .gv14-more.gv294-unfolded{padding:18px}
+#main .gv14-more.gv294-unfolded > #gvWikiArticle{display:block!important;padding:0!important}
+#main .gv292-sources,#main .gv239-source,#main .gv244-credit,#main .gv-comprehensive-source,#main .gv9-sources,#main .gv14-image-credit,#main .gv-image-credit,#main .gv-source-note,#main .gv-figure-credit,#main .gv292-reference-links{display:none!important}
+#main a.gv-source-link,#main a.gv-image-source{display:none!important}
+@media(max-width:600px){#main .gv294-unfolded-heading{font-size:16px}}
