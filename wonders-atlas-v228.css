@@ -1,6 +1,6 @@
 /* GeoVerse v228 — cinematic Wonders Atlas */
 .gv228-root{color:#f0f9ff;min-width:0;overflow:clip}
-.gv228-hero{min-height:400px;position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:end;border:1px solid rgba(120,215,226,.42);border-radius:23px;background:#091d31 url('https://images.unsplash.com/photo-1477587458883-47145ed94245?w=1600&q=85&auto=format&fit=crop') center 49%/cover;box-shadow:0 26px 64px #0007}
+.gv228-hero{min-height:400px;position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:end;border:1px solid rgba(120,215,226,.42);border-radius:23px;background:#091d31 url('https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1800&q=88&auto=format&fit=crop') center 49%/cover;box-shadow:0 26px 64px #0007}
 .gv228-hero-shade{position:absolute;inset:0;background:linear-gradient(0deg,rgba(3,16,31,.98),rgba(4,20,36,.45) 55%,rgba(3,15,30,.11)),linear-gradient(90deg,rgba(4,14,27,.2),rgba(4,14,27,.4));z-index:0}
 .gv228-hero-body{position:relative;z-index:1;padding:clamp(25px,4vw,54px);max-width:790px}
 .gv228-kicker{display:block;font:800 11px Outfit,Cairo,sans-serif;color:#ffe3aa;letter-spacing:1.4px}
@@ -55,3 +55,60 @@
 }
 @media(max-width:390px){.gv228-facts{grid-template-columns:1fr 1fr}.gv228-counts{gap:6px}.gv228-counts span{padding:7px 9px}}
 @media(prefers-reduced-motion:reduce){.gv228-panel{transition:none;transform:none;opacity:1}.gv228-photo img{transition:none}.gv228-jump a{transition:none}}
+
+
+/* v229: premium hero typography, full-figure portrait treatment, richer editorial cards */
+.gv228-hero{min-height:440px;background-position:center 47%;background-color:#0d2b41}
+.gv228-hero-shade{
+ background:linear-gradient(270deg,rgba(2,16,31,.90) 0%,rgba(3,23,39,.76) 37%,rgba(4,19,35,.32) 73%,rgba(3,16,31,.20) 100%),linear-gradient(0deg,rgba(3,15,28,.67),transparent 57%);
+}
+.gv228-hero-body{max-width:680px}
+.gv228-hero h1{letter-spacing:-.6px;line-height:1.22;text-shadow:0 3px 20px rgba(0,0,0,.36)}
+.gv228-hero p{line-height:2;max-width:560px;text-wrap:pretty;font-weight:650;text-shadow:0 2px 14px #001923}
+.gv228-counts{gap:11px;margin-top:20px}
+.gv228-details{padding:clamp(23px,2.9vw,42px);justify-content:flex-start;gap:0}
+.gv228-details h3{font-size:clamp(25px,2.5vw,35px);margin:8px 0 11px}
+.gv228-intro{font-size:13px;line-height:1.9;margin-bottom:9px}
+.gv228-story{font-size:12px;line-height:1.85;margin-bottom:15px}
+.gv228-facts{margin-bottom:17px;gap:7px}
+.gv228-facts div{padding:10px 9px;background:rgba(25,77,99,.31)}
+.gv228-details h4{color:#e9fffe;margin:5px 0 6px;font-size:12px}
+.gv228-details ul{margin-bottom:13px;line-height:1.8}
+.gv229-deep-dive{border-top:1px solid rgba(118,202,219,.25);width:100%;margin-top:4px;padding-top:13px}
+.gv229-deep-list{display:grid;gap:5px;margin:6px 0 0!important;padding-inline-start:21px!important;color:#d1e8ee;font-size:12px;line-height:1.75}
+.gv229-deep-list li{padding-inline-start:2px}
+.gv228-panel{min-height:490px}
+.gv228-photo{min-height:490px}
+/* Special portrait framing for Christ the Redeemer: no cropped head, arms or base. */
+.gv228-panel[data-wonder-id="christ"] .gv228-photo{isolation:isolate;background-color:#0a263e}
+.gv228-panel[data-wonder-id="christ"] .gv228-photo::before{
+ content:"";position:absolute;inset:-24px;z-index:0;
+ background-image:linear-gradient(rgba(3,22,38,.38),rgba(3,22,38,.38)),var(--gv229-image,linear-gradient(140deg,#15547c,#041a2e));
+ background-size:cover;background-position:center;
+ filter:blur(18px) brightness(.74);
+ transform:scale(1.05);
+}
+.gv228-panel[data-wonder-id="christ"] .gv228-photo img{
+ z-index:1;object-fit:contain!important;object-position:center!important;
+ box-sizing:border-box;padding:16px 10px 26px;
+ filter:drop-shadow(0 8px 20px rgba(0,0,0,.25));
+}
+.gv228-panel[data-wonder-id="christ"]:hover .gv228-photo img{transform:none}
+.gv228-panel[data-wonder-id="christ"] .gv228-photo-overlay{z-index:2}
+.gv228-panel[data-wonder-id="christ"] .gv228-number,.gv228-panel[data-wonder-id="christ"] .gv228-photo-caption{z-index:3}
+@media(max-width:1000px){
+ .gv228-facts{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .gv228-panel{min-height:450px}
+ .gv228-photo{min-height:450px}
+}
+@media(max-width:740px){
+ .gv228-hero{min-height:380px;background-position:54% center}
+ .gv228-hero-shade{background:linear-gradient(0deg,rgba(2,16,31,.96),rgba(2,16,31,.63) 65%,rgba(2,16,31,.17))}
+ .gv228-panel{min-height:0}
+ .gv228-photo{min-height:270px;height:300px}
+ .gv228-details{padding:23px 19px}
+ .gv228-facts{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .gv228-details h3{font-size:25px}
+ .gv229-deep-list{font-size:12px}
+}
+@media(max-width:390px){.gv228-facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
