@@ -18,7 +18,7 @@ if(new Set(sections.flatMap(g=>g.ids)).size!==atlas.entries.length)throw new Err
 const map=Object.fromEntries(atlas.entries.map((e,i)=>[e.id,{e,i}]));
 const T=(a,b)=>state.lang==='ar'?a:b;
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const photo=e=>(e.id==='moon-phases'&&state.lang==='ar'?'./assets/moon-phases-ar-final-v260.svg':e.id==='seasons'&&state.lang==='ar'?'./assets/seasons-ar-v261.svg':e.id==='tides'&&state.lang==='ar'?'./assets/tides-ar-v261.svg':e.officialImage)||'https://images.unsplash.com/'+e.image+'?auto=format&fit=crop&w=850&q=78';
+const photo=e=>(e.id==='moon-phases'&&state.lang==='ar'?'./assets/moon-phases-ar-final-v260.svg':e.id==='seasons'&&state.lang==='ar'?'./assets/seasons-ar-v261.svg':e.id==='tides'&&state.lang==='ar'?'./assets/tides-ar-v261.svg':e.id==='star-life'&&state.lang==='ar'?'./assets/star-life-ar-v264.svg':e.officialImage)||'https://images.unsplash.com/'+e.image+'?auto=format&fit=crop&w=850&q=78';
 const fallback=e=>'https://images.unsplash.com/'+e.image+'?auto=format&fit=crop&w=850&q=78';
 /* v248: Guaranteed immediate visual for the three covers that appeared blank on iPhone. */
 function coverStarter(g){
@@ -121,7 +121,7 @@ detail=function(){
  let enriched=(additions.some(x=>x.id===e.id)&&html.includes(marker))?html.replace(marker,article(e)+marker):html;
  if(e.imageSource&&enriched.includes('<nav class="gv231-next">')){
   const kind=e.imageKind==='illustration'?T('رسم علمي توضيحي','Scientific illustration'):(e.imageKind==='composite'?T('صورة مركبة علميًا','Science image composite'):T('صورة علمية','Science photograph'));
-  const credit='<div class="gv244-credit"><span>'+kind+' · '+T('المصدر: ','Credit: ')+esc(['moon-phases','seasons','tides'].includes(e.id)&&state.lang==='ar'?'GeoVerse · رسم تعليمي بالعربية مستند إلى مراجع NASA':e.imageCredit)+'</span><a href="'+esc(e.imageSource)+'" target="_blank" rel="noopener noreferrer">'+T('تفاصيل الصورة الأصلية','Original image details')+' ↗</a></div>';
+  const credit='<div class="gv244-credit"><span>'+kind+' · '+T('المصدر: ','Credit: ')+esc(['moon-phases','seasons','tides','star-life'].includes(e.id)&&state.lang==='ar'?'GeoVerse · رسم تعليمي بالعربية مستند إلى مراجع NASA':e.imageCredit)+'</span><a href="'+esc(e.imageSource)+'" target="_blank" rel="noopener noreferrer">'+T('تفاصيل الصورة الأصلية','Original image details')+' ↗</a></div>';
   enriched=enriched.replace('<nav class="gv231-next">',credit+'<nav class="gv231-next">');
  }
  /* Return readers to the chapter they came from, without losing their progress. */
