@@ -236,7 +236,7 @@ function wikiTitle(v){return String(v[1]||'').replace(/^Mount /,'Mount ').trim()
 const gvStories=new Map();
 async function loadCuratedStories(){
  try{
-  const r=await fetch('./geo-stories.json?v=gv289-water-atlas');
+  const r=await fetch('./geo-stories.json?v=gv290-major-rivers');
   if(!r.ok)throw Error('No curriculum file');
   const j=await r.json();
   for(const [name,entry] of Object.entries(j.stories||{}))gvStories.set(norm(name),entry);
