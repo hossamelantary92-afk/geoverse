@@ -18,7 +18,9 @@ function ageOn(id){
 }
 function fmt(value){return new Intl.NumberFormat(state.lang==='ar'?'ar-EG':'en-US',{maximumFractionDigits:1,minimumFractionDigits:0}).format(value)}
 function cards(){
- return stories.map(p=>'<button type="button" data-gv234-planet="'+p.id+'" class="gv234-planet-tab '+(chosen===p.id?'selected':'')+'" aria-pressed="'+(chosen===p.id)+'">'+t(p.ar,p.en)+'</button>').join('');
+ const button=p=>'<button type="button" data-gv234-planet="'+p.id+'" class="gv234-planet-tab '+(chosen===p.id?'selected':'')+'" aria-pressed="'+(chosen===p.id)+'">'+t(p.ar,p.en)+'</button>';
+ return '<div class="gv234-planet-row">'+stories.slice(0,4).map(button).join('')+'</div>'+
+        '<div class="gv234-planet-row">'+stories.slice(4,8).map(button).join('')+'</div>';
 }
 function account(){
  const p=byId[chosen]||byId.earth;const age=ageOn(p.id);
