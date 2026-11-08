@@ -1,0 +1,67 @@
+/* GeoVerse v271 — astronomy typography and responsive rhythm.
+   Scoped to astronomy views, preserving learning content and navigation. */
+#main .gv231-wrap,
+#main .gv239-taxonomy,
+#main .gv235-feature-hub{--gv271-ink:#f0fbff;--gv271-muted:#c4d9e5}
+#main .gv231-hero{min-height:235px!important;padding:clamp(22px,3vw,36px)!important;justify-content:flex-end;gap:12px}
+#main .gv231-hero h1{font-size:clamp(31px,3.6vw,45px)!important;line-height:1.22!important;letter-spacing:-.02em;margin:0!important;text-wrap:balance}
+#main .gv231-hero-stats{margin:3px 0 0!important;gap:8px}
+#main .gv231-hero-stats span{font-size:clamp(11px,1vw,13px)!important;line-height:1.5;padding:9px 12px!important}
+#main .gv235-feature-hub{margin:22px 0 25px!important}
+#main .gv235-head{margin:0 0 13px!important;display:block}
+#main .gv235-head h2{font-size:clamp(23px,2.5vw,32px)!important;line-height:1.33!important;font-weight:900;margin:0!important;letter-spacing:-.012em}
+#main .gv235-features{gap:15px}
+#main .gv235-feature{min-height:236px!important}
+#main .gv235-feature .gv235-content{width:100%;box-sizing:border-box;padding:22px 24px!important;gap:9px!important;align-items:flex-start}
+#main .gv235-content strong{font-size:clamp(21px,2.1vw,27px)!important;line-height:1.38!important;font-weight:900;text-wrap:balance;max-width:100%}
+#main .gv235-content>span:not(.gv235-launch){font-size:clamp(12px,1.05vw,14px)!important;line-height:1.8!important;color:var(--gv271-muted);max-width:47ch}
+#main .gv235-content .gv235-launch{font-size:clamp(12px,1vw,14px)!important;line-height:1.4!important;padding:10px 16px!important;margin-top:6px!important;min-height:42px;box-sizing:border-box}
+#main .gv239-taxonomy{margin:21px 0 27px!important}
+#main .gv239-head{margin:0 0 16px!important}
+#main .gv239-head h2{font-size:clamp(24px,2.7vw,34px)!important;line-height:1.4!important;letter-spacing:-.01em;margin:0!important;font-weight:900;text-wrap:balance}
+#main .gv239-summary{margin:0 0 18px!important;gap:8px!important}
+#main .gv239-summary span{padding:9px 12px!important;font-size:12px!important;line-height:1.45}
+#main .gv239-summary b{font-size:18px!important}
+#main .gv239-chapters{gap:12px}
+#main .gv239-chapter-body .gv268-chapter-title{line-height:1.42!important;font-size:clamp(16px,1.65vw,21px)!important}
+#main .gv239-chapter-body{gap:10px!important}
+#main .gv239-chapter-meta .gv239-card-count{font-size:11px!important}
+#main .gv239-chapter-meta .gv239-enter{font-size:11px!important}
+#main .gv239-chapter[data-gv239-chapter="solar"] .gv268-chapter-title{font-size:clamp(15px,1.5vw,19px)!important}
+#main .gv239-chapter-hero h2{font-size:clamp(23px,2.7vw,33px)!important;line-height:1.33!important}
+#main .gv239-chapter-hero p{font-size:13px!important;line-height:1.85!important}
+@media(max-width:740px){
+ #main .gv231-hero{min-height:205px!important;padding:24px 19px!important;gap:11px}
+ #main .gv231-hero h1{font-size:clamp(29px,7.2vw,38px)!important;line-height:1.25!important}
+ #main .gv231-hero-stats{gap:7px!important;flex-wrap:nowrap;justify-content:flex-start}
+ #main .gv231-hero-stats span{padding:9px 10px!important;font-size:clamp(10px,2.75vw,12px)!important;white-space:nowrap}
+ #main .gv235-feature-hub{margin:15px 0 23px!important}
+ #main .gv235-head{margin-bottom:13px!important}
+ #main .gv235-head h2{font-size:clamp(23px,5.5vw,29px)!important;line-height:1.34!important}
+ #main .gv235-features{gap:12px}
+ #main .gv235-feature{min-height:218px!important}
+ #main .gv235-feature .gv235-content{padding:18px 20px 19px!important;gap:8px!important}
+ #main .gv235-content strong{font-size:clamp(20px,5.1vw,25px)!important;line-height:1.35!important;max-width:100%}
+ #main .gv235-content>span:not(.gv235-launch){font-size:clamp(12px,3.15vw,13px)!important;line-height:1.72!important;max-width:39ch}
+ #main .gv235-content .gv235-launch{padding:9px 13px!important;font-size:12px!important;min-height:43px;margin-top:5px!important}
+ #main .gv239-taxonomy{margin:21px 0 24px!important}
+ #main .gv239-head{margin-bottom:13px!important}
+ #main .gv239-head h2{font-size:clamp(22px,5vw,27px)!important;line-height:1.42!important;letter-spacing:0}
+ #main .gv239-summary{gap:7px!important;margin-bottom:14px!important}
+ #main .gv239-summary span{flex:1 1 0;min-width:0;justify-content:center;align-items:center;text-align:center;padding:8px 5px!important;font-size:clamp(9px,2.65vw,11px)!important;gap:5px!important}
+ #main .gv239-summary b{font-size:clamp(15px,4vw,19px)!important}
+ #main .gv239-chapters{gap:10px}
+ #main .gv239-chapter{min-height:245px!important}
+ #main .gv239-chapter-body{padding:12px 12px 13px!important;gap:9px!important}
+ #main .gv239-chapter-body .gv268-chapter-title{font-size:clamp(14px,3.75vw,17px)!important;line-height:1.43!important}
+ #main .gv239-chapter[data-gv239-chapter="solar"] .gv268-chapter-title{font-size:clamp(12px,3.35vw,15px)!important}
+ #main .gv239-chapter-meta .gv239-card-count{font-size:clamp(9px,2.55vw,10px)!important}
+ #main .gv239-chapter-meta .gv239-enter{font-size:10px!important}
+ #main .gv239-chapter-hero h2{font-size:clamp(21px,5.3vw,27px)!important}
+ #main .gv239-chapter-hero p{font-size:12px!important}
+}
+@media(max-width:380px){
+ #main .gv239-summary span{font-size:9px!important;padding:8px 3px!important}
+ #main .gv239-chapter-body{padding:11px 9px 12px!important}
+ #main .gv235-feature .gv235-content{padding:16px!important}
+}
