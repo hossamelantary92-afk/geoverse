@@ -72,3 +72,11 @@ body.light .gv292-ocean .gv292-hero,body.light .gv292-ocean .gv292-panel,body.li
 .gv292-visible-article{margin:0;color:#c9e1e7;font-size:clamp(13px,1.5vw,15px);line-height:2.1;max-width:950px}
 .gv292-ocean .gv292-sources{display:none!important}
 @media(max-width:600px){.gv292-visible-article{font-size:13px;line-height:2}}
+
+/* v298: shared reading rhythm — visible, scannable ocean knowledge */
+.gv292-ocean .gv292-bullets{list-style:disc outside;padding-inline-start:1.5em;margin:0;display:grid;gap:12px}
+.gv292-ocean .gv292-bullets li{padding-inline-start:.35em;line-height:1.95;overflow-wrap:anywhere}
+.gv292-ocean .gv292-bullets li::marker{color:#69ddce}
+.gv292-ocean .gv292-summary .gv292-lead{margin-bottom:16px}
+.gv292-ocean .gv292-details h2,.gv292-ocean .gv292-location h2{margin-top:0}
+@media(max-width:600px){.gv292-ocean .gv292-bullets{gap:10px;padding-inline-start:1.35em}.gv292-ocean .gv292-bullets li{line-height:1.85}}
