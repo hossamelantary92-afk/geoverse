@@ -518,10 +518,24 @@ function initGlobe(){
    const pin={lat:v[4],lng:v[5],name:lang(v[0],v[1])};
    let focusedPin=null;
    g.pointsData([pin]).pointLat('lat').pointLng('lng')
-    .pointAltitude(d=>state.category==='rivers'?.018:(d===focusedPin?.11:.065))
-    .pointRadius(d=>state.category==='rivers'?.28:(d===focusedPin?1.15:.72))
-    .pointColor(d=>state.category==='rivers'?'#58e7d2':(d===focusedPin?'#67ffde':'#ffd67b'))
+    .pointAltitude(d=>state.category==='rivers'?.035:(d===focusedPin?.11:.065))
+    .pointRadius(d=>state.category==='rivers'?.54:(d===focusedPin?1.15:.72))
+    .pointColor(d=>state.category==='rivers'?'#69ffdf':(d===focusedPin?'#67ffde':'#ffd67b'))
     .pointLabel(d=>escapeHTML(d.name));
+   // A small luminous pulse anchored to the selected river's location.
+   // Ring radii are degrees on the globe surface, not viewport pixels.
+   if(state.page==='detail'&&state.category==='rivers'&&
+      typeof g.ringsData==='function'&&typeof g.ringLat==='function'&&
+      typeof g.ringLng==='function'&&typeof g.ringColor==='function'){
+    g.ringLat('lat').ringLng('lng')
+     .ringColor(()=>t=>'rgba(67,255,218,'+(0.68*(1-t)).toFixed(3)+')')
+     .ringMaxRadius(reducedMotion?1.05:1.65)
+     .ringPropagationSpeed(reducedMotion?0:0.9)
+     .ringRepeatPeriod(reducedMotion?0:1800)
+     .ringsData([pin]);
+    if(typeof g.ringAltitude==='function')g.ringAltitude(.012);
+    if(typeof g.ringResolution==='function')g.ringResolution(48);
+   }
    if(isTouristPoint&&typeof g.onPointClick==='function'){
     g.onPointClick(d=>{
      if(state.page!=='detail'||state.category!=='tourism'||!node.isConnected)return;
