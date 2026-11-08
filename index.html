@@ -537,4 +537,60 @@ window.__gv138BootFailsafe=setTimeout(function(){
     new MutationObserver(syncMoonArt).observe(document.body,{childList:true,subtree:true});
   }
 })();
-</script></body></html>
+</script>
+<script id="gv266-updater">
+/* GeoVerse: non-destructive update detection for home-screen web apps.
+   Never clears localStorage, IndexedDB, or user study progress. */
+(function(){
+  'use strict';
+  if(!window.fetch||!window.DOMParser)return;
+  const normalize=function(doc){
+    return Array.from(doc.querySelectorAll('script[src],link[rel="stylesheet"][href]'))
+      .map(function(node){return node.getAttribute('src')||node.getAttribute('href')||''})
+      .filter(function(url){return /^\.\//.test(url)})
+      .join('|');
+  };
+  const localSignature=normalize(document);
+  let pending=false,checking=false,lastChecked=0;
+  function notify(){
+    if(pending||document.getElementById('gv266-update-banner'))return;
+    pending=true;
+    const el=document.createElement('div');
+    el.id='gv266-update-banner';
+    el.setAttribute('role','status');
+    el.style.cssText='position:fixed;bottom:calc(18px + env(safe-area-inset-bottom,0px));left:14px;right:14px;z-index:2147483000;max-width:470px;margin:auto;direction:rtl;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 15px;border-radius:16px;border:1px solid #69dbce;background:#082a3e;color:#f2fffe;box-shadow:0 10px 36px #0008;font:700 13px Cairo,Arial,sans-serif';
+    const label=document.createElement('span');
+    label.textContent=document.documentElement.lang==='en'?'A new GeoVerse version is available':'في تحديث جديد لـ GeoVerse';
+    const btn=document.createElement('button');
+    btn.type='button';
+    btn.textContent=document.documentElement.lang==='en'?'Update now':'تحديث الآن';
+    btn.style.cssText='border:0;border-radius:11px;padding:10px 12px;background:#75e7d7;color:#06343e;font:800 13px Cairo,Arial,sans-serif;cursor:pointer;white-space:nowrap';
+    btn.onclick=function(){
+      const url=new URL(window.location.href);
+      url.searchParams.set('gv_update',String(Date.now()));
+      window.location.replace(url.href);
+    };
+    el.appendChild(label);el.appendChild(btn);document.body.appendChild(el);
+  }
+  async function check(force){
+    if(checking||!navigator.onLine||document.visibilityState==='hidden')return;
+    if(!force&&Date.now()-lastChecked<120000)return;
+    checking=true;lastChecked=Date.now();
+    try{
+      const response=await fetch('./index.html?gv_version_check='+Date.now(),{cache:'no-store',credentials:'same-origin'});
+      if(!response.ok)return;
+      const html=await response.text();
+      if(!/<html[\s>]/i.test(html)||!/astronomy-v231\.js/.test(html))return;
+      const remote=new DOMParser().parseFromString(html,'text/html');
+      const remoteSignature=normalize(remote);
+      if(remoteSignature&&localSignature&&remoteSignature!==localSignature)notify();
+    }catch(e){}finally{checking=false}
+  }
+  window.addEventListener('pageshow',function(){check(true)});
+  document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')check(true)});
+  window.addEventListener('online',function(){check(true)});
+  setInterval(function(){check(false)},240000);
+  setTimeout(function(){check(true)},2500);
+})();
+</script>
+</body></html>
