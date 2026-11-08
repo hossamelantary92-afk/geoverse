@@ -16,3 +16,19 @@
 #main .gv281-safety p{font-size:12px!important;line-height:1.9!important;color:#e5eaf1!important;margin:8px 0!important}
 #main .gv281-safety a{color:#f3d89e;font-size:11px;text-decoration:underline;text-underline-offset:3px}
 @media(max-width:600px){#main .gv281-diagram-grid{grid-template-columns:1fr}#main .gv281-diagram svg{max-height:145px}#main .gv281-finish{padding:15px 12px}}
+
+/* v283: compact secondary lesson panels while keeping science readable on phones. */
+@media(max-width:740px){
+ #main .gv238-lesson{margin-top:13px!important;margin-bottom:12px!important}
+ #main .gv238-lesson-label{margin-bottom:8px!important}
+ #main .gv238-story-block{padding:13px 14px!important;margin:8px 0!important}
+ #main .gv238-story-block h3{margin:0 0 5px!important}
+ #main .gv238-story-block p{line-height:1.72!important}
+ #main .gv278-compare{padding:13px!important;margin:12px 0 16px!important}
+ #main .gv278-compare h2{margin:0 0 8px!important}
+ #main .gv278-rows{gap:7px!important}
+ #main .gv278-row{padding:9px 11px!important}
+ #main .gv278-row p{margin:3px 0 0!important;line-height:1.65!important}
+ #main .gv239-source,#main .gv244-credit{font-size:11px!important;line-height:1.7!important}
+ #main .gv281-finish{margin-top:15px!important}
+}
