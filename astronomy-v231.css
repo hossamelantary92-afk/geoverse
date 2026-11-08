@@ -1,0 +1,44 @@
+/* GeoVerse Astronomy v231 — premium photographic celestial atlas. */
+.gv231-wrap{min-width:0;color:#e9f7ff}
+.gv231-back{margin-bottom:14px}
+.gv231-hero{position:relative;overflow:hidden;isolation:isolate;min-height:365px;border-radius:22px;border:1px solid #4a94b88a;display:flex;flex-direction:column;justify-content:end;padding:clamp(23px,4vw,52px);background:linear-gradient(90deg,rgba(3,17,35,.91),rgba(7,21,44,.56)),url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1600&q=85&auto=format&fit=crop') center 43%/cover;box-shadow:0 19px 45px #0006}
+.gv231-eyebrow{color:#97f4e9;font:850 11px Outfit,Cairo,sans-serif;letter-spacing:.09em}
+.gv231-hero h1{font-size:clamp(33px,4vw,57px);font-weight:950;line-height:1.25;margin:12px 0}
+.gv231-hero p{font-size:clamp(13px,1.2vw,16px);max-width:620px;line-height:1.95;color:#e4f2fa}
+.gv231-hero-stats{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.gv231-hero-stats span{padding:9px 14px;border-radius:11px;border:1px solid #84dde189;background:#0a3756aa;backdrop-filter:blur(8px);font-weight:850;font-size:12px}
+.gv231-section-title{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:27px 0 15px}
+.gv231-section-title h2{margin:0;font-size:clamp(23px,3vw,33px)}
+.gv231-section-title p{margin:0;color:#a8cfde;font-size:12px}
+.gv231-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.gv231-card{position:relative;min-width:0;min-height:230px;overflow:hidden;border-radius:17px;border:1px solid rgba(130,207,226,.50);background:#071f37;color:#fff;cursor:pointer;text-align:start;box-shadow:0 12px 25px #0004;transition:transform .25s,border-color .25s}
+.gv231-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s;filter:saturate(1.12)}
+.gv231-card-shade{position:absolute;inset:0;background:linear-gradient(0deg,rgba(2,11,26,.96),rgba(4,19,37,.42) 53%,rgba(4,19,37,.05))}
+.gv231-card-copy{position:absolute;z-index:2;bottom:16px;inset-inline:16px;display:grid;gap:5px}
+.gv231-card-copy strong{font-size:clamp(17px,2vw,24px);font-weight:900}
+.gv231-card-copy small{font-size:11px;color:#d5eaf5}
+.gv231-badge{position:absolute;top:14px;inset-inline-start:14px;z-index:2;font-size:10px;background:#0b324ba8;border:1px solid #8fcde76e;border-radius:9px;padding:7px 10px}
+.gv231-index{position:absolute;top:15px;inset-inline-end:15px;z-index:2;color:#c2f9e9;font:850 12px Outfit,Cairo}
+.gv231-card:hover{transform:translateY(-4px);border-color:#78f5e6}.gv231-card:hover img{transform:scale(1.055)}
+.gv231-disclaimer{margin:24px 0;padding:16px 20px;border:1px solid #6192a75b;background:#0c2b40;border-radius:12px;font-size:12px;line-height:1.9;color:#bbd7e5}
+.gv231-detail{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-radius:21px;overflow:hidden;border:1px solid #6ea6bf70;background:linear-gradient(130deg,#0b3048,#061a2c);min-height:485px}
+.gv231-detail-image{position:relative;min-height:460px;overflow:hidden;background:#081e35}
+.gv231-detail-image img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.gv231-detail-image:after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,#02152688,transparent 38%)}
+.gv231-detail-image>span{position:absolute;z-index:2;top:15px;inset-inline-start:15px;background:#071e32b9;color:#eff;padding:8px 12px;border:1px solid #9bf2e371;border-radius:10px;font:850 12px Outfit}
+.gv231-detail-body{padding:clamp(24px,3vw,44px)}
+.gv231-detail-body h1{font-size:clamp(29px,3vw,42px);line-height:1.4;margin:9px 0 15px}
+.gv231-detail-body p{font-size:14px;line-height:2;color:#d7eaf3}
+.gv231-period{display:grid;gap:6px;background:#17445b73;border:1px solid #5fa0b878;padding:13px;border-radius:11px;margin:18px 0}
+.gv231-period span{font-size:11px;color:#a6cbd9}.gv231-period strong{font-size:14px}
+.gv231-detail-body h2{font-size:18px;margin:21px 0 10px}
+.gv231-detail-body ul{padding-inline-start:23px;line-height:1.9;font-size:13px;color:#d4e8f0}
+.gv231-detail-body li::marker{color:#82f2db}
+.gv231-complete{margin-top:14px;cursor:pointer;border:1px solid #b5f7df;background:linear-gradient(120deg,#84efd8,#33b9c0);color:#07313b;font-weight:900;border-radius:12px;padding:12px 18px}
+.gv231-complete.done{background:#123e51;color:#b9f6e6}
+.gv231-next{display:flex;gap:12px;justify-content:space-between;margin:18px 0 30px}
+.gv231-next button{border:1px solid #57acbd77;background:#103b53;color:#eff;border-radius:12px;padding:12px 19px;cursor:pointer}
+@media(max-width:950px){.gv231-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.gv231-hero{min-height:335px;padding:24px 20px}.gv231-grid{gap:9px}.gv231-card{min-height:180px;border-radius:13px}.gv231-card-copy{inset-inline:10px;bottom:11px}.gv231-card-copy strong{font-size:16px}.gv231-card-copy small{font-size:9px}.gv231-badge{font-size:9px;top:9px;inset-inline-start:9px;padding:5px 7px}.gv231-index{top:10px;inset-inline-end:10px}.gv231-section-title{display:block}.gv231-section-title p{margin-top:6px}.gv231-detail{grid-template-columns:1fr}.gv231-detail-image{min-height:290px}.gv231-detail-body{padding:22px}.gv231-next button{padding:10px 13px}}
+@media(max-width:370px){.gv231-grid{grid-template-columns:1fr}.gv231-card{min-height:180px}}
+@media(prefers-reduced-motion:reduce){.gv231-card,.gv231-card img{transition:none}}
