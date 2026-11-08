@@ -7,7 +7,7 @@ const attractions=[{"countryAr":"مصر","countryEn":"Egypt","cityAr":"الجي�
 const category='tourism';
 const t=(ar,en)=>document.documentElement.lang==='en'?en:ar;
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const categoryDef={id:category,ar:'المزارات السياحية',en:'Tourist Attractions',emoji:'🏛️',img:'photo-1488646953014-85cb44e25828',descAr:'أشهر المزارات التاريخية والثقافية والمعمارية حول العالم.',descEn:'Discover famous cultural, historic and architectural attractions.'};
+const categoryDef={id:category,ar:'المزارات السياحية',en:'Tourist Attractions',emoji:'🏛️',img:'photo-1735446918160-af0b896b7a89',descAr:'أشهر المزارات التاريخية والثقافية والمعمارية حول العالم.',descEn:'Discover famous cultural, historic and architectural attractions.'};
 if(typeof cats==='undefined'||typeof geo==='undefined'||typeof explore!=='function')return;
 if(!cats.some(c=>c.id===category))cats.push(categoryDef);
 if(typeof topicDefinitions!=='undefined')topicDefinitions.tourism=[
