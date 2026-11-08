@@ -12,7 +12,7 @@ detail=function(){
  if(!notes||notes.length!==(e.factsAr||[]).length)return html;
  const title='<h2>حقائق مهمة</h2><ul>';
  if(!html.includes(title))return html;
- const expanded=notes.map((why,i)=>'<li><strong>'+esc(e.factsAr[i])+'</strong><p class="gv277-fact-why">'+esc(why)+'</p></li>').join('');
+ const expanded=notes.map((why,i)=>'<li><strong>'+esc(e.factsAr[i])+'</strong><details class="gv277-fact-more"><summary>شرح الحقيقة</summary><p class="gv277-fact-why">'+esc(why)+'</p></details></li>').join('');
  return html.replace(title+e.factsAr.map(f=>'<li>'+esc(f)+'</li>').join('')+'</ul>',title.replace('<ul>','<ul class="gv277-facts">')+expanded+'</ul>');
 };
 window.GeoVerseAstronomyFactsV277={explanations};
