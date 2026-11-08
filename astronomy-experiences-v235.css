@@ -25,3 +25,18 @@
 .gv235-foot{padding:8px 0 30px;text-align:center}.gv235-foot button{border:1px solid rgba(96,180,195,.7);background:#103e56;color:#e6ffff;border-radius:12px;padding:12px 20px;font-weight:800;cursor:pointer}
 @media(max-width:740px){.gv235-features{grid-template-columns:1fr;gap:12px}.gv235-feature{min-height:225px;border-radius:15px}.gv235-feature .gv235-content{padding:19px}.gv235-head{display:block}.gv235-head p{margin-top:6px}.gv235-content strong{font-size:23px}.gv235-content>span:not(.gv235-launch){font-size:11px}.gv235-context h1{font-size:28px}}
 @media(prefers-reduced-motion:reduce){.gv235-feature,.gv235-feature .gv235-picture{transition:none}}
+
+/* v269: feature posters use imagery for impact and avoid oversized vertical voids. */
+.gv235-feature-hub{margin:15px 0 22px!important}
+.gv235-head{margin-bottom:12px!important}
+.gv235-head h2{margin:0!important;line-height:1.25!important}
+.gv235-feature{min-height:235px!important}
+.gv235-content{gap:9px!important;padding:20px 23px!important}
+.gv235-content strong{font-size:clamp(21px,2.4vw,28px)!important;line-height:1.3!important;text-wrap:balance}
+.gv235-launch{margin-top:2px!important}
+@media(max-width:740px){
+ .gv235-feature-hub{margin:12px 0 17px!important}
+ .gv235-feature{min-height:195px!important}
+ .gv235-feature .gv235-content{padding:17px 19px!important}
+ .gv235-content strong{font-size:clamp(21px,5vw,26px)!important}
+}
