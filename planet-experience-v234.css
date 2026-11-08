@@ -1,0 +1,35 @@
+/* GeoVerse v234 — planet expedition and planetary age, accessible & bilingual */
+.gv234-root{margin:24px 0 32px;padding:clamp(19px,2.8vw,32px);border:1px solid rgba(119,205,224,.47);border-radius:23px;background:radial-gradient(ellipse at 90% 3%,rgba(38,127,141,.16),transparent 50%),linear-gradient(135deg,#082a42,#061c31 58%,#091b35);color:#edfaff;box-shadow:0 20px 45px #00101a50;min-width:0}
+.gv234-heading{margin-bottom:18px}
+.gv234-heading h2{font-size:clamp(23px,2.7vw,34px);line-height:1.4;font-weight:950;margin:8px 0}
+.gv234-heading p{color:#b9dae8;font-size:13px;line-height:1.85;max-width:700px;margin:0}
+.gv234-planet-tabs{display:flex;gap:7px;overflow-x:auto;scrollbar-width:thin;padding:4px 1px 13px;margin-bottom:6px;scroll-snap-type:x proximity}
+.gv234-planet-tab{flex:0 0 auto;scroll-snap-align:start;padding:10px 14px;border-radius:11px;border:1px solid #6194ad70;background:#10384f;color:#def3fb;font-size:12px;font-weight:850;cursor:pointer;transition:background .2s,border-color .2s}
+.gv234-planet-tab.selected{background:linear-gradient(120deg,#8af3df,#46b3ca);border-color:#b4fff4;color:#062f39;box-shadow:0 0 14px #4cddc631}
+.gv234-planet-tab:focus-visible,.gv234-age-control input:focus-visible{outline:3px solid #a4ffe8;outline-offset:2px}
+.gv234-content{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:15px;align-items:stretch}
+.gv234-visit,.gv234-age{border:1px solid rgba(113,192,208,.37);border-radius:18px;padding:clamp(18px,2.1vw,26px);background:rgba(5,27,45,.74);min-width:0;display:flex;flex-direction:column}
+.gv234-overline{color:#9df5df;font:850 10px Outfit,Cairo,sans-serif;letter-spacing:.8px}
+.gv234-visit h3,.gv234-age h3{font-size:clamp(20px,2vw,26px);line-height:1.45;margin:9px 0 13px;color:#fff;font-weight:950}
+.gv234-lead{font-size:13px;line-height:2;color:#e1f2f8;margin:0 0 18px}
+.gv234-stand{padding:14px 15px;border-radius:13px;border:1px solid #6eafc25e;background:#1442586e}
+.gv234-stand>span{color:#add7e6;font-size:11px;display:block;margin-bottom:7px}
+.gv234-stand>strong{display:inline-flex;font-size:11px;border-radius:8px;background:#0b3a55;border:1px solid #78c0c16a;padding:5px 9px;color:#b5f4eb;font-weight:850}
+.gv234-stand p{color:#deedf5;font-size:12px;line-height:1.9;margin:10px 0 0}
+.gv234-fun{display:flex;align-items:flex-start;gap:10px;margin-top:14px;padding:12px 14px;border-radius:12px;background:#71602a24;border:1px solid #dac88a53}
+.gv234-fun>span{color:#f4d278;font-size:19px;line-height:1.4}
+.gv234-fun p{font-size:12px;line-height:1.85;color:#f0e2bd;margin:0}
+.gv234-age>label{font-size:12px;font-weight:850;color:#d8eef5;margin-bottom:9px}
+.gv234-age-control{display:flex;align-items:center;gap:12px;margin-bottom:17px}
+.gv234-age-control input[type=number]{width:82px;min-width:0;padding:11px 9px;border-radius:11px;background:#0b324c;border:1px solid #8ac6d984;color:white;text-align:center;font:900 19px Outfit,Cairo,sans-serif}
+.gv234-age-control input[type=range]{flex:1;min-width:0;accent-color:#74e2d0;cursor:pointer}
+.gv234-result{display:flex;flex-direction:column;gap:3px;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 15%,#245c72,#0d334b 70%);border:1px solid rgba(117,229,208,.53);border-radius:15px;padding:18px 13px;margin:2px 0 12px;text-align:center}
+.gv234-result small{color:#b4d6e3;font-size:11px}
+.gv234-result strong{font:950 clamp(32px,4vw,49px) Outfit,Cairo,sans-serif;color:#a5ffdf;font-variant-numeric:tabular-nums;line-height:1.2}
+.gv234-result span{color:#e2f8f4;font-size:11px;font-weight:800}
+.gv234-formula{font-size:11px;line-height:1.9;color:#c5e5ed;margin:0 0 9px}
+.gv234-note{font-size:11px;line-height:1.9;color:#f6e7bf;margin:auto 0 0;padding-top:10px;border-top:1px solid #9a835d46}
+.gv234-disclaimer{font-size:11px;line-height:1.85;color:#a5c9d6;margin:16px 0 0}
+@media(max-width:850px){.gv234-content{grid-template-columns:1fr}.gv234-root{padding:18px}.gv234-age-control input[type=number]{width:70px}}
+@media(max-width:700px){.gv234-root{border-radius:17px;padding:15px;margin:18px 0 27px}.gv234-heading h2{font-size:23px}.gv234-heading p{font-size:12px}.gv234-planet-tab{font-size:11px;padding:9px 12px}.gv234-visit,.gv234-age{padding:17px 15px}.gv234-result strong{font-size:39px}.gv234-stand p{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.gv234-planet-tab{transition:none}}
