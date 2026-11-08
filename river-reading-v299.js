@@ -24,6 +24,20 @@ function decorate(){
   const first=parts[0];
   intro.textContent=first.length>140?(state.lang==='ar'?v[2]:v[3]):first;
  }
+ const facts=root.querySelector('#gv14Facts');
+ if(facts&&story?.riverGeo){
+  const g=story.riverGeo;
+  const info=[
+   [tr('المنبع','Source'),tr(g.sourceAr,g.sourceEn)],
+   [tr('المصب','Mouth'),tr(g.mouthAr,g.mouthEn)],
+   [tr(g.countriesLabelAr||'الدول التي يمر بها', 'Countries along the river'),tr(g.countriesAr,g.countriesEn)]
+  ];
+  const base=Array.isArray(story.factsAr)&&state.lang==='ar'?story.factsAr.slice(0,2):[];
+  const all=[...info,...base.filter(([label])=>!/(المنبع|المصب|الدول)/.test(label))];
+  facts.innerHTML='<div class="gv299-river-facts">'+all.map(([label,value],i)=>
+    '<div class="gv14-fact gv299-geofact '+(i<3?'gv299-corefact':'')+'"><small>'+safe(label)+'</small><strong>'+safe(value)+'</strong></div>'
+  ).join('')+'</div>';
+ }
  const mapHeading=root.querySelector('#gv14MapTitle');
  if(mapHeading)mapHeading.textContent=tr('الموقع الجغرافي','Geographic location');
  const map=root.querySelector('.gv14-map');
@@ -91,6 +105,11 @@ else decorate();
 const css=document.createElement('style');
 css.id='gv299-river-css';
 css.textContent=`
+.gv299-river .gv299-river-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.gv299-river .gv299-river-facts .gv299-corefact{border-color:#5aa6a2}
+.gv299-river .gv299-river-facts .gv299-corefact:nth-child(3){grid-column:1/-1}
+.gv299-river #gv14Facts{margin-top:14px}
+.gv299-river #gv14Facts>.gv14-facts{display:none}
 .gv299-river .gv299-knowledge{margin-top:16px}
 .gv299-river .gv14-overview>p{line-height:1.9}
 .gv299-river .gv14-map .gv14-section-heading span{display:none}
@@ -105,7 +124,7 @@ css.textContent=`
 .gv299-river .gv299-finish{margin:18px 0;display:flex;flex-direction:column;align-items:center;gap:14px;padding:22px;border:1px solid #4b9e9c;border-radius:18px;background:linear-gradient(135deg,#0c3646,#092a3d);text-align:center}
 .gv299-river .gv299-finish h2{margin:0;font-size:clamp(19px,2.6vw,25px);color:#f5fffd}
 .gv299-river .gv299-finish .gv299-complete{margin:0;min-height:49px}
-@media(max-width:600px){.gv299-river .gv299-points{gap:10px;padding-inline-start:1.3em}.gv299-river .gv299-points li{line-height:1.85}.gv299-river .gv299-finish{padding:18px 12px}}
+@media(max-width:600px){.gv299-river .gv299-river-facts{gap:9px}.gv299-river .gv299-river-facts .gv299-corefact:nth-child(3){grid-column:1/-1}.gv299-river .gv299-points{gap:10px;padding-inline-start:1.3em}.gv299-river .gv299-points li{line-height:1.85}.gv299-river .gv299-finish{padding:18px 12px}}
 `;
 document.head.appendChild(css);
 window.GeoVerseRiversV299={decorate};
