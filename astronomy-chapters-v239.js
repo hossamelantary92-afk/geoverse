@@ -51,14 +51,15 @@ function chapter(id){
  const st=stats(g);
  return '<section class="gv239-single"><button type="button" class="gv239-back" data-gv239-chapter="overview">→ '+T('العودة إلى أقسام الجغرافيا الفلكية','Back to astronomy chapters')+'</button>'+
  '<header class="gv239-chapter-hero" style="background-image:linear-gradient(90deg,rgba(3,17,32,.92),rgba(3,24,43,.55)),url(\''+photo(g)+'\')"><span class="gv231-eyebrow">ASTRONOMY · CHAPTER '+(sections.indexOf(g)+1)+'</span><h2>'+g.icon+' '+T(g.ar,g.en)+'</h2><p>'+T(g.descAr,g.descEn)+'</p><div>'+st.total+' / '+st.target+' '+T('موضوعات متاحة','available topics')+' · '+st.count+' '+T('تعلمتها','learned')+'</div></header>'+
- (id==='solar'?'<div class="gv239-tip">'+T('التجربتان التفاعليتان «جولة في المجموعة الشمسية» و«تخيّل رحلتك بين الكواكب» متاحتان من صفحة الجغرافيا الفلكية الرئيسية.','The two interactive experiences are accessible from the main astronomy page.')+'</div>':'')+
+ (id==='solar'?'<div class="gv239-shortcuts"><button type="button" data-gv235-view="solar">🪐 '+T('جولة في المجموعة الشمسية','Explore the Solar System')+' ↗</button><button type="button" data-gv235-view="journey">🚀 '+T('تخيّل رحلتك بين الكواكب','Imagine a Planet Journey')+' ↗</button></div>':'')+
  '<div class="gv239-topic-grid">'+g.ids.map(lessonCard).join('')+'</div>'+
  (st.total<st.target?'<p class="gv239-coming">'+T('سيضاف إلى هذا القسم '+(st.target-st.total)+' موضوع آخر ضمن خطة الإثراء.',''+(st.target-st.total)+' more topics are planned for this chapter.')+'</p>':'')+'</section>';
 }
 const previousCategory=categoryPage;
 categoryPage=function(){
  const html=previousCategory.apply(this,arguments);
- if(state.category!=='astronomy'||html.includes('gv235-experience-page'))return html;
+ if(state.category!=='astronomy')return html;
+ if(html.includes('gv235-experience-page')){current='overview';return html;}
  const start=html.indexOf('<div class="gv231-section-title">');
  const end=html.indexOf('<div class="gv231-disclaimer">',start);
  if(start<0||end<=start)return html;
