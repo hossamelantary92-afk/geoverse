@@ -42,6 +42,12 @@ detail=function(){
  const complete=wrap?.querySelector('button.gv231-complete');
  if(!wrap||!nav||!complete)return html;
  if(state.lang==='ar'){
+  // Hide generic fact boxes that repeat the lead rather than conveying a date, period, or scale.
+  const vaguePeriodIds=new Set(["asteroids","telescopes","comets","aurora","star-colors","supernova","expanding-universe","jupiter-moons","saturn-moons"]);
+  if(vaguePeriodIds.has(item.id)){
+   const vague=wrap.querySelector('.gv231-period');
+   if(vague)vague.remove();
+  }
   if(item.id==='telescopes'){
    const generic=wrap.querySelector('.gv231-period');
    if(generic)generic.remove();
