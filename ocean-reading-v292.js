@@ -42,8 +42,7 @@ function article(){
  '<section class="gv292-panel gv292-location"><div class="gv292-label">'+ar('الموقع الجغرافي','GEOGRAPHIC LOCATION')+'</div><h2>'+ar('أين يقع المحيط؟','Where is this ocean?')+'</h2>'+
  '<p>'+escape(ar(info.ar,info.en))+'</p>'+
  '<div id="gv292WorldMap" class="gv292-world-map" role="img" aria-label="'+escape(ar('خريطة العالم مع مؤشر لموقع '+name,'World map indicating '+name))+'"><span>'+ar('جاري تجهيز الخريطة…','Preparing map…')+'</span></div>'+
- '<div class="gv292-map-footer"><small>'+ar('المؤشرات لتوضيح الموقع، وليست حدود المحيط أو مقياسًا لمساحته.','Markers show approximate location, not ocean boundaries or area.')+'</small>'+
- '<button type="button" data-page="explore">'+ar('استكشف الكرة الأرضية ↗','Explore the globe ↗')+'</button></div></section>'+
+ '<div class="gv292-map-footer"><small>'+ar('المؤشرات لتوضيح الموقع، وليست حدود المحيط أو مقياسًا لمساحته.','Markers show approximate location, not ocean boundaries or area.')+'</small></div></section>'+
 
  '<section class="gv292-finish"><h2>'+ar('خلصت قراءة المحيط؟','Finished reading?')+'</h2>'+
  '<button type="button" id="toggleSeen" class="gv292-learned gv292-finish-button '+(done?'is-learned':'')+'" aria-pressed="'+done+'">'+
