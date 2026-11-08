@@ -87,7 +87,7 @@ categoryPage=function(){
  if(state.category!=='astronomy')return html;
  if(html.includes('gv235-experience-page')){current='overview';return html;}
  const start=html.indexOf('<div class="gv231-section-title">');
- const end=html.indexOf('<div class="gv231-disclaimer">',start);
+ const end=html.indexOf('<div class="gv270-end-marker"',start);
  if(start<0||end<=start)return html;
  let base=html.slice(0,start);
  if(current!=='overview'){
