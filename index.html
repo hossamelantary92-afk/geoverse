@@ -300,6 +300,34 @@ catch(e){document.documentElement.dataset.gvInitialTheme='dark'}
  #main .gv11-hero .gv11-globe{transition:none!important}
 }
 </style>
+<style id="gv221-arc-polish">
+/* Premium desktop polish: restrained glow and softly arched glass stats. */
+@media (min-width:901px){
+ #main .gv11-hero .gv11-earth-glow{
+   opacity:.72!important;
+   background:radial-gradient(circle,rgba(70,190,246,.25) 0%,rgba(17,127,225,.13) 45%,transparent 72%)!important;
+   filter:blur(25px)!important;
+ }
+ #main .gv11-hero .gv11-stats{
+   border-radius:48px 48px 21px 21px / 31px 31px 20px 20px!important;
+   border-color:rgba(139,220,240,.38)!important;
+   background:linear-gradient(108deg,rgba(5,40,68,.40),rgba(6,34,59,.49) 55%,rgba(5,27,50,.53))!important;
+   box-shadow:0 15px 30px rgba(0,0,0,.19),inset 0 1px rgba(196,247,255,.12)!important;
+ }
+ #main .gv11-hero .gv11-stats::before{
+   top:-68px!important;
+   height:115px!important;
+   opacity:.7!important;
+   background:radial-gradient(ellipse at 37% 85%,rgba(61,181,244,.22),rgba(45,150,242,.10) 46%,transparent 76%)!important;
+ }
+ #main .gv11-hero .gv11-stats::after{
+   background:linear-gradient(180deg,rgba(199,245,255,.07),transparent 38%)!important;
+   border-radius:inherit!important;
+ }
+ #main .gv11-hero::after{opacity:.35!important}
+}
+/* The visual curvature does not modify the WebGL globe or mobile layout. */
+</style>
 </head>
 <body>
 <div id="gv137-loader" class="gv137-visible" aria-hidden="false" aria-busy="true" role="status" aria-label="GeoVerse">
