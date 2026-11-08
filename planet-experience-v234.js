@@ -60,26 +60,8 @@ function updatePanel(){
   btn.setAttribute('aria-pressed',String(selected));
  });
 }
-function mount(){
- if(state.category!=='astronomy'||!['category','detail'].includes(state.page))return;
- const main=document.getElementById('main');if(!main||main.querySelector('.gv234-root'))return;
- if(state.page==='category'){
-  const target=main.querySelector('.gv231-section-title')||main.querySelector('.gv231-grid');
-  if(!target)return;
-  const tmp=document.createElement('div');tmp.innerHTML=widget('category');
-  target.parentNode.insertBefore(tmp.firstElementChild,target);
- }else{
-  const target=main.querySelector('.gv231-next');
-  if(!target)return;
-  const tmp=document.createElement('div');tmp.innerHTML=widget('detail');
-  target.parentNode.insertBefore(tmp.firstElementChild,target);
- }
-}
-const prevCategory=categoryPage,prevDetail=detail;
-categoryPage=function(){return prevCategory.apply(this,arguments)};
-detail=function(){return prevDetail.apply(this,arguments)};
-const prevRender=render;
-render=function(){const result=prevRender.apply(this,arguments);mount();return result};
+/* The astronomy hub now owns the standalone experience page. */
+function mount(){return false;}
 document.addEventListener('click',event=>{
  const tab=event.target.closest('[data-gv234-planet]');
  if(!tab)return;
@@ -95,6 +77,5 @@ document.addEventListener('input',event=>{
  earthAge=Math.min(120,Math.max(0,value));
  syncControls();
 },true);
-window.GeoVersePlanetExperienceV234={stories,calculateAge:(planet,age)=>Number(age)*365.25/periods[planet],mount};
-mount();
+window.GeoVersePlanetExperienceV234={stories,calculateAge:(planet,age)=>Number(age)*365.25/periods[planet],mount,widget};
 })();
