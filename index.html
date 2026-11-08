@@ -172,6 +172,134 @@ catch(e){document.documentElement.dataset.gvInitialTheme='dark'}
  #main .gv11-hero .gv11-copy h1{font-size:35px!important}
 }
 </style>
+<style id="gv220-cinematic-globe">
+/* Desktop-only visual layer: preserve existing WebGL globe and mobile design. */
+@media (min-width:901px){
+ #main .gv11-hero{
+   height:clamp(490px,39vw,550px)!important;
+   min-height:490px!important;
+   isolation:isolate!important;
+   overflow:hidden!important;
+ }
+ #main .gv11-hero .gv11-copy{
+   top:clamp(62px,7vw,96px)!important;
+   right:clamp(29px,4vw,70px)!important;
+   width:min(48%,545px)!important;
+   z-index:8!important;
+ }
+ #main .gv11-hero .gv11-copy h1{
+   font-size:clamp(37px,4.25vw,61px)!important;
+   line-height:1.23!important;
+   margin:12px 0!important;
+ }
+ #main .gv11-hero .gv11-actions{margin-top:23px!important;gap:12px!important}
+ #main .gv11-hero .gv11-planet{
+   position:absolute!important;
+   inset:auto!important;
+   top:8px!important;
+   left:clamp(-18px,.5vw,16px)!important;
+   right:auto!important;
+   bottom:auto!important;
+   width:min(56%,620px)!important;
+   height:clamp(420px,39vw,510px)!important;
+   min-height:0!important;
+   margin:0!important;
+   transform:none!important;
+   z-index:3!important;
+   pointer-events:none!important;
+ }
+ #main .gv11-hero .gv11-globe{
+   position:absolute!important;inset:0!important;
+   width:100%!important;height:100%!important;
+   overflow:hidden!important;
+   pointer-events:auto!important;
+   filter:drop-shadow(0 23px 36px rgba(0,0,0,.3))!important;
+ }
+ #main .gv11-hero .gv11-earth-glow{
+   inset:-9%!important;
+   opacity:.93!important;
+   background:radial-gradient(circle,rgba(70,203,255,.35) 0%,rgba(14,144,242,.21) 44%,transparent 72%)!important;
+   filter:blur(23px)!important;
+ }
+ /* The globe continues behind a translucent, curved glass deck. */
+ #main .gv11-hero .gv11-stats{
+   position:absolute!important;
+   z-index:9!important;
+   inset:auto clamp(17px,2.5vw,35px) 16px clamp(17px,2.5vw,35px)!important;
+   width:auto!important;
+   min-height:89px!important;
+   margin:0!important;
+   padding:13px 9px!important;
+   display:grid!important;
+   grid-template-columns:repeat(4,minmax(0,1fr))!important;
+   border:1px solid rgba(143,225,243,.48)!important;
+   border-radius:31px 31px 20px 20px / 23px 23px 19px 19px!important;
+   background:linear-gradient(108deg,rgba(4,39,68,.40),rgba(5,32,58,.51) 55%,rgba(4,25,49,.55))!important;
+   -webkit-backdrop-filter:blur(11px) saturate(1.22)!important;
+   backdrop-filter:blur(11px) saturate(1.22)!important;
+   box-shadow:0 15px 33px rgba(0,0,0,.25),inset 0 1px rgba(206,251,255,.17),inset 0 -1px rgba(71,184,225,.12)!important;
+   overflow:visible!important;
+ }
+ #main .gv11-hero .gv11-stats::before{
+   content:""!important;
+   position:absolute!important;
+   pointer-events:none!important;
+   left:2%!important;
+   top:-77px!important;
+   width:47%!important;
+   height:124px!important;
+   z-index:-1!important;
+   background:radial-gradient(ellipse at 37% 83%,rgba(61,185,249,.31),rgba(45,150,242,.13) 47%,transparent 76%)!important;
+   filter:blur(19px)!important;
+ }
+ #main .gv11-hero .gv11-stats::after{
+   content:""!important;
+   position:absolute!important;
+   inset:0!important;
+   border-radius:inherit!important;
+   pointer-events:none!important;
+   background:linear-gradient(180deg,rgba(194,246,255,.09),transparent 43%)!important;
+ }
+ #main .gv11-hero .gv11-stat{
+   position:relative!important;z-index:1!important;
+   padding:0 9px!important;
+ }
+ #main .gv11-hero .gv11-stat strong{font-size:clamp(21px,2.05vw,28px)!important}
+ #main .gv11-hero .gv11-stat span{font-size:10px!important}
+ #main .gv11-hero .gv11-horizon{bottom:0!important;height:70px!important;opacity:.18!important}
+ #main .gv11-categories{margin-top:19px!important}
+ /* A subtle cool-light streak joins the planet's glow and glass edge. */
+ #main .gv11-hero::after{
+   content:""!important;
+   position:absolute!important;
+   z-index:7!important;
+   pointer-events:none!important;
+   left:3%!important;
+   bottom:112px!important;
+   width:48%!important;
+   height:2px!important;
+   opacity:.58!important;
+   background:linear-gradient(90deg,transparent,rgba(100,222,255,.66),rgba(181,247,255,.42),transparent)!important;
+   filter:blur(2px)!important;
+   transform:rotate(-3deg)!important;
+ }
+}
+@media (min-width:901px) and (max-width:1100px){
+ #main .gv11-hero{height:490px!important}
+ #main .gv11-hero .gv11-copy{right:26px!important;width:48%!important;top:76px!important}
+ #main .gv11-hero .gv11-copy h1{font-size:37px!important}
+ #main .gv11-hero .gv11-planet{
+   left:-20px!important;
+   top:20px!important;
+   width:56%!important;
+   height:435px!important;
+ }
+ #main .gv11-hero .gv11-stats{min-height:78px!important;padding:10px 5px!important}
+}
+@media (prefers-reduced-motion:reduce){
+ #main .gv11-hero .gv11-globe{transition:none!important}
+}
+</style>
 </head>
 <body>
 <div id="gv137-loader" class="gv137-visible" aria-hidden="false" aria-busy="true" role="status" aria-label="GeoVerse">
