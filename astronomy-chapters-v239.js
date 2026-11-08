@@ -29,7 +29,7 @@ function stats(g){
 function card(g,index){
  const st=stats(g);
  return '<button type="button" class="gv239-chapter" data-gv239-chapter="'+g.id+'">'+
- '<span class="gv239-image" style="background-image:linear-gradient(0deg,rgba(2,14,27,.94),rgba(5,22,39,.45)),url(\''+g.officialImage+'\'),url(\''+photo(g)+'\')"></span>'+
+ '<span class="gv239-image"><img class="gv246-cover-img" src="'+esc(g.officialImage)+'" data-gv246-cover-fallback="'+esc('https://images.unsplash.com/'+g.image+'?auto=format&fit=crop&w=850&q=78')+'" alt="" loading="eager" decoding="async"></span>'+
  '<span class="gv239-card-index">'+String(index+1).padStart(2,'0')+' / 06</span>'+
  '<span class="gv239-chapter-body"><strong>'+g.icon+' '+T(g.ar,g.en)+'</strong><small>'+T(g.descAr,g.descEn)+'</small>'+
  '<span class="gv239-meter"><i style="width:'+Math.round(st.total/g.target*100)+'%"></i></span>'+
@@ -51,7 +51,7 @@ function chapter(id){
  const g=sections.find(x=>x.id===id);if(!g)return overview();
  const st=stats(g);
  return '<section class="gv239-single"><button type="button" class="gv239-back" data-gv239-chapter="overview">→ '+T('العودة إلى أقسام الجغرافيا الفلكية','Back to astronomy chapters')+'</button>'+
- '<header class="gv239-chapter-hero" style="background-image:linear-gradient(90deg,rgba(3,17,32,.92),rgba(3,24,43,.55)),url(\''+g.officialImage+'\'),url(\''+photo(g)+'\')"><span class="gv231-eyebrow">ASTRONOMY · CHAPTER '+(sections.indexOf(g)+1)+'</span><h2>'+g.icon+' '+T(g.ar,g.en)+'</h2><p>'+T(g.descAr,g.descEn)+'</p><div>'+st.total+' / '+st.target+' '+T('موضوعات متاحة','available topics')+' · '+st.count+' '+T('تعلمتها','learned')+'</div></header>'+
+ '<header class="gv239-chapter-hero"><span class="gv246-hero-image" aria-hidden="true"><img class="gv246-cover-img" src="'+esc(g.officialImage)+'" data-gv246-cover-fallback="'+esc('https://images.unsplash.com/'+g.image+'?auto=format&fit=crop&w=1100&q=80')+'" alt="" loading="eager" decoding="async"></span><span class="gv231-eyebrow">ASTRONOMY · CHAPTER '+(sections.indexOf(g)+1)+'</span><h2>'+g.icon+' '+T(g.ar,g.en)+'</h2><p>'+T(g.descAr,g.descEn)+'</p><div>'+st.total+' / '+st.target+' '+T('موضوعات متاحة','available topics')+' · '+st.count+' '+T('تعلمتها','learned')+'</div></header>'+
  (id==='solar'?'<div class="gv239-shortcuts"><button type="button" data-gv235-view="solar">🪐 '+T('جولة في المجموعة الشمسية','Explore the Solar System')+' ↗</button><button type="button" data-gv235-view="journey">🚀 '+T('تخيّل رحلتك بين الكواكب','Imagine a Planet Journey')+' ↗</button></div>':'')+
  '<div class="gv239-topic-grid">'+g.ids.map(lessonCard).join('')+'</div>'+
  (st.total<st.target?'<p class="gv239-coming">'+T('سيضاف إلى هذا القسم '+(st.target-st.total)+' موضوع آخر ضمن خطة الإثراء.',''+(st.target-st.total)+' more topics are planned for this chapter.')+'</p>':'')+'</section>';
@@ -106,7 +106,14 @@ function go(view){
 /* NASA images fall back gracefully if a CDN or image format fails on a device. */
 document.addEventListener('error',event=>{
  const img=event.target;
- if(img?.tagName!=='IMG'||!img.dataset?.gv244Fallback)return;
+ if(img?.tagName!=='IMG')return;
+ if(img.dataset?.gv246CoverFallback){
+  const fallback=img.dataset.gv246CoverFallback;
+  delete img.dataset.gv246CoverFallback;
+  img.src=fallback;
+  return;
+ }
+ if(!img.dataset?.gv244Fallback)return;
  const original=img.dataset.gv244Fallback;
  delete img.dataset.gv244Fallback;
  img.src=original;
