@@ -18,7 +18,7 @@ if(new Set(sections.flatMap(g=>g.ids)).size!==atlas.entries.length)throw new Err
 const map=Object.fromEntries(atlas.entries.map((e,i)=>[e.id,{e,i}]));
 const T=(a,b)=>state.lang==='ar'?a:b;
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const photo=e=>(e.id==='moon-phases'&&state.lang==='ar'?'./assets/moon-phases-ar.svg?v=gv258-accurate-phases':e.officialImage)||'https://images.unsplash.com/'+e.image+'?auto=format&fit=crop&w=850&q=78';
+const photo=e=>(e.id==='moon-phases'&&state.lang==='ar'?'./assets/moon-phases-ar-v259.svg':e.officialImage)||'https://images.unsplash.com/'+e.image+'?auto=format&fit=crop&w=850&q=78';
 const fallback=e=>'https://images.unsplash.com/'+e.image+'?auto=format&fit=crop&w=850&q=78';
 /* v248: Guaranteed immediate visual for the three covers that appeared blank on iPhone. */
 function coverStarter(g){
