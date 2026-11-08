@@ -49,3 +49,37 @@
 .gv239-shortcuts button{min-width:0;text-align:center;cursor:pointer;border-radius:12px;border:1px solid #9de7d4a3;background:linear-gradient(120deg,#154e61,#0b3148);color:#e7fffb;padding:15px 12px;font-weight:900;font-size:13px;line-height:1.6}
 .gv239-shortcuts button:hover{border-color:#ccfff2;background:linear-gradient(120deg,#1b6870,#11455b)}
 @media(max-width:600px){.gv239-shortcuts{grid-template-columns:1fr}.gv239-shortcuts button{font-size:12px}}
+
+/* v244: keep horizontal multi-moon imagery complete; display verified image credits. */
+.gv239-topic img[data-gv244-kind="montage"],
+.gv239-topic img[data-gv244-kind="wide"]{
+ object-fit:contain!important;
+ background:#051326;
+ padding:2px;
+}
+.gv231-detail-image img[data-gv244-kind="montage"],
+.gv231-detail-image img[data-gv244-kind="wide"]{
+ object-fit:contain!important;
+ background:#031323;
+}
+.gv244-credit{
+ display:flex;
+ flex-wrap:wrap;
+ gap:8px 16px;
+ justify-content:space-between;
+ align-items:center;
+ margin:10px 0 20px;
+ padding:11px 15px;
+ border:1px solid rgba(113,185,193,.36);
+ border-radius:11px;
+ background:rgba(10,42,60,.6);
+ font-size:11px;
+ line-height:1.75;
+ color:#bcdbe7;
+}
+.gv244-credit a{color:#a2f4e6;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:700px){
+ .gv244-credit{padding:10px 12px;margin:8px 0 15px;gap:4px}
+ .gv239-topic img[data-gv244-kind="montage"],
+ .gv239-topic img[data-gv244-kind="wide"]{padding:1px}
+}
