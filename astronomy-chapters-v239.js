@@ -58,12 +58,12 @@ function card(g,index){
  return '<button type="button" class="gv239-chapter" data-gv239-chapter="'+g.id+'">'+
  '<span class="gv239-image"><img class="gv246-cover-img" src="'+esc(coverStarter(g))+'" data-gv248-official="'+esc(g.officialImage)+'" data-gv246-cover-fallback="'+esc('https://images.unsplash.com/'+g.image+'?auto=format&fit=crop&w=850&q=78')+'" alt="" loading="eager" decoding="async"></span>'+
  '<span class="gv239-card-index">'+String(index+1).padStart(2,'0')+' / 06</span>'+
- '<span class="gv239-chapter-body"><span class="gv268-title-row"><span class="gv268-chapter-icon" aria-hidden="true">'+g.icon+'</span><strong class="gv268-chapter-title">'+T(g.ar,g.en)+'</strong></span>'+
+ '<span class="gv239-chapter-body"><span class="gv268-title-row"><span class="gv268-chapter-icon" aria-hidden="true">'+g.icon+'</span><strong class="gv268-chapter-title">'+(g.id==='solar'&&state.lang==='ar'?'<span class="gv269-solar-title">المجموعة الشمسية<span>والكواكب</span></span>':T(g.ar,g.en))+'</strong></span>'+
  '<span class="gv239-meter"><i style="width:'+Math.round(st.count/Math.max(1,st.total)*100)+'%"></i></span>'+
  '<span class="gv239-chapter-meta"><span class="gv239-card-count"><bdi dir="ltr">'+st.count+' / '+st.total+'</bdi> '+T('مكتمل','completed')+'</span><span class="gv239-enter">'+T('استكشف','Explore')+' ↗</span></span></span></button>';
 }
 function overview(){
- return '<section class="gv239-taxonomy"><div class="gv239-head"><span class="gv231-eyebrow">ASTRONOMY LEARNING PATH</span><h2>'+T('اكتشف الجغرافيا الفلكية في 6 أقسام','Explore Astronomy in 6 Chapters')+'</h2><p>'+T('قسمنا الموضوعات بشكل بسيط عشان تختار المجال اللي يهمك، ونضيف الجديد تدريجيًا من غير ما نزحم الصفحة.','Browse a clear learning path and discover new lessons as each chapter grows.')+'</p></div><div class="gv239-summary"><span><b>'+atlas.entries.length+'</b> '+T('موضوعًا متاحًا','available lessons')+'</span><span><b>38</b> '+T('موضوعًا مستهدفًا','planned topics')+'</span><span><b>6</b> '+T('أقسام','chapters')+'</span></div>'+
+ return '<section class="gv239-taxonomy"><div class="gv239-head"><h2>'+T('اكتشف الجغرافيا الفلكية في 6 أقسام','Explore Astronomy in 6 Chapters')+'</h2></div><div class="gv239-summary"><span><b>'+atlas.entries.length+'</b> '+T('موضوعًا متاحًا','available lessons')+'</span><span><b>38</b> '+T('موضوعًا مستهدفًا','planned topics')+'</span><span><b>6</b> '+T('أقسام','chapters')+'</span></div>'+
  '<div class="gv239-chapters">'+sections.map(card).join('')+'</div></section>';
 }
 function lessonCard(id){
@@ -77,9 +77,9 @@ function chapter(id){
  const g=sections.find(x=>x.id===id);if(!g)return overview();
  const st=stats(g);
  return '<section class="gv239-single"><button type="button" class="gv239-back" data-gv239-chapter="overview">→ '+T('العودة إلى أقسام الجغرافيا الفلكية','Back to astronomy chapters')+'</button>'+
- '<header class="gv239-chapter-hero"><span class="gv246-hero-image" aria-hidden="true"><img class="gv246-cover-img" src="'+esc(coverStarter(g))+'" data-gv248-official="'+esc(g.officialImage)+'" data-gv246-cover-fallback="'+esc('https://images.unsplash.com/'+g.image+'?auto=format&fit=crop&w=1100&q=80')+'" alt="" loading="eager" decoding="async"></span><span class="gv231-eyebrow">ASTRONOMY · CHAPTER '+(sections.indexOf(g)+1)+'</span><h2>'+g.icon+' '+T(g.ar,g.en)+'</h2><p>'+T(g.descAr,g.descEn)+'</p><div>'+st.total+' / '+st.target+' '+T('موضوعات متاحة','available topics')+' · '+st.count+' '+T('تعلمتها','learned')+'</div></header>'+
+ '<header class="gv239-chapter-hero"><span class="gv246-hero-image" aria-hidden="true"><img class="gv246-cover-img" src="'+esc(coverStarter(g))+'" data-gv248-official="'+esc(g.officialImage)+'" data-gv246-cover-fallback="'+esc('https://images.unsplash.com/'+g.image+'?auto=format&fit=crop&w=1100&q=80')+'" alt="" loading="eager" decoding="async"></span><h2>'+g.icon+' '+T(g.ar,g.en)+'</h2><p>'+T(g.descAr,g.descEn)+'</p><div>'+st.total+' / '+st.target+' '+T('موضوعات متاحة','available topics')+' · '+st.count+' '+T('تعلمتها','learned')+'</div></header>'+
  '<div class="gv239-topic-grid">'+g.ids.map(lessonCard).join('')+'</div>'+
- (st.total<st.target?'<p class="gv239-coming">'+T('سيضاف إلى هذا القسم '+(st.target-st.total)+' موضوع آخر ضمن خطة الإثراء.',''+(st.target-st.total)+' more topics are planned for this chapter.')+'</p>':'')+'</section>';
+ ''+'</section>';
 }
 const previousCategory=categoryPage;
 categoryPage=function(){
