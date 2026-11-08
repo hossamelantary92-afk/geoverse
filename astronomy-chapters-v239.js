@@ -99,14 +99,15 @@ categoryPage=function(){
  }
  return base+(current==='overview'?overview():chapter(current))+html.slice(end);
 };
+const redundantWow=new Set(["sun","venus","moon","jupiter","saturn","uranus","seasons","eclipses","galaxy","tides","star-life","comets","meteors","aurora","human-spaceflight","space-station","webb-telescope","galaxy-types","moon-phases"]);
 function article(e){
  if(!e||!additions.some(x=>x.id===e.id))return '';
  const fields=[
  [T('إزاي بيحصل؟','How does it work?'),T(e.howAr,e.howEn),'how'],
  [T('ليه يهمنا؟','Why does it matter?'),T(e.whyAr,e.whyEn),'why'],
- [T('هل تعلم؟','Did you know?'),T(e.wowAr,e.wowEn),'wow']
+ ...(redundantWow.has(e.id)?[]:[[T('معلومة إضافية','Further insight'),T(e.wowAr,e.wowEn),'wow']])
  ];
- return '<section class="gv238-lesson gv239-expanded"><div class="gv238-lesson-label"><span>GEOVERSE · EXPLAINED SIMPLY</span><h2>'+T('افهم الموضوع خطوة بخطوة','Understand it, step by step')+'</h2></div>'+
+ return '<section class="gv238-lesson gv239-expanded"><div class="gv238-lesson-label"><h2>'+T('التفسير العلمي','Scientific explanation')+'</h2></div>'+
  fields.map(f=>'<section class="gv238-story-block gv238-'+f[2]+'"><h3>'+f[0]+'</h3><p>'+esc(f[1])+'</p></section>').join('')+
  '<p class="gv239-source">'+T('للمراجعة العلمية: ','Scientific reference: ')+'<a href="'+e.source+'" target="_blank" rel="noopener noreferrer">NASA ↗</a></p></section>';
 }
