@@ -27,3 +27,11 @@
  .gv244-credit{margin:7px 0 13px}
  .gv231-next{margin:14px 0 22px}
 }
+
+/* v254: compact astronomy lesson photography on narrow screens without cropping content text. */
+@media(max-width:700px){
+ .gv231-detail-image{min-height:240px;height:clamp(235px,70vw,285px)}
+ .gv231-detail-image img{height:100%;width:100%;object-position:center center}
+ .gv231-detail-image>span{top:13px;inset-inline-start:13px}
+}
+@media(max-width:390px){.gv231-detail-image{height:245px;min-height:235px}}
