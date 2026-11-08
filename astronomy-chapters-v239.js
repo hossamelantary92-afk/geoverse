@@ -99,7 +99,7 @@ categoryPage=function(){
  }
  return base+(current==='overview'?overview():chapter(current))+html.slice(end);
 };
-const redundantWow=new Set(["sun","venus","moon","jupiter","saturn","uranus","seasons","eclipses","galaxy","tides","star-life","comets","meteors","aurora","human-spaceflight","space-station","webb-telescope","galaxy-types","moon-phases"]);
+const redundantWow=new Set(["sun","venus","moon","jupiter","saturn","uranus","seasons","eclipses","galaxy","tides","star-life","comets","meteors","aurora","human-spaceflight","space-station","webb-telescope","galaxy-types","moon-phases","system","universe","telescopes","jupiter-moons"]);
 function article(e){
  if(!e||!additions.some(x=>x.id===e.id))return '';
  const fields=[
