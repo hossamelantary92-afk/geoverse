@@ -190,6 +190,7 @@ function detail(){let c=cats.find(x=>x.id===state.category),v=geo[c.id][state.it
 function learn(){
  const sections=[
  ['🌍','أساسيات العالم','World Basics',['continents','oceans','countries']],
+ ['🌌','الجغرافيا الفلكية','Astronomical Geography',['astronomy']],
  ['🌊','المياه والأنهار','Water & Rivers',['seas','rivers','lakes','waterfalls','gulfs','straits']],
  ['🏜️','تضاريس الأرض','Landforms',['deserts','mountains','valleys','volcanoes']],
  ['🌿','الطبيعة والمناخ','Nature & Climate',['forests','islands','glaciers','climate','grasslands']]
