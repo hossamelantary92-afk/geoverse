@@ -119,7 +119,7 @@ function renderInsights(){
  const progress=saved();const seen=Object.keys(progress).filter(k=>/^[a-z]+_\d+$/.test(k)&&progress[k]).length;
  const total=Object.values(geo).reduce((n,a)=>n+a.length,0);
  node.innerHTML='<div class="insight-card profile-box"><div class="avatar-globe">🧭</div><h3>'+lang('مستكشف العالم','World Explorer')+'</h3><p>'+lang('رحلتك لاكتشاف كوكب الأرض','Your journey across Earth')+'</p><div class="insight-progress"><span>'+seen+' / '+total+'</span><div class="progress-track"><div class="progress-fill" style="width:'+(100*seen/total).toFixed(1)+'%"></div></div></div></div>'+
- '<div class="insight-card"><h3>◈ '+lang('رحلتك التعليمية','Your Journey')+'</h3>'+['continents','countries','oceans'].map(id=>{const c=cats.find(x=>x.id===id);return '<button class="insight-row" data-cat="'+id+'"><span>'+c.emoji+' '+escapeHTML(label(c))+'</span><small>'+progressValue(id)+'%</small></button>'}).join('')+'</div>'+
+ '<div class="insight-card"><h3>◈ '+lang('رحلتك التعليمية','Your Journey')+'</h3>'+['continents','countries','oceans'].map(id=>{const c=cats.find(x=>x.id===id);return '<div class="insight-row" aria-label="'+escapeHTML(label(c))+' '+progressValue(id)+'%"><span>'+c.emoji+' '+escapeHTML(label(c))+'</span><small>'+progressValue(id)+'%</small></div>'}).join('')+'</div>'+
  '<div class="insight-card insight-challenge"><span class="eyebrow">'+lang('التحدي اليومي','DAILY CHALLENGE')+'</span><h3>🏆 '+lang('هل تعرف العالم؟','Know Your World?')+'</h3><p>'+lang('اختبر معلوماتك في جولة ممتعة من الأسئلة.','Try a fun geography challenge.')+'</p><button class="primary" data-page="play">'+lang('ابدأ التحدي','Play Now')+' ▶</button></div>';
 }
 
