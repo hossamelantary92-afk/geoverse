@@ -43,7 +43,7 @@ function overview(){
 function lessonCard(id){
  const {e,i}=map[id];
  return '<button type="button" class="gv239-topic" data-astro-open="'+i+'" data-astro-key="'+id+'">'+
- '<img loading="lazy" decoding="async" src="'+photo(e)+'" data-gv244-fallback="'+(e.officialImage?fallback(e):'')+'" alt="'+esc(T(e.ar,e.en))+'">'+
+ '<img loading="lazy" decoding="async" src="'+photo(e)+'" data-gv244-fallback="'+(e.officialImage?fallback(e):'')+'" data-gv244-kind="'+(e.id==='jupiter-moons'?'montage':(e.id==='saturn-moons'?'wide':'standard'))+'" alt="'+esc(T(e.ar,e.en))+'">'+
  '<span class="gv239-topic-copy"><small>'+T(e.typeAr,e.typeEn)+'</small><strong>'+T(e.ar,e.en)+'</strong><span>'+esc(T(e.tagAr,e.tagEn))+'</span></span>'+
  '<span class="gv239-topic-status">'+(completed(i)?T('✓ تم التعلم','✓ Learned'):T('اقرأ الدرس ↗','Read lesson ↗'))+'</span></button>';
 }
@@ -87,6 +87,11 @@ detail=function(){
  if(!e)return html;
  const marker='<nav class="gv231-next">';
  let enriched=(additions.some(x=>x.id===e.id)&&html.includes(marker))?html.replace(marker,article(e)+marker):html;
+ if(e.imageSource&&enriched.includes('<nav class="gv231-next">')){
+  const kind=e.imageKind==='illustration'?T('رسم علمي توضيحي','Scientific illustration'):(e.imageKind==='composite'?T('صورة مركبة علميًا','Science image composite'):T('صورة علمية','Science photograph'));
+  const credit='<div class="gv244-credit"><span>'+kind+' · '+T('المصدر: ','Credit: ')+esc(e.imageCredit)+'</span><a href="'+esc(e.imageSource)+'" target="_blank" rel="noopener noreferrer">'+T('تفاصيل الصورة الأصلية','Original image details')+' ↗</a></div>';
+  enriched=enriched.replace('<nav class="gv231-next">',credit+'<nav class="gv231-next">');
+ }
  /* Return readers to the chapter they came from, without losing their progress. */
  if(sections.some(g=>g.id===current&&g.ids.includes(e.id))){
   enriched=enriched.replace('data-cat="astronomy"','data-gv239-chapter="'+current+'"');
