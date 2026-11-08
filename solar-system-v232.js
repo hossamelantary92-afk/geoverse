@@ -56,13 +56,31 @@ function renderWidget(){
  const next=model();const tmp=document.createElement('div');tmp.innerHTML=next;
  node.replaceWith(tmp.firstElementChild);
 }
+/* Mount after the page is painted, rather than relying only on a fragile text replacement. */
+function ensureSolarSystem(){
+ if(state.page!=='category'||state.category!=='astronomy')return;
+ const root=document.querySelector('#main .gv231-wrap');
+ if(!root||root.querySelector('.gv232-shell'))return;
+ const anchor=root.querySelector('.gv231-section-title')||root.querySelector('.gv231-grid');
+ if(!anchor)return;
+ const holder=document.createElement('div');
+ holder.innerHTML=model();
+ const section=holder.firstElementChild;
+ if(section)anchor.parentNode.insertBefore(section,anchor);
+}
 const previousCategory=categoryPage;
 categoryPage=function(){
  const html=previousCategory.apply(this,arguments);
  if(state.category!=='astronomy')return html;
+ if(html.includes('class="gv232-shell"'))return html;
  const marker='<div class="gv231-section-title">';
- if(!html.includes(marker))return html;
- return html.replace(marker,model()+marker);
+ return html.includes(marker)?html.replace(marker,model()+marker):html;
+};
+const priorRender=render;
+render=function(){
+ const result=priorRender.apply(this,arguments);
+ ensureSolarSystem();
+ return result;
 };
 const previousDetail=detail;
 detail=function(){
@@ -80,5 +98,10 @@ document.addEventListener('click',e=>{
  const pause=e.target.closest('[data-astro-pause]');
  if(pause){e.preventDefault();e.stopImmediatePropagation();paused=!paused;renderWidget();}
 },true);
-window.GeoVerseSolarSystemV232={planets,getSelection:()=>active};
+window.GeoVerseSolarSystemV232={planets,getSelection:()=>active,ensure:ensureSolarSystem};
+/* Initial render may have happened before this extension loaded, including a restored category. */
+if(typeof render==='function' && ['home','all','learn','category','detail'].includes(state.page)){
+ render();
+ ensureSolarSystem();
+}
 })();
