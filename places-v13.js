@@ -80,8 +80,7 @@ itemCards=function(items){
 photo.mount=function(box,src,name,articleUrl,fallbacks=[]){
  if(!box?.isConnected||box.querySelector('img')||!isPlacePhoto(src))return;
  const img=document.createElement('img');
- img.loading='lazy';img.decoding='async';img.alt=name;
- img.referrerPolicy='no-referrer';
+ img.loading=state.category==='seas'?'eager':'lazy';img.decoding='async';img.alt=name;
  if(articleUrl&&/^https:\/\/(?:en\.wikipedia|commons\.wikimedia)\.org\/wiki\//.test(articleUrl))box.dataset.articleSource=articleUrl;
  img.addEventListener('load',()=>{
   if(!box.isConnected)return;
@@ -108,7 +107,23 @@ photo.mount=function(box,src,name,articleUrl,fallbacks=[]){
   }
   img.remove();box.classList.remove('gv13-has-photo');
  });
- box.appendChild(img);img.src=src;
+ box.appendChild(img);
+ // Wikimedia's API resolves the *actual stored file*, avoiding stale or
+ // ungenerated guessed thumbnail paths for the seven approved sea photographs.
+ const approvedSea=state.category==='seas'&&[0,5,6,7,12,14,15].includes(Number(box.dataset.photoIndex));
+ if(approvedSea&&articleUrl?.includes('commons.wikimedia.org/wiki/')){
+  const title=decodeURIComponent(articleUrl.split('/wiki/').pop()||'').replace(/_/g,' ');
+  const api='https://commons.wikimedia.org/w/api.php?action=query&format=json&origin=*&prop=imageinfo&iiprop=url&iiurlwidth=640&titles='+encodeURIComponent(title);
+  fetch(api,{mode:'cors'}).then(r=>{if(!r.ok)throw Error('Commons thumbnail');return r.json()}).then(data=>{
+   const info=Object.values(data.query?.pages||{})[0]?.imageinfo?.[0];
+   const actual=info?.thumburl||info?.url;
+   if(!box.isConnected)return;
+   if(actual&&/^https:\/\/(?:upload|thumb)\.wikimedia\.org\//.test(actual)){
+    retries=[src,...retries].filter((x,i,a)=>x!==actual&&a.indexOf(x)===i);
+    img.src=actual;
+   }else img.src=src;
+  }).catch(()=>{if(box.isConnected)img.src=src});
+ }else img.src=src;
 };
 
 // A small, versioned set of exact-title, photo-only Wikipedia pageimages
@@ -126,7 +141,7 @@ photo.hydrate=function(){
   photo.mount(box,src,box.dataset.placeName||'',article,item[4]);
  });
 };
-photo.ready=fetch('./photo-manifest-v13.json?v=gv316-seas-first-batch-repair').then(r=>{
+photo.ready=fetch('./photo-manifest-v13.json?v=gv317-sea-image-recovery',{cache:'no-store'}).then(r=>{
  if(!r.ok)throw Error('Photo reference manifest unavailable');
  return r.json();
 }).then(data=>{
