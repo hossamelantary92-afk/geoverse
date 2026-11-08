@@ -18,7 +18,8 @@ function view(){
 function enrichImages(){
  // Wikipedia's public thumbnail feed is optional; curated fallbacks always render.
  if(!window.fetch)return;
- document.querySelectorAll('.gv228-photo img[data-gv228-wiki]').forEach(img=>{
+ const items=[...document.querySelectorAll('.gv228-photo img[data-gv228-wiki]')];
+ const load=img=>{
   const slug=img.dataset.gv228Wiki;
   if(!slug)return;
   const api='https://en.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(slug);
@@ -30,7 +31,13 @@ function enrichImages(){
    candidate.onerror=()=>{};
    candidate.src=src;
   }).catch(()=>{});
- });
+ };
+ if(typeof IntersectionObserver==='function'){
+  const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
+   if(entry.isIntersecting){observer.unobserve(entry.target);load(entry.target)}
+  }),{rootMargin:'750px 0px'});
+  items.forEach(img=>observer.observe(img));
+ }else items.forEach(load);
 }
 function boot(){
  if(state.page!=='wonders')return;
@@ -43,11 +50,17 @@ function boot(){
 const previousRender=render;
 render=function(){previousRender.apply(this,arguments);if(state.page==='wonders'){document.querySelectorAll('.topnav button').forEach(b=>b.classList.remove('active'));main.innerHTML=view();boot()}};
 document.addEventListener('click',e=>{
+ const promo=e.target.closest('.gv11-feature[data-page="wonders"]');
+ if(promo&&!e.target.closest('button,a')){e.preventDefault();setPage('wonders');return}
  const link=e.target.closest('[data-gv228-jump]');
  if(!link)return;
  e.preventDefault();
  const section=document.getElementById('gv228-'+link.dataset.gv228Jump);
  if(section)section.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
 },true);
+document.addEventListener('keydown',e=>{
+ const promo=e.target.closest?.('.gv11-feature[data-page="wonders"]');
+ if(promo&&e.target===promo&&(e.key==='Enter'||e.key===' ')){e.preventDefault();setPage('wonders')}
+});
 window.GeoVerseWondersV228={records,groups,view};
 })();
