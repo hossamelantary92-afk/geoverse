@@ -1,0 +1,54 @@
+/* GeoVerse v292 — oceans-only responsive reader, respects established dark visual language */
+.gv292-ocean{max-width:1050px;margin:auto;padding:0 0 30px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.gv292-back{align-self:flex-start;margin:0 0 1px}
+.gv292-hero,.gv292-panel,.gv292-sources,.gv292-footer{background:linear-gradient(140deg,#0a2c40,#061d30);border:1px solid #477f9380;border-radius:22px;box-shadow:0 15px 34px #0004;overflow:hidden}
+.gv292-hero{display:grid;grid-template-columns:minmax(0,1.14fr) minmax(0,1fr);min-height:325px;direction:ltr}
+.gv292-cover{height:100%;min-height:325px;background:radial-gradient(circle at 50% 35%,#1c6580,#052137 75%);position:relative;display:grid;place-items:center;overflow:hidden}
+.gv292-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.gv292-cover:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#041d31bd,transparent 55%);pointer-events:none}
+.gv292-cover-empty{font-size:80px;opacity:.6}
+.gv292-hero-copy{direction:rtl;padding:clamp(22px,4vw,44px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:15px}
+html[dir="ltr"] .gv292-hero-copy{direction:ltr}
+.gv292-kicker,.gv292-label{font-size:11px;color:#77e4d4;font-weight:900;letter-spacing:.7px}
+.gv292-hero h1{font-size:clamp(29px,4.2vw,46px);line-height:1.45;margin:0;color:#f6ffff;font-weight:950}
+.gv292-hero-copy p{color:#c6dfe8;line-height:1.85;font-size:clamp(13px,1.5vw,17px);margin:0}
+.gv292-learned{border:1px solid #65b9b4;border-radius:999px;padding:10px 17px;background:#0b4251;color:#e5ffff;font-weight:850;font-size:13px;min-height:42px}
+.gv292-learned.is-learned{background:#82e3bf;border-color:#82e3bf;color:#063f34}
+.gv292-panel{padding:clamp(20px,3.2vw,32px)}
+.gv292-panel h2{color:#f9ffff;font-size:clamp(21px,2.8vw,29px);font-weight:900;margin:7px 0 15px;line-height:1.5}
+.gv292-lead{font-size:clamp(14px,1.75vw,17px);line-height:2;color:#cfe5ed;margin:0 0 21px;max-width:900px}
+.gv292-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.gv292-fact{background:linear-gradient(150deg,#124558,#0d3449);border:1px solid #4a879891;border-radius:15px;padding:17px 18px;display:flex;flex-direction:column;gap:9px;min-width:0}
+.gv292-fact span{color:#97cad4;font-size:12px}
+.gv292-fact strong{font-size:clamp(13px,1.6vw,16px);color:#f4ffff;line-height:1.8;overflow-wrap:anywhere}
+.gv292-details details{border:1px solid #397987;border-radius:13px;overflow:hidden;background:#092b3d}
+.gv292-details summary{display:flex;align-items:center;justify-content:space-between;gap:15px;cursor:pointer;padding:16px 19px;font-size:14px;color:#d7fcf4;font-weight:850;list-style:none}
+.gv292-details summary::-webkit-details-marker{display:none}
+.gv292-details details[open] summary span{transform:rotate(180deg)}
+.gv292-details details p{border-top:1px solid #335d6b;margin:0;padding:18px 20px;color:#c9e1e7;line-height:2.05;font-size:14px}
+.gv292-location>p{font-size:14px;color:#bfdce5;line-height:1.9;margin:0 0 15px}
+.gv292-world-map{border-radius:15px;overflow:hidden;background:#082b46;min-height:250px;border:1px solid #3e8194;display:grid;place-items:center;color:#a6dae4}
+.gv292-world-map svg{display:block;width:100%;height:auto;max-height:500px}
+.gv292-land path{fill:#bbba92;stroke:#0a3443;stroke-width:.8;stroke-linejoin:round}
+.gv292-grid path{stroke:#77c1d44a;stroke-width:1.1;fill:none}
+.gv292-ocean-halo{fill:#6cfff43b;stroke:#79fff4;stroke-width:2.8}
+.gv292-ocean-dot{fill:#f6eac3;stroke:#043b55;stroke-width:3}
+.gv292-map-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:15px}
+.gv292-map-footer small{font-size:11px;color:#91b9c6;line-height:1.8;max-width:550px}
+.gv292-map-footer button{border:1px solid #65bcbb;border-radius:11px;background:#115063;color:#f4ffff;padding:11px 14px;white-space:nowrap;font-size:12px;font-weight:850}
+.gv292-map-unavailable{padding:30px 15px;text-align:center;font-size:13px;color:#c4e5e9}
+.gv292-sources{padding:0 19px;border-radius:15px}
+.gv292-sources>summary{cursor:pointer;padding:18px 3px;font-size:14px;font-weight:850;color:#a9e8dd}
+.gv292-sources[open] #gvWikiArticle{padding:0 0 20px!important;background:none!important;border:0!important;box-shadow:none!important;margin:0!important}
+.gv292-sources #gvWikiArticle p{font-size:13px;line-height:2;color:#cce3e9}
+.gv292-footer{padding:21px 24px}
+.gv292-footer>span{font-size:12px;color:#e4cb91;font-weight:900}
+.gv292-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:13px}
+.gv292-nav button{display:flex;flex-direction:column;align-items:flex-start;text-align:start;gap:6px;padding:14px 17px;border:1px solid #5b9aaa;border-radius:13px;background:#0c3a50;color:#f6ffff;min-width:0}
+.gv292-nav button small{color:#99c5d2;font-size:11px}
+.gv292-nav button strong{font-size:14px;line-height:1.5}
+body.light .gv292-ocean .gv292-hero,body.light .gv292-ocean .gv292-panel,body.light .gv292-ocean .gv292-footer,body.light .gv292-ocean .gv292-sources{background:linear-gradient(140deg,#11384c,#0a293e)}
+@media(max-width:800px){.gv292-hero{grid-template-columns:1fr}.gv292-cover{min-height:260px;height:260px}.gv292-hero-copy{padding:24px;gap:12px}}
+@media(max-width:600px){.gv292-ocean{gap:12px;padding-bottom:25px}.gv292-hero,.gv292-panel{border-radius:17px}.gv292-cover{height:205px;min-height:205px}.gv292-hero-copy{padding:20px 19px}.gv292-hero h1{font-size:29px}.gv292-hero-copy p{font-size:13px;line-height:1.75}.gv292-panel{padding:19px 17px}.gv292-panel h2{font-size:21px;margin-bottom:11px}.gv292-lead{font-size:13px;line-height:1.95;margin-bottom:16px}.gv292-facts{gap:9px}.gv292-fact{padding:12px 11px;gap:6px}.gv292-fact span{font-size:11px}.gv292-fact strong{font-size:12px;line-height:1.7}.gv292-world-map{min-height:170px}.gv292-map-footer{flex-direction:column;align-items:stretch}.gv292-map-footer button{align-self:flex-start}.gv292-nav button{padding:12px 13px}.gv292-footer{padding:17px}.gv292-details details p{padding:15px;font-size:13px}}
+@media(max-width:365px){.gv292-facts{grid-template-columns:1fr}.gv292-cover{height:180px;min-height:180px}}
+@media(prefers-reduced-motion:reduce){.gv292-ocean *{scroll-behavior:auto!important;transition:none!important}}
