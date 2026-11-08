@@ -108,7 +108,7 @@ photo.hydrate=function(){
   photo.mount(box,src,box.dataset.placeName||'',article);
  });
 };
-photo.ready=fetch('./photo-manifest-v13.json?v=gv291-major-river-photos').then(r=>{
+photo.ready=fetch('./photo-manifest-v13.json?v=gv296-ocean-covers').then(r=>{
  if(!r.ok)throw Error('Photo reference manifest unavailable');
  return r.json();
 }).then(data=>{
