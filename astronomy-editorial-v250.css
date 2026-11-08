@@ -59,3 +59,11 @@
   height:245px!important;max-height:245px!important;background:#061627;
  }
 }
+
+/* v264: Tall Arabic stellar-lifecycle diagram stays readable on phones. */
+.gv231-detail-image[data-astro-key="star-life"]{background:#061727!important}
+.gv231-detail-image[data-astro-key="star-life"] img{object-fit:contain!important;object-position:center!important}
+.gv239-topic[data-astro-key="star-life"] img{object-fit:contain!important;background:#061727!important}
+@media(max-width:700px){
+ .gv231-detail > .gv231-detail-image[data-astro-key="star-life"]{height:min(137vw,690px)!important;max-height:690px!important;min-height:0!important}
+}
