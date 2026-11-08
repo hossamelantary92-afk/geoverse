@@ -84,7 +84,13 @@ detail=function(){
  const e=atlas.entries[Number(state.item)];
  if(!e||!additions.some(x=>x.id===e.id))return html;
  const marker='<nav class="gv231-next">';
- return html.includes(marker)?html.replace(marker,article(e)+marker):html;
+ let enriched=html.includes(marker)?html.replace(marker,article(e)+marker):html;
+ /* Return readers to the chapter they came from, without losing their progress. */
+ if(sections.some(g=>g.id===current&&g.ids.includes(e.id))){
+  enriched=enriched.replace('data-cat="astronomy"','data-gv239-chapter="'+current+'"');
+  enriched=enriched.replace(T('كل موضوعات الفلك','All astronomy topics'),T('العودة إلى القسم','Back to this chapter'));
+ }
+ return enriched;
 };
 function go(view){
  current=view;
