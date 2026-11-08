@@ -28,10 +28,15 @@
  .gv231-next{margin:14px 0 22px}
 }
 
-/* v254: compact astronomy lesson photography on narrow screens without cropping content text. */
-@media(max-width:700px){
- .gv231-detail-image{min-height:240px;height:clamp(235px,70vw,285px)}
- .gv231-detail-image img{height:100%;width:100%;object-position:center center}
- .gv231-detail-image>span{top:13px;inset-inline-start:13px}
+/* v256: explicit compact image height; avoid the inherited stretched grid row on Safari. */
+@media (max-width:700px){
+  .gv231-detail{display:block!important;min-height:0!important;}
+  .gv231-detail > .gv231-detail-image{display:block!important;position:relative;height:220px!important;min-height:0!important;max-height:220px!important;overflow:hidden;}
+  .gv231-detail > .gv231-detail-image img{position:absolute;inset:0;display:block;width:100%!important;height:100%!important;object-fit:cover;object-position:center center;}
+  .gv231-detail > .gv231-detail-image[data-astro-key="moon-phases"]{height:370px!important;max-height:370px!important;background:#071b30;}
+  .gv231-detail > .gv231-detail-image[data-astro-key="moon-phases"] img{object-fit:contain!important;}
+  .gv231-detail-image>span{top:12px;inset-inline-start:12px;}
 }
-@media(max-width:390px){.gv231-detail-image{height:245px;min-height:235px}}
+@media(max-width:390px){
+  .gv231-detail > .gv231-detail-image[data-astro-key="moon-phases"]{height:350px!important;max-height:350px!important;}
+}
