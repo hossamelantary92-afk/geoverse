@@ -80,12 +80,16 @@ function hydrate(){
    // A Commons file redirect is a fallback only for that exact photographed file.
    const entry=photos['oceans:'+Number(state.item)];
    const canonical=Array.isArray(entry)&&typeof entry[0]==='string'?entry[0]:oceanCoverUrls[Number(state.item)];
-   const fileName=Array.isArray(entry)&&String(entry[1]||'').startsWith('File:')?entry[1].slice(5):'';
-   const fallback=fileName?'https://commons.wikimedia.org/wiki/Special:Redirect/file/'+encodeURIComponent(fileName):'';
+   const fallbackFor=()=>{
+    const currentEntry=photos['oceans:'+Number(state.item)];
+    const file=Array.isArray(currentEntry)&&String(currentEntry[1]||'').startsWith('File:')?currentEntry[1].slice(5):'';
+    return file?'https://commons.wikimedia.org/wiki/Special:Redirect/file/'+encodeURIComponent(file):'';
+   };
    let triedFallback=false;
    img.addEventListener('load',()=>{if(slot.isConnected)slot.classList.add('gv292-has-cover')});
    img.addEventListener('error',()=>{
     if(!slot.isConnected)return;
+    const fallback=fallbackFor();
     if(!triedFallback&&fallback&&img.src!==fallback){
       triedFallback=true;img.src=fallback;return;
     }
