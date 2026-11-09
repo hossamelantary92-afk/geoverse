@@ -209,6 +209,12 @@ style.textContent=`
 .gv400-map-link:hover,.gv400-map-link:focus-visible{border-color:#78e5d2;transform:translateY(-1px);outline:2px solid rgba(120,229,210,.18)}
 .gv400-continent-link{margin-top:8px}
 .gv406-world-country-flag{display:block;width:72px;max-height:48px;object-fit:contain;object-position:left center;margin:0 0 9px;border-radius:5px;box-shadow:0 3px 12px rgba(0,0,0,.2)}
+/* v410: improve text contrast over bright flag emblems and tighten atlas card. */
+#main header.gv9-hero.gv408-national-flag-hero::after{background:linear-gradient(90deg,rgba(2,13,27,.72),rgba(2,13,27,.47)),linear-gradient(0deg,rgba(2,13,27,.87),rgba(2,13,27,.04) 90%)}
+#main header.gv9-hero.gv408-national-flag-hero .gv9-hero-title{background:linear-gradient(90deg,rgba(2,13,27,.44),rgba(2,13,27,.1));border-radius:14px;padding:12px 15px}
+#worldMap .gv140-country-card:has(.gv406-world-country-flag){min-height:0!important}
+#worldMap .gv140-country-card .gv406-world-country-flag{margin:0 0 5px!important;max-height:42px}
+#worldMap .gv140-country-card:has(.gv406-world-country-flag) .gv400-map-link{margin-top:6px}
 /* v408: use the EXISTING country directory hero, never insert a second header. */
 #main header.gv9-hero.gv408-national-flag-hero{position:relative;isolation:isolate;overflow:hidden;min-height:clamp(190px,29vw,290px);display:flex;align-items:flex-end;background:#09293c;border-color:rgba(105,221,209,.48)}
 #main header.gv9-hero.gv408-national-flag-hero::before{content:"";position:absolute;inset:0;z-index:-2;background-image:var(--gv408-flag-image);background-size:cover;background-position:center;opacity:.92}
@@ -256,5 +262,5 @@ style.textContent=`
 body.light .gv400-map-link{background:linear-gradient(135deg,#e8f8f5,#f5fbff);color:#174653;border-color:#b4dcd5}
 `;
 document.head.appendChild(style);
-window.GeoVerseConnectedMapsV400={version:'v409',focusWorldCountry};
+window.GeoVerseConnectedMapsV400={version:'v410',focusWorldCountry};
 })();
