@@ -38,7 +38,21 @@
  fetch('./geo-localization.json').then(r=>r.ok?r.json():null).then(info=>{
   Object.entries(info?.capitals||{}).forEach(([key,value])=>caps.set(key,value));
   Object.entries(info?.currencies||{}).forEach(([key,value])=>currencies.set(key,value));
+  window.GeoVerseCapitalNames=Object.fromEntries(caps);
   applyArabicNames();
+  // Refresh an existing directory search after the asynchronous Arabic dictionary arrives.
+  const current=stateNow();
+  if(current?.page==='countries-v4'&&typeof render==='function'){
+   const active=document.activeElement;
+   const query=document.getElementById('gvCountrySearch');
+   const caret=query&&active===query?query.selectionStart:null;
+   render();
+   if(caret!==null){
+    const replacement=document.getElementById('gvCountrySearch');
+    replacement?.focus({preventScroll:true});
+    try{replacement?.setSelectionRange(caret,caret)}catch(e){}
+   }
+  }
  }).catch(()=>{});
  setTimeout(applyArabicNames,80);
 })();
