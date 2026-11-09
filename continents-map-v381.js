@@ -96,8 +96,9 @@ function mount(){
   }
   let drag=null,wasDrag=false;
   svg.addEventListener('pointerdown',e=>{
+    wasDrag=false;
     if(e.target.closest('[data-gv-c2-country]'))return;
-    drag={x:e.clientX,y:e.clientY,v:view.slice(),id:e.pointerId};wasDrag=false;
+    drag={x:e.clientX,y:e.clientY,v:view.slice(),id:e.pointerId};
     try{svg.setPointerCapture(e.pointerId)}catch(err){}
   });
   svg.addEventListener('pointermove',e=>{
