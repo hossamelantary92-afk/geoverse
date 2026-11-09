@@ -191,5 +191,5 @@ document.addEventListener('click',event=>{
   clickOrigin=snapshot();
  }
 },true);
-window.GeoVerseSmartBack={back:smartBack,returnCountry:returnToCountry,depth:()=>stack.length};
+window.GeoVerseSmartBack={back:smartBack,returnCountry:returnToCountry,depth:()=>stack.length,peek:()=>{if(state.page==='country-v4'&&immediateCountryOrigin)return {...immediateCountryOrigin};return stack.length?{...stack[stack.length-1]}:fallback();}};
 })();
