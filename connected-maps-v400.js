@@ -25,6 +25,23 @@ function addWorldProfileAction(){
  button.textContent=lang('فتح ملف الدولة الكامل','Open full country profile');
  card.appendChild(button);
 }
+function addWorldContinentAction(){
+ const r=typeof atlasRuntime!=='undefined'?atlasRuntime:null;
+ if(!r||r.id!=='worldMap'||!r.node?.isConnected)return;
+ const card=r.node.querySelector('.gv140-country-card');
+ if(!card||card.hidden||card.querySelector('[data-gv402-open-continent]'))return;
+ const selected=r.node.querySelector('.atlas-country.gv140-active');
+ const feature=selected&&r.features?.[Number(selected.dataset.mapCountry)];
+ const record=recordForFeature(feature);
+ const continent=String(record?.continent||'');
+ const keys=['Asia','Africa','Europe','North America','South America','Oceania','Antarctica'];
+ const index=keys.findIndex(name=>norm(name)===norm(continent));
+ if(index<0)return;
+ const button=document.createElement('button');
+ button.type='button';button.className='gv400-map-link';button.dataset.gv402OpenContinent=String(index);
+ button.textContent=lang('استكشف القارة على خريطتها','Explore this continent map');
+ card.appendChild(button);
+}
 function addContinentAtlasAction(){
  document.querySelectorAll('.gv-c2-premium-card').forEach(card=>{
   if(card.querySelector('[data-gv400-world-atlas]'))return;
@@ -100,6 +117,17 @@ document.addEventListener('click',event=>{
   if(code&&typeof setPage==='function')setPage('country-v4',code);
   return;
  }
+ const continent=event.target.closest('[data-gv402-open-continent]');
+ if(continent){
+  event.preventDefault();event.stopImmediatePropagation();
+  if(typeof setPage==='function'){
+   setPage('category','continents');
+   state.continentIndex=Number(continent.dataset.gv402OpenContinent)||0;
+   state.continentFeature='map';
+   render();
+  }
+  return;
+ }
  const world=event.target.closest('[data-gv400-world-atlas],[data-gv401-profile-atlas]');
  if(world){
   event.preventDefault();event.stopImmediatePropagation();
@@ -109,11 +137,12 @@ document.addEventListener('click',event=>{
 },true);
 const observer=new MutationObserver(()=>{
  addWorldProfileAction();
+ addWorldContinentAction();
  addContinentAtlasAction();
  addProfileAtlasAction();
 });
 observer.observe(document.getElementById('main')||document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['hidden']});
-addWorldProfileAction();addContinentAtlasAction();addProfileAtlasAction();
+addWorldProfileAction();addWorldContinentAction();addContinentAtlasAction();addProfileAtlasAction();
 const style=document.createElement('style');
 style.textContent=`
 .gv400-map-link{display:flex;align-items:center;justify-content:center;width:100%;min-height:42px;margin-top:9px;padding:10px 14px;border:1px solid rgba(111,220,205,.48);border-radius:12px;background:linear-gradient(135deg,#164d60,#0d354c);color:#eafffb;font:inherit;font-size:13px;font-weight:700;line-height:1.5;cursor:pointer;transition:border-color .18s,transform .18s}
@@ -141,5 +170,5 @@ style.textContent=`
 body.light .gv400-map-link{background:linear-gradient(135deg,#e8f8f5,#f5fbff);color:#174653;border-color:#b4dcd5}
 `;
 document.head.appendChild(style);
-window.GeoVerseConnectedMapsV400={version:'v402',focusWorldCountry};
+window.GeoVerseConnectedMapsV400={version:'v403',focusWorldCountry};
 })();
