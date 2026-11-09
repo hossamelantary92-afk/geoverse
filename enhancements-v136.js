@@ -129,10 +129,10 @@ function directoryCapitalAr(r){
 }
 function countrySearchKey(value){
  return String(value||'').normalize('NFKD').toLowerCase()
- .replace(/[\\u064b-\\u065f\\u0670\\u0640]/g,'')
+ .replace(/[\u064b-\u065f\u0670\u0640]/g,'')
  .replace(/[أإآ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه')
- .replace(/[\\u0300-\\u036f]/g,'')
- .replace(/[^\\p{L}\\p{N}]+/gu,' ').trim();
+ .replace(/[\u0300-\u036f]/g,'')
+ .replace(/[^\p{L}\p{N}]+/gu,' ').trim();
 }
 const countrySearchAliases={
  'EG':['مصر','القاهرة','egypt','cairo'],
@@ -173,7 +173,7 @@ function countriesPage(){
  const filtered=sortedCountryRows(c,state.v4Search||'');
  return '<header class="gv-page-heading gv-country-index-hero"><span class="eyebrow">THE WORLD / COUNTRY INDEX</span><h1>'+lang('دول العالم وعواصمها','Countries & Capitals')+'</h1><p>'+lang('استكشف الدول حسب القارات، مع أعلام SVG وملفات معرفية وخرائط تفاعلية.','Explore by continent, with real SVG flags, profiles and maps.')+'</p></header><div class="gv-country-controls"><div class="gv-tabs">'+options.map(x=>'<button class="'+(x===c?'active':'')+'" data-v4-continent="'+x+'">'+(x==='all'?lang('كل العالم','All world'):lang(continentAr[x],x))+'</button>').join('')+'</div><div class="gv-country-toolbar"><input id="gvCountrySearch" type="search" placeholder="'+lang('ابحث عن دولة أو عاصمة...','Search a country or capital...')+'" value="'+escapeHTML(state.v4Search||'')+'"></div></div><div class="gv-result-head"><strong>'+filtered.length+' '+lang('دولة وإقليم','countries & territories')+'</strong><span>'+lang('اضغط لاستكشاف التفاصيل والحدود','Select to view real flags, geography & borders')+'</span></div><div class="gv-country-grid" id="gvCountryGrid">'+countryCards(filtered)+'</div>';
 }
-function capitalAr(r){const v=allGeo.find(x=>norm(x[1])===norm(r.name));const m=(v?.[2]||'').match(/العاصمة(?: الإدارية)?:\s*([^·،]+)/);return m?m[1].trim():r.capital||'—'}
+function capitalAr(r){return directoryCapitalAr(r)}
 function countryPage(){
  const r=store.byCode.get(state.v4Code);if(!r)return '<div class="notice">'+lang('بيانات الدولة غير متاحة','Country information unavailable')+'</div>';
  const f=store.featLookup.get(r.code),cent=f&&window.d3?d3.geoCentroid(f):null;
