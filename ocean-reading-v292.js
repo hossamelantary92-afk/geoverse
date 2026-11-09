@@ -76,11 +76,24 @@ function hydrate(){
   const img=slot.querySelector('img');
   if(img&&!img.dataset.gv297Bound){
    img.dataset.gv297Bound='1';
+   // Use the same approved manifest entry as the ocean directory card.
+   // A Commons file redirect is a fallback only for that exact photographed file.
+   const entry=photos['oceans:'+Number(state.item)];
+   const canonical=Array.isArray(entry)&&typeof entry[0]==='string'?entry[0]:oceanCoverUrls[Number(state.item)];
+   const fileName=Array.isArray(entry)&&String(entry[1]||'').startsWith('File:')?entry[1].slice(5):'';
+   const fallback=fileName?'https://commons.wikimedia.org/wiki/Special:Redirect/file/'+encodeURIComponent(fileName):'';
+   let triedFallback=false;
+   img.addEventListener('load',()=>{if(slot.isConnected)slot.classList.add('gv292-has-cover')});
+   img.addEventListener('error',()=>{
+    if(!slot.isConnected)return;
+    if(!triedFallback&&fallback&&img.src!==fallback){
+      triedFallback=true;img.src=fallback;return;
+    }
+    img.remove();slot.classList.remove('gv292-has-cover');
+   });
+   if(canonical&&img.getAttribute('src')!==canonical)img.src=canonical;
    if(img.complete&&img.naturalWidth)slot.classList.add('gv292-has-cover');
-   else{
-    img.addEventListener('load',()=>{if(slot.isConnected)slot.classList.add('gv292-has-cover')},{once:true});
-    img.addEventListener('error',()=>{img.remove();slot.classList.remove('gv292-has-cover')},{once:true});
-   }
+   else if(img.complete&&!img.naturalWidth&&canonical)img.src=canonical;
   }
  }
  const node=document.getElementById('gv292WorldMap');
