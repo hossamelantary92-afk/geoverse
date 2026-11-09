@@ -34,3 +34,8 @@ body:has(.category-detail-banner) .category-detail-banner{
 .gv11-categories .gv11-astronomy>img,.gv12-card[data-cat="astronomy"] .gv12-image{object-position:center 50%}
 .gv11-categories .gv11-deserts>img,.gv12-card[data-cat="deserts"] .gv12-image{object-position:center 55%}
 .gv11-categories .gv11-oceans>img,.gv12-card[data-cat="oceans"] .gv12-image{object-position:center 55%}
+
+/* gv338 preserve complete astronomy artwork: planets must not be clipped on mobile cards. */
+.gv12-directory .gv12-card[data-cat="astronomy"],.gv11-categories .gv11-card.gv11-astronomy{background:#06172b!important;}
+.gv12-directory .gv12-card[data-cat="astronomy"] .gv12-image,.gv11-categories .gv11-card.gv11-astronomy>img{object-fit:contain!important;object-position:center top!important;background:#06172b!important;transform:none!important;}
+.gv12-directory .gv12-card[data-cat="astronomy"]:hover .gv12-image,.gv11-categories .gv11-card.gv11-astronomy:hover>img{transform:none!important;}
