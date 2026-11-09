@@ -126,11 +126,18 @@ function focusWorldCountry(code){
   if(r?.id==='worldMap'&&r.node?.isConnected&&r.features?.length){
    const meta=store()?.countries?.find(row=>String(row.code).toUpperCase()===String(code).toUpperCase());
    const target=norm(meta?.name);
-   const index=r.features.findIndex(feature=>norm(feature.properties?.name)===target);
+   const index=r.features.findIndex(feature=>{
+    const p=feature.properties||{};
+    return [p.name,p.ADMIN,p.NAME,p.name_long,p.iso_a2,p.ISO_A2,p.iso_a3].some(v=>norm(v)===target||String(v||'').toUpperCase()===String(code).toUpperCase());
+   });
    const feature=index>=0?r.features[index]:null;
    const path=index>=0?r.node.querySelector('.atlas-country[data-map-country="'+index+'"]'):null;
    if(path&&feature){
     path.dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true,view:window}));
+    // A dedicated focus class stays visible even when other map layers redraw.
+    r.node.querySelectorAll('.atlas-country.gv411-country-focus').forEach(el=>el.classList.remove('gv411-country-focus'));
+    path.classList.add('gv411-country-focus','highlight');
+    r.node.dataset.gv411FocusCountry=String(code).toUpperCase();
     // Re-apply the geographic focus after the atlas selection handler has opened its card.
     // This avoids a competing legacy view update during page transitions on mobile Safari.
     requestAnimationFrame(()=>requestAnimationFrame(()=>{
@@ -139,9 +146,10 @@ function focusWorldCountry(code){
      if(bounds&&typeof atlasView==='function'){
       const width=bounds[1][0]-bounds[0][0],height=bounds[1][1]-bounds[0][1];
       if(width>0&&height>0&&Number.isFinite(width)&&Number.isFinite(height)){
-       const scale=Math.min(5.2,Math.max(1.7,Math.min(1000/(width*2.45),520/(height*2.45))));
+       const scale=Math.min(12,Math.max(2.2,Math.min(1000/(width*1.55),520/(height*1.55))));
        const w=1000/scale,h=520/scale,cx=(bounds[0][0]+bounds[1][0])/2,cy=(bounds[0][1]+bounds[1][1])/2;
        atlasView([Math.max(0,Math.min(1000-w,cx-w/2)),Math.max(0,Math.min(520-h,cy-h/2)),w,h]);
+       path.classList.add('gv411-country-focus','highlight');
       }
      }
     }));
@@ -209,6 +217,13 @@ style.textContent=`
 .gv400-map-link:hover,.gv400-map-link:focus-visible{border-color:#78e5d2;transform:translateY(-1px);outline:2px solid rgba(120,229,210,.18)}
 .gv400-continent-link{margin-top:8px}
 .gv406-world-country-flag{display:block;width:72px;max-height:48px;object-fit:contain;object-position:left center;margin:0 0 9px;border-radius:5px;box-shadow:0 3px 12px rgba(0,0,0,.2)}
+/* v411: a compact map card and persistent country focus on the SVG itself. */
+#worldMap .atlas-country.gv411-country-focus{fill:#55ead6!important;stroke:#f3fffc!important;stroke-width:2.4!important;stroke-linejoin:round;paint-order:stroke fill;filter:drop-shadow(0 0 5px rgba(69,250,222,.9));vector-effect:non-scaling-stroke}
+#worldMap .gv140-country-card{width:min(280px,calc(100% - 28px))!important;max-width:280px!important;max-height:230px!important;min-height:0!important;overflow-y:auto!important;padding:12px!important;box-sizing:border-box}
+#worldMap .gv140-country-card h2,#worldMap .gv140-country-card h3{margin:3px 0!important}
+#worldMap .gv140-country-card .gv400-map-link{padding:7px 9px!important;min-height:34px!important;font-size:12px!important}
+#worldMap .gv140-country-card .gv406-world-country-flag{width:48px!important;max-height:31px!important}
+@media(max-width:700px){#worldMap .gv140-country-card{width:min(245px,calc(100% - 24px))!important;max-width:245px!important;max-height:185px!important;font-size:12px!important}#worldMap .gv140-country-card .gv400-map-link{margin-top:4px!important}}
 /* v410: improve text contrast over bright flag emblems and tighten atlas card. */
 #main header.gv9-hero.gv408-national-flag-hero::after{background:linear-gradient(90deg,rgba(2,13,27,.72),rgba(2,13,27,.47)),linear-gradient(0deg,rgba(2,13,27,.87),rgba(2,13,27,.04) 90%)}
 #main header.gv9-hero.gv408-national-flag-hero .gv9-hero-title{background:linear-gradient(90deg,rgba(2,13,27,.44),rgba(2,13,27,.1));border-radius:14px;padding:12px 15px}
@@ -262,5 +277,5 @@ style.textContent=`
 body.light .gv400-map-link{background:linear-gradient(135deg,#e8f8f5,#f5fbff);color:#174653;border-color:#b4dcd5}
 `;
 document.head.appendChild(style);
-window.GeoVerseConnectedMapsV400={version:'v410',focusWorldCountry};
+window.GeoVerseConnectedMapsV400={version:'v411',focusWorldCountry};
 })();
