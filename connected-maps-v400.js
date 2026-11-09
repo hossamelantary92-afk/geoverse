@@ -140,19 +140,19 @@ function focusWorldCountry(code){
     r.node.dataset.gv411FocusCountry=String(code).toUpperCase();
     // Re-apply the geographic focus after the atlas selection handler has opened its card.
     // This avoids a competing legacy view update during page transitions on mobile Safari.
-    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    setTimeout(()=>requestAnimationFrame(()=>{
      if(atlasRuntime!==r||!r.node.isConnected)return;
      let bounds;try{bounds=r.path?.bounds(feature)}catch(e){}
      if(bounds&&typeof atlasView==='function'){
       const width=bounds[1][0]-bounds[0][0],height=bounds[1][1]-bounds[0][1];
       if(width>0&&height>0&&Number.isFinite(width)&&Number.isFinite(height)){
-       const scale=Math.min(12,Math.max(2.2,Math.min(1000/(width*1.55),520/(height*1.55))));
+       const scale=Math.min(9,Math.max(2.4,Math.min(1000/(width*1.8),520/(height*1.8))));
        const w=1000/scale,h=520/scale,cx=(bounds[0][0]+bounds[1][0])/2,cy=(bounds[0][1]+bounds[1][1])/2;
        atlasView([Math.max(0,Math.min(1000-w,cx-w/2)),Math.max(0,Math.min(520-h,cy-h/2)),w,h]);
        path.classList.add('gv411-country-focus','highlight');
       }
      }
-    }));
+    }),720);
     r.node.scrollIntoView({behavior:'smooth',block:'center'});
     return;
    }
@@ -217,6 +217,14 @@ style.textContent=`
 .gv400-map-link:hover,.gv400-map-link:focus-visible{border-color:#78e5d2;transform:translateY(-1px);outline:2px solid rgba(120,229,210,.18)}
 .gv400-continent-link{margin-top:8px}
 .gv406-world-country-flag{display:block;width:72px;max-height:48px;object-fit:contain;object-position:left center;margin:0 0 9px;border-radius:5px;box-shadow:0 3px 12px rgba(0,0,0,.2)}
+/* v412: actual atlas overlay uses stage positioning; constrain its box, not only the card content. */
+#worldMap.gv140-map .atlas-stage .gv140-country-card:not([hidden]){position:absolute!important;top:auto!important;bottom:64px!important;left:auto!important;right:12px!important;inset-inline-start:auto!important;transform:none!important;width:210px!important;max-width:calc(100% - 24px)!important;height:auto!important;max-height:215px!important;min-height:0!important;overflow-y:auto!important;overscroll-behavior:contain;z-index:18!important;padding:10px!important;box-sizing:border-box}
+#worldMap.gv140-map .atlas-stage .gv140-country-card .gv140-card-title{font-size:17px!important;line-height:1.25!important}
+#worldMap.gv140-map .atlas-stage .gv140-country-card .gv140-card-meta,#worldMap.gv140-map .atlas-stage .gv140-country-card .gv140-card-continent{font-size:11px!important;line-height:1.3!important}
+#worldMap.gv140-map .atlas-stage .gv140-country-card .gv400-map-link{font-size:11px!important;min-height:30px!important;padding:5px!important}
+#worldMap.gv140-map .atlas-stage .gv140-country-card .gv140-map-clear{padding:5px 8px!important;min-height:30px!important}
+#worldMap .atlas-country.gv411-country-focus{fill:#42f1d4!important;stroke:#fff!important;stroke-width:3px!important;opacity:1!important;filter:drop-shadow(0 0 7px #42f1d4)}
+@media(max-width:700px){#worldMap.gv140-map .atlas-stage .gv140-country-card:not([hidden]){width:175px!important;max-height:180px!important;bottom:65px!important;right:7px!important;padding:8px!important}}
 /* v411: a compact map card and persistent country focus on the SVG itself. */
 #worldMap .atlas-country.gv411-country-focus{fill:#55ead6!important;stroke:#f3fffc!important;stroke-width:2.4!important;stroke-linejoin:round;paint-order:stroke fill;filter:drop-shadow(0 0 5px rgba(69,250,222,.9));vector-effect:non-scaling-stroke}
 #worldMap .gv140-country-card{width:min(280px,calc(100% - 28px))!important;max-width:280px!important;max-height:230px!important;min-height:0!important;overflow-y:auto!important;padding:12px!important;box-sizing:border-box}
@@ -277,5 +285,5 @@ style.textContent=`
 body.light .gv400-map-link{background:linear-gradient(135deg,#e8f8f5,#f5fbff);color:#174653;border-color:#b4dcd5}
 `;
 document.head.appendChild(style);
-window.GeoVerseConnectedMapsV400={version:'v411',focusWorldCountry};
+window.GeoVerseConnectedMapsV400={version:'v412',focusWorldCountry};
 })();
