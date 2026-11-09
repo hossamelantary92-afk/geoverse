@@ -24,21 +24,27 @@ createGame=function(mode){
  }
  return questions.length?questions:previousGame(mode);
 };
+function translatedCapital(code){
+ const localized=capitals[code]||window.GeoVerseCapitalNames?.[code];
+ if(localized)return localized;
+ const record=window.GeoVerseV4?.store?.byCode?.get(code);
+ return record?.capital||'—';
+}
 function translateVisible(){
  if(state.lang!=='ar')return;
  const root=document.getElementById('main');if(!root)return;
  root.querySelectorAll('.gv-country-row[data-v4-country]').forEach(row=>{
-  const el=row.querySelector('.gv-capital');if(el)el.textContent=capitals[row.dataset.v4Country]||'غير متوفر بالعربية';
+  const el=row.querySelector('.gv-capital');if(el)el.textContent=translatedCapital(row.dataset.v4Country);
  });
  if(state.page==='country-v4'){
   const record=window.GeoVerseV4?.store?.byCode?.get(state.v4Code);
   const boxes=root.querySelectorAll('.gv-profile-facts > div');
-  if(record&&boxes.length>2){const el=boxes[0].querySelector('strong');if(el)el.textContent=capitals[record.code]||'غير متوفر بالعربية'}
+  if(record&&boxes.length>2){const el=boxes[0].querySelector('strong');if(el)el.textContent=translatedCapital(record.code)}
  }
 }
 const oldRender=render;
 render=function(){oldRender();translateVisible()};
-fetch('./geo-localization.json').then(r=>r.json()).then(data=>{
+fetch('./geo-localization.json?v=gv356-ar-capitals').then(r=>r.json()).then(data=>{
  capitals=data.capitals||{};translateVisible();
  if(state.page==='play'&&selectedGameMode==='capitals'&&state.quizIndex===0&&state.quizSelected===null){quiz=createGame('capitals');render()}
 }).catch(()=>{});
