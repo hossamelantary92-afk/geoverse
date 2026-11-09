@@ -120,7 +120,7 @@ function decorate(r){
  grip.className='gv417-card-grip';
  grip.setAttribute('role','button');
  grip.setAttribute('aria-label',language('اسحب لتحريك بطاقة الدولة','Drag to move country card'));
- grip.textContent=language('⠿ اسحب الكارت','⠿ Drag card');
+ grip.textContent='⠿';
  // The grip is recreated by showCountry when card content changes.
  let drag=null;
  card.addEventListener('pointerdown',e=>{
