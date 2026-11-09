@@ -123,12 +123,13 @@ function decorate(r){
  grip.textContent=language('⠿ اسحب الكارت','⠿ Drag card');
  // The grip is recreated by showCountry when card content changes.
  let drag=null;
- grip.addEventListener('pointerdown',e=>{
+ card.addEventListener('pointerdown',e=>{
+  if(!e.target.closest('.gv417-card-grip'))return;
   if(card.hidden||e.pointerType==='mouse'&&e.button!==0)return;
   const box=card.getBoundingClientRect(),bounds=stage.getBoundingClientRect();
   drag={id:e.pointerId,x:e.clientX,y:e.clientY,left:box.left-bounds.left,top:box.top-bounds.top};
   e.preventDefault();e.stopPropagation();
-  try{grip.setPointerCapture(e.pointerId)}catch(_){}
+  try{card.setPointerCapture(e.pointerId)}catch(_){}
  });
  const moveCard=e=>{
   if(!drag||e.pointerId!==drag.id)return;
@@ -140,9 +141,9 @@ function decorate(r){
    card.style.setProperty(key,val,'important');
   e.preventDefault();e.stopPropagation();
  };
- grip.addEventListener('pointermove',moveCard);
- grip.addEventListener('pointerup',e=>{if(drag?.id===e.pointerId)drag=null});
- grip.addEventListener('pointercancel',e=>{if(drag?.id===e.pointerId)drag=null});
+ card.addEventListener('pointermove',moveCard);
+ card.addEventListener('pointerup',e=>{if(drag?.id===e.pointerId)drag=null});
+ card.addEventListener('pointercancel',e=>{if(drag?.id===e.pointerId)drag=null});
  const foot=document.createElement('div');foot.className='gv140-foot-hint';foot.textContent=language('المس دولة لاستكشافها  ·  اسحب للتنقل  ·  قرّب بإصبعين','Tap a country  ·  Drag to pan  ·  Pinch to zoom');stage.appendChild(foot);
  stage.querySelector('.atlas-tools')?.setAttribute('aria-label',language('أدوات تكبير الخريطة','Map zoom controls'));
  const selectionHandler=e=>{
