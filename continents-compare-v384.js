@@ -56,8 +56,8 @@ function mount(){
  const root=document.getElementById('main');if(!root)return;
  const landing=state.page==='category'&&state.category==='continents';
  const detail=state.page==='detail'&&state.category==='continents';
- if(!landing&&!detail)return;
- const anchor=landing?root.querySelector('.gv-continent-brief'):root.querySelector('.gv-continent-guide');
+ if(state.page!=='category'||state.category!=='continents'||state.continentFeature!=='compare')return;
+ const anchor=root.querySelector('#gvC5FeatureMount');
  if(!anchor||root.querySelector('#gvContinentCompare'))return;
  const panel=document.createElement('section');panel.id='gvContinentCompare';panel.className='gv-c3-shell';
  panel.setAttribute('aria-label',L('مقارنة القارات','Continent comparison'));
@@ -122,6 +122,7 @@ body.light .gv-c3-selectors select{background:#fff;color:#143e4d;border-color:#b
 @media(max-width:690px){.gv-c3-shell{padding:14px}.gv-c3-heading{flex-direction:column;gap:8px}.gv-c3-pair{grid-template-columns:1fr}.gv-c3-bar-meta{font-size:12px}.gv-c3-bar-meta span:last-child{font-size:11px}.gv-c3-stat-card{padding:13px}.gv-c3-selectors{gap:8px}}
 `;
 if(!document.getElementById('gv-c3-style')){const style=document.createElement('style');style.id='gv-c3-style';style.textContent=css;document.head.appendChild(style)}
+window.GeoVerseContinentComparison={mount};
 const previous=render;
-render=function(){previous();mount()};
+render=function(){previous();/* C5 renders the feature only on its dedicated page */};
 })();
