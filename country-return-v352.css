@@ -30,3 +30,49 @@
  #main .gv-smart-country-back{padding:10px 12px;margin-inline-end:7px;font-size:12px}
  #main .gv-smart-category-link{padding:9px 11px;font-size:11px}
 }
+
+/* v353 — compact two-button landmark toolbar, all entry paths. */
+#main .gv-landmark-back-row{
+ display:grid!important;
+ grid-template-columns:minmax(0,1fr) minmax(0,1.45fr);
+ gap:10px!important;
+ align-items:stretch;
+ width:100%;
+ margin:0 0 15px!important;
+ direction:rtl;
+}
+#main .gv-landmark-back-row>.gv-landmark-back-button,
+#main .gv-landmark-back-row>.gv-smart-category-link{
+ box-sizing:border-box!important;
+ display:flex!important;
+ align-items:center!important;
+ justify-content:center!important;
+ width:100%!important;
+ min-width:0!important;
+ min-height:45px!important;
+ height:auto!important;
+ margin:0!important;
+ padding:10px 9px!important;
+ border-radius:13px!important;
+ line-height:1.45!important;
+ text-align:center!important;
+ white-space:normal!important;
+ font-family:Cairo,Arial,sans-serif!important;
+ font-size:clamp(11px,2.8vw,13px)!important;
+ font-weight:800!important;
+}
+#main .gv-landmark-back-row>.gv-landmark-back-button{
+ border:1px solid rgba(122,242,226,.67)!important;
+ background:linear-gradient(135deg,#146775,#0d4055)!important;
+ color:#e1fff9!important;
+}
+#main .gv-landmark-back-row>.gv-smart-category-link{
+ border:1px solid rgba(91,159,173,.58)!important;
+ background:#092a3e!important;
+ color:#cce4e9!important;
+}
+@media(max-width:380px){
+ #main .gv-landmark-back-row{gap:7px!important;grid-template-columns:minmax(0,.9fr) minmax(0,1.4fr)}
+ #main .gv-landmark-back-row>.gv-landmark-back-button,
+ #main .gv-landmark-back-row>.gv-smart-category-link{font-size:11px!important;padding:9px 6px!important}
+}
