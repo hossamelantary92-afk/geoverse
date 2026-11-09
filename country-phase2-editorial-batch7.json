@@ -1,0 +1,42 @@
+{
+  "phase": "Phase 2 / Batch 7",
+  "date": "2026-11-09",
+  "updated": [
+    "UZ",
+    "MN",
+    "LA",
+    "BT",
+    "FJ",
+    "SB",
+    "VU",
+    "WS",
+    "NA",
+    "ZM",
+    "AO",
+    "CD",
+    "BJ",
+    "CV",
+    "AF",
+    "IR",
+    "LB",
+    "IQ",
+    "MM",
+    "SD"
+  ],
+  "previous_count": 125,
+  "new_count": 20,
+  "cumulative": 145,
+  "remaining": 100,
+  "scope": "Bilingual country-specific geography, climate, natural landscapes and landmarks; fixes for doubled prose in Uzbekistan and Mongolia.",
+  "qa": {
+    "six_section_structure": "passed for all 245 articles",
+    "independent_source_validation": "pending",
+    "published_mobile_and_desktop": "pending",
+    "main_map_globe_and_games": "untouched"
+  },
+  "reference_hubs": [
+    "https://whc.unesco.org/en/list/",
+    "https://www.britannica.com/place/",
+    "https://www.naturalearthdata.com/"
+  ]
+}
