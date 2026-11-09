@@ -125,7 +125,7 @@ function directoryCapitalAr(r){
  if(localized)return localized;
  const v=allGeo.find(x=>norm(x[1])===norm(r.name));
  const m=(v?.[2]||'').match(/العاصمة(?: الإدارية)?:\\s*([^·،]+)/);
- return m?m[1].trim():r.capital||'—';
+ return m?m[1].trim():(r.capital||'—');
 }
 function countrySearchKey(value){
  return String(value||'').normalize('NFKD').toLowerCase()
@@ -166,7 +166,7 @@ function sortedCountryRows(continent,query){
  return store.countries.filter(r=>(continent==='all'||r.continent===continent||continent==='Asia'&&twoRegion.has(r.name))&&countryMatchesQuery(r,query))
  .sort((a,b)=>(state.lang==='ar'?getCountryName(a).localeCompare(getCountryName(b),'ar'):a.name.localeCompare(b.name,'en')));
 }
-function countryCards(list){return list.map(r=>'<button type="button" class="gv-country-row" data-v4-country="'+escapeHTML(r.code)+'" aria-label="'+escapeHTML(getCountryName(r)+'، '+(state.lang==='ar'?directoryCapitalAr(r):r.capital||'—'))+'"><span class="gv-country-flag">'+flag(r.code,'Flag of '+r.name)+'</span><span class="gv-country-name"><b>'+escapeHTML(getCountryName(r))+'</b><small>'+escapeHTML(r.name)+'</small></span><span class="gv-capital">'+escapeHTML(state.lang==='ar'?directoryCapitalAr(r):r.capital||'—')+'</span><span class="gv-country-chevron" aria-hidden="true">↗</span></button>').join('')}
+function countryCards(list){return list.map(r=>'<button type="button" class="gv-country-row" data-v4-country="'+escapeHTML(r.code)+'" aria-label="'+escapeHTML(getCountryName(r)+'، '+(state.lang==='ar'?directoryCapitalAr(r):r.capital||'—'))+'"><span class="gv-country-flag">'+flag(r.code,'Flag of '+r.name)+'</span><span class="gv-country-name"><b>'+escapeHTML(getCountryName(r))+'</b><small>'+escapeHTML(r.name)+'</small></span><span class="gv-capital">'+escapeHTML(state.lang==='ar'?directoryCapitalAr(r):r.capital||'—')+'</span><span class="gv-country-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></button>').join('')}
 function countriesPage(){
  const c=state.v4Continent||'all';
  const options=['all',...continentKeys];
