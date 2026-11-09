@@ -35,7 +35,7 @@ jobs:
           for index in range(16):
               image = data["photos"].get(f"seas:{index}")
               assert image and image[1].startswith("File:"), f"Missing approved image: {index}"
-          assert "gv322-canonical-sea-paths" in Path("index.html").read_text()
+          assert "sea-reading-v311.js" in Path("index.html").read_text(), "Sea reading module not loaded"
           print("Sea manifest: 16 approved covers found")
           PY
       - name: Upload static site
