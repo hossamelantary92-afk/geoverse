@@ -1,0 +1,56 @@
+{
+  "project": "GeoVerse — Country Atlas 2.0",
+  "phase": "Phase 2 / Editorial batch 4",
+  "date": "2026-11-09",
+  "countries_and_territories_updated": [
+    "CO",
+    "PE",
+    "CL",
+    "VE",
+    "QA",
+    "OM",
+    "JO",
+    "NZ",
+    "PK",
+    "BD",
+    "NP",
+    "LK",
+    "TH",
+    "VN",
+    "MY",
+    "PH",
+    "CH",
+    "AT",
+    "CA",
+    "ID"
+  ],
+  "prior_focused_updates": 65,
+  "new_focused_updates": 20,
+  "total_focused_updates": 85,
+  "remaining_for_review": 160,
+  "scope": "Country profile article narrative only; bilingual geography and nature details, with editorial repairs of culture and economy sections for Colombia, Peru, Chile and Venezuela.",
+  "quality_gates": {
+    "record_count": 245,
+    "bilingual_six_section_structure": "pass",
+    "published_iphone_safari": "pending",
+    "desktop": "pending",
+    "field_by_field_independent_source_review": "pending",
+    "main_map_tab": "unchanged",
+    "games": "unchanged"
+  },
+  "editorial_policy": "No new time-sensitive quantitative figures. Changing statistics and sensitive classifications remain subject to dated authoritative review.",
+  "reference_hubs": [
+    {
+      "name": "UNESCO World Heritage",
+      "url": "https://whc.unesco.org/en/list/"
+    },
+    {
+      "name": "UNEP World Conservation Monitoring Centre",
+      "url": "https://www.unep-wcmc.org/"
+    },
+    {
+      "name": "Natural Earth geographic datasets",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}
