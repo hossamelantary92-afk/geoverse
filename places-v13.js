@@ -110,7 +110,7 @@ photo.mount=function(box,src,name,articleUrl,fallbacks=[]){
  box.appendChild(img);
  // Wikimedia's API resolves the *actual stored file*, avoiding stale or
  // ungenerated guessed thumbnail paths for the seven approved sea photographs.
- const approvedSea=state.category==='seas'&&[0,5,6,7,12,14,15].includes(Number(box.dataset.photoIndex));
+ const approvedSea=state.category==='seas';
  if(approvedSea&&articleUrl?.includes('commons.wikimedia.org/wiki/')){
   const title=decodeURIComponent(articleUrl.split('/wiki/').pop()||'').replace(/_/g,' ');
   const api='https://commons.wikimedia.org/w/api.php?action=query&format=json&origin=*&prop=imageinfo&iiprop=url&iiurlwidth=640&titles='+encodeURIComponent(title);
@@ -141,7 +141,7 @@ photo.hydrate=function(){
   photo.mount(box,src,box.dataset.placeName||'',article,item[4]);
  });
 };
-photo.ready=fetch('./photo-manifest-v13.json?v=gv319-final-three-seas',{cache:'no-store'}).then(r=>{
+photo.ready=fetch('./photo-manifest-v13.json?v=gv320-iconic-six-seas',{cache:'no-store'}).then(r=>{
  if(!r.ok)throw Error('Photo reference manifest unavailable');
  return r.json();
 }).then(data=>{
