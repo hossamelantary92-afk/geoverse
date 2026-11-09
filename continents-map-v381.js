@@ -46,10 +46,10 @@ function countryLabel(record,feature){
  return feature.properties.gvArabic||record?.name||feature.properties.name;
 }
 function mount(){
- if(state.page!=='detail'||state.category!=='continents')return;
- const index=Number(state.item),key=continents[index];if(!key)return;
+ if(state.page!=='category'||state.category!=='continents'||state.continentFeature!=='map')return;
+ const index=Number(state.continentIndex||0),key=continents[index];if(!key)return;
  const root=document.getElementById('main');if(!root)return;
- const reference=root.querySelector('.gv-continent-intro')||root.querySelector('#detailMap');
+ const reference=root.querySelector('#gvC5FeatureMount');
  if(!reference||root.querySelector('#gvContinentMapPanel'))return;
  reference.insertAdjacentHTML('afterend',panel(index));
  const stage=root.querySelector('#gvContinentMapStage');
@@ -57,7 +57,7 @@ function mount(){
  const info=root.querySelector('#gvContinentMapInfo');
  const ticket=++seq;
  loadData().then(([world,meta])=>{
-  if(ticket!==seq||!stage.isConnected||state.page!=='detail'||state.category!=='continents'||Number(state.item)!==index)return;
+  if(ticket!==seq||!stage.isConnected||state.page!=='category'||state.category!=='continents'||state.continentFeature!=='map'||Number(state.continentIndex||0)!==index)return;
   if(!window.d3?.geoPath||!window.d3.geoMercator){stage.textContent=lang('تعذّر تشغيل مكتبة الخرائط.','Map library unavailable.');return;}
   const byName=new Map(meta.countries.filter(r=>r.code&&r.name).map(r=>[norm(r.name),r]));
   function lookup(name){return byName.get(norm(name))||byName.get(norm(aliases[norm(name)]))}
@@ -134,7 +134,7 @@ document.addEventListener('click',e=>{
  if(!tab)return;
  e.preventDefault();e.stopImmediatePropagation();
  const n=Number(tab.dataset.gvC2Continent);
- if(n!==Number(state.item)&&n>=0&&n<continents.length){seq++;setPage('detail','continents',n)}
+ if(n!==Number(state.continentIndex||0)&&n>=0&&n<continents.length){seq++;state.continentIndex=n;render()}
 },true);
 const css=`
 .gv-c2-shell{margin:20px 0 24px;padding:clamp(16px,2.6vw,24px);border:1px solid rgba(112,220,223,.31);border-radius:22px;background:linear-gradient(145deg,#0b3449,#061f34);box-shadow:0 12px 32px #0003;color:#ebffff}
@@ -169,5 +169,6 @@ body.light .gv-c2-info{color:#143e4d}
 `;
 if(!document.getElementById('gv-c2-style')){const style=document.createElement('style');style.id='gv-c2-style';style.textContent=css;document.head.appendChild(style)}
 const beforeRender=render;
-render=function(){beforeRender();mount()};
+window.GeoVerseContinentMap={mount};
+render=function(){beforeRender();/* mounted only by C5 on its dedicated screen */};
 })();
