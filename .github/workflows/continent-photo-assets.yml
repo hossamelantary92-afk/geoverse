@@ -30,6 +30,7 @@ jobs:
           photos=json.loads(os.environ["GV_PHOTO_DATA"])
           out=Path("assets/continent-photos");out.mkdir(parents=True,exist_ok=True)
           session=requests.Session();session.headers.update({"User-Agent":"GeoVerseEducationalAtlas/1.0 (image licensing audit; GitHub Actions)"})
+          dimensions=[]
           for item in photos:
               name=item["file"]
               url="https://commons.wikimedia.org/wiki/Special:Redirect/file/"+quote(name.replace(" ","_"))+"?width=2600"
@@ -50,6 +51,8 @@ jobs:
                   img.save(dest,"WEBP",quality=94,method=6)
                   assert dest.stat().st_size>15000, dest
                   print(item["slug"],"HQ dimensions",img.size,"bytes",dest.stat().st_size)
+                  dimensions.append({"slug":item["slug"],"width":img.width,"height":img.height,"bytes":dest.stat().st_size})
+          (out/"IMAGE-SIZES.json").write_text(json.dumps(dimensions,indent=2)+"\\n",encoding="utf-8")
           credits=["# Continent images — licenses and attribution","Images sourced from Wikimedia Commons. Displayed in GeoVerse continent cards and detail pages. Source images have been resized and converted to WebP.\n"]
           for item in photos:
               title=item["file"].replace(" ","_")
