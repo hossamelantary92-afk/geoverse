@@ -35,22 +35,23 @@ function decorateDetailBack(){
  if(state.page!=='detail')return;
  const original=document.querySelector('#main button.back');
  if(!original)return;
- if(countryReferral&&countryReferral.code){
-  const button=document.createElement('button');
-  button.type='button';
-  button.className='gv-smart-country-back';
-  button.dataset.gvReturnCountry=countryReferral.code;
-  button.textContent=state.lang==='ar'?'→ العودة إلى الدولة السابقة':'← Back to previous country';
-  original.before(button);
-  const cat=state.category;
-  const c=cats.find(entry=>entry.id===cat);
-  original.className='gv-smart-category-link';
-  original.removeAttribute('data-cat');
-  original.dataset.gvOpenCategory=cat;
-  original.textContent=state.lang==='ar'?'عرض قسم '+(c?.ar||'المعلم'):'View '+(c?.en||'topic')+' category';
- }else{
-  original.textContent=state.lang==='ar'?'→ العودة للصفحة السابقة':'← Back to previous page';
- }
+ const cat=state.category;
+ const c=cats.find(entry=>entry.id===cat);
+ const bar=document.createElement('div');
+ bar.className='gv-landmark-back-row';
+ bar.setAttribute('role','group');
+ bar.setAttribute('aria-label',state.lang==='ar'?'التنقل داخل المعلم':'Landmark navigation');
+ original.before(bar);
+ bar.appendChild(original);
+ original.type='button';
+ original.classList.add('gv-landmark-back-button');
+ original.textContent=state.lang==='ar'?'→ عودة':'← Back';
+ const categoryButton=document.createElement('button');
+ categoryButton.type='button';
+ categoryButton.className='gv-smart-category-link';
+ categoryButton.dataset.gvOpenCategory=cat;
+ categoryButton.textContent=state.lang==='ar'?'عرض قسم '+(c?.ar||'المعلم'):'View '+(c?.en||'topic');
+ bar.appendChild(categoryButton);
 }
 const originalRender=render;
 render=function(){
