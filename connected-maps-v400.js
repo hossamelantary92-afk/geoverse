@@ -75,5 +75,13 @@ const observer=new MutationObserver(()=>{
 });
 observer.observe(document.getElementById('main')||document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['hidden']});
 addWorldProfileAction();addContinentAtlasAction();
+const style=document.createElement('style');
+style.textContent=`
+.gv400-map-link{display:flex;align-items:center;justify-content:center;width:100%;min-height:42px;margin-top:9px;padding:10px 14px;border:1px solid rgba(111,220,205,.48);border-radius:12px;background:linear-gradient(135deg,#164d60,#0d354c);color:#eafffb;font:700 13px/1.5 inherit;cursor:pointer;transition:border-color .18s,transform .18s}
+.gv400-map-link:hover,.gv400-map-link:focus-visible{border-color:#78e5d2;transform:translateY(-1px);outline:2px solid rgba(120,229,210,.18)}
+.gv400-continent-link{margin-top:8px}
+body.light .gv400-map-link{background:linear-gradient(135deg,#e8f8f5,#f5fbff);color:#174653;border-color:#b4dcd5}
+`;
+document.head.appendChild(style);
 window.GeoVerseConnectedMapsV400={version:'v400',focusWorldCountry};
 })();
