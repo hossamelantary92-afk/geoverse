@@ -38,6 +38,26 @@ function addContinentAtlasAction(){
   open.insertAdjacentElement('afterend',button);
  });
 }
+function currentCountryCode(){
+ const s=store();
+ const raw=typeof state!=='undefined'?state.item:null;
+ const code=String(raw||'').toUpperCase();
+ if(s?.countries?.some(row=>String(row.code).toUpperCase()===code))return code;
+ const heading=document.querySelector('#main h1,#main h2');
+ const title=norm(heading?.textContent);
+ const row=s?.countries?.find(item=>norm(item.name)===title||norm(item.nameAr)===title||norm(item.ar)===title);
+ return row?.code||null;
+}
+function addProfileAtlasAction(){
+ if(typeof state==='undefined'||state.page!=='country-v4')return;
+ const nav=document.querySelector('#main .gv387-country-nav');
+ if(!nav||nav.querySelector('[data-gv401-profile-atlas]'))return;
+ const code=currentCountryCode();if(!code)return;
+ const button=document.createElement('button');
+ button.type='button';button.className='gv387-countries';button.dataset.gv401ProfileAtlas=code;
+ button.textContent=lang('عرض الدولة على الخريطة','Show country on map');
+ nav.appendChild(button);
+}
 function focusWorldCountry(code){
  const started=performance.now();
  function attempt(){
@@ -80,19 +100,20 @@ document.addEventListener('click',event=>{
   if(code&&typeof setPage==='function')setPage('country-v4',code);
   return;
  }
- const world=event.target.closest('[data-gv400-world-atlas]');
+ const world=event.target.closest('[data-gv400-world-atlas],[data-gv401-profile-atlas]');
  if(world){
   event.preventDefault();event.stopImmediatePropagation();
-  const code=world.dataset.gv400WorldAtlas;
+  const code=world.dataset.gv400WorldAtlas||world.dataset.gv401ProfileAtlas;
   if(code&&typeof setPage==='function'){setPage('explore');focusWorldCountry(code)}
  }
 },true);
 const observer=new MutationObserver(()=>{
  addWorldProfileAction();
  addContinentAtlasAction();
+ addProfileAtlasAction();
 });
 observer.observe(document.getElementById('main')||document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['hidden']});
-addWorldProfileAction();addContinentAtlasAction();
+addWorldProfileAction();addContinentAtlasAction();addProfileAtlasAction();
 const style=document.createElement('style');
 style.textContent=`
 .gv400-map-link{display:flex;align-items:center;justify-content:center;width:100%;min-height:42px;margin-top:9px;padding:10px 14px;border:1px solid rgba(111,220,205,.48);border-radius:12px;background:linear-gradient(135deg,#164d60,#0d354c);color:#eafffb;font:inherit;font-size:13px;font-weight:700;line-height:1.5;cursor:pointer;transition:border-color .18s,transform .18s}
@@ -120,5 +141,5 @@ style.textContent=`
 body.light .gv400-map-link{background:linear-gradient(135deg,#e8f8f5,#f5fbff);color:#174653;border-color:#b4dcd5}
 `;
 document.head.appendChild(style);
-window.GeoVerseConnectedMapsV400={version:'v401',focusWorldCountry};
+window.GeoVerseConnectedMapsV400={version:'v402',focusWorldCountry};
 })();
