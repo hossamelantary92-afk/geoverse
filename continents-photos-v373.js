@@ -41,15 +41,15 @@ function applyPhotos(){
 }
 const css=`
 .item-card:has(.gv-continent-card-image){position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;align-items:stretch;text-align:start;min-height:210px;justify-content:flex-end;border:1px solid rgba(118,223,219,.3);padding:17px;background:#0b293b}
-.item-card .gv-continent-card-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .45s ease}
-.item-card:has(.gv-continent-card-image):before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(1,15,28,.94) 0%,rgba(1,15,28,.42) 68%,rgba(1,15,28,.12) 100%);pointer-events:none}
+.item-card .gv-continent-card-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:transform .45s ease}
+.item-card:has(.gv-continent-card-image):before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(1,15,28,.94) 0%,rgba(1,15,28,.42) 68%,rgba(1,15,28,.12) 100%);pointer-events:none}
 .item-card:has(.gv-continent-card-image):hover .gv-continent-card-image{transform:scale(1.045)}
-.item-card:has(.gv-continent-card-image) strong{color:white;font-size:18px;text-shadow:0 2px 9px #0008}
+.item-card:has(.gv-continent-card-image)>strong,.item-card:has(.gv-continent-card-image)>small{position:relative;z-index:2}.item-card:has(.gv-continent-card-image) strong{color:white;font-size:18px;text-shadow:0 2px 9px #0008}
 .item-card:has(.gv-continent-card-image) small{color:#e7f3f5;line-height:1.65;text-shadow:0 2px 7px #000}
 .item-card:has(.gv-continent-card-image) .item-icon{display:none}
-.gv-continent-specific-hero{position:relative;overflow:hidden;isolation:isolate;background:#102b3c!important}
-.gv-continent-hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-.gv-continent-specific-hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(1,16,30,.88),rgba(1,16,30,.12) 82%);pointer-events:none}
+.gv-continent-specific-hero{position:relative;overflow:hidden;isolation:isolate;background:transparent!important}
+.gv-continent-hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.gv-continent-specific-hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(1,16,30,.88),rgba(1,16,30,.12) 82%);pointer-events:none}
 .gv-continent-specific-hero>div{position:relative;z-index:2}
 @media(max-width:650px){.item-card:has(.gv-continent-card-image){min-height:190px}.item-card:has(.gv-continent-card-image) strong{font-size:16px}.gv-continent-specific-hero{min-height:240px}}
 `;
