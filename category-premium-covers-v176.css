@@ -62,3 +62,14 @@ body:has(.category-detail-banner) .category-detail-banner{
 }
 .gv12-directory .gv12-card[data-cat="astronomy"]:hover .gv12-image,
 .gv11-categories .gv11-card.gv11-astronomy:hover>img{transform:none!important;}
+
+/* gv341: uniform full-bleed astronomy cover in the directory and home; eliminates vertical empty bands. */
+.gv12-directory .gv12-card[data-cat="astronomy"] .gv12-image,
+.gv11-categories .gv11-card.gv11-astronomy>img{
+ position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+ max-height:none!important;object-fit:cover!important;object-position:center center!important;
+ background:transparent!important;transform:none!important;
+}
+.gv12-directory .gv12-card[data-cat="astronomy"] .gv12-card-bg{
+ background:linear-gradient(180deg,rgba(2,15,28,.02) 8%,rgba(2,15,28,.08) 40%,rgba(2,15,28,.64) 76%,rgba(2,15,28,.94) 100%)!important;
+}
