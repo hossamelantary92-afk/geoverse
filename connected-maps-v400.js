@@ -325,8 +325,11 @@ style.textContent=`
 }
 #worldMap .gv417-card-grip{display:block!important;flex:none!important;touch-action:none!important;-webkit-user-select:none!important;user-select:none!important;cursor:grab!important;text-align:center!important;padding:8px!important;background:rgba(72,213,191,.16)!important;border-radius:7px!important;color:#e2fff7!important;font-weight:800!important}
 #worldMap .atlas-country.gv140-active,#worldMap .atlas-country.gv411-country-focus{fill:#ffd43b!important;stroke:#fff2a0!important;opacity:1!important}
+
+/* v419: compact touch-friendly drag handle */
+#worldMap .gv417-card-grip{width:max-content!important;max-width:calc(100% - 12px)!important;min-height:24px!important;align-self:center!important;flex:none!important;margin:0 auto 3px!important;padding:3px 12px!important;border:1px solid rgba(110,233,216,.35)!important;border-radius:999px!important;background:rgba(72,213,191,.12)!important;color:#b7f5ec!important;font-size:11px!important;font-weight:700!important;line-height:18px!important;letter-spacing:0!important;box-shadow:none!important;touch-action:none!important}
 body.light .gv400-map-link{background:linear-gradient(135deg,#e8f8f5,#f5fbff);color:#174653;border-color:#b4dcd5}
 `;
 document.head.appendChild(style);
-window.GeoVerseConnectedMapsV400={version:'v418',focusWorldCountry};
+window.GeoVerseConnectedMapsV400={version:'v419',focusWorldCountry};
 })();
