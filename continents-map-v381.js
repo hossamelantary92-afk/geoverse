@@ -23,17 +23,19 @@ let seq=0;
 function loadData(){
  if(!loading)loading=Promise.all([
   fetch('./world.geojson?v=gv119-bermuda-ring-fixed').then(r=>{if(!r.ok)throw Error('geojson');return r.json()}),
-  fetch('./country-meta.json').then(r=>{if(!r.ok)throw Error('metadata');return r.json()})
+  fetch('./country-meta.json').then(r=>{if(!r.ok)throw Error('metadata');return r.json()}),
+  fetch('./country-facts.json').then(r=>r.ok?r.json():null).catch(()=>null)
  ]).catch(e=>{loading=null;throw e});
  return loading;
 }
 function panel(idx){
  const active=continents[idx]||'Asia';
  return '<section class="gv-c2-shell" id="gvContinentMapPanel" aria-label="'+esc(lang('خريطة قارات العالم التفاعلية','Interactive continent atlas'))+'">'+
- '<header class="gv-c2-heading"><div><span class="eyebrow">GEOVERSE · CONTINENT MAP</span><h2>'+lang('استكشف حدود القارة ودولها','Explore continent borders and countries')+'</h2><p>'+lang('اضغط على أي دولة مضيئة لفتح ملفها الموسوعي. اختر قارة أخرى للتنقل.','Tap any highlighted country to open its encyclopedia. Choose another continent to explore.')+'</p></div><span class="gv-c2-badge">2D ATLAS</span></header>'+
+ '<header class="gv-c2-heading"><div><span class="eyebrow">GEOVERSE · CONTINENT MAP</span><h2>'+lang('استكشف حدود القارة ودولها','Explore continent borders and countries')+'</h2><p>'+lang('اضغط على دولة مضيئة لعرض ملخصها، ثم افتح الملف الكامل إذا أردت.','Tap a highlighted country for a quick preview, then open its full profile.')+'</p></div><span class="gv-c2-badge">2D ATLAS</span></header>'+
  '<div class="gv-c2-tabs" role="group" aria-label="'+lang('اختيار القارة','Choose a continent')+'">'+continents.map((name,i)=>'<button type="button" class="gv-c2-tab'+(active===name?' active':'')+'" data-gv-c2-continent="'+i+'" aria-pressed="'+(active===name)+'">'+esc(lang(namesAr[i],name))+'</button>').join('')+'</div>'+
  '<div class="gv-c2-map-wrap"><div class="gv-c2-map-stage" id="gvContinentMapStage" role="group" aria-label="'+lang('خريطة حدود الدول','Country boundaries map')+'"><div class="gv-c2-loading">'+lang('جاري تجهيز الخريطة…','Preparing map…')+'</div></div>'+
  '<div class="gv-c2-controls"><button type="button" data-gv-c2-zoom="in" aria-label="'+lang('تكبير','Zoom in')+'">+</button><button type="button" data-gv-c2-zoom="out" aria-label="'+lang('تصغير','Zoom out')+'">−</button><button type="button" data-gv-c2-zoom="reset" aria-label="'+lang('إعادة ضبط العرض','Reset map view')+'">⌖</button></div></div>'+
+ '<div class="gv-c2-preview-slot" id="gvContinentCountryPreview" aria-live="polite"></div>'+
  '<div class="gv-c2-bottom"><span class="gv-c2-key"><i aria-hidden="true"></i>'+lang('الدول التابعة للقارة','Countries in selected continent')+'</span><span class="gv-c2-count" id="gvContinentMapCount" role="status"></span></div>'+
  '<div class="gv-c2-info" id="gvContinentMapInfo" role="status">'+lang('استخدم الخريطة لاختيار دولة أو استعرض بطاقات الدول بالأسفل.','Select a country on the map or use the country cards below.')+'</div>'+
  '<p class="gv-c2-note">'+lang('الحدود المعروضة تعليمية وتقريبية، ولا تعبّر عن مواقف سياسية بشأن المناطق المتنازع عليها. الجزر الصغيرة قد لا تظهر بهذا المقياس.','Boundaries are simplified for educational use and imply no political position on disputed territories. Small islands may not be visible at this scale.')+'</p></section>';
@@ -55,8 +57,9 @@ function mount(){
  const stage=root.querySelector('#gvContinentMapStage');
  const count=root.querySelector('#gvContinentMapCount');
  const info=root.querySelector('#gvContinentMapInfo');
+ const preview=root.querySelector('#gvContinentCountryPreview');
  const ticket=++seq;
- loadData().then(([world,meta])=>{
+ loadData().then(([world,meta,facts])=>{
   if(ticket!==seq||!stage.isConnected||state.page!=='category'||state.category!=='continents'||state.continentFeature!=='map'||Number(state.continentIndex||0)!==index)return;
   if(!window.d3?.geoPath||!window.d3.geoMercator){stage.textContent=lang('تعذّر تشغيل مكتبة الخرائط.','Map library unavailable.');return;}
   const byName=new Map(meta.countries.filter(r=>r.code&&r.name).map(r=>[norm(r.name),r]));
@@ -74,6 +77,30 @@ function mount(){
    const belongs=key==='Antarctica'&&feature.properties?.name==='Antarctica'||!!(rec&&(rec.continent===key||key==='Asia'&&['Russia','Turkey'].includes(rec.name)));
    return {feature,rec,belongs,i};
   });
+  function factCard(record,feature){
+   const stat=facts?.byCode?.[record.code];
+   const loc=state.lang==='ar'?'ar-EG':'en-US';
+   const fmt=n=>new Intl.NumberFormat(loc,{maximumFractionDigits:0}).format(n);
+   const title=countryLabel(record,feature);
+   const i=continents.indexOf(record.continent);
+   const region=lang(i<0?'غير محددة':namesAr[i],record.continent||'Unknown');
+   const capital=record.capital||lang('غير متاحة','Not available');
+   const population=Number.isFinite(stat?.p)?fmt(stat.p):lang('غير متاح','Not available');
+   const popYear=Number.isInteger(stat?.py)?' · '+fmt(stat.py):'';
+   const area=Number.isFinite(stat?.a)?fmt(stat.a)+' '+lang('كم²','km²'):lang('غير متاحة','Not available');
+   const flagCode=record.code==='UK'?'gb':record.code.toLowerCase();
+   preview.innerHTML='<article class="gv-c2-premium-card" aria-label="'+esc(lang('ملخص دولة ','Country preview: ')+title)+'">'+
+    '<div class="gv-c2-premium-head"><div class="gv-c2-premium-identity">'+
+    '<img loading="lazy" decoding="async" src="https://flagcdn.com/'+flagCode+'.svg" alt="'+esc(lang('علم ','Flag of ')+title)+'">'+
+    '<div><span class="gv-c2-premium-kicker">'+lang('بطاقة الدولة · نظرة سريعة','COUNTRY SNAPSHOT')+'</span><h3>'+esc(title)+'</h3><p>'+esc(region)+'</p></div></div>'+
+    '<button class="gv-c2-premium-close" type="button" data-gv-c2-close aria-label="'+lang('إغلاق البطاقة','Close preview')+'">×</button></div>'+
+    '<div class="gv-c2-premium-facts">'+
+      '<div><small>'+lang('العاصمة','Capital')+'</small><strong>'+esc(capital)+'</strong></div>'+
+      '<div><small>'+lang('عدد السكان','Population')+esc(popYear)+'</small><strong>'+esc(population)+'</strong></div>'+
+      '<div><small>'+lang('المساحة','Area')+'</small><strong>'+esc(area)+'</strong></div>'+
+    '</div><button type="button" class="gv-c2-premium-open" data-gv-c2-open="'+esc(record.code)+'">'+lang('استكشف ملف الدولة الكامل ←','Explore full country profile →')+'</button></article>';
+   preview.scrollIntoView?.({block:'nearest',behavior:'smooth'});
+  }
   stage.innerHTML='<svg class="gv-c2-svg" viewBox="0 0 1000 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="'+esc(lang('خريطة تفاعلية لقارة ','Interactive map of ')+lang(namesAr[index],key))+'">'+
    '<rect width="1000" height="520" fill="#092b42"/><g class="gv-c2-graticule"><path d="'+path(d3.geoGraticule10())+'"/></g>'+
    '<g class="gv-c2-countries">'+rows.map(row=>{
@@ -117,12 +144,21 @@ function mount(){
     const p=e.target.closest('[data-gv-c2-country]');if(!p||wasDrag)return;
     const code=p.dataset.gvC2Country;
     if(!meta.countries.some(x=>x.code===code))return;
-    setPage('country-v4',code);
+    const row=rows.find(x=>x.rec?.code===code&&x.belongs);
+    if(!row)return;
+    stage.querySelectorAll('.gv-c2-country.chosen').forEach(el=>el.classList.remove('chosen'));
+    p.classList.add('chosen');
+    factCard(row.rec,row.feature);
   });
   stage.addEventListener('keydown',e=>{
    if(e.key!=='Enter'&&e.key!==' ')return;
    const p=e.target.closest('[data-gv-c2-country]');if(!p)return;
    e.preventDefault();p.dispatchEvent(new MouseEvent('click',{bubbles:true}));
+  });
+  preview.addEventListener('click',e=>{
+    if(e.target.closest('[data-gv-c2-close]')){preview.replaceChildren();stage.querySelectorAll('.gv-c2-country.chosen').forEach(el=>el.classList.remove('chosen'));return}
+    const open=e.target.closest('[data-gv-c2-open]');
+    if(open&&meta.countries.some(r=>r.code===open.dataset.gvC2Open))setPage('country-v4',open.dataset.gvC2Open);
   });
   root.querySelectorAll('[data-gv-c2-zoom]').forEach(el=>el.addEventListener('click',()=>zoom(el.dataset.gvC2Zoom)));
  }).catch(()=>{
@@ -137,6 +173,37 @@ document.addEventListener('click',e=>{
  if(n!==Number(state.continentIndex||0)&&n>=0&&n<continents.length){seq++;state.continentIndex=n;render()}
 },true);
 const css=`
+/* GeoVerse v393 — premium selected-country preview. */
+.gv-c2-preview-slot:empty{display:none}
+.gv-c2-premium-card{margin:15px 0 4px;padding:16px;border-radius:20px;border:1px solid #5ac8c690;background:linear-gradient(140deg,#17485b,#09283e 82%);box-shadow:0 12px 32px #0003;color:#eaffff;animation:gv-c2-preview-in .23s ease-out}
+@keyframes gv-c2-preview-in{from{opacity:.65;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.gv-c2-premium-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.gv-c2-premium-identity{display:flex;align-items:center;gap:12px;min-width:0}
+.gv-c2-premium-identity img{width:64px;height:46px;object-fit:contain;border-radius:6px;flex:none;background:#061c2e;border:1px solid #81c6cd44}
+.gv-c2-premium-identity>div{min-width:0}
+.gv-c2-premium-kicker{display:block;font:800 10px Outfit,Cairo,sans-serif;letter-spacing:.08em;color:#e8c787}
+.gv-c2-premium-identity h3{margin:3px 0;color:#fff;font-size:clamp(18px,4.3vw,25px);line-height:1.4;overflow-wrap:anywhere}
+.gv-c2-premium-identity p{margin:0;color:#bad8dd;font-size:12px}
+.gv-c2-premium-close{flex:none;border:1px solid #7bc8c777;background:#113e50;color:#e9ffff;width:34px;height:34px;border-radius:11px;font-size:24px;line-height:1;cursor:pointer}
+.gv-c2-premium-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:16px 0}
+.gv-c2-premium-facts>div{min-width:0;padding:12px 10px;border:1px solid #7ddcdb30;background:#ffffff0b;border-radius:13px}
+.gv-c2-premium-facts small{display:block;color:#b7d9df;font-size:11px;line-height:1.6;margin-bottom:4px}
+.gv-c2-premium-facts strong{display:block;color:#f2ffff;font-size:13px;line-height:1.7;overflow-wrap:anywhere}
+.gv-c2-premium-open{display:flex;align-items:center;justify-content:center;width:100%;min-height:46px;padding:9px 15px;border-radius:13px;border:1px solid #69e6d6;background:linear-gradient(125deg,#54ded0,#25bcb9);color:#05313a;font:800 13px Cairo,Outfit,sans-serif;cursor:pointer}
+body.light .gv-c2-premium-card{background:linear-gradient(140deg,#e6f8f7,#f6fcfc);color:#174454;border-color:#9fd4d6}
+body.light .gv-c2-premium-identity h3,body.light .gv-c2-premium-facts strong{color:#143c47}
+body.light .gv-c2-premium-identity p,body.light .gv-c2-premium-facts small{color:#486b74}
+body.light .gv-c2-premium-facts>div{background:#ffffffa8}
+@media(max-width:650px){
+ .gv-c2-premium-card{padding:13px;border-radius:17px}
+ .gv-c2-premium-identity img{width:49px;height:37px}
+ .gv-c2-premium-facts{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .gv-c2-premium-facts>div:last-child{grid-column:span 2}
+ .gv-c2-tabs{display:grid!important;grid-template-columns:repeat(12,minmax(0,1fr))!important;gap:7px!important;overflow:visible!important;padding:12px 0!important}
+ .gv-c2-tabs>.gv-c2-tab{grid-column:span 3!important;width:100%;min-width:0;min-height:49px;padding:8px 4px;white-space:normal;line-height:1.45;font-size:11px;text-align:center}
+ .gv-c2-tabs>.gv-c2-tab:nth-child(n+5){grid-column:span 4!important}
+}
+
 .gv-c2-shell{margin:20px 0 24px;padding:clamp(16px,2.6vw,24px);border:1px solid rgba(112,220,223,.31);border-radius:22px;background:linear-gradient(145deg,#0b3449,#061f34);box-shadow:0 12px 32px #0003;color:#ebffff}
 .gv-c2-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:15px}
 .gv-c2-heading h2{margin:6px 0;color:#f4ffff;font-size:clamp(19px,3vw,25px)}
