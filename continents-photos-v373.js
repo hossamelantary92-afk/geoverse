@@ -4,10 +4,10 @@
  */
 (function(){
 'use strict';
-const photos=[{"slug":"asia","filename":"Sunset view of Everest.jpg","altAr":"جبال الهيمالايا وقمة إيفرست","altEn":"Mount Everest in the Himalayas","focal":"center 47%"},{"slug":"africa","filename":"Zebras in Serengeti National Park with Acacia tree.jpg","altAr":"حُمر وحشية وأشجار الأكاسيا في السافانا الأفريقية","altEn":"Serengeti zebra and acacia savanna","focal":"center 55%"},{"slug":"europe","filename":"Lauterbrunnen valley June.jpg","altAr":"وادي لوتربرونن وجبال الألب الأوروبية","altEn":"Lauterbrunnen valley in the European Alps","focal":"center 56%"},{"slug":"north-america","filename":"Grand Canyon panorama.jpg","altAr":"الأخدود العظيم بأمريكا الشمالية","altEn":"Grand Canyon in North America","focal":"center 53%"},{"slug":"south-america","filename":"Aerial view of the Amazon Rainforest.jpg","altAr":"نهر الأمازون والغابات المطيرة من الجو","altEn":"Aerial view of the Amazon rainforest","focal":"center 53%"},{"slug":"oceania","filename":"Bora Bora Airport.jpg","altAr":"صورة فوتوغرافية حقيقية لبحيرة بورا بورا الفيروزية وجبالها في بولينيزيا الفرنسية","altEn":"Real photograph of Bora Bora turquoise lagoon and mountains in French Polynesia","focal":"center 57%","remote":"https://upload.wikimedia.org/wikipedia/commons/1/13/Bora_Bora_Airport.jpg"},{"slug":"antarctica","filename":"Chinstrap Penguins on the Antarctic peninsula.jpg","altAr":"بطاريق القارة القطبية الجنوبية","altEn":"Chinstrap penguins on the Antarctic Peninsula","focal":"center 60%"}];
+const photos=[{"slug":"asia","filename":"Sunset view of Everest.jpg","altAr":"جبال الهيمالايا وقمة إيفرست","altEn":"Mount Everest in the Himalayas","focal":"center 47%"},{"slug":"africa","filename":"Zebras in Serengeti National Park with Acacia tree.jpg","altAr":"حُمر وحشية وأشجار الأكاسيا في السافانا الأفريقية","altEn":"Serengeti zebra and acacia savanna","focal":"center 55%"},{"slug":"europe","filename":"Lauterbrunnen valley June.jpg","altAr":"وادي لوتربرونن وجبال الألب الأوروبية","altEn":"Lauterbrunnen valley in the European Alps","focal":"center 56%"},{"slug":"north-america","filename":"Grand Canyon panorama.jpg","altAr":"الأخدود العظيم بأمريكا الشمالية","altEn":"Grand Canyon in North America","focal":"center 53%"},{"slug":"south-america","filename":"Aerial view of the Amazon Rainforest.jpg","altAr":"نهر الأمازون والغابات المطيرة من الجو","altEn":"Aerial view of the Amazon rainforest","focal":"center 53%"},{"slug":"oceania","filename":"Bora Bora Airport.jpg","altAr":"صورة فوتوغرافية حقيقية لبحيرة بورا بورا الفيروزية وجبالها في بولينيزيا الفرنسية","altEn":"Real photograph of Bora Bora turquoise lagoon and mountains in French Polynesia","focal":"center 57%"},{"slug":"antarctica","filename":"Chinstrap Penguins on the Antarctic peninsula.jpg","altAr":"بطاريق القارة القطبية الجنوبية","altEn":"Chinstrap penguins on the Antarctic Peninsula","focal":"center 60%"}];
 const escapeHtml=value=>String(value||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function setupImage(img,profile){
- const file=profile.remote||('./assets/continent-photos/'+profile.slug+'.webp?v=gv376-real-bora-bora');
+ const file=profile.remote||('./assets/continent-photos/'+profile.slug+'.webp?v=gv379-oceania-hd-local');
  const backup='https://commons.wikimedia.org/wiki/Special:Redirect/file/'+encodeURIComponent(profile.filename.replace(/ /g,'_'))+'?width=1200';
  img.addEventListener('error',function(){
   if(img.dataset.gvFallback)return;
@@ -17,7 +17,7 @@ function setupImage(img,profile){
 }
 function cardPhotoMarkup(p) {
  const alt=escapeHtml(state.lang==='ar'?p.altAr:p.altEn);
- const url=p.remote||('./assets/continent-photos/'+p.slug+'.webp?v=gv376-real-bora-bora');
+ const url=p.remote||('./assets/continent-photos/'+p.slug+'.webp?v=gv379-oceania-hd-local');
  return '<img class="gv-continent-card-image" loading="lazy" decoding="async" src="'+url+'" alt="'+alt+'" style="object-position:'+p.focal+'">';
 }
 const oldItemCards=itemCards;
