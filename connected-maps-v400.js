@@ -233,6 +233,9 @@ style.textContent=`
 #worldMap .gv155-card-heading{touch-action:none;cursor:grab;user-select:none;min-height:30px}
 #worldMap .gv155-card-heading:active{cursor:grabbing}
 #worldMap .atlas-country.gv140-active{fill:#ffd43b!important;stroke:#fff2a0!important;stroke-width:2.5px!important;filter:drop-shadow(0 0 5px rgba(255,212,59,.8))}
+ #worldMap .gv417-card-grip{display:block!important;text-align:center!important;touch-action:none!important;user-select:none!important;-webkit-user-select:none!important;cursor:grab!important;color:#a9f9ee!important;font-size:12px!important;font-weight:700!important;letter-spacing:.02em!important;padding:8px 6px!important;margin:-5px -5px 4px!important;border-bottom:1px solid rgba(120,240,221,.3)!important;background:rgba(60,200,180,.1)!important;border-radius:9px 9px 3px 3px!important}
+#worldMap .gv417-card-grip:active{cursor:grabbing!important}
+#worldMap .atlas-country.gv140-active,#worldMap .atlas-country.gv411-country-focus{fill:#ffd43b!important;stroke:#fff3a6!important;stroke-width:2.5px!important;opacity:1!important}
  /* v413: compact card without empty regions; yellow country selection. */
 #worldMap .atlas-country.gv411-country-focus,#worldMap .atlas-country.gv140-active.gv411-country-focus{fill:#ffd43b!important;stroke:#fff6ad!important;stroke-width:3!important;stroke-linejoin:round!important;paint-order:stroke fill!important;opacity:1!important;filter:drop-shadow(0 0 7px rgba(255,212,59,.85))!important}
 #worldMap .gv140-country-card.gv413-compact-country{display:flex!important;flex-direction:column!important;gap:4px!important;align-items:stretch!important;justify-content:flex-start!important;text-align:start!important}
@@ -311,5 +314,5 @@ style.textContent=`
 body.light .gv400-map-link{background:linear-gradient(135deg,#e8f8f5,#f5fbff);color:#174653;border-color:#b4dcd5}
 `;
 document.head.appendChild(style);
-window.GeoVerseConnectedMapsV400={version:'v415',focusWorldCountry};
+window.GeoVerseConnectedMapsV400={version:'v417',focusWorldCountry};
 })();
