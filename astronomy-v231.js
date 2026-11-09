@@ -18,7 +18,7 @@ const done=()=>entries.reduce((n,e,i)=>n+(complete(i)?1:0),0);
 function overview(){
  const finished=done();
  return '<div class="gv231-wrap"><button class="back gv231-back" data-page="all">→ '+tx('الموسوعة','Encyclopedia')+'</button>'+
- '<header class="gv231-hero"><h1>'+tx('الجغرافيا الفلكية','Astronomical Geography')+'</h1><div class="gv231-hero-stats"><span>'+entries.length+' '+tx('موضوعًا','topics')+'</span><span>'+finished+' / '+entries.length+' '+tx('مكتمل','learned')+'</span><span>'+Math.round(finished/Math.max(1,entries.length)*100)+'%</span></div></header>'+
+ '<header class="gv231-hero" style="--gv231-hero-image:url(\''+(window.GeoVersePremiumCovers?.get('astronomy',1400)||'./assets/category-covers/astronomy.webp')+'\')"><h1>'+tx('الجغرافيا الفلكية','Astronomical Geography')+'</h1><div class="gv231-hero-stats"><span>'+entries.length+' '+tx('موضوعًا','topics')+'</span><span>'+finished+' / '+entries.length+' '+tx('مكتمل','learned')+'</span><span>'+Math.round(finished/Math.max(1,entries.length)*100)+'%</span></div></header>'+
  '<div class="gv231-section-title"><h2>'+tx('استكشف الأجرام والظواهر','Explore Celestial Worlds')+'</h2></div>'+
  '<div class="gv231-grid">'+entries.map((e,i)=>'<button class="gv231-card" data-astro-key="'+e.id+'" data-astro-open="'+i+'"><img loading="lazy" decoding="async" src="'+photo(e)+'" alt=""><span class="gv231-card-shade"></span><span class="gv231-badge">'+tx(e.typeAr,e.typeEn)+'</span><span class="gv231-card-copy"><strong>'+tx(e.ar,e.en)+'</strong><small>'+tx(e.tagAr,e.tagEn)+'</small></span><span class="gv231-index">'+String(i+1).padStart(2,'0')+(complete(i)?' ✓':'')+'</span></button>').join('')+'</div>'+
  '<div class="gv270-end-marker" hidden></div></div>';
