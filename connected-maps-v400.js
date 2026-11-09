@@ -337,6 +337,10 @@ style.textContent=`
 #worldMap .gv140-country-card .gv140-card-title{margin:1px 0!important}
 #worldMap .gv140-country-card .gv140-card-meta,#worldMap .gv140-country-card .gv140-card-continent{margin:0!important}
 body.light .gv400-map-link{background:linear-gradient(135deg,#e8f8f5,#f5fbff);color:#174653;border-color:#b4dcd5}
+
+/* v422: final icon-only grip and unobtrusive marker halos while country is selected. */
+#worldMap .gv140-country-card.gv155-country-card .gv417-card-grip{position:absolute!important;top:8px!important;left:8px!important;right:auto!important;bottom:auto!important;width:30px!important;height:30px!important;min-height:0!important;max-width:30px!important;display:flex!important;align-items:center!important;justify-content:center!important;margin:0!important;padding:0!important;border:1px solid rgba(110,233,216,.4)!important;border-radius:9px!important;font-size:19px!important;line-height:1!important;white-space:nowrap!important;overflow:hidden!important;z-index:5!important}
+#worldMap:has(.atlas-country.gv140-active) .atlas-pin-halo{transform-box:fill-box;transform-origin:center;transform:scale(.38)!important;opacity:.13!important;filter:none!important}
 `;
 document.head.appendChild(style);
 window.GeoVerseConnectedMapsV400={version:'v420',focusWorldCountry};
