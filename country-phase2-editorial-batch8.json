@@ -1,0 +1,45 @@
+{
+  "project": "GeoVerse Country Atlas 2.0",
+  "phase": "Phase 2 — Editorial batch 8",
+  "date": "2026-11-09",
+  "updated": [
+    "PY",
+    "SR",
+    "GA",
+    "GN",
+    "SL",
+    "SZ",
+    "TD",
+    "KM",
+    "MT",
+    "MU",
+    "SC",
+    "BZ",
+    "AD",
+    "AG",
+    "DM",
+    "HT",
+    "HN",
+    "NI",
+    "PA",
+    "NC"
+  ],
+  "previously_focused": 145,
+  "additional_focused": 20,
+  "cumulative_focused": 165,
+  "remaining_profiles": 80,
+  "work": "Revised distinct bilingual geography and natural landmarks descriptions for 20 country/territory profiles, plus de-duplicated Paraguay culture/economy and fact paragraph; New Caledonia territorial status not changed.",
+  "scope_limit": "Main map, globe and games untouched. Source-level content enrichment does not mean independent scientific certification.",
+  "qa": {
+    "totalProfiles": 245,
+    "sixBilingualSections": true,
+    "liveSafari": "pending",
+    "desktop": "pending",
+    "factByFactSources": "pending",
+    "sensitivePoliticalFacts": "unchanged; separate verification required"
+  },
+  "source_hubs": [
+    "https://whc.unesco.org/en/list/",
+    "https://www.britannica.com/place/"
+  ]
+}
