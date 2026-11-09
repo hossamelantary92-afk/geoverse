@@ -1,0 +1,47 @@
+name: Publish GeoVerse to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Verify approved sea manifest
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          data = json.loads(Path("photo-manifest-v13.json").read_text())
+          for index in range(16):
+              image = data["photos"].get(f"seas:{index}")
+              assert image and image[1].startswith("File:"), f"Missing approved image: {index}"
+          assert "gv322-canonical-sea-paths" in Path("index.html").read_text()
+          print("Sea manifest: 16 approved covers found")
+          PY
+      - name: Upload static site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: Publish
+        id: deployment
+        uses: actions/deploy-pages@v4
