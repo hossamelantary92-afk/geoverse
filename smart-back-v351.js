@@ -9,6 +9,7 @@ const stack=[];
 let suppress=false;
 let clickOrigin=null;
 let previous=null;
+let countryReferral=null;
 const validPages=new Set(['home','all','category','detail','country-v4','countries-v4','explore','learn','play','progress']);
 function snapshot(){
  const cat=typeof state.category==='string'?state.category:null;
@@ -30,17 +31,42 @@ previous=snapshot();
 window.addEventListener('scroll',()=>{
  if(!suppress&&previous&&same(previous,snapshot()))previous.scroll=Math.max(0,Math.round(window.scrollY||0));
 },{passive:true});
+function decorateDetailBack(){
+ if(state.page!=='detail')return;
+ const original=document.querySelector('#main button.back');
+ if(!original)return;
+ if(countryReferral&&countryReferral.code){
+  const button=document.createElement('button');
+  button.type='button';
+  button.className='gv-smart-country-back';
+  button.dataset.gvReturnCountry=countryReferral.code;
+  button.textContent=state.lang==='ar'?'→ العودة إلى الدولة السابقة':'← Back to previous country';
+  original.before(button);
+  const cat=state.category;
+  const c=cats.find(entry=>entry.id===cat);
+  original.className='gv-smart-category-link';
+  original.removeAttribute('data-cat');
+  original.dataset.gvOpenCategory=cat;
+  original.textContent=state.lang==='ar'?'عرض قسم '+(c?.ar||'المعلم'):'View '+(c?.en||'topic')+' category';
+ }else{
+  original.textContent=state.lang==='ar'?'→ العودة للصفحة السابقة':'← Back to previous page';
+ }
+}
 const originalRender=render;
 render=function(){
  const next=snapshot();
  if(!suppress&&previous&&!same(previous,next)&&validPages.has(previous.page)){
   const origin=clickOrigin&&same(clickOrigin,previous)?clickOrigin:previous;
+  if(next.page==='detail'){
+   countryReferral=origin.page==='country-v4'&&origin.code?{...origin}:null;
+  }
   if(!same(stack[stack.length-1],origin)){
    stack.push({...origin});
    if(stack.length>maxDepth)stack.shift();
   }
  }
  const result=originalRender.apply(this,arguments);
+ decorateDetailBack();
  previous=snapshot();
  clickOrigin=null;
  return result;
@@ -51,8 +77,7 @@ function fallback(){
  if(state.page==='category'||state.page==='countries-v4')return {page:'all',category:null,item:null,scroll:0};
  return {page:'home',category:null,item:null,scroll:0};
 }
-function smartBack(){
- const target=stack.length?stack.pop():fallback();
+function goBackTo(target){
  if(!target||target.page===state.page&&same(target,snapshot()))return;
  suppress=true;
  try{
@@ -67,7 +92,34 @@ function smartBack(){
   if(previous&&same(previous,snapshot()))previous.scroll=y;
  }));
 }
+function smartBack(){
+ const target=stack.length?stack.pop():fallback();
+ goBackTo(target);
+}
+function returnToCountry(){
+ if(!countryReferral)return smartBack();
+ const target={...countryReferral};
+ while(stack.length&&!same(stack[stack.length-1],target))stack.pop();
+ if(stack.length&&same(stack[stack.length-1],target))stack.pop();
+ countryReferral=null;
+ goBackTo(target);
+}
 document.addEventListener('click',event=>{
+ const countryButton=event.target.closest?.('[data-gv-return-country]');
+ if(countryButton&&state.page==='detail'){
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  returnToCountry();
+  return;
+ }
+ const categoryButton=event.target.closest?.('[data-gv-open-category]');
+ if(categoryButton&&state.page==='detail'){
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  clickOrigin=snapshot();
+  setPage('category',categoryButton.dataset.gvOpenCategory);
+  return;
+ }
  const button=event.target.closest?.('button.back');
  if(button&&validPages.has(state.page)){
   event.preventDefault();
@@ -79,5 +131,5 @@ document.addEventListener('click',event=>{
   clickOrigin=snapshot();
  }
 },true);
-window.GeoVerseSmartBack={back:smartBack,depth:()=>stack.length};
+window.GeoVerseSmartBack={back:smartBack,returnCountry:returnToCountry,depth:()=>stack.length};
 })();
