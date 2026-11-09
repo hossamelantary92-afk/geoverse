@@ -1,18 +1,20 @@
 /* GeoVerse v176 — single canonical source for matching category covers across the homepage, encyclopedia directory and category banners.
  * The same source photograph is used on home, directory, category banner,
  * and standard category detail header. No duplicate image mappings.
- * Sources: Unsplash (Unsplash License), NASA/Apollo 17 (Wikimedia Commons).
+ * Sources: locally stored approved GeoVerse artwork for four topics; other photo sources unchanged.
  */
 (function(){
 'use strict';
 const covers=Object.freeze({
+ seas:Object.freeze({src:'./assets/category-covers/seas.webp',position:'center 50%',source:'GeoVerse approved generated cover'}),
+ waterfalls:Object.freeze({src:'./assets/category-covers/waterfalls.webp',position:'center 50%',source:'GeoVerse approved generated cover'}),
  countries:Object.freeze({src:'https://images.unsplash.com/photo-1521295121783-8a321d551ad2',position:'center 48%',source:'https://images.unsplash.com/photo-1521295121783-8a321d551ad2'}),
- continents:Object.freeze({src:'https://images.unsplash.com/photo-1451187580459-43490279c0fa',position:'center 50%',source:'https://unsplash.com/'}),
+ continents:Object.freeze({src:'./assets/category-covers/continents.webp',position:'center 50%',source:'GeoVerse approved generated cover'}),
  astronomy:Object.freeze({src:'https://images.unsplash.com/photo-1462331940025-496dfbfc7564',position:'center 50%',source:'https://unsplash.com/photos/'}),
  deserts:Object.freeze({src:'https://images.unsplash.com/photo-1509316785289-025f5b846b35',position:'center 55%',source:'https://unsplash.com/photos/'}),
  oceans:Object.freeze({src:'https://images.unsplash.com/photo-1518837695005-2083093ee35b',position:'center 55%',source:'https://unsplash.com/photos/'}),
  rivers:Object.freeze({src:'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Horseshoe-Bend.jpg/960px-Horseshoe-Bend.jpg',position:'center 48%',source:'https://commons.wikimedia.org/wiki/File:Horseshoe-Bend.jpg'}),
- mountains:Object.freeze({src:'https://images.unsplash.com/photo-1500534623283-312aade485b7',position:'center 54%',source:'https://unsplash.com/'}),
+ mountains:Object.freeze({src:'./assets/category-covers/mountains.webp',position:'center 54%',source:'GeoVerse approved generated cover'}),
  gulfs:Object.freeze({src:'https://images.unsplash.com/photo-1655042489679-7eab34cbcb98',position:'center 48%',source:'https://unsplash.com/photos/kRfq4thWyB8'}),
  tourism:Object.freeze({src:'https://images.unsplash.com/photo-1735446918160-af0b896b7a89',position:'center 52%',source:'https://unsplash.com/photos/a-view-of-a-city-with-a-sunset-in-the-background-CD4Bpfzj5ro'})
 });
