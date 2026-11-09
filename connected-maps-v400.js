@@ -65,6 +65,34 @@ function currentCountryCode(){
  const row=s?.countries?.find(item=>norm(item.name)===title||norm(item.nameAr)===title||norm(item.ar)===title);
  return row?.code||null;
 }
+function addCountryFlagHero(){
+ if(typeof state==='undefined'||state.page!=='country-v4')return;
+ const main=document.getElementById('main');
+ if(!main||main.querySelector('.gv404-country-flag-hero'))return;
+ const code=currentCountryCode();
+ if(!code||!/^[A-Z]{2}$/.test(code))return;
+ const record=store()?.countries?.find(item=>String(item.code).toUpperCase()===code);
+ const title=String(record?.nameAr||record?.ar||record?.name||code);
+ const english=String(record?.name||'');
+ const hero=document.createElement('section');
+ hero.className='gv404-country-flag-hero';
+ hero.setAttribute('aria-label',lang('علم '+title,'Flag of '+(english||title)));
+ const img=document.createElement('img');
+ img.className='gv404-country-flag-image';
+ img.src='https://flagcdn.com/w1280/'+code.toLowerCase()+'.png';
+ img.alt=lang('علم '+title,'Flag of '+(english||title));
+ img.loading='eager';img.decoding='async';
+ img.onerror=()=>{img.remove();hero.classList.add('gv404-flag-fallback')};
+ const shade=document.createElement('div');shade.className='gv404-country-flag-shade';
+ const names=document.createElement('div');names.className='gv404-country-flag-names';
+ const h=document.createElement('h1');h.textContent=title;
+ names.appendChild(h);
+ if(english&&norm(english)!==norm(title)){const sub=document.createElement('p');sub.textContent=english;names.appendChild(sub)}
+ hero.append(img,shade,names);
+ const nav=main.querySelector('.gv387-country-nav');
+ if(nav)nav.insertAdjacentElement('afterend',hero);
+ else main.prepend(hero);
+}
 function addProfileAtlasAction(){
  if(typeof state==='undefined'||state.page!=='country-v4')return;
  const nav=document.querySelector('#main .gv387-country-nav');
@@ -140,14 +168,31 @@ const observer=new MutationObserver(()=>{
  addWorldContinentAction();
  addContinentAtlasAction();
  addProfileAtlasAction();
+ addCountryFlagHero();
 });
 observer.observe(document.getElementById('main')||document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['hidden']});
-addWorldProfileAction();addWorldContinentAction();addContinentAtlasAction();addProfileAtlasAction();
+addWorldProfileAction();addWorldContinentAction();addContinentAtlasAction();addProfileAtlasAction();addCountryFlagHero();
 const style=document.createElement('style');
 style.textContent=`
 .gv400-map-link{display:flex;align-items:center;justify-content:center;width:100%;min-height:42px;margin-top:9px;padding:10px 14px;border:1px solid rgba(111,220,205,.48);border-radius:12px;background:linear-gradient(135deg,#164d60,#0d354c);color:#eafffb;font:inherit;font-size:13px;font-weight:700;line-height:1.5;cursor:pointer;transition:border-color .18s,transform .18s}
 .gv400-map-link:hover,.gv400-map-link:focus-visible{border-color:#78e5d2;transform:translateY(-1px);outline:2px solid rgba(120,229,210,.18)}
 .gv400-continent-link{margin-top:8px}
+/* Country profile hero: official national flag as the page's visual header. */
+#main .gv404-country-flag-hero{
+ position:relative;isolation:isolate;display:flex;align-items:flex-end;
+ box-sizing:border-box;width:100%;min-height:clamp(190px,30vw,310px);
+ margin:4px 0 22px;overflow:hidden;border-radius:22px;
+ border:1px solid rgba(124,221,215,.38);
+ background:linear-gradient(135deg,#123b50,#0b263b);
+ box-shadow:0 14px 34px rgba(0,10,24,.22),inset 0 1px rgba(255,255,255,.12);
+}
+#main .gv404-country-flag-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-2}
+#main .gv404-country-flag-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(2,13,27,.94) 0%,rgba(2,16,29,.38) 48%,rgba(2,16,29,.06) 100%)}
+#main .gv404-country-flag-names{position:relative;z-index:1;padding:clamp(18px,3.5vw,32px);max-width:100%}
+#main .gv404-country-flag-names h1{margin:0;color:#fff;font-size:clamp(27px,4vw,42px);font-weight:900;line-height:1.3;text-shadow:0 3px 16px rgba(0,0,0,.55);overflow-wrap:anywhere}
+#main .gv404-country-flag-names p{margin:6px 0 0;color:rgba(245,252,255,.9);font-size:clamp(13px,1.7vw,17px);font-weight:650;text-shadow:0 2px 10px rgba(0,0,0,.55)}
+#main .gv404-country-flag-hero.gv404-flag-fallback{background:linear-gradient(135deg,#123b50,#0b263b)}
+@media(max-width:700px){#main .gv404-country-flag-hero{min-height:190px;margin:2px 0 17px;border-radius:17px}#main .gv404-country-flag-names{padding:17px}#main .gv404-country-flag-names h1{font-size:27px}}
 /* Keep selected-country cards fully usable on small screens without covering map controls. */
 #worldMap.gv140-map .gv140-country-card.gv155-country-card:not([hidden]),
 #detailMap.gv140-map .gv140-country-card.gv155-country-card:not([hidden]){
@@ -170,5 +215,5 @@ style.textContent=`
 body.light .gv400-map-link{background:linear-gradient(135deg,#e8f8f5,#f5fbff);color:#174653;border-color:#b4dcd5}
 `;
 document.head.appendChild(style);
-window.GeoVerseConnectedMapsV400={version:'v403',focusWorldCountry};
+window.GeoVerseConnectedMapsV400={version:'v405',focusWorldCountry};
 })();
