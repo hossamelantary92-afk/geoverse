@@ -1,0 +1,45 @@
+{
+  "project": "GeoVerse Country Atlas 2.0",
+  "phase": "Phase 2 — Editorial batch 9",
+  "date": "2026-11-09",
+  "updated": [
+    "SY",
+    "YE",
+    "PS",
+    "IL",
+    "GQ",
+    "NE",
+    "ML",
+    "BF",
+    "UA",
+    "ER",
+    "SO",
+    "SS",
+    "CF",
+    "ST",
+    "AW",
+    "AI",
+    "BB",
+    "GD",
+    "VC",
+    "TO"
+  ],
+  "previously_updated": 165,
+  "additional_updated": 20,
+  "cumulative_updated": 185,
+  "remaining_unreviewed": 60,
+  "scope": "Bilingual geography and nature paragraphs with selected corrections to merged culture/economy and interesting-fact prose; careful preservation of disputed or changing political statements for a separate independently sourced review.",
+  "quality": {
+    "all_245_bilingual_six_section_records": true,
+    "main_globe_and_games_untouched": true,
+    "live_iphone_safari": "pending",
+    "desktop_layout": "pending",
+    "sensitive_claims_independent_review": "pending",
+    "dynamic_statistics_dated_verification": "pending"
+  },
+  "references_for_subsequent_fact_check": [
+    "https://whc.unesco.org/en/list/",
+    "https://www.naturalearthdata.com/",
+    "https://unstats.un.org/unsd/methodology/m49/"
+  ]
+}
