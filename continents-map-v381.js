@@ -14,7 +14,7 @@ const focus={
  Oceania:{lon:156,lat:-20,scale:235},
  Antarctica:{lon:0,lat:-90,scale:170}
 };
-const aliases={'unitedstatesofamerica':'United States','unitedrepublicoftanzania':'Tanzania','democraticrepublicofthecongo':'The Democratic Republic of Congo','republicofthecongo':'Congo','ivorycoast':'Ivory Coast','czechia':'Czech Republic','swaziland':'Swaziland','macedonia':'North Macedonia','easttimor':'Timor-Leste','russianfederation':'Russia','turkiye':'Turkey'};
+const aliases={"unitedstatesofamerica":"United States","unitedrepublicoftanzania":"Tanzania","democraticrepublicofthecongo":"The Democratic Republic of Congo","republicofthecongo":"Congo","ivorycoast":"Ivory Coast","czechia":"Czech Republic","swaziland":"Eswatini","macedonia":"North Macedonia","easttimor":"Timor-Leste","russianfederation":"Russia","turkiye":"Türkiye","turkey":"Türkiye","thebahamas":"Bahamas","frenchsouthernandantarcticlands":"French Southern territories","republicofserbia":"Serbia","westbank":"Palestine"};
 const norm=x=>String(x||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z]/g,'');
 const lang=(ar,en)=>state.lang==='ar'?ar:en;
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
