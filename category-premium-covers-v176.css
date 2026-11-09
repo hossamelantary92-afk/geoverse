@@ -46,8 +46,16 @@ body:has(.category-detail-banner) .category-detail-banner{
  background:#06172b!important;transform:none!important;
 }
 .gv12-directory .gv12-card[data-cat="astronomy"] .gv12-image{
- object-fit:contain!important;object-position:center center!important;
+ /* Fill the top of the card rather than centering a wide image inside a tall box. */
+ position:absolute!important;top:0!important;bottom:auto!important;
+ left:0!important;right:0!important;inset:auto 0 auto 0!important;
+ display:block!important;width:100%!important;height:auto!important;
+ max-height:none!important;aspect-ratio:auto!important;
+ object-fit:contain!important;object-position:center top!important;
  background:#06172b!important;transform:none!important;
+}
+.gv12-directory .gv12-card[data-cat="astronomy"] .gv12-card-bg{
+ background:linear-gradient(to bottom,transparent 0%,rgba(3,16,31,.02) 44%,rgba(3,16,31,.58) 73%,#06172b 100%)!important;
 }
 .gv11-categories .gv11-card.gv11-astronomy .gv11-card-gradient{
  background:linear-gradient(to bottom,transparent 0%,transparent 62%,rgba(3,16,31,.22) 76%,rgba(3,16,31,.92) 100%)!important;
