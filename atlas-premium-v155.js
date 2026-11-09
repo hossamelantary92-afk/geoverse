@@ -1,4 +1,4 @@
-/* GeoVerse v155 — refined country cards and preserved map gestures.
+/* GeoVerse v415 (based on v155) — refined country cards and preserved map gestures.
    Scoped to the Explorer atlas and editorial detail maps. NEVER touches quiz maps or 3D globe. */
 (function(){
 'use strict';
@@ -95,8 +95,9 @@ function showCountry(r,index,element){
   '<div class="gv140-card-title">'+escape(name)+'</div>'+
   (capital?'<div class="gv140-card-meta">'+escape(capital)+'</div>':'')+
   (continent?'<div class="gv140-card-continent">'+escape(continent)+'</div>':'')+
-  '<button type="button" class="gv140-map-clear">'+language('عودة للعالم','Back to world')+'</button>';
+  '';
  card.hidden=false;
+ card.style.removeProperty('left');card.style.removeProperty('top');
  r.node.querySelectorAll('.atlas-country').forEach(n=>n.classList.toggle('gv140-active',n===element));
  r.node.querySelector('.atlas-popup')?.classList.add('hidden');
  focusCountry(r,feature);
@@ -114,6 +115,29 @@ function decorate(r){
  chips.innerHTML=regions.map((v,i)=>'<button type="button" class="gv140-region'+(i===0?' gv140-current':'')+'" data-gv140-region="'+v.id+'" aria-pressed="'+(i===0?'true':'false')+'">'+escape(language(v.ar,v.en))+'</button>').join('');
  stage.appendChild(chips);
  const card=document.createElement('aside');card.className='gv140-country-card';card.hidden=true;card.setAttribute('aria-live','polite');stage.appendChild(card);
+ // Drag by the card heading, not by action buttons or the map surface.
+ let drag=null;
+ card.addEventListener('pointerdown',e=>{
+  const heading=e.target.closest('.gv155-card-heading');
+  if(!heading||e.target.closest('button')||card.hidden)return;
+  const box=card.getBoundingClientRect(),stageBox=stage.getBoundingClientRect();
+  drag={id:e.pointerId,x:e.clientX,y:e.clientY,left:box.left-stageBox.left,top:box.top-stageBox.top};
+  try{heading.setPointerCapture(e.pointerId)}catch(_){}
+  e.preventDefault();e.stopPropagation();
+ });
+ card.addEventListener('pointermove',e=>{
+  if(!drag||e.pointerId!==drag.id)return;
+  const left=Math.max(4,Math.min(stage.clientWidth-card.offsetWidth-4,drag.left+e.clientX-drag.x));
+  const top=Math.max(4,Math.min(stage.clientHeight-card.offsetHeight-4,drag.top+e.clientY-drag.y));
+  card.style.setProperty('left',left+'px','important');
+  card.style.setProperty('top',top+'px','important');
+  card.style.setProperty('right','auto','important');
+  card.style.setProperty('bottom','auto','important');
+  e.preventDefault();e.stopPropagation();
+ });
+ const stopDrag=e=>{if(drag?.id===e.pointerId)drag=null};
+ card.addEventListener('pointerup',stopDrag);
+ card.addEventListener('pointercancel',stopDrag);
  const foot=document.createElement('div');foot.className='gv140-foot-hint';foot.textContent=language('المس دولة لاستكشافها  ·  اسحب للتنقل  ·  قرّب بإصبعين','Tap a country  ·  Drag to pan  ·  Pinch to zoom');stage.appendChild(foot);
  stage.querySelector('.atlas-tools')?.setAttribute('aria-label',language('أدوات تكبير الخريطة','Map zoom controls'));
  const selectionHandler=e=>{
@@ -210,7 +234,7 @@ function decorate(r){
   if(!r.node.isConnected||atlasRuntime!==r||card.hidden)return;
   if(card.contains(event.target))return;
   card.hidden=true;
-  r.node.querySelectorAll('.atlas-country').forEach(node=>node.classList.remove('gv140-active','highlight'));
+  // Keep the selected country highlighted when the card is dismissed.
  },true);
  svg.addEventListener('keydown',e=>{
   if(e.key!=='Enter'&&e.key!==' ')return;
@@ -224,7 +248,7 @@ function decorate(r){
   e.preventDefault();
   e.stopImmediatePropagation();
   card.hidden=true;
-  r.node.querySelectorAll('.atlas-country').forEach(n=>n.classList.remove('gv140-active','highlight'));
+  // Closing the card does not clear the geographic selection.
  },true);
  stage.addEventListener('click',e=>{
   const region=e.target.closest?.('[data-gv140-region]');
