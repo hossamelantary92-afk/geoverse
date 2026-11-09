@@ -437,6 +437,12 @@ function globeInteractiveFallback(node){
      const span=Math.max(bw/0.57,bh/0.63,65);
      svg.setAttribute('viewBox',[(bounds[0][0]+bounds[1][0])/2-span*width/height/2,(bounds[0][1]+bounds[1][1])/2-span/2,span*width/height,span].join(' '));
     }
+    // Match the primary 3D globe: selecting a country opens its full profile,
+    // while the dedicated Explore view remains an in-place map experience.
+    const record=recordFor(f.properties?.name);
+    if(record&&state.page!=='explore'&&state.page!=='play'){
+     setPage('country-v4',record.code);
+    }
    };
    shape.addEventListener('click',choose);
    shape.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();choose()}});
