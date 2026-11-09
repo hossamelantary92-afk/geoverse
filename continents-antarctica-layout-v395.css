@@ -1,0 +1,61 @@
+/* GeoVerse v395 — Antarctica premium featured finale for 7 continent tiles.
+ * Mobile grid stays two columns for the first six; the seventh is a balanced
+ * full-width horizontal card. Search results with fewer items remain untouched.
+ */
+@media (max-width:650px){
+ #main #categoryItems:has(> .gv-continent-place-card[data-item="continents:6"]:last-child)
+ > .gv-continent-place-card[data-item="continents:6"]:last-child{
+   grid-column:1 / -1 !important;
+   display:grid !important;
+   grid-template-columns:minmax(0,1.08fr) minmax(0,1fr) !important;
+   align-items:stretch !important;
+   width:100% !important;
+   min-width:0 !important;
+   min-height:198px !important;
+   border-color:rgba(106,222,220,.5) !important;
+   background:linear-gradient(145deg,#103449,#071f32) !important;
+ }
+ #main #categoryItems > .gv-continent-place-card[data-item="continents:6"]:last-child
+ .gv-continent-media.gv-place-media{
+   min-height:198px !important;
+   height:100% !important;
+   width:100% !important;
+   align-self:stretch !important;
+   border-radius:0 !important;
+ }
+ #main #categoryItems > .gv-continent-place-card[data-item="continents:6"]:last-child
+ .gv-continent-card-image{
+   object-fit:cover !important;
+   object-position:center 56% !important;
+ }
+ #main #categoryItems > .gv-continent-place-card[data-item="continents:6"]:last-child
+ .gv-place-copy{
+   display:flex !important;
+   flex-direction:column !important;
+   align-items:flex-start !important;
+   justify-content:center !important;
+   gap:9px !important;
+   min-width:0 !important;
+   padding:15px 13px !important;
+   text-align:start !important;
+ }
+ #main #categoryItems > .gv-continent-place-card[data-item="continents:6"]:last-child
+ .gv-place-copy strong{font-size:clamp(16px,4vw,20px) !important;line-height:1.5 !important;}
+ #main #categoryItems > .gv-continent-place-card[data-item="continents:6"]:last-child
+ .gv-place-copy small{font-size:clamp(11px,3vw,13px) !important;line-height:1.7 !important;}
+ #main #categoryItems > .gv-continent-place-card[data-item="continents:6"]:last-child
+ .gv-place-explore{
+   font-size:clamp(11px,2.9vw,13px) !important;
+   line-height:1.6 !important;
+   white-space:normal !important;
+ }
+ body.light #main #categoryItems > .gv-continent-place-card[data-item="continents:6"]:last-child{
+   background:linear-gradient(145deg,#eef9fb,#daeef2) !important;
+ }
+}
+@media(max-width:370px){
+ #main #categoryItems > .gv-continent-place-card[data-item="continents:6"]:last-child
+ .gv-place-copy{padding:10px !important;gap:5px !important;}
+ #main #categoryItems > .gv-continent-place-card[data-item="continents:6"]:last-child
+ .gv-continent-media.gv-place-media{min-height:182px !important;}
+}
