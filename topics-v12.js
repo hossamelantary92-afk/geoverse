@@ -48,12 +48,31 @@ function topicCard(c){
   '<span class="gv12-card-copy"><strong>'+escapeHTML(name)+'</strong><small>'+n+' '+tx('موقعًا ومعلمًا','places & landmarks')+'</small></span>'+
   '</button>';
 }
+/* Editorial directory sequence: broad geography first, then alternating colour/landscape
+ * pairs for a balanced two-column mobile grid. The canonical category list and
+ * sidebar navigation stay untouched; future categories appear at the end. */
+const atlasDirectoryOrder=[
+ 'countries','astronomy',
+ 'continents','tourism',
+ 'oceans','deserts',
+ 'seas','mountains',
+ 'rivers','valleys',
+ 'waterfalls','volcanoes',
+ 'forests','glaciers',
+ 'lakes','grasslands',
+ 'islands','climate',
+ 'straits','gulfs'
+];
+function directoryOrder(){
+ const priorities=new Map(atlasDirectoryOrder.map((id,i)=>[id,i]));
+ return cats.slice().sort((a,b)=>(priorities.get(a.id)??999)-(priorities.get(b.id)??999));
+}
 allCategories=function(){
  return '<section class="gv12-directory" aria-labelledby="gv12Heading">'+
   '<header class="gv12-head"><div class="gv12-headline"><span class="gv12-overline">'+tx('أطلسك المصوّر','THE VISUAL ATLAS')+'</span><h1 id="gv12Heading">'+tx('استكشف <em>كل الأقسام</em>','Explore <em>Every Topic</em>')+'</h1><p>'+tx('رحلة مصوّرة عبر الدول والقارات والطبيعة، بأقسام واضحة وصور فوتوغرافية حقيقية.','A photographic journey through countries, continents and the natural world.')+'</p></div>'+
   '<div class="gv12-head-count"><strong>'+cats.length+'</strong><span>'+tx('قسمًا جغرافيًا','Geography topics')+'</span></div></header>'+
   '<div class="gv12-directory-tools"><label for="gv12Search">'+tx('ابحث عن قسم','Find a category')+'</label><input type="search" id="gv12Search" autocomplete="off" placeholder="'+tx('اكتب اسم القسم...','Search categories...')+'" aria-controls="gv12Cards"><span class="gv12-count-note" id="gv12VisibleCount">'+cats.length+' / '+cats.length+'</span></div>'+
-  '<div class="gv12-grid" id="gv12Cards">'+cats.map(topicCard).join('')+'</div>'+
+  '<div class="gv12-grid" id="gv12Cards">'+directoryOrder().map(topicCard).join('')+'</div>'+
   '<div id="gv12Empty" class="gv12-empty" hidden>'+tx('لا توجد أقسام مطابقة للبحث.','No matching categories.')+'</div>'+
   '<p class="gv12-directory-footnote">'+tx('الصور تعبر عن طبيعة كل قسم، وليست بالضرورة صورة لمعلم محدد داخله.','Photographs illustrate each topic and do not always depict a particular listed location.')+'</p>'+
   '</section>';
