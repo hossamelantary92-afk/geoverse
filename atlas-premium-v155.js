@@ -90,7 +90,7 @@ function showCountry(r,index,element){
  card.classList.remove('gv153-card-open','gv142-landmark-card','gv154-smart-card');
  card.classList.add('gv155-country-card');
  card.setAttribute('dir',document.documentElement.lang==='en'?'ltr':'rtl');
- card.innerHTML='<div class="gv155-card-heading"><span class="gv140-card-overline">'+language('الدولة المحددة','SELECTED COUNTRY')+'</span>'+
+ card.innerHTML='<div class="gv417-card-grip" role="button" aria-label="'+language('اسحب لتحريك بطاقة الدولة','Drag to move country card')+'">⠿ '+language('اسحب الكارت','Drag card')+'</div><div class="gv155-card-heading"><span class="gv140-card-overline">'+language('الدولة المحددة','SELECTED COUNTRY')+'</span>'+
   '<button type="button" class="gv155-close" data-gv155-close aria-label="'+language('إغلاق بطاقة الدولة','Close country card')+'">×</button></div>'+
   '<div class="gv140-card-title">'+escape(name)+'</div>'+
   (capital?'<div class="gv140-card-meta">'+escape(capital)+'</div>':'')+
@@ -115,29 +115,34 @@ function decorate(r){
  chips.innerHTML=regions.map((v,i)=>'<button type="button" class="gv140-region'+(i===0?' gv140-current':'')+'" data-gv140-region="'+v.id+'" aria-pressed="'+(i===0?'true':'false')+'">'+escape(language(v.ar,v.en))+'</button>').join('');
  stage.appendChild(chips);
  const card=document.createElement('aside');card.className='gv140-country-card';card.hidden=true;card.setAttribute('aria-live','polite');stage.appendChild(card);
- // Drag by the card heading, not by action buttons or the map surface.
+ // Dedicated drag grip; document-level listeners keep touch movement reliable on iOS Safari.
+ const grip=document.createElement('div');
+ grip.className='gv417-card-grip';
+ grip.setAttribute('role','button');
+ grip.setAttribute('aria-label',language('اسحب لتحريك بطاقة الدولة','Drag to move country card'));
+ grip.textContent=language('⠿ اسحب الكارت','⠿ Drag card');
+ // The grip is recreated by showCountry when card content changes.
  let drag=null;
- card.addEventListener('pointerdown',e=>{
-  const heading=e.target.closest('.gv155-card-heading');
-  if(!heading||e.target.closest('button')||card.hidden)return;
-  const box=card.getBoundingClientRect(),stageBox=stage.getBoundingClientRect();
-  drag={id:e.pointerId,x:e.clientX,y:e.clientY,left:box.left-stageBox.left,top:box.top-stageBox.top};
-  try{heading.setPointerCapture(e.pointerId)}catch(_){}
+ grip.addEventListener('pointerdown',e=>{
+  if(card.hidden||e.pointerType==='mouse'&&e.button!==0)return;
+  const box=card.getBoundingClientRect(),bounds=stage.getBoundingClientRect();
+  drag={id:e.pointerId,x:e.clientX,y:e.clientY,left:box.left-bounds.left,top:box.top-bounds.top};
   e.preventDefault();e.stopPropagation();
+  try{grip.setPointerCapture(e.pointerId)}catch(_){}
  });
- card.addEventListener('pointermove',e=>{
+ const moveCard=e=>{
   if(!drag||e.pointerId!==drag.id)return;
-  const left=Math.max(4,Math.min(stage.clientWidth-card.offsetWidth-4,drag.left+e.clientX-drag.x));
-  const top=Math.max(4,Math.min(stage.clientHeight-card.offsetHeight-4,drag.top+e.clientY-drag.y));
-  card.style.setProperty('left',left+'px','important');
-  card.style.setProperty('top',top+'px','important');
-  card.style.setProperty('right','auto','important');
-  card.style.setProperty('bottom','auto','important');
+  const maxX=Math.max(4,stage.clientWidth-card.offsetWidth-4);
+  const maxY=Math.max(4,stage.clientHeight-card.offsetHeight-4);
+  const left=Math.max(4,Math.min(maxX,drag.left+e.clientX-drag.x));
+  const top=Math.max(4,Math.min(maxY,drag.top+e.clientY-drag.y));
+  for(const [key,val] of Object.entries({left:left+'px',top:top+'px',right:'auto',bottom:'auto'}))
+   card.style.setProperty(key,val,'important');
   e.preventDefault();e.stopPropagation();
- });
- const stopDrag=e=>{if(drag?.id===e.pointerId)drag=null};
- card.addEventListener('pointerup',stopDrag);
- card.addEventListener('pointercancel',stopDrag);
+ };
+ grip.addEventListener('pointermove',moveCard);
+ grip.addEventListener('pointerup',e=>{if(drag?.id===e.pointerId)drag=null});
+ grip.addEventListener('pointercancel',e=>{if(drag?.id===e.pointerId)drag=null});
  const foot=document.createElement('div');foot.className='gv140-foot-hint';foot.textContent=language('المس دولة لاستكشافها  ·  اسحب للتنقل  ·  قرّب بإصبعين','Tap a country  ·  Drag to pan  ·  Pinch to zoom');stage.appendChild(foot);
  stage.querySelector('.atlas-tools')?.setAttribute('aria-label',language('أدوات تكبير الخريطة','Map zoom controls'));
  const selectionHandler=e=>{
