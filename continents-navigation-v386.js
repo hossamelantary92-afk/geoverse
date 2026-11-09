@@ -21,7 +21,7 @@ const artwork={
 };
 function clearView(){state.continentFeature=null;}
 function tiles(){
- return '<section class="gv-c5-directory" id="gvC5Directory"><div class="gv-c5-directory-heading"><div><span class="eyebrow">EXPLORE MORE · CONTINENT ATLAS</span><h2>'+L('اكتشف المزيد','Discover more')+'</h2><p>'+L('ثلاث تجارب مستقلة لتستكشف القارات براحتك، من غير ازدحام صفحة القارات.','Three separate ways to explore without crowding the continent cards.')+'</p></div></div>'+
+ return '<section class="gv-c5-directory" id="gvC5Directory"><div class="gv-c5-directory-heading"><div><span class="eyebrow">EXPLORE MORE · CONTINENT ATLAS</span><h2>'+L('اكتشف المزيد','Discover more')+'</h2><p>'+L('ثلاث تجارب مستقلة لاستكشاف القارات والانتقال بسهولة بين الخرائط والمقارنات والمعالم.','Three ways to discover the continents through maps, comparisons, and natural highlights.')+'</p></div></div>'+
  '<div class="gv-c5-grid">'+features.map(f=>'<button type="button" class="gv-c5-tile" data-gv-c5-open="'+f.id+'" aria-label="'+escape(L(f.ar,f.en))+'">'+
  '<span class="gv-c5-tile-icon">'+artwork[f.icon]+'</span><span class="gv-c5-tile-copy"><strong>'+L(f.ar,f.en)+'</strong><small>'+L(f.subAr,f.subEn)+'</small></span><span class="gv-c5-tile-arrow" aria-hidden="true">↗</span></button>').join('')+'</div></section>';
 }
