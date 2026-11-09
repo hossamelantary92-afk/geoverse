@@ -92,6 +92,8 @@ function currentCountryCode(){
 function addCountryFlagHero(){
  if(typeof state==='undefined'||state.page!=='country-v4')return;
  const main=document.getElementById('main');
+ // Remove the legacy inserted banner if an older cached script created it.
+ main?.querySelectorAll('.gv404-country-flag-hero').forEach(node=>node.remove());
  const hero=main?.querySelector('header.gv9-hero');
  if(!hero)return;
  const code=currentCountryCode();
@@ -254,5 +256,5 @@ style.textContent=`
 body.light .gv400-map-link{background:linear-gradient(135deg,#e8f8f5,#f5fbff);color:#174653;border-color:#b4dcd5}
 `;
 document.head.appendChild(style);
-window.GeoVerseConnectedMapsV400={version:'v408',focusWorldCountry};
+window.GeoVerseConnectedMapsV400={version:'v409',focusWorldCountry};
 })();
