@@ -5,12 +5,12 @@
  */
 (function(){
 'use strict';
-const PHOTO_VERSION='gv324-verified-six-seas';
+const PHOTO_VERSION='gv325-user-approved-four-seas';
 const photos={
-  2:['Al Mughsail Beach 2.jpg','8/8b'],
-  6:['Amasra.JPG','9/97'],
-  11:['Aerial view of Ti Top.jpg','e/e5'],
-  12:['Cape Manza Elephant Rock, Okinawa.jpg','a/ac'],
+  2:['Al Mughsail Beach 1.jpg','2/27'],
+  6:['Visit Amasra Bartın Turkey.jpg','6/6c'],
+  11:['Ha Long Bay, Vietnam, View from above.jpg','f/fa'],
+  12:['Cape Manzamo.JPG','d/d3'],
   13:['Phi Phi From Above (Unsplash).jpg','4/48'],
   14:['Dicasalarin Cove.jpg','d/d5']
 };
@@ -18,7 +18,7 @@ function urls(index){
  const item=photos[index];if(!item)return null;
  const file=encodeURIComponent(item[0].replace(/ /g,'_'));
  return [
-  'https://thumb.wikimedia.org/wikipedia/commons/thumb/'+item[1]+'/'+file+'/960px-'+file,
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/'+item[1]+'/'+file+'/960px-'+file,
   'https://commons.wikimedia.org/wiki/Special:Redirect/file/'+encodeURIComponent(item[0])
  ];
 }
