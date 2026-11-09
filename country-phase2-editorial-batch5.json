@@ -1,0 +1,56 @@
+{
+  "project": "GeoVerse Country Atlas 2.0",
+  "phase": "Phase 2 — Batch 5",
+  "date": "2026-11-09",
+  "updated": [
+    "MO",
+    "DO",
+    "NU",
+    "LU",
+    "CG",
+    "BA",
+    "PM",
+    "ME",
+    "GY",
+    "NR",
+    "KN",
+    "SM",
+    "CY",
+    "HU",
+    "HM",
+    "PN",
+    "BI",
+    "DJ",
+    "FK",
+    "LS"
+  ],
+  "previous_enriched": 85,
+  "added": 20,
+  "cumulative": 105,
+  "remaining": 140,
+  "scope": "Bilingual geography and nature profiles enhanced for states and territories; existing content structure, map, globe, games and navigation unchanged.",
+  "selected_editorial_sources": [
+    {
+      "code": "CG",
+      "url": "https://whc.unesco.org/en/list/692/",
+      "topic": "Forest Massif of Odzala-Kokoua"
+    },
+    {
+      "code": "BA",
+      "url": "https://whc.unesco.org/en/list/1673",
+      "topic": "Vjetrenica Cave"
+    },
+    {
+      "code": "ME",
+      "url": "https://whc.unesco.org/en/list/100",
+      "topic": "Durmitor National Park"
+    }
+  ],
+  "quality": {
+    "json_structure": "passed",
+    "source_level_review": "partial; no all-facts certification",
+    "cross_device_safari": "pending",
+    "changing_demographics": "pending",
+    "sovereignty_and_political_status": "preserved historical classifications; independent review pending"
+  }
+}
