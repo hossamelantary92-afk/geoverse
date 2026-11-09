@@ -27,3 +27,10 @@ body:has(.category-detail-banner) .category-detail-banner{
  background-position:center center;
  background-size:cover;
 }
+
+/* gv334 — one photographic asset per featured topic, consistent across both card grids. */
+.gv11-categories .gv11-card:is(.gv11-astronomy,.gv11-countries,.gv11-tourism,.gv11-deserts,.gv11-oceans,.gv11-rivers)>img,
+.gv12-directory .gv12-card:is([data-cat="astronomy"],[data-cat="countries"],[data-cat="tourism"],[data-cat="deserts"],[data-cat="oceans"],[data-cat="rivers"]) .gv12-image{object-fit:cover;filter:saturate(1.08) contrast(1.05)}
+.gv11-categories .gv11-astronomy>img,.gv12-card[data-cat="astronomy"] .gv12-image{object-position:center 50%}
+.gv11-categories .gv11-deserts>img,.gv12-card[data-cat="deserts"] .gv12-image{object-position:center 55%}
+.gv11-categories .gv11-oceans>img,.gv12-card[data-cat="oceans"] .gv12-image{object-position:center 55%}
