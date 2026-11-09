@@ -79,6 +79,8 @@ function addContinentAtlasAction(){
 }
 function currentCountryCode(){
  const s=store();
+ const active=typeof state!=='undefined'?String(state.v4Code||'').toUpperCase():'';
+ if(s?.byCode?.has?.(active))return active;
  const raw=typeof state!=='undefined'?state.item:null;
  const code=String(raw||'').toUpperCase();
  if(s?.countries?.some(row=>String(row.code).toUpperCase()===code))return code;
@@ -160,6 +162,20 @@ function focusWorldCountry(code){
  requestAnimationFrame(attempt);
 }
 document.addEventListener('click',event=>{
+ // The world atlas must never send a selected country into a generic landmark detail.
+ // Reuse the same canonical country route as the Countries & Capitals directory.
+ const legacy=event.target.closest('[data-atlas-open]');
+ if(legacy&&typeof state!=='undefined'&&state.page==='explore'){
+  const r=typeof atlasRuntime!=='undefined'?atlasRuntime:null;
+  const selected=r?.id==='worldMap'&&r.node?.querySelector('.atlas-country.gv140-active');
+  const feature=selected&&r.features?.[Number(selected.dataset.mapCountry)];
+  const record=recordForFeature(feature);
+  if(record?.code){
+   event.preventDefault();event.stopImmediatePropagation();
+   if(typeof setPage==='function')setPage('country-v4',record.code);
+   return;
+  }
+ }
  const profile=event.target.closest('[data-gv400-open-profile]');
  if(profile){
   event.preventDefault();event.stopImmediatePropagation();
@@ -239,5 +255,5 @@ style.textContent=`
 body.light .gv400-map-link{background:linear-gradient(135deg,#e8f8f5,#f5fbff);color:#174653;border-color:#b4dcd5}
 `;
 document.head.appendChild(style);
-window.GeoVerseConnectedMapsV400={version:'v406',focusWorldCountry};
+window.GeoVerseConnectedMapsV400={version:'v407',focusWorldCountry};
 })();
