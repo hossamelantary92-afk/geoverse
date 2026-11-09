@@ -237,13 +237,14 @@ function countryArticle(){
  const overview=pilot.sections[0];
  const sections=pilot.sections.slice(1).map((part,i)=>{
   const details=part.slice(4).map(item=>'<div class="gv-atlas-note"><h4>'+choose(item)+'</h4><p>'+esc(item[ar?2:3])+'</p></div>').join('');
-  return '<details class="gv-comprehensive-section"><summary><span class="gv-comprehensive-num">'+String(i+1).padStart(2,'0')+'</span><strong>'+choose(part)+'</strong><span class="gv-comprehensive-arrow" aria-hidden="true">⌄</span></summary>'+
-    '<div class="gv-atlas-section-body"><p>'+esc(part[ar?2:3])+'</p>'+details+'</div></details>';
+  return '<article class="gv-comprehensive-section gv-country-topic-card">'+
+    '<div class="gv-country-topic-heading"><span class="gv-comprehensive-num" aria-hidden="true">'+String(i+1).padStart(2,'0')+'</span><h3>'+choose(part)+'</h3></div>'+
+    '<div class="gv-atlas-section-body"><p>'+esc(part[ar?2:3])+'</p>'+details+'</div></article>';
  }).join('');
  const panel='<section class="gv9-section gv-story-card gv-comprehensive" aria-labelledby="gvComprehensiveHeading">'+
  '<span class="eyebrow">'+(pilot.baseline?lang('تعرف على الدولة','EXPLORE THE COUNTRY'):'COMPREHENSIVE ATLAS')+'</span><h2 id="gvComprehensiveHeading">'+choose(pilot.title)+'</h2>'+
  '<p class="gv-comprehensive-lead">'+esc(overview[ar?2:3])+'</p>'+
- '<p class="gv-atlas-instruction">'+lang('اختر موضوعًا لاستكشاف تفاصيله.','Choose a topic to explore more.')+'</p>'+sections+
+ sections+
  '</section>';
  const marker='<section class="gv9-section gv9-earth">';
  const network=gvRelatedCountryPlaces(state.v4Code);
