@@ -20,8 +20,8 @@ const cca3=()=>{
  return m;
 };
 function capital(r){
- const ar=countryInfo.locales?.capitals?.[r.code];
- if(state.lang==='ar')return ar||lang('غير محددة بالعربية','Not localized');
+ const ar=countryInfo.locales?.capitals?.[r.code]||G.GeoVerseCapitalNames?.[r.code];
+ if(state.lang==='ar')return ar||r.capital||'—';
  return r.capital||'—';
 }
 function money(r){
@@ -31,7 +31,7 @@ function money(r){
  }
  const raw=r.currency||'';
  if(state.lang==='en')return raw||'—';
- return countryInfo.locales?.currencies?.[raw]||lang('غير متاحة بالعربية','Not available in Arabic');
+ return countryInfo.locales?.currencies?.[raw]||raw||'—';
 }
 function officialLanguages(info){
  if(!info?.l?.length&&!info?.lc?.length)return lang('غير متاحة','Not listed');
@@ -263,7 +263,7 @@ document.addEventListener('click',e=>{
 },true);
 async function load(){
  try{
-  const [facts,locales]=await Promise.all([fetch('./country-facts.json').then(r=>{if(!r.ok)throw Error('facts unavailable');return r.json()}),fetch('./geo-localization.json').then(r=>r.json())]);
+  const [facts,locales]=await Promise.all([fetch('./country-facts.json').then(r=>{if(!r.ok)throw Error('facts unavailable');return r.json()}),fetch('./geo-localization.json?v=gv357-capital-sync').then(r=>r.json())]);
   countryInfo.facts=facts.byCode;countryInfo.locales=locales;countryInfo.ready=true;
   if(state.page==='country-v4')render();
  }catch(err){console.warn('Some encyclopedia facts unavailable',err);countryInfo.ready=false}
