@@ -1,0 +1,67 @@
+name: Curate continent photo assets
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/continent-photo-assets.yml'
+permissions:
+  contents: write
+jobs:
+  photos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --quiet pillow requests
+      - name: Download and optimize 7 licensed continent photos
+        env:
+          GV_PHOTO_DATA: '[{"slug":"asia","file":"Sunset view of Everest.jpg","author":"Nir B. Gurung","license":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/"},{"slug":"africa","file":"Zebras in Serengeti National Park with Acacia tree.jpg","author":"Maximilian Staub","license":"CC BY 4.0","licenseUrl":"https://creativecommons.org/licenses/by/4.0/"},{"slug":"europe","file":"Lauterbrunnen Valley.jpg","author":"ZachT","license":"Public domain","licenseUrl":"https://creativecommons.org/publicdomain/mark/1.0/"},{"slug":"north-america","file":"Grand Canyon panorama.jpg","author":"Gordon Tarpley","license":"CC BY 2.0","licenseUrl":"https://creativecommons.org/licenses/by/2.0/"},{"slug":"south-america","file":"Aerial view of the Amazon Rainforest.jpg","author":"lubasi","license":"CC BY-SA 2.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/2.0/"},{"slug":"oceania","file":"Lizard Island from the air.jpg","author":"Elisfkc","license":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/"},{"slug":"antarctica","file":"Chinstrap Penguins on the Antarctic peninsula.jpg","author":"Daniel Oberhaus","license":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/"}]'
+        run: |
+          python - <<'PY'
+          import os, io, json, time
+          from pathlib import Path
+          from urllib.parse import quote
+          from PIL import Image, ImageOps
+          import requests
+          photos=json.loads(os.environ["GV_PHOTO_DATA"])
+          out=Path("assets/continent-photos");out.mkdir(parents=True,exist_ok=True)
+          session=requests.Session();session.headers.update({"User-Agent":"GeoVerseEducationalAtlas/1.0 (image licensing audit; GitHub Actions)"})
+          for item in photos:
+              name=item["file"]
+              url="https://commons.wikimedia.org/wiki/Special:Redirect/file/"+quote(name.replace(" ","_"))+"?width=1600"
+              response=None
+              for attempt in range(4):
+                  try:
+                      response=session.get(url,timeout=45,allow_redirects=True)
+                      response.raise_for_status()
+                      if not response.headers.get("Content-Type","").startswith("image/"):raise RuntimeError("Non-image response")
+                      break
+                  except Exception:
+                      if attempt==3:raise
+                      time.sleep(3*(attempt+1))
+              with Image.open(io.BytesIO(response.content)) as img:
+                  img=ImageOps.exif_transpose(img).convert("RGB")
+                  img.thumbnail((1500,1100),Image.Resampling.LANCZOS)
+                  dest=out/(item["slug"]+".webp")
+                  img.save(dest,"WEBP",quality=85,method=6)
+                  assert dest.stat().st_size>15000, dest
+                  print(item["slug"],img.size,dest.stat().st_size)
+          credits=["# Continent images — licenses and attribution","Images sourced from Wikimedia Commons. Displayed in GeoVerse continent cards and detail pages. Source images have been resized and converted to WebP.\n"]
+          for item in photos:
+              title=item["file"].replace(" ","_")
+              credits.append(f"- **{item['slug']}**: [{item['file']}](https://commons.wikimedia.org/wiki/File:{quote(title)}) by {item['author']} — [{item['license']}]({item['licenseUrl']}); resized and converted to WebP.")
+          (out/"ATTRIBUTION.md").write_text("\n".join(credits)+"\n",encoding="utf-8")
+          PY
+      - name: Commit curated photos
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/continent-photos
+          if ! git diff --cached --quiet; then
+            git commit -m "assets: store seven optimized licensed continent photographs"
+            git push
+          fi
