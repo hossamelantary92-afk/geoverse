@@ -97,7 +97,7 @@ function showCountry(r,index,element){
   (continent?'<div class="gv140-card-continent">'+escape(continent)+'</div>':'')+
   '';
  card.hidden=false;
- card.style.removeProperty('left');card.style.removeProperty('top');
+ card.classList.remove('gv418-dragged');card.style.removeProperty('left');card.style.removeProperty('top');card.style.removeProperty('right');card.style.removeProperty('bottom');
  r.node.querySelectorAll('.atlas-country').forEach(n=>n.classList.toggle('gv140-active',n===element));
  r.node.querySelector('.atlas-popup')?.classList.add('hidden');
  focusCountry(r,feature);
