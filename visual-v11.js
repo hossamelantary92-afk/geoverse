@@ -29,7 +29,7 @@ function hero(){
  '<div class="gv11-horizon" aria-hidden="true"><div class="gv11-cloud"></div><svg viewBox="0 0 1000 140" preserveAspectRatio="none"><path d="m0 140 75-45 62 17 90-72 85 93 110-96 80 90 100-87 105 100 83-62 100 48 110-66v80Z" fill="#07334e"/><path d="m207 65 20-25 25 30-23-9-10 11zm198-6 17-22 22 33-22-11-10 9z" fill="#a5cee0" opacity=".55"/></svg></div>'+
  '<div class="gv11-stats">'+stats.map(v=>'<div class="gv11-stat">'+icon(v[0],24)+'<strong>'+v[1]+'</strong><span>'+v[2]+'</span></div>').join('')+'</div></section>';
 }
-const featured=['countries','astronomy','tourism','mountains','oceans','rivers','deserts'];
+const featured=['countries','astronomy','tourism','deserts','oceans','rivers'];
 const featuredPhotos={
  countries:'photo-1519501025264-65ba15a82390', // sunlit city skyline
  astronomy:'photo-1462331940025-496dfbfc7564', // deep-space nebula
