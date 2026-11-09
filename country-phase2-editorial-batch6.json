@@ -1,0 +1,44 @@
+{
+  "project": "GeoVerse Country Atlas 2.0",
+  "phase": "Phase 2 — Batch 6 (independent follow-on)",
+  "date": "2026-11-09",
+  "updated": [
+    "EG",
+    "SA",
+    "FR",
+    "JP",
+    "BR",
+    "US",
+    "UK",
+    "IT",
+    "CN",
+    "IN",
+    "ZA",
+    "AR",
+    "TN",
+    "LY",
+    "KE",
+    "NG",
+    "RU",
+    "ZW",
+    "CM",
+    "MZ"
+  ],
+  "prior_enriched_after_concurrent_batch5": 105,
+  "added": 20,
+  "cumulative": 125,
+  "remaining": 120,
+  "scope": "Country-specific bilingual geography and natural landmarks revised. Other country profile sections, navigation, map tab and games preserved.",
+  "notes": [
+    "Existing batch 5 was independently committed during this run for 20 distinct records; this batch has no overlap",
+    "UK is a legacy record and not independent state classification; preserve duplicate until a dedicated inventory review",
+    "Academic/geographic source-level follow-up remains for dynamic data and politically sensitive classifications"
+  ],
+  "quality": {
+    "atlas_json_records": 245,
+    "all_six_section_bilingual": true,
+    "iphone_safari": "pending",
+    "desktop": "pending",
+    "fact_review": "partial"
+  }
+}
