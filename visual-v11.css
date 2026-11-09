@@ -100,3 +100,7 @@
 @media(prefers-reduced-motion:reduce){.gv11-card img,.gv11-card,.gv11-actions button{transition:none!important}}
 
 .gv11-feature-go{display:grid;place-items:center;text-decoration:none}
+
+/* gv333 — six featured sections displayed as exactly two columns / three rows. */
+.gv11-categories .gv11-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+.gv11-categories .gv11-card{min-width:0;}
