@@ -2,6 +2,18 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<style id="gv416-ios-search-focus">
+/* iOS Safari auto-zooms focused text inputs when their computed font size is below 16px. */
+@supports (-webkit-touch-callout: none) {
+  @media (max-width: 900px) {
+    input[type="search"], input[type="text"], input:not([type]), textarea,
+    input[type="email"], input[type="tel"], input[type="number"], select {
+      font-size: max(16px, 1em) !important;
+    }
+    input::placeholder, textarea::placeholder { font-size: inherit; }
+  }
+}
+</style>
 <style id="gv129-prepaint">
 html{background:#061525;min-height:100%;color-scheme:dark}
 html[data-gv-initial-theme="light"]{background:#ebf5f8;color-scheme:light}
