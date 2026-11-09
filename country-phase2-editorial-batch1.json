@@ -1,0 +1,66 @@
+{
+  "version": "Country Atlas 2.0 / Phase 2 / editorial batch 1",
+  "reviewed_date": "2026-11-09",
+  "status": "implemented_in_repository; device QA pending",
+  "editorial_policy": "Geographic, climate, cultural and economic descriptions only. No uncited live numeric indicators or time-sensitive political claims. Sources are kept in the repository for editorial review, not rendered in the user-facing encyclopedia.",
+  "country_profiles": [
+    {
+      "code": "SN",
+      "name": "Senegal",
+      "focus": "corrected doubled sentences; added Senegal River, Saloum Delta, Casamance, seasonal climate, language distinction, economy and Niokolo-Koba",
+      "sources": [
+        "https://www.un.int/senegal/senegal/country-facts",
+        "https://conseilconstitutionnel.sn/la-constitution/",
+        "https://whc.unesco.org/en/list/153/"
+      ]
+    },
+    {
+      "code": "IS",
+      "name": "Iceland",
+      "focus": "expanded tectonics, glaciers, coastal climate, settlement, geothermal economy, Geysir and Thingvellir",
+      "sources": [
+        "https://www.eea.europa.eu/en/europe-environment-2025/countries/iceland/",
+        "https://www.visiticeland.com/article/geography-of-iceland_1/",
+        "https://www.oecd.org/en/publications/environment-at-a-glance-country-notes_59ce6fe6-en/iceland_ffb31d15-en.html"
+      ]
+    },
+    {
+      "code": "ET",
+      "name": "Ethiopia",
+      "focus": "expanded Ethiopian Rift Valley, Lake Tana and Blue Nile hydrology, highland-lowland climate, languages and terrain",
+      "sources": [
+        "https://tile.loc.gov/storage-services/master/frd/copr/Ethiopia.pdf",
+        "https://anrseb.gov.et/Backup%20dec%202021/wp-content/uploads/Old_Text_Books/Grade12/Grade_12_Geography_Textbook.pdf"
+      ]
+    },
+    {
+      "code": "AZ",
+      "name": "Azerbaijan",
+      "focus": "expanded Kura–Aras basin, Caucasus, climate, Caspian geography, energy and mud volcanoes",
+      "sources": [
+        "https://tehran.mfa.gov.az/en/content/45/nature-and-resources",
+        "https://www.eia.gov/international/content/analysis/countries_long/Azerbaijan/background.htm"
+      ]
+    },
+    {
+      "code": "DZ",
+      "name": "Algeria",
+      "focus": "expanded Atlas and Sahara climate gradient, cultural heritage, economy, Tassili n’Ajjer and M’Zab",
+      "sources": [
+        "https://dpunesco.mfa.gov.dz/discover-algeria-1/about-algeria",
+        "https://whc.unesco.org/ar/list/179",
+        "https://www.mta.gov.dz/presentation-of-algeria/?lang=en"
+      ]
+    }
+  ],
+  "quality_gates": {
+    "bilingual_data_structure": "passed, five sections plus overview each",
+    "all_other_profile_records_preserved": "245 total article objects",
+    "country_profile_globe": "not changed",
+    "main_map_tab": "not changed",
+    "published_iphone_safari": "pending",
+    "desktop_layout": "pending",
+    "numeric_data_field_source_audit": "pending",
+    "remaining_profiles": "not yet edited in this batch"
+  }
+}
