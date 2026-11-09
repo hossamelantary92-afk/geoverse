@@ -1,33 +1,33 @@
 [
   {
     "slug": "asia",
-    "width": 2500,
-    "height": 1667,
-    "bytes": 979762
+    "width": 2403,
+    "height": 1800,
+    "bytes": 1343028
   },
   {
     "slug": "africa",
-    "width": 2500,
-    "height": 1667,
-    "bytes": 1395086
+    "width": 2400,
+    "height": 1800,
+    "bytes": 910740
   },
   {
     "slug": "europe",
     "width": 2500,
-    "height": 1667,
-    "bytes": 1833922
+    "height": 1406,
+    "bytes": 1724656
   },
   {
     "slug": "north-america",
     "width": 2500,
-    "height": 785,
-    "bytes": 1133258
+    "height": 1667,
+    "bytes": 1790484
   },
   {
     "slug": "south-america",
     "width": 2500,
-    "height": 1535,
-    "bytes": 1069638
+    "height": 1660,
+    "bytes": 1370596
   },
   {
     "slug": "oceania",
@@ -39,6 +39,6 @@
     "slug": "antarctica",
     "width": 2500,
     "height": 1667,
-    "bytes": 839090
+    "bytes": 1515536
   }
 ]\n
