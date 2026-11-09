@@ -37,11 +37,11 @@ function sectionFor(key,compact){
  '<p class="gv-c4-note">'+lang('هذه أمثلة مختارة للمعالم الجغرافية وليست قائمة شاملة لكل معالم القارة.','These are selected examples, not an exhaustive list of the continent’s geographic features.')+'</p></section>';
 }
 function mount(){
- if(state.page!=='detail'||state.category!=='continents')return;
+ if(state.page!=='category'||state.category!=='continents'||state.continentFeature!=='highlights')return;
  const root=document.getElementById('main');if(!root||root.querySelector('#gvContinentHighlights'))return;
- const key=geo.continents?.[state.item]?.[1];
+ const key=geo.continents?.[Number(state.continentIndex||0)]?.[1];
  if(!highlights[key])return;
- const anchor=root.querySelector('#gvContinentCompare')||root.querySelector('#gvContinentMapPanel')||root.querySelector('.gv-continent-guide');
+ const anchor=root.querySelector('#gvC5FeatureMount');
  if(!anchor)return;
  anchor.insertAdjacentHTML('afterend',sectionFor(key));
 }
@@ -80,5 +80,6 @@ body.light .gv-c4-action{color:#16796f}
 @media(max-width:680px){.gv-c4-shell{padding:13px}.gv-c4-grid{grid-template-columns:1fr;gap:9px}.gv-c4-card{min-height:0;padding:13px}.gv-c4-header{gap:9px}.gv-c4-counter{font-size:11px;padding:7px}.gv-c4-card p{margin-bottom:9px}}
 `;
 if(!document.getElementById('gv-c4-style')){const node=document.createElement('style');node.id='gv-c4-style';node.textContent=css;document.head.appendChild(node)}
-const previous=render;render=function(){previous();mount()};
+window.GeoVerseContinentHighlights={mount};
+const previous=render;render=function(){previous();/* C5 handles standalone feature mounting */};
 })();
