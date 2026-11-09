@@ -92,30 +92,20 @@ function currentCountryCode(){
 function addCountryFlagHero(){
  if(typeof state==='undefined'||state.page!=='country-v4')return;
  const main=document.getElementById('main');
- if(!main||main.querySelector('.gv404-country-flag-hero'))return;
+ const hero=main?.querySelector('header.gv9-hero');
+ if(!hero)return;
  const code=currentCountryCode();
  if(!code||!/^[A-Z]{2}$/.test(code))return;
- const record=store()?.countries?.find(item=>String(item.code).toUpperCase()===code);
- const title=String(record?.nameAr||record?.ar||record?.name||code);
- const english=String(record?.name||'');
- const hero=document.createElement('section');
- hero.className='gv404-country-flag-hero';
- hero.setAttribute('aria-label',lang('علم '+title,'Flag of '+(english||title)));
- const img=document.createElement('img');
- img.className='gv404-country-flag-image';
- img.src='https://flagcdn.com/w1280/'+code.toLowerCase()+'.png';
- img.alt=lang('علم '+title,'Flag of '+(english||title));
- img.loading='eager';img.decoding='async';
- img.onerror=()=>{img.remove();hero.classList.add('gv404-flag-fallback')};
- const shade=document.createElement('div');shade.className='gv404-country-flag-shade';
- const names=document.createElement('div');names.className='gv404-country-flag-names';
- const h=document.createElement('h1');h.textContent=title;
- names.appendChild(h);
- if(english&&norm(english)!==norm(title)){const sub=document.createElement('p');sub.textContent=english;names.appendChild(sub)}
- hero.append(img,shade,names);
- const nav=main.querySelector('.gv387-country-nav');
- if(nav)nav.insertAdjacentElement('afterend',hero);
- else main.prepend(hero);
+ const flagCode=code==='UK'?'gb':code.toLowerCase();
+ if(hero.dataset.gv408Flag===flagCode)return;
+ hero.dataset.gv408Flag=flagCode;
+ hero.classList.add('gv408-national-flag-hero');
+ const flag=hero.querySelector('.gv9-flag img');
+ const src=flag?.getAttribute('src')||'https://flagcdn.com/'+flagCode+'.svg';
+ hero.style.setProperty('--gv408-flag-image','url("'+src.replace(/"/g,'')+'")');
+ // Keep the original country title and continent. The small icon is redundant.
+ const icon=hero.querySelector('.gv9-flag');
+ if(icon)icon.setAttribute('aria-hidden','true');
 }
 function addProfileAtlasAction(){
  if(typeof state==='undefined'||state.page!=='country-v4')return;
@@ -217,6 +207,15 @@ style.textContent=`
 .gv400-map-link:hover,.gv400-map-link:focus-visible{border-color:#78e5d2;transform:translateY(-1px);outline:2px solid rgba(120,229,210,.18)}
 .gv400-continent-link{margin-top:8px}
 .gv406-world-country-flag{display:block;width:72px;max-height:48px;object-fit:contain;object-position:left center;margin:0 0 9px;border-radius:5px;box-shadow:0 3px 12px rgba(0,0,0,.2)}
+/* v408: use the EXISTING country directory hero, never insert a second header. */
+#main header.gv9-hero.gv408-national-flag-hero{position:relative;isolation:isolate;overflow:hidden;min-height:clamp(190px,29vw,290px);display:flex;align-items:flex-end;background:#09293c;border-color:rgba(105,221,209,.48)}
+#main header.gv9-hero.gv408-national-flag-hero::before{content:"";position:absolute;inset:0;z-index:-2;background-image:var(--gv408-flag-image);background-size:cover;background-position:center;opacity:.92}
+#main header.gv9-hero.gv408-national-flag-hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(3,17,32,.66),rgba(3,17,32,.38)),linear-gradient(0deg,rgba(3,17,32,.76),transparent 85%)}
+#main header.gv9-hero.gv408-national-flag-hero .gv9-hero-title{position:relative;z-index:1;width:100%;padding:8px 0}
+#main header.gv9-hero.gv408-national-flag-hero .gv9-hero-title h1,#main header.gv9-hero.gv408-national-flag-hero .gv9-hero-title p{color:#fff;text-shadow:0 3px 15px rgba(0,0,0,.75)}
+#main header.gv9-hero.gv408-national-flag-hero .gv9-eyebrow{color:#f4e6ba;text-shadow:0 2px 10px #000}
+#main header.gv9-hero.gv408-national-flag-hero .gv9-flag{display:none!important}
+@media(max-width:700px){#main header.gv9-hero.gv408-national-flag-hero{min-height:210px;padding:20px!important;border-radius:19px}}
 /* Country profile hero: official national flag as the page's visual header. */
 #main .gv404-country-flag-hero{
  position:relative;isolation:isolate;display:flex;align-items:flex-end;
@@ -255,5 +254,5 @@ style.textContent=`
 body.light .gv400-map-link{background:linear-gradient(135deg,#e8f8f5,#f5fbff);color:#174653;border-color:#b4dcd5}
 `;
 document.head.appendChild(style);
-window.GeoVerseConnectedMapsV400={version:'v407',focusWorldCountry};
+window.GeoVerseConnectedMapsV400={version:'v408',focusWorldCountry};
 })();
