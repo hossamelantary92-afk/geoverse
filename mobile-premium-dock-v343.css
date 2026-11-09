@@ -1,0 +1,56 @@
+/* GeoVerse — refined mobile dock and compact atlas ending (v343).
+ * Loaded last so it can refine legacy visual and mobile safe-area rules. */
+@media (max-width:700px){
+  .gv12-directory{margin-bottom:0!important;padding-bottom:0!important}
+  .gv12-directory .gv12-grid{margin-bottom:0!important}
+  #app>.layout>#main{padding-bottom:0!important}
+  #app>footer{
+    margin:0!important;
+    padding:11px 12px calc(96px + env(safe-area-inset-bottom,0px))!important;
+    color:#819dab!important;
+    font-size:11px!important;
+    letter-spacing:.15px;
+  }
+  .gv11-bottom-nav,.light .gv11-bottom-nav{
+    box-sizing:border-box!important;
+    inset-inline:12px!important;
+    bottom:max(9px,env(safe-area-inset-bottom,0px))!important;
+    min-height:72px!important;
+    padding:6px!important;
+    gap:3px!important;
+    border:1px solid rgba(100,219,223,.52)!important;
+    border-radius:23px!important;
+    background:linear-gradient(155deg,#0a3549 0%,#06283e 54%,#062239 100%)!important;
+    box-shadow:0 12px 32px rgba(0,7,19,.50),0 0 0 1px rgba(9,65,81,.45),inset 0 1px rgba(180,250,249,.12)!important;
+  }
+  .gv11-bottom-nav button{
+    min-height:60px!important;
+    padding:7px 2px!important;
+    border:1px solid transparent!important;
+    border-radius:17px!important;
+    gap:4px!important;
+    color:#bfdae2!important;
+    background:transparent!important;
+    font-size:10.5px!important;
+    font-weight:800!important;
+    line-height:1.2!important;
+    transition:background .18s ease,color .18s ease,box-shadow .18s ease!important;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .gv11-bottom-nav button svg{
+    width:23px!important;height:23px!important;
+    stroke-width:1.9;
+  }
+  .gv11-bottom-nav button.active{
+    color:#07333e!important;
+    border:1px solid rgba(190,255,249,.82)!important;
+    background:linear-gradient(145deg,#83f5e7 0%,#38d4d0 57%,#22b8c7 100%)!important;
+    box-shadow:0 2px 9px rgba(41,222,216,.16),inset 0 1px rgba(255,255,255,.50)!important;
+  }
+  .gv11-bottom-nav button:focus-visible{
+    outline:2px solid #d4fff7!important;outline-offset:2px!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .gv11-bottom-nav button{transition:none!important}
+}
