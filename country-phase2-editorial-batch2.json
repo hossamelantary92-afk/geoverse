@@ -1,0 +1,112 @@
+{
+  "project": "GeoVerse / Country Atlas 2.0",
+  "phase": "Phase 2 — Content enrichment",
+  "date": "2026-11-09",
+  "release_status": "source committed, device QA pending",
+  "baseline_country_territory_profiles": 245,
+  "first_batch_completed": [
+    "SN",
+    "IS",
+    "ET",
+    "AZ",
+    "DZ"
+  ],
+  "second_batch_enriched": [
+    "TR",
+    "GH",
+    "KR",
+    "PL",
+    "BH",
+    "KH",
+    "GE",
+    "AM",
+    "IE",
+    "BE",
+    "BW",
+    "RO",
+    "SK",
+    "RS",
+    "KG",
+    "EE",
+    "AL",
+    "MK",
+    "BS",
+    "GW",
+    "LR",
+    "TG",
+    "LC",
+    "MV",
+    "EC",
+    "BO",
+    "UY",
+    "TZ",
+    "UG",
+    "RW",
+    "KZ",
+    "AS",
+    "GP",
+    "LI",
+    "MC",
+    "MD",
+    "GL",
+    "GI",
+    "GU",
+    "PF"
+  ],
+  "changes": "Country-specific bilingual geographic descriptions, climate gradients, river basins, terrain, protected natural landscapes, removal of duplicated opening phrases in 12 profiles, and expansion of four territory profiles.",
+  "verification": "All 245 profile objects parse as valid JSON and retain the six-section bilingual structure. Source-level checks do not constitute full fact-checking or deployed visual QA.",
+  "editorial_caveat": "Details in this batch are geography-focused. Numeric demographics, political classification and economic statistics still require date- and source-specific independent review.",
+  "selected_independent_references": [
+    {
+      "country": "Botswana",
+      "topic": "Okavango inland delta",
+      "url": "https://whc.unesco.org/en/list/1432/"
+    },
+    {
+      "country": "Cambodia",
+      "topic": "Angkor heritage area",
+      "url": "https://whc.unesco.org/en/list/668/"
+    },
+    {
+      "country": "Iceland",
+      "topic": "Thingvellir and Vatnajokull",
+      "url": "https://whc.unesco.org/en/statesparties/is"
+    },
+    {
+      "country": "Senegal",
+      "topic": "Saloum Delta",
+      "url": "https://whc.unesco.org/en/list/1359/"
+    },
+    {
+      "country": "Ethiopia",
+      "topic": "Simien mountain ecology",
+      "url": "https://whc.unesco.org/en/list/9/"
+    },
+    {
+      "country": "Poland",
+      "topic": "Bialowieza Forest",
+      "url": "https://whc.unesco.org/en/list/33/"
+    },
+    {
+      "country": "Romania",
+      "topic": "Danube Delta",
+      "url": "https://whc.unesco.org/en/list/588/"
+    },
+    {
+      "country": "Slovakia",
+      "topic": "Caves of Aggtelek Karst and Slovak Karst",
+      "url": "https://whc.unesco.org/en/list/725/"
+    },
+    {
+      "country": "Albania North Macedonia",
+      "topic": "Lake Ohrid region",
+      "url": "https://whc.unesco.org/en/list/99/"
+    }
+  ],
+  "next_steps": [
+    "Review remaining 200 profiles, starting with overly short and repeated sections",
+    "Audit numeric statistics and dated sources",
+    "Verify published Arabic and English UI on mobile and desktop",
+    "Preserve main map, globe, games, navigation and scroll"
+  ]
+}
