@@ -141,7 +141,7 @@ photo.hydrate=function(){
   photo.mount(box,src,box.dataset.placeName||'',article,item[4]);
  });
 };
-photo.ready=fetch('./photo-manifest-v13.json?v=gv325-user-approved-four',{cache:'no-store'}).then(r=>{
+photo.ready=fetch('./photo-manifest-v13.json?v=gv326-single-sea-loader',{cache:'no-store'}).then(r=>{
  if(!r.ok)throw Error('Photo reference manifest unavailable');
  return r.json();
 }).then(data=>{
