@@ -9,6 +9,28 @@ const stack=[];
 let suppress=false;
 let clickOrigin=null;
 let previous=null;
+const pagePositions=new Map();
+let scrollEpoch=0;
+let restoreOverride=null;
+function pageKey(v){
+ if(!v)return '';
+ if(v.page==='country-v4')return 'country:'+String(v.code||'');
+ if(v.page==='countries-v4')return 'countries:'+String(v.continent||'all');
+ if(v.page==='category')return 'category:'+String(v.category||'')+(v.category==='tourism'?':'+String(v.tourism||''):'');
+ if(v.page==='detail')return 'detail:'+String(v.category||'')+':'+String(v.item??'');
+ return String(v.page||'');
+}
+function remember(v){if(v&&validPages.has(v.page))pagePositions.set(pageKey(v),Math.max(0,Math.round(v.scroll||0)));}
+function scrollToY(y){window.scrollTo(0,Math.max(0,Math.round(y||0)));}
+function restorePosition(y){
+ const token=++scrollEpoch;
+ scrollToY(y);
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(token!==scrollEpoch)return;
+  scrollToY(y);
+  if(previous&&same(previous,snapshot())){previous.scroll=Math.max(0,Math.round(window.scrollY||0));remember(previous);}
+ }));
+}
 let countryReferral=null;
 const validPages=new Set(['home','all','category','detail','country-v4','countries-v4','explore','learn','play','progress']);
 function snapshot(){
@@ -29,7 +51,10 @@ function same(a,b){
 }
 previous=snapshot();
 window.addEventListener('scroll',()=>{
- if(!suppress&&previous&&same(previous,snapshot()))previous.scroll=Math.max(0,Math.round(window.scrollY||0));
+ if(!suppress&&previous&&same(previous,snapshot())){
+  previous.scroll=Math.max(0,Math.round(window.scrollY||0));
+  remember(previous);
+ }
 },{passive:true});
 function decorateDetailBack(){
  if(state.page!=='detail')return;
@@ -56,19 +81,32 @@ function decorateDetailBack(){
 const originalRender=render;
 render=function(){
  const next=snapshot();
- if(!suppress&&previous&&!same(previous,next)&&validPages.has(previous.page)){
+ const changed=!!previous&&!same(previous,next);
+ if(changed){
   const origin=clickOrigin&&same(clickOrigin,previous)?clickOrigin:previous;
-  if(next.page==='detail'){
-   countryReferral=origin.page==='country-v4'&&origin.code?{...origin}:null;
+  remember(origin);
+  if(!suppress&&validPages.has(previous.page)){
+   if(next.page==='detail'){
+    countryReferral=origin.page==='country-v4'&&origin.code?{...origin}:null;
+   }
+   if(!same(stack[stack.length-1],origin)){
+    stack.push({...origin});
+    if(stack.length>maxDepth)stack.shift();
+   }
   }
-  if(!same(stack[stack.length-1],origin)){
-   stack.push({...origin});
-   if(stack.length>maxDepth)stack.shift();
-  }
+  // Each distinct screen has its own scroll position; new screens start at top.
+  scrollToY(0);
  }
  const result=originalRender.apply(this,arguments);
  decorateDetailBack();
  previous=snapshot();
+ if(changed){
+  const targetY=restoreOverride===null?(pagePositions.get(pageKey(next))??0):restoreOverride;
+  restoreOverride=null;
+  restorePosition(targetY);
+ }else if(previous){
+  previous.scroll=Math.max(0,Math.round(window.scrollY||0));
+ }
  clickOrigin=null;
  return result;
 };
@@ -81,17 +119,13 @@ function fallback(){
 function goBackTo(target){
  if(!target||target.page===state.page&&same(target,snapshot()))return;
  suppress=true;
+ restoreOverride=Math.max(0,target.scroll??pagePositions.get(pageKey(target))??0);
  try{
   if(target.page==='countries-v4'&&target.continent)state.v4Continent=target.continent;
   if(target.page==='category'&&target.category==='tourism')window.GeoVerseTourismCountryNavigation?.setSelected?.(target.tourism||'');
   setPage(target.page,target.page==='country-v4'?target.code:target.category,target.item);
   previous=snapshot();
- }finally{suppress=false;clickOrigin=null;}
- const y=Math.max(0,target.scroll||0);
- requestAnimationFrame(()=>requestAnimationFrame(()=>{
-  window.scrollTo({top:y,left:0,behavior:'instant'});
-  if(previous&&same(previous,snapshot()))previous.scroll=y;
- }));
+ }finally{suppress=false;clickOrigin=null;restoreOverride=null;}
 }
 function smartBack(){
  const target=stack.length?stack.pop():fallback();
