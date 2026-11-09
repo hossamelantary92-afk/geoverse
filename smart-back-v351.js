@@ -32,6 +32,23 @@ function restorePosition(y){
  }));
 }
 let countryReferral=null;
+let immediateCountryOrigin=null;
+// Capture the actual screen BEFORE a country is opened. Historical back-stack
+// entries can otherwise take the visitor to an unrelated continent or section.
+const precedingSetPage=setPage;
+setPage=function(page,cat=null,item=null,startGame=false){
+ if(page==='country-v4'&&!suppress){
+  const from=snapshot();
+  if(from.page!=='country-v4' && validPages.has(from.page)){
+   immediateCountryOrigin={...from,scroll:Math.max(0,Math.round(window.scrollY||0))};
+  }else if(from.page==='country-v4' && from.code!==cat){
+   immediateCountryOrigin={...from,scroll:Math.max(0,Math.round(window.scrollY||0))};
+  }
+ }else if(!suppress&&page!=='country-v4'&&state.page!=='country-v4'){
+  immediateCountryOrigin=null;
+ }
+ return precedingSetPage.apply(this,arguments);
+};
 const validPages=new Set(['home','all','category','detail','country-v4','countries-v4','explore','learn','play','progress']);
 function snapshot(){
  const cat=typeof state.category==='string'?state.category:null;
@@ -128,6 +145,14 @@ function goBackTo(target){
  }finally{suppress=false;clickOrigin=null;restoreOverride=null;}
 }
 function smartBack(){
+ if(state.page==='country-v4'&&immediateCountryOrigin){
+  const target={...immediateCountryOrigin};
+  immediateCountryOrigin=null;
+  // Discard only the matching last history entry when present.
+  if(stack.length&&same(stack[stack.length-1],target))stack.pop();
+  goBackTo(target);
+  return;
+ }
  const target=stack.length?stack.pop():fallback();
  goBackTo(target);
 }
