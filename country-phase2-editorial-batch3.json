@@ -1,0 +1,67 @@
+{
+  "project": "GeoVerse Country Atlas 2.0",
+  "phase": "Phase 2 — Batch 3",
+  "date": "2026-11-09",
+  "status": "committed to source; deployed Safari and desktop QA pending",
+  "codes": [
+    "MX",
+    "DE",
+    "AU",
+    "MA",
+    "AE",
+    "GR",
+    "NO",
+    "NL",
+    "KW",
+    "SG",
+    "CR",
+    "CI",
+    "DK",
+    "FI",
+    "PT",
+    "GT",
+    "MW",
+    "TJ",
+    "TM",
+    "SI"
+  ],
+  "edited_sections": [
+    "Geography",
+    "Nature & Landmarks"
+  ],
+  "method": "Replaced short general summaries with distinct country-specific bilingual descriptions for climate, geomorphology, rivers, landscapes and notable natural features; preserved other content and existing nested details.",
+  "numerical_statistic_policy": "No new numeric population, GDP or area values; previous dynamic fields require later field-specific verification.",
+  "selected_editorial_refs": [
+    {
+      "code": "CR",
+      "ref": "https://whc.unesco.org/en/list/928/",
+      "topic": "Guanacaste conservation area and dry forests"
+    },
+    {
+      "code": "CR",
+      "ref": "https://www.comisionunesco.cr/patrimonio-mundial",
+      "topic": "Costa Rica World Heritage natural sites"
+    },
+    {
+      "code": "AU",
+      "ref": "https://whc.unesco.org/en/statesparties/au",
+      "topic": "Australian natural and mixed World Heritage landscapes"
+    },
+    {
+      "code": "MA",
+      "ref": "https://whc.unesco.org/EN/list/444/",
+      "topic": "Ait-Ben-Haddou and High Atlas foothills"
+    }
+  ],
+  "qa": {
+    "country_articles_total": 245,
+    "previously_enriched": 45,
+    "additional_enriched": 20,
+    "cumulative_enriched": 65,
+    "still_to_review": 180,
+    "main_map_untouched": true,
+    "globe_and_game_logic_untouched": true,
+    "rendering_on_iphone_safari": "pending",
+    "cross_language_fact_check": "partial; not all facts independently field-sourced"
+  }
+}
