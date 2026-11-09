@@ -17,6 +17,8 @@ function compactWorldCard(){
  const card=r.node.querySelector('.gv140-country-card');
  if(!card||card.hidden||card.classList.contains('gv154-smart-card'))return;
  card.classList.add('gv413-compact-country');
+ // Closing the card already returns to the world map; remove the redundant action.
+ card.querySelectorAll('.gv140-map-clear').forEach(button=>button.remove());
  const declarations={position:'absolute',top:'auto',bottom:'66px',right:'8px',left:'auto',width:'min(192px, 47%)',maxWidth:'192px',minWidth:'0',height:'auto',minHeight:'0',maxHeight:'min(245px, 57%)',padding:'9px',margin:'0',transform:'none',overflowY:'auto',boxSizing:'border-box',zIndex:'30'};
  for(const [key,value] of Object.entries(declarations))card.style.setProperty(key.replace(/[A-Z]/g,m=>'-'+m.toLowerCase()),value,'important');
 }
@@ -305,5 +307,5 @@ style.textContent=`
 body.light .gv400-map-link{background:linear-gradient(135deg,#e8f8f5,#f5fbff);color:#174653;border-color:#b4dcd5}
 `;
 document.head.appendChild(style);
-window.GeoVerseConnectedMapsV400={version:'v413',focusWorldCountry};
+window.GeoVerseConnectedMapsV400={version:'v414',focusWorldCountry};
 })();
