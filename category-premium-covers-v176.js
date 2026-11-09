@@ -13,7 +13,7 @@ const covers=Object.freeze({
  astronomy:Object.freeze({src:'./assets/category-covers/astronomy.webp',position:'center 50%',source:'GeoVerse approved generated cover'}),
  deserts:Object.freeze({src:'./assets/category-covers/deserts.webp',position:'center 55%',source:'GeoVerse approved generated cover'}),
  oceans:Object.freeze({src:'./assets/category-covers/oceans.webp',position:'center 55%',source:'GeoVerse approved generated cover'}),
- rivers:Object.freeze({src:'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Horseshoe-Bend.jpg/960px-Horseshoe-Bend.jpg',position:'center 48%',source:'https://commons.wikimedia.org/wiki/File:Horseshoe-Bend.jpg'}),
+ rivers:Object.freeze({src:'https://images.unsplash.com/photo-1754313778624-77041cafdca9',position:'center 50%',source:'https://unsplash.com/photos/a-teal-river-flows-through-a-lush-green-forest-0PZfQw7q9C0'}),
  mountains:Object.freeze({src:'./assets/category-covers/mountains.webp',position:'center 54%',source:'GeoVerse approved generated cover'}),
  gulfs:Object.freeze({src:'https://images.unsplash.com/photo-1655042489679-7eab34cbcb98',position:'center 48%',source:'https://unsplash.com/photos/kRfq4thWyB8'}),
  tourism:Object.freeze({src:'./assets/category-covers/tourism.webp',position:'center 50%',source:'GeoVerse approved generated cover'})
