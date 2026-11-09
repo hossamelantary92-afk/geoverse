@@ -53,3 +53,6 @@
  .gv231-hero-stats{margin-top:6px!important}
  .gv231-hero-stats span{padding:8px 11px!important}
 }
+
+/* gv338 astronomy header canonical image — same approved file as its directory card. */
+.gv231-hero{background-image:linear-gradient(0deg,rgba(2,12,28,.91) 0%,rgba(2,12,28,.48) 42%,rgba(2,12,28,.10) 100%),var(--gv231-hero-image)!important;background-size:cover!important;background-position:center center!important;background-repeat:no-repeat!important;}
