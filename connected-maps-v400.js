@@ -20,6 +20,7 @@ function compactWorldCard(){
  // Closing the card already returns to the world map; remove the redundant action.
  card.querySelectorAll('.gv140-map-clear').forEach(button=>button.remove());
  const declarations={position:'absolute',top:'auto',bottom:'66px',right:'8px',left:'auto',width:'min(192px, 47%)',maxWidth:'192px',minWidth:'0',height:'auto',minHeight:'0',maxHeight:'min(245px, 57%)',padding:'9px',margin:'0',transform:'none',overflowY:'auto',boxSizing:'border-box',zIndex:'30'};
+ if(card.style.getPropertyValue('left')&&card.style.getPropertyValue('left')!=='auto')return;
  for(const [key,value] of Object.entries(declarations))card.style.setProperty(key.replace(/[A-Z]/g,m=>'-'+m.toLowerCase()),value,'important');
 }
 function addWorldCountryFlag(){
@@ -229,7 +230,10 @@ style.textContent=`
 .gv400-map-link:hover,.gv400-map-link:focus-visible{border-color:#78e5d2;transform:translateY(-1px);outline:2px solid rgba(120,229,210,.18)}
 .gv400-continent-link{margin-top:8px}
 .gv406-world-country-flag{display:block;width:72px;max-height:48px;object-fit:contain;object-position:left center;margin:0 0 9px;border-radius:5px;box-shadow:0 3px 12px rgba(0,0,0,.2)}
-/* v413: compact card without empty regions; yellow country selection. */
+#worldMap .gv155-card-heading{touch-action:none;cursor:grab;user-select:none;min-height:30px}
+#worldMap .gv155-card-heading:active{cursor:grabbing}
+#worldMap .atlas-country.gv140-active{fill:#ffd43b!important;stroke:#fff2a0!important;stroke-width:2.5px!important;filter:drop-shadow(0 0 5px rgba(255,212,59,.8))}
+ /* v413: compact card without empty regions; yellow country selection. */
 #worldMap .atlas-country.gv411-country-focus,#worldMap .atlas-country.gv140-active.gv411-country-focus{fill:#ffd43b!important;stroke:#fff6ad!important;stroke-width:3!important;stroke-linejoin:round!important;paint-order:stroke fill!important;opacity:1!important;filter:drop-shadow(0 0 7px rgba(255,212,59,.85))!important}
 #worldMap .gv140-country-card.gv413-compact-country{display:flex!important;flex-direction:column!important;gap:4px!important;align-items:stretch!important;justify-content:flex-start!important;text-align:start!important}
 #worldMap .gv140-country-card.gv413-compact-country[hidden]{display:none!important}
@@ -307,5 +311,5 @@ style.textContent=`
 body.light .gv400-map-link{background:linear-gradient(135deg,#e8f8f5,#f5fbff);color:#174653;border-color:#b4dcd5}
 `;
 document.head.appendChild(style);
-window.GeoVerseConnectedMapsV400={version:'v414',focusWorldCountry};
+window.GeoVerseConnectedMapsV400={version:'v415',focusWorldCountry};
 })();
