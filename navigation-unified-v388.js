@@ -54,8 +54,8 @@ function addMainNavigation(){
  // Continent feature is a separately rendered page inside the continent category.
  if(state.page==='category'&&state.category==='continents'&&state.continentFeature&&root.querySelector('#gvC5IndependentPage')){
   const existing=root.querySelector('.gv-c5-backline');
-  if(existing&&!existing.querySelector('.gv388-back')){
-   existing.prepend(button(txt('→ رجوع','← Back'),'continent-back','gv388-back'));
+  if(existing){
+   existing.querySelector('.gv388-back')?.remove();
    const section=existing.querySelector('[data-gv-c5-back]');
    if(section)section.textContent=txt('العودة إلى القارات','Back to continents');
   }
@@ -95,7 +95,7 @@ function removeDuplicateShortcuts(){
  // A C5 feature's contextual Back and its explicit section link both return
  // to the same Continents landing screen; keep the universal Back only.
  if(state.page==='category'&&state.category==='continents'&&state.continentFeature){
-  root.querySelector('#gvC5IndependentPage [data-gv-c5-back]')?.remove();
+  root.querySelector('#gvC5IndependentPage .gv388-back')?.remove();
   return;
  }
  const target=window.GeoVerseSmartBack?.peek?.();
