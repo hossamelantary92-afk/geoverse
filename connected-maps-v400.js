@@ -328,8 +328,16 @@ style.textContent=`
 
 /* v419: compact touch-friendly drag handle */
 #worldMap .gv417-card-grip{width:max-content!important;max-width:calc(100% - 12px)!important;min-height:24px!important;align-self:center!important;flex:none!important;margin:0 auto 3px!important;padding:3px 12px!important;border:1px solid rgba(110,233,216,.35)!important;border-radius:999px!important;background:rgba(72,213,191,.12)!important;color:#b7f5ec!important;font-size:11px!important;font-weight:700!important;line-height:18px!important;letter-spacing:0!important;box-shadow:none!important;touch-action:none!important}
+
+/* v420: flag and minimal drag handle share the top row; tighter country card. */
+#worldMap .gv140-country-card.gv155-country-card:not([hidden]){gap:2px!important;padding:9px!important}
+#worldMap .gv140-country-card .gv406-world-country-flag{width:52px!important;height:34px!important;max-height:34px!important;object-fit:cover!important;object-position:center!important;margin:0 0 3px auto!important;border-radius:5px!important}
+#worldMap .gv140-country-card .gv417-card-grip{position:absolute!important;top:10px!important;left:10px!important;right:auto!important;bottom:auto!important;display:flex!important;align-items:center!important;justify-content:center!important;width:35px!important;max-width:35px!important;height:32px!important;min-height:32px!important;padding:0!important;margin:0!important;border-radius:9px!important;font-size:21px!important;line-height:1!important;z-index:4!important}
+#worldMap .gv140-country-card .gv155-card-heading{min-height:24px!important;margin:0!important}
+#worldMap .gv140-country-card .gv140-card-title{margin:1px 0!important}
+#worldMap .gv140-country-card .gv140-card-meta,#worldMap .gv140-country-card .gv140-card-continent{margin:0!important}
 body.light .gv400-map-link{background:linear-gradient(135deg,#e8f8f5,#f5fbff);color:#174653;border-color:#b4dcd5}
 `;
 document.head.appendChild(style);
-window.GeoVerseConnectedMapsV400={version:'v419',focusWorldCountry};
+window.GeoVerseConnectedMapsV400={version:'v420',focusWorldCountry};
 })();
