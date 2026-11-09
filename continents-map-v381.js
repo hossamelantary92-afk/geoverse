@@ -114,10 +114,9 @@ function mount(){
   svg.addEventListener('wheel',e=>{e.preventDefault();zoom(e.deltaY<0?'in':'out')},{passive:false});
   stage.addEventListener('click',e=>{
     const p=e.target.closest('[data-gv-c2-country]');if(!p||wasDrag)return;
-    const rec=meta.countries.find(x=>x.code===p.dataset.gvC2Country);if(!rec)return;
-    const label=countryLabel(rec,{properties:{name:rec.name}});
-    stage.querySelectorAll('.gv-c2-country').forEach(el=>el.classList.toggle('chosen',el===p));
-    info.innerHTML='<strong>'+esc(label)+'</strong><button type="button" data-v4-country="'+esc(rec.code)+'">'+lang('افتح ملف الدولة','Open country profile')+' ↗</button>';
+    const code=p.dataset.gvC2Country;
+    if(!meta.countries.some(x=>x.code===code))return;
+    setPage('country-v4',code);
   });
   stage.addEventListener('keydown',e=>{
    if(e.key!=='Enter'&&e.key!==' ')return;
@@ -146,9 +145,9 @@ const css=`
 .gv-c2-tab{background:#12394e;color:#d1e9ee;border:1px solid #ffffff25;border-radius:12px;padding:10px 13px;font-weight:750;white-space:nowrap;cursor:pointer;scroll-snap-align:start}
 .gv-c2-tab.active{background:#45cfc5;color:#052c3d;border-color:#6bf2e3}
 .gv-c2-map-wrap{position:relative;overflow:hidden;border-radius:16px;border:1px solid rgba(126,210,223,.3);background:#092b42}
-.gv-c2-map-stage{height:clamp(260px,43vw,475px);min-width:0;position:relative;display:flex;align-items:stretch;justify-content:center;touch-action:pan-y}
+.gv-c2-map-stage{height:clamp(260px,43vw,475px);min-width:0;position:relative;display:flex;align-items:stretch;justify-content:center;touch-action:none}
 .gv-c2-loading{margin:auto;color:#b6d7e2}
-.gv-c2-svg{display:block;width:100%;height:100%;touch-action:pan-y}
+.gv-c2-svg{display:block;width:100%;height:100%;touch-action:none}
 .gv-c2-graticule path{fill:none;stroke:#b5d5de20;stroke-width:.7}
 .gv-c2-country{fill:#31566b;stroke:#7fb1bd8a;stroke-width:.72;vector-effect:non-scaling-stroke}
 .gv-c2-country.selected{fill:#4bcac1;stroke:#e2ffef;stroke-width:1.05}
