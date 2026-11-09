@@ -1,0 +1,126 @@
+/* GeoVerse Country Atlas 2.0 — Phase 1, country directory only.
+   Keep country map, global map, and landmarks unchanged. */
+#main .gv-country-grid{
+ display:grid!important;
+ grid-template-columns:repeat(2,minmax(0,1fr))!important;
+ gap:12px!important;
+ align-items:stretch!important;
+}
+#main .gv-country-grid .gv-country-row{
+ box-sizing:border-box!important;
+ display:grid!important;
+ grid-template-columns:46px minmax(0,1fr) auto!important;
+ grid-template-areas:"flag name arrow" "flag capital arrow"!important;
+ column-gap:12px!important;
+ row-gap:3px!important;
+ align-content:center!important;
+ align-items:center!important;
+ width:100%!important;
+ min-width:0!important;
+ min-height:92px!important;
+ padding:15px 16px!important;
+ border-radius:17px!important;
+ border:1px solid rgba(102,191,208,.35)!important;
+ background:linear-gradient(145deg,rgba(15,54,75,.94),rgba(6,30,49,.94))!important;
+ color:#eaf9fc!important;
+ box-shadow:0 8px 20px rgba(0,16,28,.12),inset 0 1px rgba(218,255,250,.05)!important;
+ text-align:start!important;
+ transition:border-color .16s ease,transform .16s ease,background .16s ease!important;
+}
+#main .gv-country-grid .gv-country-row:hover,
+#main .gv-country-grid .gv-country-row:focus-visible{
+ border-color:rgba(126,234,222,.77)!important;
+ background:linear-gradient(145deg,rgba(17,67,86,.98),rgba(7,37,57,.98))!important;
+}
+#main .gv-country-grid .gv-country-row:focus-visible{outline:2px solid #b9faf1;outline-offset:2px}
+#main .gv-country-grid .gv-country-flag{
+ grid-area:flag!important;
+ width:46px!important;
+ height:37px!important;
+ display:flex!important;
+ align-items:center!important;
+ justify-content:center!important;
+ min-width:0!important;
+ overflow:hidden!important;
+ border-radius:7px!important;
+ background:rgba(225,245,250,.09)!important;
+}
+#main .gv-country-grid .gv-country-flag img{
+ display:block!important;
+ width:100%!important;
+ height:100%!important;
+ object-fit:contain!important;
+}
+#main .gv-country-grid .gv-country-name{
+ grid-area:name!important;
+ min-width:0!important;
+ display:flex!important;
+ flex-direction:column!important;
+ gap:3px!important;
+ text-align:start!important;
+}
+#main .gv-country-grid .gv-country-name b{
+ display:block!important;
+ font-size:clamp(14px,1.5vw,16px)!important;
+ font-weight:850!important;
+ line-height:1.5!important;
+ color:#eaffff!important;
+ white-space:normal!important;
+ overflow-wrap:anywhere!important;
+}
+#main .gv-country-grid .gv-country-name small{
+ color:rgba(183,210,222,.78)!important;
+ font-size:11px!important;
+ font-weight:500!important;
+ line-height:1.4!important;
+ overflow-wrap:anywhere!important;
+}
+#main .gv-country-grid .gv-capital{
+ grid-area:capital!important;
+ display:block!important;
+ min-width:0!important;
+ max-width:100%!important;
+ margin:0!important;
+ padding:0!important;
+ background:none!important;
+ border:0!important;
+ color:#91e8e0!important;
+ font-size:clamp(12px,1.2vw,13px)!important;
+ font-weight:750!important;
+ line-height:1.5!important;
+ white-space:normal!important;
+ text-align:start!important;
+ overflow-wrap:anywhere!important;
+}
+#main .gv-country-grid .gv-country-chevron{
+ grid-area:arrow!important;
+ align-self:center!important;
+ justify-self:end!important;
+ font-size:15px!important;
+ color:#8bded5!important;
+ margin:0!important;
+}
+#main .gv-country-index-note{
+ margin:0 0 14px;
+ color:rgba(180,209,221,.82);
+ font-size:12px;
+ line-height:1.8;
+}
+@media(min-width:1100px){
+ #main .gv-country-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+}
+@media(max-width:700px){
+ #main .gv-country-grid{grid-template-columns:minmax(0,1fr)!important;gap:9px!important}
+ #main .gv-country-grid .gv-country-row{
+  min-height:80px!important;
+  padding:12px 14px!important;
+  grid-template-columns:43px minmax(0,1fr) auto!important;
+  column-gap:11px!important;
+ }
+ #main .gv-country-grid .gv-country-flag{width:43px!important;height:33px!important}
+ #main .gv-country-grid .gv-country-name b{font-size:15px!important}
+ #main .gv-country-grid .gv-capital{font-size:12px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ #main .gv-country-grid .gv-country-row{transition:none!important}
+}
