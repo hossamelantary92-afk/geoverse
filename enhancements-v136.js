@@ -118,12 +118,59 @@ home=function(){
  return h;
 };
 function getCountryName(r){return state.lang==='ar'?arName(r):r.name}
-function countryCards(list){return list.map(r=>'<button class="gv-country-row" data-v4-country="'+escapeHTML(r.code)+'"><span class="gv-country-flag">'+flag(r.code,'Flag of '+r.name)+'</span><span class="gv-country-name"><b>'+escapeHTML(getCountryName(r))+'</b><small>'+escapeHTML(r.name)+'</small></span><span class="gv-capital">'+escapeHTML(r.capital||'—')+'</span><span class="gv-country-chevron">↗</span></button>').join('')}
+// The existing bilingual capital dictionary is loaded by capital-localization.js.
+// Avoid maintaining a second copy of capital names in the country directory.
+function directoryCapitalAr(r){
+ const localized=window.GeoVerseCapitalNames?.[r.code];
+ if(localized)return localized;
+ const v=allGeo.find(x=>norm(x[1])===norm(r.name));
+ const m=(v?.[2]||'').match(/العاصمة(?: الإدارية)?:\\s*([^·،]+)/);
+ return m?m[1].trim():r.capital||'—';
+}
+function countrySearchKey(value){
+ return String(value||'').normalize('NFKD').toLowerCase()
+ .replace(/[\\u064b-\\u065f\\u0670\\u0640]/g,'')
+ .replace(/[أإآ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه')
+ .replace(/[\\u0300-\\u036f]/g,'')
+ .replace(/[^\\p{L}\\p{N}]+/gu,' ').trim();
+}
+const countrySearchAliases={
+ 'EG':['مصر','القاهرة','egypt','cairo'],
+ 'SA':['السعودية','المملكة العربية السعودية','الرياض','ksa','saudi arabia','riyadh'],
+ 'US':['امريكا','الولايات المتحدة','واشنطن','usa','united states','washington dc'],
+ 'GB':['بريطانيا','المملكة المتحدة','لندن','uk','britain','united kingdom','london'],
+ 'AE':['الامارات','الإمارات العربية المتحدة','أبو ظبي','ابوظبي','uae','abu dhabi'],
+ 'TR':['تركيا','أنقرة','turkiye','turkey','ankara'],
+ 'CZ':['التشيك','براغ','czechia','czech republic','prague'],
+ 'KR':['كوريا الجنوبية','سيول','south korea','seoul'],
+ 'KP':['كوريا الشمالية','بيونغ يانغ','north korea','pyongyang'],
+ 'CI':['ساحل العاج','كوت ديفوار','abidjan','yamoussoukro'],
+ 'MM':['ميانمار','بورما','naypyidaw','rangoon'],
+ 'NL':['هولندا','امستردام','أمستردام','the netherlands','amsterdam','the hague'],
+ 'ZA':['جنوب افريقيا','بريتوريا','كيب تاون','بلومفونتين','south africa','pretoria','cape town','bloemfontein'],
+ 'BO':['بوليفيا','سوكري','لاباز','bolivia','sucre','la paz']
+};
+function countrySearchTerms(r){
+ return countrySearchKey([
+ arName(r),r.name, r.capital||'',directoryCapitalAr(r),
+ ...(countrySearchAliases[r.code]||[])
+ ].join(' '));
+}
+function countryMatchesQuery(r,query){
+ const words=countrySearchKey(query).split(' ').filter(Boolean);
+ if(!words.length)return true;
+ const haystack=countrySearchTerms(r);
+ return words.every(word=>haystack.includes(word));
+}
+function sortedCountryRows(continent,query){
+ return store.countries.filter(r=>(continent==='all'||r.continent===continent||continent==='Asia'&&twoRegion.has(r.name))&&countryMatchesQuery(r,query))
+ .sort((a,b)=>(state.lang==='ar'?getCountryName(a).localeCompare(getCountryName(b),'ar'):a.name.localeCompare(b.name,'en')));
+}
+function countryCards(list){return list.map(r=>'<button type="button" class="gv-country-row" data-v4-country="'+escapeHTML(r.code)+'" aria-label="'+escapeHTML(getCountryName(r)+'، '+(state.lang==='ar'?directoryCapitalAr(r):r.capital||'—'))+'"><span class="gv-country-flag">'+flag(r.code,'Flag of '+r.name)+'</span><span class="gv-country-name"><b>'+escapeHTML(getCountryName(r))+'</b><small>'+escapeHTML(r.name)+'</small></span><span class="gv-capital">'+escapeHTML(state.lang==='ar'?directoryCapitalAr(r):r.capital||'—')+'</span><span class="gv-country-chevron" aria-hidden="true">↗</span></button>').join('')}
 function countriesPage(){
  const c=state.v4Continent||'all';
  const options=['all',...continentKeys];
- const countries=store.countries.filter(r=>c==='all'||r.continent===c||c==='Asia'&&twoRegion.has(r.name)).sort((a,b)=>(state.lang==='ar'?getCountryName(a).localeCompare(getCountryName(b),'ar'):a.name.localeCompare(b.name,'en')));
- const filtered=countries.filter(x=>(getCountryName(x)+' '+x.name+' '+x.capital).toLowerCase().includes((state.v4Search||'').trim().toLowerCase()));
+ const filtered=sortedCountryRows(c,state.v4Search||'');
  return '<header class="gv-page-heading gv-country-index-hero"><span class="eyebrow">THE WORLD / COUNTRY INDEX</span><h1>'+lang('دول العالم وعواصمها','Countries & Capitals')+'</h1><p>'+lang('استكشف الدول حسب القارات، مع أعلام SVG وملفات معرفية وخرائط تفاعلية.','Explore by continent, with real SVG flags, profiles and maps.')+'</p></header><div class="gv-country-controls"><div class="gv-tabs">'+options.map(x=>'<button class="'+(x===c?'active':'')+'" data-v4-continent="'+x+'">'+(x==='all'?lang('كل العالم','All world'):lang(continentAr[x],x))+'</button>').join('')+'</div><div class="gv-country-toolbar"><input id="gvCountrySearch" type="search" placeholder="'+lang('ابحث عن دولة أو عاصمة...','Search a country or capital...')+'" value="'+escapeHTML(state.v4Search||'')+'"></div></div><div class="gv-result-head"><strong>'+filtered.length+' '+lang('دولة وإقليم','countries & territories')+'</strong><span>'+lang('اضغط لاستكشاف التفاصيل والحدود','Select to view real flags, geography & borders')+'</span></div><div class="gv-country-grid" id="gvCountryGrid">'+countryCards(filtered)+'</div>';
 }
 function capitalAr(r){const v=allGeo.find(x=>norm(x[1])===norm(r.name));const m=(v?.[2]||'').match(/العاصمة(?: الإدارية)?:\s*([^·،]+)/);return m?m[1].trim():r.capital||'—'}
@@ -657,7 +704,7 @@ document.addEventListener('click',e=>{
  const region=e.target.closest?.('[data-v4-continent]');if(region){e.preventDefault();e.stopImmediatePropagation();state.v4Continent=region.dataset.v4Continent;state.v4Search='';setPage('countries-v4');return}
  const sorting=e.target.closest?.('[data-v4-sort]');if(sorting){e.preventDefault();e.stopImmediatePropagation();state.v4Sort=sorting.dataset.v4Sort;render();return}
 },true);
-document.addEventListener('input',e=>{if(e.target.id==='categoryFilter')setTimeout(loadCardsMedia,130);if(e.target.id==='gvCountrySearch'){state.v4Search=e.target.value;const c=state.v4Continent||'all';const filtered=store.countries.filter(r=>(c==='all'||r.continent===c||c==='Asia'&&twoRegion.has(r.name))&&(getCountryName(r)+' '+r.name+' '+r.capital).toLowerCase().includes(state.v4Search.toLowerCase()));filtered.sort((a,b)=>state.lang==='ar'?getCountryName(a).localeCompare(getCountryName(b),'ar'):a.name.localeCompare(b.name,'en'));const grid=document.getElementById('gvCountryGrid');if(grid)grid.innerHTML=countryCards(filtered);const summary=document.querySelector('#main .gv-result-head strong');if(summary)summary.textContent=filtered.length+' '+lang('دولة وإقليم','countries & territories')}});
+document.addEventListener('input',e=>{if(e.target.id==='categoryFilter')setTimeout(loadCardsMedia,130);if(e.target.id==='gvCountrySearch'){state.v4Search=e.target.value;const c=state.v4Continent||'all';const filtered=sortedCountryRows(c,state.v4Search);const grid=document.getElementById('gvCountryGrid');if(grid)grid.innerHTML=countryCards(filtered);const summary=document.querySelector('#main .gv-result-head strong');if(summary)summary.textContent=filtered.length+' '+lang('دولة وإقليم','countries & territories')}});
 document.addEventListener('mouseover',e=>{if(state.page==='play'&&selectedGameMode==='mapfind'){const p=e.target.closest?.('[data-map-country]');if(p){p.removeAttribute('aria-label');p.querySelectorAll('title').forEach(t=>t.remove())}}},true);
 document.addEventListener('focusin',e=>{if(state.page==='play'&&selectedGameMode==='mapfind'){const p=e.target.closest?.('[data-map-country]');if(p){p.removeAttribute('aria-label');p.querySelectorAll('title').forEach(t=>t.remove())}}},true);
 const originalCreate=createGame;
