@@ -32,7 +32,7 @@ jobs:
           session=requests.Session();session.headers.update({"User-Agent":"GeoVerseEducationalAtlas/1.0 (image licensing audit; GitHub Actions)"})
           for item in photos:
               name=item["file"]
-              url="https://commons.wikimedia.org/wiki/Special:Redirect/file/"+quote(name.replace(" ","_"))+"?width=1600"
+              url="https://commons.wikimedia.org/wiki/Special:Redirect/file/"+quote(name.replace(" ","_"))+"?width=2600"
               response=None
               for attempt in range(4):
                   try:
@@ -45,11 +45,11 @@ jobs:
                       time.sleep(3*(attempt+1))
               with Image.open(io.BytesIO(response.content)) as img:
                   img=ImageOps.exif_transpose(img).convert("RGB")
-                  img.thumbnail((1500,1100),Image.Resampling.LANCZOS)
+                  img.thumbnail((2500,1800),Image.Resampling.LANCZOS)
                   dest=out/(item["slug"]+".webp")
-                  img.save(dest,"WEBP",quality=85,method=6)
+                  img.save(dest,"WEBP",quality=94,method=6)
                   assert dest.stat().st_size>15000, dest
-                  print(item["slug"],img.size,dest.stat().st_size)
+                  print(item["slug"],"HQ dimensions",img.size,"bytes",dest.stat().st_size)
           credits=["# Continent images — licenses and attribution","Images sourced from Wikimedia Commons. Displayed in GeoVerse continent cards and detail pages. Source images have been resized and converted to WebP.\n"]
           for item in photos:
               title=item["file"].replace(" ","_")
