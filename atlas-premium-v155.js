@@ -90,7 +90,7 @@ function showCountry(r,index,element){
  card.classList.remove('gv153-card-open','gv142-landmark-card','gv154-smart-card');
  card.classList.add('gv155-country-card');
  card.setAttribute('dir',document.documentElement.lang==='en'?'ltr':'rtl');
- card.innerHTML='<div class="gv417-card-grip" role="button" aria-label="'+language('اسحب لتحريك بطاقة الدولة','Drag to move country card')+'">⠿ '+language('اسحب الكارت','Drag card')+'</div><div class="gv155-card-heading"><span class="gv140-card-overline">'+language('الدولة المحددة','SELECTED COUNTRY')+'</span>'+
+ card.innerHTML='<div class="gv417-card-grip" role="button" aria-label="'+language('اسحب لتحريك بطاقة الدولة','Drag to move country card')+'">⠿</div><div class="gv155-card-heading"><span class="gv140-card-overline">'+language('الدولة المحددة','SELECTED COUNTRY')+'</span>'+
   '<button type="button" class="gv155-close" data-gv155-close aria-label="'+language('إغلاق بطاقة الدولة','Close country card')+'">×</button></div>'+
   '<div class="gv140-card-title">'+escape(name)+'</div>'+
   (capital?'<div class="gv140-card-meta">'+escape(capital)+'</div>':'')+
