@@ -82,8 +82,42 @@ function addMainNavigation(){
   root.prepend(nav);
  }
 }
+function sameDestination(a,b){
+ if(!a||!b||a.page!==b.page)return false;
+ if(a.page==='category')return a.category===b.category;
+ if(a.page==='countries-v4')return (a.continent||'all')===(b.continent||'all');
+ if(a.page==='detail')return a.category===b.category&&a.item===b.item;
+ if(a.page==='country-v4')return a.code===b.code;
+ return true;
+}
+function removeDuplicateShortcuts(){
+ const root=main();if(!root)return;
+ // A C5 feature's contextual Back and its explicit section link both return
+ // to the same Continents landing screen; keep the universal Back only.
+ if(state.page==='category'&&state.category==='continents'&&state.continentFeature){
+  root.querySelector('#gvC5IndependentPage [data-gv-c5-back]')?.remove();
+  return;
+ }
+ const target=window.GeoVerseSmartBack?.peek?.();
+ if(!target)return;
+ if(state.page==='detail'&&target.page==='category'&&target.category===state.category){
+  root.querySelector('.gv-landmark-back-row [data-gv-open-category]')?.remove();
+  root.querySelector('.gv388-nav [data-gv388-action="section"]')?.remove();
+ }
+ if(state.page==='country-v4'&&target.page==='countries-v4'){
+  const direct=root.querySelector('.gv387-country-nav .gv387-countries');
+  if(direct)direct.remove();
+ }
+ if((state.page==='category'||state.page==='countries-v4')&&target.page==='all'){
+  root.querySelector('.gv388-nav [data-gv388-action="all"]')?.remove();
+ }
+ if(state.page==='category'&&state.category==='tourism'&&window.GeoVerseTourismCountryNavigation?.getSelected?.()&&target.page==='category'&&target.category==='tourism'){
+  root.querySelector('.gv388-nav [data-gv388-action="tourism-back"]')?.remove();
+  root.querySelector('[data-gv181-back]')?.remove();
+ }
+}
 const priorRender=render;
-render=function(){const result=priorRender.apply(this,arguments);addMainNavigation();return result;};
+render=function(){const result=priorRender.apply(this,arguments);addMainNavigation();removeDuplicateShortcuts();return result;};
 document.addEventListener('click',function(e){
  const trigger=e.target.closest?.('[data-gv388-action]');
  if(!trigger)return;
