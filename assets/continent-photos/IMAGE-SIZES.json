@@ -13,9 +13,9 @@
   },
   {
     "slug": "europe",
-    "width": 1078,
-    "height": 673,
-    "bytes": 137540
+    "width": 2500,
+    "height": 1667,
+    "bytes": 1833922
   },
   {
     "slug": "north-america",
@@ -32,8 +32,8 @@
   {
     "slug": "oceania",
     "width": 2500,
-    "height": 1408,
-    "bytes": 681372
+    "height": 1667,
+    "bytes": 960004
   },
   {
     "slug": "antarctica",
