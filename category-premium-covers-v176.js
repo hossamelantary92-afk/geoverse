@@ -16,7 +16,7 @@ const covers=Object.freeze({
  rivers:Object.freeze({src:'https://images.unsplash.com/photo-1754313778624-77041cafdca9',position:'center 50%',source:'https://unsplash.com/photos/a-teal-river-flows-through-a-lush-green-forest-0PZfQw7q9C0'}),
  mountains:Object.freeze({src:'./assets/category-covers/mountains.webp',position:'center 54%',source:'GeoVerse approved generated cover'}),
  gulfs:Object.freeze({src:'https://images.unsplash.com/photo-1655042489679-7eab34cbcb98',position:'center 48%',source:'https://unsplash.com/photos/kRfq4thWyB8'}),
- tourism:Object.freeze({src:'https://images.unsplash.com/photo-1771142896875-e9083225bf7b',position:'center 48%',source:'https://unsplash.com/photos/great-pyramid-of-giza-and-sphinx-at-sunset-wte_0LyL_gE'})
+ tourism:Object.freeze({src:'./assets/category-covers/tourism-premium-v347.webp',position:'center 50%',source:'GeoVerse approved flower-free Giza cover'})
 });
 function get(id,width=1100){
  const item=covers[id];if(!item)return '';
