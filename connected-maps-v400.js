@@ -103,14 +103,18 @@ function syncWorldCountryCard(){
   if(card.style.getPropertyValue('max-width')!=='188px')card.style.setProperty('max-width','188px','important');
  }
  const direct=card.dataset.gvDirectCountry;
- const featureIndex=Number(card.dataset.gvDirectIndex);
+ const featureIndex=card.dataset.gvDirectIndex!==undefined&&card.dataset.gvDirectIndex!==''?Number(card.dataset.gvDirectIndex):NaN;
  const feature=Number.isInteger(featureIndex)?r.features?.[featureIndex]:null;
  const p=feature?.properties||{};
  const known=(direct&&store()?.countries?.find(row=>String(row.code).toUpperCase()===direct))||recordForFeature(feature)||(!feature&&selectedWorldRecord(r,card));
  const fallbackCode=[p.iso_a2,p.ISO_A2,p.iso_a2_eh,p.ISO_A2_EH].map(v=>String(v||'').toUpperCase()).find(v=>/^[A-Z]{2}$/.test(v)&&v!=='XX')||'';
- const record=known||{code:fallbackCode,name:p.name||p.ADMIN||p.NAME||p.name_long||lang('دولة غير معروفة','Unknown country'),capital:'',continent:''};
+ const atlasName=p.ADMIN||p.NAME||p.name||p.name_long||'';
+ const geoRows=typeof geo!=='undefined'&&Array.isArray(geo.countries)?geo.countries:[];
+ const geoMatch=geoRows.find(row=>[row[0],row[1]].some(n=>norm(n)===norm(atlasName)));
+ const countryByGeo=geoMatch&&store()?.countries?.find(row=>[row.name,row.nameAr,row.ar].some(n=>norm(n)===norm(geoMatch[1])||norm(n)===norm(geoMatch[0])));
+ const record=known||countryByGeo||{code:fallbackCode,name:atlasName||lang('دولة غير معروفة','Unknown country'),nameAr:geoMatch?.[0]||'',capital:p.capital||p.CAPITAL||'',continent:p.continent||p.CONTINENT||''};
  if(!feature&&!known)return;
- if(known)restoreSelectedCountryHighlight(r,known);
+ if(known&&!(feature&&Number.isInteger(featureIndex)))restoreSelectedCountryHighlight(r,known);
  const code=String(record.code||'').toUpperCase();
  if(card.dataset.gv427Country===(code||'feature-'+featureIndex)&&card.querySelector('.gv427-country-name'))return;
  card.dataset.gv427Country=code||'feature-'+featureIndex;
@@ -147,7 +151,7 @@ function syncWorldCountryCard(){
  profile.className='gv400-map-link';profile.dataset.gv400OpenProfile=code;
  profile.textContent=lang('فتح ملف الدولة الكامل','Open full country profile');
  heading.append(grip,img);card.replaceChildren(heading,close,title,capital,continent);
- if(known?.code)card.appendChild(profile);
+ if(record.code&&store()?.countries?.some(row=>String(row.code).toUpperCase()===code))card.appendChild(profile);
  const keys=['Asia','Africa','Europe','North America','South America','Oceania','Antarctica'];
  const index=keys.findIndex(value=>norm(value)===norm(record.continent));
  if(index>=0){
@@ -631,5 +635,5 @@ body.light .gv400-map-link{background:linear-gradient(135deg,#e8f8f5,#f5fbff);co
 #worldMap .gv427-unified-card .gv400-map-link{min-height:40px!important;font-size:10px!important;line-height:1.35!important;padding:6px 5px!important}
 `;
 document.head.appendChild(style);
-window.GeoVerseConnectedMapsV400={version:'v439',focusWorldCountry};
+window.GeoVerseConnectedMapsV400={version:'v445',focusWorldCountry};
 })();
