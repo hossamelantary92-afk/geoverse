@@ -11,8 +11,8 @@ const root = resolve(import.meta.dirname, '..');
 const metadata = JSON.parse(readFileSync(resolve(root, 'country-meta.json'), 'utf8'));
 const facts = JSON.parse(readFileSync(resolve(root, 'country-facts.json'), 'utf8'));
 const map = JSON.parse(readFileSync(resolve(root, 'world.geojson'), 'utf8'));
-const geometryNames = new Set((map.features || []).map(feature => String(feature.properties?.name || '').toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g, '').trim()));
-const normalizedName = name => String(name || '').toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g, '').trim();
+const geometryNames = new Set((map.features || []).map(feature => String(feature.properties?.name || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim()));
+const normalizedName = name => String(name || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
 
 const records = metadata.countries || [];
 const byCode = facts.byCode || {};
