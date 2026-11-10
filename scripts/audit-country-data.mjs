@@ -17,17 +17,38 @@ const metaCodes = new Set(coded.map(row => row.code));
 const factCodes = new Set(Object.keys(byCode));
 const repeated = coded.filter((row, i) => coded.findIndex(other => other.code === row.code) !== i);
 const taggedLegacy = records.filter(row => /historical|legacy|antilles/i.test(row.name || ''));
-// Null does not always mean an editorial omission. These are explicit special cases
-// for review; they do not assert sovereignty or supply an invented capital.
-// Nauru has no official capital (government offices are in Yaren); Antarctica
-// has no national government. Other entries may need separate status notes.
-const verifiedNoNationalCapital = new Set(['AQ', 'NR']);
+// Country / territory exceptions are context, not missing-data fixes.
+// Sources: https://www.gov.uk/world/organisations/british-indian-ocean-territory
+// https://www.tokelau.org.nz/Tokelau%2BGovernment.html
+// https://www.basiclaw.gov.hk/en/basiclaw/chapter2.html
+// https://www.un.org/dppa/decolonization/en/nsgt/western-sahara
+// This classification never asserts a disputed sovereignty or invents a capital.
+const capitalExceptions = {
+  AQ: { status: 'no_national_capital', context: 'Antarctic Treaty area, not a sovereign state' },
+  NR: { status: 'no_official_capital', context: 'Government offices in Yaren' },
+  BV: { status: 'uninhabited_territory', context: 'Uninhabited Norwegian dependency' },
+  IO: { status: 'external_administration', context: 'Territorial administration based in London' },
+  TF: { status: 'uninhabited_territory', context: 'French Southern and Antarctic Lands' },
+  HM: { status: 'uninhabited_territory', context: 'Australian external territory' },
+  HK: { status: 'special_administrative_region', context: 'Hong Kong SAR of China; no separate national capital' },
+  MO: { status: 'special_administrative_region', context: 'Macao SAR of China; no separate national capital' },
+  AN: { status: 'historical_entity', context: 'Netherlands Antilles dissolved in 2010' },
+  GS: { status: 'uninhabited_territory', context: 'South Georgia and South Sandwich Islands' },
+  SJ: { status: 'composite_territory', context: 'Svalbard and Jan Mayen share an ISO entry; Longyearbyen administers Svalbard' },
+  TK: { status: 'rotating_administration', context: 'Tokelau leadership rotates among three atolls; no single fixed capital' },
+  UM: { status: 'island_group', context: 'Aggregate of US Minor Outlying Islands' },
+  EH: { status: 'disputed_territory', context: 'Western Sahara: UN Non-Self-Governing Territory' }
+};
 const historicalAliases = new Set(['AN', 'TP', 'UK']);
 const capitalEmpty = coded.filter(row => !row.capital).map(row => row.code);
-const missingCapitalReview = capitalEmpty.filter(code => !verifiedNoNationalCapital.has(code));
+const classifiedCapitalExceptions = capitalEmpty
+  .filter(code => Object.hasOwn(capitalExceptions, code))
+  .map(code => ({ code, ...capitalExceptions[code] }))
+  .sort((a, b) => a.code.localeCompare(b.code));
 const anomalies = {
-  noNationalCapital: capitalEmpty.filter(code => verifiedNoNationalCapital.has(code)).sort(),
-  noCapitalRecordedNeedsReview: missingCapitalReview.sort(),
+  noNationalCapital: capitalEmpty.filter(code => ['AQ', 'NR'].includes(code)).sort(),
+  noCapitalRecordedNeedsReview: capitalEmpty.filter(code => !Object.hasOwn(capitalExceptions, code)).sort(),
+  classifiedExceptions: classifiedCapitalExceptions,
   historicalAliasCodes: coded.filter(row => historicalAliases.has(row.code)).map(row => row.code).sort()
 };
 const withoutYear = Object.entries(byCode)
