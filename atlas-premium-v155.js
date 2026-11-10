@@ -82,7 +82,7 @@ function focusCountry(r,feature){
 }
 function showCountry(r,index,element){
  if(r?.id==='worldMap'&&typeof window.GeoVerseSelectAtlasCountry==='function'){
-  window.GeoVerseSelectAtlasCountry(element);return;
+  if(window.GeoVerseSelectAtlasCountry(element)!==false)return;
  }
 
  const feature=r.features?.[index];if(!feature)return;
