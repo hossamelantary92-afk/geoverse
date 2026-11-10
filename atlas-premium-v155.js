@@ -168,8 +168,27 @@ function decorate(r){
  card.addEventListener('pointercancel',e=>{if(drag?.id===e.pointerId)drag=null});
  const foot=document.createElement('div');foot.className='gv140-foot-hint';foot.textContent=language('المس دولة لاستكشافها  ·  اسحب للتنقل  ·  قرّب بإصبعين','Tap a country  ·  Drag to pan  ·  Pinch to zoom');stage.appendChild(foot);
  stage.querySelector('.atlas-tools')?.setAttribute('aria-label',language('أدوات تكبير الخريطة','Map zoom controls'));
+ // v448: resolve a near-country tap without requiring pixel-perfect SVG hits.
+ // The threshold is screen-space pixels, so it also works on iPhone Safari.
+ const countryAtPoint=(x,y,target)=>{
+  const direct=target?.closest?.('.atlas-country[data-map-country]');
+  if(direct&&svg.contains(direct))return direct;
+  let best=null,score=Infinity;
+  svg.querySelectorAll('.atlas-country[data-map-country]').forEach(path=>{
+   const box=path.getBoundingClientRect();
+   if(!box.width||!box.height)return;
+   const dx=Math.max(box.left-x,0,x-box.right);
+   const dy=Math.max(box.top-y,0,y-box.bottom);
+   const distance=Math.hypot(dx,dy);
+   if(distance>13)return;
+   // Prefer the closest visible outline; small countries win equal-distance ties.
+   const candidate=distance*10000+Math.min(box.width*box.height,100000);
+   if(candidate<score){score=candidate;best=path}
+  });
+  return best;
+ };
  const selectionHandler=e=>{
-  const el=e.target.closest?.('[data-map-country]');
+  const el=countryAtPoint(e.clientX,e.clientY,e.target);
   if(!el||!svg.contains(el))return;
   const index=Number(el.getAttribute('data-map-country'));
   if(Number.isInteger(index)){
@@ -227,7 +246,7 @@ function decorate(r){
   // so native single-pointer map drag cannot interfere with pinch.
   if(event.pointerType==='mouse')return;
   pointers.set(event.pointerId,coordinate(event));
-  const hit=event.target.closest?.('[data-map-country]');
+  const hit=countryAtPoint(event.clientX,event.clientY,event.target);
   tapCandidates.set(event.pointerId,{x:event.clientX,y:event.clientY,index:hit?Number(hit.getAttribute('data-map-country')):null,element:hit,moved:false});
   if(pointers.size>1)for(const tap of tapCandidates.values())tap.moved=true;
   resetGesture();
