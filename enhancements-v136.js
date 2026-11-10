@@ -176,7 +176,29 @@ function sortedCountryRows(continent,query){
  return store.countries.filter(r=>(continent==='all'||r.continent===continent||continent==='Asia'&&twoRegion.has(r.name))&&countryMatchesQuery(r,query))
  .sort((a,b)=>(state.lang==='ar'?getCountryName(a).localeCompare(getCountryName(b),'ar'):a.name.localeCompare(b.name,'en')));
 }
-function countryCards(list){return list.map(r=>'<button type="button" class="gv-country-row" data-v4-country="'+escapeHTML(r.code)+'" aria-label="'+escapeHTML(getCountryName(r)+'، '+(state.lang==='ar'?directoryCapitalAr(r):r.capital||'—'))+'"><span class="gv-country-flag">'+flag(r.code,'Flag of '+r.name)+'</span><span class="gv-country-name"><b>'+escapeHTML(getCountryName(r))+'</b><small>'+escapeHTML(r.name)+'</small></span><span class="gv-capital">'+escapeHTML(state.lang==='ar'?directoryCapitalAr(r):r.capital||'—')+'</span><span class="gv-country-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></button>').join('')}
+function capitalDisplay(r){
+ const raw=state.lang==='ar'?directoryCapitalAr(r):(r.capital||'');
+ if(raw&&raw!=='—')return raw;
+ const notes={
+  AQ:['لا توجد عاصمة','No capital'],
+  BV:['لا توجد عاصمة؛ جزيرة غير مأهولة','No capital; uninhabited island'],
+  IO:['لا توجد عاصمة رسمية','No official capital'],
+  TF:['لا توجد عاصمة؛ إقليم غير مأهول دائمًا','No capital; no permanent population'],
+  HM:['لا توجد عاصمة؛ جزر غير مأهولة','No capital; uninhabited islands'],
+  GS:['لا توجد عاصمة؛ إقليم غير مأهول دائمًا','No capital; no permanent population'],
+  SJ:['لا توجد عاصمة موحدة','No single capital'],
+  TK:['لا توجد عاصمة رسمية','No official capital'],
+  UM:['لا توجد عاصمة؛ جزر غير مأهولة','No capital; uninhabited islands'],
+  AN:['كيان تاريخي منحل','Dissolved historical entity']
+ };
+ const note=notes[r.code];
+ return note?lang(note[0],note[1]):lang('لا توجد عاصمة رسمية','No official capital');
+}
+function countryCards(list){return list.map(r=>{
+ const capital=capitalDisplay(r);
+ return '<button type="button" class="gv-country-row" data-v4-country="'+escapeHTML(r.code)+'" aria-label="'+escapeHTML(getCountryName(r)+'، '+capital)+'"><span class="gv-country-flag">'+flag(r.code,'Flag of '+r.name)+'</span><span class="gv-country-name"><b>'+escapeHTML(getCountryName(r))+'</b><span class="gv-capital">'+escapeHTML(capital)+'</span><small>'+escapeHTML(r.name)+'</small></span><span class="gv-country-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></button>'
+ }).join('')}
+
 function countriesPage(){
  const c=state.v4Continent||'all';
  const options=['all',...continentKeys];
