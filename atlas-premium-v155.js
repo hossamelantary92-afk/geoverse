@@ -1,4 +1,4 @@
-/* GeoVerse v430 (based on v155) — refined country cards and preserved map gestures.
+/* GeoVerse v431 (based on v155) — refined country cards and preserved map gestures.
    Scoped to the Explorer atlas and editorial detail maps. NEVER touches quiz maps or 3D globe. */
 (function(){
 'use strict';
@@ -158,6 +158,7 @@ function decorate(r){
  // Track every pointer ourselves: the legacy atlas only handles one
  // finger and can capture the wrong pointer on ocean, breaking pinch on iOS.
  const pointers=new Map();
+ const tapCandidates=new Map();
  let snapshot=null,suppressClickUntil=0;
  const coordinate=event=>({x:event.clientX,y:event.clientY});
  const midpoint=(a,b)=>({x:(a.x+b.x)/2,y:(a.y+b.y)/2});
@@ -204,6 +205,9 @@ function decorate(r){
   // so native single-pointer map drag cannot interfere with pinch.
   if(event.pointerType==='mouse')return;
   pointers.set(event.pointerId,coordinate(event));
+  const hit=event.target.closest?.('[data-map-country]');
+  tapCandidates.set(event.pointerId,{x:event.clientX,y:event.clientY,index:hit?Number(hit.getAttribute('data-map-country')):null,element:hit,moved:false});
+  if(pointers.size>1)for(const tap of tapCandidates.values())tap.moved=true;
   resetGesture();
   if(pointers.size>1)suppressClickUntil=performance.now()+550;
   // Do not capture a simple tap: Safari retargets the synthetic click to SVG,
@@ -213,14 +217,22 @@ function decorate(r){
  svg.addEventListener('pointermove',event=>{
   if(!pointers.has(event.pointerId))return;
   pointers.set(event.pointerId,coordinate(event));
-  viewFromGesture();
-  if(event.cancelable)event.preventDefault();
+  const tap=tapCandidates.get(event.pointerId);
+  if(tap&&Math.hypot(event.clientX-tap.x,event.clientY-tap.y)>9)tap.moved=true;
+  if(tap?.moved||pointers.size>1){
+   viewFromGesture();
+   if(event.cancelable)event.preventDefault();
+  }
   event.stopImmediatePropagation();
  },true);
  const finishGesture=event=>{
   if(!pointers.has(event.pointerId))return;
-  if(snapshot?.moved||pointers.size>1)suppressClickUntil=performance.now()+550;
+  const tap=tapCandidates.get(event.pointerId);
+  const isTap=event.type==='pointerup'&&tap&&!tap.moved&&pointers.size===1&&Number.isInteger(tap.index)&&tap.element?.isConnected;
+  if(snapshot?.moved||pointers.size>1||isTap)suppressClickUntil=performance.now()+550;
   pointers.delete(event.pointerId);
+  tapCandidates.delete(event.pointerId);
+  if(isTap&&atlasRuntime===r&&r.node.isConnected)showCountry(r,tap.index,tap.element);
   resetGesture();
   event.stopImmediatePropagation();
  };
