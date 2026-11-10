@@ -76,7 +76,7 @@ function resolvedContinent(name){const r=recordFor(name);return r?.continent||((
 async function loadCatalogue(){
  try{
  const [meta,shape]=await Promise.all([fetch('./country-meta.json').then(x=>x.json()),fetch('./world.geojson?v=gv119-bermuda-ring-fixed',{cache:'no-cache'}).then(x=>x.json())]);
- store.countries=meta.countries.filter(x=>x.code&&x.continent);for(const r of store.countries){store.byCode.set(r.code,r);store.byName.set(norm(r.name),r)}
+ store.countries=meta.countries.filter(x=>x.code&&x.continent&&x.code!=='UK'); // GB is the canonical United Kingdom entry; UK is a legacy duplicate.for(const r of store.countries){store.byCode.set(r.code,r);store.byName.set(norm(r.name),r)}
  store.byName.set(norm('United States of America'),recordFor('United States'));
  store.byName.set(norm('United Republic of Tanzania'),recordFor('Tanzania'));
  store.byName.set(norm('Democratic Republic of the Congo'),recordFor('The Democratic Republic of Congo'));
