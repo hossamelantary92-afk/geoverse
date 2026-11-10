@@ -81,6 +81,10 @@ function focusCountry(r,feature){
  transitionTo(r,[Math.max(0,Math.min(1000-w,centerX-w/2)),Math.max(0,Math.min(520-h,centerY-h/2)),w,h],510);
 }
 function showCountry(r,index,element){
+ if(r?.id==='worldMap'&&typeof window.GeoVerseSelectAtlasCountry==='function'){
+  window.GeoVerseSelectAtlasCountry(element);return;
+ }
+
  const feature=r.features?.[index];if(!feature)return;
  const record=countryRecord(feature),name=nameFor(feature);
  const card=r.node.querySelector('.gv140-country-card');
