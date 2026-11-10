@@ -24,6 +24,34 @@ function mount(){
  const projection=d3.geoMercator().fitExtent([[34,30],[446,310]],feature);
  const path=d3.geoPath(projection);
  const outline=document.createElementNS(svg.namespaceURI,'path');outline.setAttribute('d',path(feature)||'');outline.setAttribute('class','gv450-outline');svg.appendChild(outline);
+ if(code==='EG'){
+  // Terrain-inspired cartography, clipped to the real country outline.
+  // Nile and delta are geographically projected rather than drawn as decoration.
+  const ns=svg.namespaceURI,defs=document.createElementNS(ns,'defs');
+  const clip=document.createElementNS(ns,'clipPath');clip.setAttribute('id','gv472-egypt-clip');
+  const clipOutline=document.createElementNS(ns,'path');clipOutline.setAttribute('d',path(feature)||'');
+  clip.appendChild(clipOutline);defs.appendChild(clip);
+  const land=document.createElementNS(ns,'linearGradient');land.setAttribute('id','gv472-land');
+  land.setAttribute('x1','0');land.setAttribute('y1','0');land.setAttribute('x2','1');land.setAttribute('y2','1');
+  [['0%','#806849'],['43%','#b08a55'],['100%','#715e49']].forEach(([offset,color])=>{
+   const stop=document.createElementNS(ns,'stop');stop.setAttribute('offset',offset);stop.setAttribute('stop-color',color);land.appendChild(stop);
+  });defs.appendChild(land);
+  svg.insertBefore(defs,outline);
+  outline.setAttribute('fill','url(#gv472-land)');outline.classList.add('gv472-terrain');
+  const terrain=document.createElementNS(ns,'g');terrain.setAttribute('clip-path','url(#gv472-egypt-clip)');
+  const coordsToPath=(points)=>points.map((p,i)=>{const xy=projection(p);return(i?'L':'M')+xy[0].toFixed(1)+' '+xy[1].toFixed(1)}).join(' ');
+  // Approximate geographic Nile course from Aswan to the Mediterranean.
+  const nile=[[32.88,24.09],[32.75,25.3],[32.64,25.7],[32.52,26.2],[31.79,26.57],[31.52,27.2],[31.25,28.1],[31.27,29.0],[31.25,30.05]];
+  const waterways=[nile,[[31.25,30.05],[31.0,30.5],[31.1,31.0],[31.4,31.45]],[[31.25,30.05],[31.6,30.6],[31.8,31.2],[31.85,31.52]]];
+  waterways.forEach((points,i)=>{const line=document.createElementNS(ns,'path');line.setAttribute('d',coordsToPath(points));line.setAttribute('class',i?'gv472-delta':'gv472-nile');terrain.appendChild(line)});
+  // Delicate desert relief bands add depth without hiding landmarks.
+  for(let i=0;i<11;i++){
+   const line=document.createElementNS(ns,'path');
+   line.setAttribute('d',coordsToPath([[25.2+i*.55,23.8],[26.1+i*.5,25.7],[25.7+i*.54,27.7],[26.5+i*.48,29.6],[26.0+i*.49,31.2]]));
+   line.setAttribute('class','gv472-relief');terrain.insertBefore(line,terrain.firstChild);
+  }
+  svg.insertBefore(terrain,outline.nextSibling);
+ }
  const details=document.createElement('div');details.className='gv450-details';details.setAttribute('aria-live','polite');
  const buttons=[];let selectedIndex=0;let list;const view={x:0,y:0,w:480,h:340};
  const controls=document.createElement('div');controls.className='gv450-controls';
@@ -32,6 +60,29 @@ function mount(){
  controls.append(zoomIn,zoomOut,reset);
  const applyView=()=>svg.setAttribute('viewBox',[view.x,view.y,view.w,view.h].join(' '));
  function zoom(factor){const nw=Math.max(75,Math.min(480,view.w*factor)),nh=nw*340/480;view.x=Math.max(0,Math.min(480-nw,view.x+(view.w-nw)/2));view.y=Math.max(0,Math.min(340-nh,view.y+(view.h-nh)/2));view.w=nw;view.h=nh;applyView()}
+ if(code==='EG'){
+  const activePointers=new Map();let lastPan=null,lastDistance=null;
+  svg.style.touchAction='none';
+  svg.addEventListener('pointerdown',e=>{if(e.target.classList.contains('gv450-hit'))return;activePointers.set(e.pointerId,[e.clientX,e.clientY]);try{svg.setPointerCapture(e.pointerId)}catch(_){}});
+  svg.addEventListener('pointermove',e=>{
+   if(!activePointers.has(e.pointerId))return;
+   const prev=activePointers.get(e.pointerId);activePointers.set(e.pointerId,[e.clientX,e.clientY]);
+   const points=[...activePointers.values()];
+   if(points.length===1){
+    const box=svg.getBoundingClientRect();
+    if(box.width&&box.height){
+     view.x=Math.max(0,Math.min(480-view.w,view.x-(e.clientX-prev[0])*view.w/box.width));
+     view.y=Math.max(0,Math.min(340-view.h,view.y-(e.clientY-prev[1])*view.h/box.height));applyView();
+    }
+   }else if(points.length===2){
+    const distance=Math.hypot(points[0][0]-points[1][0],points[0][1]-points[1][1]);
+    if(lastDistance&&distance>0)zoom(lastDistance/distance);
+    lastDistance=distance;
+   }
+  });
+  const end=e=>{activePointers.delete(e.pointerId);lastDistance=null};
+  svg.addEventListener('pointerup',end);svg.addEventListener('pointercancel',end);
+ }
  zoomIn.addEventListener('click',()=>zoom(.7));zoomOut.addEventListener('click',()=>zoom(1.4));reset.addEventListener('click',()=>{Object.assign(view,{x:0,y:0,w:480,h:340});applyView()});
  function select(i){
   selectedIndex=i;buttons.forEach((b,j)=>b.classList.toggle('gv450-active',i===j));
@@ -116,7 +167,7 @@ function mount(){
 }
 const style=document.createElement('style');
 style.textContent='.gv450-landmark-panel{margin-top:16px;padding:14px;border:1px solid rgba(113,229,213,.3);border-radius:17px;background:linear-gradient(150deg,rgba(8,48,67,.96),rgba(7,32,52,.95));color:#eafffb}.gv450-landmark-panel h3{font-size:17px;margin:0 0 5px}.gv450-landmark-panel p{font-size:12px;opacity:.8;margin:0 0 10px}.gv450-map{border-radius:12px;overflow:hidden;background:radial-gradient(circle at 45% 45%,#174b63,#08273b)}.gv450-map svg{display:block;width:100%;max-height:270px}.gv450-outline{fill:#145c68;stroke:#75dfce;stroke-width:1.5;vector-effect:non-scaling-stroke}.gv450-dot{fill:#ffda61;stroke:#fff4bd;stroke-width:1.5;pointer-events:none}.gv450-hit{fill:transparent;cursor:pointer;outline:none}.gv450-hit:focus-visible{stroke:#fff;stroke-width:2}.gv450-hit.gv450-active{stroke:#ffda61;stroke-width:2}.gv450-details{display:flex;flex-direction:column;gap:3px;padding:12px 4px 2px}.gv450-details strong{font-size:15px}.gv450-details span{font-size:12px;opacity:.78}';
-style.textContent+=' .gv450-landmark-panel{border-color:rgba(113,229,213,.5);box-shadow:0 18px 45px #0005,inset 0 1px #ffffff12;background:linear-gradient(145deg,#103c50,#071c31)}.gv450-map{position:relative;background:radial-gradient(ellipse at 40% 30%,#21586b,#0a263b 70%);border:1px solid #4b98a055}.gv450-outline{fill:#1c6b70;stroke:#96f0dd;stroke-width:1.8;filter:drop-shadow(0 3px 7px #0008)}.gv450-dot{fill:#f7c85d;filter:drop-shadow(0 0 3px #f7c85d)}.gv450-controls{position:absolute;bottom:10px;left:10px;display:flex;gap:6px}.gv450-controls button,.gv450-open,.gv450-list button{background:#154c60;border:1px solid #75d7cc77;color:#eafffb;border-radius:10px;padding:7px 10px;font:700 12px Cairo,system-ui;cursor:pointer}.gv450-list{display:flex;gap:7px;overflow-x:auto;padding:12px 0 2px;scrollbar-width:thin}.gv450-list button{white-space:nowrap;flex-shrink:0}.gv450-open{margin-top:9px;background:#1b706f}.gv450-details{min-height:75px}.gv450-hit.gv450-active{fill:#ffd75b33;stroke:#ffe5a3;stroke-width:2.5}';style.textContent+=' .gv450-list button.gv450-current{background:#1b777a;border-color:#f7d76b;color:#fff}.gv450-controls{z-index:2;direction:ltr}.gv450-controls button{min-width:34px;min-height:34px}.gv450-map{isolation:isolate}';style.textContent+=' .gv450-landmark-panel{box-sizing:border-box;width:100%;max-width:100%;min-width:0;overflow:hidden}.gv450-map,.gv450-details,.gv450-list{box-sizing:border-box;width:100%;max-width:100%;min-width:0}.gv450-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;overflow:visible;max-height:none;padding:10px 0 0}.gv450-list button{display:none;min-width:0;max-width:100%;white-space:normal;overflow-wrap:anywhere;text-align:center;line-height:1.5;min-height:45px}.gv450-list button:nth-child(-n+4),.gv450-list.gv450-expanded button{display:block}.gv450-expand{display:block;width:100%;margin-top:9px;padding:9px;border:1px solid #69d8cb66;border-radius:11px;background:#123e54;color:#a4f6e9;font:700 12px Cairo,system-ui;cursor:pointer}.gv450-landmark-panel .gv450-map svg{max-width:100%;height:auto}@media(min-width:700px){.gv450-list{grid-template-columns:repeat(3,minmax(0,1fr))}.gv450-list button:nth-child(-n+6){display:block}}';style.textContent+=' .gv470-egypt{min-width:0;max-width:100%;overflow:hidden}.gv470-egypt .gv470-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}.gv470-tabs button{min-width:0;border:1px solid #66c9c4;border-radius:12px;padding:12px 6px;background:#103a50;color:#d8f5f2;font:700 13px Cairo,system-ui;cursor:pointer}.gv470-tabs button.gv470-on{background:#4cd8cb;color:#082c37}.gv470-egypt .gv450-landmark-panel{margin:0;padding:0;border:0;background:transparent;box-shadow:none}.gv470-egypt .gv470-detail{display:none}.gv470-egypt .gv470-detail.gv470-open{display:flex}.gv470-egypt .gv450-map{max-width:100%}.gv470-egypt .gv450-controls{direction:ltr}';style.textContent+=' .gv470-egypt .gv471-stage{display:grid;grid-template-columns:minmax(0,1fr);align-items:start;min-width:0;width:100%;overflow:hidden;overflow-anchor:none}.gv470-egypt .gv471-stage>.gv-globe-detail,.gv470-egypt .gv471-stage>.gv450-landmark-panel{grid-area:1/1;min-width:0;width:100%;box-sizing:border-box}.gv470-egypt .gv471-stage>.gv471-inactive{visibility:hidden;pointer-events:none!important}.gv470-egypt .gv471-stage>.gv-globe-detail{min-height:310px}.gv470-egypt .gv471-stage>.gv450-landmark-panel{min-height:310px}';document.head.appendChild(style);
+style.textContent+=' .gv450-landmark-panel{border-color:rgba(113,229,213,.5);box-shadow:0 18px 45px #0005,inset 0 1px #ffffff12;background:linear-gradient(145deg,#103c50,#071c31)}.gv450-map{position:relative;background:radial-gradient(ellipse at 40% 30%,#21586b,#0a263b 70%);border:1px solid #4b98a055}.gv450-outline{fill:#1c6b70;stroke:#96f0dd;stroke-width:1.8;filter:drop-shadow(0 3px 7px #0008)}.gv450-dot{fill:#f7c85d;filter:drop-shadow(0 0 3px #f7c85d)}.gv450-controls{position:absolute;bottom:10px;left:10px;display:flex;gap:6px}.gv450-controls button,.gv450-open,.gv450-list button{background:#154c60;border:1px solid #75d7cc77;color:#eafffb;border-radius:10px;padding:7px 10px;font:700 12px Cairo,system-ui;cursor:pointer}.gv450-list{display:flex;gap:7px;overflow-x:auto;padding:12px 0 2px;scrollbar-width:thin}.gv450-list button{white-space:nowrap;flex-shrink:0}.gv450-open{margin-top:9px;background:#1b706f}.gv450-details{min-height:75px}.gv450-hit.gv450-active{fill:#ffd75b33;stroke:#ffe5a3;stroke-width:2.5}';style.textContent+=' .gv450-list button.gv450-current{background:#1b777a;border-color:#f7d76b;color:#fff}.gv450-controls{z-index:2;direction:ltr}.gv450-controls button{min-width:34px;min-height:34px}.gv450-map{isolation:isolate}';style.textContent+=' .gv450-landmark-panel{box-sizing:border-box;width:100%;max-width:100%;min-width:0;overflow:hidden}.gv450-map,.gv450-details,.gv450-list{box-sizing:border-box;width:100%;max-width:100%;min-width:0}.gv450-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;overflow:visible;max-height:none;padding:10px 0 0}.gv450-list button{display:none;min-width:0;max-width:100%;white-space:normal;overflow-wrap:anywhere;text-align:center;line-height:1.5;min-height:45px}.gv450-list button:nth-child(-n+4),.gv450-list.gv450-expanded button{display:block}.gv450-expand{display:block;width:100%;margin-top:9px;padding:9px;border:1px solid #69d8cb66;border-radius:11px;background:#123e54;color:#a4f6e9;font:700 12px Cairo,system-ui;cursor:pointer}.gv450-landmark-panel .gv450-map svg{max-width:100%;height:auto}@media(min-width:700px){.gv450-list{grid-template-columns:repeat(3,minmax(0,1fr))}.gv450-list button:nth-child(-n+6){display:block}}';style.textContent+=' .gv470-egypt{min-width:0;max-width:100%;overflow:hidden}.gv470-egypt .gv470-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}.gv470-tabs button{min-width:0;border:1px solid #66c9c4;border-radius:12px;padding:12px 6px;background:#103a50;color:#d8f5f2;font:700 13px Cairo,system-ui;cursor:pointer}.gv470-tabs button.gv470-on{background:#4cd8cb;color:#082c37}.gv470-egypt .gv450-landmark-panel{margin:0;padding:0;border:0;background:transparent;box-shadow:none}.gv470-egypt .gv470-detail{display:none}.gv470-egypt .gv470-detail.gv470-open{display:flex}.gv470-egypt .gv450-map{max-width:100%}.gv470-egypt .gv450-controls{direction:ltr}';style.textContent+=' .gv470-egypt .gv471-stage{display:grid;grid-template-columns:minmax(0,1fr);align-items:start;min-width:0;width:100%;overflow:hidden;overflow-anchor:none}.gv470-egypt .gv471-stage>.gv-globe-detail,.gv470-egypt .gv471-stage>.gv450-landmark-panel{grid-area:1/1;min-width:0;width:100%;box-sizing:border-box}.gv470-egypt .gv471-stage>.gv471-inactive{visibility:hidden;pointer-events:none!important}.gv470-egypt .gv471-stage>.gv-globe-detail{min-height:310px}.gv470-egypt .gv471-stage>.gv450-landmark-panel{min-height:310px}';style.textContent+=' .gv470-egypt .gv450-map{background:radial-gradient(ellipse at 52% 48%,#205568 0%,#0b2d44 70%,#061c30 100%)}.gv470-egypt .gv472-terrain{fill:url(#gv472-land);stroke:#b9f4dd;stroke-width:1.7;filter:drop-shadow(0 4px 8px #0008)}.gv472-relief{fill:none;stroke:#f1d9a2;stroke-opacity:.11;stroke-width:5}.gv472-nile{fill:none;stroke:#63e1e8;stroke-width:3;stroke-linecap:round;filter:drop-shadow(0 0 4px #65eaf0)}.gv472-delta{fill:none;stroke:#8be6e8;stroke-width:1.8;stroke-linecap:round}.gv470-egypt .gv450-dot{fill:#ffd76e;stroke:#fff5c5;stroke-width:2;filter:drop-shadow(0 0 5px #f2b94d)}';document.head.appendChild(style);
 const observer=new MutationObserver(()=>mount());
 observer.observe(document.getElementById('main')||document.body,{childList:true,subtree:true});
 mount();
