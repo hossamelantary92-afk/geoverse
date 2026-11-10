@@ -327,6 +327,20 @@ function focusWorldCountry(code){
  }
  requestAnimationFrame(attempt);
 }
+// Safari may suppress a synthesized click after a few touch/drag interactions.
+// Resolve short pointer taps directly against the SVG country, while preserving map pans.
+let gv441TouchStart=null;
+document.addEventListener('pointerdown',event=>{
+ const path=event.target.closest?.('#worldMap .atlas-country[data-map-country]');
+ gv441TouchStart=path?{id:event.pointerId,x:event.clientX,y:event.clientY,path}:null;
+},true);
+document.addEventListener('pointerup',event=>{
+ const start=gv441TouchStart;gv441TouchStart=null;
+ if(!start||start.id!==event.pointerId||Math.hypot(event.clientX-start.x,event.clientY-start.y)>9)return;
+ if(!start.path.isConnected)return;
+ selectDirectAtlasCountry(start.path);
+},true);
+document.addEventListener('pointercancel',()=>{gv441TouchStart=null},true);
 document.addEventListener('click',event=>{
  const countryPath=event.target.closest?.('#worldMap .atlas-country[data-map-country]');
  if(countryPath){
