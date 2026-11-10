@@ -280,13 +280,8 @@ document.addEventListener('click',event=>{
  const isAtlasDetail=!!legacy&&(legacy.hasAttribute('data-atlas-open')||/^(عرض التفاصيل|التفاصيل|view details|details|open details)$/.test(detailText));
  if(isAtlasDetail&&typeof state!=='undefined'&&state.page==='explore'&&legacy.closest('#worldMap')){
   const r=typeof atlasRuntime!=='undefined'?atlasRuntime:null;
-  const selected=r?.id==='worldMap'&&r.node?.querySelector('.atlas-country.gv140-active,.atlas-country.gv411-country-focus');
-  const feature=selected&&r.features?.[Number(selected.dataset.mapCountry)];
-  let record=recordForFeature(feature);
-  if(!record){
-   const name=norm(feature?.properties?.name||'');
-   record=store()?.countries?.find(row=>[row.name,row.nameAr,row.ar].some(v=>norm(v)===name));
-  }
+  const card=r?.id==='worldMap'&&r.node?.querySelector('.gv140-country-card:not([hidden])');
+  const record=card?selectedWorldRecord(r,card):null;
   if(record?.code){
    event.preventDefault();event.stopImmediatePropagation();
    if(typeof setPage==='function')setPage('country-v4',record.code);
