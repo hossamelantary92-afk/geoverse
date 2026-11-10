@@ -35,7 +35,7 @@
   observer.observe(root,{childList:true});
  }
  document.addEventListener('input',e=>{if(e.target?.id==='gvCountrySearch')setTimeout(applyArabicNames,40)});
- fetch('./geo-localization.json?v=gv356-ar-capitals').then(r=>r.ok?r.json():null).then(info=>{
+ fetch('./geo-localization.json?v=gv489-special-capitals').then(r=>r.ok?r.json():null).then(info=>{
   Object.entries(info?.capitals||{}).forEach(([key,value])=>caps.set(key,value));
   Object.entries(info?.currencies||{}).forEach(([key,value])=>currencies.set(key,value));
   window.GeoVerseCapitalNames=Object.fromEntries(caps);
