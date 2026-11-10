@@ -94,6 +94,7 @@ function selectDirectAtlasCountry(path){
  path.classList.add('gv436-selected','gv140-active');
  syncWorldCountryCard();
 }
+window.GeoVerseSelectAtlasCountry=selectDirectAtlasCountry;
 function syncWorldCountryCard(){
  const r=typeof atlasRuntime!=='undefined'?atlasRuntime:null;
  if(r?.id!=='worldMap'||!r.node?.isConnected)return;
