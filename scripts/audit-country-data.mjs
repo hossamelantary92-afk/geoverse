@@ -71,6 +71,11 @@ const legacyMetadataOnly = {
   TP: { name: 'East Timor', type: 'historical_alias', canonicalCode: 'TL' },
   UK: { name: 'United Kingdom', type: 'legacy_alias', canonicalCode: 'GB' }
 };
+// These eight records were integrated into the display catalogue in batch 5.
+// Keep this registry to detect accidental removal in a future version.
+const integratedCodes = Object.keys(factsOnly).sort();
+const missingIntegratedMetadata = integratedCodes.filter(code => !metaCodes.has(code));
+const missingIntegratedFacts = integratedCodes.filter(code => !factCodes.has(code));
 const factOnlyCodes = [...factCodes].filter(code => !metaCodes.has(code)).sort();
 const metadataOnlyCodes = [...metaCodes].filter(code => !factCodes.has(code)).sort();
 const knownFactOnly = factOnlyCodes.filter(code => Object.hasOwn(factsOnly, code));
@@ -82,12 +87,15 @@ const staleRegistry = {
   metadataOnly: Object.keys(legacyMetadataOnly).filter(code => !metadataOnlyCodes.includes(code)).sort()
 };
 const reconciliation = {
-  status: 'documented_pending_catalogue_migration',
+  status: 'eight_added_legacy_retained',
+  integratedCodes,
+  missingIntegratedMetadata,
+  missingIntegratedFacts,
   factsOnly: knownFactOnly.map(code => ({ code, ...factsOnly[code] })),
   legacyMetadataOnly: knownMetadataOnly.map(code => ({ code, ...legacyMetadataOnly[code] })),
   unclassifiedFactsOnly: unclassifiedFactOnly,
   unclassifiedMetadataOnly: unclassifiedMetadataOnly,
-  staleRegistry
+  staleRegistry: { metadataOnly: staleRegistry.metadataOnly }
 };
 const withoutYear = Object.entries(byCode)
   .filter(([, row]) => Number.isFinite(row.p) && !row.py)
@@ -121,6 +129,6 @@ const report = {
 };
 console.log(JSON.stringify(report, null, 2));
 // Nonzero exit for reproducible data mismatches, not for known missing/contested fields.
-if (report.issues.duplicateCodes.length || unclassifiedFactOnly.length || unclassifiedMetadataOnly.length || staleRegistry.factsOnly.length || staleRegistry.metadataOnly.length) {
+if (report.issues.duplicateCodes.length || unclassifiedFactOnly.length || unclassifiedMetadataOnly.length || missingIntegratedMetadata.length || missingIntegratedFacts.length || staleRegistry.metadataOnly.length) {
   process.exitCode = 1;
 }
