@@ -15,7 +15,7 @@ const points=[
 ['محمية رأس محمد','Ras Mohammed National Park','جنوب سيناء',27.732,34.246],
 ['جبل موسى','Mount Sinai','جنوب سيناء',28.539,33.975]
 ];
-const arabic=()=>window.state?.lang!=='en';
+const arabic=()=>typeof state==='undefined'||state.lang!=='en';
 const normalize=v=>String(v||'').normalize('NFKD').replace(/[\u064B-\u065F\u0670]/g,'').replace(/[أإآ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').replace(/[^\p{L}\p{N}]/gu,'').toLowerCase();
 let loading;
 function loadLeaflet(){
@@ -45,7 +45,7 @@ style.textContent=`
 `;
 document.head.appendChild(style);
 function mount(){
- if(window.state?.page!=='country-v4'||String(window.state?.v4Code||'').toUpperCase()!=='EG')return;
+ if(typeof state==='undefined'||state.page!=='country-v4'||String(state.v4Code||'').toUpperCase()!=='EG')return;
  const panel=document.querySelector('.gv470-egypt .gv450-landmark-panel');
  if(!panel||panel.dataset.gv481)return;
  const old=panel.querySelector('.gv450-map');if(!old)return;
