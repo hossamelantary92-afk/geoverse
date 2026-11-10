@@ -188,14 +188,18 @@ function focusWorldCountry(code){
 document.addEventListener('click',event=>{
  // The world atlas must never send a selected country into a generic landmark detail.
  // Reuse the same canonical country route as the Countries & Capitals directory.
- const legacy=event.target.closest('[data-atlas-open], .gv140-country-card button, .gv140-country-card a');
- const detailText=String(legacy?.textContent||'').trim();
- const isAtlasDetail=legacy?.matches('[data-atlas-open]')||/^(?:عرض التفاصيل|التفاصيل|view details|details)(?:\\s*[←→↗])?$/i.test(detailText);
- if(legacy&&isAtlasDetail&&typeof state!=='undefined'&&state.page==='explore'){
+ const legacy=event.target.closest('button,a,[role="button"],[data-atlas-open]');
+ const detailText=String(legacy?.textContent||'').replace(/[\\s←→↗]+/g,' ').trim().toLowerCase();
+ const isAtlasDetail=!!legacy&&(legacy.hasAttribute('data-atlas-open')||/^(عرض التفاصيل|التفاصيل|view details|details|open details)$/.test(detailText));
+ if(isAtlasDetail&&typeof state!=='undefined'&&state.page==='explore'&&legacy.closest('#worldMap')){
   const r=typeof atlasRuntime!=='undefined'?atlasRuntime:null;
-  const selected=r?.id==='worldMap'&&r.node?.querySelector('.atlas-country.gv140-active');
+  const selected=r?.id==='worldMap'&&r.node?.querySelector('.atlas-country.gv140-active,.atlas-country.gv411-country-focus');
   const feature=selected&&r.features?.[Number(selected.dataset.mapCountry)];
-  const record=recordForFeature(feature);
+  let record=recordForFeature(feature);
+  if(!record){
+   const name=norm(feature?.properties?.name||'');
+   record=store()?.countries?.find(row=>[row.name,row.nameAr,row.ar].some(v=>norm(v)===name));
+  }
   if(record?.code){
    event.preventDefault();event.stopImmediatePropagation();
    if(typeof setPage==='function')setPage('country-v4',record.code);
@@ -372,5 +376,5 @@ body.light .gv400-map-link{background:linear-gradient(135deg,#e8f8f5,#f5fbff);co
 #worldMap:has(.atlas-country.gv140-active) .atlas-pin-halo{transform-box:fill-box;transform-origin:center;transform:scale(.38)!important;opacity:.13!important;filter:none!important}
 `;
 document.head.appendChild(style);
-window.GeoVerseConnectedMapsV400={version:'v423',focusWorldCountry};
+window.GeoVerseConnectedMapsV400={version:'v425',focusWorldCountry};
 })();
