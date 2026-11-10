@@ -36,18 +36,21 @@ function normalizeWorldDragGrip(){
  grip.setAttribute('title',lang('حرّك البطاقة','Move card'));
 }
 function selectedWorldRecord(r,card){
- const selected=r.node.querySelector('.atlas-country.gv140-active,.atlas-country.gv411-country-focus');
+ // The visible atlas card is authoritative: legacy atlas SVG active classes can
+ // persist on a different country after selecting a new one.
+ const title=card?.querySelector('.gv140-card-title,.gv155-card-title,.gv427-country-name');
+ const visible=norm(title?.textContent);
+ if(visible){
+  const names=typeof geo!=='undefined'&&Array.isArray(geo.countries)?geo.countries:[];
+  const match=names.find(row=>norm(row[0])===visible||norm(row[1])===visible);
+  const record=match&&store()?.countries?.find(row=>norm(row.name)===norm(match[1]));
+  if(record)return record;
+  const direct=store()?.countries?.find(row=>[row.name,row.nameAr,row.ar].some(value=>norm(value)===visible));
+  if(direct)return direct;
+ }
+ const selected=r.node.querySelector('.atlas-country.gv140-active');
  const feature=selected&&r.features?.[Number(selected.dataset.mapCountry)];
- let record=recordForFeature(feature);
- if(!record){
-  const name=norm(feature?.properties?.name||feature?.properties?.ADMIN||feature?.properties?.NAME);
-  record=store()?.countries?.find(row=>[row.name,row.nameAr,row.ar].some(value=>norm(value)===name));
- }
- if(!record){
-  const code=String(feature?.properties?.iso_a2||feature?.properties?.ISO_A2||'').toUpperCase();
-  record=store()?.countries?.find(row=>String(row.code).toUpperCase()===code);
- }
- return record||null;
+ return recordForFeature(feature);
 }
 function syncWorldCountryCard(){
  const r=typeof atlasRuntime!=='undefined'?atlasRuntime:null;
@@ -76,8 +79,8 @@ function syncWorldCountryCard(){
  img.alt=lang('علم '+(record.nameAr||record.ar||record.name),'Flag of '+record.name);
  img.onerror=()=>{img.style.visibility='hidden'};
  const heading=document.createElement('div');heading.className='gv427-card-heading';
- const title=document.createElement('strong');title.className='gv140-card-title';
- title.textContent=lang(record.nameAr||record.ar||record.name,record.name);
+ const title=document.createElement('strong');title.className='gv140-card-title gv427-country-name';
+ title.textContent=lang((typeof geo!=='undefined'&&geo.countries?.find(row=>norm(row[1])===norm(record.name))?.[0])||record.nameAr||record.ar||record.name,record.name);
  const eyebrow=document.createElement('span');eyebrow.className='gv427-eyebrow';
  eyebrow.textContent=lang('الدولة المحددة','Selected country');
  const capital=document.createElement('div');capital.className='gv140-card-meta';
@@ -486,5 +489,5 @@ body.light .gv400-map-link{background:linear-gradient(135deg,#e8f8f5,#f5fbff);co
 #worldMap:has(.atlas-country.gv140-active) .atlas-pin-halo{transform-box:fill-box;transform-origin:center;transform:scale(.38)!important;opacity:.13!important;filter:none!important}
 `;
 document.head.appendChild(style);
-window.GeoVerseConnectedMapsV400={version:'v427',focusWorldCountry};
+window.GeoVerseConnectedMapsV400={version:'v428',focusWorldCountry};
 })();
