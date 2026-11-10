@@ -127,6 +127,7 @@ function addWorldCountryFlag(){
  if(!r||r.id!=='worldMap'||!r.node?.isConnected)return;
  const card=r.node.querySelector('.gv140-country-card');
  if(!card||card.hidden)return;
+ if(card.classList.contains('gv427-unified-card'))return;
  const selected=r.node.querySelector('.atlas-country.gv140-active');
  const feature=selected&&r.features?.[Number(selected.dataset.mapCountry)];
  const record=recordForFeature(feature);
@@ -148,7 +149,7 @@ function addWorldProfileAction(){
  const r=typeof atlasRuntime!=='undefined'?atlasRuntime:null;
  if(!r||r.id!=='worldMap'||!r.node?.isConnected)return;
  const card=r.node.querySelector('.gv140-country-card');
- if(!card||card.hidden||card.querySelector('[data-gv400-open-profile]'))return;
+ if(!card||card.hidden||card.classList.contains('gv427-unified-card')||card.querySelector('[data-gv400-open-profile]'))return;
  const selected=r.node.querySelector('.atlas-country.gv140-active');
  const feature=selected&&r.features?.[Number(selected.dataset.mapCountry)];
  const record=recordForFeature(feature);
@@ -162,7 +163,7 @@ function addWorldContinentAction(){
  const r=typeof atlasRuntime!=='undefined'?atlasRuntime:null;
  if(!r||r.id!=='worldMap'||!r.node?.isConnected)return;
  const card=r.node.querySelector('.gv140-country-card');
- if(!card||card.hidden||card.querySelector('[data-gv402-open-continent]'))return;
+ if(!card||card.hidden||card.classList.contains('gv427-unified-card')||card.querySelector('[data-gv402-open-continent]'))return;
  const selected=r.node.querySelector('.atlas-country.gv140-active');
  const feature=selected&&r.features?.[Number(selected.dataset.mapCountry)];
  const record=recordForFeature(feature);
@@ -484,5 +485,5 @@ body.light .gv400-map-link{background:linear-gradient(135deg,#e8f8f5,#f5fbff);co
 #worldMap:has(.atlas-country.gv140-active) .atlas-pin-halo{transform-box:fill-box;transform-origin:center;transform:scale(.38)!important;opacity:.13!important;filter:none!important}
 `;
 document.head.appendChild(style);
-window.GeoVerseConnectedMapsV400={version:'v428',focusWorldCountry};
+window.GeoVerseConnectedMapsV400={version:'v429',focusWorldCountry};
 })();
