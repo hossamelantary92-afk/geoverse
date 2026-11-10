@@ -182,3 +182,30 @@
 @media(prefers-reduced-motion:reduce){
  #main #gvCountryGrid .gv-country-row:active{transform:none!important}
 }
+
+/* v487: capital/administrative note belongs directly under the country name. */
+#main #gvCountryGrid .gv-country-row{
+ grid-template-columns:46px minmax(0,1fr) auto!important;
+ grid-template-rows:auto!important;
+ grid-template-areas:"flag name arrow"!important;
+ align-items:center!important;
+}
+#main #gvCountryGrid .gv-country-name{
+ grid-area:name!important;display:flex!important;flex-direction:column!important;
+ align-items:flex-start!important;justify-content:center!important;gap:3px!important;
+ min-width:0!important;
+}
+#main #gvCountryGrid .gv-country-name .gv-capital{
+ grid-area:auto!important;display:block!important;width:100%!important;
+ margin:0!important;padding:0!important;text-align:start!important;
+ line-height:1.5!important;white-space:normal!important;
+ overflow-wrap:break-word!important;
+}
+#main #gvCountryGrid .gv-country-name small{display:none!important}
+@media(max-width:700px){
+ #main #gvCountryGrid .gv-country-row{
+  grid-template-columns:43px minmax(0,1fr) auto!important;
+  grid-template-areas:"flag name arrow"!important;
+  min-height:72px!important;
+ }
+}
