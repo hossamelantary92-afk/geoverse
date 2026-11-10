@@ -151,7 +151,8 @@ function gvAtlasBaseline(code){
  if(!record)return null;
  const info=code==='GB'&&record.name==='Northern Ireland'?{}:(countryInfo.facts?.[code]||{});
  const nameAr=new Intl.DisplayNames(['ar'],{type:'region'});
- const names=[code==='GB'&&record.name==='Northern Ireland'?'أيرلندا الشمالية':(nameAr.of(code)||record.name),record.name];
+ const areaNamesAr={AX:'جزر آلاند',BL:'سان بارتليمي',BQ:'بونير وسينت أوستاتيوس وسابا',CW:'كوراساو',MF:'سان مارتن (الجزء الفرنسي)',SX:'سينت مارتن (الجزء الهولندي)',TW:'تايوان',XK:'كوسوفو'};
+ const names=[areaNamesAr[code]||(code==='GB'&&record.name==='Northern Ireland'?'أيرلندا الشمالية':(nameAr.of(code)||record.name)),record.name];
  const regionAr=arRegion[record.continent]||'منطقة جغرافية غير محددة';
  const regionEn=record.continent||'an unspecified geographic region';
  const region=[regionAr,regionEn];
@@ -263,7 +264,7 @@ document.addEventListener('click',e=>{
 },true);
 async function load(){
  try{
-  const [facts,locales]=await Promise.all([fetch('./country-facts.json').then(r=>{if(!r.ok)throw Error('facts unavailable');return r.json()}),fetch('./geo-localization.json?v=gv357-capital-sync').then(r=>r.json())]);
+  const [facts,locales]=await Promise.all([fetch('./country-facts.json?v=gv450-caribbean-xcg').then(r=>{if(!r.ok)throw Error('facts unavailable');return r.json()}),fetch('./geo-localization.json?v=gv450-eight-area-profiles').then(r=>r.json())]);
   countryInfo.facts=facts.byCode;countryInfo.locales=locales;countryInfo.ready=true;
   if(state.page==='country-v4')render();
  }catch(err){console.warn('Some encyclopedia facts unavailable',err);countryInfo.ready=false}
