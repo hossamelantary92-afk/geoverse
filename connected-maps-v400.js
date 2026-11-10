@@ -23,6 +23,18 @@ function compactWorldCard(){
  if(card.style.getPropertyValue('left')&&card.style.getPropertyValue('left')!=='auto')return;
  for(const [key,value] of Object.entries(declarations))card.style.setProperty(key.replace(/[A-Z]/g,m=>'-'+m.toLowerCase()),value,'important');
 }
+function normalizeWorldDragGrip(){
+ const r=typeof atlasRuntime!=='undefined'?atlasRuntime:null;
+ if(r?.id!=='worldMap'||!r.node?.isConnected)return;
+ const card=r.node.querySelector('.gv140-country-card');
+ if(!card||card.hidden)return;
+ const grip=card.querySelector('.gv417-card-grip');
+ if(!grip)return;
+ // Older cached atlas renderers may reinsert a large translated label.
+ if(grip.textContent!=='⠿')grip.replaceChildren(document.createTextNode('⠿'));
+ grip.setAttribute('aria-label',lang('اسحب لتحريك البطاقة','Drag card'));
+ grip.setAttribute('title',lang('حرّك البطاقة','Move card'));
+}
 function addWorldCountryFlag(){
  const r=typeof atlasRuntime!=='undefined'?atlasRuntime:null;
  if(!r||r.id!=='worldMap'||!r.node?.isConnected)return;
@@ -216,6 +228,7 @@ document.addEventListener('click',event=>{
 const observer=new MutationObserver(()=>{
  addWorldCountryFlag();
  compactWorldCard();
+ normalizeWorldDragGrip();
  addWorldProfileAction();
  addWorldContinentAction();
  addContinentAtlasAction();
@@ -223,7 +236,7 @@ const observer=new MutationObserver(()=>{
  addCountryFlagHero();
 });
 observer.observe(document.getElementById('main')||document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['hidden']});
-addWorldCountryFlag();compactWorldCard();addWorldProfileAction();addWorldContinentAction();addContinentAtlasAction();addProfileAtlasAction();addCountryFlagHero();
+addWorldCountryFlag();compactWorldCard();normalizeWorldDragGrip();addWorldProfileAction();addWorldContinentAction();addContinentAtlasAction();addProfileAtlasAction();addCountryFlagHero();
 const style=document.createElement('style');
 style.textContent=`
 .gv400-map-link{display:flex;align-items:center;justify-content:center;width:100%;min-height:42px;margin-top:9px;padding:10px 14px;border:1px solid rgba(111,220,205,.48);border-radius:12px;background:linear-gradient(135deg,#164d60,#0d354c);color:#eafffb;font:inherit;font-size:13px;font-weight:700;line-height:1.5;cursor:pointer;transition:border-color .18s,transform .18s}
@@ -338,10 +351,24 @@ style.textContent=`
 #worldMap .gv140-country-card .gv140-card-meta,#worldMap .gv140-country-card .gv140-card-continent{margin:0!important}
 body.light .gv400-map-link{background:linear-gradient(135deg,#e8f8f5,#f5fbff);color:#174653;border-color:#b4dcd5}
 
+/* v423: force a single compact icon in the flag row, even with legacy atlas styles. */
+#worldMap.gv140-map .atlas-stage .gv140-country-card .gv417-card-grip{
+ position:absolute!important;top:9px!important;left:9px!important;right:auto!important;bottom:auto!important;
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ width:28px!important;min-width:28px!important;max-width:28px!important;
+ height:28px!important;min-height:28px!important;max-height:28px!important;
+ padding:0!important;margin:0!important;overflow:hidden!important;
+ font-size:19px!important;line-height:1!important;font-weight:600!important;
+ white-space:nowrap!important;letter-spacing:0!important;text-indent:0!important;
+ border-radius:8px!important;z-index:8!important;
+}
+#worldMap .gv417-card-grip::before,#worldMap .gv417-card-grip::after{content:none!important;display:none!important}
+#worldMap .gv140-country-card .gv406-world-country-flag{margin:0 0 4px auto!important}
+#worldMap .gv140-country-card .gv155-card-heading{padding-left:0!important}
 /* v422: final icon-only grip and unobtrusive marker halos while country is selected. */
 #worldMap .gv140-country-card.gv155-country-card .gv417-card-grip{position:absolute!important;top:8px!important;left:8px!important;right:auto!important;bottom:auto!important;width:30px!important;height:30px!important;min-height:0!important;max-width:30px!important;display:flex!important;align-items:center!important;justify-content:center!important;margin:0!important;padding:0!important;border:1px solid rgba(110,233,216,.4)!important;border-radius:9px!important;font-size:19px!important;line-height:1!important;white-space:nowrap!important;overflow:hidden!important;z-index:5!important}
 #worldMap:has(.atlas-country.gv140-active) .atlas-pin-halo{transform-box:fill-box;transform-origin:center;transform:scale(.38)!important;opacity:.13!important;filter:none!important}
 `;
 document.head.appendChild(style);
-window.GeoVerseConnectedMapsV400={version:'v420',focusWorldCountry};
+window.GeoVerseConnectedMapsV400={version:'v423',focusWorldCountry};
 })();
