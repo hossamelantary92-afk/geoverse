@@ -92,6 +92,10 @@ function syncWorldCountryCard(){
  if(r?.id!=='worldMap'||!r.node?.isConnected)return;
  const card=r.node.querySelector('.gv140-country-card');
  if(!card||card.hidden)return;
+ if(card.classList.contains('gv427-unified-card')){
+  if(card.style.getPropertyValue('width')!=='188px')card.style.setProperty('width','188px','important');
+  if(card.style.getPropertyValue('max-width')!=='188px')card.style.setProperty('max-width','188px','important');
+ }
  const direct=card.dataset.gvDirectCountry;
  const record=(direct&&store()?.countries?.find(row=>String(row.code).toUpperCase()===direct))||selectedWorldRecord(r,card);
  if(!record?.code)return;
