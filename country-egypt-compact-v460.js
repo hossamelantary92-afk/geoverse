@@ -24,11 +24,20 @@ function mount(){
  const title=panel.querySelector('h3'),desc=panel.querySelector('p');
  if(title)title.remove();if(desc)desc.remove();
  const details=panel.querySelector('.gv450-details');
- if(details)details.classList.add('gv460-details');
+ if(details){
+  details.classList.add('gv460-details');
+  details.classList.remove('gv460-show');
+  // Existing country content remains intact; the map is only a spatial index.
+  const open=details.querySelector('.gv450-open');
+  if(open)open.textContent=state.lang==='en'?'View existing landmark details':'عرض تفاصيل المعلم';
+ }
  const map=panel.querySelector('.gv450-map');
  if(map){
-  map.addEventListener('click',()=>{if(details)details.classList.add('gv460-show')});
-  map.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&details)details.classList.add('gv460-show')});
+  // Only a genuine marker selection opens the compact card, not tapping empty map space.
+  map.querySelectorAll('.gv450-hit').forEach(hit=>{
+   hit.addEventListener('click',()=>{if(details)details.classList.add('gv460-show')});
+   hit.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&details)details.classList.add('gv460-show')});
+  });
  }
  function show(which){
   const onMap=which==='map';
