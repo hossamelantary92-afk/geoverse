@@ -64,8 +64,8 @@ function restoreSelectedCountryHighlight(r,record){
  if(index<0)return;
  const target=r.node.querySelector('.atlas-country[data-map-country="'+index+'"]');
  if(!target)return;
- r.node.querySelectorAll('.atlas-country.gv436-selected,.atlas-country.gv140-active,.atlas-country.gv411-country-focus').forEach(el=>{
-  if(el!==target)el.classList.remove('gv436-selected','gv140-active','gv411-country-focus');
+ r.node.querySelectorAll('.atlas-country').forEach(el=>{
+  if(el!==target)el.classList.remove('gv436-selected','gv140-active','gv411-country-focus','highlight');
  });
  target.classList.add('gv436-selected','gv140-active');
 }
@@ -89,7 +89,8 @@ function selectDirectAtlasCountry(path){
  card.style.removeProperty('left');card.style.removeProperty('top');
  card.style.removeProperty('right');card.style.removeProperty('bottom');
  card.dataset.gv427Country='';
- r.node.querySelectorAll('.atlas-country.gv436-selected,.atlas-country.gv411-country-focus,.atlas-country.gv140-active').forEach(el=>el.classList.remove('gv436-selected','gv411-country-focus','gv140-active'));
+ r.node.querySelectorAll('.atlas-country').forEach(el=>el.classList.remove('gv436-selected','gv411-country-focus','gv140-active','highlight'));
+ r.node.dataset.gv411FocusCountry='';
  path.classList.add('gv436-selected','gv140-active');
  syncWorldCountryCard();
 }
@@ -329,8 +330,11 @@ function focusWorldCountry(code){
 document.addEventListener('click',event=>{
  const countryPath=event.target.closest?.('#worldMap .atlas-country[data-map-country]');
  if(countryPath){
-  // Allow the atlas to run its existing zoom/selection logic, then normalize the popup.
-  setTimeout(()=>selectDirectAtlasCountry(countryPath),0);
+  // One authoritative selection path. The legacy atlas handler could asynchronously
+  // restore a previous country, leaving a turquoise new selection and stale card.
+  event.preventDefault();event.stopImmediatePropagation();
+  selectDirectAtlasCountry(countryPath);
+  return;
  }
  // The world atlas must never send a selected country into a generic landmark detail.
  // Reuse the same canonical country route as the Countries & Capitals directory.
