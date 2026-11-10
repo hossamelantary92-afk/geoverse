@@ -483,7 +483,10 @@ body.light .gv400-map-link{background:linear-gradient(135deg,#e8f8f5,#f5fbff);co
 /* v422: final icon-only grip and unobtrusive marker halos while country is selected. */
 #worldMap .gv140-country-card.gv155-country-card .gv417-card-grip{position:absolute!important;top:8px!important;left:8px!important;right:auto!important;bottom:auto!important;width:30px!important;height:30px!important;min-height:0!important;max-width:30px!important;display:flex!important;align-items:center!important;justify-content:center!important;margin:0!important;padding:0!important;border:1px solid rgba(110,233,216,.4)!important;border-radius:9px!important;font-size:19px!important;line-height:1!important;white-space:nowrap!important;overflow:hidden!important;z-index:5!important}
 #worldMap:has(.atlas-country.gv140-active) .atlas-pin-halo{transform-box:fill-box;transform-origin:center;transform:scale(.38)!important;opacity:.13!important;filter:none!important}
+/* v433: slightly narrower mobile country card, without shrinking its actions. */
+#worldMap.gv140-map .atlas-stage .gv140-country-card.gv427-unified-card:not([hidden]):not(.gv418-dragged){width:min(252px,calc(100% - 32px))!important;max-width:252px!important;right:12px!important;padding:11px 12px!important}
+@media(max-width:390px){#worldMap.gv140-map .atlas-stage .gv140-country-card.gv427-unified-card:not([hidden]):not(.gv418-dragged){width:min(240px,calc(100% - 28px))!important;max-width:240px!important}}
 `;
 document.head.appendChild(style);
-window.GeoVerseConnectedMapsV400={version:'v429',focusWorldCountry};
+window.GeoVerseConnectedMapsV400={version:'v433',focusWorldCountry};
 })();
