@@ -75,7 +75,15 @@ function selectDirectAtlasCountry(path){
  const index=Number(path.dataset.mapCountry);
  const feature=Number.isInteger(index)?r.features?.[index]:null;
  const record=recordForFeature(feature)||store()?.countries?.find(row=>[feature?.properties?.ADMIN,feature?.properties?.NAME,feature?.properties?.name_long].some(n=>norm(n)===norm(row.name)));
- if(!record?.code)return;
+ if(!record?.code){
+  // A map feature can lack a matching encyclopedia record. Never leave the
+  // previous country selected; let the atlas render its own feature card.
+  const card=r.node.querySelector('.gv140-country-card');
+  if(card){card.dataset.gvDirectCountry='';card.dataset.gv427Country='';card.classList.remove('gv427-unified-card');}
+  r.node.querySelectorAll('.atlas-country').forEach(el=>el.classList.remove('gv436-selected','gv411-country-focus','gv140-active','highlight'));
+  path.classList.add('gv436-selected','gv140-active');
+  return false;
+ }
  let card=r.node.querySelector('.gv140-country-card');
  if(!card){
   card=document.createElement('div');card.className='gv140-country-card';
@@ -93,6 +101,7 @@ function selectDirectAtlasCountry(path){
  r.node.dataset.gv411FocusCountry='';
  path.classList.add('gv436-selected','gv140-active');
  syncWorldCountryCard();
+ return true;
 }
 window.GeoVerseSelectAtlasCountry=selectDirectAtlasCountry;
 function syncWorldCountryCard(){
