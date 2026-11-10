@@ -25,7 +25,7 @@ function mount(){
  const path=d3.geoPath(projection);
  const outline=document.createElementNS(svg.namespaceURI,'path');outline.setAttribute('d',path(feature)||'');outline.setAttribute('class','gv450-outline');svg.appendChild(outline);
  const details=document.createElement('div');details.className='gv450-details';details.setAttribute('aria-live','polite');
- const buttons=[];let selectedIndex=0;const view={x:0,y:0,w:480,h:340};
+ const buttons=[];let selectedIndex=0;let list;const view={x:0,y:0,w:480,h:340};
  const controls=document.createElement('div');controls.className='gv450-controls';
  const zoomIn=document.createElement('button'),zoomOut=document.createElement('button'),reset=document.createElement('button');
  zoomIn.textContent='+';zoomOut.textContent='−';reset.textContent=label('عرض الكل','Reset');
@@ -35,6 +35,7 @@ function mount(){
  zoomIn.addEventListener('click',()=>zoom(.7));zoomOut.addEventListener('click',()=>zoom(1.4));reset.addEventListener('click',()=>{Object.assign(view,{x:0,y:0,w:480,h:340});applyView()});
  function select(i){
   selectedIndex=i;buttons.forEach((b,j)=>b.classList.toggle('gv450-active',i===j));
+  list?.querySelectorAll('button').forEach((b,j)=>b.classList.toggle('gv450-current',i===j));
   const p=places[i];details.replaceChildren();
   const strong=document.createElement('strong');strong.textContent=label(p[0],p[1]);
   const small=document.createElement('span');small.textContent=label(p[2],p[3]);
@@ -55,12 +56,21 @@ function mount(){
   hit.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();select(i)}});
   svg.appendChild(hit);buttons.push(hit);
  });
- map.appendChild(svg);panel.append(title,desc,map,details);
+ map.append(svg,controls);
+ list=document.createElement('div');list.className='gv450-list';
+ list.setAttribute('aria-label',label('اختيار معلم','Choose landmark'));
+ places.forEach((p,i)=>{
+  const button=document.createElement('button');
+  button.type='button';button.textContent=label(p[0],p[1]);
+  button.addEventListener('click',()=>select(i));
+  list.appendChild(button);
+ });
+ panel.append(title,desc,map,details,list);
  globe.parentElement.appendChild(panel);select(0);
 }
 const style=document.createElement('style');
 style.textContent='.gv450-landmark-panel{margin-top:16px;padding:14px;border:1px solid rgba(113,229,213,.3);border-radius:17px;background:linear-gradient(150deg,rgba(8,48,67,.96),rgba(7,32,52,.95));color:#eafffb}.gv450-landmark-panel h3{font-size:17px;margin:0 0 5px}.gv450-landmark-panel p{font-size:12px;opacity:.8;margin:0 0 10px}.gv450-map{border-radius:12px;overflow:hidden;background:radial-gradient(circle at 45% 45%,#174b63,#08273b)}.gv450-map svg{display:block;width:100%;max-height:270px}.gv450-outline{fill:#145c68;stroke:#75dfce;stroke-width:1.5;vector-effect:non-scaling-stroke}.gv450-dot{fill:#ffda61;stroke:#fff4bd;stroke-width:1.5;pointer-events:none}.gv450-hit{fill:transparent;cursor:pointer;outline:none}.gv450-hit:focus-visible{stroke:#fff;stroke-width:2}.gv450-hit.gv450-active{stroke:#ffda61;stroke-width:2}.gv450-details{display:flex;flex-direction:column;gap:3px;padding:12px 4px 2px}.gv450-details strong{font-size:15px}.gv450-details span{font-size:12px;opacity:.78}';
-style.textContent+=' .gv450-landmark-panel{border-color:rgba(113,229,213,.5);box-shadow:0 18px 45px #0005,inset 0 1px #ffffff12;background:linear-gradient(145deg,#103c50,#071c31)}.gv450-map{position:relative;background:radial-gradient(ellipse at 40% 30%,#21586b,#0a263b 70%);border:1px solid #4b98a055}.gv450-outline{fill:#1c6b70;stroke:#96f0dd;stroke-width:1.8;filter:drop-shadow(0 3px 7px #0008)}.gv450-dot{fill:#f7c85d;filter:drop-shadow(0 0 3px #f7c85d)}.gv450-controls{position:absolute;bottom:10px;left:10px;display:flex;gap:6px}.gv450-controls button,.gv450-open,.gv450-list button{background:#154c60;border:1px solid #75d7cc77;color:#eafffb;border-radius:10px;padding:7px 10px;font:700 12px Cairo,system-ui;cursor:pointer}.gv450-list{display:flex;gap:7px;overflow-x:auto;padding:12px 0 2px;scrollbar-width:thin}.gv450-list button{white-space:nowrap;flex-shrink:0}.gv450-open{margin-top:9px;background:#1b706f}.gv450-details{min-height:75px}.gv450-hit.gv450-active{fill:#ffd75b33;stroke:#ffe5a3;stroke-width:2.5}';document.head.appendChild(style);
+style.textContent+=' .gv450-landmark-panel{border-color:rgba(113,229,213,.5);box-shadow:0 18px 45px #0005,inset 0 1px #ffffff12;background:linear-gradient(145deg,#103c50,#071c31)}.gv450-map{position:relative;background:radial-gradient(ellipse at 40% 30%,#21586b,#0a263b 70%);border:1px solid #4b98a055}.gv450-outline{fill:#1c6b70;stroke:#96f0dd;stroke-width:1.8;filter:drop-shadow(0 3px 7px #0008)}.gv450-dot{fill:#f7c85d;filter:drop-shadow(0 0 3px #f7c85d)}.gv450-controls{position:absolute;bottom:10px;left:10px;display:flex;gap:6px}.gv450-controls button,.gv450-open,.gv450-list button{background:#154c60;border:1px solid #75d7cc77;color:#eafffb;border-radius:10px;padding:7px 10px;font:700 12px Cairo,system-ui;cursor:pointer}.gv450-list{display:flex;gap:7px;overflow-x:auto;padding:12px 0 2px;scrollbar-width:thin}.gv450-list button{white-space:nowrap;flex-shrink:0}.gv450-open{margin-top:9px;background:#1b706f}.gv450-details{min-height:75px}.gv450-hit.gv450-active{fill:#ffd75b33;stroke:#ffe5a3;stroke-width:2.5}';style.textContent+=' .gv450-list button.gv450-current{background:#1b777a;border-color:#f7d76b;color:#fff}.gv450-controls{z-index:2;direction:ltr}.gv450-controls button{min-width:34px;min-height:34px}.gv450-map{isolation:isolate}';document.head.appendChild(style);
 const observer=new MutationObserver(()=>mount());
 observer.observe(document.getElementById('main')||document.body,{childList:true,subtree:true});
 mount();
