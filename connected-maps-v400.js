@@ -486,7 +486,11 @@ body.light .gv400-map-link{background:linear-gradient(135deg,#e8f8f5,#f5fbff);co
 /* v433: slightly narrower mobile country card, without shrinking its actions. */
 #worldMap.gv140-map .atlas-stage .gv140-country-card.gv427-unified-card:not([hidden]):not(.gv418-dragged){width:min(252px,calc(100% - 32px))!important;max-width:252px!important;right:12px!important;padding:11px 12px!important}
 @media(max-width:390px){#worldMap.gv140-map .atlas-stage .gv140-country-card.gv427-unified-card:not([hidden]):not(.gv418-dragged){width:min(240px,calc(100% - 28px))!important;max-width:240px!important}}
+/* v434: fixed narrow width in both resting and dragged states. */
+#worldMap.gv140-map .atlas-stage .gv140-country-card.gv427-unified-card:not([hidden]){width:216px!important;max-width:216px!important;min-width:0!important;box-sizing:border-box!important;padding:10px 11px!important}
+#worldMap.gv140-map .atlas-stage .gv140-country-card.gv427-unified-card.gv418-dragged:not([hidden]){width:216px!important;max-width:216px!important;min-width:0!important;right:auto!important;bottom:auto!important}
+@media(max-width:270px){#worldMap.gv140-map .atlas-stage .gv140-country-card.gv427-unified-card:not([hidden]){width:calc(100% - 24px)!important;max-width:calc(100% - 24px)!important}}
 `;
 document.head.appendChild(style);
-window.GeoVerseConnectedMapsV400={version:'v433',focusWorldCountry};
+window.GeoVerseConnectedMapsV400={version:'v434',focusWorldCountry};
 })();
