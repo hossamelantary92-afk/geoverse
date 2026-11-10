@@ -188,8 +188,10 @@ function focusWorldCountry(code){
 document.addEventListener('click',event=>{
  // The world atlas must never send a selected country into a generic landmark detail.
  // Reuse the same canonical country route as the Countries & Capitals directory.
- const legacy=event.target.closest('[data-atlas-open]');
- if(legacy&&typeof state!=='undefined'&&state.page==='explore'){
+ const legacy=event.target.closest('[data-atlas-open], .gv140-country-card button, .gv140-country-card a');
+ const detailText=String(legacy?.textContent||'').trim();
+ const isAtlasDetail=legacy?.matches('[data-atlas-open]')||/^(?:عرض التفاصيل|التفاصيل|view details|details)(?:\\s*[←→↗])?$/i.test(detailText);
+ if(legacy&&isAtlasDetail&&typeof state!=='undefined'&&state.page==='explore'){
   const r=typeof atlasRuntime!=='undefined'?atlasRuntime:null;
   const selected=r?.id==='worldMap'&&r.node?.querySelector('.atlas-country.gv140-active');
   const feature=selected&&r.features?.[Number(selected.dataset.mapCountry)];
