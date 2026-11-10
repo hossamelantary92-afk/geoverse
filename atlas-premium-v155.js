@@ -98,7 +98,11 @@ function showCountry(r,index,element){
   '';
  card.hidden=false;
  card.classList.remove('gv418-dragged');card.style.removeProperty('left');card.style.removeProperty('top');card.style.removeProperty('right');card.style.removeProperty('bottom');
- r.node.querySelectorAll('.atlas-country').forEach(n=>n.classList.toggle('gv140-active',n===element));
+ r.node.querySelectorAll('.atlas-country').forEach(n=>{
+  const active=n===element;
+  n.classList.toggle('gv140-active',active);
+  n.classList.toggle('gv436-selected',active);
+ });
  r.node.querySelector('.atlas-popup')?.classList.add('hidden');
  focusCountry(r,feature);
 }
@@ -246,7 +250,10 @@ function decorate(r){
   if(snapshot?.moved||pointers.size>1||isTap)suppressClickUntil=performance.now()+550;
   pointers.delete(event.pointerId);
   tapCandidates.delete(event.pointerId);
-  if(isTap&&atlasRuntime===r&&r.node.isConnected)showCountry(r,tap.index,tap.element);
+  if(isTap&&atlasRuntime===r&&r.node.isConnected){
+   showCountry(r,tap.index,tap.element);
+   // Touch selection is handled here, independently of Safari's synthetic click.
+  }
   resetGesture();
   event.stopImmediatePropagation();
  };
