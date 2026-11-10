@@ -10,6 +10,10 @@ import { resolve } from 'node:path';
 const root = resolve(import.meta.dirname, '..');
 const metadata = JSON.parse(readFileSync(resolve(root, 'country-meta.json'), 'utf8'));
 const facts = JSON.parse(readFileSync(resolve(root, 'country-facts.json'), 'utf8'));
+const map = JSON.parse(readFileSync(resolve(root, 'world.geojson'), 'utf8'));
+const geometryNames = new Set((map.features || []).map(feature => String(feature.properties?.name || '').toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g, '').trim()));
+const normalizedName = name => String(name || '').toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g, '').trim();
+
 const records = metadata.countries || [];
 const byCode = facts.byCode || {};
 const coded = records.filter(row => typeof row.code === 'string' && row.code.trim());
@@ -104,6 +108,19 @@ const withoutPopulation = Object.entries(byCode)
   .filter(([, row]) => !Number.isFinite(row.p))
   .map(([code]) => code).sort();
 
+// These two geographic features can be matched by their names in the current
+// world.geojson. Smaller islands/territories require separate geometry or an
+// explicitly labelled point locator; never fake a polygon or move a country.
+const newlyIntegratedMap = integratedCodes.map(code => {
+  const entry = records.find(row => row.code === code);
+  const hasNamedGeometry = !!entry && geometryNames.has(normalizedName(entry.name));
+  return {
+    code,
+    name: entry?.name || null,
+    namedGeometryPresent: hasNamedGeometry,
+    mappingStatus: hasNamedGeometry ? 'named_feature_available' : 'separate_geometry_not_confirmed'
+  };
+});
 const report = {
   checkedAt: new Date().toISOString(),
   note: 'Data-integrity inventory only. Neither sovereignty nor scientific accuracy is inferred from codes.',
@@ -119,6 +136,7 @@ const report = {
     metadataWithoutFacts: metadataOnlyCodes,
     factsWithoutMetadata: factOnlyCodes,
     reconciliation,
+    newlyIntegratedMap,
     legacyRecordsRequiringClassification: taggedLegacy.map(row => ({ code: row.code, name: row.name })),
     capitalStatus: anomalies,
     // Retained for backward compatibility with earlier audit reports.
