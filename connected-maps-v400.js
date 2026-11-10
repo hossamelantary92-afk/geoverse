@@ -18,7 +18,22 @@ function featureFallback(feature){
  const id=String(feature?.id||feature?.properties?.iso_a3||'').toUpperCase();
  return atlasFallback[id]||null;
 }
+const iso3to2=Object.fromEntries(`ABWAW AFGAF AGOAO AIAAI ALAAX ALBAL ANDAD AREAE ARGAR ARMAM ASMAS ATAAQ ATFTF ATGAG AUSAU AUTAT AZEAZ BDIBI BELBE BENBJ BESBQ BFABF BGDBD BGRBG BHRBH BHSBS BIHBA BLMBL BLRBY BLZBZ BMUBM BOLBO BRABR BRBBB BRNBN BTNBT BVTBV BWABW CAFCF CANCA CCKCC CHECH CHLCL CHNCN CIVCI CMRCM CODCD COGCG COKCK COLCO COMKM CPVCV CRICR CUBCU CUWCW CXRCX CYMKY CYPCY CZECZ DEUDE DJIDJ DMADM DNKDK DOMDO DZADZ ECUEC EGYEG ERIER ESHEH ESPES ESTEE ETHET FINFI FJIFJ FLKFK FRAFR FROFO FSMFM GABGA GBRGB GEOGE GGYGG GHAGH GIBGI GINGN GLPGP GMBGM GNBGW GNQGQ GRCGR GRDGD GRLGL GTMGT GUFGF GUMGU GUYGY HKGHK HMDHM HNDHN HRVHR HTIHT HUNHU IDNID IMNIM INDIN IOTIO IRLIE IRNIR IRQIQ ISLIS ISRIL ITAIT JAMJM JEYJE JORJO JPNJP KAZKZ KENKE KGZKG KHMKH KIRKI KNAKN KORKR KWTKW LAOLA LBNLB LBRLR LBYLY LCALC LIELI LKALK LSOLS LTULT LUXLU LVALV MACMO MAFMF MARMA MCOMC MDAMD MDGMG MDVMV MEXMX MHLMH MKDMK MLIML MLTMT MMRMM MNEME MNGMN MNPMP MOZMZ MRTMR MSRMS MTQMQ MUSMU MWIMW MYSMY MYTYT NAMNA NCLNC NERNE NFKNF NGANG NICNI NIUNU NLDNL NORNO NPLNP NRUNR NZLNZ OMNOM PAKPK PANPA PCNPN PERPE PHLPH PLWPW PNGPG POLPL PRIPR PRKKP PRTPT PRYPY PSEPS PYFPF QATQA REURE ROURO RUSRU RWARW SAUSA SDNSD SENSN SGPSG SGSGS SHNSH SJMSJ SLBSB SLESL SLVSV SMRSM SOMSO SPMPM SRBRS SSDSS STPST SURSR SVKSK SVNSI SWESE SWZSZ SXMSX SYCSC SYRSY TCATC TCDTD TGOTG THATH TJKTJ TKLTK TKMTM TLSTL TONTO TTOTT TUNTN TURTR TUVTV TWNTW TZATZ UGAUG UKRUA UMIUM URYUY USAUS UZBUZ VATVA VCTVC VENVE VGBVG VIRVI VNMVN VUTVU WLFWF WSMWS YEMYE ZAFZA ZMBZM ZWEZW`.split(' ').map(pair=>[pair.slice(0,3),pair.slice(3)]));
+function canonicalFeatureRecord(feature){
+ const id=String(feature?.id||feature?.properties?.iso_a3||'').toUpperCase();
+ const code=iso3to2[id]||({XKX:'XK',KOS:'XK',SDS:'SS'}[id]);
+ const known=code&&store()?.countries?.find(row=>String(row.code||'').toUpperCase()===code);
+ if(known)return known;
+ const backup=featureFallback(feature);
+ if(backup)return backup;
+ if(!code)return null;
+ const name=feature?.properties?.name||id;
+ let nameAr=name;
+ try{nameAr=new Intl.DisplayNames(['ar'],{type:'region'}).of(code)||name}catch(e){}
+ return {code,name,nameAr,capital:'',continent:''};
+}
 function recordForFeature(feature){
+ const canonical=canonicalFeatureRecord(feature);if(canonical)return canonical;
  const s=store(),p=feature?.properties||{};
  if(!s?.countries)return featureFallback(feature);
  const codes=[p.iso_a2,p.ISO_A2,p.iso_a2_eh,p.ISO_A2_EH].map(v=>String(v||'').toUpperCase()).filter(v=>/^[A-Z]{2}$/.test(v)&&v!=='XX');
@@ -118,7 +133,7 @@ function syncWorldCountryCard(){
  const featureIndex=card.dataset.gvDirectIndex!==undefined&&card.dataset.gvDirectIndex!==''?Number(card.dataset.gvDirectIndex):NaN;
  const feature=Number.isInteger(featureIndex)?r.features?.[featureIndex]:null;
  const p=feature?.properties||{};
- const known=(direct&&store()?.countries?.find(row=>String(row.code).toUpperCase()===direct))||recordForFeature(feature)||(!feature&&selectedWorldRecord(r,card));
+ const known=recordForFeature(feature)||(!feature&&selectedWorldRecord(r,card));
  const fallbackCode=[p.iso_a2,p.ISO_A2,p.iso_a2_eh,p.ISO_A2_EH].map(v=>String(v||'').toUpperCase()).find(v=>/^[A-Z]{2}$/.test(v)&&v!=='XX')||'';
  const atlasName=p.ADMIN||p.NAME||p.name||p.name_long||'';
  const geoRows=typeof geo!=='undefined'&&Array.isArray(geo.countries)?geo.countries:[];
