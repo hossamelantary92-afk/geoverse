@@ -17,6 +17,19 @@ const metaCodes = new Set(coded.map(row => row.code));
 const factCodes = new Set(Object.keys(byCode));
 const repeated = coded.filter((row, i) => coded.findIndex(other => other.code === row.code) !== i);
 const taggedLegacy = records.filter(row => /historical|legacy|antilles/i.test(row.name || ''));
+// Null does not always mean an editorial omission. These are explicit special cases
+// for review; they do not assert sovereignty or supply an invented capital.
+// Nauru has no official capital (government offices are in Yaren); Antarctica
+// has no national government. Other entries may need separate status notes.
+const verifiedNoNationalCapital = new Set(['AQ', 'NR']);
+const historicalAliases = new Set(['AN', 'TP', 'UK']);
+const capitalEmpty = coded.filter(row => !row.capital).map(row => row.code);
+const missingCapitalReview = capitalEmpty.filter(code => !verifiedNoNationalCapital.has(code));
+const anomalies = {
+  noNationalCapital: capitalEmpty.filter(code => verifiedNoNationalCapital.has(code)).sort(),
+  noCapitalRecordedNeedsReview: missingCapitalReview.sort(),
+  historicalAliasCodes: coded.filter(row => historicalAliases.has(row.code)).map(row => row.code).sort()
+};
 const withoutYear = Object.entries(byCode)
   .filter(([, row]) => Number.isFinite(row.p) && !row.py)
   .map(([code]) => code).sort();
@@ -39,7 +52,9 @@ const report = {
     metadataWithoutFacts: [...metaCodes].filter(code => !factCodes.has(code)).sort(),
     factsWithoutMetadata: [...factCodes].filter(code => !metaCodes.has(code)).sort(),
     legacyRecordsRequiringClassification: taggedLegacy.map(row => ({ code: row.code, name: row.name })),
-    capitalsMissingInMetadata: coded.filter(row => !row.capital).map(row => row.code).sort(),
+    capitalStatus: anomalies,
+    // Retained for backward compatibility with earlier audit reports.
+    capitalsMissingInMetadata: capitalEmpty.sort(),
     populationYearMissing: withoutYear,
     populationMissing: withoutPopulation
   }
