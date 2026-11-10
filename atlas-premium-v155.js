@@ -1,4 +1,4 @@
-/* GeoVerse v415 (based on v155) — refined country cards and preserved map gestures.
+/* GeoVerse v430 (based on v155) — refined country cards and preserved map gestures.
    Scoped to the Explorer atlas and editorial detail maps. NEVER touches quiz maps or 3D globe. */
 (function(){
 'use strict';
@@ -206,7 +206,8 @@ function decorate(r){
   pointers.set(event.pointerId,coordinate(event));
   resetGesture();
   if(pointers.size>1)suppressClickUntil=performance.now()+550;
-  try{svg.setPointerCapture(event.pointerId)}catch(e){}
+  // Do not capture a simple tap: Safari retargets the synthetic click to SVG,
+  // losing the country path and making the map appear unresponsive.
   event.stopImmediatePropagation();
  },true);
  svg.addEventListener('pointermove',event=>{
