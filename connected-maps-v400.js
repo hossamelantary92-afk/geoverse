@@ -75,23 +75,12 @@ function selectDirectAtlasCountry(path){
  const index=Number(path.dataset.mapCountry);
  const feature=Number.isInteger(index)?r.features?.[index]:null;
  const record=recordForFeature(feature)||store()?.countries?.find(row=>[feature?.properties?.ADMIN,feature?.properties?.NAME,feature?.properties?.name_long].some(n=>norm(n)===norm(row.name)));
- if(!record?.code){
-  // A map feature can lack a matching encyclopedia record. Never leave the
-  // previous country selected; let the atlas render its own feature card.
-  const card=r.node.querySelector('.gv140-country-card');
-  if(card){card.dataset.gvDirectCountry='';card.dataset.gv427Country='';card.classList.remove('gv427-unified-card');}
-  r.node.querySelectorAll('.atlas-country').forEach(el=>el.classList.remove('gv436-selected','gv411-country-focus','gv140-active','highlight'));
-  path.classList.add('gv436-selected','gv140-active');
-  return false;
- }
+ if(!feature)return false;
  let card=r.node.querySelector('.gv140-country-card');
- if(!card){
-  card=document.createElement('div');card.className='gv140-country-card';
-  const stage=r.node.querySelector('.atlas-stage')||r.node;
-  stage.appendChild(card);
- }
+ if(!card){card=document.createElement('aside');card.className='gv140-country-card';(r.node.querySelector('.atlas-stage')||r.node).appendChild(card);}
  // The canonical record is attached to the card before any legacy click state can be reused.
- card.dataset.gvDirectCountry=String(record.code).toUpperCase();
+ card.dataset.gvDirectCountry=record?.code?String(record.code).toUpperCase():'';
+ card.dataset.gvDirectIndex=String(index);
  card.hidden=false;
  card.classList.remove('gv418-dragged');
  card.style.removeProperty('left');card.style.removeProperty('top');
@@ -114,12 +103,17 @@ function syncWorldCountryCard(){
   if(card.style.getPropertyValue('max-width')!=='188px')card.style.setProperty('max-width','188px','important');
  }
  const direct=card.dataset.gvDirectCountry;
- const record=(direct&&store()?.countries?.find(row=>String(row.code).toUpperCase()===direct))||selectedWorldRecord(r,card);
- if(!record?.code)return;
- restoreSelectedCountryHighlight(r,record);
- const code=String(record.code).toUpperCase();
- if(card.dataset.gv427Country===code&&card.querySelector('[data-gv400-open-profile]')&&card.querySelector('[data-gv406-country-flag]'))return;
- card.dataset.gv427Country=code;
+ const featureIndex=Number(card.dataset.gvDirectIndex);
+ const feature=Number.isInteger(featureIndex)?r.features?.[featureIndex]:null;
+ const p=feature?.properties||{};
+ const known=(direct&&store()?.countries?.find(row=>String(row.code).toUpperCase()===direct))||recordForFeature(feature)||(!feature&&selectedWorldRecord(r,card));
+ const fallbackCode=[p.iso_a2,p.ISO_A2,p.iso_a2_eh,p.ISO_A2_EH].map(v=>String(v||'').toUpperCase()).find(v=>/^[A-Z]{2}$/.test(v)&&v!=='XX')||'';
+ const record=known||{code:fallbackCode,name:p.name||p.ADMIN||p.NAME||p.name_long||lang('دولة غير معروفة','Unknown country'),capital:'',continent:''};
+ if(!feature&&!known)return;
+ if(known)restoreSelectedCountryHighlight(r,known);
+ const code=String(record.code||'').toUpperCase();
+ if(card.dataset.gv427Country===(code||'feature-'+featureIndex)&&card.querySelector('.gv427-country-name'))return;
+ card.dataset.gv427Country=code||'feature-'+featureIndex;
  card.classList.add('gv155-country-card','gv427-unified-card');
  // Lock geometry at the element level: old atlas styles otherwise widen the card until dragged.
  card.style.setProperty('width','188px','important');
@@ -139,7 +133,7 @@ function syncWorldCountryCard(){
  grip.setAttribute('aria-label',lang('تحريك البطاقة','Move card'));
  const img=document.createElement('img');
  img.className='gv406-world-country-flag';img.dataset.gv406CountryFlag=code.toLowerCase();
- img.src='https://flagcdn.com/w160/'+(code==='UK'?'gb':code.toLowerCase())+'.png';
+ if(code)img.src='https://flagcdn.com/w160/'+(code==='UK'?'gb':code.toLowerCase())+'.png';else img.hidden=true;
  img.alt=lang('علم '+(record.nameAr||record.ar||record.name),'Flag of '+record.name);
  img.onerror=()=>{img.style.visibility='hidden'};
  const heading=document.createElement('div');heading.className='gv427-card-heading';
@@ -152,7 +146,8 @@ function syncWorldCountryCard(){
  const profile=document.createElement('button');profile.type='button';
  profile.className='gv400-map-link';profile.dataset.gv400OpenProfile=code;
  profile.textContent=lang('فتح ملف الدولة الكامل','Open full country profile');
- heading.append(grip,img);card.replaceChildren(heading,close,title,capital,continent,profile);
+ heading.append(grip,img);card.replaceChildren(heading,close,title,capital,continent);
+ if(known?.code)card.appendChild(profile);
  const keys=['Asia','Africa','Europe','North America','South America','Oceania','Antarctica'];
  const index=keys.findIndex(value=>norm(value)===norm(record.continent));
  if(index>=0){
