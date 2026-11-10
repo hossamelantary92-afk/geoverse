@@ -7,9 +7,13 @@ const lang=(ar,en)=>document.documentElement.lang==='en'?en:ar;
 const norm=value=>String(value||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\u0600-\u06ff]/g,'');
 const store=()=>window.GeoVerseV4?.store;
 function recordForFeature(feature){
- const s=store(),name=norm(feature?.properties?.name);
- if(!s?.countries||!name)return null;
- return s.countries.find(row=>norm(row.name)===name)||s.byName?.get?.(name)||null;
+ const s=store(),p=feature?.properties||{};
+ if(!s?.countries)return null;
+ const codes=[p.iso_a2,p.ISO_A2,p.iso_a2_eh,p.ISO_A2_EH].map(v=>String(v||'').toUpperCase()).filter(v=>/^[A-Z]{2}$/.test(v)&&v!=='XX');
+ const byCode=s.countries.find(row=>codes.includes(String(row.code||'').toUpperCase()));
+ if(byCode)return byCode;
+ const names=[p.name,p.ADMIN,p.NAME,p.name_long].map(norm).filter(Boolean);
+ return s.countries.find(row=>names.includes(norm(row.name)))||null;
 }
 function compactWorldCard(){
  const r=typeof atlasRuntime!=='undefined'?atlasRuntime:null;
@@ -60,8 +64,10 @@ function restoreSelectedCountryHighlight(r,record){
  if(index<0)return;
  const target=r.node.querySelector('.atlas-country[data-map-country="'+index+'"]');
  if(!target)return;
- r.node.querySelectorAll('.atlas-country.gv436-selected').forEach(el=>{if(el!==target)el.classList.remove('gv436-selected')});
- target.classList.add('gv436-selected');
+ r.node.querySelectorAll('.atlas-country.gv436-selected,.atlas-country.gv140-active,.atlas-country.gv411-country-focus').forEach(el=>{
+  if(el!==target)el.classList.remove('gv436-selected','gv140-active','gv411-country-focus');
+ });
+ target.classList.add('gv436-selected','gv140-active');
 }
 function selectDirectAtlasCountry(path){
  const r=typeof atlasRuntime!=='undefined'?atlasRuntime:null;
@@ -83,8 +89,8 @@ function selectDirectAtlasCountry(path){
  card.style.removeProperty('left');card.style.removeProperty('top');
  card.style.removeProperty('right');card.style.removeProperty('bottom');
  card.dataset.gv427Country='';
- r.node.querySelectorAll('.atlas-country.gv436-selected,.atlas-country.gv411-country-focus').forEach(el=>el.classList.remove('gv436-selected','gv411-country-focus'));
- path.classList.add('gv436-selected');
+ r.node.querySelectorAll('.atlas-country.gv436-selected,.atlas-country.gv411-country-focus,.atlas-country.gv140-active').forEach(el=>el.classList.remove('gv436-selected','gv411-country-focus','gv140-active'));
+ path.classList.add('gv436-selected','gv140-active');
  syncWorldCountryCard();
 }
 function syncWorldCountryCard(){
@@ -602,5 +608,5 @@ body.light .gv400-map-link{background:linear-gradient(135deg,#e8f8f5,#f5fbff);co
 #worldMap .gv427-unified-card .gv400-map-link{min-height:40px!important;font-size:10px!important;line-height:1.35!important;padding:6px 5px!important}
 `;
 document.head.appendChild(style);
-window.GeoVerseConnectedMapsV400={version:'v438',focusWorldCountry};
+window.GeoVerseConnectedMapsV400={version:'v439',focusWorldCountry};
 })();
