@@ -186,7 +186,7 @@ function mount(){
   }
   globeTab.addEventListener('click',()=>showMap(false));
   mapTab.addEventListener('click',()=>showMap(true));
-  showMap(true);
+  showMap(false); // 3D globe is the default view; landmarks remain one tap away.
   // The original country attractions section is unchanged.
   buttons.forEach(hit=>{
    hit.addEventListener('click',()=>details.classList.add('gv470-open'));
