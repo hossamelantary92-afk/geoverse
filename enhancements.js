@@ -55,6 +55,8 @@ const globeArabicNameOverrides={
 };
 function arName(r){
  if(!r)return '';
+ const newAreaArabic={AX:'جزر آلاند',BL:'سان بارتليمي',BQ:'بونير وسينت أوستاتيوس وسابا',CW:'كوراساو',MF:'سان مارتن (الجزء الفرنسي)',SX:'سينت مارتن (الجزء الهولندي)',TW:'تايوان',XK:'كوسوفو'};
+ if(Object.hasOwn(newAreaArabic,r.code))return newAreaArabic[r.code];
  try{
   const result=new Intl.DisplayNames(['ar'],{type:'region'}).of(r.code);
   return result&&/[\u0600-\u06FF]/.test(result)?result:(globeArabicNameOverrides[r.name]||r.name);
@@ -74,7 +76,7 @@ function globeCountryName(feature){
 function resolvedContinent(name){const r=recordFor(name);return r?.continent||((name==='Antarctica')?'Antarctica':null)}
 async function loadCatalogue(){
  try{
- const [meta,shape]=await Promise.all([fetch('./country-meta.json').then(x=>x.json()),fetch('./world.geojson?v=gv119-bermuda-ring-fixed',{cache:'no-cache'}).then(x=>x.json())]);
+ const [meta,shape]=await Promise.all([fetch('./country-meta.json?v=gv450-eight-area-profiles').then(x=>x.json()),fetch('./world.geojson?v=gv119-bermuda-ring-fixed',{cache:'no-cache'}).then(x=>x.json())]);
  store.countries=meta.countries.filter(x=>x.code&&x.continent);for(const r of store.countries){store.byCode.set(r.code,r);store.byName.set(norm(r.name),r)}
  store.byName.set(norm('United States of America'),recordFor('United States'));
  store.byName.set(norm('United Republic of Tanzania'),recordFor('Tanzania'));
