@@ -1548,7 +1548,7 @@
       "continent": "Africa",
       "capital": "Tunis",
       "code": "TN",
-      "currency": "Tunisian Dollar"
+      "currency": "Tunisian Dinar"
     },
     {
       "name": "Türkiye",
@@ -1597,7 +1597,7 @@
       "continent": "Asia",
       "capital": "Abu Dhabi",
       "code": "AE",
-      "currency": "Arab Emirates Dirham"
+      "currency": "United Arab Emirates Dirham"
     },
     {
       "name": "United Kingdom (legacy duplicate of GB)",
