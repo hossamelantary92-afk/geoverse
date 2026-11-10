@@ -71,10 +71,43 @@ function mount(){
  expand.addEventListener('click',()=>{expanded=!expanded;updateList()});updateList();
  panel.append(title,desc,map,details,list,expand);
  globe.parentElement.appendChild(panel);select(0);
+ if(code==='EG'){
+  const host=globe.closest('.gv-story-card')||globe.parentElement;
+  host.classList.add('gv470-egypt');
+  const heading=host.querySelector('h2'),intro=host.querySelector('p');
+  if(heading)heading.textContent=label('استكشف مصر','Explore Egypt');
+  if(intro)intro.textContent=label('اختر طريقة الاستكشاف','Choose an exploration view');
+  list.remove();expand.remove();title.remove();desc.remove();
+  details.classList.add('gv470-detail');
+  const tabs=document.createElement('div');tabs.className='gv470-tabs';
+  const globeTab=document.createElement('button'),mapTab=document.createElement('button');
+  globeTab.type=mapTab.type='button';
+  globeTab.textContent=label('الكرة الأرضية 3D','3D Globe');
+  mapTab.textContent=label('خريطة المعالم','Landmarks map');
+  tabs.append(globeTab,mapTab);globe.before(tabs);
+  function showMap(enabled){
+   globe.style.display=enabled?'none':'';
+   panel.style.display=enabled?'':'none';
+   globeTab.classList.toggle('gv470-on',!enabled);
+   mapTab.classList.toggle('gv470-on',enabled);
+   globeTab.setAttribute('aria-pressed',String(!enabled));
+   mapTab.setAttribute('aria-pressed',String(enabled));
+   if(!enabled)window.dispatchEvent(new Event('resize'));
+  }
+  globeTab.addEventListener('click',()=>showMap(false));
+  mapTab.addEventListener('click',()=>showMap(true));
+  showMap(true);
+  // The original country attractions section is unchanged.
+  buttons.forEach(hit=>{
+   hit.addEventListener('click',()=>details.classList.add('gv470-open'));
+   hit.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')details.classList.add('gv470-open')});
+  });
+ }
+
 }
 const style=document.createElement('style');
 style.textContent='.gv450-landmark-panel{margin-top:16px;padding:14px;border:1px solid rgba(113,229,213,.3);border-radius:17px;background:linear-gradient(150deg,rgba(8,48,67,.96),rgba(7,32,52,.95));color:#eafffb}.gv450-landmark-panel h3{font-size:17px;margin:0 0 5px}.gv450-landmark-panel p{font-size:12px;opacity:.8;margin:0 0 10px}.gv450-map{border-radius:12px;overflow:hidden;background:radial-gradient(circle at 45% 45%,#174b63,#08273b)}.gv450-map svg{display:block;width:100%;max-height:270px}.gv450-outline{fill:#145c68;stroke:#75dfce;stroke-width:1.5;vector-effect:non-scaling-stroke}.gv450-dot{fill:#ffda61;stroke:#fff4bd;stroke-width:1.5;pointer-events:none}.gv450-hit{fill:transparent;cursor:pointer;outline:none}.gv450-hit:focus-visible{stroke:#fff;stroke-width:2}.gv450-hit.gv450-active{stroke:#ffda61;stroke-width:2}.gv450-details{display:flex;flex-direction:column;gap:3px;padding:12px 4px 2px}.gv450-details strong{font-size:15px}.gv450-details span{font-size:12px;opacity:.78}';
-style.textContent+=' .gv450-landmark-panel{border-color:rgba(113,229,213,.5);box-shadow:0 18px 45px #0005,inset 0 1px #ffffff12;background:linear-gradient(145deg,#103c50,#071c31)}.gv450-map{position:relative;background:radial-gradient(ellipse at 40% 30%,#21586b,#0a263b 70%);border:1px solid #4b98a055}.gv450-outline{fill:#1c6b70;stroke:#96f0dd;stroke-width:1.8;filter:drop-shadow(0 3px 7px #0008)}.gv450-dot{fill:#f7c85d;filter:drop-shadow(0 0 3px #f7c85d)}.gv450-controls{position:absolute;bottom:10px;left:10px;display:flex;gap:6px}.gv450-controls button,.gv450-open,.gv450-list button{background:#154c60;border:1px solid #75d7cc77;color:#eafffb;border-radius:10px;padding:7px 10px;font:700 12px Cairo,system-ui;cursor:pointer}.gv450-list{display:flex;gap:7px;overflow-x:auto;padding:12px 0 2px;scrollbar-width:thin}.gv450-list button{white-space:nowrap;flex-shrink:0}.gv450-open{margin-top:9px;background:#1b706f}.gv450-details{min-height:75px}.gv450-hit.gv450-active{fill:#ffd75b33;stroke:#ffe5a3;stroke-width:2.5}';style.textContent+=' .gv450-list button.gv450-current{background:#1b777a;border-color:#f7d76b;color:#fff}.gv450-controls{z-index:2;direction:ltr}.gv450-controls button{min-width:34px;min-height:34px}.gv450-map{isolation:isolate}';style.textContent+=' .gv450-landmark-panel{box-sizing:border-box;width:100%;max-width:100%;min-width:0;overflow:hidden}.gv450-map,.gv450-details,.gv450-list{box-sizing:border-box;width:100%;max-width:100%;min-width:0}.gv450-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;overflow:visible;max-height:none;padding:10px 0 0}.gv450-list button{display:none;min-width:0;max-width:100%;white-space:normal;overflow-wrap:anywhere;text-align:center;line-height:1.5;min-height:45px}.gv450-list button:nth-child(-n+4),.gv450-list.gv450-expanded button{display:block}.gv450-expand{display:block;width:100%;margin-top:9px;padding:9px;border:1px solid #69d8cb66;border-radius:11px;background:#123e54;color:#a4f6e9;font:700 12px Cairo,system-ui;cursor:pointer}.gv450-landmark-panel .gv450-map svg{max-width:100%;height:auto}@media(min-width:700px){.gv450-list{grid-template-columns:repeat(3,minmax(0,1fr))}.gv450-list button:nth-child(-n+6){display:block}}';document.head.appendChild(style);
+style.textContent+=' .gv450-landmark-panel{border-color:rgba(113,229,213,.5);box-shadow:0 18px 45px #0005,inset 0 1px #ffffff12;background:linear-gradient(145deg,#103c50,#071c31)}.gv450-map{position:relative;background:radial-gradient(ellipse at 40% 30%,#21586b,#0a263b 70%);border:1px solid #4b98a055}.gv450-outline{fill:#1c6b70;stroke:#96f0dd;stroke-width:1.8;filter:drop-shadow(0 3px 7px #0008)}.gv450-dot{fill:#f7c85d;filter:drop-shadow(0 0 3px #f7c85d)}.gv450-controls{position:absolute;bottom:10px;left:10px;display:flex;gap:6px}.gv450-controls button,.gv450-open,.gv450-list button{background:#154c60;border:1px solid #75d7cc77;color:#eafffb;border-radius:10px;padding:7px 10px;font:700 12px Cairo,system-ui;cursor:pointer}.gv450-list{display:flex;gap:7px;overflow-x:auto;padding:12px 0 2px;scrollbar-width:thin}.gv450-list button{white-space:nowrap;flex-shrink:0}.gv450-open{margin-top:9px;background:#1b706f}.gv450-details{min-height:75px}.gv450-hit.gv450-active{fill:#ffd75b33;stroke:#ffe5a3;stroke-width:2.5}';style.textContent+=' .gv450-list button.gv450-current{background:#1b777a;border-color:#f7d76b;color:#fff}.gv450-controls{z-index:2;direction:ltr}.gv450-controls button{min-width:34px;min-height:34px}.gv450-map{isolation:isolate}';style.textContent+=' .gv450-landmark-panel{box-sizing:border-box;width:100%;max-width:100%;min-width:0;overflow:hidden}.gv450-map,.gv450-details,.gv450-list{box-sizing:border-box;width:100%;max-width:100%;min-width:0}.gv450-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;overflow:visible;max-height:none;padding:10px 0 0}.gv450-list button{display:none;min-width:0;max-width:100%;white-space:normal;overflow-wrap:anywhere;text-align:center;line-height:1.5;min-height:45px}.gv450-list button:nth-child(-n+4),.gv450-list.gv450-expanded button{display:block}.gv450-expand{display:block;width:100%;margin-top:9px;padding:9px;border:1px solid #69d8cb66;border-radius:11px;background:#123e54;color:#a4f6e9;font:700 12px Cairo,system-ui;cursor:pointer}.gv450-landmark-panel .gv450-map svg{max-width:100%;height:auto}@media(min-width:700px){.gv450-list{grid-template-columns:repeat(3,minmax(0,1fr))}.gv450-list button:nth-child(-n+6){display:block}}';style.textContent+=' .gv470-egypt{min-width:0;max-width:100%;overflow:hidden}.gv470-egypt .gv470-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}.gv470-tabs button{min-width:0;border:1px solid #66c9c4;border-radius:12px;padding:12px 6px;background:#103a50;color:#d8f5f2;font:700 13px Cairo,system-ui;cursor:pointer}.gv470-tabs button.gv470-on{background:#4cd8cb;color:#082c37}.gv470-egypt .gv450-landmark-panel{margin:0;padding:0;border:0;background:transparent;box-shadow:none}.gv470-egypt .gv470-detail{display:none}.gv470-egypt .gv470-detail.gv470-open{display:flex}.gv470-egypt .gv450-map{max-width:100%}.gv470-egypt .gv450-controls{direction:ltr}';document.head.appendChild(style);
 const observer=new MutationObserver(()=>mount());
 observer.observe(document.getElementById('main')||document.body,{childList:true,subtree:true});
 mount();
