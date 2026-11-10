@@ -63,12 +63,33 @@ function restoreSelectedCountryHighlight(r,record){
  r.node.querySelectorAll('.atlas-country.gv436-selected').forEach(el=>{if(el!==target)el.classList.remove('gv436-selected')});
  target.classList.add('gv436-selected');
 }
+function selectDirectAtlasCountry(path){
+ const r=typeof atlasRuntime!=='undefined'?atlasRuntime:null;
+ if(r?.id!=='worldMap'||!r.node?.isConnected||!r.node.contains(path))return;
+ const index=Number(path.dataset.mapCountry);
+ const feature=Number.isInteger(index)?r.features?.[index]:null;
+ const record=recordForFeature(feature)||store()?.countries?.find(row=>[feature?.properties?.ADMIN,feature?.properties?.NAME,feature?.properties?.name_long].some(n=>norm(n)===norm(row.name)));
+ if(!record?.code)return;
+ const card=r.node.querySelector('.gv140-country-card');
+ if(!card)return;
+ // The canonical record is attached to the card before any legacy click state can be reused.
+ card.dataset.gvDirectCountry=String(record.code).toUpperCase();
+ card.hidden=false;
+ card.classList.remove('gv418-dragged');
+ card.style.removeProperty('left');card.style.removeProperty('top');
+ card.style.removeProperty('right');card.style.removeProperty('bottom');
+ card.dataset.gv427Country='';
+ r.node.querySelectorAll('.atlas-country.gv436-selected,.atlas-country.gv411-country-focus').forEach(el=>el.classList.remove('gv436-selected','gv411-country-focus'));
+ path.classList.add('gv436-selected');
+ syncWorldCountryCard();
+}
 function syncWorldCountryCard(){
  const r=typeof atlasRuntime!=='undefined'?atlasRuntime:null;
  if(r?.id!=='worldMap'||!r.node?.isConnected)return;
  const card=r.node.querySelector('.gv140-country-card');
  if(!card||card.hidden)return;
- const record=selectedWorldRecord(r,card);
+ const direct=card.dataset.gvDirectCountry;
+ const record=(direct&&store()?.countries?.find(row=>String(row.code).toUpperCase()===direct))||selectedWorldRecord(r,card);
  if(!record?.code)return;
  restoreSelectedCountryHighlight(r,record);
  const code=String(record.code).toUpperCase();
@@ -93,16 +114,14 @@ function syncWorldCountryCard(){
  const heading=document.createElement('div');heading.className='gv427-card-heading';
  const title=document.createElement('strong');title.className='gv140-card-title gv427-country-name';
  title.textContent=lang((typeof geo!=='undefined'&&geo.countries?.find(row=>norm(row[1])===norm(record.name))?.[0])||record.nameAr||record.ar||record.name,record.name);
- const eyebrow=document.createElement('span');eyebrow.className='gv427-eyebrow';
- eyebrow.textContent=lang('الدولة المحددة','Selected country');
- const capital=document.createElement('div');capital.className='gv140-card-meta';
+  const capital=document.createElement('div');capital.className='gv140-card-meta';
  capital.textContent=lang('العاصمة: ','Capital: ')+(record.capitalAr||record.capital||'—');
  const continent=document.createElement('div');continent.className='gv140-card-continent';
  continent.textContent=record.continent||'';
  const profile=document.createElement('button');profile.type='button';
  profile.className='gv400-map-link';profile.dataset.gv400OpenProfile=code;
  profile.textContent=lang('فتح ملف الدولة الكامل','Open full country profile');
- heading.append(grip,img);card.replaceChildren(heading,close,eyebrow,title,capital,continent,profile);
+ heading.append(grip,img);card.replaceChildren(heading,close,title,capital,continent,profile);
  const keys=['Asia','Africa','Europe','North America','South America','Oceania','Antarctica'];
  const index=keys.findIndex(value=>norm(value)===norm(record.continent));
  if(index>=0){
@@ -286,6 +305,11 @@ function focusWorldCountry(code){
  requestAnimationFrame(attempt);
 }
 document.addEventListener('click',event=>{
+ const countryPath=event.target.closest?.('#worldMap .atlas-country[data-map-country]');
+ if(countryPath){
+  // Allow the atlas to run its existing zoom/selection logic, then normalize the popup.
+  setTimeout(()=>selectDirectAtlasCountry(countryPath),0);
+ }
  // The world atlas must never send a selected country into a generic landmark detail.
  // Reuse the same canonical country route as the Countries & Capitals directory.
  const legacy=event.target.closest('button,a,[role="button"],[data-atlas-open]');
@@ -518,6 +542,13 @@ body.light .gv400-map-link{background:linear-gradient(135deg,#e8f8f5,#f5fbff);co
 #worldMap .gv427-unified-card .gv427-close{top:43px!important;left:10px!important;width:27px!important;height:27px!important;min-height:27px!important}
 #worldMap .gv427-unified-card .gv417-card-grip{width:27px!important;max-width:27px!important;height:27px!important;min-height:27px!important}
 @media(max-width:225px){#worldMap.gv140-map .atlas-stage .gv140-country-card.gv427-unified-card:not([hidden]){width:calc(100% - 20px)!important;max-width:calc(100% - 20px)!important}}
+/* v437: minimal popup shared by direct taps and country-directory navigation. */
+#worldMap.gv140-map .atlas-stage .gv140-country-card.gv427-unified-card:not([hidden]),#worldMap.gv140-map .atlas-stage .gv140-country-card.gv427-unified-card.gv418-dragged:not([hidden]){width:168px!important;max-width:168px!important;padding:9px!important;gap:3px!important}
+#worldMap .gv427-unified-card .gv427-close{top:8px!important;left:43px!important}
+#worldMap .gv427-unified-card .gv140-card-title{font-size:17px!important;margin-top:1px!important}
+#worldMap .gv427-unified-card .gv140-card-meta,#worldMap .gv427-unified-card .gv140-card-continent{font-size:11px!important}
+#worldMap .gv427-unified-card .gv400-map-link{min-height:39px!important;font-size:10px!important;letter-spacing:-.1px!important}
+#worldMap .atlas-country.gv436-selected{fill:#ffd43b!important;stroke:#fff2a2!important;opacity:1!important}
 /* v436: polished compact popup actions and reliable country selection. */
 #worldMap .atlas-country.gv436-selected{fill:#ffd43b!important;stroke:#fff4a5!important;stroke-width:2.5px!important;opacity:1!important;filter:drop-shadow(0 0 5px rgba(255,212,59,.65))!important}
 #worldMap.gv140-map .atlas-stage .gv140-country-card.gv427-unified-card:not([hidden]){gap:5px!important;padding:11px!important;max-height:min(310px,75%)!important}
@@ -530,5 +561,5 @@ body.light .gv400-map-link{background:linear-gradient(135deg,#e8f8f5,#f5fbff);co
 #worldMap .gv427-unified-card .gv400-map-link:active{transform:scale(.98)!important}
 `;
 document.head.appendChild(style);
-window.GeoVerseConnectedMapsV400={version:'v435',focusWorldCountry};
+window.GeoVerseConnectedMapsV400={version:'v437',focusWorldCountry};
 })();
