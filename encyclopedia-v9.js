@@ -62,6 +62,10 @@ function coreCountryArticle(){
  const populationNote=info?.py?lang('بيانات البنك الدولي · '+info.py,'World Bank · '+info.py):lang('عدد تقريبي','Approximate figure');
  const areaNote=lang('المساحة التقريبية','Approximate area');
  const title=esc(nativeName(code)),eng=esc(r.name);
+ const hasMappedBoundary=!!meta()?.featLookup?.get(code);
+ const globeDescription=hasMappedBoundary
+   ?lang('تظهر حدود الدولة من داخل طبقة الخريطة. حرّك الكرة للتجول، أو قرّب لرؤية موقعها.','Country geometry is highlighted directly on the globe. Drag to explore or zoom closer.')
+   :lang('لم تتوفر حدود منفصلة لهذا الإقليم في طبقة الخريطة الحالية. يمكنك استكشاف الكرة الأرضية دون تحديد مضلل.','This area has no separate boundary in the current map layer. Explore the globe without a misleading highlight.');
  const subtitle=esc(c);
  return '<button class="back gv9-back" data-page="countries-v4">← '+lang('العودة إلى الدول','Back to countries')+'</button>'+
  '<header class="gv9-hero"><div class="gv9-hero-title"><span class="gv9-eyebrow">'+lang('الموسوعة الجغرافية · الدول','COUNTRY ENCYCLOPEDIA')+'</span><h1>'+title+'</h1><p>'+subtitle+'</p></div><div class="gv9-flag"><img alt="'+lang('علم ','Flag of ')+title+'" src="https://flagcdn.com/'+(code==='UK'?'gb':code.toLowerCase())+'.svg"></div></header>'+
@@ -73,7 +77,7 @@ function coreCountryArticle(){
  tile(icon('region'),lang('القارة','Continent'),esc(c))+
  tile(icon('money'),lang('العملة','Currency'),esc(money(r)))+
  '</div></section>'+
- '<section class="gv9-section gv9-earth"><div class="gv9-section-title"><span class="gv9-eyebrow">'+lang('استكشف الأرض','EXPLORE EARTH')+'</span><h2>'+lang('شاهد موقع الدولة على الكرة الأرضية','Explore the country in 3D')+'</h2><p>'+lang('تظهر حدود الدولة من داخل طبقة الخريطة. حرّك الكرة للتجول، أو قرّب لرؤية موقعها.','Country geometry is highlighted directly on the globe. Drag to explore or zoom closer.')+'</p></div><div class="gv-globe-detail gv9-primary-globe" id="gvDetailGlobe" role="group" aria-label="'+lang('كرة أرضية تفاعلية لموقع الدولة','Interactive 3D country globe')+'"></div></section>'+
+ '<section class="gv9-section gv9-earth"><div class="gv9-section-title"><span class="gv9-eyebrow">'+lang('استكشف الأرض','EXPLORE EARTH')+'</span><h2>'+lang('شاهد موقع الدولة على الكرة الأرضية','Explore the country in 3D')+'</h2><p>'+globeDescription+'</p></div><div class="gv-globe-detail gv9-primary-globe" id="gvDetailGlobe" role="group" aria-label="'+lang('كرة أرضية تفاعلية لموقع الدولة','Interactive 3D country globe')+'"></div></section>'+
  '<section class="gv9-section"><div class="gv9-section-title"><span class="gv9-eyebrow">'+lang('الدول القريبة','NEIGHBORING COUNTRIES')+'</span><h2>'+lang('الدول ذات الحدود البرية المشتركة','Land neighbors')+'</h2><p>'+lang('اضغط على أي علم لفتح صفحة الدولة.','Select a neighboring country to open its profile.')+'</p></div>'+neighbors(info,code)+'</section>';
 
 }
