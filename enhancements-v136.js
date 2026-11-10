@@ -56,6 +56,8 @@ const globeArabicNameOverrides={
 };
 function arName(r){
  if(!r)return '';
+ const specialAreas={AX:'جزر آلاند',BL:'سان بارتليمي',BQ:'بونير وسينت أوستاتيوس وسابا',CW:'كوراساو',MF:'سان مارتن (الجزء الفرنسي)',SX:'سينت مارتن (الجزء الهولندي)',TW:'تايوان',XK:'كوسوفو'};
+ if(Object.hasOwn(specialAreas,r.code))return specialAreas[r.code];
  try{
   const result=new Intl.DisplayNames(['ar'],{type:'region'}).of(r.code);
   return result&&/[\u0600-\u06FF]/.test(result)?result:(globeArabicNameOverrides[r.name]||r.name);
