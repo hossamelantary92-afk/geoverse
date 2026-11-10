@@ -323,7 +323,7 @@
       "continent": "Oceania",
       "capital": "West Island",
       "code": "CC",
-      "currency": " Australian Dollar"
+      "currency": "Australian Dollar"
     },
     {
       "name": "Colombia",
@@ -1296,7 +1296,7 @@
       "continent": "North America",
       "capital": "Saint-Pierre",
       "code": "PM",
-      "currency": " Euro"
+      "currency": "Euro"
     },
     {
       "name": "Saint Vincent and the Grenadines",
@@ -1324,7 +1324,7 @@
       "continent": "Africa",
       "capital": "São Tomé",
       "code": "ST",
-      "currency": " Dobra"
+      "currency": "Dobra"
     },
     {
       "name": "Saudi Arabia",
