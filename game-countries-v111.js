@@ -5,12 +5,14 @@ const bank=window.GeoVerseQuestionPools;if(!bank||!Array.isArray(bank.capitals))
 const known=new Set(bank.capitals.map(x=>x[4].toLowerCase()));
 const skip=new Set(['AQ','BV','HM','UM','TF','GS','EH']);
 const valid=r=>r&&/^[A-Z]{2}$/.test(r.code||'')&&r.capital&&typeof r.capital==='string'&&!/[();]| and |\//i.test(r.capital)&&!skip.has(r.code)&&r.name&&!/legacy duplicate|historical alias/i.test(r.name);
+const arabicAreaNames={AX:'جزر آلاند',BL:'سان بارتليمي',BQ:'بونير وسينت أوستاتيوس وسابا',CW:'كوراساو',MF:'سان مارتن (الجزء الفرنسي)',SX:'سينت مارتن (الجزء الهولندي)',TW:'تايوان',XK:'كوسوفو'};
 const convert=r=>{
- let ar=r.name;try{ar=new Intl.DisplayNames(['ar'],{type:'region'}).of(r.code)||r.name}catch{}
+ let ar=arabicAreaNames[r.code]||r.name;
+ if(!arabicAreaNames[r.code])try{ar=new Intl.DisplayNames(['ar'],{type:'region'}).of(r.code)||r.name}catch{}
  // Keep the precise Latin spelling for capitals without an approved Arabic transliteration.
  return [ar,r.name,r.capital,r.capital,r.code.toLowerCase()];
 };
-fetch('./country-meta.json?v=gv111-game-catalogue').then(r=>{if(!r.ok)throw Error('Country catalogue unavailable');return r.json()}).then(data=>{
+fetch('./country-meta.json?v=gv493-flag-games-qa').then(r=>{if(!r.ok)throw Error('Country catalogue unavailable');return r.json()}).then(data=>{
  let added=0;
  for(const r of data.countries||[]){
   if(!valid(r)||known.has(r.code.toLowerCase()))continue;
