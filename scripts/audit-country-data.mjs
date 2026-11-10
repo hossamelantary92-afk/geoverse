@@ -60,9 +60,9 @@ const factsOnly = {
   AX: { name: 'Åland Islands', type: 'autonomous_territory', parent: 'FI' },
   MF: { name: 'Saint Martin (French part)', type: 'overseas_collectivity', parent: 'FR' },
   TW: { name: 'Taiwan', type: 'politically_sensitive_area', parent: null },
-  CW: { name: 'Curaçao', type: 'constituent_country', parent: 'NL' },
+  CW: { name: 'Curaçao', type: 'constituent_country_of_kingdom_of_netherlands', parent: null },
   BQ: { name: 'Caribbean Netherlands', type: 'special_municipalities', parent: 'NL' },
-  SX: { name: 'Sint Maarten (Dutch part)', type: 'constituent_country', parent: 'NL' },
+  SX: { name: 'Sint Maarten (Dutch part)', type: 'constituent_country_of_kingdom_of_netherlands', parent: null },
   BL: { name: 'Saint Barthélemy', type: 'overseas_collectivity', parent: 'FR' },
   XK: { name: 'Kosovo', type: 'user_assigned_code_not_iso_3166', parent: null }
 };
