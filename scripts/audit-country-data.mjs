@@ -51,6 +51,44 @@ const anomalies = {
   classifiedExceptions: classifiedCapitalExceptions,
   historicalAliasCodes: coded.filter(row => historicalAliases.has(row.code)).map(row => row.code).sort()
 };
+// Expected differences between the legacy display catalogue and the factual
+// data inventory. Explicitly recorded, not automatically migrated into the UI.
+// Status classification is not a claim about sovereignty or recognition.
+// https://op.europa.eu/en/web/eu-vocabularies/countries-and-territories
+// https://verdragenbank.overheid.nl/en/Treaty/Details/009168_p.html
+const factsOnly = {
+  AX: { name: 'Åland Islands', type: 'autonomous_territory', parent: 'FI' },
+  MF: { name: 'Saint Martin (French part)', type: 'overseas_collectivity', parent: 'FR' },
+  TW: { name: 'Taiwan', type: 'politically_sensitive_area', parent: null },
+  CW: { name: 'Curaçao', type: 'constituent_country', parent: 'NL' },
+  BQ: { name: 'Caribbean Netherlands', type: 'special_municipalities', parent: 'NL' },
+  SX: { name: 'Sint Maarten (Dutch part)', type: 'constituent_country', parent: 'NL' },
+  BL: { name: 'Saint Barthélemy', type: 'overseas_collectivity', parent: 'FR' },
+  XK: { name: 'Kosovo', type: 'user_assigned_code_not_iso_3166', parent: null }
+};
+const legacyMetadataOnly = {
+  AN: { name: 'Netherlands Antilles', type: 'dissolved_2010', successors: ['CW', 'SX', 'BQ'] },
+  TP: { name: 'East Timor', type: 'historical_alias', canonicalCode: 'TL' },
+  UK: { name: 'United Kingdom', type: 'legacy_alias', canonicalCode: 'GB' }
+};
+const factOnlyCodes = [...factCodes].filter(code => !metaCodes.has(code)).sort();
+const metadataOnlyCodes = [...metaCodes].filter(code => !factCodes.has(code)).sort();
+const knownFactOnly = factOnlyCodes.filter(code => Object.hasOwn(factsOnly, code));
+const knownMetadataOnly = metadataOnlyCodes.filter(code => Object.hasOwn(legacyMetadataOnly, code));
+const unclassifiedFactOnly = factOnlyCodes.filter(code => !Object.hasOwn(factsOnly, code));
+const unclassifiedMetadataOnly = metadataOnlyCodes.filter(code => !Object.hasOwn(legacyMetadataOnly, code));
+const staleRegistry = {
+  factsOnly: Object.keys(factsOnly).filter(code => !factOnlyCodes.includes(code)).sort(),
+  metadataOnly: Object.keys(legacyMetadataOnly).filter(code => !metadataOnlyCodes.includes(code)).sort()
+};
+const reconciliation = {
+  status: 'documented_pending_catalogue_migration',
+  factsOnly: knownFactOnly.map(code => ({ code, ...factsOnly[code] })),
+  legacyMetadataOnly: knownMetadataOnly.map(code => ({ code, ...legacyMetadataOnly[code] })),
+  unclassifiedFactsOnly: unclassifiedFactOnly,
+  unclassifiedMetadataOnly: unclassifiedMetadataOnly,
+  staleRegistry
+};
 const withoutYear = Object.entries(byCode)
   .filter(([, row]) => Number.isFinite(row.p) && !row.py)
   .map(([code]) => code).sort();
@@ -70,8 +108,9 @@ const report = {
   issues: {
     metadataWithoutCodes: records.filter(row => !row.code).map(row => row.name),
     duplicateCodes: repeated.map(row => ({ code: row.code, name: row.name })),
-    metadataWithoutFacts: [...metaCodes].filter(code => !factCodes.has(code)).sort(),
-    factsWithoutMetadata: [...factCodes].filter(code => !metaCodes.has(code)).sort(),
+    metadataWithoutFacts: metadataOnlyCodes,
+    factsWithoutMetadata: factOnlyCodes,
+    reconciliation,
     legacyRecordsRequiringClassification: taggedLegacy.map(row => ({ code: row.code, name: row.name })),
     capitalStatus: anomalies,
     // Retained for backward compatibility with earlier audit reports.
@@ -82,6 +121,6 @@ const report = {
 };
 console.log(JSON.stringify(report, null, 2));
 // Nonzero exit for reproducible data mismatches, not for known missing/contested fields.
-if (report.issues.duplicateCodes.length || report.issues.metadataWithoutFacts.length || report.issues.factsWithoutMetadata.length) {
+if (report.issues.duplicateCodes.length || unclassifiedFactOnly.length || unclassifiedMetadataOnly.length || staleRegistry.factsOnly.length || staleRegistry.metadataOnly.length) {
   process.exitCode = 1;
 }
