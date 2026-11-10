@@ -1738,6 +1738,62 @@
       "capital": "Dili",
       "code": "TL",
       "currency": "US Dollar"
+    },
+    {
+      "name": "Åland Islands",
+      "continent": "Europe",
+      "capital": "Mariehamn",
+      "code": "AX",
+      "currency": "Euro"
+    },
+    {
+      "name": "Saint Barthélemy",
+      "continent": "North America",
+      "capital": "Gustavia",
+      "code": "BL",
+      "currency": "Euro"
+    },
+    {
+      "name": "Bonaire, Sint Eustatius and Saba",
+      "continent": "North America",
+      "capital": null,
+      "code": "BQ",
+      "currency": "US Dollar"
+    },
+    {
+      "name": "Curaçao",
+      "continent": "North America",
+      "capital": "Willemstad",
+      "code": "CW",
+      "currency": "Caribbean Guilder"
+    },
+    {
+      "name": "Saint Martin (French part)",
+      "continent": "North America",
+      "capital": "Marigot",
+      "code": "MF",
+      "currency": "Euro"
+    },
+    {
+      "name": "Sint Maarten (Dutch part)",
+      "continent": "North America",
+      "capital": "Philipsburg",
+      "code": "SX",
+      "currency": "Caribbean Guilder"
+    },
+    {
+      "name": "Taiwan",
+      "continent": "Asia",
+      "capital": "Taipei",
+      "code": "TW",
+      "currency": "New Taiwan Dollar"
+    },
+    {
+      "name": "Kosovo",
+      "continent": "Europe",
+      "capital": "Pristina",
+      "code": "XK",
+      "currency": "Euro"
     }
   ]
 }
