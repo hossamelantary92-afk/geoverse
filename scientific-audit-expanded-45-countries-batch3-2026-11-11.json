@@ -1,0 +1,924 @@
+{
+  "project": "GeoVerse",
+  "batch": "Expanded country scientific triage batch 3",
+  "date": "2026-11-11",
+  "scope": "45 previously unreviewed countries spanning Middle East, Asia, Europe, and Central America. Two principal sections screened per article. Verified heritage examples recorded separately from unverified country rows.",
+  "verification_policy": "A link to the official UNESCO listing confirms only the explicitly scoped heritage/site claim. A candidate or tentative heritage designation is not a World Heritage inscription; no claims about sovereignty, boundaries, economics, demographics or images are certified.",
+  "counts": {
+    "countries_scanned": 45,
+    "claim_supported_or_classification_matched": 17,
+    "source_required": 28,
+    "fully_certified_articles": 0
+  },
+  "records": [
+    {
+      "code": "AE",
+      "title_en": "United Arab Emirates: coasts and desert",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Landscapes include Liwa dunes, coastal mangroves and eastern mountains, with seasonal wadis and oases reflecting historic settlement and agriculture.",
+      "heritage_check": {
+        "status": "needs_specialist_or_site_specific_primary_source",
+        "source_url": null,
+        "named_site": null,
+        "claim_scope": "Code/text scanned; no claim-specific primary-source confirmation recorded in this batch"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "QA",
+      "title_en": "Qatar: Gulf peninsula",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Distinctive habitats include Khor Al Adaid, where dunes meet gulf waters, mangroves near Al Thakhira, and tidal beaches and salt flats.",
+      "heritage_check": {
+        "status": "classification_correction",
+        "source_url": "https://whc.unesco.org/en/statesparties/qa",
+        "named_site": "Khor Al-Adaid natural reserve",
+        "claim_scope": "Tentative List only (2008); not an inscribed World Heritage property"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "KW",
+      "title_en": "Kuwait: Gulf and coastal desert",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Coastal tidal flats and mudflats provide habitats, Failaka Island preserves traces of past settlement, and inland gravel and sand landscapes reflect the desert environment.",
+      "heritage_check": {
+        "status": "needs_specialist_or_site_specific_primary_source",
+        "source_url": null,
+        "named_site": null,
+        "claim_scope": "Code/text scanned; no claim-specific primary-source confirmation recorded in this batch"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "BH",
+      "title_en": "Bahrain: Gulf archipelago",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Highlights include archipelago coasts, tidal habitats and historic pearling sites. The Pearling Path in Muharraq documents diving and maritime trade; the islands also support coastal and tidal habitats importan",
+      "heritage_check": {
+        "status": "supported_site_reference",
+        "source_url": "https://whc.unesco.org/en/list/1364",
+        "named_site": "Pearling, Testimony of an Island Economy",
+        "claim_scope": "Muharraq pearling heritage and oyster beds named in the article"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "YE",
+      "title_en": "Yemen: highlands and Arabian Sea",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Landscapes range from terraced mountain slopes and seasonal wadis to Socotra's highly endemic flora, including dragon's blood trees. Habitats vary across tropical coasts, uplands and dry interior regions.",
+      "heritage_check": {
+        "status": "supported_site_reference",
+        "source_url": "https://whc.unesco.org/en/list/1263/",
+        "named_site": "Socotra Archipelago",
+        "claim_scope": "Socotra endemic flora and unique landscape referenced"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "IQ",
+      "title_en": "Iraq: Tigris, Euphrates and Mesopotamia",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Natural landscapes include southern Mesopotamian marshes, river valleys and northern foothills, together with archaeological sites reflecting the historic importance of river water.",
+      "heritage_check": {
+        "status": "supported_site_reference",
+        "source_url": "https://whc.unesco.org/en/list/1481",
+        "named_site": "The Ahwar of Southern Iraq",
+        "claim_scope": "southern Mesopotamian marshlands; UNESCO lists four natural marsh components"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "IR",
+      "title_en": "Iran: plateaus, Zagros and Caspian",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Iran includes volcanic Mount Damavand, Hyrcanian forests near the Caspian and desert formations of Dasht-e Lut, alongside Zagros valleys and highlands.",
+      "heritage_check": {
+        "status": "supported_site_reference",
+        "source_url": "https://whc.unesco.org/en/list/1584/",
+        "named_site": "Hyrcanian Forests",
+        "claim_scope": "Hyrcanian forest heritage context; shared serial property with Azerbaijan since 2023 extension"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "LB",
+      "title_en": "Lebanon: Mediterranean mountains and Bekaa",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Notable landscapes include the Qadisha Valley, mountain cedar forests, karst caves, springs, waterfalls, the Mediterranean coast and the Chouf highlands.",
+      "heritage_check": {
+        "status": "needs_specialist_or_site_specific_primary_source",
+        "source_url": null,
+        "named_site": null,
+        "claim_scope": "Code/text scanned; no claim-specific primary-source confirmation recorded in this batch"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "SY",
+      "title_en": "Syria: Euphrates, mountains and historic cities",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Natural features include the Euphrates corridor, coastal mountains, southern basalt landscapes and eastern steppe. Palmyra stands near an oasis on historic routes through the dry interior.",
+      "heritage_check": {
+        "status": "needs_specialist_or_site_specific_primary_source",
+        "source_url": null,
+        "named_site": null,
+        "claim_scope": "Code/text scanned; no claim-specific primary-source confirmation recorded in this batch"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "PS",
+      "title_en": "Palestine: highlands, coast and heritage",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Natural landscapes include olive-growing hills, valleys, coastal lowlands and the very low-lying Dead Sea region. Many historic and cultural sites exist, though access varies amid conflict and movement restrict",
+      "heritage_check": {
+        "status": "needs_specialist_or_site_specific_primary_source",
+        "source_url": null,
+        "named_site": null,
+        "claim_scope": "Code/text scanned; no claim-specific primary-source confirmation recorded in this batch"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "IL",
+      "title_en": "Israel: Mediterranean, Negev and disputed borders",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Landscapes include the Mediterranean coast, upland valleys, the Dead Sea depression and Negev Desert, with marked rainfall and vegetation contrasts. Some sites and boundaries remain internationally disputed.",
+      "heritage_check": {
+        "status": "needs_specialist_or_site_specific_primary_source",
+        "source_url": null,
+        "named_site": null,
+        "claim_scope": "Code/text scanned; no claim-specific primary-source confirmation recorded in this batch"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "KZ",
+      "title_en": "Kazakhstan: Steppe, Caspian and mountains",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Major landscapes include Lake Balkhash, Altai highlands and the Caspian shore, ranging from dry steppe to inland basins and wetter mountains.",
+      "heritage_check": {
+        "status": "needs_specialist_or_site_specific_primary_source",
+        "source_url": null,
+        "named_site": null,
+        "claim_scope": "Code/text scanned; no claim-specific primary-source confirmation recorded in this batch"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "UZ",
+      "title_en": "Uzbekistan: Oases and Kyzylkum Desert",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Uzbekistan includes the Silk Road cities of Samarkand, Bukhara and Khiva, extensive deserts and irrigated oases. The Aral Sea basin has undergone dramatic water loss and environmental degradation.",
+      "heritage_check": {
+        "status": "supported_site_reference",
+        "source_url": "https://whc.unesco.org/en/list/602/",
+        "named_site": "Historic Centre of Bukhara",
+        "claim_scope": "Historic Silk Road Bukhara explicitly named in article; not a validation of all Uzbek cities"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "MN",
+      "title_en": "Mongolia: Steppe, Altai and Gobi",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Mongolia includes freshwater Lake Khövsgöl and northern taiga, glaciated Altai landscapes and the Gobi, whose gravel and rocky plains are interspersed with dunes.",
+      "heritage_check": {
+        "status": "needs_specialist_or_site_specific_primary_source",
+        "source_url": null,
+        "named_site": null,
+        "claim_scope": "Code/text scanned; no claim-specific primary-source confirmation recorded in this batch"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "PK",
+      "title_en": "Pakistan: Indus and high mountains",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Pakistan includes K2 in the Karakoram, Hunza Valley and mountain glaciers, while habitats shift from fertile floodplains to deserts and the Indus estuary.",
+      "heritage_check": {
+        "status": "needs_specialist_or_site_specific_primary_source",
+        "source_url": null,
+        "named_site": null,
+        "claim_scope": "Code/text scanned; no claim-specific primary-source confirmation recorded in this batch"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "BD",
+      "title_en": "Bangladesh: the great river delta",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "The Sundarbans form a vast mangrove landscape shared with India; river islands, sediments and channels change with flooding and delta flows.",
+      "heritage_check": {
+        "status": "supported_site_reference",
+        "source_url": "https://whc.unesco.org/en/statesparties/bd",
+        "named_site": "The Sundarbans",
+        "claim_scope": "Bangladesh Sundarbans mangrove heritage listing; cannot extrapolate all delta hydrology"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "NP",
+      "title_en": "Nepal: Terai plains to Himalayas",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Nepal includes Everest in the Sagarmatha region, the Annapurna range and high-altitude lakes, with ecosystems changing rapidly along elevation gradients.",
+      "heritage_check": {
+        "status": "needs_specialist_or_site_specific_primary_source",
+        "source_url": null,
+        "named_site": null,
+        "claim_scope": "Code/text scanned; no claim-specific primary-source confirmation recorded in this batch"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "LK",
+      "title_en": "Sri Lanka: Indian Ocean island",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "The island includes southwestern rainforests, central highlands, protected areas such as Yala and tropical coastal and reef habitats.",
+      "heritage_check": {
+        "status": "needs_specialist_or_site_specific_primary_source",
+        "source_url": null,
+        "named_site": null,
+        "claim_scope": "Code/text scanned; no claim-specific primary-source confirmation recorded in this batch"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "TH",
+      "title_en": "Thailand: rivers and tropical highlands",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Landscapes vary from mountain forests to beaches, karst islands and mangroves, with monsoon rainfall shifting by coast and prevailing wind.",
+      "heritage_check": {
+        "status": "needs_specialist_or_site_specific_primary_source",
+        "source_url": null,
+        "named_site": null,
+        "claim_scope": "Code/text scanned; no claim-specific primary-source confirmation recorded in this batch"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "VN",
+      "title_en": "Vietnam: deltas and coastal mountains",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Ha Long Bay is known for karst islands, Phong Nha–Ke Bang for limestone caves, and the Mekong Delta for waterways, farms and wetlands.",
+      "heritage_check": {
+        "status": "supported_site_reference",
+        "source_url": "https://whc.unesco.org/en/statesparties/vn",
+        "named_site": "Ha Long Bay - Cat Ba Archipelago; Phong Nha-Ke Bang National Park and Hin Nam No National Park",
+        "claim_scope": "Natural sites named in article; UNESCO names expanded multinational Phong Nha property in 2025"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "MY",
+      "title_en": "Malaysia: peninsula and Borneo",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Notable sites include Mount Kinabalu in Sabah, Borneo rainforests, Mulu caves and tropical islands and reefs, with habitats changing from lowlands to mountains.",
+      "heritage_check": {
+        "status": "supported_site_reference",
+        "source_url": "https://whc.unesco.org/en/list/1012",
+        "named_site": "Kinabalu Park",
+        "claim_scope": "Mount Kinabalu in Sabah and its ecosystem; not all claims about Malaysian Borneo"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "PH",
+      "title_en": "Philippines: Pacific islands and volcanoes",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "The islands include Mayon Volcano, Cordillera rice terraces, Palawan and biologically rich coral reefs, alongside mountain forests and tropical shores.",
+      "heritage_check": {
+        "status": "supported_site_reference",
+        "source_url": "https://whc.unesco.org/en/list/722",
+        "named_site": "Rice Terraces of the Philippine Cordilleras",
+        "claim_scope": "Cordillera rice terraces named in current article"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "KR",
+      "title_en": "South Korea: East Asian mountains and coasts",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Highlights include volcanic Jeju Island, Seoraksan mountains, Han River and varied coasts. Volcanic Jeju Island is dominated by Hallasan, while Seoraksan and major rivers such as the Han provide contrasting mou",
+      "heritage_check": {
+        "status": "supported_site_reference",
+        "source_url": "https://whc.unesco.org/en/list/1264",
+        "named_site": "Jeju Volcanic Island and Lava Tubes",
+        "claim_scope": "Volcanic Jeju and Hallasan mentioned; not all Korean mountains"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "RU",
+      "title_en": "Russia: northern plains and Siberia",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Natural features include deep Lake Baikal, the Altai Mountains, Siberian landscapes, Arctic coasts and volcanic Kamchatka, reflecting immense ecological and climatic diversity.",
+      "heritage_check": {
+        "status": "needs_specialist_or_site_specific_primary_source",
+        "source_url": null,
+        "named_site": null,
+        "claim_scope": "Code/text scanned; no claim-specific primary-source confirmation recorded in this batch"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "UA",
+      "title_en": "Ukraine: steppe and Dnipro basin",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Natural features include the Carpathians, Dnipro valleys, Black Sea coastline and steppe ecosystems. War affects safe access to many natural and historic areas and their environmental condition.",
+      "heritage_check": {
+        "status": "needs_specialist_or_site_specific_primary_source",
+        "source_url": null,
+        "named_site": null,
+        "claim_scope": "Code/text scanned; no claim-specific primary-source confirmation recorded in this batch"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "PL",
+      "title_en": "Poland: European plain and Baltic",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Highlights include the Tatra Mountains, Masurian Lake District, forests and Baltic coastline. Landscapes include sandy Baltic shores, Białowieża Forest and the Tatras, spanning lowland, woodland and mountain ha",
+      "heritage_check": {
+        "status": "needs_specialist_or_site_specific_primary_source",
+        "source_url": null,
+        "named_site": null,
+        "claim_scope": "Code/text scanned; no claim-specific primary-source confirmation recorded in this batch"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "NL",
+      "title_en": "Netherlands: delta and water management",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Landscapes include the West Frisian Islands, Wadden Sea tidal flats, rivers, canals and reclaimed polders, reflecting centuries of water management.",
+      "heritage_check": {
+        "status": "supported_site_reference",
+        "source_url": "https://whc.unesco.org/en/list/1314",
+        "named_site": "Wadden Sea",
+        "claim_scope": "Wadden tidal flats named in article; transboundary Netherlands, Germany, Denmark"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "CH",
+      "title_en": "Switzerland: Alps and lakes",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "The Matterhorn, Alpine glaciers and lakes such as Geneva and Lucerne mark strong elevation gradients; glaciers are affected by rising temperatures.",
+      "heritage_check": {
+        "status": "needs_specialist_or_site_specific_primary_source",
+        "source_url": null,
+        "named_site": null,
+        "claim_scope": "Code/text scanned; no claim-specific primary-source confirmation recorded in this batch"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "AT",
+      "title_en": "Austria: Alps and Danube",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Tyrol and Salzkammergut feature mountains, lakes and alpine trails, while the Danube basin supports lower plains and farming districts in the east.",
+      "heritage_check": {
+        "status": "needs_specialist_or_site_specific_primary_source",
+        "source_url": null,
+        "named_site": null,
+        "claim_scope": "Code/text scanned; no claim-specific primary-source confirmation recorded in this batch"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "SE",
+      "title_en": "Sweden: forests, lakes and Baltic",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Highlights include Lakes Vänern and Vättern, the Stockholm archipelago and northern forests.",
+      "heritage_check": {
+        "status": "needs_specialist_or_site_specific_primary_source",
+        "source_url": null,
+        "named_site": null,
+        "claim_scope": "Code/text scanned; no claim-specific primary-source confirmation recorded in this batch"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "NO",
+      "title_en": "Norway: fjords and northern mountains",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Western Norway includes Geirangerfjord and Nærøyfjord; the Lofoten Islands have steep mountains beside the sea, while far-northern areas contain Arctic and tundra environments.",
+      "heritage_check": {
+        "status": "supported_site_reference",
+        "source_url": "https://whc.unesco.org/en/list/1195/",
+        "named_site": "West Norwegian Fjords – Geirangerfjord and Nærøyfjord",
+        "claim_scope": "both named fjords match article"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "DK",
+      "title_en": "Denmark: islands and northern straits",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Coasts range from western dunes and Wadden Sea tidal flats to eastern straits and the chalk cliffs of Møns Klint, reflecting glacial and coastal processes.",
+      "heritage_check": {
+        "status": "supported_site_reference",
+        "source_url": "https://whc.unesco.org/en/list/1314",
+        "named_site": "Wadden Sea",
+        "claim_scope": "Danish coastal Wadden intertidal environment, shared property with Netherlands and Germany"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "FI",
+      "title_en": "Finland: lakes and taiga",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Key landscapes include Lake Saimaa, national parks and boreal forests; the Baltic coast also has rocky archipelagos and relatively brackish waters.",
+      "heritage_check": {
+        "status": "needs_specialist_or_site_specific_primary_source",
+        "source_url": null,
+        "named_site": null,
+        "claim_scope": "Code/text scanned; no claim-specific primary-source confirmation recorded in this batch"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "IE",
+      "title_en": "Ireland: green lowlands and Atlantic",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Highlights include the Cliffs of Moher, River Shannon, green lowlands and western coast. Coastal cliffs such as Moher, peatlands and inland lakes show Ireland's mix of Atlantic ecosystems and long-established a",
+      "heritage_check": {
+        "status": "needs_specialist_or_site_specific_primary_source",
+        "source_url": null,
+        "named_site": null,
+        "claim_scope": "Code/text scanned; no claim-specific primary-source confirmation recorded in this batch"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "BE",
+      "title_en": "Belgium: plains and rivers",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Features include Ardennes forests, the Meuse valley and the North Sea coast. North Sea coastal habitats contrast with Ardennes forests and river valleys; waterways and ports have shaped the location of cities a",
+      "heritage_check": {
+        "status": "needs_specialist_or_site_specific_primary_source",
+        "source_url": null,
+        "named_site": null,
+        "claim_scope": "Code/text scanned; no claim-specific primary-source confirmation recorded in this batch"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "CZ",
+      "title_en": "Czechia: Bohemian basin and border mountains",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Highlights include the Vltava River, Krkonoše Mountains and Bohemian rock landscapes.",
+      "heritage_check": {
+        "status": "needs_specialist_or_site_specific_primary_source",
+        "source_url": null,
+        "named_site": null,
+        "claim_scope": "Code/text scanned; no claim-specific primary-source confirmation recorded in this batch"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "HR",
+      "title_en": "Croatia: Adriatic and karst islands",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Highlights include Plitvice Lakes, Dalmatian coast and Adriatic islands.",
+      "heritage_check": {
+        "status": "supported_site_reference",
+        "source_url": "https://whc.unesco.org/en/list/98",
+        "named_site": "Plitvice Lakes National Park",
+        "claim_scope": "Plitvice named in article; karst waterfalls and lake system supported"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "RS",
+      "title_en": "Serbia: Danube and inland Balkans",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Highlights include the Danube–Sava confluence in Belgrade and the Iron Gates gorge. The Danube cuts through the Đerdap gorge; mountain landscapes, forests and protected valleys contrast with the flatter norther",
+      "heritage_check": {
+        "status": "needs_specialist_or_site_specific_primary_source",
+        "source_url": null,
+        "named_site": null,
+        "claim_scope": "Code/text scanned; no claim-specific primary-source confirmation recorded in this batch"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "RO",
+      "title_en": "Romania: Carpathians and Danube Delta",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Highlights include the Carpathians, Danube Delta, Transylvanian forests and Black Sea coast. The Danube Delta contains reedbeds, shallow waters and bird habitats, while the Carpathians support mountain forests,",
+      "heritage_check": {
+        "status": "supported_site_reference",
+        "source_url": "https://whc.unesco.org/en/list/588/",
+        "named_site": "Danube Delta",
+        "claim_scope": "wetland delta and bird habitats named in article"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "HU",
+      "title_en": "Hungary: Pannonian Plain and Danube",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Major landscapes include Lake Balaton, Hortobágy grasslands, the Danube and thermal springs, with steppe habitats and seasonal waterways.",
+      "heritage_check": {
+        "status": "needs_specialist_or_site_specific_primary_source",
+        "source_url": null,
+        "named_site": null,
+        "claim_scope": "Code/text scanned; no claim-specific primary-source confirmation recorded in this batch"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "CU",
+      "title_en": "Cuba: large Caribbean island",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Highlights include Viñales Valley, Sierra Maestra, Caribbean shores and karst landscapes.",
+      "heritage_check": {
+        "status": "needs_specialist_or_site_specific_primary_source",
+        "source_url": null,
+        "named_site": null,
+        "claim_scope": "Code/text scanned; no claim-specific primary-source confirmation recorded in this batch"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "CR",
+      "title_en": "Costa Rica: forests and volcanoes",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Costa Rica's protected landscapes include Monteverde cloud forests, Corcovado National Park on the Osa Peninsula, Arenal volcano and drier Guanacaste habitats. Sharp changes in climate and elevation create very",
+      "heritage_check": {
+        "status": "needs_specialist_or_site_specific_primary_source",
+        "source_url": null,
+        "named_site": null,
+        "claim_scope": "Code/text scanned; no claim-specific primary-source confirmation recorded in this batch"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "PA",
+      "title_en": "Panama: canal and tropical isthmus",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Panama combines Darién rainforest, Caribbean archipelagos, Pacific islands such as Coiba, and western highland cloud forests. Gatun Lake and waterways are integral to the canal, which transformed shipping betwe",
+      "heritage_check": {
+        "status": "needs_specialist_or_site_specific_primary_source",
+        "source_url": null,
+        "named_site": null,
+        "claim_scope": "Code/text scanned; no claim-specific primary-source confirmation recorded in this batch"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "EC",
+      "title_en": "Ecuador: Equator, Andes and Galápagos",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Ecuador's highlands contain volcanoes such as Cotopaxi and Chimborazo, while eastern rivers feed the Amazon Basin. Offshore Galápagos islands feature volcanic and marine habitats and wildlife adapted to island ",
+      "heritage_check": {
+        "status": "needs_specialist_or_site_specific_primary_source",
+        "source_url": null,
+        "named_site": null,
+        "claim_scope": "Code/text scanned; no claim-specific primary-source confirmation recorded in this batch"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    },
+    {
+      "code": "GT",
+      "title_en": "Guatemala: volcanoes and Maya highlands",
+      "section_count": 6,
+      "article_source_url": null,
+      "screened_sections": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt": "Volcanic peaks and highland communities surround Lake Atitlán, while Tikal National Park combines Maya archaeological remains with protected Petén forest. Tajumulco volcano is the highest peak in Central Americ",
+      "heritage_check": {
+        "status": "supported_site_reference",
+        "source_url": "https://whc.unesco.org/en/list/64",
+        "named_site": "Tikal National Park",
+        "claim_scope": "Maya archaeological remains with protected forest as article mentions"
+      },
+      "article_certification": "not_certified",
+      "other_sections_verified": false,
+      "photo_licensing_verified": false
+    }
+  ],
+  "open_actions": [
+    "Verify other landmark and geographic claims against dedicated geographic authorities",
+    "Review Syria, Palestine, Israel, Ukraine and other sensitive geography against multiple carefully dated sources",
+    "Check text for statistical year and definitions independently",
+    "Do not add article-wide source merely to hide missing provenance",
+    "Audit actual displayed photos and license separately",
+    "Test mobile Safari and published GitHub Pages independently"
+  ],
+  "production_changes": false
+}
