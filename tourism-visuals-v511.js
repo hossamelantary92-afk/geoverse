@@ -28,7 +28,7 @@ function photoTargets(){
  if(typeof state==='undefined')return [];
  const main=document.getElementById('main');if(!main)return [];
  const result=[];
- if(state.page==='category'&&state.category==='tourism'){
+ if(main.querySelector('.gv196-country-landmarks')){
   main.querySelectorAll('.gv197-minimal-card[data-item^="tourism:"]').forEach(card=>{
    const m=/^tourism:(\d+)$/.exec(card.dataset.item||'');if(!m)return;
    const index=Number(m[1]);if(!catalog()[index])return;
@@ -37,8 +37,10 @@ function photoTargets(){
    result.push({index,slot,root:card});
   });
  }
- if(state.page==='detail'&&state.category==='tourism'){
-  const row=catalog()[state.item],header=main.querySelector('.gv196-detail > .gv196-hero');
+ if(main.querySelector('.gv196-detail')){
+  const detailNode=main.querySelector('.gv196-detail');
+  const idFromNode=detailNode?.querySelector('[data-item^="tourism:"]')?.dataset.item?.split(':')[1];
+  const row=catalog()[Number.isInteger(state.item)?state.item:Number(idFromNode)],header=main.querySelector('.gv196-detail > .gv196-hero');
   if(row&&header){
    let slot=main.querySelector('.gv196-detail > .gv511-detail-photo');
    if(slot&&Number(slot.dataset.gv511Photo)!==row.index){slot.remove();slot=null}
@@ -46,7 +48,7 @@ function photoTargets(){
    result.push({index:row.index,slot,root:header});
   }
  }
- if(state.page==='country-v4'){
+ if(main.querySelector('.gv170-tourism-photo[data-gv170-photo]')){
   main.querySelectorAll('.gv170-tourism-photo[data-gv170-photo]').forEach(slot=>{
    const index=Number(slot.dataset.gv170Photo);
    if(catalog()[index])result.push({index,slot,root:slot});
