@@ -296,6 +296,12 @@ function atlasView(v){const r=atlasRuntime;if(!r)return;let w=Math.max(75,Math.m
 function atlasZoom(direction){const r=atlasRuntime;if(!r)return;const v=r.view;if(direction==='reset'){atlasView([0,0,1000,520]);return}const f=direction==='in'?.68:1.46;const w=v[2]*f,h=v[3]*f;atlasView([v[0]+(v[2]-w)/2,v[1]+(v[3]-h)/2,w,h])}
 function atlasDraw(layer,center=null){
  const r=atlasRuntime;if(!r||!r.node.isConnected)return;
+ // World explorer: show geographic landmark pins only after selecting
+ // a feature layer in the filters (including the explicit "All" layer).
+ if(r.id==='worldMap'){
+  r.node.dataset.gvMapLayer=layer;
+  r.node.classList.toggle('gv432-show-markers',layer!=='countries');
+ }
  r.node.querySelectorAll('.atlas-country').forEach(el=>el.classList.remove('highlight'));
  const highlight=r.node.querySelector('.atlas-selected'),pins=r.node.querySelector('.atlas-pins');
  const keys=layer==='all'?Object.keys(geo):[layer];
