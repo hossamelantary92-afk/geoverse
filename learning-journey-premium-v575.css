@@ -1,252 +1,154 @@
 
-/* GeoVerse v575 — premium responsive cards for the "Start Learning" journey.
-   Preserve the underlying category navigation and completion percentages. */
-#main .learning-title{max-width:1120px;margin:0 auto 19px!important;padding-inline:3px}
-#main .learning-title .eyebrow{letter-spacing:.17em;color:#e6bd70;font-weight:850}
-#main .learning-title h1{font-size:clamp(25px,3.4vw,38px)!important;line-height:1.4!important}
-#main .learning-title p{font-size:clamp(12px,1.4vw,15px);line-height:1.7;color:#b0cfd7}
-#main .learn-chapter{
- width:100%;max-width:1120px;min-width:0;margin:18px auto 22px!important;
- padding:clamp(14px,2vw,23px)!important;
- border-radius:23px!important;border:1px solid rgba(73,179,189,.42)!important;
- background:linear-gradient(145deg,rgba(8,42,62,.96),rgba(6,27,45,.98))!important;
- box-shadow:0 17px 48px rgba(0,12,24,.2),inset 0 1px rgba(177,247,239,.06);
- box-sizing:border-box;
+/* GeoVerse v579 — complete Learning Journey design refresh.
+   One canonical component. Supersedes legacy v575-v578 cascading patches.
+   No horizontal split-cards or forced card heights. */
+#main .learning-title{
+ width:100%;max-width:1100px;margin:0 auto 22px!important;padding:3px 0;
 }
-#main .learn-chapter-head{display:flex;align-items:center;gap:13px;margin-bottom:16px!important}
+#main .learning-title .eyebrow{color:#e5ba76!important;letter-spacing:.14em;font-weight:800}
+#main .learning-title h1{font-size:clamp(25px,3.2vw,37px)!important;line-height:1.35!important;margin:7px 0!important}
+#main .learning-title p{color:#bbd2dc!important;font-size:clamp(12px,1.3vw,15px);line-height:1.7!important}
+#main .learn-chapter{
+ width:100%;max-width:1100px;box-sizing:border-box;
+ padding:clamp(14px,2vw,24px)!important;margin:17px auto 22px!important;
+ border:1px solid rgba(82,174,192,.46)!important;border-radius:24px!important;
+ background:linear-gradient(150deg,rgba(10,47,68,.96),rgba(4,25,44,.98))!important;
+ box-shadow:0 16px 40px rgba(0,12,24,.19),inset 0 1px rgba(225,255,251,.045)!important;
+}
+#main .learn-chapter-head{
+ display:flex;align-items:center;gap:13px;margin:0 0 16px!important;
+}
 #main .learn-chapter-head .chapter-badge{
- flex-shrink:0;width:55px;height:55px;border-radius:17px!important;
- background:linear-gradient(140deg,#145366,#0b304c)!important;
- border:1px solid #4bb8c6!important;
- box-shadow:inset 0 1px rgba(215,255,255,.18);
+ display:grid;place-items:center;flex-shrink:0;width:56px;height:56px;
+ border-radius:16px!important;border:1px solid #4ba9bd!important;
+ background:linear-gradient(130deg,#164d65,#09293f)!important;
  font-size:24px!important;
 }
-#main .learn-chapter-head h2{font-size:clamp(18px,2.2vw,25px)!important;margin:3px 0!important}
-#main .learn-chapter-head .eyebrow{color:#e9c17a;font-size:11px}
+#main .learn-chapter-head .eyebrow{font-size:11px!important;color:#e6bb75!important}
+#main .learn-chapter-head h2{font-size:clamp(19px,2.5vw,25px)!important;line-height:1.4!important;margin:2px 0!important}
 #main .learn-card-grid{
- display:grid!important;
- grid-template-columns:repeat(3,minmax(0,1fr))!important;
- gap:clamp(10px,1.5vw,17px)!important;
- align-items:stretch!important;
+ display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
+ gap:clamp(12px,1.5vw,18px)!important;align-items:stretch!important;
 }
-#main .learn-card{
+#main .learn-card-grid>.learn-card{
  position:relative!important;display:flex!important;flex-direction:column!important;
- width:100%!important;min-width:0!important;height:100%!important;
- padding:0!important;overflow:hidden!important;
- background:linear-gradient(155deg,#0d334d,#08273e)!important;
- border:1px solid rgba(89,193,204,.55)!important;
- border-radius:20px!important;color:#efffff!important;
- text-align:right!important;box-shadow:0 10px 24px rgba(0,12,27,.19)!important;
- transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+ height:auto!important;width:100%!important;min-width:0!important;
+ padding:0!important;margin:0!important;text-align:right!important;
+ border-radius:20px!important;overflow:hidden!important;
+ border:1px solid rgba(92,192,203,.59)!important;
+ background:linear-gradient(160deg,#0d374c,#07263c)!important;color:#f4ffff!important;
+ box-shadow:0 9px 22px rgba(0,14,27,.24)!important;
+ transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease;
 }
-#main .learn-card:hover,#main .learn-card:focus-visible{
- transform:translateY(-3px);border-color:#6ce7da!important;
- box-shadow:0 14px 32px rgba(0,23,35,.29),0 0 0 1px rgba(100,220,203,.18)!important;
+#main .learn-card-grid>.learn-card:hover,
+#main .learn-card-grid>.learn-card:focus-visible{
+ transform:translateY(-2px)!important;border-color:#74e7d8!important;
+ box-shadow:0 10px 25px rgba(0,21,30,.32),0 0 0 1px rgba(85,217,204,.14)!important;
 }
-#main .learn-card-photo{
- position:relative!important;flex:none!important;display:grid!important;place-items:center!important;
- width:100%!important;height:auto!important;aspect-ratio:16/10!important;
- background:#071b30!important;box-shadow:none!important;
- overflow:hidden!important;
-}
-#main .learn-card-photo img{
- width:100%!important;height:100%!important;object-fit:contain!important;
- object-position:center!important;display:block!important;
-}
-#main .learn-card-photo span{
- position:absolute!important;bottom:9px!important;right:10px!important;
- margin:0!important;padding:7px!important;z-index:2!important;
- min-width:34px;height:34px;display:grid;place-items:center;
- border-radius:11px;background:rgba(5,42,56,.83)!important;
- border:1px solid rgba(118,236,220,.65)!important;
- font-size:19px!important;line-height:1!important;
- backdrop-filter:blur(8px);
-}
-#main .learn-card-info{
- flex:1;display:flex;flex-direction:column;gap:7px;
- padding:clamp(12px,1.5vw,17px)!important;min-width:0;
-}
-#main .learn-card-info strong{
- font-size:clamp(14px,1.5vw,19px)!important;
- line-height:1.5!important;font-weight:900;
-}
-#main .learn-card-info p{
- font-size:clamp(11px,1.12vw,13px)!important;line-height:1.7!important;
- margin:0!important;min-height:0!important;color:#b5d1dc!important;
- flex:1;
-}
-#main .learn-card-info .progress-track{
- margin:4px 0 0!important;height:7px!important;border-radius:8px;
- background:#153f52;
-}
-#main .learn-card-info .progress-fill{background:linear-gradient(90deg,#16b6da,#13d8b6)}
-#main .learn-card-info small{
- color:#9ce6de!important;font-size:11px!important;line-height:1.5!important;
- font-variant-numeric:tabular-nums;
-}
-/* Single-subject stages should be intentional hero cards, not tiny orphan tiles. */
-#main .learn-card-grid[data-learn-count="1"]{
- grid-template-columns:minmax(0,1fr)!important;
- max-width:560px;margin-inline:auto;
-}
-#main .learn-card-grid[data-learn-count="1"] .learn-card-photo{aspect-ratio:16/8!important}
-@media(max-width:760px){
- #main .learn-chapter{padding:13px!important;margin:13px auto 17px!important;border-radius:19px!important}
- #main .learn-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
- /* A three-card stage: center card 3 on its own row at the same column width. */
- #main .learn-card-grid[data-learn-count="3"]>.learn-card:last-child{
-  grid-column:1/-1!important;justify-self:center!important;
-  width:calc((100% - 10px)/2)!important;
- }
- #main .learn-card-grid[data-learn-count="1"]{
-  grid-template-columns:minmax(0,1fr)!important;max-width:100%;
- }
- #main .learn-card-info{padding:10px!important;gap:6px!important}
- #main .learn-card-info strong{font-size:clamp(13px,3.5vw,17px)!important}
- #main .learn-card-info p{font-size:clamp(10px,2.9vw,12px)!important}
- #main .learn-card-photo{aspect-ratio:16/11!important}
- #main .learn-card-grid[data-learn-count="1"] .learn-card-photo{aspect-ratio:16/9!important}
- #main .learn-card-photo span{width:30px;min-width:30px;height:30px;font-size:17px;padding:4px}
- #main .learn-chapter-head .chapter-badge{width:48px;height:48px;font-size:22px}
-}
-@media(prefers-reduced-motion:reduce){
- #main .learn-card{transition:none!important}
- #main .learn-card:hover{transform:none}
-}
-
-/* v576 — complete-image presentation with full-bleed photographic atmosphere.
-   The approved category cover is the exact same source used in the directory. */
 #main .learn-card-grid>.learn-card>.learn-card-photo{
- position:relative!important;display:block!important;width:100%!important;
- height:auto!important;aspect-ratio:16/10!important;overflow:hidden!important;
- background:linear-gradient(145deg,#0e3850,#06182b)!important;
- isolation:isolate;
+ position:relative!important;display:block!important;isolation:isolate;
+ flex:none!important;width:100%!important;height:auto!important;aspect-ratio:16/10!important;
+ overflow:hidden!important;border:0!important;box-shadow:none!important;
+ background:#062033!important;
 }
-#main .learn-card-grid>.learn-card>.learn-card-photo>img.gv576-photo-backdrop,
-#main .learn-card-grid>.learn-card>.learn-card-photo>img.gv576-photo-main{
+#main .learn-card-photo>img.gv576-photo-backdrop,
+#main .learn-card-photo>img.gv576-photo-main{
  position:absolute!important;inset:0!important;display:block!important;
  width:100%!important;height:100%!important;max-width:none!important;
- max-height:none!important;margin:0!important;padding:0!important;
- border:0!important;border-radius:0!important;aspect-ratio:auto!important;
+ max-height:none!important;aspect-ratio:auto!important;padding:0!important;margin:0!important;
+ border:0!important;border-radius:0!important;
 }
-#main .learn-card-grid>.learn-card>.learn-card-photo>img.gv576-photo-backdrop{
+#main .learn-card-photo>img.gv576-photo-backdrop{
  z-index:0!important;object-fit:cover!important;object-position:center!important;
- filter:blur(10px) brightness(.48) saturate(1.18)!important;
- transform:scale(1.12)!important;
+ filter:blur(13px) brightness(.61) saturate(1.25)!important;transform:scale(1.18)!important;
 }
-#main .learn-card-grid>.learn-card>.learn-card-photo>img.gv576-photo-main{
+#main .learn-card-photo>img.gv576-photo-main{
  z-index:1!important;object-fit:contain!important;object-position:center!important;
  filter:none!important;
 }
-#main .learn-card-grid>.learn-card>.learn-card-photo::after{
- content:"";position:absolute;inset:auto 0 0;height:26%;z-index:1;
- pointer-events:none;background:linear-gradient(0deg,rgba(3,20,36,.35),transparent);
+/* Only a subtle fade, never a dark strip across half the image. */
+#main .learn-card-photo::after{
+ content:"";position:absolute;z-index:2;inset:auto 0 0;height:24%;
+ background:linear-gradient(0deg,rgba(1,21,34,.49),transparent);
+ pointer-events:none;
 }
-#main .learn-card-grid>.learn-card>.learn-card-photo>span{
- z-index:3!important;
+#main .learn-card-photo>span{
+ position:absolute!important;z-index:3!important;right:10px!important;bottom:9px!important;
+ display:grid!important;place-items:center!important;
+ width:36px!important;height:36px!important;min-width:36px!important;
+ margin:0!important;padding:4px!important;box-sizing:border-box;
+ font-size:20px!important;line-height:1!important;
+ border:1px solid rgba(111,230,221,.72)!important;border-radius:11px!important;
+ background:rgba(5,45,57,.86)!important;backdrop-filter:blur(5px);
 }
 #main .learn-card-grid>.learn-card>.learn-card-info{
- min-height:160px!important;box-sizing:border-box!important;
+ flex:none!important;display:grid!important;grid-template-rows:auto auto auto auto!important;
+ align-content:start!important;gap:7px!important;
+ padding:13px 14px 14px!important;
+ min-height:0!important;height:auto!important;box-sizing:border-box;
 }
-#main .learn-card-grid[data-learn-count="1"]>.learn-card{
- max-width:520px;margin-inline:auto;
+#main .learn-card-info>strong{
+ display:block!important;font-size:clamp(14px,1.5vw,18px)!important;
+ font-weight:900!important;line-height:1.4!important;margin:0!important;
+}
+#main .learn-card-info>p{
+ display:block!important;font-size:clamp(11px,1.15vw,13px)!important;
+ color:#bcd7dd!important;line-height:1.55!important;
+ margin:0!important;min-height:0!important;flex:none!important;
+}
+#main .learn-card-info>.progress-track{
+ display:block!important;height:7px!important;border-radius:99px!important;
+ margin:5px 0 0!important;background:#1c5262!important;overflow:hidden;
+}
+#main .learn-card-info .progress-fill{background:linear-gradient(90deg,#15b0da,#0eddbd)!important}
+#main .learn-card-info>small{
+ display:block!important;text-align:right!important;
+ color:#9de5dc!important;font-size:11px!important;margin:0!important;
+ font-variant-numeric:tabular-nums;
+}
+/* One-topic stages are featured cards but keep the SAME image-above-text anatomy. */
+#main .learn-card-grid[data-learn-count="1"]{
+ grid-template-columns:minmax(0,1fr)!important;max-width:680px;margin-inline:auto;
 }
 #main .learn-card-grid[data-learn-count="1"]>.learn-card>.learn-card-photo{
- aspect-ratio:16/9!important;
+ aspect-ratio:16/8!important;
 }
 @media(max-width:760px){
+ #main .learn-chapter{padding:13px!important;margin:14px auto 19px!important;border-radius:21px!important}
+ #main .learn-chapter-head{margin-bottom:14px!important;gap:11px!important}
+ #main .learn-chapter-head .chapter-badge{width:49px!important;height:49px!important;font-size:21px!important}
+ #main .learn-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
  #main .learn-card-grid>.learn-card>.learn-card-photo{aspect-ratio:16/10!important}
  #main .learn-card-grid>.learn-card>.learn-card-info{
-  min-height:154px!important;
+  padding:10px 10px 12px!important;gap:6px!important;
  }
- #main .learn-card-grid[data-learn-count="1"]>.learn-card{
-  width:100%!important;max-width:440px!important;
- }
- #main .learn-card-grid[data-learn-count="1"]>.learn-card>.learn-card-photo{
-  aspect-ratio:16/9!important;
- }
- #main .learn-card-grid[data-learn-count="5"]>.learn-card:last-child{
-  grid-column:1/-1!important;justify-self:center!important;
-  width:calc((100% - 10px)/2)!important;
- }
-}
-
-/* v577 — compact content rhythm after feedback from mobile screenshots.
-   Remove inherited fixed/min heights and let copy + progress determine card size. */
-#main .learn-card-grid>.learn-card{
- height:auto!important;align-self:stretch!important;
-}
-#main .learn-card-grid>.learn-card>.learn-card-info{
- min-height:0!important;
- padding:12px 13px 14px!important;
- gap:6px!important;
-}
-#main .learn-card-grid>.learn-card>.learn-card-info>p{
- flex:none!important;
- min-height:0!important;
- margin:0 0 5px!important;
- line-height:1.55!important;
-}
-#main .learn-card-grid>.learn-card>.learn-card-info>.progress-track{
- margin-top:auto!important;
-}
-#main .learn-card-grid>.learn-card>.learn-card-info>small{
- padding-top:1px!important;
-}
-#main .learn-card-grid>.learn-card>.learn-card-photo{
- aspect-ratio:16/9!important;
-}
-@media(max-width:760px){
- #main .learn-card-grid>.learn-card>.learn-card-info{
-  min-height:0!important;
-  padding:10px 10px 12px!important;
-  gap:5px!important;
- }
- #main .learn-card-grid>.learn-card>.learn-card-info>p{
-  font-size:clamp(10px,2.85vw,12px)!important;
-  line-height:1.5!important;margin-bottom:3px!important;
- }
- #main .learn-card-grid>.learn-card>.learn-card-photo{
-  aspect-ratio:16/10!important;
- }
- #main .learn-card-grid>.learn-card>.learn-card-info>.progress-track{
-  margin-top:8px!important;
- }
-}
-
-/* v578 — use the entire last row for odd-numbered stages on phones.
-   A horizontal featured tile avoids the single skinny card and wasted whitespace. */
-@media(max-width:760px){
+ #main .learn-card-info>strong{font-size:clamp(13px,3.5vw,17px)!important}
+ #main .learn-card-info>p{font-size:clamp(11px,2.85vw,12px)!important;line-height:1.48!important}
+ #main .learn-card-photo>span{height:31px!important;width:31px!important;min-width:31px!important;font-size:17px!important}
+ /* Do not make the last card into a cramped left-text/right-image hybrid.
+    Give an odd last item the full row, with a cinematic photo on top. */
  #main .learn-card-grid[data-learn-count="3"]>.learn-card:last-child,
  #main .learn-card-grid[data-learn-count="5"]>.learn-card:last-child{
-   grid-column:1/-1!important;
-   justify-self:stretch!important;
-   width:100%!important;
-   display:grid!important;
-   grid-template-columns:minmax(0,43%) minmax(0,57%)!important;
-   align-items:stretch!important;
-   min-height:170px!important;
-   height:auto!important;
+  grid-column:1/-1!important;justify-self:stretch!important;
+  display:flex!important;flex-direction:column!important;width:100%!important;
+  min-height:0!important;height:auto!important;
  }
  #main .learn-card-grid[data-learn-count="3"]>.learn-card:last-child>.learn-card-photo,
  #main .learn-card-grid[data-learn-count="5"]>.learn-card:last-child>.learn-card-photo{
-   width:100%!important;height:100%!important;min-height:170px!important;
-   aspect-ratio:auto!important;
+  width:100%!important;height:auto!important;min-height:0!important;
+  aspect-ratio:2.4/1!important;
  }
  #main .learn-card-grid[data-learn-count="3"]>.learn-card:last-child>.learn-card-info,
  #main .learn-card-grid[data-learn-count="5"]>.learn-card:last-child>.learn-card-info{
-   display:flex!important;flex-direction:column!important;
-   justify-content:center!important;
-   gap:7px!important;padding:13px 14px!important;min-height:0!important;
+  display:grid!important;min-height:0!important;height:auto!important;
+  padding:11px 14px 13px!important;
  }
- #main .learn-card-grid[data-learn-count="3"]>.learn-card:last-child>.learn-card-info>.progress-track,
- #main .learn-card-grid[data-learn-count="5"]>.learn-card:last-child>.learn-card-info>.progress-track{
-   margin-top:auto!important;
- }
+ #main .learn-card-grid[data-learn-count="1"]{grid-template-columns:1fr!important;max-width:100%!important}
+ #main .learn-card-grid[data-learn-count="1"]>.learn-card{max-width:none!important;width:100%!important}
+ #main .learn-card-grid[data-learn-count="1"]>.learn-card>.learn-card-photo{aspect-ratio:2/1!important}
+ #main .learn-card-grid[data-learn-count="1"]>.learn-card>.learn-card-info{padding:12px 14px!important}
 }
-@media(max-width:360px){
- #main .learn-card-grid[data-learn-count="3"]>.learn-card:last-child,
- #main .learn-card-grid[data-learn-count="5"]>.learn-card:last-child{
-   grid-template-columns:minmax(0,40%) minmax(0,60%)!important;
- }
+@media(prefers-reduced-motion:reduce){
+ #main .learn-card-grid>.learn-card{transition:none!important}
+ #main .learn-card-grid>.learn-card:hover{transform:none!important}
 }
