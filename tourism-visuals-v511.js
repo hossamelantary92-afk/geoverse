@@ -14,126 +14,6 @@ const titleFor=item=>{
 };
 const normalize=s=>String(s||'').replace(/_/g,' ').normalize('NFC').trim().toLowerCase();
 const eligible=url=>typeof url==='string'&&/^https:\/\/(?:upload|thumb)\.wikimedia\.org\//i.test(url);
-/* gv542 — Fifteen user-approved Egypt tourism photographs (verified Commons files).
-   Exact title matching prevents unrelated automated Commons search substitutions.
-   Same URL in both photo placements; detailed attributions linked on landmark pages. */
-const egyptApprovedPhotos=new Map([
- [
-  "Giza_pyramid_complex",
-  "Pyramids from Giza.jpg",
-  "Simon Matzinger",
-  "CC BY 4.0"
- ],
- [
-  "Great_Sphinx_of_Giza",
-  "The Great Sphinx of Giza with the Great Pyramid in the background.jpg",
-  "Slyronit",
-  "CC BY-SA 4.0"
- ],
- [
-  "Karnak",
-  "The Great Hypostyle Hall - Karnak Temple.jpg",
-  "Yassmin Anwar",
-  "CC BY-SA 4.0"
- ],
- [
-  "Abu_Simbel",
-  "ABU SIMBEL.jpg",
-  "Gatoclavo",
-  "CC BY-SA 3.0"
- ],
- [
-  "Cairo_Citadel",
-  "Mosque of Muhammad Ali (1).jpg",
-  "Mohamed abdelzaher",
-  "CC BY-SA 4.0"
- ],
- [
-  "Khan_el-Khalili",
-  "Khan el-Khalili.jpg",
-  "A maraqa",
-  "CC BY-SA 4.0"
- ],
- [
-  "Citadel_of_Qaitbay",
-  "The Citadel of Qaitbay From the sea.jpg",
-  "Amel Esmail",
-  "CC BY-SA 4.0"
- ],
- [
-  "Valley_of_the_Kings",
-  "Valley of the Kings panorama.jpg",
-  "Nikola Smolenski",
-  "CC BY-SA 3.0 RS"
- ],
- [
-  "Egyptian_Museum",
-  "Facade of the Egyptian Museum, Tahrir Square, Cairo, Egypt1.jpg",
-  "Diego Delso",
-  "CC BY-SA 3.0"
- ],
- [
-  "Al-Azhar_Mosque",
-  "Architectural views and courtyard details of the Al-Azhar Mosque in Cairo from 2026 09.jpg",
-  "CumaliOnal",
-  "CC BY-SA 4.0"
- ],
- [
-  "Hanging_Church",
-  "The entrance to the Hanging Church and the Dome of the Church of Mary Girgis.JPG",
-  "Ahmed Younis Sif Saad",
-  "CC BY-SA 4.0"
- ],
- [
-  "Luxor_Temple",
-  "Luxor temple at night.jpg",
-  "Sherif217",
-  "CC BY-SA 4.0"
- ],
- [
-  "Philae_temple_complex",
-  "The Philae temple.jpg",
-  "Mohamed abdelzaher",
-  "CC BY-SA 4.0"
- ],
- [
-  "Wadi_El_Rayan",
-  "Wadi El-Rayan Waterfalls.jpg",
-  "Mahmoud Esmat",
-  "CC BY-SA 4.0"
- ],
- [
-  "Saint_Catherine's_Monastery",
-  "St Catherines From Sinai.JPG",
-  "Mark A. Wilson",
-  "Public domain"
- ]
-].map(([wiki,file,author,license])=>[
- wiki,{file,author,license,
-  page:'https://commons.wikimedia.org/wiki/File:'+encodeURIComponent(file.replace(/ /g,'_')),
-  image:'https://commons.wikimedia.org/wiki/Special:FilePath/'+encodeURIComponent(file.replace(/ /g,'_'))+'?width=1600'
- }
-]));
-const egyptFailedPhotos=new Set();
-function approvedPhoto(index){
- const item=catalog()[index];
- return item?.code==='EG'?egyptApprovedPhotos.get(item.wiki):null;
-}
-function photoCredit(slot,index,src){
- if(!slot.classList.contains('gv511-detail-photo'))return;
- slot.querySelector('.gv542-photo-credit')?.remove();
- const photo=approvedPhoto(index);
- if(!photo||!src.includes('/Special:FilePath/'))return;
- slot.removeAttribute('aria-hidden');
- const a=document.createElement('a');
- a.className='gv542-photo-credit';a.href=photo.page;
- a.target='_blank';a.rel='noopener noreferrer';
- a.textContent='© '+photo.author+' · '+photo.license;
- a.title='Wikimedia Commons · '+photo.license;
- a.style.cssText='position:absolute;bottom:10px;left:10px;z-index:5;max-width:calc(100% - 24px);padding:5px 9px;border-radius:9px;background:rgba(5,30,43,.78);color:#d9fff8;font:600 10px/1.5 Cairo,system-ui,sans-serif;text-decoration:none;box-shadow:0 2px 12px rgba(0,0,0,.19);direction:ltr;text-align:left;white-space:normal';
- slot.appendChild(a);
-}
-
 const loaded=new Set();
 let batch=[],batchTimer=null,observer=null,queued=false;
 const photoIds=new WeakMap();
@@ -202,22 +82,11 @@ function paint(slot,index,src){
   slot.style.setProperty('--gv511-backdrop','url('+JSON.stringify(src)+')');
   slot.dataset.gv511Loaded=src;
   slot.classList.add('gv511-loaded');
-  photoCredit(slot,index,src);
   if(slot.classList.contains('gv511-thumb'))slot.closest('.gv197-minimal-card')?.classList.add('gv511-has-photo');
  };
  img.onerror=()=>{
   delete slot.dataset.gv511Loading;
   slot.dataset.gv511Failed='1';
-  const p=approvedPhoto(index);
-  if(p&&src===p.image&&!egyptFailedPhotos.has(index)){
-   egyptFailedPhotos.add(index);
-   cache.delete(index);
-   loaded.delete(index);
-   document.querySelectorAll('[data-gv511-photo="'+index+'"]').forEach(target=>{
-    if(target.classList.contains('gv511-photo'))pending.set(target,index);
-   });
-   request(index);
-  }
  };
  img.src=src;
 }
@@ -293,11 +162,6 @@ function request(index){
 }
 function view(index,slot){
  if(!slot?.isConnected||!catalog()[index])return;
- const selected=approvedPhoto(index);
- if(selected&&!egyptFailedPhotos.has(index)){
-  paint(slot,index,selected.image);
-  return;
- }
  if(cache.has(index)){const src=cache.get(index);if(src)paint(slot,index,src);return}
  pending.set(slot,index);request(index);
 }
