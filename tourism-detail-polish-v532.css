@@ -1,0 +1,90 @@
+/* gv532 — Tourism detail editorial density polish.
+   Scope: landmark pages only. Preserve Option C's photo geometry,
+   Geo Signature background, navigation behavior and bottom dock. */
+#main:has(.gv196-detail) .gv-landmark-back-row{
+ margin-block:0 12px!important;
+ gap:9px!important;
+}
+#main:has(.gv196-detail) .gv388-nav:has(.gv-landmark-back-row),
+#main:has(.gv196-detail) .gv388-nav{
+ margin-block:0 12px!important;
+}
+#main .gv196-detail.gv202-detail{
+ row-gap:13px!important;
+}
+#main .gv196-detail.gv202-detail > .gv196-hero{
+ padding:clamp(17px,2.1vw,26px)!important;
+}
+#main .gv196-detail.gv202-detail > .gv196-hero #gv14Name{
+ font-size:clamp(25px,3.1vw,39px)!important;
+ line-height:1.32!important;
+ letter-spacing:0!important;
+ overflow-wrap:break-word!important;
+}
+#main .gv196-detail.gv202-detail > .gv196-hero .gv202-location{
+ font-size:clamp(12px,1.18vw,15px)!important;
+ line-height:1.6!important;
+ margin-top:4px!important;
+}
+#main .gv206-enriched .gv202-article{
+ gap:13px!important;
+}
+#main .gv206-enriched .gv202-article h2{
+ padding-bottom:11px!important;
+}
+#main .gv206-enriched .gv206-story,
+#main .gv206-enriched .gv206-architecture,
+#main .gv206-enriched .gv206-wow{
+ padding:17px 19px!important;
+}
+#main .gv206-enriched .gv206-story{
+ border-inline-start:2px solid rgba(99,229,214,.72)!important;
+}
+#main .gv206-enriched .gv206-story h3{
+ margin-bottom:7px!important;
+}
+#main .gv206-enriched .gv206-story p,
+#main .gv206-enriched .gv206-deep-dive p{
+ line-height:1.85!important;
+}
+#main .gv206-enriched .gv202-article-points li{
+ padding:13px 16px!important;
+ line-height:1.85!important;
+}
+@media(max-width:900px){
+ #main .gv196-detail.gv202-detail{row-gap:12px!important}
+ #main .gv196-detail.gv202-detail > .gv196-hero{
+  min-height:0!important;
+  padding:17px 18px!important;
+ }
+ #main .gv196-detail.gv202-detail > .gv196-hero #gv14Name{
+  font-size:clamp(24px,6.2vw,32px)!important;
+  line-height:1.32!important;
+ }
+ #main .gv206-enriched .gv202-article{
+  padding:17px 15px!important;
+  gap:12px!important;
+ }
+ #main .gv206-enriched .gv206-story,
+ #main .gv206-enriched .gv206-architecture,
+ #main .gv206-enriched .gv206-wow{
+  padding:14px 16px!important;
+ }
+ #main .gv206-enriched .gv206-story p,
+ #main .gv206-enriched .gv206-deep-dive p{
+  line-height:1.8!important;
+ }
+ #main .gv206-enriched .gv202-article-points li{
+  padding:12px 14px!important;
+  line-height:1.8!important;
+ }
+ #main:has(.gv196-detail) .gv-landmark-back-row,
+ #main:has(.gv196-detail) .gv388-nav{
+  margin-bottom:10px!important;
+ }
+}
+@media(max-width:380px){
+ #main .gv196-detail.gv202-detail > .gv196-hero #gv14Name{
+  font-size:23px!important;
+ }
+}
