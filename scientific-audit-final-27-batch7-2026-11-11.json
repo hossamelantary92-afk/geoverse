@@ -1,0 +1,511 @@
+{
+  "project": "GeoVerse",
+  "batch": 7,
+  "date": "2026-11-11",
+  "stage": "INITIAL_SCIENTIFIC_SCREENING_COVERAGE_COMPLETE",
+  "method": "Account for remaining 27 Atlas record keys and screen landscape plus special administrative status. Do not conflate a scoped UNESCO site/UK legal reference with certification of all article claims.",
+  "summary": {
+    "final_batch_records": 27,
+    "prior_bulk_records": 218,
+    "total_unique_screened": 245,
+    "entire_atlas_count": 245,
+    "earlier_pilot_records": 5,
+    "unique_new_since_pilot": 22,
+    "scoped_evidence_records": 11,
+    "pending_evidence_records": 16,
+    "fully_scientifically_certified_articles": 0,
+    "bulk_queue_remaining": 0
+  },
+  "records": [
+    {
+      "code": "EG",
+      "title_en": "Egypt: Nile and desert",
+      "pilot_earlier": true,
+      "six_sections": 6,
+      "section_audit_scope": [
+        "Nature & Landmarks",
+        "Did You Know?",
+        "Administrative/legal status where relevant"
+      ],
+      "current_article_source": "https://sis.gov.eg/en/egypt/basic-information/",
+      "source_match": {
+        "status": "pilot_prior_source",
+        "url": "https://whc.unesco.org/en/list/86/",
+        "supports": "Egypt: Giza pyramids, Memphis necropolis and Nile geography (cultural heritage only)"
+      },
+      "other_claims_verified": false,
+      "image_licenses_reviewed": false,
+      "priority_flag": null
+    },
+    {
+      "code": "SA",
+      "title_en": "Saudi Arabia: landscapes of Arabia",
+      "pilot_earlier": true,
+      "six_sections": 6,
+      "section_audit_scope": [
+        "Nature & Landmarks",
+        "Did You Know?",
+        "Administrative/legal status where relevant"
+      ],
+      "current_article_source": "https://saudiarabia.un.org/en/download/66635/125657",
+      "source_match": {
+        "status": "official_specific_site",
+        "url": "https://whc.unesco.org/en/list/1563",
+        "supports": "Al-Ahsa Oasis as cultural landscape and named place"
+      },
+      "other_claims_verified": false,
+      "image_licenses_reviewed": false,
+      "priority_flag": null
+    },
+    {
+      "code": "FR",
+      "title_en": "France: Atlantic to Alps",
+      "pilot_earlier": true,
+      "six_sections": 6,
+      "section_audit_scope": [
+        "Nature & Landmarks",
+        "Did You Know?",
+        "Administrative/legal status where relevant"
+      ],
+      "current_article_source": "https://commission.europa.eu/system/files/2023-11/styleguide_english_dgt_country_compendium_en.pdf",
+      "source_match": {
+        "status": "statistical_scope_reference",
+        "url": "https://www.insee.fr/fr/statistiques/1405599",
+        "supports": "France métropolitaine versus France entière geographic-statistical definition"
+      },
+      "other_claims_verified": false,
+      "image_licenses_reviewed": false,
+      "priority_flag": null
+    },
+    {
+      "code": "JP",
+      "title_en": "Japan: islands and volcanoes",
+      "pilot_earlier": true,
+      "six_sections": 6,
+      "section_audit_scope": [
+        "Nature & Landmarks",
+        "Did You Know?",
+        "Administrative/legal status where relevant"
+      ],
+      "current_article_source": "https://www.japan-guide.com/list/e1000.html",
+      "source_match": {
+        "status": "official_specific_site",
+        "url": "https://whc.unesco.org/en/list/1418/",
+        "supports": "Fujisan's volcanic and cultural significance (specific site only)"
+      },
+      "other_claims_verified": false,
+      "image_licenses_reviewed": false,
+      "priority_flag": null
+    },
+    {
+      "code": "BR",
+      "title_en": "Brazil: Amazon and Atlantic",
+      "pilot_earlier": true,
+      "six_sections": 6,
+      "section_audit_scope": [
+        "Nature & Landmarks",
+        "Did You Know?",
+        "Administrative/legal status where relevant"
+      ],
+      "current_article_source": "https://infcis.iaea.org/udepo/Resources/Countries/Brazil.pdf",
+      "source_match": {
+        "status": "official_specific_site",
+        "url": "https://whc.unesco.org/en/list/999",
+        "supports": "Pantanal Conservation Area, seasonal wetlands and landscape, not entire Pantanal"
+      },
+      "other_claims_verified": false,
+      "image_licenses_reviewed": false,
+      "priority_flag": null
+    },
+    {
+      "code": "LI",
+      "title_en": "Liechtenstein: Rhine Valley and Alps",
+      "pilot_earlier": false,
+      "six_sections": 6,
+      "section_audit_scope": [
+        "Nature & Landmarks",
+        "Did You Know?",
+        "Administrative/legal status where relevant"
+      ],
+      "current_article_source": null,
+      "source_match": null,
+      "other_claims_verified": false,
+      "image_licenses_reviewed": false,
+      "priority_flag": null
+    },
+    {
+      "code": "MQ",
+      "title_en": "Martinique: Mount Pelée and the Caribbean",
+      "pilot_earlier": false,
+      "six_sections": 6,
+      "section_audit_scope": [
+        "Nature & Landmarks",
+        "Did You Know?",
+        "Administrative/legal status where relevant"
+      ],
+      "current_article_source": null,
+      "source_match": null,
+      "other_claims_verified": false,
+      "image_licenses_reviewed": false,
+      "priority_flag": null
+    },
+    {
+      "code": "YT",
+      "title_en": "Mayotte: coral lagoon and disputed sovereignty",
+      "pilot_earlier": false,
+      "six_sections": 6,
+      "section_audit_scope": [
+        "Nature & Landmarks",
+        "Did You Know?",
+        "Administrative/legal status where relevant"
+      ],
+      "current_article_source": null,
+      "source_match": null,
+      "other_claims_verified": false,
+      "image_licenses_reviewed": false,
+      "priority_flag": "territorial_or_historical_status_requires_focused_review"
+    },
+    {
+      "code": "MD",
+      "title_en": "Moldova: Dniester and Prut river valleys",
+      "pilot_earlier": false,
+      "six_sections": 6,
+      "section_audit_scope": [
+        "Nature & Landmarks",
+        "Did You Know?",
+        "Administrative/legal status where relevant"
+      ],
+      "current_article_source": null,
+      "source_match": null,
+      "other_claims_verified": false,
+      "image_licenses_reviewed": false,
+      "priority_flag": null
+    },
+    {
+      "code": "MC",
+      "title_en": "Monaco: a compact Mediterranean principality",
+      "pilot_earlier": false,
+      "six_sections": 6,
+      "section_audit_scope": [
+        "Nature & Landmarks",
+        "Did You Know?",
+        "Administrative/legal status where relevant"
+      ],
+      "current_article_source": null,
+      "source_match": null,
+      "other_claims_verified": false,
+      "image_licenses_reviewed": false,
+      "priority_flag": null
+    },
+    {
+      "code": "MS",
+      "title_en": "Montserrat: an island reshaped by volcanoes",
+      "pilot_earlier": false,
+      "six_sections": 6,
+      "section_audit_scope": [
+        "Nature & Landmarks",
+        "Did You Know?",
+        "Administrative/legal status where relevant"
+      ],
+      "current_article_source": null,
+      "source_match": null,
+      "other_claims_verified": false,
+      "image_licenses_reviewed": false,
+      "priority_flag": null
+    },
+    {
+      "code": "AN",
+      "title_en": "Netherlands Antilles: a former Caribbean federation",
+      "pilot_earlier": false,
+      "six_sections": 6,
+      "section_audit_scope": [
+        "Nature & Landmarks",
+        "Did You Know?",
+        "Administrative/legal status where relevant"
+      ],
+      "current_article_source": null,
+      "source_match": {
+        "status": "official_constitutional_reference_pending_date_check",
+        "url": "https://www.government.nl/topics/caribbean-parts-of-the-kingdom",
+        "supports": "Present Caribbean components of Kingdom of Netherlands; historic 2010 transition requires dated confirmation"
+      },
+      "other_claims_verified": false,
+      "image_licenses_reviewed": false,
+      "priority_flag": "territorial_or_historical_status_requires_focused_review"
+    },
+    {
+      "code": "KP",
+      "title_en": "North Korea: mountains, plains and peninsula",
+      "pilot_earlier": false,
+      "six_sections": 6,
+      "section_audit_scope": [
+        "Nature & Landmarks",
+        "Did You Know?",
+        "Administrative/legal status where relevant"
+      ],
+      "current_article_source": null,
+      "source_match": null,
+      "other_claims_verified": false,
+      "image_licenses_reviewed": false,
+      "priority_flag": "territorial_or_historical_status_requires_focused_review"
+    },
+    {
+      "code": "GB",
+      "title_en": "United Kingdom: islands and constituent nations",
+      "pilot_earlier": false,
+      "six_sections": 6,
+      "section_audit_scope": [
+        "Nature & Landmarks",
+        "Did You Know?",
+        "Administrative/legal status where relevant"
+      ],
+      "current_article_source": null,
+      "source_match": {
+        "status": "official_naming_reference",
+        "url": "https://www.gov.uk/government/publications/toponymic-guidelines/toponymic-guidelines-for-map-and-other-editors-united-kingdom-of-great-britain-and-northern-ireland--2",
+        "supports": "Great Britain versus United Kingdom territorial naming"
+      },
+      "other_claims_verified": false,
+      "image_licenses_reviewed": false,
+      "priority_flag": "territorial_or_historical_status_requires_focused_review"
+    },
+    {
+      "code": "MP",
+      "title_en": "Northern Mariana Islands: a Pacific volcanic arc",
+      "pilot_earlier": false,
+      "six_sections": 6,
+      "section_audit_scope": [
+        "Nature & Landmarks",
+        "Did You Know?",
+        "Administrative/legal status where relevant"
+      ],
+      "current_article_source": null,
+      "source_match": null,
+      "other_claims_verified": false,
+      "image_licenses_reviewed": false,
+      "priority_flag": null
+    },
+    {
+      "code": "ST",
+      "title_en": "São Tomé and Príncipe: volcanic Gulf of Guinea islands",
+      "pilot_earlier": false,
+      "six_sections": 6,
+      "section_audit_scope": [
+        "Nature & Landmarks",
+        "Did You Know?",
+        "Administrative/legal status where relevant"
+      ],
+      "current_article_source": null,
+      "source_match": null,
+      "other_claims_verified": false,
+      "image_licenses_reviewed": false,
+      "priority_flag": "territorial_or_historical_status_requires_focused_review"
+    },
+    {
+      "code": "TK",
+      "title_en": "Tokelau: three Pacific coral atolls",
+      "pilot_earlier": false,
+      "six_sections": 6,
+      "section_audit_scope": [
+        "Nature & Landmarks",
+        "Did You Know?",
+        "Administrative/legal status where relevant"
+      ],
+      "current_article_source": null,
+      "source_match": null,
+      "other_claims_verified": false,
+      "image_licenses_reviewed": false,
+      "priority_flag": null
+    },
+    {
+      "code": "TC",
+      "title_en": "Turks and Caicos: islands and shallow marine banks",
+      "pilot_earlier": false,
+      "six_sections": 6,
+      "section_audit_scope": [
+        "Nature & Landmarks",
+        "Did You Know?",
+        "Administrative/legal status where relevant"
+      ],
+      "current_article_source": null,
+      "source_match": null,
+      "other_claims_verified": false,
+      "image_licenses_reviewed": false,
+      "priority_flag": null
+    },
+    {
+      "code": "UM",
+      "title_en": "US Minor Outlying Islands: scattered remote territories",
+      "pilot_earlier": false,
+      "six_sections": 6,
+      "section_audit_scope": [
+        "Nature & Landmarks",
+        "Did You Know?",
+        "Administrative/legal status where relevant"
+      ],
+      "current_article_source": null,
+      "source_match": null,
+      "other_claims_verified": false,
+      "image_licenses_reviewed": false,
+      "priority_flag": "territorial_or_historical_status_requires_focused_review"
+    },
+    {
+      "code": "VG",
+      "title_en": "British Virgin Islands: bays and sailing channels",
+      "pilot_earlier": false,
+      "six_sections": 6,
+      "section_audit_scope": [
+        "Nature & Landmarks",
+        "Did You Know?",
+        "Administrative/legal status where relevant"
+      ],
+      "current_article_source": null,
+      "source_match": null,
+      "other_claims_verified": false,
+      "image_licenses_reviewed": false,
+      "priority_flag": null
+    },
+    {
+      "code": "VI",
+      "title_en": "US Virgin Islands: Caribbean islands and reefs",
+      "pilot_earlier": false,
+      "six_sections": 6,
+      "section_audit_scope": [
+        "Nature & Landmarks",
+        "Did You Know?",
+        "Administrative/legal status where relevant"
+      ],
+      "current_article_source": null,
+      "source_match": null,
+      "other_claims_verified": false,
+      "image_licenses_reviewed": false,
+      "priority_flag": null
+    },
+    {
+      "code": "WF",
+      "title_en": "Wallis and Futuna: islands and traditional kingdoms",
+      "pilot_earlier": false,
+      "six_sections": 6,
+      "section_audit_scope": [
+        "Nature & Landmarks",
+        "Did You Know?",
+        "Administrative/legal status where relevant"
+      ],
+      "current_article_source": null,
+      "source_match": null,
+      "other_claims_verified": false,
+      "image_licenses_reviewed": false,
+      "priority_flag": "territorial_or_historical_status_requires_focused_review"
+    },
+    {
+      "code": "EH",
+      "title_en": "Western Sahara: Atlantic coast and disputed territory",
+      "pilot_earlier": false,
+      "six_sections": 6,
+      "section_audit_scope": [
+        "Nature & Landmarks",
+        "Did You Know?",
+        "Administrative/legal status where relevant"
+      ],
+      "current_article_source": "https://www.un.org/dppa/decolonization/en/nsgt/western-sahara",
+      "source_match": {
+        "status": "official_disputed_status",
+        "url": "https://www.un.org/dppa/decolonization/en/nsgt/western-sahara",
+        "supports": "Western Sahara listed by UN as non-self-governing territory; sovereign claims remain disputed"
+      },
+      "other_claims_verified": false,
+      "image_licenses_reviewed": false,
+      "priority_flag": "territorial_or_historical_status_requires_focused_review"
+    },
+    {
+      "code": "GG",
+      "title_en": "Guernsey: Channel Islands and Crown Dependency",
+      "pilot_earlier": false,
+      "six_sections": 6,
+      "section_audit_scope": [
+        "Nature & Landmarks",
+        "Did You Know?",
+        "Administrative/legal status where relevant"
+      ],
+      "current_article_source": "https://www.visitguernsey.com/experiences/island-hopping/lihou/",
+      "source_match": {
+        "status": "official_constitutional_status",
+        "url": "https://www.gov.uk/government/publications/crown-dependencies-jersey-guernsey-and-the-isle-of-man",
+        "supports": "Guernsey is a Crown Dependency not part of UK"
+      },
+      "other_claims_verified": false,
+      "image_licenses_reviewed": false,
+      "priority_flag": null
+    },
+    {
+      "code": "IM",
+      "title_en": "Isle of Man: Irish Sea and Tynwald heritage",
+      "pilot_earlier": false,
+      "six_sections": 6,
+      "section_audit_scope": [
+        "Nature & Landmarks",
+        "Did You Know?",
+        "Administrative/legal status where relevant"
+      ],
+      "current_article_source": null,
+      "source_match": {
+        "status": "official_constitutional_status",
+        "url": "https://www.gov.uk/government/publications/crown-dependencies-jersey-guernsey-and-the-isle-of-man",
+        "supports": "Isle of Man is Crown Dependency not part of UK"
+      },
+      "other_claims_verified": false,
+      "image_licenses_reviewed": false,
+      "priority_flag": null
+    },
+    {
+      "code": "JE",
+      "title_en": "Jersey: tidal coasts of the Channel Islands",
+      "pilot_earlier": false,
+      "six_sections": 6,
+      "section_audit_scope": [
+        "Nature & Landmarks",
+        "Did You Know?",
+        "Administrative/legal status where relevant"
+      ],
+      "current_article_source": "https://www.jersey.com/plan-your-break/general-information/tides/",
+      "source_match": {
+        "status": "official_constitutional_status",
+        "url": "https://www.gov.uk/government/publications/crown-dependencies-jersey-guernsey-and-the-isle-of-man",
+        "supports": "Jersey is Crown Dependency not part of UK"
+      },
+      "other_claims_verified": false,
+      "image_licenses_reviewed": false,
+      "priority_flag": null
+    },
+    {
+      "code": "TL",
+      "title_en": "Timor-Leste: Ramelau Mountains and coral coasts",
+      "pilot_earlier": false,
+      "six_sections": 6,
+      "section_audit_scope": [
+        "Nature & Landmarks",
+        "Did You Know?",
+        "Administrative/legal status where relevant"
+      ],
+      "current_article_source": null,
+      "source_match": null,
+      "other_claims_verified": false,
+      "image_licenses_reviewed": false,
+      "priority_flag": "territorial_or_historical_status_requires_focused_review"
+    }
+  ],
+  "limits": [
+    "245 atlas records are countries, territories, historic codes and special administrative/statistical entries, not 245 sovereign states.",
+    "First five pilot countries were previously reviewed; now reconciled in complete coverage census.",
+    "Existing section article source gaps and undated numeric values remain outstanding.",
+    "Link validity, external site image licenses and mobile Safari were not certified.",
+    "Political status / non-self-governing classification needs careful neutral presentation and dated sources.",
+    "UI, maps, flags, articles and games unchanged."
+  ],
+  "next_steps": [
+    "Generate consolidated unique-country audit index across all prior batch reports.",
+    "Validate and correct claim-level source evidence; prioritize legal/territorial/legacy-code errors and undated data.",
+    "Add precise confirmed corrections in controlled edits with regression checks.",
+    "Audit photo sources and Safari separately."
+  ]
+}
