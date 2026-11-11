@@ -12,7 +12,7 @@ permissions:
 
 concurrency:
   group: "github-pages"
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -30,7 +30,8 @@ jobs:
           test -f tourism-visuals-v511.js
           test -f tourism-visuals-v511.css
           test -f tourism-check.html
-          grep -q 'gv515-photo-preload-fix' index.html
+          grep -q 'tourism-visuals-v511.js' index.html
+          grep -q 'const img=new Image()' tourism-visuals-v511.js
           grep -q 'tourism-visuals-v511.js' index.html
 
       - name: Configure GitHub Pages
