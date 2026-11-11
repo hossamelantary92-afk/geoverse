@@ -163,15 +163,28 @@ function decorate(r){
  const countryAtPoint=(x,y,target)=>{
   const direct=target?.closest?.('.atlas-country[data-map-country]');
   if(direct&&svg.contains(direct))return direct;
+  // Screen-to-SVG hit testing respects every polygon in a MultiPolygon,
+  // including Corsica, Sicily, Sardinia, Crete and separated archipelagos.
+  // Bounding rectangles alone can misidentify nearby islands.
+  const paths=svg.querySelectorAll('.atlas-country[data-map-country]');
+  for(const path of paths){
+   if(typeof path.isPointInFill!=='function')continue;
+   const matrix=path.getScreenCTM?.();
+   if(!matrix)continue;
+   try{
+    const point=svg.createSVGPoint();
+    point.x=x;point.y=y;
+    if(path.isPointInFill(point.matrixTransform(matrix.inverse())))return path;
+   }catch(_){}
+  }
   let best=null,score=Infinity;
-  svg.querySelectorAll('.atlas-country[data-map-country]').forEach(path=>{
+  paths.forEach(path=>{
    const box=path.getBoundingClientRect();
    if(!box.width||!box.height)return;
    const dx=Math.max(box.left-x,0,x-box.right);
    const dy=Math.max(box.top-y,0,y-box.bottom);
    const distance=Math.hypot(dx,dy);
    if(distance>13)return;
-   // Prefer the closest visible outline; small countries win equal-distance ties.
    const candidate=distance*10000+Math.min(box.width*box.height,100000);
    if(candidate<score){score=candidate;best=path}
   });
