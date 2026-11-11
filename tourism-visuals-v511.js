@@ -43,13 +43,10 @@ function photoTargets(){
   const itemIndex=Number(state.item);
   const row=catalog()[Number.isInteger(itemIndex)&&itemIndex>=0?itemIndex:Number(idFromNode)],header=main.querySelector('.gv196-detail > .gv196-hero');
   if(row&&header){
-   // Only approved ISO alpha-2 country codes; the same hero is recreated on navigation.
-   // A static country-flag image adds identity without adding visible UI clutter.
-   const code=String(row.code||'').trim().toLowerCase();
-   if(/^[a-z]{2}$/.test(code)){
-    header.style.setProperty('--gv-country-flag','url("https://flagcdn.com/w640/'+code+'.png")');
-    header.classList.add('gv525-country-flag');
-   }
+   // Geo Signature: a consistent CSS-only geographic motif, no external flag requests.
+   header.classList.remove('gv525-country-flag');
+   header.style.removeProperty('--gv-country-flag');
+   header.classList.add('gv531-geo-signature');
    let slot=main.querySelector('.gv196-detail > .gv511-detail-photo');
    if(slot&&Number(slot.dataset.gv511Photo)!==row.index){slot.remove();slot=null}
    if(!slot){slot=makeSlot(row.index,true);header.insertAdjacentElement('afterend',slot)}
