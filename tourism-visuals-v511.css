@@ -198,3 +198,37 @@
 @media(prefers-reduced-motion:reduce){
  #main .gv196-detail > .gv511-detail-photo.gv511-loaded::before{filter:none!important;opacity:.15!important}
 }
+
+/* gv525 · Country Flag Watermark Soft — approved for every tourism title card.
+ * Entire country's flag, extremely subtle, behind the unchanged typography.
+ * A dark blue layer protects contrast; no new text, icons, or card dimensions. */
+#main .gv196-detail > .gv196-hero.gv525-country-flag{
+ position:relative!important;
+ isolation:isolate!important;
+ overflow:hidden!important;
+}
+#main .gv196-detail > .gv196-hero.gv525-country-flag::before{
+ content:""!important;
+ position:absolute!important;
+ inset:0!important;
+ background-image:var(--gv-country-flag)!important;
+ background-repeat:no-repeat!important;
+ background-position:center!important;
+ background-size:82% auto!important;
+ opacity:.11!important;
+ filter:saturate(.65) brightness(.95)!important;
+ pointer-events:none!important;
+ z-index:0!important;
+}
+#main .gv196-detail > .gv196-hero.gv525-country-flag::after{
+ content:""!important;
+ position:absolute!important;
+ inset:0!important;
+ background:linear-gradient(115deg,rgba(6,25,43,.32),rgba(9,46,66,.20))!important;
+ pointer-events:none!important;
+ z-index:0!important;
+}
+#main .gv196-detail > .gv196-hero.gv525-country-flag > *{
+ position:relative!important;
+ z-index:1!important;
+}
