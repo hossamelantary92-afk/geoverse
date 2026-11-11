@@ -1,4 +1,6 @@
-# Egypt tourism: approved photo credits (GeoVerse gv542)
+> **WITHDRAWN — 2026-11-11.** The 15-image selection below was rolled back because the pictures shown for approval did not reliably match the Wikimedia Commons files deployed. **Do not treat this table as approved imagery or re-enable its overrides.** The earlier Wikipedia article image fallback is active again. The filenames below are retained only as an audit trail; all selections require renewed review with exact Commons file previews before deployment.
+
+# Egypt tourism: withdrawn image manifest (GeoVerse gv542 rollback)
 
 These are the 15 exact Wikimedia Commons files approved for Egypt tourism. The country card and detail photo use the same asset (`tourism-visuals-v511.js`). This record preserves each author, source page and applicable license. Detail image credits link directly to Commons; the photo is not cropped (CSS `object-fit: contain`). Changes to a photograph or its license should be reviewed against the Commons source page.
 
