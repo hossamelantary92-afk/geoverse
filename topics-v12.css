@@ -46,3 +46,59 @@
 }
 @media(max-width:380px){.gv12-head h1{font-size:24px}.gv12-head-count{width:61px;height:72px}.gv12-card{min-height:148px;padding:10px}.gv12-card-copy strong{font-size:12px}.gv12-card-copy small{font-size:9px}}
 @media(prefers-reduced-motion:reduce){.gv12-card,.gv12-image{transition:none!important}}
+
+/* GV587 — Premium illustrated atlas hero, isolated to the section directory. */
+.gv12-head{
+  min-height:295px;
+  padding:clamp(24px,3.7vw,46px);
+  border:1.5px solid rgba(94,231,224,.75);
+  border-radius:26px;
+  background:radial-gradient(ellipse at 23% 67%,rgba(11,107,157,.33),transparent 48%),linear-gradient(105deg,#051a2c 5%,#052436 63%,#041625 100%);
+  box-shadow:0 22px 52px rgba(0,8,18,.52),inset 0 0 0 1px rgba(129,244,244,.12);
+  isolation:isolate;
+}
+.gv12-head::after{
+  opacity:.3;
+  background:radial-gradient(circle at 19% 15%,#d2faff 1px,transparent 2px),radial-gradient(circle at 59% 71%,#e8f5fb 1px,transparent 2px);
+  background-size:164px 141px,273px 211px;
+}
+.gv12-hero-earth{
+  position:absolute;z-index:0;pointer-events:none;
+  width:clamp(235px,36%,430px);aspect-ratio:1;
+  left:5%;top:50%;transform:translateY(-50%);
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 33% 24%,rgba(250,220,135,.57),transparent 19%),
+    radial-gradient(circle at 66% 75%,transparent 42%,rgba(2,18,39,.72) 70%),
+    url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&w=950&q=85') center/cover;
+  box-shadow:0 0 0 2px rgba(89,213,250,.6),0 0 24px rgba(13,195,249,.34),20px 21px 60px rgba(0,15,31,.4);
+  opacity:.91;
+}
+.gv12-headline{max-width:59%;margin-inline-end:0;text-align:start}
+.gv12-overline{display:inline-block;color:#f5cb79;font-weight:900;font-size:12px;letter-spacing:.1px;padding:5px 13px;border:1px solid rgba(245,193,99,.8);border-radius:999px;background:rgba(13,40,50,.72)}
+.gv12-head h1{font-size:clamp(32px,4.2vw,60px);line-height:1.33;margin:14px 0 13px}
+.gv12-head h1 .gv12-title-first,.gv12-head h1 em{display:block}
+.gv12-head h1 em{color:#56eee1}
+.gv12-head p{max-width:520px;font-size:clamp(12px,1.24vw,15px);line-height:1.9}
+.gv12-head-count{align-self:flex-end;width:103px;height:121px;border-radius:20px;border-color:#5bd7e6;background:linear-gradient(145deg,rgba(7,68,84,.92),rgba(3,29,51,.94));backdrop-filter:blur(10px)}
+.gv12-count-symbol{font-size:23px;color:#eec66b;line-height:1}
+.gv12-head-count strong{font-size:42px}
+@media(max-width:700px){
+  .gv12-head{min-height:208px;padding:17px 15px 17px 14px;gap:8px;border-radius:20px}
+  .gv12-hero-earth{left:-7%;width:51%;top:51%;opacity:.78}
+  .gv12-headline{max-width:69%;margin-inline-end:0}
+  .gv12-overline{font-size:9px;padding:4px 9px}
+  .gv12-head h1{font-size:clamp(25px,6vw,37px);line-height:1.3;margin:11px 0 8px}
+  .gv12-head p{font-size:10px;line-height:1.7;max-width:95%}
+  .gv12-head-count{position:absolute;left:12px;bottom:13px;width:67px;height:77px;border-radius:13px;z-index:2}
+  .gv12-count-symbol{font-size:14px}
+  .gv12-head-count strong{font-size:27px;line-height:1.1}
+  .gv12-head-count span:last-child{font-size:8px}
+}
+@media(max-width:380px){
+  .gv12-head{min-height:202px;padding-inline:12px}
+  .gv12-headline{max-width:72%}
+  .gv12-head h1{font-size:24px}
+  .gv12-head p{font-size:9px}
+  .gv12-head-count{width:59px;height:72px;left:8px}
+}
