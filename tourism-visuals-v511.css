@@ -43,3 +43,14 @@
 @media(prefers-reduced-motion:reduce){
  #categoryItems .gv197-minimal-card .gv511-thumb{transition:none!important}
 }
+
+/* The legacy text-only mode hid all photos in country profile tourism strips.
+   Override only when a real, successfully loaded tourism photograph is present. */
+#main .gv170-tourism .gv170-tourism-photo.gv511-loaded{
+ display:block!important;
+ position:relative!important;
+}
+#main .gv170-tourism .gv170-tourism-photo.gv511-loaded>.gv511-img{
+ opacity:1!important;object-fit:contain!important;
+}
+#main .gv170-tourism .gv170-tourism-photo:not(.gv511-loaded){display:none!important}
