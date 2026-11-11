@@ -32,7 +32,7 @@ function addMainNavigation(){
  // Country pages already have a contextual Back plus a direct Countries link (v387).
  if(state.page==='country-v4'){
   const bar=root.querySelector('.gv387-country-nav');
-  if(bar){const buttons=bar.querySelectorAll('button');if(buttons[0])buttons[0].textContent=txt('→ رجوع','← Back');if(buttons[1])buttons[1].textContent=txt('العودة إلى الدول','Countries');}
+  if(bar){const buttons=bar.querySelectorAll('button');if(buttons[0])buttons[0].textContent=txt('رجوع','Back');if(buttons[1])buttons[1].textContent=txt('العودة إلى الدول','Countries');}
   return;
  }
  // Landmark pages already receive the smart Back and category shortcut (v351).
@@ -42,10 +42,10 @@ function addMainNavigation(){
    const back=bar.querySelector('button.back');
    const link=bar.querySelector('[data-gv-open-category]');
    const cat=typeof cats!=='undefined'?cats.find(c=>c.id===state.category):null;
-   if(back)back.textContent=state.category==='tourism'?txt('رجوع','Back'):txt('→ رجوع','← Back');
+   if(back)back.textContent=state.category==='tourism'?txt('رجوع','Back'):txt('رجوع','Back');
    if(link)link.textContent=txt('العودة إلى '+(cat?.ar||'القسم'),'Back to '+(cat?.en||'section'));
   }else if(!root.querySelector('.gv388-nav')){
-   const nav=row();nav.append(button(txt('→ رجوع','← Back'),'back'));
+   const nav=row();nav.append(button(txt('رجوع','Back'),'back'));
    nav.append(button(txt('العودة إلى القسم','Back to section'),'section'));
    root.prepend(nav);
   }
@@ -76,8 +76,8 @@ function addMainNavigation(){
  // Section landing pages: contextual Back plus a predictable atlas directory shortcut.
  if(state.page==='category'||state.page==='countries-v4'){
   const nav=row();const old=root.querySelector('button.back');
-  if(old){old.classList.add('gv388-existing');old.removeAttribute('data-cat');old.removeAttribute('data-page');old.textContent=state.category==='tourism'?txt('رجوع','Back'):txt('→ رجوع','← Back');nav.append(old);}
-  else nav.append(button(txt('→ رجوع','← Back'),'back'));
+  if(old){old.classList.add('gv388-existing');old.removeAttribute('data-cat');old.removeAttribute('data-page');old.textContent=state.category==='tourism'?txt('رجوع','Back'):txt('رجوع','Back');nav.append(old);}
+  else nav.append(button(txt('رجوع','Back'),'back'));
   nav.append(button(txt('كل الأقسام','All sections'),'all'));
   root.prepend(nav);
  }
