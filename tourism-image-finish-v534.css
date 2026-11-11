@@ -4,6 +4,10 @@
 @media (max-width:900px){
  #main .gv196-detail > .gv511-detail-photo.gv511-loaded{
   /* A soft matching photo fills the letterbox area; no harsh dark bands. */
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:hidden!important;
+  border-radius:20px!important;
   background-color:#103549!important;
   background-image:var(--gv511-backdrop)!important;
   background-size:cover!important;
@@ -14,14 +18,28 @@
   content:""!important;
   display:block!important;
   position:absolute!important;
-  inset:-14px!important;
+  inset:-18px!important;
   background-image:var(--gv511-backdrop)!important;
   background-size:cover!important;
   background-position:center!important;
-  filter:blur(28px) saturate(.9) brightness(.96)!important;
+  filter:blur(28px) saturate(.92) brightness(.96)!important;
+  transform:scale(1.04)!important;
   opacity:1!important;
   pointer-events:none!important;
   z-index:0!important;
+ }
+ #main .gv196-detail > .gv511-detail-photo.gv511-loaded::after{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  border-radius:inherit!important;
+  pointer-events:none!important;
+  z-index:2!important;
+  background:
+   radial-gradient(circle at top left,rgba(16,53,73,.35),transparent 38px),
+   radial-gradient(circle at top right,rgba(16,53,73,.35),transparent 38px),
+   radial-gradient(circle at bottom left,rgba(16,53,73,.30),transparent 38px),
+   radial-gradient(circle at bottom right,rgba(16,53,73,.30),transparent 38px)!important;
  }
  #main .gv196-detail > .gv511-detail-photo.gv511-loaded > img.gv511-img{
   position:relative!important;
@@ -29,14 +47,17 @@
   width:100%!important;
   height:auto!important;
   max-height:100%!important;
+  max-width:100%!important;
+  display:block!important;
   flex:0 1 auto!important;
   object-fit:contain!important;
   object-position:center!important;
+  border-radius:14px!important;
   /* Fade against the image's intrinsic painted height, not the 16:10
      letterboxed container: otherwise Safari reveals hard horizontal bands.
      The full original frame remains contained, with no cropping. */
   -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 5%,#000 95%,transparent 100%)!important;
-  mask-image:linear-gradient(to bottom,transparent 0%,#000 11%,#000 89%,transparent 100%)!important;
+  mask-image:linear-gradient(to bottom,transparent 0%,#000 5%,#000 95%,transparent 100%)!important;
  }
  #main:has(> .gv196-detail) > .gv-landmark-back-row{
   margin-bottom:4px!important;
