@@ -4,6 +4,13 @@
 const previousCreate=createGame,previousPlay=play;
 gameModes.push(['silhouette','🗺️','خمن الدولة من شكلها','Country Silhouette']);
 gameModes.push(['landmarkphoto','🏛️','تحدي المعالم بالصور','Landmark Photo Quiz']);
+// Keep related games paired (RTL), remove classification from the menu only.
+const gameOrder=['capitals','flags','silhouette','mapfind','locations','landmarkphoto','definitions','mixed'];
+const activeGames=gameModes.filter(g=>gameOrder.includes(g[0]));
+activeGames.sort((a,b)=>gameOrder.indexOf(a[0])-gameOrder.indexOf(b[0]));
+gameModes.splice(0,gameModes.length,...activeGames);
+const riddle=gameModes.find(g=>g[0]==='definitions');if(riddle){riddle[2]='اللغز الجغرافي';riddle[3]='Geography Riddle';}
+
 gameModePhotos.silhouette='photo-1526778548025-fa2f459cd5c1';
 gameModePhotos.landmarkphoto='photo-1487958449943-2429e8be8625';
 const shuffle=a=>a.slice().sort(()=>Math.random()-.5);
