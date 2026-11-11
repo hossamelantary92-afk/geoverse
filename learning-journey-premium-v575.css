@@ -113,3 +113,60 @@
  #main .learn-card{transition:none!important}
  #main .learn-card:hover{transform:none}
 }
+
+/* v576 — complete-image presentation with full-bleed photographic atmosphere.
+   The approved category cover is the exact same source used in the directory. */
+#main .learn-card-grid>.learn-card>.learn-card-photo{
+ position:relative!important;display:block!important;width:100%!important;
+ height:auto!important;aspect-ratio:16/10!important;overflow:hidden!important;
+ background:linear-gradient(145deg,#0e3850,#06182b)!important;
+ isolation:isolate;
+}
+#main .learn-card-grid>.learn-card>.learn-card-photo>img.gv576-photo-backdrop,
+#main .learn-card-grid>.learn-card>.learn-card-photo>img.gv576-photo-main{
+ position:absolute!important;inset:0!important;display:block!important;
+ width:100%!important;height:100%!important;max-width:none!important;
+ max-height:none!important;margin:0!important;padding:0!important;
+ border:0!important;border-radius:0!important;aspect-ratio:auto!important;
+}
+#main .learn-card-grid>.learn-card>.learn-card-photo>img.gv576-photo-backdrop{
+ z-index:0!important;object-fit:cover!important;object-position:center!important;
+ filter:blur(10px) brightness(.48) saturate(1.18)!important;
+ transform:scale(1.12)!important;
+}
+#main .learn-card-grid>.learn-card>.learn-card-photo>img.gv576-photo-main{
+ z-index:1!important;object-fit:contain!important;object-position:center!important;
+ filter:none!important;
+}
+#main .learn-card-grid>.learn-card>.learn-card-photo::after{
+ content:"";position:absolute;inset:auto 0 0;height:26%;z-index:1;
+ pointer-events:none;background:linear-gradient(0deg,rgba(3,20,36,.35),transparent);
+}
+#main .learn-card-grid>.learn-card>.learn-card-photo>span{
+ z-index:3!important;
+}
+#main .learn-card-grid>.learn-card>.learn-card-info{
+ min-height:160px!important;box-sizing:border-box!important;
+}
+#main .learn-card-grid[data-learn-count="1"]>.learn-card{
+ max-width:520px;margin-inline:auto;
+}
+#main .learn-card-grid[data-learn-count="1"]>.learn-card>.learn-card-photo{
+ aspect-ratio:16/9!important;
+}
+@media(max-width:760px){
+ #main .learn-card-grid>.learn-card>.learn-card-photo{aspect-ratio:16/10!important}
+ #main .learn-card-grid>.learn-card>.learn-card-info{
+  min-height:154px!important;
+ }
+ #main .learn-card-grid[data-learn-count="1"]>.learn-card{
+  width:100%!important;max-width:440px!important;
+ }
+ #main .learn-card-grid[data-learn-count="1"]>.learn-card>.learn-card-photo{
+  aspect-ratio:16/9!important;
+ }
+ #main .learn-card-grid[data-learn-count="5"]>.learn-card:last-child{
+  grid-column:1/-1!important;justify-self:center!important;
+  width:calc((100% - 10px)/2)!important;
+ }
+}
