@@ -55,7 +55,7 @@ body.gv557-playing #main {box-sizing:border-box!important;min-width:0!important;
  max-width:1120px!important;box-sizing:border-box!important;
  margin-inline:auto!important;
 }
-#main .gv557-game-detail .quiz-card:not(.map-question){max-width:760px!important}
+#main .gv557-game-detail .quiz-card:not(.map-question){max-width:1120px!important}
 #main .gv557-game-detail .quiz-card *,#main .gv557-game-detail .map-question *{box-sizing:border-box}
 #main .gv557-game-detail .map-container{
  width:100%!important;max-width:100%!important;min-width:0!important;
@@ -81,4 +81,68 @@ body.gv557-playing #main {box-sizing:border-box!important;min-width:0!important;
 @media(max-width:340px){
  #main .gv557-games-home .game-modes{gap:8px!important}
  #main .gv557-games-home .game-mode>b{font-size:12px!important}
+}
+
+/* v558 — equal full-width quiz panels and a single premium game heading */
+#main .gv557-game-detail{
+ width:100%!important;max-width:100%!important;
+ padding:0!important;margin:0!important;
+}
+#main .gv557-game-detail .quiz-card,
+#main .gv557-game-detail .quiz-card:not(.map-question),
+#main .gv557-game-detail .map-question,
+#main .gv557-game-detail .gv-quiz-premium{
+ width:100%!important;max-width:1120px!important;min-width:0!important;
+ margin-inline:auto!important;box-sizing:border-box!important;
+}
+#main .gv557-game-detail .gv557-game-header{
+ width:100%!important;max-width:1120px!important;min-width:0!important;
+ box-sizing:border-box!important;
+ display:flex!important;flex-direction:row!important;
+ align-items:center!important;justify-content:space-between!important;
+ gap:clamp(10px,2vw,24px)!important;
+ margin:0 auto clamp(14px,2.2vw,24px)!important;
+ padding:clamp(14px,2.1vw,24px)!important;
+ border:1px solid rgba(90,207,209,.37)!important;border-radius:22px!important;
+ background:linear-gradient(125deg,rgba(10,58,75,.86),rgba(7,29,47,.82))!important;
+ box-shadow:inset 0 1px rgba(205,255,252,.10),0 12px 28px rgba(0,0,0,.13)!important;
+}
+#main .gv557-game-detail .gv557-game-name{min-width:0;flex:1;text-align:start}
+#main .gv557-game-detail .gv557-game-name h1{
+ margin:5px 0 3px!important;font-size:clamp(21px,2.5vw,32px)!important;
+ font-weight:900!important;line-height:1.3!important;
+}
+#main .gv557-game-detail .gv557-game-name p{
+ margin:0!important;color:#aacbd2!important;font-size:clamp(12px,1.1vw,15px)!important;
+ line-height:1.7!important;
+}
+#main .gv557-game-detail .gv557-game-eyebrow{
+ display:inline-block;color:#7fe3d8;font:700 clamp(9px,.9vw,11px) Outfit,Cairo,system-ui,sans-serif;
+ letter-spacing:.08em;
+}
+#main .gv557-game-detail .gv557-back{
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ white-space:nowrap!important;min-height:44px!important;
+ border-radius:13px!important;
+}
+#main .gv557-game-detail .gv110-level{
+ padding:clamp(13px,2.1vw,22px)!important;
+ margin:0 auto clamp(16px,2.2vw,26px)!important;
+ border-radius:20px!important;
+}
+#main .gv557-game-detail .gv110-level-label{display:block;margin-bottom:12px!important}
+#main .gv557-game-detail .page-heading{display:none!important}
+#main .gv557-game-detail .quiz-card{margin-top:0!important}
+#main .gv557-game-detail .quiz-choice{max-width:100%!important;min-width:0!important}
+@media(max-width:700px){
+ #main .gv557-game-detail .gv557-game-header{
+  padding:14px 13px!important;border-radius:18px!important;
+ }
+ #main .gv557-game-detail .gv557-game-name h1{font-size:clamp(18px,5vw,23px)!important}
+ #main .gv557-game-detail .gv557-game-name p{font-size:11.5px!important}
+ #main .gv557-game-detail .gv557-game-eyebrow{font-size:9px!important;letter-spacing:.03em}
+ #main .gv557-game-detail .gv557-back{font-size:11px!important;padding:7px 9px!important}
+ #main .gv557-game-detail .gv110-level{padding:14px!important}
+ #main .gv557-game-detail .quiz-card,
+ #main .gv557-game-detail .quiz-card:not(.map-question){padding:clamp(13px,4vw,20px)!important}
 }
