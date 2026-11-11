@@ -108,6 +108,21 @@
  function levelOrDefault(){
    return window.GeoVerseGameV110?.getDifficulty?.()||'medium';
  }
+ function getSettingsSummary(){
+   const levelLabels={easy:['سهل','Easy'],medium:['متوسط','Medium'],hard:['صعب','Hard']};
+   const chosenLevel=levelLabels[levelOrDefault()]||levelLabels.medium;
+   const regionLabel=continentModes.has(selectedGameMode)?regionNames[region]||regionNames.all:null;
+   return T(chosenLevel[0],chosenLevel[1])+' · '+T(matchMode==='versus'?'لاعبان':'فردي',matchMode==='versus'?'Two players':'Solo')+
+     (regionLabel?' · '+T(regionLabel[0],regionLabel[1]):'')+
+     ' · '+(seconds===0?T('بدون توقيت','Untimed'):seconds+' '+T('ثانية','seconds'));
+ }
+ function updateRegionSelection(value){
+   if(!Object.prototype.hasOwnProperty.call(regionNames,value))return;
+   region=value;roundWarning='';
+   // Updating only this span keeps Safari's open <select> and scroll position intact.
+   const summary=document.querySelector('.gv565-round-summary span:last-child');
+   if(summary)summary.textContent=getSettingsSummary();
+ }
  function renderLobby(html){
    const lead=gameShell(html);
    if(lead===null)return html;
@@ -128,13 +143,7 @@
    const namesHtml=matchMode==='versus'
      ?'<div class="gv565-field gv565-players"><h3><span class="gv565-field-icon" aria-hidden="true">♙</span>'+T('أسماء اللاعبين','Player names')+'</h3><div class="gv558-names"><input data-gv558-name="0" maxlength="24" autocomplete="off" aria-label="'+T('اسم اللاعب الأول','First player name')+'" placeholder="'+T('اللاعب الأول','Player 1')+'" value="'+escape(names[0])+'"><input data-gv558-name="1" maxlength="24" autocomplete="off" aria-label="'+T('اسم اللاعب الثاني','Second player name')+'" placeholder="'+T('اللاعب الثاني','Player 2')+'" value="'+escape(names[1])+'"></div></div>'
      :'';
-   const currentLevel=levelOrDefault();
-   const levelLabels={easy:['سهل','Easy'],medium:['متوسط','Medium'],hard:['صعب','Hard']};
-   const chosenLevel=levelLabels[currentLevel]||levelLabels.medium;
-   const regionLabel=continentModes.has(selectedGameMode)?regionNames[region]||regionNames.all:null;
-   const settingsSummary=T(chosenLevel[0],chosenLevel[1])+' · '+T(matchMode==='versus'?'لاعبان':'فردي',matchMode==='versus'?'Two players':'Solo')+
-     (regionLabel?' · '+T(regionLabel[0],regionLabel[1]):'')+
-     ' · '+(seconds===0?T('بدون توقيت','Untimed'):seconds+' '+T('ثانية','seconds'));
+   const settingsSummary=getSettingsSummary();
    const lobby='<section class="gv558-lobby gv565-setup-card" aria-label="'+T('تجهيز اللعبة','Game setup')+'">'+
      '<div class="gv565-setup-heading"><span class="gv565-setup-mark" aria-hidden="true">✦</span><div><h2>'+T('جهّز تحديك','Set up your challenge')+'</h2><p>'+T('اختار الإعدادات المناسبة وابدأ المنافسة','Choose your settings and start playing')+'</p></div></div>'+
      '<div class="gv565-setup-fields">'+
@@ -237,9 +246,7 @@
    if(target.closest?.('[data-gv557-back]')){
      resetMatch();return;
    }
-   if(target?.id==='gv562-region'){
-     region=target.value;roundWarning='';return;
-   }
+   if(target?.id==='gv562-region')return;
    const mode=b?.dataset.gv558Mode;
    if(mode==='solo'||mode==='versus'){
      event.preventDefault();event.stopImmediatePropagation();
@@ -300,7 +307,7 @@
  },true);
  // Preserve names while typing, including a later mode/timer re-render.
  document.addEventListener('change',function(event){
-   if(event.target?.id==='gv562-region'){region=event.target.value;roundWarning='';}
+   if(event.target?.id==='gv562-region')updateRegionSelection(event.target.value);
  },true);
  document.addEventListener('input',function(event){
    const input=event.target.closest?.('[data-gv558-name]');
