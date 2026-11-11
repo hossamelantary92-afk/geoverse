@@ -136,3 +136,38 @@
   display:flex!important;flex-direction:column!important;
  }
 }
+
+/* gv521: Framed photograph with a low-contrast blurred extension of the same
+   source, instead of empty cyan bars. The sharp image itself is never cropped. */
+#main .gv196-detail>.gv511-detail-photo.gv511-loaded{
+ position:relative!important;
+ isolation:isolate!important;
+ background:#092638!important;
+}
+#main .gv196-detail>.gv511-detail-photo.gv511-loaded::before{
+ content:"";
+ position:absolute;
+ inset:-18px;
+ background-image:var(--gv511-backdrop);
+ background-position:center;
+ background-size:cover;
+ background-repeat:no-repeat;
+ filter:blur(24px) brightness(.40) saturate(.8);
+ opacity:.75;
+ pointer-events:none;
+ z-index:-1;
+}
+#main .gv196-detail>.gv511-detail-photo.gv511-loaded>.gv511-img{
+ position:relative;
+ z-index:1;
+ filter:drop-shadow(0 2px 8px rgba(0,9,20,.12));
+}
+@media(min-width:901px){
+ #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded) > .gv511-detail-photo.gv511-loaded{
+  min-height:220px!important;
+  max-height:320px!important;
+ }
+ #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded) > .gv511-detail-photo.gv511-loaded > .gv511-img{
+  max-height:310px!important;
+ }
+}
