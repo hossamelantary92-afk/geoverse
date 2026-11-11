@@ -171,3 +171,39 @@
   max-height:310px!important;
  }
 }
+
+/* gv522: Let the photograph define its own column width; no filler strips.
+ * The preloader supplies the actual width:height ratio when the image loads. */
+@media(min-width:901px){
+ #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded){
+  grid-template-columns:minmax(0,1fr) auto!important;
+  align-items:stretch!important;
+ }
+ #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded)>.gv511-detail-photo.gv511-loaded{
+  width:min(calc(310px * var(--gv511-photo-ratio,1.5)), 47vw)!important;
+  max-width:100%!important;
+  min-width:0!important;
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  padding:0!important;
+  margin:0!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  background:transparent!important;
+ }
+ #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded)>.gv511-detail-photo.gv511-loaded::before{
+  content:none!important;
+  display:none!important;
+ }
+ #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded)>.gv511-detail-photo.gv511-loaded>.gv511-img{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  max-width:100%!important;
+  max-height:310px!important;
+  object-fit:contain!important;
+  filter:none!important;
+ }
+}
