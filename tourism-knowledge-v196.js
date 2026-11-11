@@ -77,7 +77,8 @@ function detailPage(row){
  const country=esc(t(row.countryAr,row.countryEn)),city=esc(t(row.cityAr,row.cityEn));
  const learned=!!saved()['tourism_'+i];
  const next=catalogue()[(i+1)%catalogue().length];
- const article=window.GeoVerseTourismEditorial202?.points(i,ar()?'ar':'en')
+ const article=(ar()?row.pointsAr:row.pointsEn)
+  ||window.GeoVerseTourismEditorial202?.points(i,ar()?'ar':'en')
   ||[t(row.factAr,row.factEn)];
  const enriched=ar()?(window.GeoVerseTourismEnrichment215?.get(i)||window.GeoVerseTourismEnrichment214?.get(i)||window.GeoVerseTourismEnrichment213?.get(i)||window.GeoVerseTourismEnrichment212?.get(i)||window.GeoVerseTourismEnrichment208?.get(i)||window.GeoVerseTourismEnrichment207?.get(i)||window.GeoVerseTourismEnrichment206?.get(i)):null;
  const learningPoints=enriched?enriched.points:article;
