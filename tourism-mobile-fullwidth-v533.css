@@ -1,0 +1,57 @@
+/* gv533 — mobile tourism category full-width correction.
+   Avoid narrow centered reading column on iPhone; keep content inside safe gutters.
+   Target only the tourism landing and its selected-country directory. */
+@media (max-width:820px){
+ body:has(#main .gv196-category-banner) #app > .layout{
+  box-sizing:border-box!important;
+  display:block!important;
+  width:100%!important;
+  max-width:100%!important;
+  margin-inline:0!important;
+  padding-inline:11px!important;
+ }
+ body:has(#main .gv196-category-banner) #app > .layout > #main{
+  box-sizing:border-box!important;
+  display:block!important;
+  width:100%!important;
+  min-width:0!important;
+  max-width:none!important;
+  margin-inline:0!important;
+  padding-inline:0!important;
+ }
+ #main:has(.gv196-category-banner) > .back,
+ #main:has(.gv196-category-banner) > .gv388-nav,
+ #main:has(.gv196-category-banner) > .gv-landmark-back-row,
+ #main:has(.gv196-category-banner) > .category-detail-banner,
+ #main:has(.gv196-category-banner) > #categoryFilter,
+ #main:has(.gv196-category-banner) > #categoryItems{
+  box-sizing:border-box!important;
+  max-width:100%!important;
+ }
+ #main .category-detail-banner.gv196-category-banner,
+ #main #categoryFilter,
+ #main #categoryItems:has(.gv181-overview),
+ #main #categoryItems:has(.gv210-country-page),
+ #main #categoryItems:has(.gv196-country-landmarks){
+  box-sizing:border-box!important;
+  width:100%!important;
+  min-width:0!important;
+  max-width:none!important;
+  margin-inline:0!important;
+ }
+ #main #categoryItems .gv181-overview,
+ #main #categoryItems .gv210-country-page,
+ #main #categoryItems .gv196-country-landmarks,
+ #main #categoryItems .gv210-landmark-grid{
+  box-sizing:border-box!important;
+  width:100%!important;
+  min-width:0!important;
+  max-width:none!important;
+  margin-inline:0!important;
+ }
+ #main #categoryItems .gv210-landmark-grid > *,
+ #main #categoryItems .gv196-grid > *{
+  min-width:0!important;
+  max-width:100%!important;
+ }
+}
