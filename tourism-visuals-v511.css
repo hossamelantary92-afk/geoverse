@@ -155,7 +155,7 @@
  filter:blur(24px) brightness(.40) saturate(.8);
  opacity:.75;
  pointer-events:none;
- z-index:-1;
+ z-index:0;
 }
 #main .gv196-detail>.gv511-detail-photo.gv511-loaded>.gv511-img{
  position:relative;
