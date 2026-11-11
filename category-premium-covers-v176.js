@@ -8,9 +8,9 @@
 const covers=Object.freeze({
  seas:Object.freeze({src:'./assets/category-covers/seas.webp',position:'center 50%',source:'GeoVerse approved generated cover'}),
  waterfalls:Object.freeze({src:'./assets/category-covers/waterfalls.webp',position:'center 50%',source:'GeoVerse approved generated cover'}),
- countries:Object.freeze({src:'./assets/category-covers/countries.webp',position:'center 50%',source:'GeoVerse approved generated cover'}),
+ countries:Object.freeze({src:'./assets/category-covers/countries-premium-v549.webp',position:'center 50%',source:'GeoVerse approved generated cover'}),
  continents:Object.freeze({src:'./assets/category-covers/continents.webp',position:'center 50%',source:'GeoVerse approved generated cover'}),
- astronomy:Object.freeze({src:'./assets/category-covers/astronomy.webp',position:'center 50%',source:'GeoVerse approved generated cover'}),
+ astronomy:Object.freeze({src:'./assets/category-covers/astronomy-premium-v549.webp',position:'center 50%',source:'GeoVerse approved generated cover'}),
  deserts:Object.freeze({src:'./assets/category-covers/deserts.webp',position:'center 55%',source:'GeoVerse approved generated cover'}),
  oceans:Object.freeze({src:'./assets/category-covers/oceans.webp',position:'center 55%',source:'GeoVerse approved generated cover'}),
  rivers:Object.freeze({src:'https://images.unsplash.com/photo-1754313778624-77041cafdca9',position:'center 50%',source:'https://unsplash.com/photos/a-teal-river-flows-through-a-lush-green-forest-0PZfQw7q9C0'}),
