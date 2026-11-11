@@ -12,8 +12,10 @@ a{color:#8bece1}img{max-width:220px;max-height:150px;object-fit:contain;display:
 <p>صفحة فحص مستقلة، لا تغيّر أي شيء في الموقع. لو الصفحة دي نفسها مش بتفتح فده مؤشر إن GitHub Pages لم ينشر أحدث ملفات المستودع أو لا يخدم المسار الصحيح.</p>
 <article><strong id="index" class="wait">جارٍ فحص نسخة الصفحة الرئيسية…</strong><small id="indexNote"></small></article>
 <article><strong id="asset" class="wait">جارٍ فحص ملف الصور الجديد…</strong><small id="assetNote"></small></article>
+<article><strong id="style" class="wait">جارٍ فحص ملف تنسيق الصور gv519…</strong><small id="styleNote"></small></article>
+<article><strong id="styletest" class="wait">جارٍ فحص عرض الصورة بدون فراغات…</strong><small id="styletestNote"></small></article>
 <article><strong id="api" class="wait">جارٍ فحص ويكيبيديا…</strong><small id="apiNote"></small><div id="preview"></div></article>
-<p>نسخة الفحص: <b>gv517 — 11 نوفمبر 2026</b></p><a href="./?gv_update=517">الرجوع إلى الموقع</a></main>
+<p>نسخة الفحص: <b>gv520 — 11 نوفمبر 2026</b></p><a href="./?gv_update=520">الرجوع إلى الموقع</a></main>
 <script>
 (async function(){
 'use strict';
@@ -28,6 +30,7 @@ try{
  const match=html.match(/tourism-visuals-v511\.js\?v=gv(\d+)[^"']*/);
  const number=match?Number(match[1]):0;
  const yes=number>=515;
+ window.__gvPublishedIndex=html;
  show('index',yes,yes?'الصفحة الرئيسية محدّثة':'إصدار الصفحة الرئيسية غير متوافق',match?'الإصدار المنشور للصور: gv'+number+' — '+match[0]:'ملف الصور غير مشار إليه في نسخة index.html المنشورة.');
 }catch(e){show('index',false,'تعذر قراءة الصفحة الرئيسية',String(e))}
 try{
@@ -35,6 +38,31 @@ try{
  const yes=js.includes('const img=new Image()')&&js.includes('gv511-detail-photo');
  show('asset',yes,yes?'ملف عرض الصور الجديد موجود':'ملف الصور قديم أو غير متاح',yes?'ملف التحميل المصلح موجود ويمكن قراءته.':'الملف لا يحتوي على إصلاح التحميل أو فشلت قراءته.');
 }catch(e){show('asset',false,'تعذر قراءة ملف الصور',String(e))}
+try{
+ const html=window.__gvPublishedIndex||await fetchText('./index.html');
+ const match=html.match(/tourism-visuals-v511\.css\?v=gv(\d+)[^"']*/);
+ const version=match?Number(match[1]):0;
+ const css=await fetchText('./tourism-visuals-v511.css');
+ const has519=css.includes('gv519: A successfully loaded real photo')&&css.includes('max-width:100%!important');
+ const correctLink=version>=519;
+ show('style',correctLink&&has519,(correctLink&&has519)?'تنسيق gv519 منشور ومتاح':'تنسيق الصور gv519 لم يصل كاملًا',
+  'إصدار CSS في الصفحة: gv'+version+' | وجود تعديل gv519 في الملف: '+(has519?'نعم':'لا'));
+ if(correctLink&&has519){
+  const test=document.createElement('div');
+  test.className='gv196-detail';
+  test.innerHTML='<span class="gv511-detail-photo gv511-loaded"><img class="gv511-img" alt="" style="width:340px;height:140px" src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22340%22 height=%22140%22%3E%3Crect width=%22340%22 height=%22140%22 fill=%22%23248b91%22/%3E%3C/svg%3E"></span>';
+  test.style.cssText='position:absolute;left:-9999px;width:600px';
+  document.body.appendChild(test);
+  const link=document.createElement('link');link.rel='stylesheet';link.href='./tourism-visuals-v511.css?diag='+Date.now();
+  await new Promise((resolve,reject)=>{link.onload=resolve;link.onerror=reject;document.head.appendChild(link)});
+  const photo=test.querySelector('.gv511-detail-photo');
+  const computed=getComputedStyle(photo);
+  const shrink=computed.display==='table'||computed.width!=='600px';
+  show('styletest',shrink,shrink?'قاعدة الإطار المدمج فعّالة':'الإطار ما زال بعرض كبير',
+   'خاصية العرض: '+computed.display+' | العرض الفعلي: '+Math.round(photo.getBoundingClientRect().width)+'px');
+  test.remove();link.remove();
+ }else show('styletest',false,'تعذر اختبار الإطار قبل وصول CSS','ارجع لنتيجة فحص تنسيق gv519 بالأعلى.');
+}catch(e){show('style',false,'تعذر فحص تنسيق الصور',String(e));show('styletest',false,'تعذر اختبار الإطار',String(e))}
 try{
  const params=new URLSearchParams({action:'query',format:'json',formatversion:'2',prop:'pageimages',piprop:'thumbnail',pithumbsize:'320',redirects:'1',origin:'*',titles:'Eiffel Tower'});
  const response=await fetch('https://en.wikipedia.org/w/api.php?'+params.toString());
