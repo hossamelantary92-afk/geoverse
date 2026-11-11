@@ -80,7 +80,7 @@ function detailPage(row){
  const article=(ar()?row.pointsAr:row.pointsEn)
   ||window.GeoVerseTourismEditorial202?.points(i,ar()?'ar':'en')
   ||[t(row.factAr,row.factEn)];
- const enriched=ar()?(window.GeoVerseTourismEditorialPhase2?.get(i)||window.GeoVerseTourismEditorialPhase1?.get(i)||window.GeoVerseTourismEnrichment215?.get(i)||window.GeoVerseTourismEnrichment214?.get(i)||window.GeoVerseTourismEnrichment213?.get(i)||window.GeoVerseTourismEnrichment212?.get(i)||window.GeoVerseTourismEnrichment208?.get(i)||window.GeoVerseTourismEnrichment207?.get(i)||window.GeoVerseTourismEnrichment206?.get(i)):null;
+ const enriched=ar()?(window.GeoVerseTourismEditorialPhase3?.get(i)||window.GeoVerseTourismEditorialPhase2?.get(i)||window.GeoVerseTourismEditorialPhase1?.get(i)||window.GeoVerseTourismEnrichment215?.get(i)||window.GeoVerseTourismEnrichment214?.get(i)||window.GeoVerseTourismEnrichment213?.get(i)||window.GeoVerseTourismEnrichment212?.get(i)||window.GeoVerseTourismEnrichment208?.get(i)||window.GeoVerseTourismEnrichment207?.get(i)||window.GeoVerseTourismEnrichment206?.get(i)):null;
  const learningPoints=enriched?enriched.points:article;
  const points=learningPoints.filter(Boolean).map(p=>'<li>'+esc(p)+'</li>').join('');
  const enrichedIntro=enriched?'<div class="gv206-story"><h3>القصة والتاريخ</h3><p>'+esc(enriched.story)+'</p></div>':'';
