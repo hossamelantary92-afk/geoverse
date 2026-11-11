@@ -43,6 +43,34 @@
    if(point<0)return null;
    return html.slice(0,point);
  }
+ function buildRound(mode,count){
+   const picked=[],seen=new Set();
+   const key=q=>mode==='flags'||mode==='mapfind'?String(q[7]||q[1]):String(q[1]||q[0]).trim().toLowerCase();
+   const add=pool=>{
+     for(const q of (Array.isArray(pool)?pool:[])){
+       if(!Array.isArray(q)||!q[0]||!q[1])continue;
+       const k=key(q);if(seen.has(k))continue;
+       seen.add(k);picked.push(q);if(picked.length>=count)break;
+     }
+   };
+   // The existing generator deliberately limits each batch to 12.
+   // Aggregate independent, deduplicated batches for head-to-head rounds.
+   for(let attempt=0;attempt<12&&picked.length<count;attempt++)add(createGame(mode));
+   if(picked.length<count&&mode==='definitions'){
+     const bank=window.GeoVerseQuestionPools;
+     if(bank){
+       add(bank.makeDefinitions?.());
+       add(bank.makeLocations?.());
+     }
+   }
+   if(picked.length<count){
+     // Keep the requested round length even when a legacy mode has a tiny pool.
+     const base=picked.slice();
+     let index=0;
+     while(picked.length<count&&base.length){picked.push(base[index%base.length]);index++;}
+   }
+   return picked.slice(0,count);
+ }
  function levelOrDefault(){
    return window.GeoVerseGameV110?.getDifficulty?.()||'medium';
  }
@@ -59,7 +87,7 @@
      (matchMode==='versus'?'<div class="gv558-config"><h2>'+T('اللاعبون','Players')+'</h2><div class="gv558-names"><input data-gv558-name="0" maxlength="24" autocomplete="off" placeholder="'+T('اللاعب الأول','Player 1')+'" value="'+escape(names[0])+'"><input data-gv558-name="1" maxlength="24" autocomplete="off" placeholder="'+T('اللاعب الثاني','Player 2')+'" value="'+escape(names[1])+'"></div></div>':'')+
      '<div class="gv558-config"><h2>'+T('وقت الإجابة لكل سؤال','Time per question')+'</h2>'+durationOptions+'</div>'+
      '<button type="button" id="gv558-start" class="gv558-start">'+T('ابدأ اللعبة','Start game')+' <span aria-hidden="true">←</span></button>'+
-     '<p class="gv558-note">'+(matchMode==='versus'?T('12 سؤالًا بالتناوب، 6 أسئلة لكل لاعب.','12 alternating questions, 6 per player.'):T('12 سؤالًا لاختبار معلوماتك.','12 questions to test your knowledge.'))+'</p>'+
+     '<p class="gv558-note">'+(matchMode==='versus'?T('20 سؤالًا بالتناوب، 10 أسئلة لكل لاعب.','20 alternating questions, 10 per player.'):T('10 أسئلة لاختبار معلوماتك.','10 questions to test your knowledge.'))+'</p>'+
      '</div>';
    return lead+lobby+'</section>';
  }
@@ -146,7 +174,7 @@
        names[i]=input.value.trim().slice(0,24)||(i===0?T('اللاعب 1','Player 1'):T('اللاعب 2','Player 2'));
      });
      resetQuestion();scores=[0,0];activePlayer=1;
-     quiz=createGame(selectedGameMode);
+     quiz=buildRound(selectedGameMode,matchMode==='versus'?20:10);
      if(!quiz.length){roundStarted=false;render();return;}
      roundStarted=true;timeLeft=seconds;render();startClock();return;
    }
@@ -172,7 +200,13 @@
      timeLeft=seconds;
      if(matchMode==='versus'&&state.quizIndex<quiz.length-1)activePlayer=activePlayer===1?2:1;
      // The existing handler advances the question and calls render.
-     queueMicrotask(()=>{if(roundStarted&&!state.quizComplete&&state.quizSelected===null){startClock();}});
+     // Allow the legacy bubble handler to advance and re-render first.
+     // A microtask here can run before the DOM update on Safari.
+     setTimeout(()=>{
+       if(roundStarted&&state.page==='play'&&!state.quizComplete&&state.quizSelected===null){
+         timeLeft=seconds;startClock();
+       }
+     },0);
    }
    if(b?.id==='restartQuiz'){
      event.preventDefault();event.stopImmediatePropagation();
