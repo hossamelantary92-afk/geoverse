@@ -276,12 +276,12 @@ function filterPins(map){
  map.querySelectorAll('.atlas-pin[data-map-pin^="tourism:"]').forEach(pin=>{
   const value=pin.getAttribute('data-map-pin')||'';
   const i=Number(value.split(':')[1]),item=originals[i];
-  const show=item&&(selected?item.code===selected:i%4===0);
+  const show=item&&(selected?item.code===selected:byCode.get(item.code)?.[0]?.index===i);
   pin.classList.toggle('gv170-tourism-visible',!!show);
  });
  const count=$(chooser,'.gv170-tourism-count');
- if(count)count.textContent=selected?t('٤ مزارات محددة','4 selected attractions'):t('١٦ دولة · اختر دولة للمزيد','16 countries · choose one for more');
- // The initial 12 markers are entry points; the full 48 remain in data and country pages.
+ if(count){const num=selected?(byCode.get(selected)?.length||0):byCode.size;count.textContent=selected?(num+' '+t('مزارات محددة','selected attractions')):(num+' '+t('دولة · اختر دولة للمزيد','countries · choose one for more'));}
+ // Default map shows one representative marker per country; selection reveals every registered attraction.
 }
 let queued=false;
 function scan(){
