@@ -87,25 +87,57 @@ function commit(index,src){
   if(refIndex===index){pending.delete(slot);if(src)paint(slot,index,src)}
  }
 }
-function fetchBatch(items){
- const titles=[...new Set(items.map(x=>x.title))];
- if(!titles.length)return;
- const params=new URLSearchParams({action:'query',format:'json',formatversion:'2',prop:'pageimages',piprop:'thumbnail',pithumbsize:'1280',redirects:'1',origin:'*',titles:titles.join('|')});
- fetch('https://en.wikipedia.org/w/api.php?'+params.toString(),{mode:'cors'})
- .then(r=>{if(!r.ok)throw Error('Wikimedia request '+r.status);return r.json()})
+// Two independent Wikimedia read paths. Exact article title only; no search
+// that can silently replace a landmark with a different place.
+const probe=window.GeoVerseTourismPhotoDiagnostics={version:'gv516',requests:0,loaded:0,failed:0,lastError:'',methods:{api:0,rest:0}};
+function originalTitle(item){return titleFor(item)}
+function restPhoto(title){
+ const url='https://en.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(title.replace(/ /g,'_'));
+ return fetch(url,{mode:'cors',credentials:'omit'}).then(r=>{
+  if(!r.ok)throw Error('REST HTTP '+r.status);
+  return r.json();
+ }).then(data=>{
+  const src=data?.thumbnail?.source||data?.originalimage?.source;
+  if(!eligible(src)||data?.type==='disambiguation')throw Error('REST no valid photo');
+  probe.methods.rest++;return src;
+ });
+}
+function actionPhotos(items){
+ const params=new URLSearchParams({action:'query',format:'json',formatversion:'2',prop:'pageimages',piprop:'thumbnail',pithumbsize:'1000',redirects:'1',origin:'*',titles:items.map(x=>x.title).join('|')});
+ return fetch('https://en.wikipedia.org/w/api.php?'+params.toString(),{mode:'cors',credentials:'omit'})
+ .then(r=>{if(!r.ok)throw Error('Action HTTP '+r.status);return r.json()})
  .then(payload=>{
+  if(payload?.error)throw Error('MediaWiki '+(payload.error.code||'error'));
   const q=payload.query||{};
   const redirects=new Map([...(q.normalized||[]),...(q.redirects||[])].map(x=>[normalize(x.from),normalize(x.to)]));
   const pages=new Map((q.pages||[]).filter(x=>x.title).map(x=>[normalize(x.title),x]));
-  for(const {index,title} of items){
+  return items.map(({index,title})=>{
    let key=normalize(title);
    for(let j=0;j<5&&redirects.has(key);j++)key=redirects.get(key);
    const page=pages.get(key);
    const url=page?.thumbnail?.source;
-   commit(index,page&&!page.missing&&eligible(url)?url:null);
-  }
- }).catch(()=>{for(const {index} of items)commit(index,null)});
+   if(eligible(url)&&!page?.missing){probe.methods.api++;return {index,src:url,title}}
+   return {index,src:null,title};
+  });
+ });
 }
+function fetchBatch(items){
+ probe.requests+=items.length;
+ actionPhotos(items).then(results=>{
+  for(const {index,src,title} of results){
+   if(src){commit(index,src);probe.loaded++}
+   else restPhoto(title).then(u=>{commit(index,u);probe.loaded++})
+    .catch(e=>{probe.failed++;probe.lastError=String(e);commit(index,null)});
+  }
+ }).catch(error=>{
+  probe.lastError=String(error);
+  for(const {index,title} of items){
+   restPhoto(title).then(u=>{commit(index,u);probe.loaded++})
+    .catch(e=>{probe.failed++;probe.lastError=String(e);commit(index,null)});
+  }
+ });
+}
+
 function flush(){
  batchTimer=null;if(!batch.length)return;
  const items=batch;batch=[];
