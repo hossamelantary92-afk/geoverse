@@ -290,3 +290,31 @@
   object-position:center!important;
  }
 }
+
+/* gv530 — fade the actual rectangular FLAG image, not the full hero.
+ * This specifically fixes the visible Egyptian/Saudi flag rectangle on iPhone.
+ * A centered flag-sized overlay is tapered all the way to transparent on every edge.
+ */
+@media(max-width:900px){
+ #main .gv196-detail > .gv196-hero.gv525-country-flag::before{
+  inset:auto!important;
+  top:50%!important;
+  left:50%!important;
+  right:auto!important;
+  bottom:auto!important;
+  transform:translate(-50%,-50%)!important;
+  width:min(72%,330px)!important;
+  height:84%!important;
+  background-image:var(--gv-country-flag)!important;
+  background-size:contain!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  opacity:.19!important;
+  filter:saturate(.62) brightness(.94)!important;
+  -webkit-mask-image:radial-gradient(ellipse 64% 66% at 50% 50%,#000 12%,rgba(0,0,0,.66) 43%,transparent 88%)!important;
+  mask-image:radial-gradient(ellipse 64% 66% at 50% 50%,#000 12%,rgba(0,0,0,.66) 43%,transparent 88%)!important;
+ }
+ #main .gv196-detail > .gv196-hero.gv525-country-flag::after{
+  background:linear-gradient(125deg,rgba(7,32,49,.10),rgba(5,31,47,.24))!important;
+ }
+}
