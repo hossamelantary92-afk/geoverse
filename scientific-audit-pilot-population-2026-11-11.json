@@ -1,0 +1,74 @@
+{
+  "project": "GeoVerse",
+  "audit": "pilot-population-independent-check",
+  "checked_on": "2026-11-11",
+  "scope": "2025 World Bank SP.POP.TOTL reported values; confirmation does not cover every narrative claim or photos",
+  "indicator": "SP.POP.TOTL",
+  "population_reference_year": 2025,
+  "entries": [
+    {
+      "code": "EG",
+      "value": 118365995,
+      "source": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=EG",
+      "result": "matched"
+    },
+    {
+      "code": "SA",
+      "value": 36973555,
+      "source": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=SA",
+      "result": "matched"
+    },
+    {
+      "code": "FR",
+      "value": 68720337,
+      "source": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=FR",
+      "result": "matched",
+      "caveat": "Do not compare with an unlabeled metropolitan-only area. INSEE 2026 source separates France and France métropolitaine. https://www.insee.fr/fr/statistiques/5225246"
+    },
+    {
+      "code": "JP",
+      "value": 123366734,
+      "source": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=JP",
+      "result": "matched"
+    },
+    {
+      "code": "BR",
+      "value": 212812405,
+      "source": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=BR",
+      "result": "matched"
+    }
+  ],
+  "additional_findings": [
+    {
+      "code": "FR",
+      "type": "scope_mismatch_risk",
+      "current_area_km2": 551695,
+      "note": "Area scope unspecified; do not label France total-area metric until its spatial coverage verified against official geographic-statistical source.",
+      "status": "open"
+    },
+    {
+      "code": "JP",
+      "type": "island_count",
+      "verified_count": 14125,
+      "method_ref": "2022-01 base geospatial data; published 2023-02-28; coastal circumference >=0.1km, not a timeless unqualified total",
+      "source": "https://www.gsi.go.jp/kihonjohochousa/islands_index.html",
+      "status": "reference_only_no_UI_change"
+    },
+    {
+      "code": "ALL",
+      "type": "narrative",
+      "six_main_sections_per_pilot": 6,
+      "five_nested_subtopics_per_pilot": 5,
+      "source_field_per_pilot": 1,
+      "warning": "One general source link per country does not justify marking all 11 narrative areas claim-verified.",
+      "status": "open"
+    },
+    {
+      "code": "ALL",
+      "type": "images",
+      "status": "not_reviewed"
+    }
+  ],
+  "ui_changes": false,
+  "review_state": "population_verified_only_not_full_scientific_certification"
+}
