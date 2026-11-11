@@ -17,9 +17,21 @@
    }
    const meta=names[selectedGameMode]||names.mixed;
    const back='<button type="button" class="gv557-back" data-gv557-back aria-label="'+lang('العودة إلى جميع الألعاب','Back to all games')+'"><span aria-hidden="true">‹</span>'+lang('جميع الألعاب','All games')+'</button>';
-   const heading='<div class="gv557-game-header">'+back+'<h1>'+lang(meta[2],meta[3])+'</h1></div>';
+   const descriptions={
+      mixed:['أسئلة متنوعة من جغرافيا العالم','A mix of world geography questions'],
+      capitals:['اختبر معرفتك بعواصم العالم','Test your knowledge of world capitals'],
+      flags:['تعرّف على أعلام دول العالم','Recognize flags from around the world'],
+      classify:['صنّف الأماكن والمعالم الجغرافية','Classify geographical places and landmarks'],
+      definitions:['اكتشف المفاهيم الجغرافية','Discover geography concepts'],
+      locations:['اختبر معرفتك بمواقع العالم','Test your knowledge of locations'],
+      mapfind:['حدّد الدول مباشرة على الخريطة','Find countries directly on the map']
+   };
+   const desc=descriptions[selectedGameMode]||descriptions.mixed;
+   const heading='<div class="gv557-game-header"><div class="gv557-game-name"><span class="gv557-game-eyebrow">GEOVERSE <span aria-hidden="true">✦</span> '+lang('الألعاب والتحديات','GAMES & CHALLENGES')+'</span><h1>'+escapeHTML(lang(meta[2],meta[3]))+'</h1><p>'+escapeHTML(lang(desc[0],desc[1]))+'</p></div>'+back+'</div>';
+   // The game's name and description now live in the new header; no duplicate heading.
+   const gameBody=html.slice(end+6).replace(/<div class="page-heading">[\\s\\S]*?<\\/div>/, '');
    // Keep existing level control at top; remove large directory cards from quiz screen.
-   return '<section class="gv557-game-detail" data-game-mode="'+selectedGameMode+'">'+heading+html.slice(0,start)+html.slice(end+6)+'</section>';
+   return '<section class="gv557-game-detail" data-game-mode="'+selectedGameMode+'">'+heading+html.slice(0,start)+gameBody+'</section>';
  };
  render=function(){
    oldRender();
