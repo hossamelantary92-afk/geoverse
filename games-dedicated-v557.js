@@ -29,7 +29,7 @@
    const desc=descriptions[selectedGameMode]||descriptions.mixed;
    const heading='<div class="gv557-game-header"><div class="gv557-game-name"><span class="gv557-game-eyebrow">GEOVERSE <span aria-hidden="true">✦</span> '+lang('الألعاب والتحديات','GAMES & CHALLENGES')+'</span><h1>'+escapeHTML(lang(meta[2],meta[3]))+'</h1><p>'+escapeHTML(lang(desc[0],desc[1]))+'</p></div>'+back+'</div>';
    // The game's name and description now live in the new header; no duplicate heading.
-   const gameBody=html.slice(end+6).replace(/<div class="page-heading">[\\s\\S]*?<\\/div>/, '');
+   const gameBody=html.slice(end+6).replace(/<div class="page-heading">[\s\S]*?<\/div>/, '');
    // Keep existing level control at top; remove large directory cards from quiz screen.
    return '<section class="gv557-game-detail" data-game-mode="'+selectedGameMode+'">'+heading+html.slice(0,start)+gameBody+'</section>';
  };
