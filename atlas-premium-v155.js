@@ -122,9 +122,12 @@ function decorate(r){
  const chips=document.createElement('div');chips.className='gv140-region-strip';chips.setAttribute('role','group');chips.setAttribute('aria-label',language('اختيار المنطقة','Choose region'));
  chips.innerHTML=regions.map((v,i)=>'<button type="button" class="gv140-region'+(i===0?' gv140-current':'')+'" data-gv140-region="'+v.id+'" aria-pressed="'+(i===0?'true':'false')+'">'+escape(language(v.ar,v.en))+'</button>').join('');
  stage.appendChild(chips);
- // Keep world-map landmark pins visible without a redundant toggle button.
+ // Map starts country-only; landmark pins appear only when a feature
+ // filter is chosen. The old show/hide button remains removed.
  if(r.id==='worldMap'){
-  r.node.classList.add('gv432-clean-map','gv432-show-markers');
+  r.node.classList.add('gv432-clean-map');
+  r.node.classList.toggle('gv432-show-markers',typeof activeLayer==='string'&&activeLayer!=='countries');
+  r.node.dataset.gvMapLayer=typeof activeLayer==='string'?activeLayer:'countries';
  }
  const card=document.createElement('aside');card.className='gv140-country-card';card.hidden=true;card.setAttribute('aria-live','polite');stage.appendChild(card);
  // Dedicated drag grip; document-level listeners keep touch movement reliable on iOS Safari.
