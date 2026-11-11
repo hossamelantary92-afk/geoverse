@@ -57,3 +57,18 @@
   margin-bottom:16px!important;
  }
 }
+
+/* gv553 — matching divider before the Progress section. */
+#main .gv550-wonders-divider.gv553-progress-divider{
+ margin-top:clamp(27px,4.2vw,42px)!important;
+ margin-bottom:18px!important;
+}
+#main .gv553-progress-divider + .gv17-progress{
+ margin-top:0!important;
+}
+@media(max-width:700px){
+ #main .gv550-wonders-divider.gv553-progress-divider{
+  margin-top:24px!important;
+  margin-bottom:16px!important;
+ }
+}
