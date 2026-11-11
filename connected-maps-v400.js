@@ -20,6 +20,17 @@ function featureFallback(feature){
 }
 const iso3to2=Object.fromEntries(`ABWAW AFGAF AGOAO AIAAI ALAAX ALBAL ANDAD AREAE ARGAR ARMAM ASMAS ATAAQ ATFTF ATGAG AUSAU AUTAT AZEAZ BDIBI BELBE BENBJ BESBQ BFABF BGDBD BGRBG BHRBH BHSBS BIHBA BLMBL BLRBY BLZBZ BMUBM BOLBO BRABR BRBBB BRNBN BTNBT BVTBV BWABW CAFCF CANCA CCKCC CHECH CHLCL CHNCN CIVCI CMRCM CODCD COGCG COKCK COLCO COMKM CPVCV CRICR CUBCU CUWCW CXRCX CYMKY CYPCY CZECZ DEUDE DJIDJ DMADM DNKDK DOMDO DZADZ ECUEC EGYEG ERIER ESHEH ESPES ESTEE ETHET FINFI FJIFJ FLKFK FRAFR FROFO FSMFM GABGA GBRGB GEOGE GGYGG GHAGH GIBGI GINGN GLPGP GMBGM GNBGW GNQGQ GRCGR GRDGD GRLGL GTMGT GUFGF GUMGU GUYGY HKGHK HMDHM HNDHN HRVHR HTIHT HUNHU IDNID IMNIM INDIN IOTIO IRLIE IRNIR IRQIQ ISLIS ISRIL ITAIT JAMJM JEYJE JORJO JPNJP KAZKZ KENKE KGZKG KHMKH KIRKI KNAKN KORKR KWTKW LAOLA LBNLB LBRLR LBYLY LCALC LIELI LKALK LSOLS LTULT LUXLU LVALV MACMO MAFMF MARMA MCOMC MDAMD MDGMG MDVMV MEXMX MHLMH MKDMK MLIML MLTMT MMRMM MNEME MNGMN MNPMP MOZMZ MRTMR MSRMS MTQMQ MUSMU MWIMW MYSMY MYTYT NAMNA NCLNC NERNE NFKNF NGANG NICNI NIUNU NLDNL NORNO NPLNP NRUNR NZLNZ OMNOM PAKPK PANPA PCNPN PERPE PHLPH PLWPW PNGPG POLPL PRIPR PRKKP PRTPT PRYPY PSEPS PYFPF QATQA REURE ROURO RUSRU RWARW SAUSA SDNSD SENSN SGPSG SGSGS SHNSH SJMSJ SLBSB SLESL SLVSV SMRSM SOMSO SPMPM SRBRS SSDSS STPST SURSR SVKSK SVNSI SWESE SWZSZ SXMSX SYCSC SYRSY TCATC TCDTD TGOTG THATH TJKTJ TKLTK TKMTM TLSTL TONTO TTOTT TUNTN TURTR TUVTV TWNTW TZATZ UGAUG UKRUA UMIUM URYUY USAUS UZBUZ VATVA VCTVC VENVE VGBVG VIRVI VNMVN VUTVU WLFWF WSMWS YEMYE ZAFZA ZMBZM ZWEZW`.split(' ').map(pair=>[pair.slice(0,3),pair.slice(3)]));
 function canonicalFeatureRecord(feature){
+ // Explicit geographic aliases for map polygons without standard country IDs.
+ // Keep separately catalogued territories (EH, XK, TW, GL, GF, etc.) distinct.
+ const specialName=norm(feature?.properties?.name||feature?.properties?.ADMIN||feature?.properties?.NAME);
+ const parentCode=({'somaliland':'SO','northerncyprus':'CY'})[specialName];
+ if(parentCode){
+  const parent=store()?.countries?.find(row=>String(row.code||'').toUpperCase()===parentCode);
+  if(parent)return parent;
+  return parentCode==='SO'
+   ? {code:'SO',name:'Somalia',nameAr:'الصومال',capital:'Mogadishu',capitalAr:'مقديشو',continent:'Africa'}
+   : {code:'CY',name:'Cyprus',nameAr:'قبرص',capital:'Nicosia',capitalAr:'نيقوسيا',continent:'Asia'};
+ }
  const id=String(feature?.id||feature?.properties?.iso_a3||'').toUpperCase();
  const code=iso3to2[id]||({XKX:'XK',KOS:'XK',SDS:'SS'}[id]);
  const known=code&&store()?.countries?.find(row=>String(row.code||'').toUpperCase()===code);
@@ -177,7 +188,12 @@ function syncWorldCountryCard(){
  const profile=document.createElement('button');profile.type='button';
  profile.className='gv400-map-link';profile.dataset.gv400OpenProfile=code;
  profile.textContent=lang('فتح ملف الدولة الكامل','Open full country profile');
- heading.append(grip,img);card.replaceChildren(heading,close,title,capital,continent);
+ const regionName=norm(p.name||p.ADMIN||p.NAME);
+ const regionLabel=regionName==='somaliland'?lang('المنطقة المحددة: أرض الصومال','Selected region: Somaliland')
+  :regionName==='northerncyprus'?lang('المنطقة المحددة: شمال قبرص','Selected region: Northern Cyprus'):null;
+ const region=regionLabel?document.createElement('div'):null;
+ if(region){region.className='gv140-card-continent';region.textContent=regionLabel;}
+ heading.append(grip,img);card.replaceChildren(heading,close,title,...(region?[region]:[]),capital,continent);
  if(record.code)card.appendChild(profile);
  const keys=['Asia','Africa','Europe','North America','South America','Oceania','Antarctica'];
  const index=keys.findIndex(value=>norm(value)===norm(record.continent));
