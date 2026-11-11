@@ -1,0 +1,45 @@
+/* GeoVerse tourism photography v511 — scoped to actual tourism cards.
+   Failed/missing photos leave the existing icon-only layouts untouched. */
+#categoryItems .gv197-minimal-card .gv511-thumb{
+ display:none;flex:0 0 98px;width:98px;height:80px;overflow:hidden;
+ border:1px solid rgba(128,218,212,.3);border-radius:12px;
+ background:linear-gradient(140deg,#0b273a,#15384a);
+}
+#categoryItems .gv197-minimal-card.gv511-has-photo .gv511-thumb{
+ display:block!important;
+}
+#categoryItems .gv197-minimal-card.gv511-has-photo .gv197-card-icon{display:none!important}
+#categoryItems .gv197-minimal-card .gv511-img{
+ width:100%;height:100%;display:block;object-fit:contain;
+}
+#main .gv196-detail>.gv511-detail-photo{
+ display:none;width:100%;box-sizing:border-box;overflow:hidden;
+ border-radius:20px;border:1px solid rgba(118,211,204,.32);
+ background:linear-gradient(125deg,#091c2d,#12354a);
+}
+#main .gv196-detail>.gv511-detail-photo.gv511-loaded{
+ display:grid;place-items:center;
+ min-height:190px;max-height:min(46vh,420px);
+}
+#main .gv196-detail>.gv511-detail-photo img{
+ display:block;width:100%;height:auto;max-height:min(46vh,420px);
+ object-fit:contain;object-position:center;
+}
+#main .gv170-tourism-photo>.gv511-img{
+ position:absolute;inset:0;width:100%;height:100%;
+ display:block;opacity:0;object-fit:contain;
+}
+#main .gv170-tourism-photo.gv511-loaded>.gv511-img{opacity:1!important}
+@media(max-width:700px){
+ #categoryItems .gv197-minimal-card .gv511-thumb{
+  width:68px;height:70px;flex-basis:68px;border-radius:10px;
+ }
+ #categoryItems .gv197-minimal-card.gv511-has-photo{
+  padding:9px!important;gap:9px!important;min-height:95px!important;
+ }
+ #main .gv196-detail>.gv511-detail-photo.gv511-loaded{min-height:140px;max-height:300px;border-radius:14px}
+ #main .gv196-detail>.gv511-detail-photo img{max-height:300px}
+}
+@media(prefers-reduced-motion:reduce){
+ #categoryItems .gv197-minimal-card .gv511-thumb{transition:none!important}
+}
