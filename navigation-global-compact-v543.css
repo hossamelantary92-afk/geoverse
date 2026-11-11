@@ -1,0 +1,122 @@
+/* GeoVerse v543 — one compact, premium back/section navigation system.
+   Visual treatment only. Never change click handlers, destination data or content cards.
+   Use high specificity to override historic per-section full-width/grid rules. */
+#app #main :is(.gv388-nav,.gv387-country-nav,.gv-landmark-back-row,.gv-c5-backline){
+ box-sizing:border-box!important;
+ display:flex!important;
+ flex-direction:row!important;
+ align-items:center!important;
+ justify-content:flex-start!important;
+ flex-wrap:wrap!important;
+ width:100%!important;
+ gap:9px!important;
+ margin-block:0 12px!important;
+ padding:0!important;
+ direction:rtl!important;
+ grid-template-columns:none!important;
+}
+#app #main :is(
+ .gv388-nav > button,
+ .gv387-country-nav > button,
+ .gv-landmark-back-row > button,
+ .gv-c5-backline > button,
+ button.back:not(.gv14-next button),
+ button.gv387-back,
+ button.gv387-countries,
+ button.gv-smart-country-back,
+ button.gv-smart-category-link,
+ button.gv-c5-back,
+ button.gv181-back,
+ button.gv209-back,
+ button[data-gv181-back],
+ button[data-gv-c5-back],
+ button[data-gv-return-country],
+ button[data-gv-open-category]
+){
+ -webkit-appearance:none!important;
+ appearance:none!important;
+ box-sizing:border-box!important;
+ display:inline-flex!important;
+ flex:0 1 auto!important;
+ flex-grow:0!important;
+ flex-shrink:0!important;
+ align-self:center!important;
+ align-items:center!important;
+ justify-content:center!important;
+ vertical-align:middle!important;
+ gap:8px!important;
+ width:max-content!important;
+ max-width:100%!important;
+ min-width:0!important;
+ height:auto!important;
+ min-height:44px!important;
+ max-height:none!important;
+ margin:0!important;
+ padding:9px 15px!important;
+ border:1px solid rgba(95,221,212,.75)!important;
+ border-radius:15px!important;
+ background:linear-gradient(140deg,#103d50,#08283d)!important;
+ box-shadow:inset 0 0 0 2px rgba(115,210,211,.10),inset 0 1px 0 rgba(217,255,249,.12),0 5px 13px rgba(0,15,28,.15)!important;
+ color:#effffd!important;
+ font:800 13px/1.5 Cairo,Outfit,system-ui,sans-serif!important;
+ text-align:center!important;
+ text-decoration:none!important;
+ white-space:normal!important;
+ overflow-wrap:anywhere!important;
+ cursor:pointer!important;
+}
+#app #main :is(.gv388-nav,.gv387-country-nav,.gv-landmark-back-row,.gv-c5-backline) > button{
+ float:none!important;
+}
+#app #main :is(.gv388-nav,.gv387-country-nav,.gv-landmark-back-row,.gv-c5-backline) > button:hover,
+#app #main button.back:hover{
+ background:linear-gradient(140deg,#18576a,#0b3449)!important;
+ border-color:#a7fff0!important;
+}
+#app #main :is(.gv388-nav,.gv387-country-nav,.gv-landmark-back-row,.gv-c5-backline) > button:focus-visible,
+#app #main button.back:focus-visible{
+ outline:2px solid #a7fff0!important;
+ outline-offset:3px!important;
+}
+body.light #app #main :is(
+ .gv388-nav > button,.gv387-country-nav > button,
+ .gv-landmark-back-row > button,.gv-c5-backline > button,
+ button.back,button.gv387-back,button.gv387-countries,
+ button.gv-smart-country-back,button.gv-smart-category-link,
+ button.gv-c5-back,button.gv181-back,button.gv209-back,
+ button[data-gv181-back],button[data-gv-c5-back],
+ button[data-gv-return-country],button[data-gv-open-category]
+){
+ background:linear-gradient(140deg,#f0fafb,#dceff2)!important;
+ color:#164554!important;
+ border-color:#60b6b5!important;
+}
+@media(max-width:540px){
+ #app #main :is(
+  .gv388-nav > button,.gv387-country-nav > button,
+  .gv-landmark-back-row > button,.gv-c5-backline > button,
+  button.back,button.gv387-back,button.gv387-countries,
+  button.gv-smart-country-back,button.gv-smart-category-link,
+  button.gv-c5-back,button.gv181-back,button.gv209-back,
+  button[data-gv181-back],button[data-gv-c5-back],
+  button[data-gv-return-country],button[data-gv-open-category]
+ ){
+  min-height:42px!important;
+  width:max-content!important;
+  max-width:100%!important;
+  padding:8px 12px!important;
+  font-size:12px!important;
+  line-height:1.5!important;
+  border-radius:14px!important;
+ }
+ #app #main :is(.gv388-nav,.gv387-country-nav,.gv-landmark-back-row,.gv-c5-backline){
+  gap:8px!important;
+  margin-bottom:10px!important;
+ }
+}
+@media(max-width:360px){
+ #app #main :is(.gv388-nav,.gv387-country-nav,.gv-landmark-back-row,.gv-c5-backline) > button{
+  padding-inline:10px!important;
+  font-size:11px!important;
+ }
+}
