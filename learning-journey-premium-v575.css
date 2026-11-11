@@ -170,3 +170,46 @@
   width:calc((100% - 10px)/2)!important;
  }
 }
+
+/* v577 — compact content rhythm after feedback from mobile screenshots.
+   Remove inherited fixed/min heights and let copy + progress determine card size. */
+#main .learn-card-grid>.learn-card{
+ height:auto!important;align-self:stretch!important;
+}
+#main .learn-card-grid>.learn-card>.learn-card-info{
+ min-height:0!important;
+ padding:12px 13px 14px!important;
+ gap:6px!important;
+}
+#main .learn-card-grid>.learn-card>.learn-card-info>p{
+ flex:none!important;
+ min-height:0!important;
+ margin:0 0 5px!important;
+ line-height:1.55!important;
+}
+#main .learn-card-grid>.learn-card>.learn-card-info>.progress-track{
+ margin-top:auto!important;
+}
+#main .learn-card-grid>.learn-card>.learn-card-info>small{
+ padding-top:1px!important;
+}
+#main .learn-card-grid>.learn-card>.learn-card-photo{
+ aspect-ratio:16/9!important;
+}
+@media(max-width:760px){
+ #main .learn-card-grid>.learn-card>.learn-card-info{
+  min-height:0!important;
+  padding:10px 10px 12px!important;
+  gap:5px!important;
+ }
+ #main .learn-card-grid>.learn-card>.learn-card-info>p{
+  font-size:clamp(10px,2.85vw,12px)!important;
+  line-height:1.5!important;margin-bottom:3px!important;
+ }
+ #main .learn-card-grid>.learn-card>.learn-card-photo{
+  aspect-ratio:16/10!important;
+ }
+ #main .learn-card-grid>.learn-card>.learn-card-info>.progress-track{
+  margin-top:8px!important;
+ }
+}
