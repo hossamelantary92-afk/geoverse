@@ -81,6 +81,7 @@ function detailPage(row){
   ||window.GeoVerseTourismEditorial202?.points(i,ar()?'ar':'en')
   ||[t(row.factAr,row.factEn)];
  const enriched=ar()?(window.GeoVerseTourismEditorialPhase6?.get(i)||window.GeoVerseTourismEditorialPhase5?.get(i)||window.GeoVerseTourismEditorialPhase4?.get(i)||window.GeoVerseTourismEditorialPhase3?.get(i)||window.GeoVerseTourismEditorialPhase2?.get(i)||window.GeoVerseTourismEditorialPhase1?.get(i)||window.GeoVerseTourismEnrichment215?.get(i)||window.GeoVerseTourismEnrichment214?.get(i)||window.GeoVerseTourismEnrichment213?.get(i)||window.GeoVerseTourismEnrichment212?.get(i)||window.GeoVerseTourismEnrichment208?.get(i)||window.GeoVerseTourismEnrichment207?.get(i)||window.GeoVerseTourismEnrichment206?.get(i)):null;
+ const deep=window.GeoVerseTourismDeepEnrichmentV597?.get(row)||null;
  const learningPoints=(enriched?enriched.points:article)||[];
  const uniquePoints=[...new Set(learningPoints.filter(Boolean).map(p=>String(p).trim()))];
  const section=(slug,label,body)=>body?'<section class="gv596-topic gv596-'+slug+'" aria-label="'+esc(label)+'"><h2>'+esc(label)+'</h2>'+body+'</section>':'';
@@ -90,13 +91,14 @@ function detailPage(row){
   '<p>'+esc(t(row.factAr,row.factEn)||t(row.nameAr,row.nameEn))+'</p>');
  const history=section('history',t('القصة والتاريخ','History'),enriched?paragraph(enriched.story):'');
  const significance=section('significance',t('الأهمية وما يميّزه','Significance'),
+  (ar()&&deep?paragraph(deep.significanceAr):'')+
   '<div id="gv14Description" class="gv202-article-points" lang="'+(ar()?'ar':'en')+'">'+bullets(uniquePoints)+'</div>');
  const highlights=section('highlights',t('أبرز المعالم والتفاصيل','Highlights'),enriched?paragraph(enriched.architecture):'');
  const fascinating=section('facts',t('حقائق مدهشة','Fascinating facts'),
   enriched?bullets([...(enriched.wow||[])].filter(p=>!uniquePoints.includes(p))):'');
  // Optional facts only: never invent current status, UNESCO listing or visit advice.
  const today=section('today',t('المزار اليوم','Today'),paragraph(t(row.todayAr,row.todayEn)));
- const visit=section('visit',t('تجربة الزيارة','Visiting'),paragraph(t(row.visitAr,row.visitEn)));
+ const visit=section('visit',t('ما الذي ستشاهده؟','What to see'),paragraph(ar()?(deep?.visitAr||row.visitAr):row.visitEn));
  return '<div class="gv14-detail gv196-detail gv202-detail'+(enriched?' gv206-enriched':'')+'">'+
   '<button class="back gv14-back" data-cat="tourism">← '+t('العودة إلى المزارات','Back to landmarks')+'</button>'+
   '<header class="gv196-hero gv202-hero" aria-labelledby="gv14Name">'+
