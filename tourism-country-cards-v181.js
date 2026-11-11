@@ -11,6 +11,8 @@ const countries=[
  ['CN','الصين','China','🇨🇳'],['IN','الهند','India','🇮🇳'],
  ['JP','اليابان','Japan','🇯🇵'],['AE','الإمارات','United Arab Emirates','🇦🇪'],["TH","تايلاند","Thailand","🇹🇭"],["ID","إندونيسيا","Indonesia","🇮🇩"],["KR","كوريا الجنوبية","South Korea","🇰🇷"],["VN","فيتنام","Vietnam","🇻🇳"]
 ];
+// Newly added destinations share the existing premium country-card design.
+countries.push(['GR','اليونان','Greece','🇬🇷'],['CH','سويسرا','Switzerland','🇨🇭'],['MA','المغرب','Morocco','🇲🇦'],['MY','ماليزيا','Malaysia','🇲🇾']);
 let selected='';
 const t=(ar,en)=>state.lang==='ar'?ar:en;
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
