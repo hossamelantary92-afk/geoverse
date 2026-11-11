@@ -1,6 +1,7 @@
 /* GeoVerse — functional, static-first educational app. Data examples are curated, not exhaustive. */
 const cats=[
 {id:'countries',ar:'العالم والدول',en:'Countries',emoji:'🌍',img:'photo-1521295121783-8a321d551ad2',descAr:'استكشف الدول وعواصمها وأعلامها ومواقعها وحدودها.',descEn:'Explore countries, capitals, flags and borders.'},
+{id:'astronomy',ar:'الجغرافيا الفلكية',en:'Astronomical Geography',emoji:'🌌',img:'photo-1462331940025-496dfbfc7564',descAr:'الأرض في الفضاء والشمس والقمر والكواكب والظواهر الفلكية.',descEn:'Earth in space, the Sun, Moon, planets and celestial phenomena.'},
 {id:'continents',ar:'القارات',en:'Continents',emoji:'🗺️',img:'photo-1451187580459-43490279c0fa',descAr:'تعرف على القارات السبع ومواقعها.',descEn:'Discover the seven continents.'},
 {id:'oceans',ar:'المحيطات',en:'Oceans',emoji:'🌊',img:'photo-1518837695005-2083093ee35b',descAr:'المحيطات الخمسة وحدودها وأعماقها.',descEn:'The five oceans and their geography.'},
 {id:'seas',ar:'البحار',en:'Seas',emoji:'⛵',img:'photo-1500375592092-40eb2168fd21',descAr:'البحار الرئيسية ومواقعها والدول المطلة عليها.',descEn:'Major seas and nearby countries.'},
