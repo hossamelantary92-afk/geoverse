@@ -1,0 +1,114 @@
+{
+  "project": "GeoVerse",
+  "batch": "First source-based audit of 8 African profiles",
+  "reviewed_on": "2026-11-11",
+  "method": "Direct comparison of existing article statements against official UNESCO records. A site's existence or UNESCO status does not validate all other article sections.",
+  "countries_scanned": [
+    "DZ",
+    "TN",
+    "LY",
+    "SD",
+    "ET",
+    "KE",
+    "NG",
+    "GH"
+  ],
+  "matched_claims": [
+    {
+      "code": "DZ",
+      "section": "Nature & Landmarks",
+      "claim_ar": "تتميز طاسيلي ناجر بتكوينات حجرية وفنون صخرية تعود إلى عصور ما قبل التاريخ",
+      "status": "supported_for_named_site_and_rock_art_only",
+      "source": "https://whc.unesco.org/en/list/179",
+      "note": "UNESCO documents prehistoric rock art and sandstone formations. Does not verify other Algerian landmarks or economic facts."
+    },
+    {
+      "code": "DZ",
+      "section": "Did You Know?",
+      "claim_ar": "تُظهر الرسوم الصخرية في طاسيلي ناجر حيوانات ومشاهد بشرية من عصور قديمة",
+      "status": "supported_for_prehistoric_rock_art_and_paleoenvironment_only",
+      "source": "https://whc.unesco.org/ar/list/179/",
+      "note": "UNESCO describes 15,000+ prehistoric figures and environmental changes; exact interpretive wording remains subject to review."
+    },
+    {
+      "code": "LY",
+      "section": "Nature & Landmarks",
+      "claim_ar": "تضم ليبيا جبال أكاكوس ذات الأقواس الصخرية والنقوش القديمة",
+      "status": "partially_supported",
+      "source": "https://whc.unesco.org/en/statesparties/ly",
+      "note": "UNESCO confirms Tadrart Acacus rock-art site; specific natural arches need dedicated source."
+    },
+    {
+      "code": "KE",
+      "section": "Nature & Landmarks",
+      "claim_ar": "تشمل المعالم جبل كينيا ... وبحيرة توركانا",
+      "status": "supported_for_unesco_site_identity_only",
+      "source": "https://whc.unesco.org/en/statesparties/ke",
+      "note": "UNESCO names Mount Kenya National Park/Natural Forest and Lake Turkana National Parks; other items in paragraph require separate sources."
+    },
+    {
+      "code": "GH",
+      "section": "Nature & Landmarks",
+      "claim_ar": "شواطئ ومبانٍ تاريخية ساحلية",
+      "status": "partially_supported",
+      "source": "https://whc.unesco.org/en/list/34/",
+      "note": "UNESCO records coastal forts and castles. Existing wording is broad; no claim of comprehensive historical verification."
+    }
+  ],
+  "candidate_sites_not_verified_as_current_article_claims": [
+    {
+      "code": "TN",
+      "site": "Amphitheatre of El Jem",
+      "unesco_year": 1979,
+      "source": "https://whc.unesco.org/en/list/38/",
+      "reason": "Not present in the six current primary-section summaries; candidate for sourced heritage enrichment."
+    },
+    {
+      "code": "ET",
+      "site": "Rock-Hewn Churches, Lalibela",
+      "unesco_year": 1978,
+      "source": "https://whc.unesco.org/en/list/18/",
+      "reason": "Not in current principal country text; source for later enrichment, not current-text certification."
+    },
+    {
+      "code": "NG",
+      "site": "Sukur Cultural Landscape",
+      "unesco_year": 1999,
+      "source": "https://whc.unesco.org/en/list/938",
+      "reason": "Not in current principal country text; source for later enrichment, not current-text certification."
+    },
+    {
+      "code": "LY",
+      "site": "Archaeological Site of Leptis Magna",
+      "unesco_year": 1982,
+      "source": "https://whc.unesco.org/en/list/183",
+      "reason": "Not in current principal country text."
+    }
+  ],
+  "country_status": {
+    "DZ": "partial_review_only",
+    "TN": "partial_review_only",
+    "LY": "partial_review_only",
+    "SD": "partial_review_only",
+    "ET": "partial_review_only",
+    "KE": "partial_review_only",
+    "NG": "partial_review_only",
+    "GH": "partial_review_only"
+  },
+  "aggregate": {
+    "countries_scanned": 8,
+    "claim_matches_recorded": 5,
+    "fully_verified_articles": 0,
+    "source_missing_articles_prior": 213,
+    "source_missing_articles_after": 213
+  },
+  "unchanged": [
+    "country article prose",
+    "source fields in gvAtlasContent",
+    "site UI",
+    "maps",
+    "flags",
+    "games",
+    "photos"
+  ]
+}
