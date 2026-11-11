@@ -1,0 +1,54 @@
+/* GeoVerse v554 — universal learned control at the end of detail pages.
+   Moves the *existing* #toggleSeen button, without cloning or changing its listener. */
+#main .gv554-learn-footer{
+ box-sizing:border-box;
+ width:100%;
+ display:flex;
+ flex-direction:row;
+ align-items:center;
+ justify-content:flex-start;
+ direction:rtl;
+ margin:20px 0 22px!important;
+ padding:16px 18px!important;
+ min-height:75px;
+ border:1px solid rgba(95,199,203,.36);
+ border-radius:17px;
+ background:linear-gradient(135deg,#0b3044,#09273b);
+}
+#main .gv554-learn-footer > #toggleSeen{
+ box-sizing:border-box!important;
+ display:inline-flex!important;
+ align-items:center!important;
+ justify-content:center!important;
+ flex:0 0 auto!important;
+ align-self:center!important;
+ width:max-content!important;
+ max-width:100%!important;
+ min-width:0!important;
+ min-height:44px!important;
+ margin:0!important;
+ padding:10px 21px!important;
+ border-radius:12px!important;
+ font:800 14px/1.6 Cairo,Outfit,system-ui,sans-serif!important;
+ cursor:pointer!important;
+}
+#main .gv554-learn-footer > #toggleSeen:focus-visible{
+ outline:3px solid #8df5df!important;
+ outline-offset:3px!important;
+}
+body.light #main .gv554-learn-footer{
+ background:linear-gradient(135deg,#f2f9f9,#e0f1f1);
+ border-color:rgba(53,137,148,.33);
+}
+@media(max-width:700px){
+ #main .gv554-learn-footer{
+  padding:14px 15px!important;
+  min-height:70px;
+  margin:16px 0 18px!important;
+ }
+ #main .gv554-learn-footer > #toggleSeen{
+  min-height:42px!important;
+  padding:9px 16px!important;
+  font-size:13px!important;
+ }
+}
