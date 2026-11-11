@@ -55,44 +55,14 @@
 }
 #main .gv170-tourism .gv170-tourism-photo:not(.gv511-loaded){display:none!important}
 
-/* gv519: A successfully loaded real photo should be the media panel, not a
-   tiny picture inside a full-width colored rectangle. Preserve aspect ratio. */
-#main .gv196-detail>.gv511-detail-photo.gv511-loaded{
- display:table!important;
- width:fit-content!important;
- max-width:100%!important;
- min-height:0!important;
- max-height:none!important;
- margin-inline:auto!important;
- padding:0!important;
- overflow:hidden!important;
- line-height:0!important;
- border-radius:16px!important;
- box-shadow:0 10px 28px rgba(0,17,35,.22);
-}
-#main .gv196-detail>.gv511-detail-photo.gv511-loaded>.gv511-img{
- display:block!important;
- width:auto!important;
- height:auto!important;
- max-width:100%!important;
- max-height:min(48vh,440px)!important;
- object-fit:contain!important;
- margin:0!important;
-}
-@media(max-width:700px){
- #main .gv196-detail>.gv511-detail-photo.gv511-loaded{border-radius:12px!important}
- #main .gv196-detail>.gv511-detail-photo.gv511-loaded>.gv511-img{
-  max-height:min(42vh,320px)!important;
- }
-}
-
-/* gv520: Premium desktop hero composition for verified loaded tourism photos.
-   Hero and image share a compact top row; learning and globe sections stay full width.
-   The image keeps its natural proportions and is never force-cropped. */
-@media(min-width:901px){
+/* gv524 · Option C — single predictable premium media template.
+   Image and title card form one equal-height desktop row for every attraction.
+   Preserve the original photograph with object-fit:contain (never crop).
+   A soft backdrop of the SAME photograph fills unavoidable aspect-ratio gaps. */
+@media (min-width:901px){
  #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded){
   display:grid!important;
-  grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+  grid-template-columns:minmax(0,1fr) minmax(0,44%)!important;
   align-items:stretch!important;
   column-gap:18px!important;
   row-gap:18px!important;
@@ -101,136 +71,128 @@
   grid-column:1/-1!important;
   min-width:0!important;
  }
+ #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded) > .gv196-hero,
+ #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded) > .gv511-detail-photo.gv511-loaded{
+  box-sizing:border-box!important;
+  height:clamp(220px,22vw,280px)!important;
+  min-height:0!important;
+  max-height:none!important;
+  width:100%!important;
+  max-width:100%!important;
+  margin:0!important;
+  align-self:stretch!important;
+  border-radius:18px!important;
+  overflow:hidden!important;
+ }
  #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded) > .gv196-hero{
   grid-column:1!important;
-  grid-row:auto!important;
-  min-height:0!important;
-  height:100%!important;
-  box-sizing:border-box!important;
+  padding:clamp(18px,2.4vw,30px)!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
   justify-content:center!important;
+ }
+ #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded) > .gv196-hero h1{
+  font-size:clamp(24px,2.9vw,38px)!important;
+  line-height:1.27!important;
+  margin:4px 0!important;
+  overflow-wrap:anywhere!important;
+ }
+ #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded) > .gv196-hero .gv196-hero-location{
+  margin-top:5px!important;
+  line-height:1.6!important;
  }
  #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded) > .gv511-detail-photo.gv511-loaded{
   grid-column:2!important;
   display:flex!important;
   align-items:center!important;
   justify-content:center!important;
-  width:100%!important;
-  max-width:100%!important;
-  min-height:0!important;
-  max-height:none!important;
-  height:100%!important;
-  margin:0!important;
-  box-sizing:border-box!important;
-  background:linear-gradient(130deg,#092638,#10394d)!important;
+  position:relative!important;
+  isolation:isolate!important;
+  padding:0!important;
+  background:#102c3f!important;
+  line-height:0!important;
+ }
+ #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded) > .gv511-detail-photo.gv511-loaded::before{
+  content:""!important;
+  position:absolute!important;
+  inset:-22px!important;
+  display:block!important;
+  background-image:var(--gv511-backdrop)!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  background-size:cover!important;
+  filter:blur(24px) brightness(.47) saturate(.85)!important;
+  opacity:.78!important;
+  pointer-events:none!important;
+  z-index:0!important;
  }
  #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded) > .gv511-detail-photo.gv511-loaded > .gv511-img{
-  width:auto!important;
-  height:auto!important;
+  display:block!important;
+  position:relative!important;
+  z-index:1!important;
+  width:100%!important;
+  height:100%!important;
   max-width:100%!important;
-  max-height:310px!important;
+  max-height:none!important;
+  min-height:0!important;
   object-fit:contain!important;
+  object-position:center!important;
+  filter:none!important;
  }
 }
 @media(max-width:900px){
  #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded){
-  display:flex!important;flex-direction:column!important;
- }
-}
-
-/* gv521: Framed photograph with a low-contrast blurred extension of the same
-   source, instead of empty cyan bars. The sharp image itself is never cropped. */
-#main .gv196-detail>.gv511-detail-photo.gv511-loaded{
- position:relative!important;
- isolation:isolate!important;
- background:#092638!important;
-}
-#main .gv196-detail>.gv511-detail-photo.gv511-loaded::before{
- content:"";
- position:absolute;
- inset:-18px;
- background-image:var(--gv511-backdrop);
- background-position:center;
- background-size:cover;
- background-repeat:no-repeat;
- filter:blur(24px) brightness(.40) saturate(.8);
- opacity:.75;
- pointer-events:none;
- z-index:0;
-}
-#main .gv196-detail>.gv511-detail-photo.gv511-loaded>.gv511-img{
- position:relative;
- z-index:1;
- filter:drop-shadow(0 2px 8px rgba(0,9,20,.12));
-}
-@media(min-width:901px){
- #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded) > .gv511-detail-photo.gv511-loaded{
-  min-height:220px!important;
-  max-height:320px!important;
- }
- #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded) > .gv511-detail-photo.gv511-loaded > .gv511-img{
-  max-height:310px!important;
- }
-}
-
-/* gv522: Let the photograph define its own column width; no filler strips.
- * The preloader supplies the actual width:height ratio when the image loads. */
-@media(min-width:901px){
- #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded){
-  grid-template-columns:minmax(0,1fr) auto!important;
-  align-items:stretch!important;
- }
- #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded)>.gv511-detail-photo.gv511-loaded{
-  width:min(calc(310px * var(--gv511-photo-ratio,1.5)), 47vw)!important;
-  max-width:100%!important;
-  min-width:0!important;
-  height:auto!important;
-  min-height:0!important;
-  max-height:none!important;
-  padding:0!important;
-  margin:0!important;
   display:flex!important;
+  flex-direction:column!important;
+  gap:14px!important;
+ }
+ #main .gv196-detail > .gv511-detail-photo.gv511-loaded{
+  box-sizing:border-box!important;
+  display:flex!important;
+  position:relative!important;
+  isolation:isolate!important;
   align-items:center!important;
   justify-content:center!important;
-  background:transparent!important;
- }
- #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded)>.gv511-detail-photo.gv511-loaded::before{
-  content:none!important;
-  display:none!important;
- }
- #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded)>.gv511-detail-photo.gv511-loaded>.gv511-img{
-  display:block!important;
   width:100%!important;
+  min-height:0!important;
+  max-height:none!important;
   height:auto!important;
-  max-width:100%!important;
-  max-height:310px!important;
+  aspect-ratio:16 / 10!important;
+  padding:0!important;
+  margin:0!important;
+  border-radius:15px!important;
+  overflow:hidden!important;
+  background:#102c3f!important;
+ }
+ #main .gv196-detail > .gv511-detail-photo.gv511-loaded::before{
+  content:""!important;
+  position:absolute!important;
+  inset:-20px!important;
+  display:block!important;
+  background-image:var(--gv511-backdrop)!important;
+  background-size:cover!important;
+  background-position:center!important;
+  filter:blur(22px) brightness(.45)!important;
+  opacity:.7!important;
+  z-index:0!important;
+ }
+ #main .gv196-detail > .gv511-detail-photo.gv511-loaded > .gv511-img{
+  display:block!important;
+  position:relative!important;
+  z-index:1!important;
+  width:100%!important;
+  height:100%!important;
+  max-height:none!important;
   object-fit:contain!important;
   filter:none!important;
  }
-}
-
-/* gv523 — compact title card, independent of image height.
-   The picture may be tall, but the identity panel should hug its content. */
-@media(min-width:901px){
- #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded){
-  align-items:center!important;
- }
- #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded) > .gv196-hero{
+ #main .gv196-detail > .gv196-hero{
   height:auto!important;
-  min-height:0!important;
-  max-height:none!important;
-  align-self:center!important;
-  justify-content:center!important;
-  padding:20px 24px!important;
-  margin:0!important;
-  border-radius:18px!important;
+  min-height:110px!important;
+  padding:18px 20px!important;
  }
- #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded) > .gv196-hero h1{
-  font-size:clamp(25px,2.9vw,37px)!important;
-  line-height:1.25!important;
-  margin:2px 0 3px!important;
- }
- #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded) > .gv196-hero .gv196-hero-location{
-  margin:4px 0 0!important;
-  line-height:1.6!important;
- }
+}
+@media(prefers-reduced-motion:reduce){
+ #main .gv196-detail > .gv511-detail-photo.gv511-loaded::before{filter:none!important;opacity:.15!important}
 }
