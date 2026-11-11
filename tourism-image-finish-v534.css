@@ -36,10 +36,19 @@
   pointer-events:none!important;
   z-index:2!important;
   background:
-   radial-gradient(circle at top left,rgba(16,53,73,.35),transparent 38px),
-   radial-gradient(circle at top right,rgba(16,53,73,.35),transparent 38px),
-   radial-gradient(circle at bottom left,rgba(16,53,73,.30),transparent 38px),
-   radial-gradient(circle at bottom right,rgba(16,53,73,.30),transparent 38px)!important;
+   linear-gradient(
+    to bottom,
+    rgba(16,53,73,.18) 0,
+    rgba(16,53,73,.08) 34px,
+    rgba(16,53,73,0) 78px,
+    rgba(16,53,73,0) calc(100% - 78px),
+    rgba(16,53,73,.07) calc(100% - 34px),
+    rgba(16,53,73,.16) 100%
+   ),
+   radial-gradient(circle at top left,rgba(16,53,73,.22),transparent 40px),
+   radial-gradient(circle at top right,rgba(16,53,73,.22),transparent 40px),
+   radial-gradient(circle at bottom left,rgba(16,53,73,.18),transparent 40px),
+   radial-gradient(circle at bottom right,rgba(16,53,73,.18),transparent 40px)!important;
  }
  #main .gv196-detail > .gv511-detail-photo.gv511-loaded > img.gv511-img{
   position:relative!important;
@@ -56,8 +65,8 @@
   /* Fade against the image's intrinsic painted height, not the 16:10
      letterboxed container: otherwise Safari reveals hard horizontal bands.
      The full original frame remains contained, with no cropping. */
-  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 5%,#000 95%,transparent 100%)!important;
-  mask-image:linear-gradient(to bottom,transparent 0%,#000 5%,#000 95%,transparent 100%)!important;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 7%,#000 93%,transparent 100%)!important;
+  mask-image:linear-gradient(to bottom,transparent 0%,#000 7%,#000 93%,transparent 100%)!important;
  }
  #main:has(> .gv196-detail) > .gv-landmark-back-row{
   margin-bottom:4px!important;
