@@ -521,6 +521,76 @@ catch(e){document.documentElement.dataset.gvInitialTheme='dark'}
 <link rel="stylesheet" href="./header-brand-layout-v548.css?v=gv548-brand-right-no-grid">
 <link rel="stylesheet" href="./home-wonders-section-v550.css?v=gv553-three-dividers">
 <link rel="stylesheet" href="./learning-button-unified-v554.css?v=gv555-topography-centered">
+
+<style id="gv556-games-responsive-fit">
+/* Games only: prevent any grid child from widening the iPhone viewport. */
+#app>.layout:has(#main .game-modes){min-width:0;max-width:100%;box-sizing:border-box}
+#app>.layout:has(#main .game-modes)>#main{min-width:0!important;max-width:100%!important;overflow-x:clip}
+#main:has(.game-modes) .game-modes{
+ display:grid!important;
+ grid-template-columns:repeat(7,minmax(0,1fr))!important;
+ gap:clamp(10px,1vw,18px)!important;
+ width:100%!important;max-width:100%!important;
+ min-width:0!important;margin-inline:0!important;
+ box-sizing:border-box!important;
+}
+#main:has(.game-modes) .game-modes>.game-mode{
+ grid-column:auto!important;
+ min-width:0!important;width:100%!important;
+ max-width:100%!important;aspect-ratio:1/1!important;
+ min-height:0!important;height:auto!important;
+ box-sizing:border-box!important;padding:clamp(8px,1vw,15px)!important;
+ display:flex!important;justify-content:center!important;align-items:center!important;
+ gap:clamp(7px,.8vw,12px)!important;
+ text-align:center!important;transform:none;
+}
+#main:has(.game-modes) .game-modes>.game-mode>b{
+ max-width:100%;overflow-wrap:anywhere;
+ font-size:clamp(12px,1.05vw,17px)!important;line-height:1.45;
+}
+#main:has(.game-modes) .game-modes>.game-mode .gv18-game-symbol{flex-shrink:0}
+#main:has(.game-modes) .gv110-level{
+ min-width:0!important;width:100%!important;max-width:100%!important;
+ box-sizing:border-box!important;
+}
+#main:has(.game-modes) .gv110-level-buttons{
+ display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
+ min-width:0!important;width:100%!important;max-width:100%!important;gap:8px!important;
+}
+#main:has(.game-modes) .gv110-level-buttons>button{
+ min-width:0!important;width:100%!important;box-sizing:border-box!important;
+ white-space:normal!important;
+}
+#main:has(.game-modes) .quiz-card,
+#main:has(.game-modes) .page-heading,
+#main:has(.game-modes) .gv49-game-intro{
+ min-width:0!important;max-width:100%!important;box-sizing:border-box!important;
+}
+@media(max-width:1399px){
+ #main:has(.game-modes) .game-modes{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+}
+@media(max-width:900px){
+ #main:has(.game-modes) .game-modes{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+}
+@media(max-width:600px){
+ #app>.layout:has(#main .game-modes){width:100%!important;max-width:100vw!important;padding-inline:clamp(12px,4vw,20px)!important}
+ #main:has(.game-modes) .game-modes{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:12px!important;
+ }
+ #main:has(.game-modes) .game-modes>.game-mode{
+  aspect-ratio:1/1!important;min-height:0!important;
+  padding:10px 6px!important;gap:8px!important;
+ }
+ #main:has(.game-modes) .game-modes>.game-mode>b{font-size:clamp(13px,3.6vw,16px)!important}
+ #main:has(.game-modes) .quiz-card{padding:clamp(14px,4vw,22px)!important}
+ #main:has(.game-modes) .quiz-controls{flex-wrap:wrap}
+}
+@media(max-width:350px){
+ #main:has(.game-modes) .game-modes{gap:9px!important}
+ #main:has(.game-modes) .game-modes>.game-mode>b{font-size:12px!important}
+}
+</style>
 </head>
 <body>
 <div id="gv137-loader" class="gv137-visible" aria-hidden="false" aria-busy="true" role="status" aria-label="GeoVerse">
