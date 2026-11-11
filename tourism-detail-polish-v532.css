@@ -88,3 +88,57 @@
   font-size:23px!important;
  }
 }
+
+/* gv538 — compact premium contextual back on tourism landmark details.
+   Do not affect country landing navigation or other sections. */
+@media(max-width:900px){
+ #app > .layout:has(#main .gv196-detail){
+  padding-top:7px!important;
+ }
+ #main:has(> .gv196-detail) > .gv-landmark-back-row{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  width:100%!important;
+  gap:8px!important;
+  margin:0 0 9px!important;
+  padding:0!important;
+  direction:rtl!important;
+ }
+ #main:has(> .gv196-detail) > .gv-landmark-back-row > button.gv-landmark-back-button{
+  box-sizing:border-box!important;
+  flex:0 0 auto!important;
+  display:inline-flex!important;
+  width:auto!important;
+  min-width:104px!important;
+  max-width:150px!important;
+  height:42px!important;
+  min-height:42px!important;
+  padding:7px 17px!important;
+  margin:0!important;
+  border-radius:14px!important;
+  border:1px solid rgba(93,222,211,.72)!important;
+  background:linear-gradient(135deg,rgba(20,90,107,.95),rgba(8,49,68,.98))!important;
+  box-shadow:inset 0 1px 0 rgba(205,255,249,.17),0 5px 14px rgba(0,16,27,.13)!important;
+  color:#ebfffb!important;
+  font:800 13px/1.3 Cairo,Outfit,system-ui,sans-serif!important;
+  white-space:nowrap!important;
+ }
+ #main:has(> .gv196-detail) > .gv-landmark-back-row > button.gv-smart-category-link{
+  width:auto!important;
+  flex:0 1 auto!important;
+  min-height:42px!important;
+  height:auto!important;
+  padding:8px 12px!important;
+  border-radius:14px!important;
+  font-size:12px!important;
+ }
+ #main:has(> .gv196-detail) > .gv-landmark-back-row > button.gv-landmark-back-button:focus-visible{
+  outline:2px solid #95f9ec!important;
+  outline-offset:3px!important;
+ }
+ #main:has(> .gv196-detail) > .gv196-detail{
+  margin-top:0!important;
+ }
+}
