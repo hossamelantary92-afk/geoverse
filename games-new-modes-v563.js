@@ -7,6 +7,7 @@ gameModes.push(['landmarkphoto','🏛️','تحدي المعالم بالصور'
 gameModePhotos.silhouette='photo-1526778548025-fa2f459cd5c1';
 gameModePhotos.landmarkphoto='photo-1487958449943-2429e8be8625';
 const shuffle=a=>a.slice().sort(()=>Math.random()-.5);
+const pendingRound=()=>[['بيانات اللعبة قيد التحميل','Game data is loading',['انتظر','Please wait','جاري التحميل','Loading'],['Please wait','Loading','Preparing','Retry'],0,'اختر بدء اللعبة بعد اكتمال تحميل البيانات.','Start after the game data is ready.','PENDING','']];
 const countryInfo=()=>window.GeoVerseGameCountryStats;
 let shapes=[],landmarks=[],loading=true;
 const codeIndex=new Map();
@@ -83,8 +84,8 @@ function makePhotos(){
  }).filter(Boolean);
 }
 createGame=function(mode){
- if(mode==='silhouette')return shuffle(makeShapes()).slice(0,12);
- if(mode==='landmarkphoto')return shuffle(makePhotos()).slice(0,12);
+ if(mode==='silhouette')return shapes.length?shuffle(makeShapes()).slice(0,12):pendingRound();
+ if(mode==='landmarkphoto')return landmarks.length?shuffle(makePhotos()).slice(0,12):pendingRound();
  return previousCreate(mode);
 };
 play=function(){
