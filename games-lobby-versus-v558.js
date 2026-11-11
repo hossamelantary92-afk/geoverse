@@ -30,6 +30,7 @@
      const counter=document.getElementById('gv558-clock');
      if(counter){counter.textContent=String(timeLeft);counter.classList.toggle('gv558-urgent',timeLeft<=5);}
      if(timeLeft<=0){
+       timeLeft=0;
        stopClock();
        if(state.quizSelected===null){state.quizSelected=-1;render();}
      }
@@ -102,6 +103,8 @@
  function onAnswer(correct){
    if(!roundStarted||state.quizSelected!==null)return;
    if(matchMode==='versus'&&correct)scores[activePlayer-1]++;
+   // Freeze the countdown immediately, before the question is re-rendered.
+   if(seconds>0&&deadline>0)timeLeft=Math.max(0,Math.ceil((deadline-Date.now())/1000));
    stopClock();
  }
  function mapAnswerIsCorrect(target){
@@ -165,9 +168,11 @@
    }
    if(b?.id==='nextQuiz'){
      stopClock();
+     // Each question receives a completely fresh countdown.
+     timeLeft=seconds;
      if(matchMode==='versus'&&state.quizIndex<quiz.length-1)activePlayer=activePlayer===1?2:1;
      // The existing handler advances the question and calls render.
-     queueMicrotask(()=>{if(roundStarted&&!state.quizComplete&&state.quizSelected===null){timeLeft=seconds;startClock();}});
+     queueMicrotask(()=>{if(roundStarted&&!state.quizComplete&&state.quizSelected===null){startClock();}});
    }
    if(b?.id==='restartQuiz'){
      event.preventDefault();event.stopImmediatePropagation();
