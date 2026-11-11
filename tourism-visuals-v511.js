@@ -43,7 +43,7 @@ function photoTargets(){
    let slot=main.querySelector('.gv196-detail > .gv511-detail-photo');
    if(slot&&Number(slot.dataset.gv511Photo)!==row.index){slot.remove();slot=null}
    if(!slot){slot=makeSlot(row.index,true);header.insertAdjacentElement('afterend',slot)}
-   result.push({index:row.index,slot,root:slot});
+   result.push({index:row.index,slot,root:header});
   }
  }
  if(state.page==='country-v4'){
