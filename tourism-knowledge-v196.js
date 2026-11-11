@@ -81,27 +81,32 @@ function detailPage(row){
   ||window.GeoVerseTourismEditorial202?.points(i,ar()?'ar':'en')
   ||[t(row.factAr,row.factEn)];
  const enriched=ar()?(window.GeoVerseTourismEditorialPhase6?.get(i)||window.GeoVerseTourismEditorialPhase5?.get(i)||window.GeoVerseTourismEditorialPhase4?.get(i)||window.GeoVerseTourismEditorialPhase3?.get(i)||window.GeoVerseTourismEditorialPhase2?.get(i)||window.GeoVerseTourismEditorialPhase1?.get(i)||window.GeoVerseTourismEnrichment215?.get(i)||window.GeoVerseTourismEnrichment214?.get(i)||window.GeoVerseTourismEnrichment213?.get(i)||window.GeoVerseTourismEnrichment212?.get(i)||window.GeoVerseTourismEnrichment208?.get(i)||window.GeoVerseTourismEnrichment207?.get(i)||window.GeoVerseTourismEnrichment206?.get(i)):null;
- const learningPoints=enriched?enriched.points:article;
- const points=learningPoints.filter(Boolean).map(p=>'<li>'+esc(p)+'</li>').join('');
- const enrichedIntro=enriched?'<div class="gv206-story"><h3>القصة والتاريخ</h3><p>'+esc(enriched.story)+'</p></div>':'';
- const enrichedSections=enriched?
-  '<section class="gv206-deep-dive" aria-label="حقائق ومعمار">'+
-   '<div class="gv206-architecture"><h3>التصميم والعمارة</h3><p>'+esc(enriched.architecture)+'</p></div>'+
-   '<div class="gv206-wow"><h3>هل تعلم؟</h3><ul>'+enriched.wow.map(f=>'<li>'+esc(f)+'</li>').join('')+'</ul></div>'+
-  '</section>':'';
+ const learningPoints=(enriched?enriched.points:article)||[];
+ const uniquePoints=[...new Set(learningPoints.filter(Boolean).map(p=>String(p).trim()))];
+ const section=(slug,label,body)=>body?'<section class="gv596-topic gv596-'+slug+'" aria-label="'+esc(label)+'"><h2>'+esc(label)+'</h2>'+body+'</section>':'';
+ const paragraph=value=>value?'<p>'+esc(value)+'</p>':'';
+ const bullets=values=>values&&values.length?'<ul>'+values.filter(Boolean).map(p=>'<li>'+esc(p)+'</li>').join('')+'</ul>':'';
+ const overview=section('overview',t('نبذة عن المزار','Overview'),
+  '<p>'+esc(t(row.factAr,row.factEn)||t(row.nameAr,row.nameEn))+'</p>');
+ const history=section('history',t('القصة والتاريخ','History'),enriched?paragraph(enriched.story):'');
+ const significance=section('significance',t('الأهمية وما يميّزه','Significance'),
+  '<div id="gv14Description" class="gv202-article-points" lang="'+(ar()?'ar':'en')+'">'+bullets(uniquePoints)+'</div>');
+ const highlights=section('highlights',t('أبرز المعالم والتفاصيل','Highlights'),enriched?paragraph(enriched.architecture):'');
+ const fascinating=section('facts',t('حقائق مدهشة','Fascinating facts'),
+  enriched?bullets([...(enriched.wow||[])].filter(p=>!uniquePoints.includes(p))):'');
+ // Optional facts only: never invent current status, UNESCO listing or visit advice.
+ const today=section('today',t('المزار اليوم','Today'),paragraph(t(row.todayAr,row.todayEn)));
+ const visit=section('visit',t('تجربة الزيارة','Visiting'),paragraph(t(row.visitAr,row.visitEn)));
  return '<div class="gv14-detail gv196-detail gv202-detail'+(enriched?' gv206-enriched':'')+'">'+
   '<button class="back gv14-back" data-cat="tourism">← '+t('العودة إلى المزارات','Back to landmarks')+'</button>'+
   '<header class="gv196-hero gv202-hero" aria-labelledby="gv14Name">'+
    '<h1 id="gv14Name">'+name+'</h1>'+
    '<p class="gv196-hero-location gv202-location">'+city+' - '+country+'</p>'+
   '</header>'+
-  '<section class="gv14-overview gv196-overview gv202-article" aria-labelledby="gv14About">'+
-   '<h2 id="gv14About">'+(enriched?'أهم ما يجب معرفته':t('تعرف على المعلم','About this landmark'))+'</h2>'+
-   enrichedIntro+
-   '<div id="gv14Description" class="gv202-article-points" lang="'+(ar()?'ar':'en')+'"><ul>'+points+'</ul></div>'+
+  '<div class="gv596-knowledge gv14-overview gv196-overview gv202-article" id="gv14About">'+
+   overview+history+significance+highlights+fascinating+today+visit+
    '<div id="gv14Facts"></div>'+
-  '</section>'+
-  enrichedSections+
+  '</div>'+
   '<button id="toggleSeen" class="gv14-learned gv196-learned gv202-learned'+(learned?' is-learned':'')+'" aria-pressed="'+learned+'">'+(learned?t('✓ تمت إضافته لمعرفتي','✓ Marked as learned'):t('✓ تعلمت هذا المكان','✓ Mark as learned'))+'</button>'+
   '<section class="gv14-map gv196-map gv202-map" aria-labelledby="gv14MapTitle">'+
    '<h2 id="gv14MapTitle">'+t('موقع المعلم على الكرة الأرضية','Location on Earth')+'</h2>'+
