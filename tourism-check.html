@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GeoVerse — فحص تحديث المزارات</title>
+<style>
+:root{font-family:system-ui,Tahoma,sans-serif;color-scheme:dark;background:#061b2e;color:#eafffa}
+body{margin:0;padding:22px 14px}main{max-width:670px;margin:auto}h1{font-size:24px;margin:12px 0}p{line-height:1.85;color:#aecfd2}
+article{background:#102e40;border:1px solid #3b7c80;border-radius:15px;padding:15px;margin:12px 0}
+strong{display:block;font-size:17px}small{display:block;color:#b2d6da;line-height:1.8;margin-top:5px}
+.good{color:#88ecc3}.bad{color:#ffb9a4}.wait{color:#e6cb85}
+a{color:#8bece1}img{max-width:220px;max-height:150px;object-fit:contain;display:block;margin-top:10px}
+</style></head><body><main><h1>🌍 GeoVerse — تشخيص تحديث الصور</h1>
+<p>صفحة فحص مستقلة، لا تغيّر أي شيء في الموقع. لو الصفحة دي نفسها مش بتفتح فده مؤشر إن GitHub Pages لم ينشر أحدث ملفات المستودع أو لا يخدم المسار الصحيح.</p>
+<article><strong id="index" class="wait">جارٍ فحص نسخة الصفحة الرئيسية…</strong><small id="indexNote"></small></article>
+<article><strong id="asset" class="wait">جارٍ فحص ملف الصور الجديد…</strong><small id="assetNote"></small></article>
+<article><strong id="api" class="wait">جارٍ فحص ويكيبيديا…</strong><small id="apiNote"></small><div id="preview"></div></article>
+<p>نسخة الفحص: <b>gv515 — 11 نوفمبر 2026</b></p><a href="./?gv_update=515">الرجوع إلى الموقع</a></main>
+<script>
+(async function(){
+'use strict';
+function show(id,good,heading,note){const el=document.getElementById(id);el.className=good?'good':'bad';el.textContent=(good?'✓ ':'✕ ')+heading;document.getElementById(id+'Note').textContent=note||''}
+async function fetchText(file){
+ const response=await fetch(file+(file.includes('?')?'&':'?')+'nocache='+Date.now(),{cache:'no-store'});
+ if(!response.ok)throw Error('HTTP '+response.status);
+ return await response.text();
+}
+try{
+ const html=await fetchText('./index.html');
+ const yes=html.includes('gv515-photo-preload-fix')&&html.includes('tourism-visuals-v511.js');
+ show('index',yes,yes?'الصفحة الرئيسية محدّثة':'الصفحة الرئيسية ما زالت قديمة',yes?'تم العثور على إصدار الصور gv515 في صفحة الموقع.':'الإصدار gv515 غير ظاهر في نسخة index.html التي تقدمها الاستضافة.');
+}catch(e){show('index',false,'تعذر قراءة الصفحة الرئيسية',String(e))}
+try{
+ const js=await fetchText('./tourism-visuals-v511.js');
+ const yes=js.includes('const img=new Image()')&&js.includes('gv511-detail-photo');
+ show('asset',yes,yes?'ملف عرض الصور الجديد موجود':'ملف الصور قديم أو غير متاح',yes?'ملف التحميل المصلح موجود ويمكن قراءته.':'الملف لا يحتوي على إصلاح التحميل أو فشلت قراءته.');
+}catch(e){show('asset',false,'تعذر قراءة ملف الصور',String(e))}
+try{
+ const params=new URLSearchParams({action:'query',format:'json',formatversion:'2',prop:'pageimages',piprop:'thumbnail',pithumbsize:'320',redirects:'1',origin:'*',titles:'Eiffel Tower'});
+ const response=await fetch('https://en.wikipedia.org/w/api.php?'+params.toString());
+ if(!response.ok)throw Error('Wikipedia HTTP '+response.status);
+ const data=await response.json();
+ const photo=data.query?.pages?.[0]?.thumbnail?.source;
+ if(!photo)throw Error('لم يرجع رابط صورة');
+ const image=new Image();
+ image.alt='صورة اختبار من ويكيبيديا';image.referrerPolicy='no-referrer';
+ image.onload=()=>{document.getElementById('preview').appendChild(image);show('api',true,'مصدر الصور يعمل','تم جلب صورة وعرضها بنجاح من ويكيبيديا.')};
+ image.onerror=()=>show('api',false,'الصورة لا تُحمّل','رجع رابط الصورة لكن متصفحك لم يستطع عرض الملف.');
+ image.src=photo;
+}catch(e){show('api',false,'اتصال صور ويكيبيديا لا يعمل',String(e))}
+})();
+</script></body></html>
