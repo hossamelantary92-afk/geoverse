@@ -102,3 +102,21 @@
   .gv12-head p{font-size:9px}
   .gv12-head-count{width:59px;height:72px;left:8px}
 }
+
+/* GV589 — Soften globe edge and remove the oversized orbital outline on mobile. */
+.gv12-hero-earth{
+  border:0;
+  box-shadow:none;
+  background:
+    radial-gradient(circle at 30% 22%,rgba(250,221,141,.18),transparent 24%),
+    url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&w=950&q=85') center/cover;
+  -webkit-mask-image:radial-gradient(circle at center,#000 0%,#000 43%,rgba(0,0,0,.86) 55%,transparent 76%);
+  mask-image:radial-gradient(circle at center,#000 0%,#000 43%,rgba(0,0,0,.86) 55%,transparent 76%);
+}
+@media(max-width:700px){
+  .gv12-head{min-height:198px}
+  .gv12-hero-earth{left:-4%;width:47%;top:50%;opacity:.83}
+  .gv12-headline{max-width:70%}
+  .gv12-head h1{font-size:clamp(26px,6.15vw,37px)}
+  .gv12-head-count{left:10px;bottom:12px}
+}
