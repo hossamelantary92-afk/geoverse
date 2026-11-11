@@ -122,19 +122,9 @@ function decorate(r){
  const chips=document.createElement('div');chips.className='gv140-region-strip';chips.setAttribute('role','group');chips.setAttribute('aria-label',language('اختيار المنطقة','Choose region'));
  chips.innerHTML=regions.map((v,i)=>'<button type="button" class="gv140-region'+(i===0?' gv140-current':'')+'" data-gv140-region="'+v.id+'" aria-pressed="'+(i===0?'true':'false')+'">'+escape(language(v.ar,v.en))+'</button>').join('');
  stage.appendChild(chips);
- // Country-first presentation: landmark pins remain available on demand.
+ // Keep world-map landmark pins visible without a redundant toggle button.
  if(r.id==='worldMap'){
-  r.node.classList.add('gv432-clean-map');
-  const toggle=document.createElement('button');
-  toggle.type='button';toggle.className='gv432-markers-toggle';
-  toggle.setAttribute('aria-pressed','false');
-  const label=()=>toggle.textContent=r.node.classList.contains('gv432-show-markers')?language('إخفاء المعالم','Hide landmarks'):language('إظهار المعالم','Show landmarks');
-  label();
-  toggle.addEventListener('click',()=>{
-   const enabled=r.node.classList.toggle('gv432-show-markers');
-   toggle.setAttribute('aria-pressed',String(enabled));label();
-  });
-  stage.appendChild(toggle);
+  r.node.classList.add('gv432-clean-map','gv432-show-markers');
  }
  const card=document.createElement('aside');card.className='gv140-country-card';card.hidden=true;card.setAttribute('aria-live','polite');stage.appendChild(card);
  // Dedicated drag grip; document-level listeners keep touch movement reliable on iOS Safari.
