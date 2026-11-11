@@ -66,6 +66,38 @@
    if(point<0)return null;
    return html.slice(0,point);
  }
+ function shuffleOptions(items){
+   const result=items.slice();
+   for(let i=result.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[result[i],result[j]]=[result[j],result[i]];}
+   return result;
+ }
+ function restrictAnswerChoices(questions,mode){
+   // Use only correct answers taken from questions whose target already passed the
+   // selected continent filter. Never preserve distractors from the global pool.
+   if(!['capitals','flags','silhouette','landmarkphoto'].includes(mode)||region==='all')return questions;
+   const answerPool=new Map();
+   for(const q of questions){
+     if(!Array.isArray(q[2])||!Array.isArray(q[3])||!Number.isInteger(q[4]))continue;
+     const ar=String(q[2][q[4]]||'').trim(),en=String(q[3][q[4]]||'').trim();
+     if(!ar||!en)continue;
+     const identity=mode==='capitals'?en.toLocaleLowerCase('en'):mode==='landmarkphoto'?en.toLocaleLowerCase('en'):codeFor(q,mode);
+     if(!identity)continue;
+     if(!answerPool.has(identity))answerPool.set(identity,{ar,en,id:identity});
+   }
+   if(answerPool.size<4)return [];
+   const answers=[...answerPool.values()];
+   return questions.map(q=>{
+     const ar=String(q[2]?.[q[4]]||'').trim(),en=String(q[3]?.[q[4]]||'').trim();
+     const identity=mode==='capitals'||mode==='landmarkphoto'?en.toLocaleLowerCase('en'):codeFor(q,mode);
+     const right=answerPool.get(identity);
+     if(!right||right.ar!==ar||right.en!==en)return null;
+     const others=shuffleOptions(answers.filter(a=>a.id!==identity&&a.en!==right.en&&a.ar!==right.ar)).slice(0,3);
+     if(others.length!==3)return null;
+     const choices=shuffleOptions([right,...others]);
+     const correct=choices.findIndex(a=>a.id===identity);
+     return [...q.slice(0,2),choices.map(a=>a.ar),choices.map(a=>a.en),correct,...q.slice(5)];
+   }).filter(Boolean);
+ }
  function buildRound(mode,count){
    const picked=[],seen=new Set();
    const key=q=>['flags','mapfind','silhouette','landmarkphoto'].includes(mode)?String(q[7]||q[1])+(mode==='landmarkphoto'?':'+q[8]:''):String(q[1]||q[0]).trim().toLowerCase();
@@ -87,9 +119,9 @@
      const bank=window.GeoVerseQuestionPools;
      add(bank?.makeDefinitions?.());
    }
-   // Never duplicate to fill a round; the user can change region/difficulty instead.
-   roundWarning=picked.length<count?T('لا يوجد عدد كافٍ من الأسئلة الفريدة لهذا الاختيار. جرّب قارة أو مستوى آخر.','Not enough distinct questions for this setting. Try another region or level.'):'';
-   return picked.length===count?picked:[];
+   const localized=restrictAnswerChoices(picked,mode);
+   roundWarning=localized.length<count?T('لا يوجد عدد كافٍ من الأسئلة والاختيارات الفريدة من القارة المحددة. جرّب قارة أو مستوى آخر.','Not enough unique questions and answers in this continent. Try another region or difficulty.'):'';
+   return localized.length===count?localized:[];
  }
  function reviewPanel(){
    if(!misses.length)return '<section class="gv562-review"><h3>'+T('مراجعة الإجابات','Answer review')+'</h3><p>'+T('أحسنت! لم تُسجل إجابات خاطئة.','Well done! No incorrect answers.')+'</p></section>';
