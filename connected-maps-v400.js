@@ -102,10 +102,14 @@ function restoreSelectedCountryHighlight(r,record){
  if(index<0)return;
  const target=r.node.querySelector('.atlas-country[data-map-country="'+index+'"]');
  if(!target)return;
- r.node.querySelectorAll('.atlas-country').forEach(el=>{
-  if(el!==target)el.classList.remove('gv436-selected','gv140-active','gv411-country-focus','highlight');
+ const countryCode=String(record.code||'').toUpperCase();
+ r.node.querySelectorAll('.atlas-country[data-map-country]').forEach(el=>{
+  const candidate=r.features[Number(el.dataset.mapCountry)];
+  const match=countryCode&&String(recordForFeature(candidate)?.code||'').toUpperCase()===countryCode;
+  el.classList.toggle('gv436-selected',!!(match||el===target));
+  el.classList.toggle('gv140-active',!!(match||el===target));
+  el.classList.remove('gv411-country-focus','highlight');
  });
- target.classList.add('gv436-selected','gv140-active');
 }
 function selectDirectAtlasCountry(path){
  const r=typeof atlasRuntime!=='undefined'?atlasRuntime:null;
@@ -124,9 +128,16 @@ function selectDirectAtlasCountry(path){
  card.style.removeProperty('left');card.style.removeProperty('top');
  card.style.removeProperty('right');card.style.removeProperty('bottom');
  card.dataset.gv427Country='';
- r.node.querySelectorAll('.atlas-country').forEach(el=>el.classList.remove('gv436-selected','gv411-country-focus','gv140-active','highlight'));
+ const activeCode=String(record?.code||'').toUpperCase();
+ r.node.querySelectorAll('.atlas-country[data-map-country]').forEach(el=>{
+  const candidate=r.features[Number(el.dataset.mapCountry)];
+  const candidateCode=String(recordForFeature(candidate)?.code||'').toUpperCase();
+  const selected=el===path||!!(activeCode&&candidateCode===activeCode);
+  el.classList.toggle('gv436-selected',selected);
+  el.classList.toggle('gv140-active',selected);
+  el.classList.remove('gv411-country-focus','highlight');
+ });
  r.node.dataset.gv411FocusCountry='';
- path.classList.add('gv436-selected','gv140-active');
  syncWorldCountryCard();
  return true;
 }
