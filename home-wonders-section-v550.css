@@ -1,0 +1,44 @@
+/* GeoVerse v550 — clear, quiet break before the wonders feature.
+   Home-only; no changes to existing cards, images, navigation or click behavior. */
+#main .gv550-wonders-divider{
+ display:flex;align-items:center;justify-content:center;
+ gap:14px;width:min(100%,680px);
+ margin:clamp(25px,4.2vw,42px) auto 15px;
+}
+#main .gv550-wonders-divider span{
+ flex:1;height:1px;
+ background:linear-gradient(90deg,transparent,rgba(98,222,210,.37),transparent);
+}
+#main .gv550-wonders-divider i{
+ display:block;width:6px;height:6px;transform:rotate(45deg);
+ border:1px solid rgba(143,243,227,.82);
+ background:rgba(80,224,204,.2);
+ box-shadow:0 0 12px rgba(68,225,204,.24);
+}
+#main .gv550-wonders-heading{
+ display:flex;flex-direction:column;align-items:flex-start;
+ gap:3px;margin:0 0 13px;
+ padding-inline-start:12px;
+ border-inline-start:3px solid #56ddd0;
+}
+#main .gv550-wonders-heading h2{
+ margin:0;color:#f4fffe;
+ font:900 clamp(20px,2.4vw,27px)/1.4 Cairo,Outfit,system-ui,sans-serif;
+}
+#main .gv550-wonders-heading p{
+ margin:0;color:#a6ced5;
+ font:600 clamp(11px,1.1vw,13px)/1.6 Cairo,Outfit,system-ui,sans-serif;
+}
+#main .gv550-wonders-heading + .gv11-feature{
+ margin-top:0!important;
+}
+@media(max-width:700px){
+ #main .gv550-wonders-divider{
+  margin:24px auto 14px;gap:11px;
+ }
+ #main .gv550-wonders-heading{
+  margin-bottom:12px;padding-inline-start:10px;
+ }
+ #main .gv550-wonders-heading h2{font-size:20px;}
+ #main .gv550-wonders-heading p{font-size:11px;}
+}
