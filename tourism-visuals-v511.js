@@ -58,20 +58,29 @@ function photoTargets(){
 }
 function paint(slot,index,src){
  if(!src||!slot.isConnected||slot.dataset.gv511Loaded===src)return;
- const target=slot.classList.contains('gv170-tourism-photo')?slot:slot;
- if(target.querySelector('img.gv511-img'))return;
- const img=document.createElement('img');
- img.className='gv511-img';img.alt='';
- img.loading='lazy';img.decoding='async';
- img.addEventListener('load',()=>{
+ // Load off-DOM first: the visual slot is intentionally display:none until
+ // ready. A lazy image inside a display:none element may never be requested.
+ if(slot.dataset.gv511Loading===src)return;
+ slot.dataset.gv511Loading=src;
+ const img=new Image();
+ img.className='gv511-img';img.alt='';img.decoding='async';
+ img.onload=()=>{
   if(!slot.isConnected)return;
+  delete slot.dataset.gv511Loading;
+  if(slot.dataset.gv511Loaded===src)return;
+  slot.querySelector('img.gv511-img')?.remove();
+  slot.appendChild(img);
   slot.dataset.gv511Loaded=src;
   slot.classList.add('gv511-loaded');
   if(slot.classList.contains('gv511-thumb'))slot.closest('.gv197-minimal-card')?.classList.add('gv511-has-photo');
- },{once:true});
- img.addEventListener('error',()=>{img.remove();slot.dataset.gv511Failed='1'}, {once:true});
- target.appendChild(img);img.src=src;
+ };
+ img.onerror=()=>{
+  delete slot.dataset.gv511Loading;
+  slot.dataset.gv511Failed='1';
+ };
+ img.src=src;
 }
+
 function commit(index,src){
  cache.set(index,src||null);
  for(const [slot,refIndex] of pending.entries()){
