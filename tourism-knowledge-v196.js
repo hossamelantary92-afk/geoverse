@@ -62,7 +62,7 @@ itemCards=function(list){
  if(!first)return oldCards.apply(this,arguments);
  return '<section class="gv196-country-landmarks gv210-country-page">'+
   '<header class="gv196-country-title gv210-country-header">'+
-   '<div class="gv210-country-heading"><div class="gv210-country-titles"><span class="gv210-section-label">'+t('مزارات سياحية','TOURIST LANDMARKS')+'</span><h2>'+esc(t(first.countryAr,first.countryEn))+'</h2><span class="gv210-count">'+rows.length+' '+t(rows.length===1?'مزار سياحي':rows.length===2?'مزاران سياحيان':rows.length<=10?'مزارات سياحية':'مزارًا سياحيًا','tourist landmarks')+'</span></div>'+
+   '<div class="gv210-country-heading"><div class="gv210-country-titles"><span class="gv210-section-label">'+t('مزارات سياحية','TOURIST LANDMARKS')+'</span><div class="gv547-name-line"><h2>'+esc(t(first.countryAr,first.countryEn))+'</h2><span class="gv210-count">'+rows.length+' '+t(rows.length===1?'مزار سياحي':rows.length===2?'مزاران سياحيان':rows.length<=10?'مزارات سياحية':'مزارًا سياحيًا','tourist landmarks')+'</span></div></div>'+
    '</div>'+ 
   '</header>'+
   '<div class="gv196-grid gv210-landmark-grid">'+(filtered.map(card).join('')||'<p class="gv196-empty">'+t('لا توجد معالم مطابقة للبحث','No landmarks match your search')+'</p>')+'</div>'+
