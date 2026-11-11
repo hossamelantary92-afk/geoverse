@@ -195,8 +195,20 @@ function learn(){
  ['🏜️','تضاريس الأرض','Landforms',['deserts','mountains','valleys','volcanoes']],
  ['🌿','الطبيعة والمناخ','Nature & Climate',['forests','islands','glaciers','climate','grasslands']]
  ];
+ // Reuse the exact encyclopedia directory card markup and photo pipeline.
+ // Learning differs only in the chapter order and optional completion badge.
+ const topicCard=id=>{
+   const c=cats.find(x=>x.id===id);
+   if(!c)return '';
+   const percent=progressValue(id);
+   return '<button class="category-card" data-cat="'+id+'">'+
+     '<img loading="lazy" src="'+im(c.img)+'" alt="'+escapeHTML(label(c))+'">'+
+     '<span class="label"><span>'+c.emoji+'</span>'+escapeHTML(label(c))+'</span>'+
+     '<span class="gv584-topic-progress" aria-label="'+percent+'% '+lang('مكتمل','complete')+'">'+percent+'%</span>'+
+     '</button>';
+ };
  return '<div class="page-heading learning-title"><span class="eyebrow">LEARNING JOURNEY</span><h1>🎓 '+lang('رحلتك لفهم العالم','Your Geography Journey')+'</h1><p>'+lang('ابدأ بالمفاهيم الأساسية، ثم اكتشف الجغرافيا الطبيعية خطوة بخطوة.','Start with essential geography concepts, then explore natural geography step by step.')+'</p></div>'+
- sections.map((sec,idx)=>'<section class="learn-chapter"><div class="learn-chapter-head"><div class="chapter-badge">'+sec[0]+'</div><div><span class="eyebrow">'+lang('المرحلة','STAGE')+' '+(idx+1)+'</span><h2>'+lang(sec[1],sec[2])+'</h2></div></div><div class="learn-card-grid" data-learn-count="'+sec[3].length+'">'+sec[3].map(id=>{const c=cats.find(x=>x.id===id),v=progressValue(id),photo=(window.GeoVersePremiumCovers?.get(id,900)||im(c.img,900)),safePhoto=escapeHTML(photo);return '<button class="learn-card" data-cat="'+id+'"><div class="learn-card-photo"><img class="gv576-photo-backdrop" loading="lazy" decoding="async" src="'+safePhoto+'" alt="" aria-hidden="true"><img class="gv576-photo-main" loading="lazy" decoding="async" src="'+safePhoto+'" alt=""><span aria-hidden="true">'+c.emoji+'</span></div><div class="learn-card-info"><strong>'+escapeHTML(label(c))+'</strong><p>'+escapeHTML(lang(c.descAr,c.descEn))+'</p><div class="progress-track"><div class="progress-fill" style="width:'+v+'%"></div></div><small>'+v+'% '+lang('مكتمل','complete')+'</small></div></button>'}).join('')+'</div></section>').join('')+
+ sections.map((sec,idx)=>'<section class="learn-chapter gv584-learning-chapter"><div class="learn-chapter-head"><div class="chapter-badge">'+sec[0]+'</div><div><span class="eyebrow">'+lang('المرحلة','STAGE')+' '+(idx+1)+'</span><h2>'+lang(sec[1],sec[2])+'</h2></div></div><div class="category-grid gv584-learning-grid">'+sec[3].map(topicCard).join('')+'</div></section>').join('')+
  '<div class="learn-finish"><span>🏆</span><h3>'+lang('بعد كل مرحلة، اختبر نفسك!','Test yourself after each stage!')+'</h3><button data-page="play" class="gold-btn">'+lang('الذهاب إلى التحديات','Go to challenges')+'</button></div>';
 }
 
