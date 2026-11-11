@@ -42,7 +42,7 @@ function addMainNavigation(){
    const back=bar.querySelector('button.back');
    const link=bar.querySelector('[data-gv-open-category]');
    const cat=typeof cats!=='undefined'?cats.find(c=>c.id===state.category):null;
-   if(back)back.textContent=txt('→ رجوع','← Back');
+   if(back)back.textContent=state.category==='tourism'?txt('رجوع','Back'):txt('→ رجوع','← Back');
    if(link)link.textContent=txt('العودة إلى '+(cat?.ar||'القسم'),'Back to '+(cat?.en||'section'));
   }else if(!root.querySelector('.gv388-nav')){
    const nav=row();nav.append(button(txt('→ رجوع','← Back'),'back'));
@@ -66,8 +66,8 @@ function addMainNavigation(){
   const existing=root.querySelector('[data-gv181-back]');
   if(existing&&!root.querySelector('.gv388-nav')){
    const nav=row();
-   nav.append(button(txt('→ رجوع','← Back'),'tourism-back'));
-   existing.classList.add('gv388-existing');existing.before(nav);nav.append(existing);
+   nav.append(button(txt('رجوع','Back'),'tourism-back'));
+   existing.classList.add('gv388-existing');existing.textContent=txt('العودة لكل الدول','Back to all countries');existing.before(nav);nav.append(existing);
    existing.querySelector('span:last-child')?.replaceChildren(document.createTextNode(txt('العودة إلى المزارات السياحية','Back to tourism')));
   }
   return;
@@ -76,7 +76,7 @@ function addMainNavigation(){
  // Section landing pages: contextual Back plus a predictable atlas directory shortcut.
  if(state.page==='category'||state.page==='countries-v4'){
   const nav=row();const old=root.querySelector('button.back');
-  if(old){old.classList.add('gv388-existing');old.removeAttribute('data-cat');old.removeAttribute('data-page');old.textContent=txt('→ رجوع','← Back');nav.append(old);}
+  if(old){old.classList.add('gv388-existing');old.removeAttribute('data-cat');old.removeAttribute('data-page');old.textContent=state.category==='tourism'?txt('رجوع','Back'):txt('→ رجوع','← Back');nav.append(old);}
   else nav.append(button(txt('→ رجوع','← Back'),'back'));
   nav.append(button(txt('كل الأقسام','All sections'),'all'));
   root.prepend(nav);
