@@ -128,9 +128,11 @@
    const namesHtml=matchMode==='versus'
      ?'<div class="gv565-field gv565-players"><h3><span class="gv565-field-icon" aria-hidden="true">♙</span>'+T('أسماء اللاعبين','Player names')+'</h3><div class="gv558-names"><input data-gv558-name="0" maxlength="24" autocomplete="off" aria-label="'+T('اسم اللاعب الأول','First player name')+'" placeholder="'+T('اللاعب الأول','Player 1')+'" value="'+escape(names[0])+'"><input data-gv558-name="1" maxlength="24" autocomplete="off" aria-label="'+T('اسم اللاعب الثاني','Second player name')+'" placeholder="'+T('اللاعب الثاني','Player 2')+'" value="'+escape(names[1])+'"></div></div>'
      :'';
-   const total=matchMode==='versus'?20:10;
+   const currentLevel=levelOrDefault();
+   const levelLabels={easy:['سهل','Easy'],medium:['متوسط','Medium'],hard:['صعب','Hard']};
+   const chosenLevel=levelLabels[currentLevel]||levelLabels.medium;
    const regionLabel=continentModes.has(selectedGameMode)?regionNames[region]||regionNames.all:null;
-   const settingsSummary=total+' '+T('سؤالًا','questions')+' · '+T(matchMode==='versus'?'لاعبان':'فردي',matchMode==='versus'?'Two players':'Solo')+
+   const settingsSummary=T(chosenLevel[0],chosenLevel[1])+' · '+T(matchMode==='versus'?'لاعبان':'فردي',matchMode==='versus'?'Two players':'Solo')+
      (regionLabel?' · '+T(regionLabel[0],regionLabel[1]):'')+
      ' · '+(seconds===0?T('بدون توقيت','Untimed'):seconds+' '+T('ثانية','seconds'));
    const lobby='<section class="gv558-lobby gv565-setup-card" aria-label="'+T('تجهيز اللعبة','Game setup')+'">'+
