@@ -257,3 +257,36 @@
   opacity:.88!important;
  }
 }
+
+/* gv529 · iPhone tourism detail final layout cleanup.
+   Keep global navigation and remove the extra in-article back control. */
+#main .gv196-detail > .gv14-back{
+ display:none!important;
+}
+@media(max-width:900px){
+ /* The full flag remains inside the card, now softly dissolved into its blue
+    surface rather than showing a sharp rectangular image boundary. */
+ #main .gv196-detail > .gv196-hero.gv525-country-flag::before{
+  background-size:contain!important;
+  opacity:.16!important;
+  -webkit-mask-image:radial-gradient(ellipse 89% 95% at 50% 50%,#000 37%,rgba(0,0,0,.72) 68%,transparent 100%)!important;
+  mask-image:radial-gradient(ellipse 89% 95% at 50% 50%,#000 37%,rgba(0,0,0,.72) 68%,transparent 100%)!important;
+ }
+ /* The original photo stays fully visible. Space around portrait/wide
+    photographs uses that exact image as a muted cover backdrop. */
+ #main .gv196-detail > .gv511-detail-photo.gv511-loaded{
+  background-color:#0a2d40!important;
+  background-image:linear-gradient(rgba(5,22,38,.54),rgba(5,22,38,.54)),var(--gv511-backdrop)!important;
+  background-position:center!important;
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+ }
+ #main .gv196-detail > .gv511-detail-photo.gv511-loaded::before{
+  content:none!important;
+  display:none!important;
+ }
+ #main .gv196-detail > .gv511-detail-photo.gv511-loaded > .gv511-img{
+  object-fit:contain!important;
+  object-position:center!important;
+ }
+}
