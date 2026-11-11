@@ -68,7 +68,7 @@
  }
  function buildRound(mode,count){
    const picked=[],seen=new Set();
-   const key=q=>['flags','mapfind','silhouette','landmarkphoto'].includes(mode)?String(q[7]||q[1])+(mode==='landmarkphoto'?':'+q[1]:''):String(q[1]||q[0]).trim().toLowerCase();
+   const key=q=>['flags','mapfind','silhouette','landmarkphoto'].includes(mode)?String(q[7]||q[1])+(mode==='landmarkphoto'?':'+q[8]:''):String(q[1]||q[0]).trim().toLowerCase();
    const filtering=region!=='all'&&continentModes.has(mode)&&regionMap.size>0;
    const add=pool=>{
      for(const q of Array.isArray(pool)?pool:[]){
