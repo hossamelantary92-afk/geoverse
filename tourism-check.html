@@ -49,8 +49,10 @@ try{
   'إصدار CSS في الصفحة: gv'+version+' | وجود تعديل gv519 في الملف: '+(has519?'نعم':'لا'));
  if(correctLink&&has519){
   const test=document.createElement('div');
-  test.className='gv196-detail';
-  test.innerHTML='<span class="gv511-detail-photo gv511-loaded"><img class="gv511-img" alt="" style="width:340px;height:140px" src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22340%22 height=%22140%22%3E%3Crect width=%22340%22 height=%22140%22 fill=%22%23248b91%22/%3E%3C/svg%3E"></span>';
+  test.id='main';
+  test.innerHTML='<div class="gv196-detail"></div>';
+  const detail=test.firstElementChild;
+  detail.innerHTML='<span class="gv511-detail-photo gv511-loaded"><img class="gv511-img" alt="" style="width:340px;height:140px" src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22340%22 height=%22140%22%3E%3Crect width=%22340%22 height=%22140%22 fill=%22%23248b91%22/%3E%3C/svg%3E"></span>';
   test.style.cssText='position:absolute;left:-9999px;width:600px';
   document.body.appendChild(test);
   const link=document.createElement('link');link.rel='stylesheet';link.href='./tourism-visuals-v511.css?diag='+Date.now();
