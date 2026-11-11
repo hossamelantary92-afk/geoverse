@@ -117,3 +117,59 @@
   grid-column:1/-1!important;
  }
 }
+
+/* v560 — compact one-screen question flow and clear two-player turn indicator */
+#main .gv557-game-detail>.gv557-game-header{padding:12px 16px!important;margin-bottom:12px!important}
+#main .gv557-game-detail>.gv110-level{padding:12px 16px!important;margin-bottom:12px!important}
+#main .gv557-game-detail .gv110-level-label{margin-bottom:8px!important}
+#main .gv557-game-detail .gv110-level-buttons>button{min-height:42px!important}
+#main .gv557-game-detail>.gv558-scorebar{margin-bottom:10px!important}
+#main .gv557-game-detail .quiz-card{
+ padding:clamp(12px,2vw,22px)!important;margin-top:0!important;
+}
+#main .gv557-game-detail .quiz-controls{margin-top:5px!important}
+#main .gv557-game-detail .quiz-question{
+ font-size:clamp(19px,2.5vw,26px)!important;
+ line-height:1.5!important;margin:10px 0 12px!important;
+}
+#main .gv557-game-detail .quiz-choice{
+ padding:10px 12px!important;margin:6px 0!important;
+ min-height:52px!important;line-height:1.4!important;
+}
+#main .gv557-game-detail .gv124-choice-text{gap:1px!important}
+#main .gv557-game-detail .gv124-choice-en{line-height:1.35!important}
+#main .gv557-game-detail .gv124-choice-ar{line-height:1.35!important}
+#main .gv557-game-detail .quiz-feedback{margin:9px 0!important;padding:10px!important}
+#main .gv557-game-detail .gv558-scorebar{overflow:visible!important}
+#main .gv557-game-detail .gv558-turn{
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ flex-direction:column!important;gap:3px!important;
+ color:#8bebdb!important;line-height:1.4!important;
+}
+#main .gv557-game-detail .gv558-turn b{color:#eafffb;font-weight:900}
+#main .gv557-game-detail .gv558-timer{
+ font-variant-numeric:tabular-nums!important;
+}
+@media(max-width:700px){
+ #main .gv557-game-detail>.gv557-game-header{padding:10px 12px!important;margin-bottom:10px!important}
+ #main .gv557-game-detail .gv557-game-name h1{font-size:20px!important}
+ #main .gv557-game-detail .gv557-game-name p{font-size:11px!important}
+ #main .gv557-game-detail>.gv110-level{padding:10px 12px!important;margin-bottom:10px!important}
+ #main .gv557-game-detail .gv110-level-label{margin-bottom:7px!important}
+ #main .gv557-game-detail .gv110-level-buttons>button{min-height:40px!important}
+ #main .gv557-game-detail .quiz-card{padding:12px!important}
+ #main .gv557-game-detail .quiz-choice{padding:8px 10px!important;margin:5px 0!important;min-height:51px!important}
+ #main .gv557-game-detail .quiz-question{font-size:19px!important;margin:7px 0 10px!important}
+ #main .gv557-game-detail .quiz-controls{gap:6px!important}
+ #main .gv557-game-detail .gv558-scorebar .gv558-turn{font-size:11px!important;max-width:110px!important;white-space:normal!important}
+ #main .gv557-game-detail #nextQuiz{
+  position:fixed!important;bottom:calc(101px + env(safe-area-inset-bottom,0px))!important;
+  left:50%!important;right:auto!important;transform:translateX(-50%)!important;
+  z-index:700!important;width:min(440px,calc(100vw - 36px))!important;
+  min-height:49px!important;margin:0!important;
+  border:1px solid #a9ffee!important;border-radius:14px!important;
+  background:linear-gradient(130deg,#70e9d8,#25aebf)!important;color:#062d39!important;
+  box-shadow:0 8px 27px #001522af!important;font-weight:900!important;
+ }
+ #main .gv557-game-detail .quiz-card:has(#nextQuiz){padding-bottom:75px!important}
+}
