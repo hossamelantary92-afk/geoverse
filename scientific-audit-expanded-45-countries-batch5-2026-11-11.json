@@ -1,0 +1,710 @@
+{
+  "project": "GeoVerse",
+  "date": "2026-11-11",
+  "batch": 5,
+  "method": "45 new records screened and 13 individually scoped official UNESCO site claims checked. Classification is preliminary for all other claims. All 45 are country/territory content records, not necessarily sovereign states.",
+  "official_sources": [
+    "https://whc.unesco.org/en/list/",
+    "https://unstats.un.org/unsd/methodology/m49/"
+  ],
+  "counts": {
+    "new_unique_screened": 45,
+    "matching_official_heritage_claims": 13,
+    "unverified_heritage_or_specialist_claims": 32,
+    "prior_unique_reviewed": 128,
+    "cumulative_unique_screened": 173,
+    "remaining_unreviewed": 72,
+    "fully_verified_articles": 0
+  },
+  "records": [
+    {
+      "code": "BN",
+      "title_en": "Brunei: rainforest and north Borneo coast",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Features include Ulu Temburong rainforest, coastal wetlands and the stilt-water settlement Kampong Ayer.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "BJ",
+      "title_en": "Benin: coast, savanna and historic kingdoms",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Highlights include Lake Nokoué and coastal fishing habitats, and Pendjari National Park in the northern savanna, where river systems and wildlife habitats meet.",
+      "status": "official_site_claim_supported",
+      "source": {
+        "site": "Pendjari National Park within W-Arly-Pendjari Complex",
+        "url": "https://whc.unesco.org/en/list/749",
+        "verification_scope": "The article identifies Pendjari; UNESCO confirms the complex is transnational Benin/Burkina Faso/Niger"
+      },
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "BF",
+      "title_en": "Burkina Faso: savanna and inland plateau",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "The Sindou area features striking eroded rock formations, while seasonal savanna woodland, valleys and water bodies change between wet and dry periods.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "BI",
+      "title_en": "Burundi: highlands and Lake Tanganyika",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Lake Tanganyika is a deep freshwater ecosystem with diverse life; Burundi's highlands contain grasslands, remaining montane forests and terraced farming landscapes.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "CV",
+      "title_en": "Cabo Verde: volcanic Atlantic islands",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Pico do Fogo volcano dominates Fogo, Santo Antão features steep valleys and ridges, and Sal and Boa Vista have sandy beaches and arid coastal landscapes.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "CF",
+      "title_en": "Central African Republic: forests, savanna and rivers",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "The southern Dzanga–Sangha forests protect extensive rainforest habitats, the Ubangi is a prominent river corridor, and northern regions contain savanna ecosystems.",
+      "status": "official_site_claim_supported",
+      "source": {
+        "site": "Sangha Trinational",
+        "url": "https://whc.unesco.org/en/list/1380",
+        "verification_scope": "Dzanga-Sangha rainforest habitat in Central African Republic; source confirms transboundary property"
+      },
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "TD",
+      "title_en": "Chad: Sahara and Lake Chad",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "The Ennedi Plateau features sandstone arches and ancient rock art, Tibesti has volcanic peaks, and the Lake Chad basin contains wetlands with highly variable seasonal extent.",
+      "status": "official_site_claim_supported",
+      "source": {
+        "site": "Ennedi Massif",
+        "url": "https://whc.unesco.org/en/list/1475",
+        "verification_scope": "Sandstone arches and rock art in Ennedi mentioned in article"
+      },
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "KM",
+      "title_en": "Comoros: volcanic Indian Ocean archipelago",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Active Karthala volcano dominates Grande Comore; montane and coastal forests and reefs support varied island habitats.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "CG",
+      "title_en": "Republic of the Congo: forests and Congo River",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Odzala-Kokoua has swamp forests and natural clearings; Congo Basin rainforests and coastal plains provide habitats for forest elephants and primates.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "DJ",
+      "title_en": "Djibouti: Gulf of Tadjoura and Lake Assal",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Lake Assal, volcanic Afar terrain and reef-lined coasts around the Gulf of Tadjoura form contrasting landscapes under intense heat and scarce rainfall.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "GQ",
+      "title_en": "Equatorial Guinea: Bioko and mainland forests",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Landmarks include Pico Basilé on Bioko and the coastal and inland forests of Río Muni. Humid forests and wetlands provide diverse habitats despite the country's relatively small land area.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "ER",
+      "title_en": "Eritrea: Red Sea and highlands",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Landscapes include the Asmara highlands and escarpments, reef-fringed Dahlak Islands and dry coastal lowlands. Maritime transport and fishing have long shaped coastal communities.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "SZ",
+      "title_en": "Eswatini: mountains, grasslands and valleys",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "The Malolotja highlands protect valleys and upland habitats; Hlane holds savanna ecosystems, while the Ezulwini Valley lies between mountain districts.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "GA",
+      "title_en": "Gabon: equatorial forests and Atlantic",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Gabon includes Lopé, Ivindo and Loango national parks, spanning rainforests, waterfalls, coasts and wetlands supporting terrestrial and marine wildlife.",
+      "status": "official_site_claim_supported",
+      "source": {
+        "site": "Lopé-Okanda and Ivindo National Park",
+        "url": "https://whc.unesco.org/en/statesparties/ga",
+        "verification_scope": "Both Lopé and Ivindo nature sites are in the article and official country listing"
+      },
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "GM",
+      "title_en": "The Gambia: a country along one river",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "The Gambia River defines the country's landscape through wetlands, mangroves and bird habitats. Natural sites include Abuko Nature Reserve, while Kunta Kinteh Island is a historical landmark associated with the river.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "GN",
+      "title_en": "Guinea: headwaters of West Africa",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Fouta Djallon holds river headwaters and waterfalls; the Mount Nimba area contains distinct mountain and forest habitats, while islands off Conakry offer coastal ecosystems.",
+      "status": "official_site_claim_supported",
+      "source": {
+        "site": "Mount Nimba",
+        "url": "https://whc.unesco.org/en/list/155",
+        "verification_scope": "Mount Nimba forests and highlands; UNESCO World Heritage property shared Guinea and Côte d'Ivoire, not Liberia"
+      },
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "GW",
+      "title_en": "Guinea-Bissau: Bijagós and estuaries",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Highlights include the Bijagós Islands, mangroves and bird-rich tidal flats. Bijagós mangroves, mudflats and shallow waters support fish and birds; coastal livelihoods are closely linked to tidal cycles.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "GY",
+      "title_en": "Guyana: forests, rivers and Guiana Highlands",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Kaieteur Falls plunges along the Potaro River through rainforest and is one of Guyana's best-known natural landmarks. Inland highlands feature rocky plateaus, forests and rivers, while estuaries and wetlands merge with the Atlantic coastal plain.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "LR",
+      "title_en": "Liberia: Atlantic tropical forests",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Highlights include Sapo National Park, eastern forests and Atlantic beaches. Sapo National Park protects important Liberian rainforest within the Upper Guinean forest ecosystem, which supports diverse wildlife.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "LS",
+      "title_en": "Lesotho: the mountain kingdom",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "The Maloti highlands have alpine grasslands, steep valleys and occasional winter snow; Katse Dam lies among the rugged mountain valleys.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "ML",
+      "title_en": "Mali: Niger River, Sahara and Sahel cities",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Landmarks include the seasonally flooded Inland Niger Delta, rocky Bandiagara Escarpment and historic Timbuktu and Djenné. Agriculture and livelihoods are closely linked to changing water levels.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "MR",
+      "title_en": "Mauritania: Sahara and Atlantic coast",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Highlights include coastal Banc d'Arguin, the Richat Structure and Adrar Plateau.",
+      "status": "official_site_claim_supported",
+      "source": {
+        "site": "Banc d'Arguin National Park",
+        "url": "https://whc.unesco.org/en/statesparties/mr",
+        "verification_scope": "Coastal Banc d'Arguin explicitly named in Nature & Landmarks"
+      },
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "NE",
+      "title_en": "Niger: Sahara and Niger River",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "The Aïr Mountains contain rocky peaks, oases and rock art, while the Ténéré has desert plains and dunes. The Niger River supports riparian habitats in the otherwise dry Sahel.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "SL",
+      "title_en": "Sierra Leone: Freetown Peninsula and forests",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "The Freetown Peninsula combines beaches and wooded hills; Tiwai Island contains riverine forest, while the Loma Mountains support distinctive upland wildlife.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "SO",
+      "title_en": "Somalia: Horn of Africa and ocean",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Coasts span the Gulf of Aden and Indian Ocean with beaches and headlands; the Juba and Shabelle valleys and Cal Madow highlands provide contrasts between marine, mountain and arid environments.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "SS",
+      "title_en": "South Sudan: Sudd wetlands and Nile plains",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "The Sudd is among the largest tropical wetland systems, supporting birds, fish and other wildlife. Flood extent and grassland patterns change seasonally.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "SR",
+      "title_en": "Suriname: Guiana forests and estuaries",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "The Central Suriname Nature Reserve protects an extensive interior rainforest landscape and is a natural World Heritage site. Rivers, rocky outcrops and diverse wildlife characterize the interior, while estuaries and mangroves are important coastal habitats.",
+      "status": "official_site_claim_supported",
+      "source": {
+        "site": "Central Suriname Nature Reserve",
+        "url": "https://whc.unesco.org/en/list/1017/",
+        "verification_scope": "Primary tropical forest protected within reserve explicitly named"
+      },
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "TG",
+      "title_en": "Togo: from Gulf coast to savanna",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Highlights include Lake Togo, Kloto Highlands and Fazao-Malfakassa National Park. Central districts include Kloto's upland forests; Lake Togo is associated with coastal lagoons, while northern areas contain savanna habitats.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "AD",
+      "title_en": "Andorra: Pyrenean mountain principality",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Andorra has small glacial lakes, mountain meadows and pine forests; the Madriu–Perafita–Claror Valley is an important protected cultural landscape.",
+      "status": "official_site_claim_supported",
+      "source": {
+        "site": "Madriu–Perafita–Claror Valley",
+        "url": "https://whc.unesco.org/en/list/1160/",
+        "verification_scope": "Cultural high-Pyrenean valley named in Nature & Landmarks"
+      },
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "AG",
+      "title_en": "Antigua and Barbuda: Caribbean bays and islands",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Antigua and Barbuda combines Antigua's bays, beaches and low hills with flatter Barbuda's coastal lagoons and coral habitats. The differences make reefs, mangroves and wetlands important conservation features.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "DM",
+      "title_en": "Dominica: island of rivers and volcanoes",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Morne Trois Pitons National Park includes Boiling Lake, hot springs and montane forests, with waterfalls and steep valleys across the interior.",
+      "status": "official_site_claim_supported",
+      "source": {
+        "site": "Morne Trois Pitons National Park",
+        "url": "https://whc.unesco.org/en/list/814",
+        "verification_scope": "Boiling Lake and volcanic geothermal features in named park"
+      },
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "GD",
+      "title_en": "Grenada: spice island and mountains",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "The island includes Grand Etang crater lake, mountain forests and Grand Anse beaches, with smaller islands and coral habitats to the south.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "KN",
+      "title_en": "Saint Kitts and Nevis: volcanic twin islands",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Mount Liamuiga rises on Saint Kitts, while Nevis has volcanic slopes and hot springs; both islands include beaches, reefs and coastal habitats.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "LC",
+      "title_en": "Saint Lucia: Pitons and rainforest",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Highlights include Gros Piton and Petit Piton, Soufrière springs and coastal bays. Gros Piton and Petit Piton are distinctive volcanic peaks; rainforests and hot springs near Soufrière reflect the island's humid tropical environment.",
+      "status": "official_site_claim_supported",
+      "source": {
+        "site": "Pitons Management Area",
+        "url": "https://whc.unesco.org/en/list/1161",
+        "verification_scope": "Gros Piton and Petit Piton in current country article"
+      },
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "VC",
+      "title_en": "Saint Vincent and the Grenadines: volcano and islands",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Highlights include La Soufrière volcano, Tobago Cays reefs and smaller islands such as Bequia and Mustique, combining volcanic landscapes and marine habitats.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "KI",
+      "title_en": "Kiribati: atolls and the date line",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Highlights include the Phoenix Islands Protected Area and lagoons at Tarawa and Kiritimati.",
+      "status": "official_site_claim_supported",
+      "source": {
+        "site": "Phoenix Islands Protected Area",
+        "url": "https://whc.unesco.org/en/list/1325",
+        "verification_scope": "Protected marine site named in Nature & Landmarks; superlative protected area size ranking not treated as current"
+      },
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "MV",
+      "title_en": "Maldives: Indian Ocean coral atolls",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "The Maldives has coral atolls, reef barriers and shallow lagoons, with marine habitats supporting reef fish, turtles and manta rays. Very low island elevations and changing reef health affect exposure to waves and coastal erosion.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "MH",
+      "title_en": "Marshall Islands: atolls and vast ocean",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "The Marshall Islands comprise atolls surrounding broad lagoons, with low sandy islets and reefs supporting fish and seabirds. Freshwater scarcity and exposure to waves are major environmental concerns.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "FM",
+      "title_en": "Federated States of Micronesia: four island states",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Highlights include Nan Madol ruins on Pohnpei, Chuuk Lagoon and coral islands.",
+      "status": "official_site_claim_supported",
+      "source": {
+        "site": "Nan Madol",
+        "url": "https://whc.unesco.org/en/list/1503",
+        "verification_scope": "Nan Madol ruins on Pohnpei explicitly named"
+      },
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "NR",
+      "title_en": "Nauru: phosphate-bearing coral island",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "The interior plateau contains exposed limestone formations shaped by mining and erosion, while reefs fringe the island and most settlements line the narrow coast.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "PW",
+      "title_en": "Palau: marine lakes and Rock Islands",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Palau is known for the limestone Rock Islands, their relatively isolated marine lakes and narrow channels, as well as coral reefs and coastal forests. Higher islands differ from low atolls in freshwater and vegetation.",
+      "status": "official_site_claim_supported",
+      "source": {
+        "site": "Rock Islands Southern Lagoon",
+        "url": "https://whc.unesco.org/en/list/1386",
+        "verification_scope": "Limestone Rock Islands and marine lakes named in Nature & Landmarks"
+      },
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "TV",
+      "title_en": "Tuvalu: low atolls of the Pacific",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Tuvalu consists of low coral atolls and islands with shallow lagoons and reefs, including Funafuti. Storms, coastal erosion and limited freshwater shape life on its narrow land strips.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "SM",
+      "title_en": "San Marino: republic in the Apennines",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "San Marino combines Apennine hill landscapes, Mount Titano's peaks and historic fortifications, with small rural areas around settlements.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "GL",
+      "title_en": "Greenland",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Ilulissat Icefjord is renowned for icebergs calving from a major glacier; coastal fjords and uplands support distinctive Arctic habitats.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    },
+    {
+      "code": "FO",
+      "title_en": "Faroe Islands",
+      "article_source_present": false,
+      "screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Múlafossur Waterfall, Mykines and sea cliffs. Mykines is known for seabirds and cliffs; Múlafossur descends near the village of Gásadalur.",
+      "status": "triaged_specialist_verification_pending",
+      "source": null,
+      "full_article_verified": false,
+      "photo_checked": false
+    }
+  ],
+  "precautions": [
+    "UN M49 is a statistical country or area classification, not a sovereignty determination.",
+    "No UNESCO-wide country link certifies every claim in an article; records with a source are narrowly scoped.",
+    "Crossborder W-Arly-Pendjari, Sangha Trinational and Mount Nimba sites must retain correct multiple-country geography.",
+    "Some article titles represent dependencies, nonsovereign islands, or historical codes; those require targeted review.",
+    "Do not change UI or photo libraries based on an unverified asset."
+  ]
+}
