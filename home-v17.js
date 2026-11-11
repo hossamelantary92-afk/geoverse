@@ -3,6 +3,26 @@
 'use strict';
 const previousHome=home;
 const T=(a,b)=>state.lang==='ar'?a:b;
+const recommendedGames=[
+ ['capitals','العواصم','Capitals'],
+ ['flags','تحدي الأعلام','Flag Challenge'],
+ ['silhouette','خمن الدولة من شكلها','Country Silhouette'],
+ ['mapfind','حدّد الدولة على الخريطة','Find on the Map'],
+ ['locations','تحديد الموقع','Location Challenge'],
+ ['landmarkphoto','تحدي المعالم بالصور','Landmark Photo Quiz'],
+ ['definitions','اللغز الجغرافي','Geography Riddle'],
+ ['mixed','تحدي متنوع','Mixed Challenge']
+];
+// Pick once per page load, not on every render. Avoid repeating the previous visit.
+const featuredGame=(function(){
+ let last='';
+ try{last=localStorage.getItem('gv_last_featured_game')||'';}catch{}
+ const choices=recommendedGames.filter(g=>g[0]!==last);
+ const picked=choices[Math.floor(Math.random()*choices.length)]||recommendedGames[0];
+ try{localStorage.setItem('gv_last_featured_game',picked[0]);}catch{}
+ return picked;
+})();
+
 const I={
  compass:'<circle cx="12" cy="12" r="9"/><path d="m15.9 8.1-2.6 5.2-5.2 2.6 2.6-5.2 5.2-2.6z"/>',
  globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-5 6-5 12 0 18 5-6 5-12 0-18"/><path d="m15.5 8.5-2 5-5 2 2-5z"/>',
@@ -22,21 +42,12 @@ function numbers(){
  return {seen:valid.length,total,percentage:total?Math.min(100,Math.round(valid.length/total*100)):0};
 }
 function games(){
- const items=[
-  {id:'capitals',name:T('العواصم','Capitals')},
-  {id:'flags',name:T('تحدي الأعلام','Flag Challenge')},
-  {id:'silhouette',name:T('خمن الدولة من شكلها','Country Silhouette')},
-  {id:'mapfind',name:T('حدّد الدولة على الخريطة','Find on the Map')},
-  {id:'locations',name:T('تحديد الموقع','Location Challenge')},
-  {id:'landmarkphoto',name:T('تحدي المعالم بالصور','Landmark Photo Quiz')},
-  {id:'definitions',name:T('اللغز الجغرافي','Geography Riddle')},
-  {id:'mixed',name:T('تحدي متنوع','Mixed Challenge')}
- ];
+ const items=recommendedGames.slice(0,4).map(g=>({id:g[0],name:T(g[1],g[2])}));
  return '<div class="gv550-wonders-divider gv551-games-divider" aria-hidden="true"><span></span><i></i><span></span></div>'+
   '<section class="gv17-games" aria-labelledby="gv17GamesTitle">'+
   '<div class="gv17-heading"><div><h2 id="gv17GamesTitle">'+T('الألعاب و التحديات','Games & Challenges')+'</h2><p>'+T('اختبر معرفتك و اكتشف العالم بطريقة ممتعة','Test your knowledge and discover the world in a fun way.')+'</p></div><button type="button" class="gv17-text-action" data-page="play">'+T('جميع الألعاب','All games')+' '+icon('arrow',16)+'</button></div>'+
   '<div class="gv17-games-grid gv571-home-game-covers">'+items.map(g=>'<button type="button" class="gv17-game gv571-home-card" data-gv17-game="'+g.id+'" data-game="'+g.id+'" aria-label="'+g.name+'"><strong>'+g.name+'</strong></button>').join('')+'</div>'+
-  '<div class="gv17-daily"><div class="gv17-daily-mark">'+icon('bolt',29)+'</div><div class="gv17-daily-copy"><span>'+T('تحدّي اليوم','TODAY’S CHALLENGE')+'</span><strong>'+T('جاهز لجولة جغرافية؟','Ready for a geography round?')+'</strong><small>'+T('ابدأ جولة جديدة من أسئلة التحدي المتنوع.','Start a fresh round of mixed geography questions.')+'</small></div><button data-gv17-game="mixed">'+T('ابدأ التحدي','Start challenge')+' '+icon('arrow',17)+'</button></div>'+
+  '<div class="gv17-daily"><div class="gv17-daily-mark">'+icon('bolt',29)+'</div><div class="gv17-daily-copy"><span>'+T('تحدّي اليوم · اختيار GeoVerse','TODAY’S CHALLENGE · GEOVERSE PICK')+'</span><strong>'+T(featuredGame[1],featuredGame[2])+'</strong><small>'+T('GeoVerse اختار لك اللعبة دي عشوائيًا. جاهز للتحدي؟','GeoVerse picked this game for you at random. Ready to play?')+'</small></div><button type="button" data-gv17-game="'+featuredGame[0]+'">'+T('ابدأ اللعبة','Start game')+' '+icon('arrow',17)+'</button></div>'+
  '</section>';
 }
 function progress(){
@@ -61,7 +72,7 @@ document.addEventListener('click',event=>{
  const el=event.target?.closest?.('[data-gv17-game]');
  if(!el)return;
  const id=el.dataset.gv17Game;
- if(!['capitals','mapfind','classify','mixed'].includes(id))return;
+ if(!recommendedGames.some(g=>g[0]===id))return;
  event.preventDefault();
  selectedGameMode=id;
  quiz=createGame(id);
