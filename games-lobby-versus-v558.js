@@ -69,7 +69,11 @@
  function buildRound(mode,count){
    const picked=[],seen=new Set();
    const key=q=>['flags','mapfind','silhouette','landmarkphoto'].includes(mode)?String(q[7]||q[1])+(mode==='landmarkphoto'?':'+q[8]:''):String(q[1]||q[0]).trim().toLowerCase();
-   const filtering=region!=='all'&&continentModes.has(mode)&&regionMap.size>0;
+   if(region!=='all'&&continentModes.has(mode)&&regionMap.size===0){
+     roundWarning=T('جاري تحميل بيانات القارات. أعد المحاولة بعد اكتمال التحميل.','Region data is loading. Please try again shortly.');
+     return [];
+   }
+   const filtering=region!=='all'&&continentModes.has(mode);
    const add=pool=>{
      for(const q of Array.isArray(pool)?pool:[]){
        if(!Array.isArray(q)||!q[0]||!q[1])continue;
