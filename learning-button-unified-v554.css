@@ -52,3 +52,75 @@ body.light #main .gv554-learn-footer{
   font-size:13px!important;
  }
 }
+
+/* gv555 — balanced cartographic finish for the completion control.
+   Decorative topographic rings are CSS-only and never intercept taps. */
+#main .gv554-learn-footer{
+ position:relative!important;
+ isolation:isolate!important;
+ display:grid!important;
+ grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)!important;
+ align-items:center!important;
+ justify-content:center!important;
+ column-gap:clamp(9px,2.6vw,24px)!important;
+ min-height:66px!important;
+ padding:10px clamp(12px,3vw,24px)!important;
+ margin-block:16px 19px!important;
+ border:1px solid rgba(91,225,215,.40)!important;
+ border-radius:17px!important;
+ background:radial-gradient(ellipse at 50% 100%,rgba(50,209,192,.12),transparent 60%),linear-gradient(135deg,#0a3042,#09293c)!important;
+ box-shadow:inset 0 1px 0 rgba(168,255,247,.09),0 0 20px rgba(25,186,185,.075)!important;
+}
+#main .gv554-learn-footer::before,
+#main .gv554-learn-footer::after{
+ content:""!important;
+ display:block!important;
+ width:clamp(41px,9vw,84px)!important;
+ max-width:100%!important;
+ height:40px!important;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 90 48' fill='none' stroke='%235de4d6' stroke-width='1.25' stroke-linecap='round'%3E%3Cpath opacity='.72' d='M5 24c9-16 21-22 40-20s35 14 39 22c-4 10-19 19-38 18S15 37 5 24Z'/%3E%3Cpath opacity='.63' d='M17 25c6-10 16-16 28-16s25 10 28 17c-5 8-17 13-28 13S25 34 17 25Z'/%3E%3Cpath opacity='.78' d='M28 24c5-7 10-10 17-10s15 5 18 11c-3 6-10 9-18 9s-13-4-17-10Z'/%3E%3Cpath opacity='.8' d='M39 24c3-4 8-4 12 0s0 7-5 7-9-4-7-7Z'/%3E%3C/svg%3E")!important;
+ background-repeat:no-repeat!important;
+ background-position:center!important;
+ background-size:contain!important;
+ opacity:.65!important;
+ pointer-events:none!important;
+ filter:drop-shadow(0 0 5px rgba(68,226,210,.17))!important;
+}
+#main .gv554-learn-footer::before{grid-column:1;justify-self:end;transform:rotate(-8deg)!important}
+#main .gv554-learn-footer::after{grid-column:3;justify-self:start;transform:scaleX(-1) rotate(-8deg)!important}
+#main .gv554-learn-footer > #toggleSeen{
+ grid-column:2!important;
+ grid-row:1!important;
+ justify-self:center!important;
+ align-self:center!important;
+ position:relative!important;
+ z-index:1!important;
+ min-height:43px!important;
+ margin:0!important;
+}
+body.light #main .gv554-learn-footer{
+ background:radial-gradient(ellipse at 50% 100%,rgba(52,204,185,.13),transparent 60%),linear-gradient(135deg,#e9f8f8,#d8edee)!important;
+ border-color:rgba(32,149,147,.45)!important;
+}
+@media(max-width:700px){
+ #main .gv554-learn-footer{
+  min-height:62px!important;
+  padding:9px 12px!important;
+  column-gap:clamp(8px,2vw,14px)!important;
+  margin-block:14px 18px!important;
+ }
+ #main .gv554-learn-footer::before,
+ #main .gv554-learn-footer::after{
+  height:32px!important;
+  width:clamp(34px,11vw,60px)!important;
+ }
+ #main .gv554-learn-footer > #toggleSeen{
+  min-height:42px!important;
+  padding:8px 15px!important;
+ }
+}
+@media(max-width:350px){
+ #main .gv554-learn-footer{column-gap:5px!important;padding-inline:8px!important}
+ #main .gv554-learn-footer::before,
+ #main .gv554-learn-footer::after{width:30px!important}
+}
