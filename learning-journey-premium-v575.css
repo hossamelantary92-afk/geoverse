@@ -213,3 +213,40 @@
   margin-top:8px!important;
  }
 }
+
+/* v578 — use the entire last row for odd-numbered stages on phones.
+   A horizontal featured tile avoids the single skinny card and wasted whitespace. */
+@media(max-width:760px){
+ #main .learn-card-grid[data-learn-count="3"]>.learn-card:last-child,
+ #main .learn-card-grid[data-learn-count="5"]>.learn-card:last-child{
+   grid-column:1/-1!important;
+   justify-self:stretch!important;
+   width:100%!important;
+   display:grid!important;
+   grid-template-columns:minmax(0,43%) minmax(0,57%)!important;
+   align-items:stretch!important;
+   min-height:170px!important;
+   height:auto!important;
+ }
+ #main .learn-card-grid[data-learn-count="3"]>.learn-card:last-child>.learn-card-photo,
+ #main .learn-card-grid[data-learn-count="5"]>.learn-card:last-child>.learn-card-photo{
+   width:100%!important;height:100%!important;min-height:170px!important;
+   aspect-ratio:auto!important;
+ }
+ #main .learn-card-grid[data-learn-count="3"]>.learn-card:last-child>.learn-card-info,
+ #main .learn-card-grid[data-learn-count="5"]>.learn-card:last-child>.learn-card-info{
+   display:flex!important;flex-direction:column!important;
+   justify-content:center!important;
+   gap:7px!important;padding:13px 14px!important;min-height:0!important;
+ }
+ #main .learn-card-grid[data-learn-count="3"]>.learn-card:last-child>.learn-card-info>.progress-track,
+ #main .learn-card-grid[data-learn-count="5"]>.learn-card:last-child>.learn-card-info>.progress-track{
+   margin-top:auto!important;
+ }
+}
+@media(max-width:360px){
+ #main .learn-card-grid[data-learn-count="3"]>.learn-card:last-child,
+ #main .learn-card-grid[data-learn-count="5"]>.learn-card:last-child{
+   grid-template-columns:minmax(0,40%) minmax(0,60%)!important;
+ }
+}
