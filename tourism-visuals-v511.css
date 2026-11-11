@@ -54,3 +54,34 @@
  opacity:1!important;object-fit:contain!important;
 }
 #main .gv170-tourism .gv170-tourism-photo:not(.gv511-loaded){display:none!important}
+
+/* gv519: A successfully loaded real photo should be the media panel, not a
+   tiny picture inside a full-width colored rectangle. Preserve aspect ratio. */
+#main .gv196-detail>.gv511-detail-photo.gv511-loaded{
+ display:table!important;
+ width:fit-content!important;
+ max-width:100%!important;
+ min-height:0!important;
+ max-height:none!important;
+ margin-inline:auto!important;
+ padding:0!important;
+ overflow:hidden!important;
+ line-height:0!important;
+ border-radius:16px!important;
+ box-shadow:0 10px 28px rgba(0,17,35,.22);
+}
+#main .gv196-detail>.gv511-detail-photo.gv511-loaded>.gv511-img{
+ display:block!important;
+ width:auto!important;
+ height:auto!important;
+ max-width:100%!important;
+ max-height:min(48vh,440px)!important;
+ object-fit:contain!important;
+ margin:0!important;
+}
+@media(max-width:700px){
+ #main .gv196-detail>.gv511-detail-photo.gv511-loaded{border-radius:12px!important}
+ #main .gv196-detail>.gv511-detail-photo.gv511-loaded>.gv511-img{
+  max-height:min(42vh,320px)!important;
+ }
+}
