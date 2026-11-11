@@ -1,0 +1,84 @@
+/* GeoVerse v557 — mobile-safe dedicated games and equal-sized directory cards */
+body.gv557-directory #app>.layout,
+body.gv557-playing #app>.layout {box-sizing:border-box!important;min-width:0!important;max-width:100%!important}
+body.gv557-directory #main,
+body.gv557-playing #main {box-sizing:border-box!important;min-width:0!important;max-width:100%!important;width:100%!important;overflow-x:clip!important}
+#main .gv557-games-home,#main .gv557-game-detail{
+ width:100%!important;max-width:100%!important;min-width:0!important;
+ box-sizing:border-box!important;overflow-x:clip!important;
+}
+.gv557-title{text-align:center;margin:10px auto 22px;max-width:650px}
+.gv557-title h1{font-size:clamp(22px,3vw,34px);margin:0 0 8px}
+.gv557-title p{color:#9fcbd1;font-size:clamp(12px,1.7vw,16px)}
+#main .gv557-games-home .game-modes{
+ display:grid!important;
+ grid-template-columns:repeat(4,minmax(0,1fr))!important;
+ gap:clamp(12px,1.7vw,22px)!important;
+ width:100%!important;min-width:0!important;max-width:100%!important;
+ margin:0!important;box-sizing:border-box!important;
+}
+#main .gv557-games-home .game-modes>.game-mode{
+ grid-column:auto!important;grid-row:auto!important;
+ width:100%!important;min-width:0!important;max-width:100%!important;
+ box-sizing:border-box!important;
+ aspect-ratio:1.18!important;height:auto!important;min-height:0!important;
+ padding:12px!important;transform:none!important;text-align:center!important;
+ display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:center!important;gap:12px!important;
+}
+#main .gv557-games-home .game-mode>b{
+ min-width:0;max-width:100%;overflow-wrap:break-word;
+ font-size:clamp(13px,1.3vw,19px)!important;line-height:1.4!important;
+}
+#main .gv557-games-home .game-mode .gv18-game-symbol{flex-shrink:0}
+.gv557-game-header{max-width:1120px;margin:0 auto 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0}
+.gv557-game-header h1{margin:0;font-size:clamp(19px,2.6vw,30px);min-width:0}
+.gv557-back{
+ flex-shrink:0;display:inline-flex;align-items:center;gap:7px;min-height:44px;
+ padding:9px 13px;border-radius:13px;border:1px solid #4aabb0;
+ background:linear-gradient(135deg,#0b3c50,#082738);color:#cffff7;
+ font:700 13px Cairo,system-ui,sans-serif;cursor:pointer;
+}
+.gv557-back span{font-size:24px;line-height:1}
+#main .gv557-game-detail .gv110-level{
+ width:100%!important;max-width:1120px!important;min-width:0!important;
+ box-sizing:border-box!important;margin:0 auto 20px!important;
+}
+#main .gv557-game-detail .gv110-level-buttons{
+ display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
+ gap:8px!important;min-width:0!important;max-width:100%!important;
+ width:100%!important;box-sizing:border-box!important;
+}
+#main .gv557-game-detail .gv110-level-buttons>button{width:100%!important;min-width:0!important;box-sizing:border-box!important}
+#main .gv557-game-detail .quiz-card,
+#main .gv557-game-detail .page-heading{
+ min-width:0!important;width:100%!important;
+ max-width:1120px!important;box-sizing:border-box!important;
+ margin-inline:auto!important;
+}
+#main .gv557-game-detail .quiz-card:not(.map-question){max-width:760px!important}
+#main .gv557-game-detail .quiz-card *,#main .gv557-game-detail .map-question *{box-sizing:border-box}
+#main .gv557-game-detail .map-container{
+ width:100%!important;max-width:100%!important;min-width:0!important;
+ overflow:hidden!important;box-sizing:border-box!important;
+}
+#main .gv557-game-detail .map-container svg{max-width:100%;display:block}
+#main .gv557-game-detail .quiz-question{overflow-wrap:anywhere}
+#main .gv557-game-detail .quiz-controls{flex-wrap:wrap}
+@media(max-width:1150px){
+ #main .gv557-games-home .game-modes{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+}
+@media(max-width:700px){
+ #main .gv557-games-home .game-modes{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+ #main .gv557-games-home .game-modes>.game-mode{
+  aspect-ratio:1.05!important;gap:9px!important;padding:8px!important;
+ }
+ #main .gv557-games-home .game-mode>b{font-size:clamp(13px,3.5vw,17px)!important}
+ #main .gv557-game-detail .quiz-card{padding:clamp(12px,4vw,22px)!important}
+ .gv557-game-header{align-items:flex-start}
+ .gv557-game-header h1{font-size:clamp(17px,4.5vw,22px)}
+ .gv557-back{font-size:12px;padding:8px 10px}
+}
+@media(max-width:340px){
+ #main .gv557-games-home .game-modes{gap:8px!important}
+ #main .gv557-games-home .game-mode>b{font-size:12px!important}
+}
