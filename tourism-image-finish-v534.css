@@ -1,0 +1,55 @@
+/* gv534 — landmark image-edge and return-spacing finish.
+   Original tourism image remains fully contained; backdrop uses the same photo.
+   Scope narrowly to loaded detail photographs on mobile. */
+@media (max-width:900px){
+ #main .gv196-detail > .gv511-detail-photo.gv511-loaded{
+  /* A soft matching photo fills the letterbox area; no harsh dark bands. */
+  background-color:#103549!important;
+  background-image:var(--gv511-backdrop)!important;
+  background-size:cover!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+ }
+ #main .gv196-detail > .gv511-detail-photo.gv511-loaded::before{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  inset:-14px!important;
+  background-image:var(--gv511-backdrop)!important;
+  background-size:cover!important;
+  background-position:center!important;
+  filter:blur(19px) saturate(.86) brightness(.80)!important;
+  opacity:1!important;
+  pointer-events:none!important;
+  z-index:0!important;
+ }
+ #main .gv196-detail > .gv511-detail-photo.gv511-loaded > img.gv511-img{
+  position:relative!important;
+  z-index:1!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  /* Feather the image edges into its own blurred background; avoid a
+     visible rectangular boundary while retaining the complete composition. */
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 11%,#000 89%,transparent 100%)!important;
+  mask-image:linear-gradient(to bottom,transparent 0%,#000 11%,#000 89%,transparent 100%)!important;
+ }
+ #main:has(> .gv196-detail) > .gv-landmark-back-row{
+  margin-bottom:4px!important;
+ }
+ #main:has(.gv196-detail) .gv-landmark-back-row{
+  margin-bottom:4px!important;
+ }
+ #main:has(> .gv196-detail) > .gv388-nav{
+  margin-bottom:4px!important;
+ }
+ #main:has(> .gv196-detail) > .gv196-detail{
+  margin-top:0!important;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ #main .gv196-detail > .gv511-detail-photo.gv511-loaded::before{
+  filter:blur(14px) brightness(.85)!important;
+ }
+}
