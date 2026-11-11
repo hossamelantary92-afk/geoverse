@@ -1,0 +1,698 @@
+{
+  "project": "GeoVerse",
+  "batch": 4,
+  "date": "2026-11-11",
+  "method": "45 unique country articles screened for claims in Nature & Landmarks and Did You Know; 13 have narrowly scoped official UNESCO supporting evidence. Other rows remain triaged, not verified. No claim in another section inherits certification.",
+  "sources": "UNESCO World Heritage Centre individual property and country pages. UNESCO records are used solely for the explicitly cited geographic/heritage statements, not as universal sources for every article.",
+  "counts": {
+    "new_country_articles_screened": 45,
+    "official_site_supported_or_partially_supported": 13,
+    "pending_specialist_primary_source": 32,
+    "full_articles_certified": 0,
+    "cumulative_unique_screened_excluding_5_pilot": 128,
+    "unreviewed_of_245_excluding_pilot": 117
+  },
+  "records": [
+    {
+      "code": "KH",
+      "title_en": "Cambodia: Mekong and Tonlé Sap",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Highlights include Angkor Wat, Tonlé Sap, the Mekong and forests. Angkor Wat belongs to a wider archaeological landscape with historical reservoirs and canals; Tonlé Sap supports fishing communities and seasonal aquatic ecosystems.",
+      "source_status": "site_specific_supported",
+      "verified_scope": "Angkor (including Angkor Wat, archaeological landscape and historical hydraulic features)",
+      "source_url": "https://whc.unesco.org/en/list/668/",
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "LA",
+      "title_en": "Laos: mountains and Mekong",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Highlights include the Bolaven Plateau, waterfalls along the southern Mekong and extensive limestone karst and caves, alongside forests and mountain rivers.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "MM",
+      "title_en": "Myanmar: Irrawaddy and mountain ranges",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Landmarks include Inle Lake, river plains, forested uplands and Bagan's historic temple landscape along the Ayeyarwady Valley.",
+      "source_status": "site_specific_supported",
+      "verified_scope": "Bagan's temple landscape on the Ayeyarwady",
+      "source_url": "https://whc.unesco.org/en/list/1588",
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "SG",
+      "title_en": "Singapore: island, port and trade",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Despite dense urban development, mangroves, Bukit Timah Nature Reserve and coastal tidal habitats remain. The port occupies a key position on sea routes linking the Indian Ocean and South China Sea.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "AZ",
+      "title_en": "Azerbaijan: Caucasus mountains and Caspian coast",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Notable landscapes include the Caucasus mountains and valleys, Caspian coast, semi-arid surroundings of Baku and distinctive mud-volcano fields.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "GE",
+      "title_en": "Georgia: Caucasus and Black Sea",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Highlights include Svaneti highlands, Caucasus ranges, Kakheti Valley and Black Sea coast. Svaneti is known for historic towers amid high mountains; Kakheti has vineyards, while western Georgia includes Black Sea shores and humid forests.",
+      "source_status": "site_specific_supported",
+      "verified_scope": "Upper Svaneti tower houses and mountainous setting",
+      "source_url": "https://whc.unesco.org/en/list/709",
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "AM",
+      "title_en": "Armenia: highlands and mountain lakes",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Highlights include Lake Sevan, Debed Valley and the ancient volcanic Aragats massif. Aragats is an ancient volcanic massif; Debed Valley contains steep slopes, forests and historic sites, while Lake Sevan is central to the country's water resources.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "CI",
+      "title_en": "Côte d’Ivoire: forests, savanna and cacao",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Major landscapes include Taï National Park's humid forests, the western Nimba Mountains and coastal lagoons near Abidjan, with differing habitats across the country.",
+      "source_status": "site_specific_supported",
+      "verified_scope": "Taï National Park humid forest",
+      "source_url": "https://whc.unesco.org/en/list/195/",
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "MW",
+      "title_en": "Malawi: lake and Rift Valley",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Lake Malawi hosts exceptionally diverse cichlid fish, while highlands such as the Nyika Plateau and Mount Mulanje support ecosystems that vary with elevation.",
+      "source_status": "site_specific_supported",
+      "verified_scope": "Lake Malawi exceptional cichlid species diversity (national park portion)",
+      "source_url": "https://whc.unesco.org/en/list/289/",
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "SK",
+      "title_en": "Slovakia: Tatras and Danube basin",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Highlights include the High Tatras, karst caves and the Danube River. Slovakia features Tatra mountain trails, karst cave systems, meadows and river valleys, with climate varying sharply by elevation.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "AF",
+      "title_en": "Afghanistan: Hindu Kush and valleys",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Natural landscapes include Bamiyan's highlands, the blue lakes of Band-e Amir and the Hindu Kush, with habitats ranging from mountain valleys to semi-arid deserts.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "TJ",
+      "title_en": "Tajikistan: Pamir mountains and rivers",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Landmarks include Iskanderkul Lake and the cold, relatively dry Pamir highlands, with sharp contrasts between settled valleys and rugged high mountain areas.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "KG",
+      "title_en": "Kyrgyzstan: Tian Shan and Issyk-Kul",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Highlights include Issyk-Kul Lake, Song-Kul meadows and Tian Shan peaks. Highland pastures, mountain valleys and Issyk-Kul reflect varied ecosystems; seasonal grazing and land use change with altitude and weather.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "TM",
+      "title_en": "Turkmenistan: Karakum and oases",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Landscapes range from Karakum dunes to the Kopet Dag mountains in the south and the Caspian shore; limited water constrains agriculture beyond irrigated districts.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "FJ",
+      "title_en": "Fiji: South Pacific islands and reefs",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "The archipelago features reefs, lagoons and upland forests, while the Mamanuca and Yasawa groups showcase diverse marine landscapes; tropical cyclones affect some islands.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "IS",
+      "title_en": "Iceland: ice, fire and the North Atlantic",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Key sites include the Vatnajökull ice cap, Geysir geothermal area, Gullfoss waterfall and Þingvellir National Park, where plate movement has shaped the terrain.",
+      "source_status": "site_specific_supported",
+      "verified_scope": "Þingvellir National Park as named; site has both cultural history and rift-valley geology",
+      "source_url": "https://whc.unesco.org/en/list/1152/",
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "EE",
+      "title_en": "Estonia: Baltic forests and islands",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Highlights include Lahemaa National Park, Saaremaa and Hiiumaa islands, and northern bogs. Bogs, peatlands and conifer forests are major habitats, while the islands and Baltic shores support coastal and bird ecosystems.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "LV",
+      "title_en": "Latvia: rivers, forests and Baltic coast",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Latvia's natural features include Gauja National Park's wooded valleys, the Daugava River and sandy Gulf of Riga and Baltic shores. Wetlands and lakes dot lowlands shaped by ancient glaciation.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "LT",
+      "title_en": "Lithuania: Baltic dunes and rivers",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Highlights include the Curonian Spit, Aukštaitija National Park and the Nemunas River.",
+      "source_status": "site_specific_supported",
+      "verified_scope": "Curonian Spit coastal dunes and human-shaped cultural landscape; site transboundary with Russia",
+      "source_url": "https://whc.unesco.org/en/list/994",
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "SI",
+      "title_en": "Slovenia: Alps, caves and Adriatic",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Lake Bled lies among mountains, Škocjan Caves reveal underground rivers and karst landforms, and Triglav National Park protects Alpine scenery.",
+      "source_status": "site_specific_supported",
+      "verified_scope": "Škocjan Caves karst underground river systems",
+      "source_url": "https://whc.unesco.org/en/list/390",
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "BG",
+      "title_en": "Bulgaria: Balkans and Black Sea",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Highlights include the Seven Rila Lakes, Pirin Mountains and Black Sea shore.",
+      "source_status": "partial_site_reference",
+      "verified_scope": "Pirin National Park as named; Seven Rila Lakes are separate and not validated by this source",
+      "source_url": "https://whc.unesco.org/en/statesparties/bg",
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "AL",
+      "title_en": "Albania: mountains and Adriatic coast",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Highlights include the Albanian Alps, Lake Ohrid and the Albanian Riviera. Rugged uplands meet Adriatic and Ionian shores; ancient Lake Ohrid is notable for many endemic species.",
+      "source_status": "site_specific_supported",
+      "verified_scope": "Lake Ohrid ecological and cultural heritage; transboundary with North Macedonia",
+      "source_url": "https://whc.unesco.org/en/list/99",
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "BA",
+      "title_en": "Bosnia and Herzegovina: Dinaric mountains and rivers",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "The country includes Kravice waterfalls, the Neretva valley and Vjetrenica Cave with distinctive endemic cave fauna, as well as mountain forests and karst landscapes.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "MK",
+      "title_en": "North Macedonia: lakes and valleys",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Highlights include Lake Ohrid, Mavrovo National Park and Matka Canyon. Lake Ohrid is known for endemic life and historic sites; Mavrovo and Matka Canyon provide contrasting forested mountain and rocky landscapes.",
+      "source_status": "site_specific_supported",
+      "verified_scope": "Lake Ohrid ecological and cultural heritage; transboundary with Albania",
+      "source_url": "https://whc.unesco.org/en/list/99",
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "ME",
+      "title_en": "Montenegro: Bay of Kotor and highlands",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Durmitor National Park has glacial lakes and high meadows; the Tara River cuts a deep canyon, and the Bay of Kotor is enclosed by steep coastal mountains.",
+      "source_status": "site_specific_supported",
+      "verified_scope": "Durmitor National Park, glacial lakes and Tara gorge",
+      "source_url": "https://whc.unesco.org/en/list/100",
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "MT",
+      "title_en": "Malta: limestone Mediterranean islands",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Gozo has valleys and rural landscapes; Comino is known for clear coastal lagoons, while cliffs and caves reveal marine erosion of limestone.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "LU",
+      "title_en": "Luxembourg: European valleys and plateaus",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "The country combines Ardennes woodland, Moselle vineyards and rocky Mullerthal valleys; terrain influences settlement and transport routes.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "CY",
+      "title_en": "Cyprus: Mediterranean island and Troodos",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Troodos has mountain forests and valleys, while rocky shores, beaches and seasonal wetlands support varied habitats including migrating birds; water scarcity is a key environmental issue.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "MU",
+      "title_en": "Mauritius: volcanic island and reefs",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Mauritius features Le Morne, Chamarel's coloured earth formations, Black River Gorges forests and reefs surrounding much of the coast.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "SC",
+      "title_en": "Seychelles: granite and coral islands",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Vallée de Mai on Praslin preserves coco de mer palms, while coral islands and rocky shores provide habitats for sea turtles and seabirds.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "NI",
+      "title_en": "Nicaragua: lakes and volcanoes",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Lake Nicaragua contains Ometepe Island, formed around the Concepción and Maderas volcanoes, while peaks such as Momotombo rise in the west. The Bosawás Biosphere Reserve extends across the northeast, and the Caribbean coast adds forest and aquatic ecosystems.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "SV",
+      "title_en": "El Salvador: volcanoes and Pacific coast",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "El Salvador's landscapes include Santa Ana (Ilamatepec) volcano, Lake Coatepeque in a volcanic basin, and the forests of El Imposible National Park in the west. The Gulf of Fonseca adds islands, volcanic hills and coastal environments in the east.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "BZ",
+      "title_en": "Belize: barrier reef and forests",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "The Belize Barrier Reef lies offshore, with coral islands, shallow lagoons and diving sites including the Great Blue Hole. Inland protected forests include the Cockscomb Basin Wildlife Sanctuary, which safeguards rainforest habitat and wildlife.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "DO",
+      "title_en": "Dominican Republic: Hispaniola highlands and coasts",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Landscapes include Pico Duarte in the highlands, Lake Enriquillo in a low basin, Atlantic and Caribbean shores and humid mountain forests.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "HT",
+      "title_en": "Haiti: highlands and Caribbean",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Haiti includes the Massif de la Selle, Massif de la Hotte and varied coasts; remaining upland forests contain endemic species under environmental pressure.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "TT",
+      "title_en": "Trinidad and Tobago: islands near South America",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Highlights include Caroni Swamp, Tobago Main Ridge Forest Reserve and island coasts.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "BB",
+      "title_en": "Barbados: coral limestone island",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Features include Harrison's Cave, Crane Beach and Bathsheba's Atlantic shore, spanning limestone terraces, bays and coastal habitats.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "BS",
+      "title_en": "Bahamas: shallow banks and turquoise seas",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Highlights include the Exuma and Andros islands, blue holes and marine reefs. Reefs, mangroves and sandy islands span the archipelago; Andros is known for extensive marine habitats and the Exumas for clear shallow waters.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "PG",
+      "title_en": "Papua New Guinea: mountains, forests and islands",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Highlights include the Sepik River, Papuan Highlands, New Britain islands and coral ecosystems.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "SB",
+      "title_en": "Solomon Islands: Melanesian forests and reefs",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Guadalcanal, Malaita and New Georgia contain tropical forests, coastal wetlands and coral reefs, with habitats ranging from mountain interiors to lagoons and seas.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "VU",
+      "title_en": "Vanuatu: volcanic Pacific archipelago",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Yasur on Tanna is a well-known active volcano; Espiritu Santo has blue-water pools and forests. Volcanic sites require strict attention to local safety restrictions.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "WS",
+      "title_en": "Samoa: two main islands and tropical forests",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Savai'i has notable lava fields, while Upolu and surrounding islands contain waterfalls, tropical forests and coral beaches with sensitive coastal habitats.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "TO",
+      "title_en": "Tonga: volcanic and coral islands",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Vava'u and Ha'apai contain coral lagoons, small islands and reefs, while volcanic islands can undergo geological changes linked to undersea activity.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "BY",
+      "title_en": "Belarus: eastern forests and lakes",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Highlights include Białowieża Forest shared with Poland, Polesia wetlands and Lake Narach.",
+      "source_status": "site_specific_supported",
+      "verified_scope": "Białowieża Forest shared with Poland",
+      "source_url": "https://whc.unesco.org/en/list/33",
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    },
+    {
+      "code": "BT",
+      "title_en": "Bhutan: Himalayan mountains and national happiness",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "site_excerpt_en": "Natural landscapes include protected temperate and mountain forests and alpine habitats, with Jigme Dorji National Park and the cliffside Taktsang monastery overlooking Paro Valley.",
+      "source_status": "requires_claim_specific_primary_source",
+      "verified_scope": null,
+      "source_url": null,
+      "full_article_verified": false,
+      "population_verified_in_this_batch": false,
+      "images_verified": false
+    }
+  ],
+  "safeguards": [
+    "Cross-border site identity remains transboundary (Ohrid Albania/North Macedonia; Curonian Spit Lithuania/Russia; Białowieża Belarus/Poland).",
+    "Country list includes 245 country, territory and historical/special-code articles; screened is not equal to fully scientifically audited.",
+    "No source URL automatically added to encyclopedia article itself: its general source field cannot stand in for section-level evidence.",
+    "No code/contents/UI/mapping flags or photos modified; no mobile Safari claims."
+  ]
+}
