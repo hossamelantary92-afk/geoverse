@@ -69,8 +69,8 @@ function directoryOrder(){
 }
 allCategories=function(){
  return '<section class="gv12-directory" aria-labelledby="gv12Heading">'+
-  '<header class="gv12-head"><div class="gv12-headline"><span class="gv12-overline">'+tx('أطلسك المصوّر','THE VISUAL ATLAS')+'</span><h1 id="gv12Heading">'+tx('استكشف <em>كل الأقسام</em>','Explore <em>Every Topic</em>')+'</h1><p>'+tx('رحلة مصوّرة عبر الدول والقارات والطبيعة، بأقسام واضحة وصور فوتوغرافية حقيقية.','A photographic journey through countries, continents and the natural world.')+'</p></div>'+
-  '<div class="gv12-head-count"><strong>'+cats.length+'</strong><span>'+tx('قسمًا جغرافيًا','Geography topics')+'</span></div></header>'+
+  '<header class="gv12-head"><div class="gv12-hero-earth" aria-hidden="true"></div><div class="gv12-headline"><span class="gv12-overline">'+tx('أطلسك المصوّر','THE VISUAL ATLAS')+'</span><h1 id="gv12Heading">'+tx('<span class="gv12-title-first">استكشف</span><em>كل الأقسام</em>','<span class="gv12-title-first">Explore</span><em>Every Topic</em>')+'</h1><p>'+tx('رحلة مصوّرة عبر الدول والقارات والطبيعة، بأقسام واضحة وصور فوتوغرافية حقيقية.','A photographic journey through countries, continents and the natural world.')+'</p></div>'+
+  '<div class="gv12-head-count"><span class="gv12-count-symbol" aria-hidden="true">◈</span><strong>'+cats.length+'</strong><span>'+tx('قسمًا جغرافيًا','Geography topics')+'</span></div></header>'+
   '<div class="gv12-directory-tools"><label for="gv12Search">'+tx('ابحث عن قسم','Find a category')+'</label><input type="search" id="gv12Search" autocomplete="off" placeholder="'+tx('اكتب اسم القسم...','Search categories...')+'" aria-controls="gv12Cards"><span class="gv12-count-note" id="gv12VisibleCount">'+cats.length+' / '+cats.length+'</span></div>'+
   '<div class="gv12-grid" id="gv12Cards">'+directoryOrder().map(topicCard).join('')+'</div>'+
   '<div id="gv12Empty" class="gv12-empty" hidden>'+tx('لا توجد أقسام مطابقة للبحث.','No matching categories.')+'</div>'+
