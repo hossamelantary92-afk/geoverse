@@ -1,0 +1,55 @@
+/* GeoVerse v558: unified gameplay width, premium configuration lobby and duel HUD. */
+#main .gv557-game-detail,
+#main .gv557-game-detail>.gv558-lobby,
+#main .gv557-game-detail>.gv558-scorebar,
+#main .gv557-game-detail>.gv558-final{
+ width:100%!important;max-width:1120px!important;min-width:0!important;box-sizing:border-box!important;margin-inline:auto!important;
+}
+#main .gv557-game-detail .quiz-card,
+#main .gv557-game-detail .quiz-card:not(.map-question),
+#main .gv557-game-detail .quiz-card.map-question,
+#main .gv557-game-detail .gv-quiz-premium{
+ width:100%!important;max-width:1120px!important;min-width:0!important;
+ margin-inline:auto!important;box-sizing:border-box!important;
+}
+#main .gv557-game-detail .quiz-card .quiz-choice{width:100%!important;max-width:none!important;min-width:0!important;box-sizing:border-box!important}
+#main .gv557-game-detail .quiz-card .quiz-question{max-width:100%!important;overflow-wrap:break-word}
+.gv558-lobby{display:grid;gap:14px}
+.gv558-config{padding:clamp(14px,2vw,22px);border:1px solid #3281919c;border-radius:18px;background:linear-gradient(130deg,#0a3045ed,#08253bdc);box-sizing:border-box;min-width:0}
+.gv558-config h2{font-size:clamp(14px,1.5vw,18px);color:#d4f7f3;margin:0 0 13px}
+.gv558-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;min-width:0}
+.gv558-time-options{grid-template-columns:repeat(4,minmax(0,1fr))}
+.gv558-options button{min-width:0;min-height:47px;border:1px solid #326780;border-radius:13px;background:#092539;color:#e1f8fa;font:800 clamp(12px,1.2vw,15px) Cairo,system-ui,sans-serif;cursor:pointer}
+.gv558-options button.selected{background:linear-gradient(125deg,#67e0d2,#2fb8c9);color:#063044;border-color:#a4fff2;box-shadow:0 0 0 2px #89ead133}
+.gv558-names{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.gv558-names input{width:100%;min-width:0;box-sizing:border-box;min-height:47px;padding:11px 13px;border:1px solid #377b91;border-radius:12px;background:#071e30;color:#e8ffff;font:700 16px Cairo,system-ui,sans-serif}
+.gv558-start{width:100%;min-height:54px;border:1px solid #b1ffef;border-radius:15px;background:linear-gradient(135deg,#6fe4d7,#31b9ca);font:900 clamp(16px,2vw,20px) Cairo,system-ui,sans-serif;color:#062e39;cursor:pointer;box-shadow:0 8px 30px #00c4c320}
+.gv558-note{text-align:center;font-size:12px;color:#99beca;margin:0 0 8px}
+.gv558-scorebar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-block:0 16px!important;padding:11px 14px;border:1px solid #287c91;border-radius:15px;background:#09283d}
+.gv558-player{flex:1;display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0;padding:10px;border:1px solid transparent;border-radius:11px;color:#a9d0d6;font-weight:800}
+.gv558-player strong{font:900 22px Outfit,Cairo,sans-serif;color:#f0ffff}
+.gv558-player.current{color:#d3fffa;border-color:#66dacf;background:#1352647c}
+.gv558-turn{font-size:12px;color:#9ce8df;text-align:center}
+.gv558-timer{display:flex;align-items:center;gap:5px;border:1px solid #3d8b97;border-radius:12px;padding:8px 12px;white-space:nowrap}
+.gv558-timer strong{font:900 21px Outfit,sans-serif;color:#6fead8}
+.gv558-timer strong.gv558-urgent{color:#ffad8b}
+.gv558-solo-score{font-weight:800}
+.gv558-final{text-align:center;padding:clamp(18px,3vw,40px);border:1px solid #3996a6;border-radius:20px;background:linear-gradient(145deg,#0c3c50,#071c2e)}
+.gv558-trophy{font-size:52px}.gv558-final h2{font-size:clamp(22px,3vw,32px);margin:4px 0}
+.gv558-winner{color:#92efdb;font-size:clamp(16px,2vw,22px);font-weight:800}
+.gv558-final-scores{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:22px 0}
+.gv558-final-scores>div{display:flex;flex-direction:column;gap:12px;padding:18px 8px;border:1px solid #327b91;border-radius:15px;background:#0b2940}
+.gv558-final-scores strong{font:900 34px Outfit,sans-serif;color:#8af1e3}
+@media(max-width:700px){
+ #main .gv557-game-detail{width:100%!important;max-width:100%!important;padding:0!important}
+ #main .gv557-game-detail .quiz-card,
+ #main .gv557-game-detail .quiz-card:not(.map-question){width:100%!important;max-width:100%!important;margin-inline:0!important}
+ .gv558-scorebar{padding:8px!important;gap:6px}
+ .gv558-player{font-size:11px;padding:6px;gap:4px}
+ .gv558-player strong{font-size:18px}
+ .gv558-turn{font-size:10px}
+ .gv558-timer{margin-inline:auto;padding:6px 10px}
+ .gv558-time-options{gap:6px}
+ .gv558-time-options button{font-size:11px}
+ .gv558-names{grid-template-columns:1fr}
+}
