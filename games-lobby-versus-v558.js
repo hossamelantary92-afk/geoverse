@@ -7,13 +7,36 @@
  let roundStarted=false, matchMode='solo', seconds=0;
  let activePlayer=1, scores=[0,0], names=['اللاعب 1','اللاعب 2'];
  let clock=null,deadline=0,timeLeft=0;
+ let region='all',regionMap=new Map(),misses=[],roundWarning='';
+ const continentModes=new Set(['capitals','flags','mapfind']);
+ const regionNames={all:['العالم كله','World'],Asia:['آسيا','Asia'],Europe:['أوروبا','Europe'],Africa:['أفريقيا','Africa'],'North America':['أمريكا الشمالية','North America'],'South America':['أمريكا الجنوبية','South America'],Oceania:['أوقيانوسيا','Oceania']};
+ fetch('./country-meta.json?v=gv562-regions').then(r=>r.ok?r.json():Promise.reject()).then(data=>{
+  regionMap=new Map((data.countries||[]).filter(c=>c.code&&c.continent).map(c=>[c.code.toUpperCase(),c]));
+ }).catch(()=>{region='all';});
+ function codeFor(q,mode){
+  if(mode==='flags')return String(q[7]||'').toUpperCase();
+  if(mode==='capitals'){
+   const name=String(q[1]||'').replace(/^What is the capital of\s+/i,'').replace(/\?$/,'').trim();
+   return [...regionMap.values()].find(r=>r.name.toLowerCase()===name.toLowerCase())?.code||'';
+  }
+  if(mode==='mapfind'){
+   const name=String(q[7]||'').trim();
+   return [...regionMap.values()].find(r=>r.name.toLowerCase()===name.toLowerCase())?.code||'';
+  }
+  return '';
+ }
+ function reviewRecord(index){
+   if(index<0||index>=quiz.length||misses.some(r=>r.index===index))return;
+   const q=quiz[index];
+   misses.push({index,question:q[0],en:q[1],answer:q[2]?.[q[4]]||q[7]||'',answerEn:q[3]?.[q[4]]||q[7]||'',info:q[5]||'',infoEn:q[6]||''});
+ }
 
  function stopClock(){
    if(clock!==null){clearInterval(clock);clock=null;}
    deadline=0;
  }
  function resetMatch(){
-   stopClock();roundStarted=false;activePlayer=1;scores=[0,0];
+   stopClock();roundStarted=false;activePlayer=1;scores=[0,0];misses=[];roundWarning='';
  }
  function resetQuestion(){
    state.quizIndex=0;state.quizScore=0;state.quizSelected=null;state.quizComplete=false;
@@ -32,7 +55,7 @@
      if(timeLeft<=0){
        timeLeft=0;
        stopClock();
-       if(state.quizSelected===null){state.quizSelected=-1;render();}
+       if(state.quizSelected===null){reviewRecord(state.quizIndex);state.quizSelected=-1;render();}
      }
    };
    clock=setInterval(tick,200);
@@ -46,30 +69,28 @@
  function buildRound(mode,count){
    const picked=[],seen=new Set();
    const key=q=>mode==='flags'||mode==='mapfind'?String(q[7]||q[1]):String(q[1]||q[0]).trim().toLowerCase();
+   const filtering=region!=='all'&&continentModes.has(mode)&&regionMap.size>0;
    const add=pool=>{
-     for(const q of (Array.isArray(pool)?pool:[])){
+     for(const q of Array.isArray(pool)?pool:[]){
        if(!Array.isArray(q)||!q[0]||!q[1])continue;
+       if(filtering&&regionMap.get(codeFor(q,mode)?.toUpperCase())?.continent!==region)continue;
        const k=key(q);if(seen.has(k))continue;
        seen.add(k);picked.push(q);if(picked.length>=count)break;
      }
    };
-   // The existing generator deliberately limits each batch to 12.
-   // Aggregate independent, deduplicated batches for head-to-head rounds.
-   for(let attempt=0;attempt<12&&picked.length<count;attempt++)add(createGame(mode));
+   for(let attempt=0;attempt<24&&picked.length<count;attempt++)add(createGame(mode));
    if(picked.length<count&&mode==='definitions'){
      const bank=window.GeoVerseQuestionPools;
-     if(bank){
-       add(bank.makeDefinitions?.());
-       add(bank.makeLocations?.());
-     }
+     add(bank?.makeDefinitions?.());
    }
-   if(picked.length<count){
-     // Keep the requested round length even when a legacy mode has a tiny pool.
-     const base=picked.slice();
-     let index=0;
-     while(picked.length<count&&base.length){picked.push(base[index%base.length]);index++;}
-   }
-   return picked.slice(0,count);
+   // Never duplicate to fill a round; the user can change region/difficulty instead.
+   roundWarning=picked.length<count?T('لا يوجد عدد كافٍ من الأسئلة الفريدة لهذا الاختيار. جرّب قارة أو مستوى آخر.','Not enough distinct questions for this setting. Try another region or level.'):'';
+   return picked.length===count?picked:[];
+ }
+ function reviewPanel(){
+   if(!misses.length)return '<section class="gv562-review"><h3>'+T('مراجعة الإجابات','Answer review')+'</h3><p>'+T('أحسنت! لم تُسجل إجابات خاطئة.','Well done! No incorrect answers.')+'</p></section>';
+   return '<section class="gv562-review"><h3>'+T('راجع إجاباتك','Review your answers')+' ('+misses.length+')</h3>'+
+     misses.map(row=>'<article><strong>'+escape(T(row.question,row.en))+'</strong><p><b>'+T('الإجابة الصحيحة: ','Correct answer: ')+escape(T(row.answer,row.answerEn))+'</b></p><small>'+escape(T(row.info,row.infoEn))+'</small></article>').join('')+'</section>';
  }
  function levelOrDefault(){
    return window.GeoVerseGameV110?.getDifficulty?.()||'medium';
@@ -82,10 +103,12 @@
        '<button type="button" data-gv558-mode="'+id+'" class="'+(matchMode===id?'selected':'')+'" aria-pressed="'+(matchMode===id)+'">'+label+'</button>').join('')+'</div>';
    const durationOptions='<div class="gv558-options gv558-time-options" role="group" aria-label="'+T('مؤقت السؤال','Question timer')+'">'+
      [0,15,20,30].map(n=>'<button type="button" data-gv558-seconds="'+n+'" class="'+(seconds===n?'selected':'')+'" aria-pressed="'+(seconds===n)+'">'+(n===0?T('بدون توقيت','No timer'):n+' '+T('ث','sec'))+'</button>').join('')+'</div>';
-   const lobby='<div class="gv558-lobby">'+
+   const area=continentModes.has(selectedGameMode)?'<div class="gv558-config"><h2>'+T('النطاق الجغرافي','Geographical region')+'</h2><select id="gv562-region" class="gv562-region">'+Object.entries(regionNames).map(([k,labels])=>'<option value="'+k+'" '+(k===region?'selected':'')+'>'+escape(T(labels[0],labels[1]))+'</option>').join('')+'</select></div>':'';
+   const lobby='<div class="gv558-lobby">'+area+
      '<div class="gv558-config"><h2>'+T('وضع اللعب','Game mode')+'</h2>'+playerOptions+'</div>'+
      (matchMode==='versus'?'<div class="gv558-config"><h2>'+T('اللاعبون','Players')+'</h2><div class="gv558-names"><input data-gv558-name="0" maxlength="24" autocomplete="off" placeholder="'+T('اللاعب الأول','Player 1')+'" value="'+escape(names[0])+'"><input data-gv558-name="1" maxlength="24" autocomplete="off" placeholder="'+T('اللاعب الثاني','Player 2')+'" value="'+escape(names[1])+'"></div></div>':'')+
      '<div class="gv558-config"><h2>'+T('وقت الإجابة لكل سؤال','Time per question')+'</h2>'+durationOptions+'</div>'+
+     (roundWarning?'<p class="gv562-warning" role="alert">'+escape(roundWarning)+'</p>':'')+
      '<button type="button" id="gv558-start" class="gv558-start">'+T('ابدأ اللعبة','Start game')+' <span aria-hidden="true">←</span></button>'+
      '<p class="gv558-note">'+(matchMode==='versus'?T('20 سؤالًا بالتبادل، 10 أسئلة لكل لاعب.','20 alternating questions, 10 per player.'):T('10 أسئلة لاختبار معلوماتك.','10 questions to test your knowledge.'))+'</p>'+
      '</div>';
@@ -121,7 +144,7 @@
      '</div>'+
      '<button id="gv558-rematch" type="button" class="gv558-start">'+T('العب مباراة جديدة','New match')+'</button>'+
      '</section>';
-   return lead+panel+'</section>';
+   return lead+panel+reviewPanel()+'</section>';
  }
  function scoreboard(){
    let html='<div class="gv558-scorebar">';
@@ -140,6 +163,7 @@
    if(!gameStarted||state.page!=='play')return html;
    if(!roundStarted)return renderLobby(html);
    if(state.quizComplete&&matchMode==='versus')return result(html);
+   if(state.quizComplete&&matchMode==='solo')return html.replace(/<\/section>\s*$/, '')+reviewPanel()+'</section>';
    const slot=html.indexOf('<div class="quiz-card');
    if(slot<0)return html;
    return html.slice(0,slot)+scoreboard()+html.slice(slot);
@@ -177,6 +201,9 @@
    if(target.closest?.('[data-gv557-back]')){
      resetMatch();return;
    }
+   if(target?.id==='gv562-region'){
+     region=target.value;roundWarning='';return;
+   }
    const mode=b?.dataset.gv558Mode;
    if(mode==='solo'||mode==='versus'){
      event.preventDefault();event.stopImmediatePropagation();
@@ -193,7 +220,7 @@
        const i=Number(input.dataset.gv558Name);
        names[i]=input.value.trim().slice(0,24)||(i===0?T('اللاعب 1','Player 1'):T('اللاعب 2','Player 2'));
      });
-     resetQuestion();scores=[0,0];activePlayer=1;
+     resetQuestion();scores=[0,0];activePlayer=1;misses=[];roundWarning='';
      quiz=buildRound(selectedGameMode,matchMode==='versus'?20:10);
      if(!quiz.length){roundStarted=false;render();return;}
      roundStarted=true;timeLeft=seconds;render();startClock();return;
@@ -207,12 +234,14 @@
      resetMatch();return;
    }
    if(b?.dataset.answer!==undefined&&state.quizSelected===null){
-     onAnswer(Number(b.dataset.answer)===quiz[state.quizIndex]?.[4]);
+     const correct=Number(b.dataset.answer)===quiz[state.quizIndex]?.[4];
+     if(!correct)reviewRecord(state.quizIndex);
+     onAnswer(correct);
      return;
    }
    if(selectedGameMode==='mapfind'&&state.quizSelected===null){
      const correct=mapAnswerIsCorrect(target);
-     if(correct!==null){onAnswer(correct);return;}
+     if(correct!==null){if(!correct)reviewRecord(state.quizIndex);onAnswer(correct);return;}
    }
    if(b?.id==='nextQuiz'){
      stopClock();
@@ -234,6 +263,9 @@
    }
  },true);
  // Preserve names while typing, including a later mode/timer re-render.
+ document.addEventListener('change',function(event){
+   if(event.target?.id==='gv562-region'){region=event.target.value;roundWarning='';}
+ },true);
  document.addEventListener('input',function(event){
    const input=event.target.closest?.('[data-gv558-name]');
    if(input){const i=Number(input.dataset.gv558Name);names[i]=input.value.slice(0,24);}
