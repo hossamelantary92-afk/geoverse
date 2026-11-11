@@ -202,10 +202,14 @@ function learn(){
    if(!c)return '';
    const percent=progressValue(id);
    // Keep approved Premium photographs when reusing the Encyclopedia card component.
-   const approvedPhoto=window.GeoVersePremiumCovers?.get(id,900);
-   const photo=approvedPhoto||im(c.img,900);
+   const approvedPhoto=id==='astronomy'
+     ? './assets/category-covers/astronomy-premium-v549.webp?v=586'
+     : window.GeoVersePremiumCovers?.get(id,900);
+   const fallback=im(c.img,900);
+   const photo=approvedPhoto||fallback;
+   const imageError=id==='astronomy'?' onerror="this.onerror=null;this.src=\''+escapeHTML(fallback)+'\'"':'';
    return '<button class="category-card" data-cat="'+id+'">'+
-     '<img loading="lazy" decoding="async" src="'+escapeHTML(photo)+'" alt="'+escapeHTML(label(c))+'">'+
+     '<img loading="lazy" decoding="async" src="'+escapeHTML(photo)+'"'+imageError+' alt="'+escapeHTML(label(c))+'">'+
      '<span class="label"><span>'+c.emoji+'</span>'+escapeHTML(label(c))+'</span>'+
      '<span class="gv584-topic-progress" aria-label="'+percent+'% '+lang('مكتمل','complete')+'">'+percent+'%</span>'+
      '</button>';
