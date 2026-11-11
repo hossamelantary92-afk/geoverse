@@ -18,7 +18,7 @@
   background-image:var(--gv511-backdrop)!important;
   background-size:cover!important;
   background-position:center!important;
-  filter:blur(19px) saturate(.86) brightness(.80)!important;
+  filter:blur(28px) saturate(.9) brightness(.96)!important;
   opacity:1!important;
   pointer-events:none!important;
   z-index:0!important;
@@ -27,12 +27,15 @@
   position:relative!important;
   z-index:1!important;
   width:100%!important;
-  height:100%!important;
+  height:auto!important;
+  max-height:100%!important;
+  flex:0 1 auto!important;
   object-fit:contain!important;
   object-position:center!important;
-  /* Feather the image edges into its own blurred background; avoid a
-     visible rectangular boundary while retaining the complete composition. */
-  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 11%,#000 89%,transparent 100%)!important;
+  /* Fade against the image's intrinsic painted height, not the 16:10
+     letterboxed container: otherwise Safari reveals hard horizontal bands.
+     The full original frame remains contained, with no cropping. */
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 5%,#000 95%,transparent 100%)!important;
   mask-image:linear-gradient(to bottom,transparent 0%,#000 11%,#000 89%,transparent 100%)!important;
  }
  #main:has(> .gv196-detail) > .gv-landmark-back-row{
