@@ -28,7 +28,7 @@
  function reviewRecord(index){
    if(index<0||index>=quiz.length||misses.some(r=>r.index===index))return;
    const q=quiz[index];
-   misses.push({index,question:q[0],en:q[1],answer:q[2]?.[q[4]]||q[7]||'',answerEn:q[3]?.[q[4]]||q[7]||'',info:q[5]||'',infoEn:q[6]||''});
+   misses.push({index,mode:selectedGameMode,visual:q[8]||'',question:q[0],en:q[1],answer:q[2]?.[q[4]]||q[7]||'',answerEn:q[3]?.[q[4]]||q[7]||'',info:q[5]||'',infoEn:q[6]||''});
  }
 
  function stopClock(){
@@ -94,7 +94,16 @@
  function reviewPanel(){
    if(!misses.length)return '<section class="gv562-review"><h3>'+T('مراجعة الإجابات','Answer review')+'</h3><p>'+T('أحسنت! لم تُسجل إجابات خاطئة.','Well done! No incorrect answers.')+'</p></section>';
    return '<section class="gv562-review"><h3>'+T('راجع إجاباتك','Review your answers')+' ('+misses.length+')</h3>'+
-     misses.map(row=>'<article><strong>'+escape(T(row.question,row.en))+'</strong><p><b>'+T('الإجابة الصحيحة: ','Correct answer: ')+escape(T(row.answer,row.answerEn))+'</b></p><small>'+escape(T(row.info,row.infoEn))+'</small></article>').join('')+'</section>';
+     misses.map(row=>{
+       let illustration='';
+       const visual=String(row.visual||'');
+       if(row.mode==='silhouette'&&visual.trim().startsWith('<svg ')&&visual.includes('</svg>')){
+         illustration='<div class="gv564-review-shape" aria-label="'+T('شكل الدولة الذي ظهر في السؤال','Original country outline')+'">'+visual+'</div>';
+       }else if(row.mode==='landmarkphoto'&&(visual.startsWith('https://upload.wikimedia.org/')||visual.startsWith('https://thumb.wikimedia.org/'))){
+         illustration='<div class="gv564-review-photo"><img loading="lazy" decoding="async" src="'+escape(visual)+'" alt="'+T('صورة المعلم','Landmark photo')+'"></div>';
+       }
+       return '<article class="gv564-review-item"><span class="gv564-review-number">'+T('السؤال','Question')+' '+(row.index+1)+'</span><strong>'+escape(T(row.question,row.en))+'</strong>'+illustration+'<p><b>'+T('الإجابة الصحيحة: ','Correct answer: ')+escape(T(row.answer,row.answerEn))+'</b></p><small>'+escape(T(row.info,row.infoEn))+'</small></article>';
+     }).join('')+'</section>';
  }
  function levelOrDefault(){
    return window.GeoVerseGameV110?.getDifficulty?.()||'medium';
