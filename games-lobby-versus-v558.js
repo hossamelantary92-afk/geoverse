@@ -240,12 +240,37 @@
    if(!gameStarted||state.page!=='play')return html;
    if(!roundStarted)return renderLobby(html);
    if(state.quizComplete&&matchMode==='versus')return result(html);
-   if(state.quizComplete&&matchMode==='solo')return html.replace(/<\/section>\s*$/, '')+reviewPanel()+'</section>';
+   if(state.quizComplete&&matchMode==='solo'){
+     const totalMissed=Math.max(0,quiz.length-state.quizScore);
+     const review=misses.length===0&&totalMissed>0
+       ?'<section class="gv562-review"><h3>'+T('مراجعة الإجابات','Answer review')+'</h3><p>'+T('كانت هناك '+totalMissed+' إجابات غير صحيحة، لكن لم تُحفظ تفاصيلها لهذه الجولة.','There were '+totalMissed+' wrong answers, but their details were not captured for this round.')+'</p></section>'
+       :reviewPanel();
+     return html.replace(/<\/section>\s*$/, '')+review+'</section>';
+   }
    const slot=html.indexOf('<div class="quiz-card');
    if(slot<0)return html;
-   return html.slice(0,slot)+scoreboard()+html.slice(slot);
+   return compactMapFeedback(html.slice(0,slot)+scoreboard()+html.slice(slot));
  };
+ function syncAnswerReview(){
+   if(!roundStarted||state.page!=='play'||!gameStarted||state.quizComplete)return;
+   const chosen=state.quizSelected;
+   if(chosen===null||chosen===undefined)return;
+   const q=quiz?.[state.quizIndex];if(!q)return;
+   const incorrect=chosen===-1||(selectedGameMode==='mapfind'?chosen!==0:chosen!==q[4]);
+   if(incorrect)reviewRecord(state.quizIndex);
+ }
+ function compactMapFeedback(html){
+   if(selectedGameMode!=='mapfind'||state.quizSelected===null||state.quizComplete)return html;
+   const card=html.indexOf('<div class="quiz-card map-question">');
+   if(card<0)return html;
+   const fragment=html.slice(card);
+   const match=fragment.match(/<div class="quiz-feedback">[\s\S]*?<\/div>\s*<button id="nextQuiz"[^>]*>[\s\S]*?<\/button>/);
+   if(!match)return html;
+   const rest=fragment.replace(match[0],'');
+   return html.slice(0,card)+rest.replace('<div id="gameMap"','<div class="gv573-map-result" role="status">'+match[0]+'</div><div id="gameMap"');
+ }
  render=function(){
+   syncAnswerReview();
    priorRender();
    if(state.page!=='play'||!gameStarted){stopClock();roundStarted=false;}
  };
@@ -319,6 +344,7 @@
      if(correct!==null){if(!correct)reviewRecord(state.quizIndex);onAnswer(correct);return;}
    }
    if(b?.id==='nextQuiz'){
+     syncAnswerReview();
      stopClock();
      // Each question receives a completely fresh countdown.
      timeLeft=seconds;
@@ -329,6 +355,13 @@
      setTimeout(()=>{
        if(roundStarted&&state.page==='play'&&!state.quizComplete&&state.quizSelected===null){
          timeLeft=seconds;startClock();
+       }
+       if(roundStarted&&state.page==='play'){
+         const top=document.querySelector('.gv557-game-detail .quiz-question')||document.querySelector('.gv557-game-header');
+         if(top){
+           const offset=(document.querySelector('.topbar')?.getBoundingClientRect().height||76)+12;
+           window.scrollTo({top:Math.max(0,top.getBoundingClientRect().top+window.scrollY-offset),behavior:'instant'});
+         }
        }
      },0);
    }
