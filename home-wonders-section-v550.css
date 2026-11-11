@@ -42,3 +42,18 @@
  #main .gv550-wonders-heading h2{font-size:20px;}
  #main .gv550-wonders-heading p{font-size:11px;}
 }
+
+/* gv551 — exact same premium divider between Wonders and Games. */
+#main .gv550-wonders-divider.gv551-games-divider{
+ margin-top:clamp(27px,4.2vw,42px)!important;
+ margin-bottom:18px!important;
+}
+#main .gv551-games-divider + .gv17-games{
+ margin-top:0!important;
+}
+@media(max-width:700px){
+ #main .gv550-wonders-divider.gv551-games-divider{
+  margin-top:24px!important;
+  margin-bottom:16px!important;
+ }
+}
