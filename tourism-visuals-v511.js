@@ -40,7 +40,8 @@ function photoTargets(){
  if(main.querySelector('.gv196-detail')){
   const detailNode=main.querySelector('.gv196-detail');
   const idFromNode=detailNode?.querySelector('[data-item^="tourism:"]')?.dataset.item?.split(':')[1];
-  const row=catalog()[Number.isInteger(state.item)?state.item:Number(idFromNode)],header=main.querySelector('.gv196-detail > .gv196-hero');
+  const itemIndex=Number(state.item);
+  const row=catalog()[Number.isInteger(itemIndex)&&itemIndex>=0?itemIndex:Number(idFromNode)],header=main.querySelector('.gv196-detail > .gv196-hero');
   if(row&&header){
    let slot=main.querySelector('.gv196-detail > .gv511-detail-photo');
    if(slot&&Number(slot.dataset.gv511Photo)!==row.index){slot.remove();slot=null}
@@ -158,9 +159,15 @@ function view(index,slot){
 function watch(index,slot,root){
  if(watchers.has(slot))return;
  watchers.add(slot);
+ // A country contains only 15 cards: request immediately instead of waiting for
+ // an IntersectionObserver to fire inside a nested, independently scrolling pane.
+ // Keep the existing batching/cache and off-DOM image preload safeguards.
+ if(slot.classList.contains('gv511-thumb')||slot.classList.contains('gv511-detail-photo')){
+  view(index,slot);return;
+ }
  if(!observer){view(index,slot);return}
- observer.observe(root);
  photoIds.set(root,{index,slot});
+ observer.observe(root);
 }
 function scan(){
  queued=false;
