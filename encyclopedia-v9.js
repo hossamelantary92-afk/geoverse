@@ -59,7 +59,7 @@ function coreCountryArticle(){
  const info=countryInfo.facts?.[code]||null,c=state.lang==='ar'?(arRegion[r.continent]||r.continent):r.continent;
  const pop=info&&Number.isFinite(info.p)?number(info.p):lang('غير متاح','Unavailable');
  const area=info&&Number.isFinite(info.a)?number(info.a)+' '+lang('كم²','km²'):lang('غير متاح','Unavailable');
- const populationNote=info?.py?lang('بيانات البنك الدولي · '+info.py,'World Bank · '+info.py):lang('عدد تقريبي','Approximate figure');
+ const populationNote=info?.py?lang('بيانات البنك الدولي · '+info.py,'World Bank · '+info.py):(info&&Number.isFinite(info.p)?lang('سنة البيانات السكانية غير موثقة','Population reference year unverified'):lang('لا تتوفر بيانات سكانية','Population data unavailable'));
  const areaNote=code==='FR'?lang('مساحة فرنسا الأوروبية تقريبًا؛ لا تشمل أقاليم ما وراء البحار','Approximate metropolitan France area; overseas territories excluded'):lang('المساحة التقريبية','Approximate area');
  const title=esc(nativeName(code)),eng=esc(r.name);
  const hasMappedBoundary=!!meta()?.featLookup?.get(code);
