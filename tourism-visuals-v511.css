@@ -207,3 +207,30 @@
   filter:none!important;
  }
 }
+
+/* gv523 — compact title card, independent of image height.
+   The picture may be tall, but the identity panel should hug its content. */
+@media(min-width:901px){
+ #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded){
+  align-items:center!important;
+ }
+ #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded) > .gv196-hero{
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  align-self:center!important;
+  justify-content:center!important;
+  padding:20px 24px!important;
+  margin:0!important;
+  border-radius:18px!important;
+ }
+ #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded) > .gv196-hero h1{
+  font-size:clamp(25px,2.9vw,37px)!important;
+  line-height:1.25!important;
+  margin:2px 0 3px!important;
+ }
+ #main .gv196-detail:has(> .gv511-detail-photo.gv511-loaded) > .gv196-hero .gv196-hero-location{
+  margin:4px 0 0!important;
+  line-height:1.6!important;
+ }
+}
