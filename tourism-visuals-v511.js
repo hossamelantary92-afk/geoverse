@@ -99,17 +99,17 @@ function paint(slot,index,src){
 const curating=new Set(), curated=new Set();
 const curationQueue=[];
 let curationActive=0;
-const badPhotoTerms=/\\b(selfie|portrait|tourist|tourists|crowd|people|person|woman|man|group|visitors|painting|drawing|illustration|diagram|map|model|replica|poster|logo|flag|icon|screenshot|festival|ceremony|wedding|protest)\\b/i;
-const goodPhotoTerms=/\\b(panorama|panoramic|overview|exterior|facade|landscape|wide|aerial|sunset|sunrise|dusk|night|architecture|temple|palace|mosque|pyramid|monument)\\b/i;
+const badPhotoTerms=/\b(selfie|portrait|tourist|tourists|crowd|people|person|woman|man|group|visitors|painting|drawing|illustration|diagram|map|model|replica|poster|logo|flag|icon|screenshot|festival|ceremony|wedding|protest)\b/i;
+const goodPhotoTerms=/\b(panorama|panoramic|overview|exterior|facade|landscape|wide|aerial|sunset|sunrise|dusk|night|architecture|temple|palace|mosque|pyramid|monument)\b/i;
 function matchTerms(text){
- return normalize(text).replace(/^(?:file:)/,'').replace(/\\.(?:jpg|jpeg|png|webp)$/i,'')
-  .replace(/[^a-z0-9 ]/gi,' ').split(/\\s+/)
+ return normalize(text).replace(/^(?:file:)/,'').replace(/\.(?:jpg|jpeg|png|webp)$/i,'')
+  .replace(/[^a-z0-9 ]/gi,' ').split(/\s+/)
   .filter(w=>w.length>2&&!/^(the|and|for|with|from|old|new|photo|image|view|near|site|city|main|building)$/.test(w))
   .map(w=>w.replace(/(?:ies)$/,'y').replace(/s$/,''));
 }
 function rankCommonsImage(page,item){
  const info=page.imageinfo?.[0],title=page.title||'';
- if(!info||!eligible(info.thumburl)||!/^image\\/(?:jpeg|png|webp)$/i.test(info.mime||'')||badPhotoTerms.test(title))return null;
+ if(!info||!eligible(info.thumburl)||!/^image\/(?:jpeg|png|webp)$/i.test(info.mime||'')||badPhotoTerms.test(title))return null;
  if((info.width||0)<1400||(info.height||0)<700)return null;
  const words=matchTerms(title),terms=matchTerms(titleFor(item));
  if(!terms.length)return null;
