@@ -120,3 +120,9 @@
   .gv12-head h1{font-size:clamp(26px,6.15vw,37px)}
   .gv12-head-count{left:10px;bottom:12px}
 }
+
+/* GV592 — Each approved Arabic atlas sentence stays on exactly one line. */
+.gv12-head .gv12-desc-line{display:block;white-space:nowrap}
+@media(max-width:700px){
+ .gv12-head .gv12-headline p{max-width:none;font-size:clamp(8px,2.15vw,10px);letter-spacing:-.08px;line-height:1.85}
+}
