@@ -107,7 +107,7 @@
    let html='<div class="gv558-scorebar">';
    if(matchMode==='versus'){
      html+='<div class="gv558-player '+(activePlayer===1?'current':'')+'"><span>'+escape(names[0])+'</span><strong>'+scores[0]+'</strong></div>'+
-       '<span class="gv558-turn">'+T('دور','Turn')+' '+escape(names[activePlayer-1])+'</span>'+
+       '<span class="gv558-turn"><span>'+T('الدور الحالي','Current turn')+'</span><b>'+escape(names[activePlayer-1])+'</b></span>'+
        '<div class="gv558-player '+(activePlayer===2?'current':'')+'"><span>'+escape(names[1])+'</span><strong>'+scores[1]+'</strong></div>';
    }else{
      html+='<div class="gv558-solo-score">'+T('نقاطك','Your score')+': <strong>'+state.quizScore+'</strong></div>';
