@@ -237,11 +237,11 @@
    watermark and harmonize letterbox space without cropping the real photo. */
 @media(max-width:900px){
  #main .gv196-detail > .gv196-hero.gv525-country-flag::before{
-  background-size:82% auto!important;
+  background-size:88% auto!important;
   background-position:center!important;
-  opacity:.085!important;
-  -webkit-mask-image:radial-gradient(ellipse 66% 64% at 50% 50%,#000 30%,transparent 91%)!important;
-  mask-image:radial-gradient(ellipse 66% 64% at 50% 50%,#000 30%,transparent 91%)!important;
+  opacity:.16!important;
+  -webkit-mask-image:radial-gradient(ellipse 76% 76% at 50% 50%,#000 42%,transparent 96%)!important;
+  mask-image:radial-gradient(ellipse 76% 76% at 50% 50%,#000 42%,transparent 96%)!important;
  }
  #main .gv196-detail > .gv196-hero.gv525-country-flag::after{
   background:linear-gradient(135deg,rgba(5,28,45,.18),rgba(9,45,65,.32))!important;
