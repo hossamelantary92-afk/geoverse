@@ -195,14 +195,17 @@ function learn(){
  ['🏜️','تضاريس الأرض','Landforms',['deserts','mountains','valleys','volcanoes']],
  ['🌿','الطبيعة والمناخ','Nature & Climate',['forests','islands','glaciers','climate','grasslands']]
  ];
- // Reuse the exact encyclopedia directory card markup and photo pipeline.
- // Learning differs only in the chapter order and optional completion badge.
+ // Reuse the Encyclopedia card component with the approved Premium image manifest.
+ // Learning differs only in chapter order and the completion badge.
  const topicCard=id=>{
    const c=cats.find(x=>x.id===id);
    if(!c)return '';
    const percent=progressValue(id);
+   // Keep approved Premium photographs when reusing the Encyclopedia card component.
+   const approvedPhoto=window.GeoVersePremiumCovers?.get(id,900);
+   const photo=approvedPhoto||im(c.img,900);
    return '<button class="category-card" data-cat="'+id+'">'+
-     '<img loading="lazy" src="'+im(c.img)+'" alt="'+escapeHTML(label(c))+'">'+
+     '<img loading="lazy" decoding="async" src="'+escapeHTML(photo)+'" alt="'+escapeHTML(label(c))+'">'+
      '<span class="label"><span>'+c.emoji+'</span>'+escapeHTML(label(c))+'</span>'+
      '<span class="gv584-topic-progress" aria-label="'+percent+'% '+lang('مكتمل','complete')+'">'+percent+'%</span>'+
      '</button>';
