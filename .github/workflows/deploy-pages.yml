@@ -1,0 +1,46 @@
+name: Publish GeoVerse to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "github-pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+
+      - name: Verify tourism release assets
+        run: |
+          test -f index.html
+          test -f tourism-visuals-v511.js
+          test -f tourism-visuals-v511.css
+          test -f tourism-check.html
+          grep -q 'gv515-photo-preload-fix' index.html
+          grep -q 'tourism-visuals-v511.js' index.html
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload static site files
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: '.'
+
+      - name: Deploy current main to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
