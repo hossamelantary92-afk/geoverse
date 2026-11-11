@@ -8,13 +8,13 @@
  let activePlayer=1, scores=[0,0], names=['اللاعب 1','اللاعب 2'];
  let clock=null,deadline=0,timeLeft=0;
  let region='all',regionMap=new Map(),misses=[],roundWarning='';
- const continentModes=new Set(['capitals','flags','mapfind']);
+ const continentModes=new Set(['capitals','flags','mapfind','silhouette','landmarkphoto']);
  const regionNames={all:['العالم كله','World'],Asia:['آسيا','Asia'],Europe:['أوروبا','Europe'],Africa:['أفريقيا','Africa'],'North America':['أمريكا الشمالية','North America'],'South America':['أمريكا الجنوبية','South America'],Oceania:['أوقيانوسيا','Oceania']};
  fetch('./country-meta.json?v=gv562-regions').then(r=>r.ok?r.json():Promise.reject()).then(data=>{
   regionMap=new Map((data.countries||[]).filter(c=>c.code&&c.continent).map(c=>[c.code.toUpperCase(),c]));
  }).catch(()=>{region='all';});
  function codeFor(q,mode){
-  if(mode==='flags')return String(q[7]||'').toUpperCase();
+  if(['flags','silhouette','landmarkphoto'].includes(mode))return String(q[7]||'').toUpperCase();
   if(mode==='capitals'){
    const name=String(q[1]||'').replace(/^What is the capital of\s+/i,'').replace(/\?$/,'').trim();
    return [...regionMap.values()].find(r=>r.name.toLowerCase()===name.toLowerCase())?.code||'';
@@ -68,7 +68,7 @@
  }
  function buildRound(mode,count){
    const picked=[],seen=new Set();
-   const key=q=>mode==='flags'||mode==='mapfind'?String(q[7]||q[1]):String(q[1]||q[0]).trim().toLowerCase();
+   const key=q=>['flags','mapfind','silhouette','landmarkphoto'].includes(mode)?String(q[7]||q[1])+(mode==='landmarkphoto'?':'+q[1]:''):String(q[1]||q[0]).trim().toLowerCase();
    const filtering=region!=='all'&&continentModes.has(mode)&&regionMap.size>0;
    const add=pool=>{
      for(const q of Array.isArray(pool)?pool:[]){
