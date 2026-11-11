@@ -30,7 +30,7 @@ function games(){
  ];
  return '<div class="gv550-wonders-divider gv551-games-divider" aria-hidden="true"><span></span><i></i><span></span></div>'+
   '<section class="gv17-games" aria-labelledby="gv17GamesTitle">'+
-  '<div class="gv17-heading"><div><span class="gv17-overline">'+T('اختبر معرفتك','PUT YOUR KNOWLEDGE TO THE TEST')+'</span><h2 id="gv17GamesTitle">'+T('الألعاب والتحديات','Games & Challenges')+'</h2><p>'+T('اكتشف العالم بطريقة ممتعة','Play interactive geography challenges and discover how much you know.')+'</p></div><button type="button" class="gv17-text-action" data-page="play">'+T('جميع الألعاب','All games')+' '+icon('arrow',16)+'</button></div>'+
+  '<div class="gv17-heading"><div><h2 id="gv17GamesTitle">'+T('الألعاب و التحديات','Games & Challenges')+'</h2><p>'+T('اختبر معرفتك و اكتشف العالم بطريقة ممتعة','Test your knowledge and discover the world in a fun way.')+'</p></div><button type="button" class="gv17-text-action" data-page="play">'+T('جميع الألعاب','All games')+' '+icon('arrow',16)+'</button></div>'+
   '<div class="gv17-games-grid">'+items.map((g,i)=>'<button type="button" class="gv17-game gv17-game-'+g.color+'" data-gv17-game="'+g.id+'">'+
    '<img class="gv20-game-photo" loading="lazy" decoding="async" src="'+im(g.photo,700)+'" alt="" aria-hidden="true"><span class="gv20-game-shade" aria-hidden="true"></span><span class="gv20-game-head"><span class="gv17-game-num">0'+(i+1)+'</span><span class="gv17-game-icon">'+icon(g.icon,30)+'</span></span><span class="gv20-game-kicker">'+g.level+'</span>'+
    '<strong>'+g.name+'</strong><small>'+g.desc+'</small><span class="gv17-game-launch">'+T('العب الآن','Play now')+' '+icon('arrow',16)+'</span></button>').join('')+'</div>'+
