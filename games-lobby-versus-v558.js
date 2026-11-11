@@ -28,7 +28,7 @@
  function reviewRecord(index){
    if(index<0||index>=quiz.length||misses.some(r=>r.index===index))return;
    const q=quiz[index];
-   misses.push({index,mode:selectedGameMode,visual:q[8]||'',question:q[0],en:q[1],answer:q[2]?.[q[4]]||q[7]||'',answerEn:q[3]?.[q[4]]||q[7]||'',info:q[5]||'',infoEn:q[6]||''});
+   misses.push({index,mode:selectedGameMode,flagCode:selectedGameMode==='flags'?String(q[7]||'').toUpperCase():'',visual:q[8]||'',question:q[0],en:q[1],answer:q[2]?.[q[4]]||q[7]||'',answerEn:q[3]?.[q[4]]||q[7]||'',info:q[5]||'',infoEn:q[6]||''});
  }
 
  function stopClock(){
@@ -128,6 +128,13 @@
    return '<section class="gv562-review"><h3>'+T('راجع إجاباتك','Review your answers')+' ('+misses.length+')</h3>'+
      misses.map(row=>{
        let illustration='';
+       const code=String(row.flagCode||'').trim().toUpperCase();
+       if(row.mode==='flags'&&/^[A-Z]{2}$/.test(code)){
+         const emoji=String.fromCodePoint(...[...code].map(c=>127397+c.charCodeAt(0)));
+         const name=escape(T(row.answer,row.answerEn));
+         // Keep the same ISO code that generated the original quiz flag.
+         illustration='<div class="gv574-review-flag" aria-label="'+T('العلم الذي ظهر في السؤال','Flag shown in the question')+'"><span class="gv574-flag-emoji" aria-hidden="true">'+emoji+'</span><img loading="lazy" decoding="async" src="https://flagcdn.com/w320/'+code.toLowerCase()+'.png" alt="'+T('علم ','Flag of ')+name+'"></div>';
+       }
        const visual=String(row.visual||'');
        if(row.mode==='silhouette'&&visual.trim().startsWith('<svg ')&&visual.includes('</svg>')){
          illustration='<div class="gv564-review-shape" aria-label="'+T('شكل الدولة الذي ظهر في السؤال','Original country outline')+'">'+visual+'</div>';
