@@ -87,7 +87,7 @@
      (matchMode==='versus'?'<div class="gv558-config"><h2>'+T('اللاعبون','Players')+'</h2><div class="gv558-names"><input data-gv558-name="0" maxlength="24" autocomplete="off" placeholder="'+T('اللاعب الأول','Player 1')+'" value="'+escape(names[0])+'"><input data-gv558-name="1" maxlength="24" autocomplete="off" placeholder="'+T('اللاعب الثاني','Player 2')+'" value="'+escape(names[1])+'"></div></div>':'')+
      '<div class="gv558-config"><h2>'+T('وقت الإجابة لكل سؤال','Time per question')+'</h2>'+durationOptions+'</div>'+
      '<button type="button" id="gv558-start" class="gv558-start">'+T('ابدأ اللعبة','Start game')+' <span aria-hidden="true">←</span></button>'+
-     '<p class="gv558-note">'+(matchMode==='versus'?T('20 سؤالًا بالتناوب، 10 أسئلة لكل لاعب.','20 alternating questions, 10 per player.'):T('10 أسئلة لاختبار معلوماتك.','10 questions to test your knowledge.'))+'</p>'+
+     '<p class="gv558-note">'+(matchMode==='versus'?T('20 سؤالًا بالتبادل، 10 أسئلة لكل لاعب.','20 alternating questions, 10 per player.'):T('10 أسئلة لاختبار معلوماتك.','10 questions to test your knowledge.'))+'</p>'+
      '</div>';
    return lead+lobby+'</section>';
  }
@@ -95,12 +95,32 @@
    const point=html.indexOf('<div class="quiz-card');
    if(point<0)return html;
    const lead=html.slice(0,point);
-   const winner=scores[0]===scores[1]?T('تعادل!','It’s a tie!'):
-     escape(names[scores[0]>scores[1]?0:1])+' '+T('هو الفائز!','wins!');
-   const panel='<section class="gv558-final" aria-live="polite"><span class="gv558-trophy" aria-hidden="true">🏆</span>'+
-     '<h2>'+T('انتهت المنافسة','Match complete')+'</h2><p class="gv558-winner">'+winner+'</p>'+
-     '<div class="gv558-final-scores"><div><span>'+escape(names[0])+'</span><strong>'+scores[0]+'</strong></div><div><span>'+escape(names[1])+'</span><strong>'+scores[1]+'</strong></div></div>'+
-     '<button id="gv558-rematch" type="button" class="gv558-start">'+T('إعادة المباراة','Play again')+'</button></section>';
+   const tied=scores[0]===scores[1];
+   const winnerIndex=scores[0]>scores[1]?0:1;
+   const winnerName=escape(names[winnerIndex]);
+   const particles=Array.from({length:18},(_,i)=>'<i style="--i:'+i+';--angle:'+(i*20)+'deg" aria-hidden="true"></i>').join('');
+   const emblem=tied
+     ?'<span class="gv561-symbol gv561-equal" aria-hidden="true">=</span>'
+     :'<span class="gv561-symbol gv561-cup" aria-hidden="true">🏆</span>';
+   const headline=tied?T('تعادل رائع!','A great tie!'):T('تهانينا للفائز!','Congratulations!');
+   const description=tied
+     ?T('منافسة متكافئة حتى آخر سؤال','An evenly matched challenge to the final question')
+     :T('أداء مميز واستحقاق للفوز','An outstanding winning performance');
+   const resultLine=tied
+     ?T('اللاعبان تقاسما الصدارة','Both players share first place')
+     :winnerName+' '+T('يتصدر المنافسة','takes the win');
+   const panel='<section class="gv558-final gv561-celebration '+(tied?'gv561-draw':'gv561-victory')+'" aria-live="polite">'+
+     '<div class="gv561-particles" aria-hidden="true">'+particles+'</div>'+
+     '<div class="gv561-medallion">'+emblem+'</div>'+
+     '<span class="gv561-kicker">'+T('النتيجة النهائية','FINAL RESULT')+'</span>'+
+     '<h2>'+headline+'</h2><p class="gv561-highlight">'+resultLine+'</p>'+
+     '<p class="gv561-subtitle">'+description+'</p>'+
+     '<div class="gv558-final-scores">'+
+       '<div class="'+(!tied&&winnerIndex===0?'gv561-champion':'')+'"><span>'+escape(names[0])+'</span><strong>'+scores[0]+'</strong></div>'+
+       '<div class="'+(!tied&&winnerIndex===1?'gv561-champion':'')+'"><span>'+escape(names[1])+'</span><strong>'+scores[1]+'</strong></div>'+
+     '</div>'+
+     '<button id="gv558-rematch" type="button" class="gv558-start">'+T('العب مباراة جديدة','New match')+'</button>'+
+     '</section>';
    return lead+panel+'</section>';
  }
  function scoreboard(){
