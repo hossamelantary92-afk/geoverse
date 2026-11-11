@@ -71,6 +71,9 @@ function paint(slot,index,src){
   if(slot.dataset.gv511Loaded===src)return;
   slot.querySelector('img.gv511-img')?.remove();
   slot.appendChild(img);
+  if(slot.classList.contains('gv511-detail-photo')&&img.naturalWidth&&img.naturalHeight){
+   slot.style.setProperty('--gv511-photo-ratio',String(img.naturalWidth/img.naturalHeight));
+  }
   // Subtle backdrop uses the very same verified image, never a different photo.
   slot.style.setProperty('--gv511-backdrop','url('+JSON.stringify(src)+')');
   slot.dataset.gv511Loaded=src;
