@@ -71,6 +71,8 @@ function paint(slot,index,src){
   if(slot.dataset.gv511Loaded===src)return;
   slot.querySelector('img.gv511-img')?.remove();
   slot.appendChild(img);
+  // Subtle backdrop uses the very same verified image, never a different photo.
+  slot.style.setProperty('--gv511-backdrop','url('+JSON.stringify(src)+')');
   slot.dataset.gv511Loaded=src;
   slot.classList.add('gv511-loaded');
   if(slot.classList.contains('gv511-thumb'))slot.closest('.gv197-minimal-card')?.classList.add('gv511-has-photo');
