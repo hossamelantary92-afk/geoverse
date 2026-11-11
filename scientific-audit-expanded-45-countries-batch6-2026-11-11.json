@@ -1,0 +1,711 @@
+{
+  "project": "GeoVerse",
+  "batch": 6,
+  "date": "2026-11-11",
+  "method": "Read-only source-level screen of 45 previously untouched records. Matched current article natural/heritage claims to four separately verified primary UNESCO URLs; other 41 records remain awaiting specific official evidence.",
+  "source_policy": "UNESCO World Heritage property pages are NOT full-country citations; a protected property's state-party listing does not confer sovereign status on a territory. UN M49 applies to statistical countries/areas, not a political endorsement.",
+  "metrics": {
+    "new_unique_records": 45,
+    "official_evidence_matched": 4,
+    "pending_source_validation": 41,
+    "prior_batch_records": 173,
+    "cumulative_batch_records": 218,
+    "remaining_for_batch_screening": 27,
+    "fully_verified_articles": 0
+  },
+  "records": [
+    {
+      "code": "UK",
+      "title_en": "United Kingdom: islands and oceanic climate",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Landscapes span Cornwall's coast, Scottish sea lochs and islands, peatlands, glacial lakes, uplands and important seabird habitats.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [
+        "legacy_non_iso_or_historical_code"
+      ],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "CN",
+      "title_en": "China: plateaus and great rivers",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Natural regions range from eastern river wetlands to high western plateaus, southern karst landscapes, temperate forests and northern deserts.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [
+        "geographic_claims_need_local_sources"
+      ],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "CO",
+      "title_en": "Colombia: Andes, Amazon and Caribbean and Pacific coasts",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Colombia combines Andean peaks, Amazon rainforest, the Llanos grasslands and tropical coasts. The Magdalena River is a major geographic and historic corridor between inland highlands and the Caribbean, while the Pacific margin includes exceptionally wet rainfo",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [
+        "geographic_claims_need_local_sources"
+      ],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "VE",
+      "title_en": "Venezuela: Orinoco, plains and Caribbean",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Angel Falls drops from Auyán-tepui in Canaima National Park amid southern forests and rivers. The Orinoco and its delta support extensive wetland ecosystems, while northern Caribbean coasts and islands contrast with the country's interior highlands.",
+      "source_status": "specific_official_source_supports_narrow_claim",
+      "citation": {
+        "url": "https://whc.unesco.org/en/list/701",
+        "site": "Canaima National Park",
+        "claim": "Tepui table mountains and waterfalls including Angel Falls",
+        "kind": "site_and_physical_feature_supported"
+      },
+      "flags": [
+        "geographic_claims_need_local_sources"
+      ],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "BO",
+      "title_en": "Bolivia: Altiplano, Andes and eastern lowlands",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Major Bolivian natural features include Lake Titicaca shared with Peru, the vast Salar de Uyuni salt flat in the southwestern highlands, humid Yungas valleys, and lowland forests and plains connected to Amazon drainage.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [
+        "geographic_claims_need_local_sources"
+      ],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "PY",
+      "title_en": "Paraguay: Paraguay River and Chaco",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "The Chaco contains dry forests and seasonal wetlands, while the east has river systems, forests and major hydropower infrastructure such as Itaipu, shared with Brazil.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [
+        "geographic_claims_need_local_sources"
+      ],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "UY",
+      "title_en": "Uruguay: Grasslands and Río de la Plata",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Uruguay's landscapes include Pampas grasslands, low hills and coastal wetlands, including Lake Merín shared with Brazil and coastal Laguna de Rocha. Sandy beaches line the Atlantic, while the Río de la Plata estuary includes historic towns such as Colonia del ",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [
+        "geographic_claims_need_local_sources"
+      ],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "CM",
+      "title_en": "Cameroon: Gulf of Guinea to Lake Chad",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Notable landscapes include volcanic Mount Cameroon, southern Congo Basin forests and northern savannas, placing the country across multiple African ecological zones.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "AO",
+      "title_en": "Angola: Atlantic coast and interior plateau",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Features include Kalandula Falls on the Lucala River and the Huíla highlands, with ecosystems varying between drier coastal zones and wetter elevated districts.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "MZ",
+      "title_en": "Mozambique: ocean coast and plateaus",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Natural highlights include the Zambezi Delta wetlands, the marine Bazaruto Archipelago and Gorongosa National Park, where savanna, highlands and wetlands meet.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "HN",
+      "title_en": "Honduras: mountains and Caribbean reefs",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "The Mosquitia region contains tropical forests and extensive river basins, including the Río Plátano Biosphere Reserve. Offshore Bay Islands such as Roatán support reefs and marine habitats associated with the Mesoamerican Reef system.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "JM",
+      "title_en": "Jamaica: mountains and Caribbean",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Highlights include the Blue Mountains, Dunn's River Falls, bays and coastal reefs.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "GI",
+      "title_en": "Gibraltar",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Atlantic and Mediterranean waters exchange through the strait; the Rock overlooks a narrow, strategically important shipping passage.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "BM",
+      "title_en": "Bermuda",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Horseshoe Bay, Crystal Caves and reefs. Crystal Caves contain limestone formations and clear pools, while reefs surround many beaches.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "KY",
+      "title_en": "Cayman Islands",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Seven Mile Beach, Bloody Bay Wall and Cayman Brac bluff. Cayman Brac has a distinctive bluff, while Little Cayman is known for diving at Bloody Bay Wall.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "PR",
+      "title_en": "Puerto Rico",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "El Yunque and bioluminescent Mosquito Bay. El Yunque shelters tropical rainforest species; Mosquito Bay on Vieques is known for bioluminescence.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "AW",
+      "title_en": "Aruba",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Arikok National Park protects dry rocky terrain and caves, while Eagle Beach and western shores feature shallow waters and varied coastal habitats.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "AI",
+      "title_en": "Anguilla",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Landmarks include Shoal Bay, small Sandy Island, salt ponds and surrounding reefs, forming coastal habitats shaped by tides and storms.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "GU",
+      "title_en": "Guam",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Ritidian Point includes coastal habitats, Tumon Bay is a prominent beach area, and tropical cyclones periodically affect the island's environment.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "HK",
+      "title_en": "Hong Kong",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Victoria Harbour, Victoria Peak and Sai Kung islands. Beyond Victoria Harbour, Sai Kung has bays and islands, while country parks provide hiking trails.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "MO",
+      "title_en": "Macao",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Macao includes a waterfront, limited green hills on Coloane and historic peninsula districts; land reclamation has substantially reshaped its shoreline.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "GF",
+      "title_en": "French Guiana",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "French Guiana includes extensive rainforest, winding rivers and protected areas such as Guiana Amazonian Park. The space launch center near Kourou lies close to the coast, while small islands, estuaries and wetlands dot the Atlantic margin.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "PF",
+      "title_en": "French Polynesia",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Moorea and Bora Bora combine volcanic mountains and reef lagoons; Tuamotu atolls contain extensive shallow-water and coral habitats vulnerable to environmental pressures.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "NC",
+      "title_en": "New Caledonia",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "New Caledonia has a long barrier reef and extensive lagoons, as well as forests and mountains on the main island of Grande Terre. Nickel-rich soils and endemic plants reflect its complex geological history.",
+      "source_status": "specific_official_source_supports_narrow_claim",
+      "citation": {
+        "url": "https://whc.unesco.org/en/list/1115/",
+        "site": "Lagoons of New Caledonia",
+        "claim": "Barrier reef, rich lagoons and diverse coral ecosystems",
+        "kind": "site_and_ecosystem_supported"
+      },
+      "flags": [],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "RE",
+      "title_en": "Réunion",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Piton de la Fournaise volcano, Mafate and Cilaos. Piton de la Fournaise is active, and the Mafate and Cilaos cirques form dramatic volcanic landscapes.",
+      "source_status": "specific_official_source_supports_narrow_claim",
+      "citation": {
+        "url": "https://whc.unesco.org/en/list/1317",
+        "site": "Pitons, cirques and remparts of Reunion Island",
+        "claim": "Volcanic Piton de la Fournaise and steep volcanic cirques",
+        "kind": "site_and_physical_feature_supported"
+      },
+      "flags": [],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "AQ",
+      "title_en": "Antarctica: the southern polar continent",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Landmarks include the Transantarctic Mountains, McMurdo Dry Valleys and enormous ice shelves.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [
+        "nonsovereign_or_uninhabited_territory"
+      ],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "BV",
+      "title_en": "Bouvet Island: isolated South Atlantic reserve",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Snow and ice cover much of uninhabited Norwegian Bouvet Island in the South Atlantic. Steep rocky coasts host seabird colonies, while waves and cold weather make access difficult.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [
+        "nonsovereign_or_uninhabited_territory"
+      ],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "CX",
+      "title_en": "Christmas Island: forests and red crabs",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Christmas Island is known for tropical forests and the mass migration of red crabs from inland areas to the coast during breeding season. Its national park protects limestone plateaus, coastal cliffs and endemic wildlife.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "CC",
+      "title_en": "Cocos Islands: Australian Indian Ocean atolls",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Features include turquoise lagoons, reefs, small islets and coconut palms.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "TF",
+      "title_en": "French Southern Territories: remote islands and reserves",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "The Kerguelen Islands feature rugged hills, fjords and a cold windy climate, while the Crozet, Amsterdam and Saint Paul groups provide habitat for seabirds and seals. These islands are important for subantarctic ecological research.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [
+        "nonsovereign_or_uninhabited_territory"
+      ],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "HM",
+      "title_en": "Heard and McDonald: southern Indian Ocean volcanoes",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "These isolated islands have seabird colonies and seal habitats; their remoteness makes them important for studying glacial and volcanic change.",
+      "source_status": "specific_official_source_supports_narrow_claim",
+      "citation": {
+        "url": "https://whc.unesco.org/en/list/577/",
+        "site": "Heard and McDonald Islands",
+        "claim": "Remote volcanic subantarctic islands with seabird and marine mammal habitats",
+        "kind": "site_and_physical_feature_supported"
+      },
+      "flags": [
+        "nonsovereign_or_uninhabited_territory"
+      ],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "GS",
+      "title_en": "South Georgia and South Sandwich: subantarctic wildlife",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "South Georgia has glaciers, mountains and coastal penguin and seal colonies, while the South Sandwich Islands include active volcanoes and ice-covered landscapes. They are remote South Atlantic territories, not an independent state.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [
+        "nonsovereign_or_uninhabited_territory",
+        "sovereignty_or_jurisdiction_sensitive"
+      ],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "SJ",
+      "title_en": "Svalbard and Jan Mayen: distinct Norwegian islands",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Svalbard has mountains, glaciers, Arctic tundra and ice-influenced coasts, while Jan Mayen is a remote volcanic island in the North Atlantic. These are distinct Norwegian areas, not a single connected island or country.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [
+        "nonsovereign_or_uninhabited_territory"
+      ],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "FK",
+      "title_en": "Falkland Islands: grasslands and cold seas",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "The islands support penguin colonies, seabirds, coastal grassland and peatlands, while cold currents sustain rich surrounding marine ecosystems.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [
+        "sovereignty_or_jurisdiction_sensitive"
+      ],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "SH",
+      "title_en": "St Helena, Ascension and Tristan: remote Atlantic islands",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Highlights include Diana's Peak on St Helena and Queen Mary's Peak on Tristan da Cunha.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "PM",
+      "title_en": "Saint Pierre and Miquelon: French islands near Canada",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Miquelon has barrier beaches and wetlands; Saint Pierre has a harbour and rocky shoreline, and the surrounding waters form part of marine migration routes.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "CK",
+      "title_en": "Cook Islands: self-government in free association",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "The Cook Islands combine mountainous volcanic Rarotonga, Aitutaki's broad coral lagoon and low northern atolls. Freshwater, agriculture and habitats differ considerably between high islands and atolls.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "NU",
+      "title_en": "Niue: raised coral island",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Niue has coastal limestone caves, arches and tidal pools, with forests on its interior plateau and fringing reefs along parts of the shore.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "NF",
+      "title_en": "Norfolk Island: an Australian external territory",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Highlights include Norfolk Island National Park, endemic Norfolk pines and Emily Bay.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "PN",
+      "title_en": "Pitcairn Islands: tiny Pacific communities",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "The islands include steep rocky coasts and coral islands such as Henderson, known for endemic wildlife, alongside extensive surrounding marine habitats.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [
+        "nonsovereign_or_uninhabited_territory"
+      ],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "AS",
+      "title_en": "American Samoa: volcanic islands and Polynesian heritage",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "The National Park of American Samoa spans parts of Tutuila, Ta‘ū and Ofu, protecting tropical forests, coastal ecosystems and coral reefs.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "IO",
+      "title_en": "Chagos Archipelago: reefs and sovereignty dispute",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Chagos comprises low coral atolls, lagoons and reefs sensitive to environmental change.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [
+        "nonsovereign_or_uninhabited_territory",
+        "sovereignty_or_jurisdiction_sensitive"
+      ],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "TP",
+      "title_en": "East Timor: legacy name and code",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Timor-Leste includes the Ramelau Mountains, coral coasts and the geographically separate Oecusse exclave.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [
+        "legacy_non_iso_or_historical_code"
+      ],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "GP",
+      "title_en": "Guadeloupe: Basse-Terre and Grande-Terre",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Basse-Terre includes La Soufrière volcano, rainforest and mountain paths, while Grande-Terre is lower with beaches and coastal landscapes.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [],
+      "fully_verified": false,
+      "images_reviewed": false
+    },
+    {
+      "code": "VA",
+      "title_en": "Vatican City: a city-state within Rome",
+      "sections_screened": [
+        "Nature & Landmarks",
+        "Did You Know?"
+      ],
+      "nature_excerpt_en": "Vatican City contains St Peter's Basilica and Square, gardens and historic art collections.",
+      "source_status": "source_needed_for_existing_claims",
+      "citation": null,
+      "flags": [],
+      "fully_verified": false,
+      "images_reviewed": false
+    }
+  ],
+  "followups": [
+    "The last 27 unscreened articles include five pilot countries with earlier separate audits; distinguish already pilot-reviewed from never screened.",
+    "Review mismatched UK and TP codes without auto-redirecting historic names.",
+    "Check disputed geography and political phrasing from multiple dated authorities, especially FK, IO and GS.",
+    "Continue fact-level verification and source validation, then batch precise corrections; do not bulk-populate article sources.",
+    "Image provenance and Safari tests remain separate."
+  ]
+}
