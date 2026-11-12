@@ -89,13 +89,13 @@ function detailPage(row){
  const bullets=values=>values&&values.length?'<ul>'+values.filter(Boolean).map(p=>'<li>'+esc(p)+'</li>').join('')+'</ul>':'';
  const overview=section('overview',t('نبذة عن المزار','Overview'),
   '<p>'+esc(t(row.factAr,row.factEn)||t(row.nameAr,row.nameEn))+'</p>');
- const history=section('history',t('القصة والتاريخ','History'),enriched?paragraph(enriched.story):'');
+ const history=section('history',t('القصة والتاريخ','History'),paragraph(enriched?.story||(ar()?deep?.storyAr:'')));
  const significance=section('significance',t('الأهمية وما يميّزه','Significance'),
   (ar()&&deep?paragraph(deep.significanceAr):'')+
   '<div id="gv14Description" class="gv202-article-points" lang="'+(ar()?'ar':'en')+'">'+bullets(uniquePoints)+'</div>');
  const highlights=section('highlights',t('أبرز المعالم والتفاصيل','Highlights'),enriched?paragraph(enriched.architecture):'');
  const fascinating=section('facts',t('حقائق مدهشة','Fascinating facts'),
-  enriched?bullets([...(enriched.wow||[])].filter(p=>!uniquePoints.includes(p))):'');
+  bullets([...(enriched?.wow||[]),...(ar()&&deep?.factAr?[deep.factAr]:[])].filter(p=>p&&!uniquePoints.includes(p))));
  // Optional facts only: never invent current status, UNESCO listing or visit advice.
  const today=section('today',t('المزار اليوم','Today'),paragraph(t(row.todayAr,row.todayEn)));
  const visit=section('visit',t('ما الذي ستشاهده؟','What to see'),paragraph(ar()?(deep?.visitAr||row.visitAr):row.visitEn));
