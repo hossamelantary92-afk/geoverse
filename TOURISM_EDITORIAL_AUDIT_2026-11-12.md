@@ -121,3 +121,16 @@ Focused source-backed improvements to six natural-site historical/geological nar
 - Gros Morne National Park (CA): exposed mantle and oceanic crust, plate tectonics and glacial landforms; UNESCO https://whc.unesco.org/en/list/419
 
 Only story and source fields on the six exact country/name keys were updated; no IDs, visuals, navigation or adjacent attraction fields changed. Asset query updated to `gv634-natural-sites`. Repeatable identity integrity test passed for all 523 entries. Still requires actual iPhone Safari smoke test and does not certify every detail of the other attractions.
+
+## Natural geology enrichment batch — 2026-11-13 (six sites)
+
+Updated only the narrative history and source fields for six exact country/name tourism entries:
+
+- Lake Ashi (JP): formation around 3,000 years ago when volcanic slope deposits blocked a river in the Hakone caldera. Japan Tourism Agency: https://www.mlit.go.jp/tagengo-db/en/R1-01101.html
+- Kelimutu (ID): three crater lakes with changing water color from volcanic and hydrothermal processes. Smithsonian Global Volcanism Program: https://volcano.si.edu/volcano.cfm?vn=264140
+- Milford Sound/Piopiotahi (NZ): glacial carving and marine inundation, Māori name and later access routes. NZ Department of Conservation: https://www.doc.govt.nz/parks-and-recreation/places-to-go/fiordland/places/fiordland-national-park/places-to-go/milford-road-milford-sound-area/
+- Vøringsfossen (NO): waterfall and Måbødalen landscape; 182 m total fall and secured visitor bridges. Norwegian Scenic Routes: https://www.nasjonaleturistveger.no/en/routes/hardangervidda/voringsfossen/
+- Verdon Gorge (FR): limestone deposition, Alpine uplift and later river incision. Parc naturel régional du Verdon: https://www.parcduverdon.fr/
+- Wai-O-Tapu (NZ): hydrothermal activity and the Champagne Pool crater formed around 700 years ago. Peer-reviewed volcanology study: https://link.springer.com/article/10.1007/s00445-020-01414-3
+
+After the edit, the identity regression check passed for 523/523 catalogue and deep-enrichment keys (64 original indexed, 176 independently keyed, 283 catalogue-only), with no exact cross-attraction story/fact swap detected. Asset version updated to `gv635-natural-geology`. No live iPhone Safari or exhaustive source verification of the full 523 has been claimed.
