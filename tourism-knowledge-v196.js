@@ -131,7 +131,7 @@ function detailPage(row){
  const visualFeature=/(?:واجهة|واجهات|قبة|قباب|نافذة|نوافذ|أعمدة|أبراج|تماثيل|بوابات|ممرات|حجرات|جدران|تكوينات|شلالات|لوحات|بحير|صخور|جزر|الهرم|أهرامات|منحوتات|حدائق|ساحة|فسيفساء|برك|مباني|معابد)/;
  const isVisualDetail=point=>ar()&&visualAction.test(point)&&visualFeature.test(point);
  const visualPoints=learningPoints.filter(isVisualDetail);
- const significanceCandidates=learningPoints.filter(p=>!isVisualDetail(p));
+ const significanceCandidates=learningPoints.filter(p=>!isVisualDetail(p)&&!(ar()&&row.code==='EG'&&row.nameEn==='Pyramids of Giza'&&/الحجر الجيري|البنية الداخلية|حجرات وممرات/.test(p)));
  const significantContext=normalized(mainSignificance);
  const historicalContext=normalized(historyText);
  const significanceDetails=distinct([...significanceCandidates,...specialFacts])
