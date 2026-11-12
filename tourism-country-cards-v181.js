@@ -23,6 +23,7 @@ countries.push(['SG','سنغافورة','Singapore','🇸🇬'],['PH','الفل�
 countries.push(['BE','بلجيكا','Belgium','🇧🇪'],['DK','الدنمارك','Denmark','🇩🇰'],['SE','السويد','Sweden','🇸🇪'],['FI','فنلندا','Finland','🇫🇮'],['IE','أيرلندا','Ireland','🇮🇪'],['PL','بولندا','Poland','🇵🇱']);
 countries.push(['RO','رومانيا','Romania','🇷🇴'],['SI','سلوفينيا','Slovenia','🇸🇮'],['AL','ألبانيا','Albania','🇦🇱'],['GE','جورجيا','Georgia','🇬🇪'],['AM','أرمينيا','Armenia','🇦🇲'],['AZ','أذربيجان','Azerbaijan','🇦🇿']);
 countries.push(['TN','تونس','Tunisia','🇹🇳'],['QA','قطر','Qatar','🇶🇦'],['BH','البحرين','Bahrain','🇧🇭'],['KW','الكويت','Kuwait','🇰🇼'],['MV','المالديف','Maldives','🇲🇻'],['MU','موريشيوس','Mauritius','🇲🇺']);
+countries.push(['CR','كوستاريكا','Costa Rica','🇨🇷'],['EC','الإكوادور','Ecuador','🇪🇨'],['BO','بوليفيا','Bolivia','🇧🇴'],['CU','كوبا','Cuba','🇨🇺'],['NA','ناميبيا','Namibia','🇳🇦'],['BW','بوتسوانا','Botswana','🇧🇼']);
 let selected='';
 const t=(ar,en)=>state.lang==='ar'?ar:en;
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
