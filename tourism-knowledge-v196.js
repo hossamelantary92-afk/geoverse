@@ -82,6 +82,7 @@ function detailPage(row){
   ||[t(row.factAr,row.factEn)];
  const enriched=ar()?(window.GeoVerseTourismEditorialPhase6?.get(i)||window.GeoVerseTourismEditorialPhase5?.get(i)||window.GeoVerseTourismEditorialPhase4?.get(i)||window.GeoVerseTourismEditorialPhase3?.get(i)||window.GeoVerseTourismEditorialPhase2?.get(i)||window.GeoVerseTourismEditorialPhase1?.get(i)||window.GeoVerseTourismEnrichment215?.get(i)||window.GeoVerseTourismEnrichment214?.get(i)||window.GeoVerseTourismEnrichment213?.get(i)||window.GeoVerseTourismEnrichment212?.get(i)||window.GeoVerseTourismEnrichment208?.get(i)||window.GeoVerseTourismEnrichment207?.get(i)||window.GeoVerseTourismEnrichment206?.get(i)):null;
  const deep=window.GeoVerseTourismDeepEnrichmentV597?.get(row)||null;
+ const english=!ar()?(window.GeoVerseTourismEnglishV647?.get(row)||null):null;
  // Every attraction uses the same five content sections, in the same order.
  // Legacy editorial records and newer deep-enrichment records have different field
  // layouts; normalize them here without changing sources, IDs, or source content.
@@ -122,11 +123,11 @@ function detailPage(row){
   });
   return output;
  };
- const historyText=ar()?(deep?.storyAr||enriched?.story||''):(row.historyEn||'');
+ const historyText=ar()?(deep?.storyAr||enriched?.story||''):(english?.history||row.historyEn||'');
  const overviewText=t(row.factAr,row.factEn)||t(row.nameAr,row.nameEn);
- const mainSignificance=ar()?(deep?.significanceAr||overviewText):(row.significanceEn||overviewText);
- const deepFact=ar()?(deep?.factAr||''):'';
- const whatToSeeText=ar()?(deep?.visitAr||row.visitAr||''):(row.visitEn||'');
+ const mainSignificance=ar()?(deep?.significanceAr||overviewText):(english?.significance||row.significanceEn||overviewText);
+ const deepFact=ar()?(deep?.factAr||''):(english?.fact||'');
+ const whatToSeeText=ar()?(deep?.visitAr||row.visitAr||''):(english?.visit||row.visitEn||'');
  const architectureText=ar()?(enriched?.architecture||''):(row.architectureEn||'');
  // A physical feature goes with "what to see"; history and culture with facts.
  // Unlike the previous generic point collector, deduplication crosses sections.
