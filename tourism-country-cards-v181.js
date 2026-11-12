@@ -20,6 +20,7 @@ countries.push(['JO','الأردن','Jordan','🇯🇴'],['OM','عُمان','Oma
 countries.push(['NO','النرويج','Norway','🇳🇴'],['IS','آيسلندا','Iceland','🇮🇸'],['NP','نيبال','Nepal','🇳🇵'],['LK','سريلانكا','Sri Lanka','🇱🇰']);
 countries.push(['KE','كينيا','Kenya','🇰🇪'],['TZ','تنزانيا','Tanzania','🇹🇿'],['CL','تشيلي','Chile','🇨🇱'],['CO','كولومبيا','Colombia','🇨🇴']);
 countries.push(['SG','سنغافورة','Singapore','🇸🇬'],['PH','الفلبين','Philippines','🇵🇭'],['HR','كرواتيا','Croatia','🇭🇷'],['HU','المجر','Hungary','🇭🇺']);
+countries.push(['BE','بلجيكا','Belgium','🇧🇪'],['DK','الدنمارك','Denmark','🇩🇰'],['SE','السويد','Sweden','🇸🇪'],['FI','فنلندا','Finland','🇫🇮'],['IE','أيرلندا','Ireland','🇮🇪'],['PL','بولندا','Poland','🇵🇱']);
 let selected='';
 const t=(ar,en)=>state.lang==='ar'?ar:en;
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
