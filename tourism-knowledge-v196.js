@@ -87,62 +87,59 @@ function detailPage(row){
  // layouts; normalize them here without changing sources, IDs, or source content.
  // Present three distinct sections: history, significance/facts, and highlights.
  // Short legacy overview remains safely stored in catalogue data.
+ // Single canonical editorial source for the 523 attractions; prior batches
+ // contribute only distinct details. Source records are never removed.
  const learningPoints=(enriched?.points?.length?enriched.points:article)||[];
  const section=(slug,label,body)=>'<section class="gv596-topic gv596-'+slug+'" aria-label="'+esc(label)+'"><h2>'+esc(label)+'</h2>'+body+'</section>';
  const paragraph=value=>value?'<p>'+esc(value)+'</p>':'';
  const bullets=values=>values.length?'<ul>'+values.map(p=>'<li>'+esc(p)+'</li>').join('')+'</ul>':'';
  const normalized=value=>String(value||'').replace(/[\u064b-\u065f\u0670]/g,'').replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').replace(/[^a-zA-Z0-9\u0621-\u064a]+/g,' ').trim().toLowerCase();
- const distinct=values=>{
+ const tokens=value=>normalized(value).split(' ').filter(w=>w.length>3&&!/^(?:الذي|التي|خلال|هناك|كانت|كانت|لذلك|حيث|ايضا|داخل|المدينه|الموقع|المكان)$/.test(w));
+ const overlap=(left,right)=>{
+  const a=new Set(tokens(left)),b=new Set(tokens(right));
+  if(!a.size||!b.size)return 0;
+  return [...a].filter(w=>b.has(w)).length/Math.min(a.size,b.size);
+ };
+ const redundant=(value,seen)=>{
+  const candidate=normalized(value);
+  return seen.some(existing=>{
+   const other=normalized(existing);
+   if(!candidate||!other)return false;
+   if(candidate===other||candidate.length>27&&other.includes(candidate)||other.length>27&&candidate.includes(other))return true;
+   // Preserve genuinely different measurements, dates and named features.
+   const numbers=s=>new Set(s.match(/[0-9]+(?:\.[0-9]+)?/g)||[]);
+   const a=numbers(candidate),b=numbers(other);
+   if([...a].some(num=>!b.has(num)))return false;
+   const words=overlap(value,existing);
+   return words>=0.77&&Math.min(tokens(value).length,tokens(existing).length)>=5;
+  });
+ };
+ const distinct=(values,context=[])=>{
   const output=[];
   values.filter(Boolean).forEach(value=>{
-   const candidate=String(value).trim(),words=new Set(normalized(candidate).split(' ').filter(w=>w.length>3));
-   if(!candidate||!words.size)return;
-   const match=output.findIndex(item=>{
-    const existing=new Set(normalized(item).split(' ').filter(w=>w.length>3));
-    const overlap=[...words].filter(w=>existing.has(w)).length/Math.max(1,Math.min(words.size,existing.size));
-    return normalized(item)===normalized(candidate)||(overlap>=0.83&&Math.min(words.size,existing.size)>=7);
-   });
-   if(match<0)output.push(candidate);
-   else if(candidate.length>output[match].length)output[match]=candidate;
+   const candidate=String(value).trim();
+   if(candidate&&!redundant(candidate,[...context,...output]))output.push(candidate);
   });
   return output;
  };
  const historyText=ar()?(enriched?.story||deep?.storyAr||''):(row.historyEn||'');
- const significanceText=ar()?(deep?.significanceAr||''):(row.significanceEn||'');
  const overviewText=t(row.factAr,row.factEn)||t(row.nameAr,row.nameEn);
- // Prefer the curated deep fact over a short legacy WOW statement when
- // both describe the same site-specific observation.
- const wowFacts=ar()?(enriched?.wow||[]):[];
- const deepFact=ar()?deep?.factAr||'':'';
- const facts=distinct([...wowFacts,...(deepFact?[deepFact]:[])]);
- const specialFacts=facts.filter(f=>{
-  if(!deepFact||f===deepFact)return true;
-  const a=normalized(f),b=normalized(deepFact);
-  if(a.includes('عجائب الدنيا السبع')&&b.includes('عجائب الدنيا السبع'))return false;
-  return !(a.length>24&&b.includes(a));
- });
- const mainSignificance=significanceText||overviewText;
- const architectureText=ar()?(enriched?.architecture||''):(row.architectureEn||'');
+ const mainSignificance=ar()?(deep?.significanceAr||overviewText):(row.significanceEn||overviewText);
+ const deepFact=ar()?(deep?.factAr||''):'';
  const whatToSeeText=ar()?(deep?.visitAr||row.visitAr||''):(row.visitEn||'');
- // Site-specific visual facts belong in the sightseeing section, not in the
- // significance list. Use both a visible-feature verb and physical-detail noun
- // to avoid moving historical or cultural facts based on a single keyword.
- const visualAction=/(?:تضم|تحتوي|تظهر|يمكن ملاحظة|يمكن مشاهدة|يبرز|تُبرز|تتتابع|يُرى|تُرى|يتوسط|تتميز)/;
- const visualFeature=/(?:واجهة|واجهات|قبة|قباب|نافذة|نوافذ|أعمدة|أبراج|تماثيل|بوابات|ممرات|حجرات|جدران|تكوينات|شلالات|لوحات|بحير|صخور|جزر|الهرم|أهرامات|منحوتات|حدائق|ساحة|فسيفساء|برك|مباني|معابد)/;
+ const architectureText=ar()?(enriched?.architecture||''):(row.architectureEn||'');
+ // A physical feature goes with "what to see"; history and culture with facts.
+ // Unlike the previous generic point collector, deduplication crosses sections.
+ const visualAction=/(?:تضم|تحتوي|تظهر|يمكن ملاحظة|يمكن مشاهدة|يبرز|تُبرز|تتتابع|يُرى|تُرى|يتوسط|تتميز|شُيد|يشاهد)/;
+ const visualFeature=/(?:واجهة|واجهات|قبة|قباب|نافذة|نوافذ|أعمدة|أبراج|تماثيل|بوابات|ممرات|حجرات|جدران|تكوينات|شلالات|لوحات|بحير|صخور|جزر|الهرم|أهرامات|منحوتات|حدائق|ساحة|فسيفساء|برك|مباني|معابد|مدرجات|أقواس|أسقف|أروقة)/;
  const isVisualDetail=point=>ar()&&visualAction.test(point)&&visualFeature.test(point);
- const visualPoints=learningPoints.filter(isVisualDetail);
- const significanceCandidates=learningPoints.filter(p=>!isVisualDetail(p)&&!(ar()&&row.code==='EG'&&row.nameEn==='Pyramids of Giza'&&/الحجر الجيري|البنية الداخلية|حجرات وممرات/.test(p)));
- const significantContext=normalized(mainSignificance);
- const historicalContext=normalized(historyText);
- const significanceDetails=distinct([...significanceCandidates,...specialFacts])
-  .filter(p=>normalized(p)!==significantContext&&normalized(p)!==historicalContext);
- let highlights=distinct([architectureText,whatToSeeText,...visualPoints]);
- // The first 64 original landmarks have longer handwritten points: retain
- // the existing Giza-specific placement for its masonry and chamber details.
- if(ar()&&row.code==='EG'&&row.nameEn==='Pyramids of Giza'){
-  const physical=learningPoints.filter(p=>/الحجر الجيري|البنية الداخلية|حجرات وممرات/.test(p));
-  highlights=distinct([whatToSeeText,architectureText,...visualPoints,...physical]);
- }
+ const extraVisual=learningPoints.filter(isVisualDetail);
+ const extraGeneral=learningPoints.filter(p=>!isVisualDetail(p));
+ const highlights=distinct([whatToSeeText,architectureText,...extraVisual],[historyText,mainSignificance]);
+ const rawFacts=[deepFact,...(ar()?(enriched?.wow||[]):[]),...extraGeneral];
+ // Always retain canonical authored fact; suppress legacy statements which
+ // repeat it or the main history, significance or sight descriptions.
+ const significanceDetails=distinct(rawFacts,[historyText,mainSignificance,...highlights]);
  let history=historyText?section('history',t('القصة والتاريخ','History'),paragraph(historyText)):'';
  const significanceBody=paragraph(mainSignificance)+bullets(significanceDetails);
  let significance=significanceBody?section('significance',t('الأهمية والحقائق المميزة','Significance and facts'),significanceBody):'';
