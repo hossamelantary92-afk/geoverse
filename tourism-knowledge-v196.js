@@ -110,13 +110,33 @@ function detailPage(row){
  const historyText=ar()?(enriched?.story||deep?.storyAr||''):(row.historyEn||'');
  const significanceText=ar()?(deep?.significanceAr||''):(row.significanceEn||'');
  const overviewText=t(row.factAr,row.factEn)||t(row.nameAr,row.nameEn);
- const specialFacts=ar()?[...(enriched?.wow||[]),...(deep?.factAr?[deep.factAr]:[])]:[];
+ // Prefer the curated deep fact over a short legacy WOW statement when
+ // both describe the same site-specific observation.
+ const wowFacts=ar()?(enriched?.wow||[]):[];
+ const deepFact=ar()?deep?.factAr||'':'';
+ const facts=distinct([...wowFacts,...(deepFact?[deepFact]:[])]);
+ const specialFacts=facts.filter(f=>{
+  if(!deepFact||f===deepFact)return true;
+  const a=normalized(f),b=normalized(deepFact);
+  if(a.includes('عجائب الدنيا السبع')&&b.includes('عجائب الدنيا السبع'))return false;
+  return !(a.length>24&&b.includes(a));
+ });
  const mainSignificance=significanceText||overviewText;
- const significanceDetails=distinct([...learningPoints,...specialFacts])
-  .filter(p=>normalized(p)!==normalized(mainSignificance)&&normalized(p)!==normalized(historyText));
  const architectureText=ar()?(enriched?.architecture||''):(row.architectureEn||'');
  const whatToSeeText=ar()?(deep?.visitAr||row.visitAr||''):(row.visitEn||'');
- const highlights=distinct([architectureText,whatToSeeText]);
+ let significanceDetails=distinct([...learningPoints,...specialFacts])
+  .filter(p=>normalized(p)!==normalized(mainSignificance)&&normalized(p)!==normalized(historyText));
+ let highlights=distinct([architectureText,whatToSeeText]);
+ // The Giza record contains unusually rich legacy points. Put physical
+ // features with the sightseeing section instead of listing them as abstract
+ // facts; keep the historically useful points rather than truncating them.
+ if(ar()&&row.code==='EG'&&row.nameEn==='Pyramids of Giza'){
+  const physical=learningPoints.filter(p=>/الحجر الجيري|البنية الداخلية|حجرات وممرات/.test(p));
+  significanceDetails=distinct([
+   ...learningPoints.filter(p=>!physical.includes(p)),...specialFacts
+  ]).filter(p=>normalized(p)!==normalized(historyText));
+  highlights=distinct([whatToSeeText,architectureText,...physical]);
+ }
  const history=historyText?section('history',t('القصة والتاريخ','History'),paragraph(historyText)):'';
  const significanceBody=paragraph(mainSignificance)+bullets(significanceDetails);
  const significance=significanceBody?section('significance',t('الأهمية والحقائق المميزة','Significance and facts'),significanceBody):'';
