@@ -124,18 +124,24 @@ function detailPage(row){
  const mainSignificance=significanceText||overviewText;
  const architectureText=ar()?(enriched?.architecture||''):(row.architectureEn||'');
  const whatToSeeText=ar()?(deep?.visitAr||row.visitAr||''):(row.visitEn||'');
- let significanceDetails=distinct([...learningPoints,...specialFacts])
-  .filter(p=>normalized(p)!==normalized(mainSignificance)&&normalized(p)!==normalized(historyText));
- let highlights=distinct([architectureText,whatToSeeText]);
- // The Giza record contains unusually rich legacy points. Put physical
- // features with the sightseeing section instead of listing them as abstract
- // facts; keep the historically useful points rather than truncating them.
+ // Site-specific visual facts belong in the sightseeing section, not in the
+ // significance list. Use both a visible-feature verb and physical-detail noun
+ // to avoid moving historical or cultural facts based on a single keyword.
+ const visualAction=/(?:تضم|تحتوي|تظهر|يمكن ملاحظة|يمكن مشاهدة|يبرز|تُبرز|تتتابع|يُرى|تُرى|يتوسط|تتميز)/;
+ const visualFeature=/(?:واجهة|واجهات|قبة|قباب|نافذة|نوافذ|أعمدة|أبراج|تماثيل|بوابات|ممرات|حجرات|جدران|تكوينات|شلالات|لوحات|بحير|صخور|جزر|الهرم|أهرامات|منحوتات|حدائق|ساحة|فسيفساء|برك|مباني|معابد)/;
+ const isVisualDetail=point=>ar()&&visualAction.test(point)&&visualFeature.test(point);
+ const visualPoints=learningPoints.filter(isVisualDetail);
+ const significanceCandidates=learningPoints.filter(p=>!isVisualDetail(p));
+ const significantContext=normalized(mainSignificance);
+ const historicalContext=normalized(historyText);
+ const significanceDetails=distinct([...significanceCandidates,...specialFacts])
+  .filter(p=>normalized(p)!==significantContext&&normalized(p)!==historicalContext);
+ let highlights=distinct([architectureText,whatToSeeText,...visualPoints]);
+ // The first 64 original landmarks have longer handwritten points: retain
+ // the existing Giza-specific placement for its masonry and chamber details.
  if(ar()&&row.code==='EG'&&row.nameEn==='Pyramids of Giza'){
   const physical=learningPoints.filter(p=>/الحجر الجيري|البنية الداخلية|حجرات وممرات/.test(p));
-  significanceDetails=distinct([
-   ...learningPoints.filter(p=>!physical.includes(p)),...specialFacts
-  ]).filter(p=>normalized(p)!==normalized(historyText));
-  highlights=distinct([whatToSeeText,architectureText,...physical]);
+  highlights=distinct([whatToSeeText,architectureText,...visualPoints,...physical]);
  }
  const history=historyText?section('history',t('القصة والتاريخ','History'),paragraph(historyText)):'';
  const significanceBody=paragraph(mainSignificance)+bullets(significanceDetails);
