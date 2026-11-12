@@ -88,3 +88,9 @@ Created `scripts/audit-tourism-identity.mjs` for running from the repository roo
 - **NOT YET CERTIFIED:** exhaustive semantic/historical attribution and source-level fact-checking for the 283 catalogue-only long-form profiles; iPhone Safari post-deployment UI.
 
 This supersedes any reading of the previous 64/523 progress percentage as if only 64 catalogue identities were linked: the 523 key pairs are now all reconciled, but **key reconciliation is not exhaustive semantic verification**.
+
+## UNESCO historical enrichment batch — 2026-11-13
+
+Updated historical narrative and source URL for nine matching country/name records: SA Al-Balad Jeddah (UNESCO 1361); ES Aqueduct of Segovia (311); GB Giant's Causeway (369); CN Summer Palace (880); TH Sukhothai Historical Park (574); OM Bahla Fort (433); PE Nazca Lines (700); MX Teotihuacan (414); KH Angkor Wat (668). Existing significance, visitor highlights, distinctive fact, and all attraction IDs were retained.
+
+These changes address short or generic historical narratives and avoid treating low word overlap alone as a content error. Updated cache query to `gv632-unesco-history-batch`. The repository identity audit passed after edits (523 key matches; 64 indexed archival, 176 keyed editorial, 283 catalogue-only); no mobile-browser or exhaustive all-fact verification implied.
