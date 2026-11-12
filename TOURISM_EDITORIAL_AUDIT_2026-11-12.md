@@ -94,3 +94,17 @@ This supersedes any reading of the previous 64/523 progress percentage as if onl
 Updated historical narrative and source URL for nine matching country/name records: SA Al-Balad Jeddah (UNESCO 1361); ES Aqueduct of Segovia (311); GB Giant's Causeway (369); CN Summer Palace (880); TH Sukhothai Historical Park (574); OM Bahla Fort (433); PE Nazca Lines (700); MX Teotihuacan (414); KH Angkor Wat (668). Existing significance, visitor highlights, distinctive fact, and all attraction IDs were retained.
 
 These changes address short or generic historical narratives and avoid treating low word overlap alone as a content error. Updated cache query to `gv632-unesco-history-batch`. The repository identity audit passed after edits (523 key matches; 64 indexed archival, 176 keyed editorial, 283 catalogue-only); no mobile-browser or exhaustive all-fact verification implied.
+
+## Priority historical enrichment — 2026-11-13 (seven profiles)
+
+Expanded the history field for seven exact country/name keys after checking authoritative site documentation. No attraction IDs, the 3-section display, other article fields, or photos were modified:
+
+- VN Imperial Citadel of Thăng Long — 11th-century Ly dynasty complex, 7th-century predecessor, enduring political role (https://whc.unesco.org/en/list/1328).
+- FR Cité de Carcassonne — ancient walls, medieval fortifications, nineteenth-century Viollet-le-Duc restoration (https://whc.unesco.org/en/list/345).
+- IN Ajanta Caves — earliest Buddhist cave phases and later 5th–6th century paintings and sculptures (https://whc.unesco.org/en/list/242).
+- IN Group of Monuments at Hampi — Vijayanagara capital between 14th and 16th centuries and 1565 conquest (https://whc.unesco.org/en/list/241).
+- IN Konark Sun Temple — 13th-century Eastern Ganga dynasty and iconography of Surya's chariot (https://whc.unesco.org/en/list/246).
+- JP Himeji Castle — early defenses and Ikeda Terumasa reconstruction, 1601–1609 (https://whc.unesco.org/en/list/661).
+- VN Phong Nha Cave — long evolution of the limestone karst system and underground waterways (https://whc.unesco.org/en/list/951).
+
+Changed deep-enrichment asset URL query to `gv633-priority-history`. The repeatable identity test passed (523 key alignments; 64 original indexed, 176 independent keyed, 283 catalogue-only), with zero exact cross-attraction assignments detected. This does not assert full source-by-source historical certification or live iPhone Safari verification.
