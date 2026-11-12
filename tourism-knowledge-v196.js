@@ -85,31 +85,42 @@ function detailPage(row){
  // Every attraction uses the same five content sections, in the same order.
  // Legacy editorial records and newer deep-enrichment records have different field
  // layouts; normalize them here without changing sources, IDs, or source content.
+ // Present three distinct sections: history, significance/facts, and highlights.
+ // Short legacy overview remains safely stored in catalogue data.
  const learningPoints=(enriched?.points?.length?enriched.points:article)||[];
- const uniquePoints=[...new Set(learningPoints.filter(Boolean).map(p=>String(p).trim()))];
  const section=(slug,label,body)=>'<section class="gv596-topic gv596-'+slug+'" aria-label="'+esc(label)+'"><h2>'+esc(label)+'</h2>'+body+'</section>';
  const paragraph=value=>value?'<p>'+esc(value)+'</p>':'';
- const bullets=values=>values&&values.length?'<ul>'+values.filter(Boolean).map(p=>'<li>'+esc(p)+'</li>').join('')+'</ul>':'';
- const overviewText=t(row.factAr,row.factEn)||t(row.nameAr,row.nameEn);
+ const bullets=values=>values.length?'<ul>'+values.map(p=>'<li>'+esc(p)+'</li>').join('')+'</ul>':'';
+ const normalized=value=>String(value||'').replace(/[\u064b-\u065f\u0670]/g,'').replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').replace(/[^a-zA-Z0-9\u0621-\u064a]+/g,' ').trim().toLowerCase();
+ const distinct=values=>{
+  const output=[];
+  values.filter(Boolean).forEach(value=>{
+   const candidate=String(value).trim(),words=new Set(normalized(candidate).split(' ').filter(w=>w.length>3));
+   if(!candidate||!words.size)return;
+   const match=output.findIndex(item=>{
+    const existing=new Set(normalized(item).split(' ').filter(w=>w.length>3));
+    const overlap=[...words].filter(w=>existing.has(w)).length/Math.max(1,Math.min(words.size,existing.size));
+    return normalized(item)===normalized(candidate)||(overlap>=0.83&&Math.min(words.size,existing.size)>=7);
+   });
+   if(match<0)output.push(candidate);
+   else if(candidate.length>output[match].length)output[match]=candidate;
+  });
+  return output;
+ };
  const historyText=ar()?(enriched?.story||deep?.storyAr||''):(row.historyEn||'');
- const significanceText=ar()?deep?.significanceAr||'':(row.significanceEn||'');
- // Exclude a verbatim repeat of the overview; retain genuinely distinct editorial points.
- // Reserve unique "wow" facts for their dedicated section before de-duplicating
- // learning points, so early editorial batches do not lose those facts.
- const specialFacts=[...new Set([...(ar()?(enriched?.wow||[]):[]),...(ar()&&deep?.factAr?[deep.factAr]:[])].map(v=>String(v||'').trim()).filter(Boolean))].filter(p=>p!==overviewText&&p!==significanceText);
- const significancePoints=uniquePoints.filter(p=>p!==overviewText&&p!==significanceText&&!specialFacts.includes(p));
- const architectureText=ar()?enriched?.architecture||'':row.architectureEn||'';
+ const significanceText=ar()?(deep?.significanceAr||''):(row.significanceEn||'');
+ const overviewText=t(row.factAr,row.factEn)||t(row.nameAr,row.nameEn);
+ const specialFacts=ar()?[...(enriched?.wow||[]),...(deep?.factAr?[deep.factAr]:[])]:[];
+ const mainSignificance=significanceText||overviewText;
+ const significanceDetails=distinct([...learningPoints,...specialFacts])
+  .filter(p=>normalized(p)!==normalized(mainSignificance)&&normalized(p)!==normalized(historyText));
+ const architectureText=ar()?(enriched?.architecture||''):(row.architectureEn||'');
  const whatToSeeText=ar()?(deep?.visitAr||row.visitAr||''):(row.visitEn||'');
- const highlights=[architectureText,whatToSeeText].filter((p,i,a)=>p&&a.indexOf(p)===i);
- const awaitingAr='تفاصيل إضافية قيد المراجعة.';
- const awaitingEn='Additional verified details are not yet available in English.';
- const overview=section('overview',t('نبذة عن المزار','Overview'),paragraph(overviewText));
- const history=section('history',t('القصة والتاريخ','History'),paragraph(historyText||t(awaitingAr,awaitingEn)));
- const significance=section('significance',t('الأهمية وما يميّزه','Significance'),paragraph(significanceText)+(significancePoints.length?bullets(significancePoints):(!significanceText?paragraph(t(awaitingAr,awaitingEn)):'')));
- const fascinating=section('facts',t('حقائق مدهشة','Fascinating facts'),specialFacts.length?bullets(specialFacts):paragraph(t(awaitingAr,awaitingEn)));
- // Consolidate the former Highlights and What-to-see sections, which otherwise
- // repeated the same paragraph on the 208 newer attractions.
- const visit=section('visit',t('أبرز المعالم وما الذي ستشاهده؟','Highlights and what to see'),highlights.length?highlights.map(paragraph).join(''):paragraph(t(awaitingAr,awaitingEn)));
+ const highlights=distinct([architectureText,whatToSeeText]);
+ const history=historyText?section('history',t('القصة والتاريخ','History'),paragraph(historyText)):'';
+ const significanceBody=paragraph(mainSignificance)+bullets(significanceDetails);
+ const significance=significanceBody?section('significance',t('الأهمية والحقائق المميزة','Significance and facts'),significanceBody):'';
+ const visit=highlights.length?section('visit',t('أبرز ما ستشاهده','What to see'),highlights.map(paragraph).join('')):'';
  return '<div class="gv14-detail gv196-detail gv202-detail'+(enriched?' gv206-enriched':'')+'">'+
   '<button class="back gv14-back" data-cat="tourism">← '+t('العودة إلى المزارات','Back to landmarks')+'</button>'+
   '<header class="gv196-hero gv202-hero" aria-labelledby="gv14Name">'+
@@ -117,7 +128,7 @@ function detailPage(row){
    '<p class="gv196-hero-location gv202-location">'+city+' - '+country+'</p>'+
   '</header>'+
   '<div class="gv596-knowledge gv14-overview gv196-overview gv202-article" id="gv14About">'+
-   overview+history+significance+fascinating+visit+
+   history+significance+visit+
    '<div id="gv14Facts"></div>'+
   '</div>'+
   '<button id="toggleSeen" class="gv14-learned gv196-learned gv202-learned'+(learned?' is-learned':'')+'" aria-pressed="'+learned+'">'+(learned?t('✓ تمت إضافته لمعرفتي','✓ Marked as learned'):t('✓ تعلمت هذا المكان','✓ Mark as learned'))+'</button>'+
