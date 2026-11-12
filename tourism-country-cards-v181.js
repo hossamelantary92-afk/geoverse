@@ -13,6 +13,7 @@ const countries=[
 ];
 // Newly added destinations share the existing premium country-card design.
 countries.push(['GR','اليونان','Greece','🇬🇷'],['CH','سويسرا','Switzerland','🇨🇭'],['MA','المغرب','Morocco','🇲🇦'],['MY','ماليزيا','Malaysia','🇲🇾']);
+countries.push(['DE','ألمانيا','Germany','🇩🇪'],['MX','المكسيك','Mexico','🇲🇽'],['BR','البرازيل','Brazil','🇧🇷'],['AU','أستراليا','Australia','🇦🇺']);
 let selected='';
 const t=(ar,en)=>state.lang==='ar'?ar:en;
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
