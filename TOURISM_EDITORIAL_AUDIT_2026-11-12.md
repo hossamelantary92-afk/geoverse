@@ -134,3 +134,15 @@ Updated only the narrative history and source fields for six exact country/name 
 - Wai-O-Tapu (NZ): hydrothermal activity and the Champagne Pool crater formed around 700 years ago. Peer-reviewed volcanology study: https://link.springer.com/article/10.1007/s00445-020-01414-3
 
 After the edit, the identity regression check passed for 523/523 catalogue and deep-enrichment keys (64 original indexed, 176 independently keyed, 283 catalogue-only), with no exact cross-attraction story/fact swap detected. Asset version updated to `gv635-natural-geology`. No live iPhone Safari or exhaustive source verification of the full 523 has been claimed.
+
+## Natural and cultural landscape enrichment — 2026-11-13 (five sites)
+
+Five targeted, country/name-keyed canonical story and source upgrades, with significance, sightseeing, distinctive fact, original IDs and page layout unchanged:
+
+- VN Sơn Đoòng Cave: karst development, discovery of the entrance by Hồ Khanh (1990), international cave exploration in 2009, large passages and daylight openings. Source: https://oxalisadventure.com/the-exploration-of-hang-son-doong; UNESCO provides supporting broader karst context at https://whc.unesco.org/en/decisions/6356. The cave itself is part of the wider landscape, not a separate World Heritage inscription.
+- HR Plitvice Lakes National Park: ongoing travertine barrier formation, designation as a national park in 1949 and World Heritage inscription in 1979. Source: https://whc.unesco.org/en/list/98
+- IS Þingvellir National Park: rift geology and Althing assembly history from 930 to 1798, with surviving assembly-ground traces. Source: https://whc.unesco.org/en/list/1152/
+- TZ Lake Manyara National Park: Rift Valley hydrology, freshwater groundwater forests alongside alkaline lake, protected status from 1960 and biosphere recognition in 1981. Source: https://www.tanzaniaparks.go.tz/lake-manyara/about
+- IS Kirkjufell: glacial/erosion landform and 463 m peak, with adjacent Kirkjufellsfoss. Source: https://www.visiticeland.com/article/kirkjufell-mountain/
+
+The deploy asset query was updated to `gv636-natural-history-5`; re-running the repository's independent identity regression audit succeeded for all 523 current attractions, including 64 original-index and 176 independently keyed editorial associations. The other 283 catalogue-only records remain key-reconciled but are not independently historically certified. No Safari device test or image audit is claimed.
