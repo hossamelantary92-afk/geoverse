@@ -49,3 +49,17 @@ On iPhone Safari, open 5–10 diverse landmarks: ancient/historical (Giza, Colos
 - https://www.tenryuji.com/en/about/index.html
 
 Status: **Arabic editorial structure and simulated output passed**. Browser-device QA and exhaustive claim-level verification are explicitly not certified.
+
+## Correction — 2026-11-13: cross-attraction identity mismatch found
+
+An iPhone screenshot of the **Prophet's Mosque** page showed a Hegra/Mada'in Salih historical story. This was a genuine content association error not detected by the earlier completeness and repetition-only audit. During the 523-entry enrichment consolidation, 13 original-attraction stories and their first distinctive facts had been associated with the neighboring original records due to an incorrect assumption about the ordering of 12 flagship attractions versus the canonical 64-item index list.
+
+**Corrective action:** Re-keyed affected story/fact fields to the true original attraction identity using the immutable original 0–63 catalogue and legacy indexed article data. The 13 repaired entries were Masjid al-Haram, Prophet's Mosque, Sagrada Família, Tower of London, Big Ben, British Museum, Statue of Liberty, Central Park, Lincoln Memorial, Forbidden City, Temple of Heaven, Terracotta Army, and Kinkaku-ji.
+
+**Verification:** Compared all 64 original attraction names and country codes against their actual indexed source records. No story or distinctive fact in those 64 now exactly matches the archived story/fact of a different original entry. Total deep-enrichment entries remain 523 and key uniqueness remains 523/523. Reader and deep-enrichment JavaScript parse successfully and the content URL query was changed to `gv630-identity-fix-13`.
+
+The previous 523-render audit **did not certify attraction-to-content semantic identity**. Its structural and duplicate metrics should not be read as proof of correct content associations. The first 64 were reconciled with their canonical index reference on this correction; the other 459 keyed records were not independently checked against external sources. Live iPhone Safari post-deployment behavior still requires confirmation.
+
+Corrective commits:
+- https://github.com/hossamelantary92-afk/geoverse/commit/05f6a54672c49099684b067e17922faa1dda7aed
+- https://github.com/hossamelantary92-afk/geoverse/commit/a7e372fa6ad4965f113ff9722df39da1cc784e7b
