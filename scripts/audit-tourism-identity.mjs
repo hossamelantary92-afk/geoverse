@@ -24,7 +24,7 @@ const original = parseArray(
   'tourism-attractions-v168.js',
   /const attractions=(\[[\s\S]*?\]);/
 );
-assert(original.length === 48, 'Unexpected number of original tourism sites');
+assert(original.length === 64, 'Unexpected number of original tourism sites');
 const geo = { tourism: original.map(site => [
   site.ar, site.en, '', '', site.lat, site.lon
 ]) };
