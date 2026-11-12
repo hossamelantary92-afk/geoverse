@@ -143,10 +143,26 @@ function detailPage(row){
   const physical=learningPoints.filter(p=>/الحجر الجيري|البنية الداخلية|حجرات وممرات/.test(p));
   highlights=distinct([whatToSeeText,architectureText,...visualPoints,...physical]);
  }
- const history=historyText?section('history',t('القصة والتاريخ','History'),paragraph(historyText)):'';
+ let history=historyText?section('history',t('القصة والتاريخ','History'),paragraph(historyText)):'';
  const significanceBody=paragraph(mainSignificance)+bullets(significanceDetails);
- const significance=significanceBody?section('significance',t('الأهمية والحقائق المميزة','Significance and facts'),significanceBody):'';
- const visit=highlights.length?section('visit',t('أبرز ما ستشاهده','What to see'),highlights.map(paragraph).join('')):'';
+ let significance=significanceBody?section('significance',t('الأهمية والحقائق المميزة','Significance and facts'),significanceBody):'';
+ let visit=highlights.length?section('visit',t('أبرز ما ستشاهده','What to see'),highlights.map(paragraph).join('')):'';
+ // A tightly edited profile for the Colosseum avoids synonymous legacy facts
+ // (Flavian name, arena purpose and underground passages) appearing repeatedly.
+ // Keep the original archival content intact; the override is Arabic-only.
+ if(ar()&&row.code==='IT'&&row.nameEn==='Colosseum'){
+  history=section('history','القصة والتاريخ',paragraph('بدأ بناء الكولوسيوم في روما في عهد الإمبراطور فسبازيان، وافتُتح في عهد ابنه تيطس سنة 80م، ثم أضيفت إليه تجهيزات في مراحل لاحقة. عُرف تاريخيًا باسم المدرج الفلافي نسبةً إلى الأسرة التي بنته، وكان مركزًا للعروض العامة قبل أن تتغير استخداماته عبر العصور.'));
+  significance=section('significance','الأهمية والحقائق المميزة',
+   paragraph('يُعد الكولوسيوم أكبر مدرج روماني قديم باقٍ، ويكشف كيف نظّمت روما الإمبراطورية التجمعات الجماهيرية والفعاليات العامة.')+
+   bullets([
+    'استُخدم لعروض المصارعين وصيد الحيوانات والاحتفالات العامة، ما يجعله شاهدًا على جوانب من الحياة الاجتماعية الرومانية.',
+    'يرتبط اسم «الكولوسيوم» بتمثال ضخم كان قائمًا بالقرب منه؛ أما اسمه الرسمي القديم فكان «المدرج الفلافي».',
+    'تعرّض المبنى لزلازل وتغيّرت وظائف بعض أجزائه خلال القرون التالية، كما أُعيد استخدام بعض أحجاره في مبانٍ أخرى.'
+   ]));
+  visit=section('visit','أبرز ما ستشاهده',
+   paragraph('تظهر الواجهة الخارجية بأقواس متتابعة على مستويات متعددة، وحول الساحة مدرجات الجلوس البيضاوية التي كانت تستوعب آلاف المتفرجين.')+
+   paragraph('أسفل أرضية الساحة توجد بقايا شبكة من الممرات والغرف والمصاعد القديمة التي استُخدمت لتجهيز العروض ونقل المشاركين والحيوانات.'));
+ }
  return '<div class="gv14-detail gv196-detail gv202-detail'+(enriched?' gv206-enriched':'')+'">'+
   '<button class="back gv14-back" data-cat="tourism">← '+t('العودة إلى المزارات','Back to landmarks')+'</button>'+
   '<header class="gv196-hero gv202-hero" aria-labelledby="gv14Name">'+
