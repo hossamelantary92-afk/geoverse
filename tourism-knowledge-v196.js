@@ -122,7 +122,7 @@ function detailPage(row){
   });
   return output;
  };
- const historyText=ar()?(enriched?.story||deep?.storyAr||''):(row.historyEn||'');
+ const historyText=ar()?(deep?.storyAr||enriched?.story||''):(row.historyEn||'');
  const overviewText=t(row.factAr,row.factEn)||t(row.nameAr,row.nameEn);
  const mainSignificance=ar()?(deep?.significanceAr||overviewText):(row.significanceEn||overviewText);
  const deepFact=ar()?(deep?.factAr||''):'';
