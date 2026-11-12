@@ -146,3 +146,15 @@ Five targeted, country/name-keyed canonical story and source upgrades, with sign
 - IS Kirkjufell: glacial/erosion landform and 463 m peak, with adjacent Kirkjufellsfoss. Source: https://www.visiticeland.com/article/kirkjufell-mountain/
 
 The deploy asset query was updated to `gv636-natural-history-5`; re-running the repository's independent identity regression audit succeeded for all 523 current attractions, including 64 original-index and 176 independently keyed editorial associations. The other 283 catalogue-only records remain key-reconciled but are not independently historically certified. No Safari device test or image audit is claimed.
+
+## Natural landmark enrichment — 2026-11-13 (Wadi Al Disah, Bromo, Lofoten, Dead Sea, Lake Louise)
+
+Five canonical story/source pairs revised for site-specific geomorphology and culture without changing IDs, catalogue summaries, significance or sightseeing fields:
+
+- SA Wadi Al Disah: Red Sea-related tectonics, sandstone scarps, fluvial shaping and groundwater vegetation. Source: Sen et al. (2025), Geoheritage, https://pure.kfupm.edu.sa/en/publications/geomorphosite-assessment-of-wadi-al-disha-from-the-perspective-of/
+- ID Mount Bromo: active volcano within Tengger caldera and traditional Tenggerese Yadnya Kasada ceremony. Source: Indonesia Tourism, https://www.indonesia.travel/id/en/travel-ideas/adventure/bromo-tengger-semeru-national-park---yadnya-kasada-ceremony
+- NO Lofoten Islands: cod (skrei) migration, Viking-era fishing, stockfish trade and early village history. Source: Visit Lofoten, https://visitlofoten.com/en/the-history-of-lofoten/
+- JO Dead Sea: closed-basin lake, Jordan basin water diversions and falling water level with shore sinkhole impacts. Source: UN ESCWA shared-water inventory, https://digitallibrary.un.org/record/1292668/files/E_ESCWA_SDPD_2013_INVENTORY-EN.pdf
+- CA Lake Louise: glacial carving, suspended finely ground rock sediment and sunlight scattering; contextual sources: Parks Canada https://parks.canada.ca/pn-np/ab/banff/activ/louise and https://visitcanada.com/attractions/alberta/lake-louise/lake-louise/
+
+Asset query advanced to `gv637-natural-history-5`. The existing identity regression passed again across 523/523 records, including index and exact-key source association checks. This is not an exhaustive fact-level assessment or an iPhone Safari visual test.
