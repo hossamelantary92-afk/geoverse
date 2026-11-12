@@ -108,3 +108,16 @@ Expanded the history field for seven exact country/name keys after checking auth
 - VN Phong Nha Cave — long evolution of the limestone karst system and underground waterways (https://whc.unesco.org/en/list/951).
 
 Changed deep-enrichment asset URL query to `gv633-priority-history`. The repeatable identity test passed (523 key alignments; 64 original indexed, 176 independent keyed, 283 catalogue-only), with zero exact cross-attraction assignments detected. This does not assert full source-by-source historical certification or live iPhone Safari verification.
+
+## Natural landmarks geology and conservation — 2026-11-13
+
+Focused source-backed improvements to six natural-site historical/geological narratives in the canonical deep-enrichment source:
+
+- Teide National Park (ES): stratovolcano development, Las Cañadas caldera, 3718 m summit; UNESCO https://whc.unesco.org/en/list/1258
+- Hawaiʻi Volcanoes National Park (US): 1916 establishment, later division, Kīlauea and Mauna Loa; NPS https://www.nps.gov/havo/learn/news/hawaii-volcanoes-national-park-fact-sheet.htm
+- Zhangjiajie National Forest Park (CN): sandstone erosion and jointing in the broader Wulingyuan landscape; UNESCO https://whc.unesco.org/en/list/640
+- Komodo National Park (ID): 1980 establishment, terrestrial and marine protection, 1991 World Heritage listing; UNESCO https://whc.unesco.org/en/list/609
+- Lake Toba (ID): super-eruption around 74,000 years ago, caldera formation and Samosir uplift; UNESCO Global Geopark https://www.unesco.org/en/iggp/toba-caldera-unesco-global-geopark
+- Gros Morne National Park (CA): exposed mantle and oceanic crust, plate tectonics and glacial landforms; UNESCO https://whc.unesco.org/en/list/419
+
+Only story and source fields on the six exact country/name keys were updated; no IDs, visuals, navigation or adjacent attraction fields changed. Asset query updated to `gv634-natural-sites`. Repeatable identity integrity test passed for all 523 entries. Still requires actual iPhone Safari smoke test and does not certify every detail of the other attractions.
