@@ -82,23 +82,32 @@ function detailPage(row){
   ||[t(row.factAr,row.factEn)];
  const enriched=ar()?(window.GeoVerseTourismEditorialPhase6?.get(i)||window.GeoVerseTourismEditorialPhase5?.get(i)||window.GeoVerseTourismEditorialPhase4?.get(i)||window.GeoVerseTourismEditorialPhase3?.get(i)||window.GeoVerseTourismEditorialPhase2?.get(i)||window.GeoVerseTourismEditorialPhase1?.get(i)||window.GeoVerseTourismEnrichment215?.get(i)||window.GeoVerseTourismEnrichment214?.get(i)||window.GeoVerseTourismEnrichment213?.get(i)||window.GeoVerseTourismEnrichment212?.get(i)||window.GeoVerseTourismEnrichment208?.get(i)||window.GeoVerseTourismEnrichment207?.get(i)||window.GeoVerseTourismEnrichment206?.get(i)):null;
  const deep=window.GeoVerseTourismDeepEnrichmentV597?.get(row)||null;
- const learningPoints=(enriched?enriched.points:article)||[];
+ // Every attraction uses the same five content sections, in the same order.
+ // Legacy editorial records and newer deep-enrichment records have different field
+ // layouts; normalize them here without changing sources, IDs, or source content.
+ const learningPoints=(enriched?.points?.length?enriched.points:article)||[];
  const uniquePoints=[...new Set(learningPoints.filter(Boolean).map(p=>String(p).trim()))];
- const section=(slug,label,body)=>body?'<section class="gv596-topic gv596-'+slug+'" aria-label="'+esc(label)+'"><h2>'+esc(label)+'</h2>'+body+'</section>':'';
+ const section=(slug,label,body)=>'<section class="gv596-topic gv596-'+slug+'" aria-label="'+esc(label)+'"><h2>'+esc(label)+'</h2>'+body+'</section>';
  const paragraph=value=>value?'<p>'+esc(value)+'</p>':'';
  const bullets=values=>values&&values.length?'<ul>'+values.filter(Boolean).map(p=>'<li>'+esc(p)+'</li>').join('')+'</ul>':'';
- const overview=section('overview',t('نبذة عن المزار','Overview'),
-  '<p>'+esc(t(row.factAr,row.factEn)||t(row.nameAr,row.nameEn))+'</p>');
- const history=section('history',t('القصة والتاريخ','History'),paragraph(enriched?.story||(ar()?deep?.storyAr:'')));
- const significance=section('significance',t('الأهمية وما يميّزه','Significance'),
-  (ar()&&deep?paragraph(deep.significanceAr):'')+
-  '<div id="gv14Description" class="gv202-article-points" lang="'+(ar()?'ar':'en')+'">'+bullets(uniquePoints)+'</div>');
- const highlights=section('highlights',t('أبرز المعالم والتفاصيل','Highlights'),enriched?paragraph(enriched.architecture):'');
- const fascinating=section('facts',t('حقائق مدهشة','Fascinating facts'),
-  bullets([...(enriched?.wow||[]),...(ar()&&deep?.factAr?[deep.factAr]:[])].filter(p=>p&&!uniquePoints.includes(p))));
- // Optional facts only: never invent current status, UNESCO listing or visit advice.
- const today=section('today',t('المزار اليوم','Today'),paragraph(t(row.todayAr,row.todayEn)));
- const visit=section('visit',t('ما الذي ستشاهده؟','What to see'),paragraph(ar()?(deep?.visitAr||row.visitAr):row.visitEn));
+ const overviewText=t(row.factAr,row.factEn)||t(row.nameAr,row.nameEn);
+ const historyText=ar()?(enriched?.story||deep?.storyAr||''):(row.historyEn||'');
+ const significanceText=ar()?deep?.significanceAr||'':(row.significanceEn||'');
+ // Exclude a verbatim repeat of the overview; retain genuinely distinct editorial points.
+ const significancePoints=uniquePoints.filter(p=>p!==overviewText&&p!==significanceText);
+ const specialFacts=[...new Set([...(ar()?(enriched?.wow||[]):[]),...(ar()&&deep?.factAr?[deep.factAr]:[])].map(v=>String(v||'').trim()).filter(Boolean))].filter(p=>p!==overviewText&&!significancePoints.includes(p));
+ const architectureText=ar()?enriched?.architecture||'':row.architectureEn||'';
+ const whatToSeeText=ar()?(deep?.visitAr||row.visitAr||''):(row.visitEn||'');
+ const highlights=[architectureText,whatToSeeText].filter((p,i,a)=>p&&a.indexOf(p)===i);
+ const awaitingAr='تفاصيل إضافية قيد المراجعة.';
+ const awaitingEn='Additional verified details are not yet available in English.';
+ const overview=section('overview',t('نبذة عن المزار','Overview'),paragraph(overviewText));
+ const history=section('history',t('القصة والتاريخ','History'),paragraph(historyText||t(awaitingAr,awaitingEn)));
+ const significance=section('significance',t('الأهمية وما يميّزه','Significance'),paragraph(significanceText)+(significancePoints.length?bullets(significancePoints):(!significanceText?paragraph(t(awaitingAr,awaitingEn)):'')));
+ const fascinating=section('facts',t('حقائق مدهشة','Fascinating facts'),specialFacts.length?bullets(specialFacts):paragraph(t(awaitingAr,awaitingEn)));
+ // Consolidate the former Highlights and What-to-see sections, which otherwise
+ // repeated the same paragraph on the 208 newer attractions.
+ const visit=section('visit',t('أبرز المعالم وما الذي ستشاهده؟','Highlights and what to see'),highlights.length?highlights.map(paragraph).join(''):paragraph(t(awaitingAr,awaitingEn)));
  return '<div class="gv14-detail gv196-detail gv202-detail'+(enriched?' gv206-enriched':'')+'">'+
   '<button class="back gv14-back" data-cat="tourism">← '+t('العودة إلى المزارات','Back to landmarks')+'</button>'+
   '<header class="gv196-hero gv202-hero" aria-labelledby="gv14Name">'+
@@ -106,7 +115,7 @@ function detailPage(row){
    '<p class="gv196-hero-location gv202-location">'+city+' - '+country+'</p>'+
   '</header>'+
   '<div class="gv596-knowledge gv14-overview gv196-overview gv202-article" id="gv14About">'+
-   overview+history+significance+highlights+fascinating+today+visit+
+   overview+history+significance+fascinating+visit+
    '<div id="gv14Facts"></div>'+
   '</div>'+
   '<button id="toggleSeen" class="gv14-learned gv196-learned gv202-learned'+(learned?' is-learned':'')+'" aria-pressed="'+learned+'">'+(learned?t('✓ تمت إضافته لمعرفتي','✓ Marked as learned'):t('✓ تعلمت هذا المكان','✓ Mark as learned'))+'</button>'+
