@@ -16,7 +16,7 @@ Verify the **displayed** Arabic three-section article composition, not merely wh
 1. Corrected source priority so `deep.storyAr` is displayed before older `enriched.story`. This addressed an actual stale-content issue despite successful previous content commits.
 2. Harmonized the three headings: **القصة والتاريخ**, **الأهمية والحقائق المميزة**, **أبرز ما ستشاهده**.
 3. Applied conservative cross-section duplicate suppression and moved eligible physical/visual details to the sightseeing section; preserve meaningful numerical or named distinctions.
-4. Edited 11 high-overlap canonical records to add differentiated historical or site-specific context: Roman Forum, Empire State Building, Hwaseong Fortress, Hanging Church, Doge's Palace, Arashiyama Bamboo Grove, Guggenheim Bilbao, Louvre Museum, Dubai Frame, plus two additional historical rewrites within those records. No blanket article deletions or unverified numerical fill-ins.
+4. Edited 11 high-overlap canonical records (nine first-pass corrections plus Doge's Palace and Arashiyama Bamboo Grove). Additional historical revisions refined three of those same records. No blanket article deletions or unverified numerical fill-ins.
 5. Refreshed `index.html` cache-busting query strings for both the renderer and deep-enrichment assets.
 
 ## Final static / simulated-render check
