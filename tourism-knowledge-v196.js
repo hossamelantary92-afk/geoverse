@@ -94,8 +94,10 @@ function detailPage(row){
  const historyText=ar()?(enriched?.story||deep?.storyAr||''):(row.historyEn||'');
  const significanceText=ar()?deep?.significanceAr||'':(row.significanceEn||'');
  // Exclude a verbatim repeat of the overview; retain genuinely distinct editorial points.
- const significancePoints=uniquePoints.filter(p=>p!==overviewText&&p!==significanceText);
- const specialFacts=[...new Set([...(ar()?(enriched?.wow||[]):[]),...(ar()&&deep?.factAr?[deep.factAr]:[])].map(v=>String(v||'').trim()).filter(Boolean))].filter(p=>p!==overviewText&&!significancePoints.includes(p));
+ // Reserve unique "wow" facts for their dedicated section before de-duplicating
+ // learning points, so early editorial batches do not lose those facts.
+ const specialFacts=[...new Set([...(ar()?(enriched?.wow||[]):[]),...(ar()&&deep?.factAr?[deep.factAr]:[])].map(v=>String(v||'').trim()).filter(Boolean))].filter(p=>p!==overviewText&&p!==significanceText);
+ const significancePoints=uniquePoints.filter(p=>p!==overviewText&&p!==significanceText&&!specialFacts.includes(p));
  const architectureText=ar()?enriched?.architecture||'':row.architectureEn||'';
  const whatToSeeText=ar()?(deep?.visitAr||row.visitAr||''):(row.visitEn||'');
  const highlights=[architectureText,whatToSeeText].filter((p,i,a)=>p&&a.indexOf(p)===i);
