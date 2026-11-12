@@ -63,3 +63,28 @@ The previous 523-render audit **did not certify attraction-to-content semantic i
 Corrective commits:
 - https://github.com/hossamelantary92-afk/geoverse/commit/05f6a54672c49099684b067e17922faa1dda7aed
 - https://github.com/hossamelantary92-afk/geoverse/commit/a7e372fa6ad4965f113ff9722df39da1cc784e7b
+
+## Follow-up — 2026-11-13: remaining 459 attraction identities
+
+The previous 64 original attractions were checked against their original index-based stories and facts. This follow-up investigated the **459** additional attractions (indices 64–522), keeping the deployed catalogue and deep-enrichment files unchanged because no new definite cross-attraction swap was established.
+
+### Provenance and reconciliation
+
+- Reconstructed the **actual** 523-item runtime catalogue from `tourism-attractions-v168.js` (64 initial entries) and the append-only `tourism-country-guide-v170.js` source.
+- Verified a one-to-one match of all **523 country-code + English-name keys** to the 523 records in `tourism-deep-enrichment-v597.js`, with zero missing, orphaned, or repeated keys.
+- Of the 459 additional attractions, **176** have an independent exact-key editorial source in phase 1–6 files. Checked that no canonical story or distinguishing fact was verbatim copied from a *different* entry in these six source files. **156/176 stories** and **158/176 facts** were verbatim matches to their own earlier source; the remaining differences include intentional rewrites, so exact comparison alone is not evidence of error.
+- The remaining **283** attractions have an independent short `factAr` catalogue description, but no second full-length historical narrative. The internal fields were compared against their matching catalogue summaries and against competitors to screen for association drift.
+- Three higher similarity scores appeared against different landmarks: **Lake Manyara vs Lake Nakuru**, **Darjeeling Himalayan Railway vs Nine Arch Bridge**, and **Phú Quốc National Park vs Hoge Veluwe**. Direct reading showed distinct countries and site-specific descriptions in each case, so these scores are category-related similarities, not confirmed swaps.
+- **73/283** entries had very low shared Arabic vocabulary between the historical story and shorter catalogue description. This is expected in some cases (e.g. historical construction dates versus a visual summary) but **not evidence that all 73 are independently certified**; their fact-level and place-level semantics deserve targeted editorial review.
+
+### Repeatable regression check
+
+Created `scripts/audit-tourism-identity.mjs` for running from the repository root with Node, and validated it against current repository file contents in an isolated execution with equivalent file and JavaScript-context adapters. It passed catalogue uniqueness/completeness and both indexed/keyed source-association checks. The checker intentionally cannot infer whether a newly composed story contains a *semantic* fact about another landmark when no independent long-form source exists.
+
+### Status interpretation
+
+- **PASS:** 523 catalogue/deep keys, 64 original index associations, 176 independently keyed editorial association checks and 283 catalogue-only key mappings.
+- **NO CONFIRMED NEW CROSS-ATTRACTION SWAP** in the 459 reviewed records based on available cross-source evidence.
+- **NOT YET CERTIFIED:** exhaustive semantic/historical attribution and source-level fact-checking for the 283 catalogue-only long-form profiles; iPhone Safari post-deployment UI.
+
+This supersedes any reading of the previous 64/523 progress percentage as if only 64 catalogue identities were linked: the 523 key pairs are now all reconciled, but **key reconciliation is not exhaustive semantic verification**.
