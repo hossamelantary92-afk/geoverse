@@ -4127,6 +4127,48 @@
           "الطبيعة",
           "موسم مطير وآخر جاف"
         ]
+      ],
+      "grasslandPoints": [
+        [
+          [
+            "تنتشر عبر أجزاء واسعة من أفريقيا المدارية",
+            "Spreads across large parts of tropical Africa"
+          ],
+          [
+            "تجمع بين الأعشاب والأشجار المتناثرة",
+            "Combines grasses with scattered trees"
+          ]
+        ],
+        [
+          [
+            "يتعاقب موسم مطير وآخر جاف",
+            "Has alternating wet and dry seasons"
+          ],
+          [
+            "تؤثر الحرائق الطبيعية والرعي في بنية الغطاء النباتي",
+            "Natural fires and grazing shape vegetation"
+          ]
+        ],
+        [
+          [
+            "تعيش فيها الظباء والفيلة والحمر الوحشية ومفترساتها",
+            "Supports antelopes, elephants, zebras and predators"
+          ],
+          [
+            "تتغير هجرة الحيوانات تبعًا للأمطار والمراعي",
+            "Animal movements respond to rainfall and grazing"
+          ]
+        ],
+        [
+          [
+            "توفر المراعي موارد للرعاة والمجتمعات المحلية",
+            "Grasslands support pastoral livelihoods"
+          ],
+          [
+            "يهدد تجزؤ الموائل والتوسع الزراعي بعض مناطقها",
+            "Habitat fragmentation and farming threaten some areas"
+          ]
+        ]
       ]
     },
     "Prairies": {
@@ -4144,6 +4186,48 @@
         [
           "الأهمية",
           "تربة زراعية وموائل طبيعية"
+        ]
+      ],
+      "grasslandPoints": [
+        [
+          [
+            "تنتشر في وسط الولايات المتحدة وكندا",
+            "Found in central United States and Canada"
+          ],
+          [
+            "تشمل البراري طويلة الأعشاب وقصيرتها",
+            "Include tallgrass and shortgrass prairies"
+          ]
+        ],
+        [
+          [
+            "مناخها معتدل قاري مع تفاوت موسمي واضح",
+            "Have a temperate continental climate with distinct seasons"
+          ],
+          [
+            "تؤثر الأمطار والحرائق والرعي في نمو الأعشاب",
+            "Rainfall, fire and grazing influence grass growth"
+          ]
+        ],
+        [
+          [
+            "تكوّنت تربة خصبة من جذور الأعشاب المتحللة",
+            "Rich soils developed from decomposed grass roots"
+          ],
+          [
+            "تدعم طيور المراعي وحيوانات مثل البيسون",
+            "Support grassland birds and animals such as bison"
+          ]
+        ],
+        [
+          [
+            "تحولت مساحات واسعة إلى حقول حبوب",
+            "Large areas were converted to grain fields"
+          ],
+          [
+            "تحمي المحميات بقايا البراري الطبيعية",
+            "Reserves protect remaining native prairie"
+          ]
         ]
       ]
     },
@@ -4163,6 +4247,48 @@
           "الأهمية",
           "الرعي والتجارة التاريخية"
         ]
+      ],
+      "grasslandPoints": [
+        [
+          [
+            "تمتد من شرق أوروبا عبر آسيا الوسطى نحو منغوليا",
+            "Extends from eastern Europe across Central Asia toward Mongolia"
+          ],
+          [
+            "مراعٍ معتدلة واسعة قليلة الأشجار",
+            "Broad temperate grasslands with few trees"
+          ]
+        ],
+        [
+          [
+            "أمطارها محدودة وشتاؤها قد يكون شديد البرودة",
+            "Rainfall is limited and winters can be very cold"
+          ],
+          [
+            "تختلف الأعشاب مع الجفاف والتربة والارتفاع",
+            "Grasses vary with aridity, soil and elevation"
+          ]
+        ],
+        [
+          [
+            "تدعم قطعان الحيوانات البرية والمواشي",
+            "Supports wild grazers and livestock"
+          ],
+          [
+            "تساعد الجذور العشبية في تثبيت التربة",
+            "Grass roots help stabilize soil"
+          ]
+        ],
+        [
+          [
+            "ارتبطت تاريخيًا بالرعي والتنقل وطرق التجارة",
+            "Historically linked to herding, mobility and trade routes"
+          ],
+          [
+            "يهدد الإفراط في الرعي وتدهور التربة بعض أجزائها",
+            "Overgrazing and soil degradation threaten some areas"
+          ]
+        ]
       ]
     },
     "Pampas": {
@@ -4180,6 +4306,48 @@
         [
           "النشاط",
           "الزراعة وتربية الماشية"
+        ]
+      ],
+      "grasslandPoints": [
+        [
+          [
+            "تقع أساسًا في الأرجنتين وأوروغواي وجنوب البرازيل",
+            "Mainly in Argentina, Uruguay and southern Brazil"
+          ],
+          [
+            "سهول عشبية واسعة ذات تضاريس منبسطة أو متموجة",
+            "Wide grasslands with flat or rolling terrain"
+          ]
+        ],
+        [
+          [
+            "تتفاوت الأمطار بين البامبا الرطبة والجافة",
+            "Rainfall varies between humid and dry Pampas"
+          ],
+          [
+            "تساعد التربة الخصبة والمناخ في نمو الأعشاب",
+            "Fertile soils and climate support grass growth"
+          ]
+        ],
+        [
+          [
+            "تضم طيورًا وثدييات متكيفة مع السهول المفتوحة",
+            "Host birds and mammals adapted to open plains"
+          ],
+          [
+            "تقلصت موائل طبيعية بسبب الزراعة والرعي المكثف",
+            "Farming and intensive grazing reduced native habitats"
+          ]
+        ],
+        [
+          [
+            "تشتهر بزراعة الحبوب وتربية الأبقار",
+            "Known for grain farming and cattle ranching"
+          ],
+          [
+            "ارتبطت بثقافة الغاوتشو الريفية",
+            "Associated with rural gaucho culture"
+          ]
         ]
       ]
     },
@@ -5307,11 +5475,53 @@
       "factsAr": [
         [
           "الموقع",
-          "سهول السرينغيتي"
+          "شمال تنزانيا وامتداد بيئي إلى كينيا"
         ],
         [
           "النوع",
-          "معلم جغرافي طبيعي"
+          "سهول عشبية وسافانا"
+        ]
+      ],
+      "grasslandPoints": [
+        [
+          [
+            "تقع أساسًا في شمال تنزانيا وتتصل بنظام مارا في كينيا",
+            "Mainly in northern Tanzania, linked to Kenya's Mara ecosystem"
+          ],
+          [
+            "تضم سهولًا عشبية وسافانا متدرجة",
+            "Contain open grasslands and varied savanna"
+          ]
+        ],
+        [
+          [
+            "تحدد الأمطار الموسمية وفرة العشب والماء",
+            "Seasonal rains determine grass and water availability"
+          ],
+          [
+            "تدعم التربة البركانية بعض المراعي القصيرة",
+            "Volcanic soils support some short-grass plains"
+          ]
+        ],
+        [
+          [
+            "تتحرك قطعان النو والحمر الوحشية موسميًا",
+            "Wildebeest and zebra herds move seasonally"
+          ],
+          [
+            "تعيش فيها الأسود والضباع ومفترسات أخرى",
+            "Lions, hyenas and other predators live here"
+          ]
+        ],
+        [
+          [
+            "تمثل الهجرة الكبرى ظاهرة بيئية بارزة",
+            "The great migration is a major ecological event"
+          ],
+          [
+            "تساعد المناطق المحمية في حماية مسارات الهجرة",
+            "Protected areas help safeguard migration routes"
+          ]
         ]
       ]
     },
@@ -5321,11 +5531,53 @@
       "factsAr": [
         [
           "الموقع",
-          "سهول اللانوس"
+          "فنزويلا وكولومبيا"
         ],
         [
           "النوع",
-          "معلم جغرافي طبيعي"
+          "سهول سافانا موسمية الفيضان"
+        ]
+      ],
+      "grasslandPoints": [
+        [
+          [
+            "تمتد عبر حوض أورينوكو في فنزويلا وكولومبيا",
+            "Span the Orinoco basin in Venezuela and Colombia"
+          ],
+          [
+            "سهول سافانا واسعة تتخللها أنهار وأراضٍ رطبة",
+            "Broad savannas interlaced with rivers and wetlands"
+          ]
+        ],
+        [
+          [
+            "تغمر الأمطار الموسمية أجزاء من السهول",
+            "Seasonal rains flood parts of the plains"
+          ],
+          [
+            "ينحسر الماء خلال موسم الجفاف",
+            "Water retreats during the dry season"
+          ]
+        ],
+        [
+          [
+            "تعيش فيها الكابيبارا والكايمان وطيور مائية",
+            "Support capybaras, caimans and waterbirds"
+          ],
+          [
+            "تتغير موائل الأسماك والطيور مع مستوى المياه",
+            "Fish and bird habitats shift with water levels"
+          ]
+        ],
+        [
+          [
+            "تدعم تربية الماشية وبعض الأنشطة الزراعية",
+            "Support cattle ranching and some agriculture"
+          ],
+          [
+            "تعتمد حماية التنوع الحيوي على بقاء دورة الفيضانات",
+            "Biodiversity conservation depends on the flood cycle"
+          ]
         ]
       ]
     },
