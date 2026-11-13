@@ -2214,6 +2214,48 @@
           "الشتاء",
           "أكثر أمطارًا"
         ]
+      ],
+      "climatePoints": [
+        [
+          [
+            "يوجد حول المتوسط وغرب قارات أخرى",
+            "Found around the Mediterranean and other western continental margins"
+          ],
+          [
+            "صيفه دافئ إلى حار وجاف غالبًا",
+            "Summers are usually warm to hot and dry"
+          ]
+        ],
+        [
+          [
+            "تتركز الأمطار في الشتاء مع مرور المنخفضات",
+            "Rainfall concentrates in winter with passing storms"
+          ],
+          [
+            "تساهم أنظمة الضغط المرتفع الصيفية في الجفاف",
+            "Summer high-pressure systems contribute to dryness"
+          ]
+        ],
+        [
+          [
+            "تنمو شجيرات دائمة الخضرة ونباتات متحملة للجفاف",
+            "Evergreen scrub and drought-tolerant plants thrive"
+          ],
+          [
+            "تزداد مخاطر حرائق الغابات خلال فترات الجفاف",
+            "Wildfire risk rises during dry periods"
+          ]
+        ],
+        [
+          [
+            "تشتهر بعض مناطقه بالزيتون والعنب",
+            "Some regions are known for olives and grapes"
+          ],
+          [
+            "تحتاج المدن والزراعة إلى إدارة المياه صيفًا",
+            "Cities and farms must manage summer water scarcity"
+          ]
+        ]
       ]
     },
     "Tropical Climate": {
@@ -2227,6 +2269,48 @@
         [
           "الحرارة",
           "دافئة غالبًا"
+        ]
+      ],
+      "climatePoints": [
+        [
+          [
+            "ينتشر في العروض المنخفضة حول خط الاستواء",
+            "Common at low latitudes around the equator"
+          ],
+          [
+            "تظل درجات الحرارة مرتفعة نسبيًا طوال العام",
+            "Temperatures stay relatively high year-round"
+          ]
+        ],
+        [
+          [
+            "قد تكون الأمطار طوال العام أو موسمية",
+            "Rainfall may occur year-round or seasonally"
+          ],
+          [
+            "تؤثر منطقة التقارب المدارية والرياح الموسمية في الهطول",
+            "The tropical convergence zone and monsoons shape rainfall"
+          ]
+        ],
+        [
+          [
+            "تدعم المناطق الرطبة غابات مطيرة كثيفة",
+            "Humid zones support dense rainforests"
+          ],
+          [
+            "تظهر السافانا حيث يوجد فصل جاف واضح",
+            "Savannas occur where a distinct dry season develops"
+          ]
+        ],
+        [
+          [
+            "تتأثر الزراعة بمواعيد الأمطار والرطوبة",
+            "Agriculture depends on rainfall timing and humidity"
+          ],
+          [
+            "قد تزداد مخاطر الفيضانات والأمراض المنقولة بالحشرات",
+            "Flood and vector-borne disease risks can increase"
+          ]
         ]
       ]
     },
@@ -3805,6 +3889,48 @@
           "الأمثلة",
           "صحاري حارة وباردة"
         ]
+      ],
+      "climatePoints": [
+        [
+          [
+            "ينتشر في صحاري حارة وباردة حول العالم",
+            "Occurs in hot and cold deserts worldwide"
+          ],
+          [
+            "تُعرّفه ندرة الهطول لا ارتفاع الحرارة وحده",
+            "Defined by scarce precipitation, not heat alone"
+          ]
+        ],
+        [
+          [
+            "الأمطار قليلة ومتذبذبة من عام لآخر",
+            "Rainfall is low and variable between years"
+          ],
+          [
+            "يفوق التبخر المحتمل كمية الهطول غالبًا",
+            "Potential evaporation often exceeds precipitation"
+          ]
+        ],
+        [
+          [
+            "قد تكون فروق حرارة الليل والنهار كبيرة",
+            "Day–night temperature swings can be large"
+          ],
+          [
+            "تظهر نباتات قليلة متكيفة مع الجفاف",
+            "Sparse drought-adapted plants occur"
+          ]
+        ],
+        [
+          [
+            "تعتمد الواحات والزراعة على مصادر مياه محدودة",
+            "Oases and farming rely on limited water supplies"
+          ],
+          [
+            "السيول المفاجئة ممكنة رغم الجفاف الشديد",
+            "Flash floods can occur despite extreme aridity"
+          ]
+        ]
       ]
     },
     "Polar Climate": {
@@ -3818,6 +3944,48 @@
         [
           "الموقع",
           "قرب القطبين"
+        ]
+      ],
+      "climatePoints": [
+        [
+          [
+            "يسود في مناطق قطبية وشديدة الارتفاع",
+            "Occurs in polar regions and some high-elevation areas"
+          ],
+          [
+            "متوسط حرارة أدفأ شهر أقل من 10 درجات مئوية في تصنيف كوبن",
+            "In Köppen classification, the warmest month averages below 10°C"
+          ]
+        ],
+        [
+          [
+            "الهطول قليل غالبًا ويأتي كثير منه ثلجًا",
+            "Precipitation is often low and frequently falls as snow"
+          ],
+          [
+            "الشتاء طويل ويختلف طول النهار بشدة بين الفصول",
+            "Winters are long with extreme seasonal daylight changes"
+          ]
+        ],
+        [
+          [
+            "توجد تندرا في المناطق الأدفأ نسبيًا",
+            "Tundra occurs in relatively warmer polar areas"
+          ],
+          [
+            "يمنع البرد الشديد نمو الأشجار في معظم المناطق",
+            "Extreme cold prevents tree growth across most areas"
+          ]
+        ],
+        [
+          [
+            "يؤثر ذوبان الجليد والتربة الصقيعية في البيئات",
+            "Melting ice and thawing permafrost affect ecosystems"
+          ],
+          [
+            "تتطلب الحياة والبنية التحتية تكيفًا مع البرودة",
+            "People and infrastructure must adapt to cold conditions"
+          ]
         ]
       ]
     },
