@@ -37,6 +37,13 @@ geo.deserts.push(
 );
 geo.rivers.push(...[["النيجر","Niger River",12,0],["الزامبيزي","Zambezi River",-17,28],["الراين","Rhine River",50,7],["الفرات","Euphrates River",35,40],["دجلة","Tigris River",34,44],["الفولغا","Volga River",54,46],["الغانج","Ganges River",26,83],["الميكونغ","Mekong River",17,104],["السند","Indus River",29,70],["موراي","Murray River",-35,142]].map(v=>[v[0],v[1],'معلم جغرافي في '+cats.find(c=>c.id==='rivers').ar+'؛ اضغط للخريطة والتفاصيل.','A geographic feature in '+cats.find(c=>c.id==='rivers').en+'; explore its map position.',v[2],v[3]]));
 geo.waterfalls.push(...[["شلالات ديتيفوس","Dettifoss",65.81,-16.38],["شلالات جلفوس","Gullfoss",64.33,-20.12],["شلالات يوسيميتي","Yosemite Falls",37.75,-119.6],["شلالات توجيلا","Tugela Falls",-28.75,28.9]].map(v=>[v[0],v[1],'معلم جغرافي في '+cats.find(c=>c.id==='waterfalls').ar+'؛ اضغط للخريطة والتفاصيل.','A geographic feature in '+cats.find(c=>c.id==='waterfalls').en+'; explore its map position.',v[2],v[3]]));
+geo.forests.push(...[
+ ["غابات ريدوود الساحلية","Coast Redwood Forests","غابات ساحلية معتدلة تشتهر بأشجار السيكويا الحمراء الشاهقة في شمال كاليفورنيا.","Temperate coastal forests with towering coast redwoods in northern California.",41.3,-124],
+ ["غابة ياكوشيما","Yakushima Forest","غابة جزيرية يابانية مطيرة تشتهر بأشجار الأرز الياباني القديمة وتدرج الغطاء النباتي مع الارتفاع.","Rainy Japanese island forest known for ancient Japanese cedars and elevational vegetation zones.",30.35,130.52],
+ ["غابات فالديفيا المطيرة","Valdivian Temperate Rainforest","غابات معتدلة شديدة الرطوبة في جنوب تشيلي وأجزاء مجاورة من الأرجنتين.","Very wet temperate forests of southern Chile and adjacent Argentina.",-40.5,-72.7],
+ ["غابة بويندي","Bwindi Impenetrable Forest","غابة جبلية في جنوب غرب أوغندا تشتهر بتنوعها الحيوي وغوريلا الجبال.","Montane forest in southwestern Uganda known for biodiversity and mountain gorillas.",-1.05,29.7]
+].map(v=>v));
+
 geo.forests.push(...[["غابات بورنيو","Borneo Rainforest",1,114],["غابة دينتري","Daintree Rainforest",-16.2,145.4],["غابات الأرز في لبنان","Cedars of Lebanon",34.2,36.1],["غابة بياوفيجا","Białowieża Forest",52.7,23.8],["غابات سونداربانس","Sundarbans",21.95,89.2]].map(v=>[v[0],v[1],'معلم جغرافي في '+cats.find(c=>c.id==='forests').ar+'؛ اضغط للخريطة والتفاصيل.','A geographic feature in '+cats.find(c=>c.id==='forests').en+'; explore its map position.',v[2],v[3]]));
 
 /* Specific bilingual introductions replace temporary generic catalogue labels. */
