@@ -358,7 +358,49 @@
         "countriesLabelAr": "الدول التي يمر بها المجرى الرئيسي",
         "countriesAr": "أوغندا وجنوب السودان والسودان ومصر؛ ويلتحق به النيل الأزرق من إثيوبيا",
         "countriesEn": "Uganda, South Sudan, Sudan and Egypt; joined by the Blue Nile from Ethiopia"
-      }
+      },
+      "riverPoints": [
+        [
+          [
+            "يمتد شمالًا من منطقة البحيرات الاستوائية إلى المتوسط.",
+            "Runs north from the East African lake region to the Mediterranean."
+          ],
+          [
+            "يلتقي النيل الأبيض والأزرق في الخرطوم.",
+            "The White and Blue Nile meet at Khartoum."
+          ]
+        ],
+        [
+          [
+            "تتحكم أمطار المرتفعات الإثيوبية في جانب كبير من الفيضان.",
+            "Ethiopian highland rains drive much of the flood pulse."
+          ],
+          [
+            "تؤثر السدود في توقيت التدفق وتوزيع المياه.",
+            "Dams affect flow timing and water distribution."
+          ]
+        ],
+        [
+          [
+            "تضم الشبكة أراضي السد الرطبة في جنوب السودان.",
+            "The system includes the Sudd wetlands in South Sudan."
+          ],
+          [
+            "تتشكل دلتا واسعة عند البحر المتوسط.",
+            "A broad delta forms on the Mediterranean coast."
+          ]
+        ],
+        [
+          [
+            "أسهم النهر في قيام الزراعة والحضارة المصرية.",
+            "The river supported Egyptian agriculture and civilization."
+          ],
+          [
+            "تواجه الدلتا ضغوط التعرية وارتفاع البحر.",
+            "The delta faces erosion and sea-level rise."
+          ]
+        ]
+      ]
     },
     "Amazon River": {
       "ar": "يمتد نظام نهر الأمازون من روافد في جبال الأنديز إلى المحيط الأطلسي عبر شمال أمريكا الجنوبية، وتحتضن شبكته الواسعة أكبر غابة مطيرة استوائية في العالم. يتميز الأمازون بأكبر تصريف مائي بين أنهار الأرض؛ وتفيض بعض مجاريه موسميًا فتغمر مساحات من الغابات وتربط موائل الأسماك والكائنات الأخرى. ومن روافده المهمة ماديرا ونيغرو. أما تحديد أبعد منبع له وترتيبه من حيث الطول مقارنة بالنيل، فيعتمدان على طريقة القياس وما يزالان موضع نقاش علمي.",
@@ -381,7 +423,49 @@
         "countriesLabelAr": "الدول",
         "countriesAr": "بيرو وكولومبيا والبرازيل؛ ويشمل حوضه دولًا أخرى",
         "countriesEn": "Peru, Colombia and Brazil; its basin reaches additional countries"
-      }
+      },
+      "riverPoints": [
+        [
+          [
+            "ينبع نظامه من روافد الأنديز ويصب في الأطلسي.",
+            "Its system begins in Andean tributaries and reaches the Atlantic."
+          ],
+          [
+            "يمتلك أكبر متوسط تصريف بين أنهار الأرض.",
+            "It has the greatest average river discharge on Earth."
+          ]
+        ],
+        [
+          [
+            "تغذيه الأمطار الاستوائية وروافد واسعة.",
+            "Tropical rainfall and extensive tributaries feed it."
+          ],
+          [
+            "تغمر الفيضانات الموسمية مساحات واسعة.",
+            "Seasonal floods inundate extensive areas."
+          ]
+        ],
+        [
+          [
+            "تعيش أسماك كثيرة في الغابات المغمورة.",
+            "Many fish inhabit flooded forests."
+          ],
+          [
+            "ينقل النهر رواسب ومغذيات عبر الحوض.",
+            "The river transports sediment and nutrients across its basin."
+          ]
+        ],
+        [
+          [
+            "يمثل طريقًا للنقل للمجتمعات النهرية.",
+            "It provides transport for river communities."
+          ],
+          [
+            "تؤثر إزالة الغابات والجفاف في نظامه.",
+            "Deforestation and drought affect its system."
+          ]
+        ]
+      ]
     },
     "Mississippi River": {
       "ar": "يبدأ نهر المسيسيبي من بحيرة إتاسكا في ولاية مينيسوتا الأمريكية، ويتجه جنوبًا ليصب في خليج المكسيك عبر دلتا واسعة في لويزيانا. تتصل به روافد كبرى، أهمها ميزوري وأوهايو، لتكوّن شبكة تصريف تغطي مساحة كبيرة من وسط الولايات المتحدة. ساعد مجراه على نقل الحبوب والبضائع وربط المدن، وتدعم سهوله الفيضية الزراعة والموائل المائية. لكن بناء السدود والحواجز وتنظيم الملاحة غيّر حركة الرواسب والفيضانات في أجزاء منه.",
@@ -404,7 +488,49 @@
         "countriesLabelAr": "الدول",
         "countriesAr": "الولايات المتحدة الأمريكية",
         "countriesEn": "United States"
-      }
+      },
+      "riverPoints": [
+        [
+          [
+            "ينبع من بحيرة إتاسكا ويصب في خليج المكسيك.",
+            "Rises at Lake Itasca and reaches the Gulf of Mexico."
+          ],
+          [
+            "تضم روافده ميزوري وأوهايو.",
+            "Its tributaries include the Missouri and Ohio."
+          ]
+        ],
+        [
+          [
+            "يحمل رواسب من السهول الأمريكية الوسطى.",
+            "It carries sediment from the central US plains."
+          ],
+          [
+            "تتغير المناسيب مع الأمطار وذوبان الثلوج.",
+            "Levels change with rain and snowmelt."
+          ]
+        ],
+        [
+          [
+            "تضم سهوله الفيضية أراضي رطبة مهمة.",
+            "Its floodplain contains important wetlands."
+          ],
+          [
+            "تتشكل دلتا نهرية في لويزيانا.",
+            "A river delta forms in Louisiana."
+          ]
+        ],
+        [
+          [
+            "يدعم الملاحة والزراعة والصناعة.",
+            "It supports navigation, farming and industry."
+          ],
+          [
+            "تؤثر الحواجز النهرية في الفيضانات والرواسب.",
+            "Levees alter floods and sediment delivery."
+          ]
+        ]
+      ]
     },
     "Victoria Falls": {
       "ar": "تقع شلالات فيكتوريا على نهر الزامبيزي عند الحدود بين زامبيا وزيمبابوي. تتساقط المياه من حافة صخرية عريضة، ويظهر الرذاذ من مسافات بعيدة. تُعرف محليًا باسم موسي أو تونيا، أي الدخان الذي يرعد، بسبب الرذاذ الكثيف. يتغير حجم التدفق خلال العام، وتقع الشلالات ضمن موقع تراث عالمي مشترك بين زامبيا وزيمبابوي.",
@@ -417,6 +543,48 @@
         [
           "النهر",
           "الزامبيزي"
+        ]
+      ],
+      "waterfallPoints": [
+        [
+          [
+            "تقع على الزامبيزي بين زامبيا وزيمبابوي.",
+            "Lies on the Zambezi between Zambia and Zimbabwe."
+          ],
+          [
+            "تتسع جبهة الشلال إلى نحو 1.7 كيلومتر.",
+            "The waterfall curtain spans about 1.7 km."
+          ]
+        ],
+        [
+          [
+            "تهبط المياه في شق داخل صخور بازلتية.",
+            "Water plunges into a chasm in basalt rock."
+          ],
+          [
+            "يتغير التدفق والرذاذ موسميًا.",
+            "Flow and spray change seasonally."
+          ]
+        ],
+        [
+          [
+            "ينشئ الرذاذ موائل رطبة محلية.",
+            "Spray creates localized moist habitats."
+          ],
+          [
+            "تكشف الأخاديد المتعاقبة أثر النحت النهري.",
+            "Successive gorges reveal river erosion."
+          ]
+        ],
+        [
+          [
+            "تُعرف باسم موسي أو تونيا، الدخان الذي يرعد.",
+            "Known as Mosi-oa-Tunya, the Smoke That Thunders."
+          ],
+          [
+            "تمثل معلمًا طبيعيًا عابرًا للحدود.",
+            "It is a transboundary natural landmark."
+          ]
         ]
       ]
     },
@@ -432,6 +600,48 @@
           "المياه",
           "بين بحيرتين عظيمتين"
         ]
+      ],
+      "waterfallPoints": [
+        [
+          [
+            "تقع بين كندا والولايات المتحدة.",
+            "Lies between Canada and the United States."
+          ],
+          [
+            "تضم حدوة الحصان والشلالات الأمريكية وبرايدل فيل.",
+            "Includes Horseshoe, American and Bridal Veil Falls."
+          ]
+        ],
+        [
+          [
+            "تربط المياه بين بحيرتي إيري وأونتاريو.",
+            "Water flows between Lakes Erie and Ontario."
+          ],
+          [
+            "يرتبط نشوء الجرف بتاريخ العصر الجليدي.",
+            "The escarpment's history is tied to the ice age."
+          ]
+        ],
+        [
+          [
+            "توجد موائل نهرية وممرات للطيور.",
+            "River habitats and bird corridors occur nearby."
+          ],
+          [
+            "تراجع موضع الشلالات بفعل النحت المائي.",
+            "Erosion has moved the falls upstream."
+          ]
+        ],
+        [
+          [
+            "تُستخدم المياه في الطاقة الكهرومائية.",
+            "The water is used for hydropower."
+          ],
+          [
+            "تُنظم بعض التدفقات لأغراض الطاقة والمنظر الطبيعي.",
+            "Some flow is regulated for power and scenic purposes."
+          ]
+        ]
       ]
     },
     "Iguazú Falls": {
@@ -445,6 +655,48 @@
         [
           "الطبيعة",
           "شلالات متعددة"
+        ]
+      ],
+      "waterfallPoints": [
+        [
+          [
+            "تقع بين الأرجنتين والبرازيل.",
+            "Lies between Argentina and Brazil."
+          ],
+          [
+            "تضم مئات المساقط بحسب مستوى المياه.",
+            "Contains hundreds of cascades depending on water level."
+          ]
+        ],
+        [
+          [
+            "تنساب المياه فوق طبقات بازلتية.",
+            "Water spills over basalt layers."
+          ],
+          [
+            "تتغير قوة التدفق مع الأمطار.",
+            "Rainfall changes the flow's intensity."
+          ]
+        ],
+        [
+          [
+            "تحيط بها غابات أطلسية شبه استوائية.",
+            "Subtropical Atlantic forests surround the falls."
+          ],
+          [
+            "يُعد حلق الشيطان أشهر أجزائها.",
+            "Devil's Throat is its most famous section."
+          ]
+        ],
+        [
+          [
+            "تحميها متنزهات وطنية على جانبي الحدود.",
+            "National parks protect both sides of the border."
+          ],
+          [
+            "توضح أثر النحت المائي في الصخور.",
+            "They illustrate water erosion of bedrock."
+          ]
         ]
       ]
     },
@@ -1439,7 +1691,49 @@
         "countriesLabelAr": "الدول",
         "countriesAr": "جمهورية الكونغو الديمقراطية وجمهورية الكونغو؛ ويشكّل حدودًا مع أنغولا عند منطقة المصب",
         "countriesEn": "DR Congo and Republic of the Congo; borders Angola near its mouth"
-      }
+      },
+      "riverPoints": [
+        [
+          [
+            "يجري في وسط أفريقيا ويصب في الأطلسي.",
+            "Flows across Central Africa to the Atlantic."
+          ],
+          [
+            "ثاني أكبر نهر من حيث متوسط التصريف.",
+            "It ranks second in average river discharge."
+          ]
+        ],
+        [
+          [
+            "تغذيه أمطار على جانبي خط الاستواء.",
+            "Rainfall on both sides of the equator feeds it."
+          ],
+          [
+            "توجد منحدرات مائية تعيق الملاحة في قطاعات.",
+            "Rapids hinder navigation in some sections."
+          ]
+        ],
+        [
+          [
+            "تحيط به غابات مطيرة غنية بالتنوع الحيوي.",
+            "Biodiverse rainforest surrounds it."
+          ],
+          [
+            "تنتشر الأراضي الرطبة في حوضه الواسع.",
+            "Wetlands spread across its vast basin."
+          ]
+        ],
+        [
+          [
+            "يدعم النقل والمياه للمجتمعات المحلية.",
+            "It supports transport and water for local communities."
+          ],
+          [
+            "تؤثر إزالة الغابات في صحة الحوض.",
+            "Deforestation affects the basin's health."
+          ]
+        ]
+      ]
     },
     "Danube": {
       "ar": "ينشأ نهر الدانوب من التقاء مجريي بريغ وبريغاخ في منطقة الغابة السوداء بألمانيا، ثم يسير شرقًا عبر أوروبا الوسطى والجنوبية الشرقية إلى البحر الأسود. يمر بأربع عواصم هي فيينا وبراتيسلافا وبودابست وبلغراد، وتتصل به روافد منها إن وتيسا وسافا. يُستخدم في الملاحة ونقل البضائع وتوليد الطاقة، وينتهي بدلتا واسعة تضم قنوات وأراضي رطبة مهمة للتنوع الحيوي. ولأنه نهر مشترك بين دول عديدة، تتطلب حماية مياهه وتخفيف الفيضانات تعاونًا إقليميًا.",
@@ -1485,7 +1779,49 @@
         "countriesLabelAr": "الدول",
         "countriesAr": "الصين",
         "countriesEn": "China"
-      }
+      },
+      "riverPoints": [
+        [
+          [
+            "يمتد من هضبة التبت إلى بحر الصين الشرقي.",
+            "Runs from the Tibetan Plateau to the East China Sea."
+          ],
+          [
+            "يُعد أطول نهر في آسيا.",
+            "It is Asia's longest river."
+          ]
+        ],
+        [
+          [
+            "يعبر مضايق جبلية وسهولًا منخفضة.",
+            "It crosses mountain gorges and lowland plains."
+          ],
+          [
+            "يتأثر بالأمطار الموسمية وتنظيم الخزانات.",
+            "Monsoons and reservoirs influence its flow."
+          ]
+        ],
+        [
+          [
+            "تضم شبكته بحيرات وأراضي رطبة واسعة.",
+            "Its system includes extensive lakes and wetlands."
+          ],
+          [
+            "تتعرض الأنواع المائية لضغوط التلوث والسدود.",
+            "Aquatic species face pollution and dam pressures."
+          ]
+        ],
+        [
+          [
+            "يضم حوضه سد الممرات الثلاثة.",
+            "Its basin contains the Three Gorges Dam."
+          ],
+          [
+            "يدعم النقل والطاقة والزراعة في الصين.",
+            "It supports transport, energy and farming in China."
+          ]
+        ]
+      ]
     },
     "Angel Falls": {
       "ar": "شلالات أنجل تقع في فنزويلا وسط منطقة جبلية وغابات استوائية. تسقط مياهها من ارتفاع شاهق على واجهة صخرية، ولذلك تُعد من أشهر الشلالات في العالم. تُعرف أيضًا باسم كيريباكوباي ميرو في لغة بيمون، وتنساب من هضبة أويان تيبوي في منتزه كانايما. يختلف مظهر تدفقها بين مواسم الأمطار والجفاف، ويهبط جزء من الماء كرذاذ قبل بلوغ الأسفل.",
@@ -1498,6 +1834,48 @@
         [
           "التميّز",
           "سقوط مائي شاهق"
+        ]
+      ],
+      "waterfallPoints": [
+        [
+          [
+            "تقع في متنزه كانايما بفنزويلا.",
+            "Lies in Venezuela's Canaima National Park."
+          ],
+          [
+            "يبلغ ارتفاع سقوطها الكلي نحو 979 مترًا.",
+            "Its total drop is about 979 m."
+          ]
+        ],
+        [
+          [
+            "تهبط من هضبة أويان تيبوي الصخرية.",
+            "It falls from the Auyán-tepui plateau."
+          ],
+          [
+            "تتغير كمية المياه مع الفصول.",
+            "Water volume changes with the seasons."
+          ]
+        ],
+        [
+          [
+            "تحيط بها غابات مطيرة وموائل تيبوي.",
+            "Rainforest and tepui habitats surround it."
+          ],
+          [
+            "يتحول بعض الماء إلى رذاذ قبل وصوله للقاع.",
+            "Some water becomes mist before reaching the base."
+          ]
+        ],
+        [
+          [
+            "من أعلى الشلالات المتصلة في العالم.",
+            "Among the world's highest uninterrupted waterfalls."
+          ],
+          [
+            "تكشف عن أثر التعرية في الحافات الصخرية.",
+            "It reveals erosion of towering escarpments."
+          ]
         ]
       ]
     },
