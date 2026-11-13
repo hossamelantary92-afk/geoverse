@@ -35,10 +35,23 @@ function factRows(story){
  if(!rows.length)return '';
  return '<div class="gv14-facts">'+rows.map(([label,value])=>'<div class="gv14-fact"><small>'+esc(label)+'</small><strong>'+esc(value)+'</strong></div>').join('')+'</div>';
 }
+const desertHeadings=[
+ ['الموقع ونوع الصحراء','Location and desert type'],
+ ['المناخ وسبب الجفاف','Climate and causes of aridity'],
+ ['التضاريس والحياة','Landforms and wildlife'],
+ ['معلم يوضح الفكرة','Landscape in focus']
+];
+function guideBody(item,story){
+ const points=state.category==='deserts'?story?.desertPoints:null;
+ if(!points)return '<p id="gv14Description">'+esc(overviewText(item,story))+'</p>';
+ return '<div class="gv14-desert-guide">'+desertHeadings.map(([ar,en],i)=>
+  '<section><h3>'+esc(t(ar,en))+'</h3><ul>'+points[i].map(([a,e])=>
+   '<li>'+esc(t(a,e))+'</li>').join('')+'</ul></section>').join('')+'</div>';
+}
 function singlePage(){
  const cat=cats.find(c=>c.id===state.category),v=geo[state.category]?.[state.item];
  if(!cat||!v)return earlierDetail();
- const title=t(v[0],v[1]),story=storyFor(v),overview=overviewText(v,story),done=seen();
+ const title=t(v[0],v[1]),story=storyFor(v),done=seen();
  const same=geo[state.category]||[];
  const indices=state.category==='forests'||state.category==='gulfs'?uniqueCategoryPlaceIndices(state.category):null;
  const currentIndex=indices?.findIndex(index=>same[index][1]===v[1]);
@@ -59,14 +72,14 @@ function singlePage(){
     (done?t('تم التعلّم','Learned'):t('تحديد كمعلومة تعلمتها','Mark as learned'))+'</button>'+
   '</div></section>'+
  '<section class="gv14-overview" aria-labelledby="gv14About"><div class="gv14-section-heading"><span>'+t('دليل جغرافي','FIELD GUIDE')+'</span><h2 id="gv14About">'+t('تعرف على المعلم','About this place')+'</h2></div>'+
-  '<p id="gv14Description">'+esc(overview)+'</p><div id="gv14Facts">'+factRows(story)+'</div></section>'+
+  (state.category==='deserts'?'<div id="gv14GuideBody">'+guideBody(v,story)+'</div>':guideBody(v,story))+
+  '<div id="gv14Facts">'+factRows(story)+'</div></section>'+
  '<section class="gv14-map" aria-labelledby="gv14MapTitle"><div class="gv14-section-heading"><span>'+t('استكشف الموقع','EXPLORE LOCATION')+'</span><h2 id="gv14MapTitle">'+t('موقع المعلم على الأرض','Location on Earth')+'</h2></div>'+
   '<div id="gvDetailGlobe" class="gv-globe-detail gv14-globe" role="group" aria-label="'+t('كرة أرضية تفاعلية لعرض موقع المعلم','Interactive 3D globe showing the location')+'"></div>'+
   '</section>'+
- '<details class="gv9-more gv14-more"><summary>'+t('مصادر ومعلومات إضافية','Sources and more information')+'</summary>'+
+ (state.category==='deserts'?'':'<details class="gv9-more gv14-more"><summary>'+t('مصادر ومعلومات إضافية','Sources and more information')+'</summary>'+
   '<div id="gvWikiArticle" class="gv-wiki-summary"><p>'+t('جارٍ تحميل المزيد من المعلومات…','Loading more information…')+'</p></div>'+
-  ''+
-  '</details>'+
+  '</details>')+
  (next===null?'':'<div class="gv14-next"><span>'+t('واصل الاستكشاف','KEEP EXPLORING')+'</span><button type="button" data-item="'+cat.id+':'+next+'">'+
   esc(t(same[next][0],same[next][1]))+' <span aria-hidden="true">↗</span></button></div>')+
  '</div>';
@@ -96,8 +109,12 @@ function tidyContinent(){
 function hydrate(){
  if(state.page!=='detail'||state.category==='continents')return;
  const v=geo[state.category]?.[state.item],story=storyFor(v),target=document.getElementById('gv14Description');
- if(!v||!target)return;
- if(story){target.textContent=overviewText(v,story);
+ if(!v)return;
+ if(story){
+  if(state.category==='deserts'&&story.desertPoints){
+   // A page opened before the guide request finishes still has the short overview.
+   const body=document.getElementById('gv14GuideBody');if(target&&body)body.innerHTML=guideBody(v,story);
+  }else if(target)target.textContent=overviewText(v,story);
   const el=document.getElementById('gv14Facts');if(el)el.innerHTML=factRows(story);
  }
  // The tourist catalogue supplies one authoritative image for cards and details.
@@ -163,7 +180,7 @@ render=function(){
  else if(state.page==='detail')hydrate();
  else if(state.page==='country-v4')tidyCountry();
 };
-Promise.allSettled([fetch('./geo-stories.json?v=gv667-forest-gulf-guides').then(r=>{if(!r.ok)throw Error('stories');return r.json()}),fetch('./photo-manifest-v13.json?v=gv332-three-approved-seas-med-red-caspian',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('photos');return r.json()})])
+Promise.allSettled([fetch('./geo-stories.json?v=gv668-desert-guides').then(r=>{if(!r.ok)throw Error('stories');return r.json()}),fetch('./photo-manifest-v13.json?v=gv332-three-approved-seas-med-red-caspian',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('photos');return r.json()})])
 .then(result=>{
  if(result[0].status==='fulfilled')content.stories=result[0].value.stories||{};
  if(result[1].status==='fulfilled')content.photos=result[1].value.photos||{};

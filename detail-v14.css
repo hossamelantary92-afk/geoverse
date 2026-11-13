@@ -24,7 +24,13 @@
 .gv14-section-heading{margin-bottom:12px}
 .gv14-section-heading span{font:900 10px Outfit,Cairo,sans-serif;letter-spacing:1.2px;color:#eacb8b}
 .gv14-section-heading h2{font-size:clamp(19px,2.3vw,26px);font-weight:900;line-height:1.5;color:#f1fdff;margin:6px 0}
-.gv14-overview>p{font-size:clamp(12px,1.15vw,14px);line-height:2.1;color:#d4e6ec;margin:0 0 16px;max-width:850px}
+.gv14-overview>p,.gv14-overview #gv14GuideBody>p{font-size:clamp(12px,1.15vw,14px);line-height:2.1;color:#d4e6ec;margin:0 0 16px;max-width:850px}
+.gv14-desert-guide{display:grid;gap:16px;max-width:850px;margin-block-end:18px}
+.gv14-desert-guide section+section{border-block-start:1px solid #4b819287;padding-block-start:14px}
+.gv14-desert-guide h3{margin:0 0 7px;color:#a6e7df;font-size:clamp(15px,1.4vw,19px);line-height:1.5}
+.gv14-desert-guide ul{margin:0;padding-inline-start:1.35em;color:#d4e6ec;font-size:clamp(13px,1.2vw,15px);line-height:1.9;list-style:disc}
+.gv14-desert-guide li+li{margin-block-start:6px}
+.gv14-desert-guide li::marker{color:#88d8d3}
 .gv14-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:10px}
 .gv14-fact{border:1px solid #4b819287;border-radius:12px;background:#0d394d;padding:13px 15px;display:flex;flex-direction:column;gap:8px;min-width:0}
 .gv14-fact small{color:#93c9d6;font-size:11px;line-height:1.6}
@@ -59,7 +65,7 @@
 .gv14-learned{font-size:10px;min-height:34px;padding:6px 11px}
 .gv14-overview,.gv14-map{padding:15px;margin-top:12px;border-radius:14px}
 .gv14-section-heading h2{font-size:19px}
-.gv14-overview>p{font-size:12px}
+.gv14-overview>p,.gv14-overview #gv14GuideBody>p{font-size:12px}
 .gv14-facts{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
 .gv14-fact{padding:11px;gap:6px}.gv14-fact strong{font-size:11px}.gv14-fact small{font-size:10px}
 .gv14-globe{height:330px}
