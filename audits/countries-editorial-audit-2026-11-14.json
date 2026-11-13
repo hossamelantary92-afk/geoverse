@@ -1,0 +1,372 @@
+{
+  "auditDate": "2026-11-14",
+  "scope": "Country and territory editorial profiles in encyclopedia-v9.js",
+  "totalProfiles": 245,
+  "sectionsPerProfile": 6,
+  "expectedSectionHeadingsAr": [
+    "نظرة عامة",
+    "الجغرافيا",
+    "السكان والثقافة",
+    "الاقتصاد",
+    "الطبيعة والمعالم",
+    "هل تعلم؟"
+  ],
+  "sourceLinkPresent": 32,
+  "sourceLinkMissing": 213,
+  "profilesMissingSource": [
+    "DZ",
+    "TN",
+    "LY",
+    "SD",
+    "ET",
+    "KE",
+    "NG",
+    "GH",
+    "AE",
+    "QA",
+    "OM",
+    "JO",
+    "GR",
+    "NO",
+    "NZ",
+    "PK",
+    "BD",
+    "NP",
+    "LK",
+    "TH",
+    "VN",
+    "MY",
+    "PH",
+    "KR",
+    "RU",
+    "UA",
+    "PL",
+    "NL",
+    "CH",
+    "AT",
+    "CO",
+    "PE",
+    "CL",
+    "EC",
+    "VE",
+    "BO",
+    "PY",
+    "UY",
+    "TZ",
+    "UG",
+    "RW",
+    "SN",
+    "KZ",
+    "UZ",
+    "MN",
+    "IQ",
+    "IR",
+    "LB",
+    "KW",
+    "BH",
+    "YE",
+    "KH",
+    "LA",
+    "MM",
+    "SG",
+    "AZ",
+    "GE",
+    "AM",
+    "CR",
+    "CU",
+    "CM",
+    "CI",
+    "CD",
+    "AO",
+    "ZM",
+    "ZW",
+    "SE",
+    "DK",
+    "FI",
+    "IE",
+    "PT",
+    "BE",
+    "CZ",
+    "PA",
+    "GT",
+    "MG",
+    "MZ",
+    "NA",
+    "BW",
+    "MW",
+    "RO",
+    "HU",
+    "SK",
+    "HR",
+    "RS",
+    "AF",
+    "TJ",
+    "KG",
+    "TM",
+    "FJ",
+    "IS",
+    "EE",
+    "LV",
+    "LT",
+    "SI",
+    "BG",
+    "AL",
+    "BA",
+    "MK",
+    "ME",
+    "MT",
+    "LU",
+    "CY",
+    "MU",
+    "SC",
+    "HN",
+    "NI",
+    "SV",
+    "BZ",
+    "JM",
+    "DO",
+    "HT",
+    "TT",
+    "BB",
+    "BS",
+    "PG",
+    "SB",
+    "VU",
+    "WS",
+    "TO",
+    "BY",
+    "BT",
+    "BN",
+    "BJ",
+    "BF",
+    "BI",
+    "CV",
+    "CF",
+    "TD",
+    "KM",
+    "CG",
+    "DJ",
+    "GQ",
+    "ER",
+    "SZ",
+    "GA",
+    "GM",
+    "GN",
+    "GW",
+    "GY",
+    "LR",
+    "LS",
+    "ML",
+    "MR",
+    "NE",
+    "SL",
+    "SO",
+    "SS",
+    "SR",
+    "TG",
+    "AD",
+    "AG",
+    "DM",
+    "GD",
+    "KN",
+    "LC",
+    "VC",
+    "KI",
+    "MV",
+    "MH",
+    "FM",
+    "NR",
+    "PW",
+    "TV",
+    "SM",
+    "GL",
+    "FO",
+    "GI",
+    "BM",
+    "AW",
+    "AI",
+    "GU",
+    "HK",
+    "MO",
+    "GF",
+    "PF",
+    "NC",
+    "RE",
+    "AQ",
+    "BV",
+    "TF",
+    "SJ",
+    "FK",
+    "SH",
+    "PM",
+    "CK",
+    "NU",
+    "PN",
+    "TP",
+    "GP",
+    "VA",
+    "IL",
+    "LI",
+    "MQ",
+    "YT",
+    "MD",
+    "MC",
+    "MS",
+    "AN",
+    "KP",
+    "GB",
+    "MP",
+    "PS",
+    "ST",
+    "SY",
+    "TK",
+    "TC",
+    "UM",
+    "VG",
+    "VI",
+    "WF",
+    "IM",
+    "TL"
+  ],
+  "profilesWithSource": [
+    {
+      "code": "EG",
+      "url": "https://sis.gov.eg/en/egypt/basic-information/"
+    },
+    {
+      "code": "SA",
+      "url": "https://saudiarabia.un.org/en/download/66635/125657"
+    },
+    {
+      "code": "FR",
+      "url": "https://commission.europa.eu/system/files/2023-11/styleguide_english_dgt_country_compendium_en.pdf"
+    },
+    {
+      "code": "JP",
+      "url": "https://www.japan-guide.com/list/e1000.html"
+    },
+    {
+      "code": "BR",
+      "url": "https://infcis.iaea.org/udepo/Resources/Countries/Brazil.pdf"
+    },
+    {
+      "code": "US",
+      "url": "https://data.worldbank.org/country/united-states"
+    },
+    {
+      "code": "CA",
+      "url": "https://data.worldbank.org/country/canada"
+    },
+    {
+      "code": "MX",
+      "url": "https://data.worldbank.org/country/mexico"
+    },
+    {
+      "code": "UK",
+      "url": "https://data.worldbank.org/country/united-kingdom"
+    },
+    {
+      "code": "DE",
+      "url": "https://data.worldbank.org/country/germany"
+    },
+    {
+      "code": "IT",
+      "url": "https://data.worldbank.org/country/italy"
+    },
+    {
+      "code": "ES",
+      "url": "https://data.worldbank.org/country/spain"
+    },
+    {
+      "code": "TR",
+      "url": "https://data.worldbank.org/country/turkiye"
+    },
+    {
+      "code": "CN",
+      "url": "https://data.worldbank.org/country/china"
+    },
+    {
+      "code": "IN",
+      "url": "https://data.worldbank.org/country/india"
+    },
+    {
+      "code": "AU",
+      "url": "https://data.worldbank.org/country/australia"
+    },
+    {
+      "code": "ZA",
+      "url": "https://data.worldbank.org/country/south-africa"
+    },
+    {
+      "code": "MA",
+      "url": "https://data.worldbank.org/country/morocco"
+    },
+    {
+      "code": "AR",
+      "url": "https://data.worldbank.org/country/argentina"
+    },
+    {
+      "code": "ID",
+      "url": "https://data.worldbank.org/country/indonesia"
+    },
+    {
+      "code": "KY",
+      "url": "https://doe.ky/marine/marine-parks/"
+    },
+    {
+      "code": "PR",
+      "url": "https://www.fs.usda.gov/elyunque"
+    },
+    {
+      "code": "CX",
+      "url": "https://christmasislandnationalpark.gov.au/discover/highlights/red-crab-migration/"
+    },
+    {
+      "code": "CC",
+      "url": "https://www.dcceew.gov.au/parks-heritage/national-parks/pulu-keeling-national-park"
+    },
+    {
+      "code": "HM",
+      "url": "https://www.antarctica.gov.au/antarctic-operations/stations-and-field-locations/heard-island/"
+    },
+    {
+      "code": "GS",
+      "url": "https://www.gov.uk/government/publications/uk-overseas-territories-biodiversity-strategy/uk-overseas-territories-biodiversity-strategy"
+    },
+    {
+      "code": "NF",
+      "url": "https://www.norfolkisland.com.au/things-to-do/nature/national-parks-reserves/national-park/"
+    },
+    {
+      "code": "AS",
+      "url": "https://www.nps.gov/npsa/index.htm"
+    },
+    {
+      "code": "IO",
+      "url": "https://commonslibrary.parliament.uk/research-briefings/cbp-10512/"
+    },
+    {
+      "code": "EH",
+      "url": "https://www.un.org/dppa/decolonization/en/nsgt/western-sahara"
+    },
+    {
+      "code": "GG",
+      "url": "https://www.visitguernsey.com/experiences/island-hopping/lihou/"
+    },
+    {
+      "code": "JE",
+      "url": "https://www.jersey.com/plan-your-break/general-information/tides/"
+    }
+  ],
+  "checks": {
+    "allProfilesHaveSixSections": true,
+    "allSectionsHaveArabicAndEnglishText": true,
+    "allProfilesHaveBilingualTitles": true
+  },
+  "notes": [
+    "A present source URL is not proof that every claim was independently verified.",
+    "Missing source URLs must not be fabricated.",
+    "The 245 editorial profiles are distinct from the shorter starter countries array in app.js.",
+    "Keep tourism attraction articles separate from country geography."
+  ]
+}
