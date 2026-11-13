@@ -59,6 +59,7 @@ const lakeHeadings=[
  ['المياه والحياة','Water and wildlife'],
  ['معلم يوضح الفكرة','Landscape in focus']
 ];
+const oceanHeadings=[['الموقع والامتداد','Location and extent'],['القاع والجيولوجيا','Seafloor and geology'],['التيارات والمناخ','Currents and climate'],['الحياة والأهمية','Life and significance']];
 const riverHeadings=[['الموقع والمجرى','Location and course'],['التدفق والتضاريس','Flow and landforms'],['المياه والحياة','Water and ecosystems'],['الأهمية والتحديات','Importance and challenges']];
 const waterfallHeadings=[['الموقع والخصائص','Location and features'],['التكوين والتدفق','Formation and flow'],['البيئة المحيطة','Surrounding ecology'],['الأهمية الجغرافية','Geographic significance']];
 const islandHeadings=[
@@ -68,9 +69,9 @@ const islandHeadings=[
  ['معلم يوضح الفكرة','Landscape in focus']
 ];
 function guideBody(item,story){
- const points=state.category==='deserts'?story?.desertPoints:state.category==='forests'?story?.forestPoints:state.category==='mountains'?story?.mountainPoints:state.category==='lakes'?story?.lakePoints:state.category==='islands'?story?.islandPoints:state.category==='rivers'?story?.riverPoints:state.category==='waterfalls'?story?.waterfallPoints:null;
+ const points=state.category==='deserts'?story?.desertPoints:state.category==='forests'?story?.forestPoints:state.category==='mountains'?story?.mountainPoints:state.category==='lakes'?story?.lakePoints:state.category==='islands'?story?.islandPoints:state.category==='rivers'?story?.riverPoints:state.category==='waterfalls'?story?.waterfallPoints:state.category==='oceans'?story?.oceanPoints:null;
  if(!points)return '<p id="gv14Description">'+esc(overviewText(item,story))+'</p>';
- return '<div class="gv14-desert-guide">'+(state.category==='forests'?forestHeadings:state.category==='mountains'?mountainHeadings:state.category==='lakes'?lakeHeadings:state.category==='islands'?islandHeadings:state.category==='rivers'?riverHeadings:state.category==='waterfalls'?waterfallHeadings:desertHeadings).map(([ar,en],i)=>
+ return '<div class="gv14-desert-guide">'+(state.category==='forests'?forestHeadings:state.category==='mountains'?mountainHeadings:state.category==='lakes'?lakeHeadings:state.category==='islands'?islandHeadings:state.category==='rivers'?riverHeadings:state.category==='waterfalls'?waterfallHeadings:state.category==='oceans'?oceanHeadings:desertHeadings).map(([ar,en],i)=>
   '<section><h3>'+esc(t(ar,en))+'</h3><ul>'+points[i].map(([a,e])=>
    '<li>'+esc(t(a,e))+'</li>').join('')+'</ul></section>').join('')+'</div>';
 }
