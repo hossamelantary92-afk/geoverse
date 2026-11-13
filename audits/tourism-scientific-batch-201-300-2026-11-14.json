@@ -1,0 +1,651 @@
+{
+  "date": "2026-11-14",
+  "batch": 3,
+  "range": "201–300",
+  "total": 100,
+  "sourceOrder": "tourism-deep-enrichment-v597.js",
+  "status": "Structural and bilingual screening complete; claim-level scientific verification pending",
+  "results": {
+    "screened": 100,
+    "flagged": 2,
+    "missingBilingualProfiles": 0
+  },
+  "checks": [
+    "Matching bilingual keys and populated content",
+    "Source URL format",
+    "Generic homepage source",
+    "Exact duplicated main fields"
+  ],
+  "flagged": [
+    {
+      "index": 201,
+      "code": "TR",
+      "name": "Blue Mosque",
+      "source": "https://goturkiye.com/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 226,
+      "code": "TH",
+      "name": "Wat Arun",
+      "source": "https://www.tourismthailand.org/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    }
+  ],
+  "reviewed": [
+    {
+      "index": 201,
+      "code": "TR",
+      "name": "Blue Mosque",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 202,
+      "code": "TR",
+      "name": "Topkapi Palace",
+      "flags": []
+    },
+    {
+      "index": 203,
+      "code": "TR",
+      "name": "Göreme Open Air Museum",
+      "flags": []
+    },
+    {
+      "index": 204,
+      "code": "ES",
+      "name": "Sagrada Família",
+      "flags": []
+    },
+    {
+      "index": 205,
+      "code": "ES",
+      "name": "Prado Museum",
+      "flags": []
+    },
+    {
+      "index": 206,
+      "code": "ES",
+      "name": "Mosque–Cathedral of Córdoba",
+      "flags": []
+    },
+    {
+      "index": 207,
+      "code": "GB",
+      "name": "Tower of London",
+      "flags": []
+    },
+    {
+      "index": 208,
+      "code": "GB",
+      "name": "Big Ben",
+      "flags": []
+    },
+    {
+      "index": 209,
+      "code": "GB",
+      "name": "British Museum",
+      "flags": []
+    },
+    {
+      "index": 210,
+      "code": "US",
+      "name": "Statue of Liberty",
+      "flags": []
+    },
+    {
+      "index": 211,
+      "code": "US",
+      "name": "Central Park",
+      "flags": []
+    },
+    {
+      "index": 212,
+      "code": "US",
+      "name": "Lincoln Memorial",
+      "flags": []
+    },
+    {
+      "index": 213,
+      "code": "CN",
+      "name": "Forbidden City",
+      "flags": []
+    },
+    {
+      "index": 214,
+      "code": "CN",
+      "name": "Temple of Heaven",
+      "flags": []
+    },
+    {
+      "index": 215,
+      "code": "CN",
+      "name": "Terracotta Army",
+      "flags": []
+    },
+    {
+      "index": 216,
+      "code": "IN",
+      "name": "Red Fort",
+      "flags": []
+    },
+    {
+      "index": 217,
+      "code": "IN",
+      "name": "Hawa Mahal",
+      "flags": []
+    },
+    {
+      "index": 218,
+      "code": "IN",
+      "name": "Qutb Minar",
+      "flags": []
+    },
+    {
+      "index": 219,
+      "code": "JP",
+      "name": "Kinkaku-ji",
+      "flags": []
+    },
+    {
+      "index": 220,
+      "code": "JP",
+      "name": "Tokyo Tower",
+      "flags": []
+    },
+    {
+      "index": 221,
+      "code": "JP",
+      "name": "Sensō-ji",
+      "flags": []
+    },
+    {
+      "index": 222,
+      "code": "AE",
+      "name": "Sheikh Zayed Grand Mosque",
+      "flags": []
+    },
+    {
+      "index": 223,
+      "code": "AE",
+      "name": "Dubai Frame",
+      "flags": []
+    },
+    {
+      "index": 224,
+      "code": "AE",
+      "name": "Museum of the Future",
+      "flags": []
+    },
+    {
+      "index": 225,
+      "code": "TH",
+      "name": "Grand Palace",
+      "flags": []
+    },
+    {
+      "index": 226,
+      "code": "TH",
+      "name": "Wat Arun",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 227,
+      "code": "TH",
+      "name": "Wat Pho",
+      "flags": []
+    },
+    {
+      "index": 228,
+      "code": "TH",
+      "name": "Ayutthaya Historical Park",
+      "flags": []
+    },
+    {
+      "index": 229,
+      "code": "ID",
+      "name": "Borobudur",
+      "flags": []
+    },
+    {
+      "index": 230,
+      "code": "ID",
+      "name": "Prambanan",
+      "flags": []
+    },
+    {
+      "index": 231,
+      "code": "ID",
+      "name": "Tanah Lot",
+      "flags": []
+    },
+    {
+      "index": 232,
+      "code": "ID",
+      "name": "National Monument (Monas)",
+      "flags": []
+    },
+    {
+      "index": 233,
+      "code": "KR",
+      "name": "Gyeongbokgung Palace",
+      "flags": []
+    },
+    {
+      "index": 234,
+      "code": "KR",
+      "name": "Bukchon Hanok Village",
+      "flags": []
+    },
+    {
+      "index": 235,
+      "code": "KR",
+      "name": "N Seoul Tower",
+      "flags": []
+    },
+    {
+      "index": 236,
+      "code": "KR",
+      "name": "Bulguksa Temple",
+      "flags": []
+    },
+    {
+      "index": 237,
+      "code": "VN",
+      "name": "Temple of Literature",
+      "flags": []
+    },
+    {
+      "index": 238,
+      "code": "VN",
+      "name": "Hội An Ancient Town",
+      "flags": []
+    },
+    {
+      "index": 239,
+      "code": "VN",
+      "name": "Hạ Long Bay",
+      "flags": []
+    },
+    {
+      "index": 240,
+      "code": "VN",
+      "name": "Imperial City of Huế",
+      "flags": []
+    },
+    {
+      "index": 241,
+      "code": "GR",
+      "name": "Acropolis of Athens",
+      "flags": []
+    },
+    {
+      "index": 242,
+      "code": "GR",
+      "name": "Archaeological Site of Delphi",
+      "flags": []
+    },
+    {
+      "index": 243,
+      "code": "GR",
+      "name": "Meteora",
+      "flags": []
+    },
+    {
+      "index": 244,
+      "code": "GR",
+      "name": "Oia, Santorini",
+      "flags": []
+    },
+    {
+      "index": 245,
+      "code": "CH",
+      "name": "Old City of Bern",
+      "flags": []
+    },
+    {
+      "index": 246,
+      "code": "CH",
+      "name": "Swiss Alps Jungfrau-Aletsch",
+      "flags": []
+    },
+    {
+      "index": 247,
+      "code": "CH",
+      "name": "Matterhorn",
+      "flags": []
+    },
+    {
+      "index": 248,
+      "code": "CH",
+      "name": "Lavaux Vineyard Terraces",
+      "flags": []
+    },
+    {
+      "index": 249,
+      "code": "MA",
+      "name": "Medina of Marrakesh",
+      "flags": []
+    },
+    {
+      "index": 250,
+      "code": "MA",
+      "name": "Medina of Fez",
+      "flags": []
+    },
+    {
+      "index": 251,
+      "code": "MA",
+      "name": "Aït Benhaddou",
+      "flags": []
+    },
+    {
+      "index": 252,
+      "code": "MA",
+      "name": "Chefchaouen Medina",
+      "flags": []
+    },
+    {
+      "index": 253,
+      "code": "MY",
+      "name": "Petronas Twin Towers",
+      "flags": []
+    },
+    {
+      "index": 254,
+      "code": "MY",
+      "name": "George Town, Penang",
+      "flags": []
+    },
+    {
+      "index": 255,
+      "code": "MY",
+      "name": "Kinabalu Park",
+      "flags": []
+    },
+    {
+      "index": 256,
+      "code": "MY",
+      "name": "Batu Caves",
+      "flags": []
+    },
+    {
+      "index": 257,
+      "code": "DE",
+      "name": "Brandenburg Gate",
+      "flags": []
+    },
+    {
+      "index": 258,
+      "code": "DE",
+      "name": "Neuschwanstein Castle",
+      "flags": []
+    },
+    {
+      "index": 259,
+      "code": "DE",
+      "name": "Cologne Cathedral",
+      "flags": []
+    },
+    {
+      "index": 260,
+      "code": "DE",
+      "name": "Museum Island, Berlin",
+      "flags": []
+    },
+    {
+      "index": 261,
+      "code": "MX",
+      "name": "Chichén Itzá",
+      "flags": []
+    },
+    {
+      "index": 262,
+      "code": "MX",
+      "name": "Teotihuacan",
+      "flags": []
+    },
+    {
+      "index": 263,
+      "code": "MX",
+      "name": "Palenque",
+      "flags": []
+    },
+    {
+      "index": 264,
+      "code": "MX",
+      "name": "Tulum Archaeological Site",
+      "flags": []
+    },
+    {
+      "index": 265,
+      "code": "BR",
+      "name": "Christ the Redeemer",
+      "flags": []
+    },
+    {
+      "index": 266,
+      "code": "BR",
+      "name": "Iguaçu Falls",
+      "flags": []
+    },
+    {
+      "index": 267,
+      "code": "BR",
+      "name": "Sugarloaf Mountain",
+      "flags": []
+    },
+    {
+      "index": 268,
+      "code": "BR",
+      "name": "Historic Centre of Salvador de Bahia",
+      "flags": []
+    },
+    {
+      "index": 269,
+      "code": "AU",
+      "name": "Sydney Opera House",
+      "flags": []
+    },
+    {
+      "index": 270,
+      "code": "AU",
+      "name": "Great Barrier Reef",
+      "flags": []
+    },
+    {
+      "index": 271,
+      "code": "AU",
+      "name": "Uluru",
+      "flags": []
+    },
+    {
+      "index": 272,
+      "code": "AU",
+      "name": "Twelve Apostles (Victoria)",
+      "flags": []
+    },
+    {
+      "index": 273,
+      "code": "AT",
+      "name": "Schönbrunn Palace",
+      "flags": []
+    },
+    {
+      "index": 274,
+      "code": "AT",
+      "name": "Historic Centre of Salzburg",
+      "flags": []
+    },
+    {
+      "index": 275,
+      "code": "AT",
+      "name": "Hallstatt-Dachstein Cultural Landscape",
+      "flags": []
+    },
+    {
+      "index": 276,
+      "code": "AT",
+      "name": "Golden Roof Innsbruck",
+      "flags": []
+    },
+    {
+      "index": 277,
+      "code": "PT",
+      "name": "Belém Tower",
+      "flags": []
+    },
+    {
+      "index": 278,
+      "code": "PT",
+      "name": "Jerónimos Monastery",
+      "flags": []
+    },
+    {
+      "index": 279,
+      "code": "PT",
+      "name": "Pena Palace",
+      "flags": []
+    },
+    {
+      "index": 280,
+      "code": "PT",
+      "name": "Historic Centre of Porto",
+      "flags": []
+    },
+    {
+      "index": 281,
+      "code": "ZA",
+      "name": "Table Mountain",
+      "flags": []
+    },
+    {
+      "index": 282,
+      "code": "ZA",
+      "name": "Robben Island",
+      "flags": []
+    },
+    {
+      "index": 283,
+      "code": "ZA",
+      "name": "Blyde River Canyon",
+      "flags": []
+    },
+    {
+      "index": 284,
+      "code": "ZA",
+      "name": "Cradle of Humankind",
+      "flags": []
+    },
+    {
+      "index": 285,
+      "code": "AR",
+      "name": "Perito Moreno Glacier",
+      "flags": []
+    },
+    {
+      "index": 286,
+      "code": "AR",
+      "name": "Teatro Colón",
+      "flags": []
+    },
+    {
+      "index": 287,
+      "code": "AR",
+      "name": "Aconcagua Provincial Park",
+      "flags": []
+    },
+    {
+      "index": 288,
+      "code": "AR",
+      "name": "San Ignacio Miní",
+      "flags": []
+    },
+    {
+      "index": 289,
+      "code": "NL",
+      "name": "Amsterdam Canal Ring",
+      "flags": []
+    },
+    {
+      "index": 290,
+      "code": "NL",
+      "name": "Rijksmuseum",
+      "flags": []
+    },
+    {
+      "index": 291,
+      "code": "NL",
+      "name": "Keukenhof",
+      "flags": []
+    },
+    {
+      "index": 292,
+      "code": "NL",
+      "name": "Kinderdijk Windmills",
+      "flags": []
+    },
+    {
+      "index": 293,
+      "code": "NL",
+      "name": "Anne Frank House",
+      "flags": []
+    },
+    {
+      "index": 294,
+      "code": "NL",
+      "name": "Van Gogh Museum",
+      "flags": []
+    },
+    {
+      "index": 295,
+      "code": "NL",
+      "name": "Zaanse Schans",
+      "flags": []
+    },
+    {
+      "index": 296,
+      "code": "NL",
+      "name": "Hoge Veluwe National Park",
+      "flags": []
+    },
+    {
+      "index": 297,
+      "code": "CZ",
+      "name": "Prague Castle",
+      "flags": []
+    },
+    {
+      "index": 298,
+      "code": "CZ",
+      "name": "Charles Bridge",
+      "flags": []
+    },
+    {
+      "index": 299,
+      "code": "CZ",
+      "name": "Prague Astronomical Clock",
+      "flags": []
+    },
+    {
+      "index": 300,
+      "code": "CZ",
+      "name": "Historic Centre of Český Krumlov",
+      "flags": []
+    }
+  ],
+  "caveats": [
+    "Not independent scientific verification of 100 profiles.",
+    "Source URLs have not all been opened.",
+    "Images excluded as requested.",
+    "No prose modified."
+  ]
+}
