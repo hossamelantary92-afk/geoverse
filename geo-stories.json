@@ -447,6 +447,48 @@
           "لماذا تزداد الملوحة؟",
           "التبخر القوي يترك الأملاح في مياه البحر"
         ]
+      ],
+      "seaPoints": [
+        [
+          [
+            "بين جنوب أوروبا وشمال أفريقيا وغرب آسيا",
+            "Between southern Europe, North Africa and western Asia"
+          ],
+          [
+            "يتصل بالأطلسي عبر مضيق جبل طارق",
+            "Connected to the Atlantic by Gibraltar Strait"
+          ]
+        ],
+        [
+          [
+            "حوض شبه مغلق ذو أعماق كبيرة",
+            "A semi-enclosed basin with deep waters"
+          ],
+          [
+            "تلتقي عنده صفائح أفريقيا وأوراسيا",
+            "African and Eurasian plates interact along its margins"
+          ]
+        ],
+        [
+          [
+            "صيف حار جاف وشتاء أكثر مطرًا حول سواحله",
+            "Hot dry summers and wetter winters along its coasts"
+          ],
+          [
+            "التبخر المرتفع يزيد ملوحة مياهه",
+            "Strong evaporation increases salinity"
+          ]
+        ],
+        [
+          [
+            "يضم أعشاب بوسيدونيا البحرية وموائل متنوعة",
+            "Hosts Posidonia seagrass and diverse habitats"
+          ],
+          [
+            "ممر تاريخي للتجارة وتواجه بيئته ضغوط التلوث",
+            "Historic trade route facing pollution pressures"
+          ]
+        ]
       ]
     },
     "Red Sea": {
@@ -460,6 +502,48 @@
         [
           "الملوحة",
           "تبخر مرتفع وتدفق محدود من الأنهار الدائمة"
+        ]
+      ],
+      "seaPoints": [
+        [
+          [
+            "يفصل شمال شرق أفريقيا عن شبه الجزيرة العربية",
+            "Separates northeast Africa from the Arabian Peninsula"
+          ],
+          [
+            "يتصل بالمحيط الهندي عبر باب المندب وخليج عدن",
+            "Links to the Indian Ocean via Bab el-Mandeb and Gulf of Aden"
+          ]
+        ],
+        [
+          [
+            "يقع في نطاق تباعد تكتوني بين صفائح",
+            "Occupies a tectonic rift between plates"
+          ],
+          [
+            "توجد فيه أحواض عميقة ومناطق حرارية مائية",
+            "Contains deep basins and hydrothermal areas"
+          ]
+        ],
+        [
+          [
+            "مياهه دافئة ومرتفعة الملوحة نسبيًا",
+            "Its waters are warm and relatively saline"
+          ],
+          [
+            "أمطار قليلة وتبخر قوي على امتداد السواحل",
+            "Low rainfall and strong coastal evaporation"
+          ]
+        ],
+        [
+          [
+            "تنتشر شعاب مرجانية غنية بالأنواع",
+            "Species-rich coral reefs occur widely"
+          ],
+          [
+            "ممر ملاحي عالمي حساس للتلوث واضطراب الشعاب",
+            "Major shipping corridor vulnerable to pollution and reef stress"
+          ]
         ]
       ]
     },
@@ -1850,6 +1934,48 @@
           "الرياح والتيارات",
           "يتغير اتجاه بعض التيارات مع الرياح الموسمية"
         ]
+      ],
+      "seaPoints": [
+        [
+          [
+            "شمال المحيط الهندي بين الجزيرة العربية والهند",
+            "Northern Indian Ocean between Arabia and India"
+          ],
+          [
+            "يتصل بخليج عمان وخليج عدن",
+            "Connects with the Gulf of Oman and Gulf of Aden"
+          ]
+        ],
+        [
+          [
+            "يضم حوضًا محيطيًا عميقًا ورفوفًا ساحلية",
+            "Contains a deep ocean basin and coastal shelves"
+          ],
+          [
+            "تؤثر فيه تضاريس قاع المحيط الهندي الشمالي",
+            "Shaped by northern Indian Ocean seafloor features"
+          ]
+        ],
+        [
+          [
+            "تنعكس بعض الرياح والتيارات مع الرياح الموسمية",
+            "Some winds and currents reverse with the monsoon"
+          ],
+          [
+            "يرفع صعود المياه العميقة المغذيات قرب عمان والصومال",
+            "Upwelling supplies nutrients near Oman and Somalia"
+          ]
+        ],
+        [
+          [
+            "تدعم المغذيات إنتاجًا بحريًا ومصايد مهمة",
+            "Nutrients support marine productivity and fisheries"
+          ],
+          [
+            "ممر تجاري بين آسيا والشرق الأوسط وشرق أفريقيا",
+            "Trade corridor between Asia, the Middle East and East Africa"
+          ]
+        ]
       ]
     },
     "Caribbean Sea": {
@@ -1864,6 +1990,48 @@
           "ظاهرة جوية",
           "تتعرض بعض مناطقه للأعاصير المدارية موسميًا"
         ]
+      ],
+      "seaPoints": [
+        [
+          [
+            "بين جزر الأنتيل وأمريكا الوسطى وشمال أمريكا الجنوبية",
+            "Between the Antilles, Central America and northern South America"
+          ],
+          [
+            "يتصل بالأطلسي عبر ممرات بين الجزر",
+            "Links to the Atlantic through island passages"
+          ]
+        ],
+        [
+          [
+            "يضم حوضًا عميقًا وحدود صفائح نشطة",
+            "Contains deep basins and active plate boundaries"
+          ],
+          [
+            "توجد أخاديد وتضاريس بركانية على أطرافه",
+            "Trenches and volcanic terrain occur around its margins"
+          ]
+        ],
+        [
+          [
+            "مياهه دافئة وتؤثر فيه الأعاصير المدارية",
+            "Warm waters are affected by tropical hurricanes"
+          ],
+          [
+            "تحرك التيارات المياه نحو خليج المكسيك",
+            "Currents carry water toward the Gulf of Mexico"
+          ]
+        ],
+        [
+          [
+            "تنتشر الشعاب المرجانية والمانغروف والأعشاب البحرية",
+            "Hosts coral reefs, mangroves and seagrass"
+          ],
+          [
+            "تعتمد عليه السياحة والمصايد مع تهديد ابيضاض المرجان",
+            "Tourism and fisheries depend on it amid coral bleaching risks"
+          ]
+        ]
       ]
     },
     "Baltic Sea": {
@@ -1877,6 +2045,48 @@
         [
           "تحدٍ بيئي",
           "بطء تجدد المياه يزيد حساسية البحر لتراكم المغذيات"
+        ]
+      ],
+      "seaPoints": [
+        [
+          [
+            "بحر شبه مغلق في شمال أوروبا",
+            "A semi-enclosed sea in northern Europe"
+          ],
+          [
+            "يتصل ببحر الشمال عبر المضايق الدنماركية",
+            "Links to the North Sea through Danish straits"
+          ]
+        ],
+        [
+          [
+            "حوض ضحل نسبيًا شكله التاريخ الجليدي",
+            "A relatively shallow basin shaped by glaciation"
+          ],
+          [
+            "توجد فيه خلجان وجزر كثيرة",
+            "Contains numerous bays and islands"
+          ]
+        ],
+        [
+          [
+            "مياهه قليلة الملوحة بسبب الأنهار وضعف التبادل",
+            "Its water is brackish due to rivers and limited exchange"
+          ],
+          [
+            "تؤثر الطبقية المائية في الأكسجين بالأعماق",
+            "Water stratification affects deep-water oxygen"
+          ]
+        ],
+        [
+          [
+            "تعيش فيه أنواع بحرية وعذبة متكيفة",
+            "Hosts adapted marine and freshwater species"
+          ],
+          [
+            "يواجه زيادة المغذيات ونقص الأكسجين والتلوث",
+            "Faces eutrophication, oxygen depletion and pollution"
+          ]
         ]
       ]
     },
@@ -2740,6 +2950,48 @@
         [
           "التسمية",
           "يُعرف أيضًا باسم البحر الشرقي في كوريا"
+        ]
+      ],
+      "seaPoints": [
+        [
+          [
+            "بين اليابان وكوريا وروسيا",
+            "Between Japan, Korea and Russia"
+          ],
+          [
+            "يتصل بالبحار المجاورة عبر مضايق ضيقة",
+            "Connected to nearby seas by narrow straits"
+          ]
+        ],
+        [
+          [
+            "حوض شبه مغلق ذو أعماق كبيرة",
+            "A semi-enclosed sea with deep basins"
+          ],
+          [
+            "تحده جزر وأقواس جيولوجية نشطة",
+            "Bounded by islands and geologically active arcs"
+          ]
+        ],
+        [
+          [
+            "يدخله تيار تسوشيما الدافئ من الجنوب",
+            "The warm Tsushima Current enters from the south"
+          ],
+          [
+            "تؤثر الرياح الشتوية في الأمواج وتساقط الثلوج الساحلي",
+            "Winter winds influence waves and coastal snowfall"
+          ]
+        ],
+        [
+          [
+            "تدعم مياهه مصايد بحرية متنوعة",
+            "Its waters support diverse fisheries"
+          ],
+          [
+            "يُعد ممرًا إقليميًا للنقل بين موانئ شرق آسيا",
+            "Regional transport route among East Asian ports"
+          ]
         ]
       ]
     },
@@ -4509,6 +4761,48 @@
           "ميزة بيئية",
           "أعماق فقيرة بالأكسجين"
         ]
+      ],
+      "seaPoints": [
+        [
+          [
+            "بين جنوب شرق أوروبا وغرب آسيا",
+            "Between southeastern Europe and western Asia"
+          ],
+          [
+            "يتصل بالمتوسط عبر البوسفور ومرمرة والدردنيل",
+            "Links to the Mediterranean via Bosporus, Marmara and Dardanelles"
+          ]
+        ],
+        [
+          [
+            "حوض عميق شبه مغلق",
+            "A deep semi-enclosed basin"
+          ],
+          [
+            "تصب فيه أنهار كبرى مثل الدانوب والدنيبر",
+            "Major rivers including Danube and Dnieper enter it"
+          ]
+        ],
+        [
+          [
+            "توجد طبقة سطحية أقل ملوحة فوق مياه أعمق",
+            "A less-saline surface layer overlies deeper water"
+          ],
+          [
+            "معظم أعماقه فقيرة بالأكسجين وغنية بكبريتيد الهيدروجين",
+            "Most deep waters lack oxygen and contain hydrogen sulfide"
+          ]
+        ],
+        [
+          [
+            "تتركز الحياة البحرية الأعلى قرب السطح والسواحل",
+            "Most marine life is concentrated near surface and coasts"
+          ],
+          [
+            "تؤثر الملوثات والأنواع الدخيلة في النظام البيئي",
+            "Pollution and invasive species affect its ecology"
+          ]
+        ]
       ]
     },
     "North Sea": {
@@ -4522,6 +4816,48 @@
         [
           "الأهمية",
           "ملاحة ومصايد وطاقة بحرية"
+        ]
+      ],
+      "seaPoints": [
+        [
+          [
+            "بين بريطانيا وشمال غرب أوروبا",
+            "Between Britain and northwestern Europe"
+          ],
+          [
+            "يتصل بالأطلسي والقنال الإنجليزي",
+            "Connected to the Atlantic and English Channel"
+          ]
+        ],
+        [
+          [
+            "معظم مناطقه تقع فوق رف قاري ضحل",
+            "Much of it lies on a shallow continental shelf"
+          ],
+          [
+            "تؤثر الرواسب الرملية والمد والجزر في قاعه",
+            "Sandbanks and tides shape its seabed"
+          ]
+        ],
+        [
+          [
+            "تيارات مد قوية وعواصف شتوية متكررة",
+            "Strong tidal currents and frequent winter storms"
+          ],
+          [
+            "تتغير ملوحته وحرارته قرب مصبات الأنهار",
+            "Salinity and temperature vary near river mouths"
+          ]
+        ],
+        [
+          [
+            "موائل مهمة للأسماك والطيور البحرية",
+            "Important habitats for fish and seabirds"
+          ],
+          [
+            "مركز للملاحة والرياح البحرية والنفط والغاز",
+            "Hub for shipping, offshore wind, oil and gas"
+          ]
         ]
       ]
     },
@@ -4537,6 +4873,48 @@
           "الطبيعة",
           "جليد موسمي ومياه غنية بالمغذيات"
         ]
+      ],
+      "seaPoints": [
+        [
+          [
+            "بين ألاسكا وشرق روسيا",
+            "Between Alaska and eastern Russia"
+          ],
+          [
+            "تحده جزر ألوتيان جنوبًا ومضيق بيرنغ شمالًا",
+            "Bounded by Aleutians south and Bering Strait north"
+          ]
+        ],
+        [
+          [
+            "يجمع رفًا قاريًا واسعًا وأحواضًا عميقة",
+            "Combines a broad shelf with deep basins"
+          ],
+          [
+            "توجد أقواس جزر بركانية قرب حدوده الجنوبية",
+            "Volcanic island arcs lie along its southern margin"
+          ]
+        ],
+        [
+          [
+            "يتغير الغطاء الجليدي البحري موسميًا",
+            "Sea ice cover changes seasonally"
+          ],
+          [
+            "تؤثر المياه الباردة في الإنتاجية البحرية",
+            "Cold waters shape marine productivity"
+          ]
+        ],
+        [
+          [
+            "مصايد غنية وموائل للطيور والثدييات البحرية",
+            "Rich fisheries and seabird and marine mammal habitats"
+          ],
+          [
+            "تؤثر تغيرات الجليد والمناخ في سلاسل الغذاء",
+            "Sea ice and climate shifts affect food webs"
+          ]
+        ]
       ]
     },
     "Coral Sea": {
@@ -4550,6 +4928,48 @@
         [
           "تحدٍ بيئي",
           "الابيضاض المرتبط بحرارة المياه والأعاصير"
+        ]
+      ],
+      "seaPoints": [
+        [
+          [
+            "شمال شرق أستراليا في جنوب غرب الهادئ",
+            "Northeast of Australia in the southwest Pacific"
+          ],
+          [
+            "يمتد قرب بابوا غينيا الجديدة وجزر المحيط",
+            "Extends toward Papua New Guinea and Pacific islands"
+          ]
+        ],
+        [
+          [
+            "يضم أحواضًا عميقة وهضابًا بحرية",
+            "Contains deep basins and submarine plateaus"
+          ],
+          [
+            "تقع الشعاب المرجانية الكبرى على حافته الغربية",
+            "The Great Barrier Reef lies along its western edge"
+          ]
+        ],
+        [
+          [
+            "مياه مدارية دافئة تتعرض للأعاصير",
+            "Warm tropical waters experience cyclones"
+          ],
+          [
+            "تؤثر التيارات في نقل الحرارة والكائنات",
+            "Currents transport heat and marine organisms"
+          ]
+        ],
+        [
+          [
+            "تنوع كبير للشعاب والأسماك والسلاحف",
+            "High diversity of reefs, fish and turtles"
+          ],
+          [
+            "يهدد الاحترار البحري صحة الشعاب المرجانية",
+            "Marine warming threatens reef health"
+          ]
         ]
       ]
     },
@@ -4565,6 +4985,48 @@
           "تيار",
           "تيار شرق أستراليا"
         ]
+      ],
+      "seaPoints": [
+        [
+          [
+            "يفصل أستراليا عن نيوزيلندا",
+            "Separates Australia and New Zealand"
+          ],
+          [
+            "جزء من جنوب غرب المحيط الهادئ",
+            "Part of the southwest Pacific Ocean"
+          ]
+        ],
+        [
+          [
+            "يضم أحواضًا عميقة وسلاسل تحت بحرية",
+            "Contains deep basins and submarine ridges"
+          ],
+          [
+            "تتباين تضاريس قاعه بين الرفوف والأعماق",
+            "Its seabed ranges from shelves to deep waters"
+          ]
+        ],
+        [
+          [
+            "يؤثر فيه تيار شرق أستراليا الدافئ",
+            "Influenced by the warm East Australian Current"
+          ],
+          [
+            "تنتقل فيه عواصف ورياح غربية قوية",
+            "Strong westerlies and storms cross the sea"
+          ]
+        ],
+        [
+          [
+            "يضم مناطق غذاء للطيور والحيتان",
+            "Contains feeding grounds for seabirds and whales"
+          ],
+          [
+            "يربط طرق الملاحة بين أستراليا ونيوزيلندا",
+            "Connects shipping routes between Australia and New Zealand"
+          ]
+        ]
       ]
     },
     "South China Sea": {
@@ -4578,6 +5040,48 @@
         [
           "ملاحظة",
           "توجد نزاعات على بعض الجزر والمياه"
+        ]
+      ],
+      "seaPoints": [
+        [
+          [
+            "بين جنوب الصين والفلبين وجنوب شرق آسيا",
+            "Between southern China, the Philippines and Southeast Asia"
+          ],
+          [
+            "يتصل بالمحيط الهادئ عبر مضائق وممرات",
+            "Connected to the Pacific through straits and passages"
+          ]
+        ],
+        [
+          [
+            "يضم جزرًا مرجانية وأحواضًا عميقة",
+            "Contains coral islands and deep basins"
+          ],
+          [
+            "تنتشر شعاب وحواف قارية متنوعة",
+            "Features reefs and varied continental margins"
+          ]
+        ],
+        [
+          [
+            "تتغير الرياح والتيارات مع الموسميات",
+            "Winds and currents shift with monsoons"
+          ],
+          [
+            "تؤثر الأعاصير المدارية في السواحل",
+            "Tropical cyclones affect its coasts"
+          ]
+        ],
+        [
+          [
+            "يدعم شعابًا مرجانية ومصايد واسعة",
+            "Supports coral reefs and extensive fisheries"
+          ],
+          [
+            "ممر ملاحي عالمي ومجال نزاعات إقليمية",
+            "Major global shipping route and area of territorial disputes"
+          ]
         ]
       ]
     },
@@ -4593,6 +5097,48 @@
           "الأهمية",
           "مصايد وملاحة"
         ]
+      ],
+      "seaPoints": [
+        [
+          [
+            "بين شرق الصين وجزر ريوكيو وتايوان",
+            "Between eastern China, Ryukyu Islands and Taiwan"
+          ],
+          [
+            "يتصل بالبحار المجاورة عبر ممرات بحرية",
+            "Connected to neighboring seas by passages"
+          ]
+        ],
+        [
+          [
+            "يضم رفًا قاريًا واسعًا غربًا",
+            "Has a broad continental shelf in the west"
+          ],
+          [
+            "تصل إليه رواسب نهر اليانغتسي",
+            "Receives sediment from the Yangtze River"
+          ]
+        ],
+        [
+          [
+            "يمر تيار كوروشيو الدافئ قرب حافته الشرقية",
+            "The warm Kuroshio Current flows near its eastern edge"
+          ],
+          [
+            "تتغير مياهه مع الموسميات وتصريف الأنهار",
+            "Monsoons and river discharge change its waters"
+          ]
+        ],
+        [
+          [
+            "توجد مناطق صيد وموائل ساحلية مهمة",
+            "Contains important fisheries and coastal habitats"
+          ],
+          [
+            "تؤثر الضغوط الساحلية والنقل البحري في بيئته",
+            "Coastal pressures and shipping affect its environment"
+          ]
+        ]
       ]
     },
     "Andaman Sea": {
@@ -4606,6 +5152,48 @@
         [
           "خطر طبيعي",
           "نشاط زلزالي وتسونامي محتمل قرب حدود الصفائح"
+        ]
+      ],
+      "seaPoints": [
+        [
+          [
+            "بين ميانمار وتايلاند وجزر أندامان ونيكوبار",
+            "Between Myanmar, Thailand and the Andaman and Nicobar Islands"
+          ],
+          [
+            "يقع شرق خليج البنغال في شمال المحيط الهندي",
+            "Lies east of the Bay of Bengal in the northern Indian Ocean"
+          ]
+        ],
+        [
+          [
+            "توجد عند حدوده مناطق اندساس تكتوني",
+            "Subduction zones occur near its margins"
+          ],
+          [
+            "يضم أحواضًا عميقة وجزرًا بركانية",
+            "Contains deep basins and volcanic islands"
+          ]
+        ],
+        [
+          [
+            "تؤثر فيه الرياح الموسمية والأمطار الغزيرة",
+            "Monsoons and heavy rainfall affect it"
+          ],
+          [
+            "تتفاوت ملوحة المياه قرب مصبات الأنهار",
+            "Salinity varies near river mouths"
+          ]
+        ],
+        [
+          [
+            "يضم شعابًا مرجانية ومانغروفًا",
+            "Supports coral reefs and mangroves"
+          ],
+          [
+            "تتعرض سواحله لأخطار الزلازل والتسونامي",
+            "Its coasts face earthquake and tsunami hazards"
+          ]
         ]
       ]
     },
@@ -4621,6 +5209,48 @@
           "طقس",
           "أعاصير مدارية موسمية"
         ]
+      ],
+      "seaPoints": [
+        [
+          [
+            "شرق الفلبين وجنوب اليابان في غرب الهادئ",
+            "East of the Philippines and south of Japan in the western Pacific"
+          ],
+          [
+            "تحده أقواس جزر ومناطق تكتونية نشطة",
+            "Bordered by island arcs and active tectonic zones"
+          ]
+        ],
+        [
+          [
+            "يضم خنادق محيطية عميقة",
+            "Contains deep ocean trenches"
+          ],
+          [
+            "توجد مناطق اندساس بين صفائح محيطية",
+            "Oceanic plates subduct along parts of its margins"
+          ]
+        ],
+        [
+          [
+            "تمر به تيارات دافئة منها كوروشيو",
+            "Warm currents including the Kuroshio flow through it"
+          ],
+          [
+            "تتكون فيه أعاصير مدارية قوية",
+            "Powerful tropical cyclones develop over its waters"
+          ]
+        ],
+        [
+          [
+            "يضم أنظمة بيئية بحرية عميقة وجزرية",
+            "Hosts deep-sea and island ecosystems"
+          ],
+          [
+            "مهم لفهم الزلازل والأعاصير في غرب الهادئ",
+            "Important for understanding western Pacific earthquakes and typhoons"
+          ]
+        ]
       ]
     },
     "Weddell Sea": {
@@ -4634,6 +5264,48 @@
         [
           "الأهمية",
           "تكوّن مياه محيطية عميقة"
+        ]
+      ],
+      "seaPoints": [
+        [
+          [
+            "شرق شبه الجزيرة القطبية الجنوبية",
+            "East of the Antarctic Peninsula"
+          ],
+          [
+            "جزء من المحيط الجنوبي حول أنتاركتيكا",
+            "Part of the Southern Ocean around Antarctica"
+          ]
+        ],
+        [
+          [
+            "تحده جروف جليدية ضخمة منها فيلشنر رون",
+            "Bordered by major ice shelves including Filchner–Ronne"
+          ],
+          [
+            "يتكون فيه ماء كثيف يساهم في دوران الأعماق",
+            "Dense water forms here and contributes to deep circulation"
+          ]
+        ],
+        [
+          [
+            "يتغير الجليد البحري موسميًا",
+            "Sea ice changes seasonally"
+          ],
+          [
+            "مياهه شديدة البرودة وتؤثر فيها الرياح القطبية",
+            "Very cold waters are shaped by polar winds"
+          ]
+        ],
+        [
+          [
+            "تعيش فيه فقمة ويديل والبطاريق والكريل",
+            "Hosts Weddell seals, penguins and krill"
+          ],
+          [
+            "منطقة مهمة لأبحاث المناخ والجليد البحري",
+            "Important for climate and sea-ice research"
+          ]
         ]
       ]
     },
