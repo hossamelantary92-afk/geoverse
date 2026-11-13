@@ -59,6 +59,7 @@ const lakeHeadings=[
  ['المياه والحياة','Water and wildlife'],
  ['معلم يوضح الفكرة','Landscape in focus']
 ];
+const gulfHeadings=[['الموقع والاتصال','Location and connections'],['القاع والتكوين','Seafloor and formation'],['المياه والمناخ','Waters and climate'],['البيئة والأهمية','Ecology and significance']];
 const seaHeadings=[['الموقع والاتصال','Location and connections'],['القاع والجيولوجيا','Seafloor and geology'],['المياه والمناخ','Waters and climate'],['الحياة والأهمية','Life and significance']];
 const oceanHeadings=[['الموقع والامتداد','Location and extent'],['القاع والجيولوجيا','Seafloor and geology'],['التيارات والمناخ','Currents and climate'],['الحياة والأهمية','Life and significance']];
 const riverHeadings=[['الموقع والمجرى','Location and course'],['التدفق والتضاريس','Flow and landforms'],['المياه والحياة','Water and ecosystems'],['الأهمية والتحديات','Importance and challenges']];
@@ -70,9 +71,9 @@ const islandHeadings=[
  ['معلم يوضح الفكرة','Landscape in focus']
 ];
 function guideBody(item,story){
- const points=state.category==='deserts'?story?.desertPoints:state.category==='forests'?story?.forestPoints:state.category==='mountains'?story?.mountainPoints:state.category==='lakes'?story?.lakePoints:state.category==='islands'?story?.islandPoints:state.category==='rivers'?story?.riverPoints:state.category==='waterfalls'?story?.waterfallPoints:state.category==='oceans'?story?.oceanPoints:state.category==='seas'?story?.seaPoints:null;
+ const points=state.category==='deserts'?story?.desertPoints:state.category==='forests'?story?.forestPoints:state.category==='mountains'?story?.mountainPoints:state.category==='lakes'?story?.lakePoints:state.category==='islands'?story?.islandPoints:state.category==='rivers'?story?.riverPoints:state.category==='waterfalls'?story?.waterfallPoints:state.category==='oceans'?story?.oceanPoints:state.category==='seas'?story?.seaPoints:state.category==='gulfs'?story?.gulfPoints:null;
  if(!points)return '<p id="gv14Description">'+esc(overviewText(item,story))+'</p>';
- return '<div class="gv14-desert-guide">'+(state.category==='forests'?forestHeadings:state.category==='mountains'?mountainHeadings:state.category==='lakes'?lakeHeadings:state.category==='islands'?islandHeadings:state.category==='rivers'?riverHeadings:state.category==='waterfalls'?waterfallHeadings:state.category==='oceans'?oceanHeadings:state.category==='seas'?seaHeadings:desertHeadings).map(([ar,en],i)=>
+ return '<div class="gv14-desert-guide">'+(state.category==='forests'?forestHeadings:state.category==='mountains'?mountainHeadings:state.category==='lakes'?lakeHeadings:state.category==='islands'?islandHeadings:state.category==='rivers'?riverHeadings:state.category==='waterfalls'?waterfallHeadings:state.category==='oceans'?oceanHeadings:state.category==='seas'?seaHeadings:state.category==='gulfs'?gulfHeadings:desertHeadings).map(([ar,en],i)=>
   '<section><h3>'+esc(t(ar,en))+'</h3><ul>'+points[i].map(([a,e])=>
    '<li>'+esc(t(a,e))+'</li>').join('')+'</ul></section>').join('')+'</div>';
 }
