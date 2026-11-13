@@ -1123,11 +1123,9 @@
       ]
     },
     "Mount Fuji": {
-      "ar": [
-        "جبل فوجي بركان طبقي ياباني يبلغ ارتفاعه نحو 3,776 مترًا، ويقع في جزيرة هونشو. شكله المخروطي ناتج عن ثورات متعاقبة، وكان آخر ثوران معروف له عام 1707–1708.",
-        "Mount Fuji is a 3,776 m stratovolcano on Japan's Honshu island. Successive eruptions built its cone; its last known eruption occurred in 1707–1708."
-      ],
-      "en": [
+      "ar": "جبل فوجي بركان طبقي ياباني يبلغ ارتفاعه نحو 3,776 مترًا، ويقع في جزيرة هونشو. شكله المخروطي ناتج عن ثورات متعاقبة، وكان آخر ثوران معروف له عام 1707–1708.",
+      "en": "Mount Fuji is a 3,776 m stratovolcano on Japan's Honshu island. Successive eruptions built its cone; its last known eruption occurred in 1707–1708.",
+      "factsAr": [
         [
           "الارتفاع",
           "نحو 3,776 مترًا"
@@ -1137,7 +1135,7 @@
           "بركان طبقي"
         ]
       ],
-      "factsAr": [
+      "factsEn": [
         [
           "Elevation",
           "About 3,776 m"
@@ -1147,7 +1145,7 @@
           "Stratovolcano"
         ]
       ],
-      "factsEn": [
+      "mountainPoints": [
         [
           [
             "يقع غرب طوكيو في جزيرة هونشو، وهو أعلى جبل في اليابان.",
@@ -4810,11 +4808,9 @@
       ]
     },
     "Kilimanjaro": {
-      "ar": [
-        "كليمنجارو كتلة بركانية ضخمة في شمال تنزانيا، وتضم قمة أوهورو على مخروط كيبو بارتفاع نحو 5,895 مترًا. وهو أعلى جبل في أفريقيا، وتتنوع بيئاته من الغابات الجبلية إلى المناطق الجليدية المتقلصة.",
-        "Kilimanjaro is a volcanic massif in northern Tanzania, with Uhuru Peak on Kibo reaching about 5,895 m. Africa's highest mountain spans montane forests to shrinking summit ice."
-      ],
-      "en": [
+      "ar": "كليمنجارو كتلة بركانية ضخمة في شمال تنزانيا، وتضم قمة أوهورو على مخروط كيبو بارتفاع نحو 5,895 مترًا. وهو أعلى جبل في أفريقيا، وتتنوع بيئاته من الغابات الجبلية إلى المناطق الجليدية المتقلصة.",
+      "en": "Kilimanjaro is a volcanic massif in northern Tanzania, with Uhuru Peak on Kibo reaching about 5,895 m. Africa's highest mountain spans montane forests to shrinking summit ice.",
+      "factsAr": [
         [
           "الارتفاع",
           "نحو 5,895 مترًا"
@@ -4824,7 +4820,7 @@
           "كتلة بركانية"
         ]
       ],
-      "factsAr": [
+      "factsEn": [
         [
           "Elevation",
           "About 5,895 m"
@@ -4834,7 +4830,7 @@
           "Volcanic massif"
         ]
       ],
-      "factsEn": [
+      "mountainPoints": [
         [
           [
             "يقع في شمال تنزانيا قرب الحدود الكينية، ويُعد أعلى جبل في أفريقيا.",
@@ -4878,11 +4874,9 @@
       ]
     },
     "K2": {
-      "ar": [
-        "كي 2 ثاني أعلى قمة على الأرض، بارتفاع نحو 8,611 مترًا، وتقع في سلسلة كاراكورام على الحدود بين باكستان والصين. تشتهر بمنحدراتها الشديدة والطقس القاسي والأنهار الجليدية المحيطة بها.",
-        "K2 is Earth's second-highest summit at about 8,611 m, in the Karakoram on the Pakistan–China border. Its steep slopes, severe weather and surrounding glaciers make it formidable."
-      ],
-      "en": [
+      "ar": "كي 2 ثاني أعلى قمة على الأرض، بارتفاع نحو 8,611 مترًا، وتقع في سلسلة كاراكورام على الحدود بين باكستان والصين. تشتهر بمنحدراتها الشديدة والطقس القاسي والأنهار الجليدية المحيطة بها.",
+      "en": "K2 is Earth's second-highest summit at about 8,611 m, in the Karakoram on the Pakistan–China border. Its steep slopes, severe weather and surrounding glaciers make it formidable.",
+      "factsAr": [
         [
           "الارتفاع",
           "نحو 8,611 مترًا"
@@ -4892,7 +4886,7 @@
           "ثاني أعلى قمة عالميًا"
         ]
       ],
-      "factsAr": [
+      "factsEn": [
         [
           "Elevation",
           "About 8,611 m"
@@ -4902,7 +4896,7 @@
           "Second-highest summit"
         ]
       ],
-      "factsEn": [
+      "mountainPoints": [
         [
           [
             "تقع في كاراكورام عند الحدود بين باكستان والصين.",
@@ -4946,11 +4940,9 @@
       ]
     },
     "Denali": {
-      "ar": [
-        "دينالي أعلى قمة في أمريكا الشمالية، وتقع في سلسلة ألاسكا بالولايات المتحدة بارتفاع نحو 6,190 مترًا. يجمع الجبل بين ارتفاع كبير من القاعدة إلى القمة ومناخ شديد البرودة وأنهار جليدية واسعة.",
-        "Denali is North America's highest summit, at about 6,190 m in Alaska, USA. Its great local relief, severe cold and extensive glaciers define the mountain."
-      ],
-      "en": [
+      "ar": "دينالي أعلى قمة في أمريكا الشمالية، وتقع في سلسلة ألاسكا بالولايات المتحدة بارتفاع نحو 6,190 مترًا. يجمع الجبل بين ارتفاع كبير من القاعدة إلى القمة ومناخ شديد البرودة وأنهار جليدية واسعة.",
+      "en": "Denali is North America's highest summit, at about 6,190 m in Alaska, USA. Its great local relief, severe cold and extensive glaciers define the mountain.",
+      "factsAr": [
         [
           "الارتفاع",
           "نحو 6,190 مترًا"
@@ -4960,7 +4952,7 @@
           "أعلى قمة في أمريكا الشمالية"
         ]
       ],
-      "factsAr": [
+      "factsEn": [
         [
           "Elevation",
           "About 6,190 m"
@@ -4970,7 +4962,7 @@
           "North America's highest peak"
         ]
       ],
-      "factsEn": [
+      "mountainPoints": [
         [
           [
             "يقع في سلسلة ألاسكا داخل متنزه دينالي الوطني.",
@@ -5014,11 +5006,9 @@
       ]
     },
     "Aconcagua": {
-      "ar": [
-        "أكونكاغوا أعلى قمة في الأمريكتين، وتقع في جبال الأنديز بالأرجنتين بارتفاع نحو 6,961 مترًا. تشكلت خلال بناء الأنديز التكتوني وتتميز بظروف عالية وجافة ورياح قوية.",
-        "Aconcagua is the highest summit in the Americas, at about 6,961 m in Argentina's Andes. Uplifted during Andean mountain building, it has cold, dry high-altitude conditions and strong winds."
-      ],
-      "en": [
+      "ar": "أكونكاغوا أعلى قمة في الأمريكتين، وتقع في جبال الأنديز بالأرجنتين بارتفاع نحو 6,961 مترًا. تشكلت خلال بناء الأنديز التكتوني وتتميز بظروف عالية وجافة ورياح قوية.",
+      "en": "Aconcagua is the highest summit in the Americas, at about 6,961 m in Argentina's Andes. Uplifted during Andean mountain building, it has cold, dry high-altitude conditions and strong winds.",
+      "factsAr": [
         [
           "الارتفاع",
           "نحو 6,961 مترًا"
@@ -5028,7 +5018,7 @@
           "أعلى قمة في الأمريكتين"
         ]
       ],
-      "factsAr": [
+      "factsEn": [
         [
           "Elevation",
           "About 6,961 m"
@@ -5038,7 +5028,7 @@
           "Highest peak in the Americas"
         ]
       ],
-      "factsEn": [
+      "mountainPoints": [
         [
           [
             "يقع في غرب الأرجنتين قرب الحدود مع تشيلي ضمن جبال الأنديز.",
@@ -5082,11 +5072,9 @@
       ]
     },
     "Mont Blanc": {
-      "ar": [
-        "مون بلان قمة بارزة في جبال الألب على الحدود الفرنسية الإيطالية، ويبلغ ارتفاعها نحو 4,806 أمتار مع تغير القياسات بسبب الغطاء الثلجي. تحيط بها أنهار جليدية وأودية عميقة.",
-        "Mont Blanc is a prominent Alpine summit on the France–Italy border, roughly 4,806 m high, with measurements varying as its snowcap changes. Glaciers and deep valleys surround it."
-      ],
-      "en": [
+      "ar": "مون بلان قمة بارزة في جبال الألب على الحدود الفرنسية الإيطالية، ويبلغ ارتفاعها نحو 4,806 أمتار مع تغير القياسات بسبب الغطاء الثلجي. تحيط بها أنهار جليدية وأودية عميقة.",
+      "en": "Mont Blanc is a prominent Alpine summit on the France–Italy border, roughly 4,806 m high, with measurements varying as its snowcap changes. Glaciers and deep valleys surround it.",
+      "factsAr": [
         [
           "الارتفاع",
           "نحو 4,806 أمتار (متغير)"
@@ -5096,7 +5084,7 @@
           "الألب الفرنسية الإيطالية"
         ]
       ],
-      "factsAr": [
+      "factsEn": [
         [
           "Elevation",
           "About 4,806 m (variable)"
@@ -5106,7 +5094,7 @@
           "French–Italian Alps"
         ]
       ],
-      "factsEn": [
+      "mountainPoints": [
         [
           [
             "يقع ضمن كتلة مون بلان الجبلية على الحدود بين فرنسا وإيطاليا.",
@@ -5150,11 +5138,9 @@
       ]
     },
     "Ural Mountains": {
-      "ar": [
-        "جبال الأورال سلسلة قديمة تمتد عبر روسيا نحو كازاخستان، وتُستخدم تقليديًا حدًا جغرافيًا بين أوروبا وآسيا. نشأت من تصادم قاري قديم، وخفضت التعرية ارتفاع قممها عبر زمن طويل.",
-        "The Urals are an ancient range extending through Russia toward Kazakhstan, traditionally marking a geographic boundary between Europe and Asia. Ancient continental collision formed them, and erosion lowered their peaks."
-      ],
-      "en": [
+      "ar": "جبال الأورال سلسلة قديمة تمتد عبر روسيا نحو كازاخستان، وتُستخدم تقليديًا حدًا جغرافيًا بين أوروبا وآسيا. نشأت من تصادم قاري قديم، وخفضت التعرية ارتفاع قممها عبر زمن طويل.",
+      "en": "The Urals are an ancient range extending through Russia toward Kazakhstan, traditionally marking a geographic boundary between Europe and Asia. Ancient continental collision formed them, and erosion lowered their peaks.",
+      "factsAr": [
         [
           "الموقع",
           "روسيا وكازاخستان"
@@ -5164,7 +5150,7 @@
           "سلسلة جبلية قديمة"
         ]
       ],
-      "factsAr": [
+      "factsEn": [
         [
           "Location",
           "Russia and Kazakhstan"
@@ -5174,7 +5160,7 @@
           "Ancient mountain range"
         ]
       ],
-      "factsEn": [
+      "mountainPoints": [
         [
           [
             "تمتد تقريبًا من المناطق القطبية الروسية جنوبًا نحو شمال كازاخستان.",
@@ -5218,11 +5204,9 @@
       ]
     },
     "Rocky Mountains": {
-      "ar": [
-        "جبال روكي سلسلة واسعة في غرب أمريكا الشمالية تمتد عبر كندا والولايات المتحدة. تشكلت خلال مراحل تكتونية معقدة، وتضم قممًا وعرة ووديانًا جليدية وغابات ومراعي جبلية.",
-        "The Rocky Mountains stretch across western North America through Canada and the United States. Complex tectonic uplift created rugged peaks, glacial valleys, forests and alpine grasslands."
-      ],
-      "en": [
+      "ar": "جبال روكي سلسلة واسعة في غرب أمريكا الشمالية تمتد عبر كندا والولايات المتحدة. تشكلت خلال مراحل تكتونية معقدة، وتضم قممًا وعرة ووديانًا جليدية وغابات ومراعي جبلية.",
+      "en": "The Rocky Mountains stretch across western North America through Canada and the United States. Complex tectonic uplift created rugged peaks, glacial valleys, forests and alpine grasslands.",
+      "factsAr": [
         [
           "الموقع",
           "كندا والولايات المتحدة"
@@ -5232,7 +5216,7 @@
           "سلسلة جبلية قارية"
         ]
       ],
-      "factsAr": [
+      "factsEn": [
         [
           "Location",
           "Canada and United States"
@@ -5242,7 +5226,7 @@
           "Continental mountain range"
         ]
       ],
-      "factsEn": [
+      "mountainPoints": [
         [
           [
             "تمتد من غرب كندا جنوبًا إلى جنوب غرب الولايات المتحدة.",
@@ -5286,11 +5270,9 @@
       ]
     },
     "Jomolhari": {
-      "ar": [
-        "جومولهاري قمة حادة في الهيمالايا على حدود بوتان والتبت، يبلغ ارتفاعها نحو 7,326 مترًا. تتميز بمنحدرات جليدية ومروج ألبية في الأودية المحيطة، ولها أهمية ثقافية وروحية محلية.",
-        "Jomolhari is a sharp Himalayan peak on the Bhutan–Tibet border, about 7,326 m high. Glaciated slopes, alpine valleys and local spiritual traditions distinguish it."
-      ],
-      "en": [
+      "ar": "جومولهاري قمة حادة في الهيمالايا على حدود بوتان والتبت، يبلغ ارتفاعها نحو 7,326 مترًا. تتميز بمنحدرات جليدية ومروج ألبية في الأودية المحيطة، ولها أهمية ثقافية وروحية محلية.",
+      "en": "Jomolhari is a sharp Himalayan peak on the Bhutan–Tibet border, about 7,326 m high. Glaciated slopes, alpine valleys and local spiritual traditions distinguish it.",
+      "factsAr": [
         [
           "الارتفاع",
           "نحو 7,326 مترًا"
@@ -5300,7 +5282,7 @@
           "حدود بوتان والتبت"
         ]
       ],
-      "factsAr": [
+      "factsEn": [
         [
           "Elevation",
           "About 7,326 m"
@@ -5310,7 +5292,7 @@
           "Bhutan–Tibet border"
         ]
       ],
-      "factsEn": [
+      "mountainPoints": [
         [
           [
             "تقع على الحدود بين بوتان ومنطقة التبت الصينية في الهيمالايا.",
@@ -5354,11 +5336,9 @@
       ]
     },
     "Greater Caucasus": {
-      "ar": [
-        "جبال القوقاز الكبرى سلسلة تمتد بين البحر الأسود وبحر قزوين عبر روسيا وجورجيا وأذربيجان. نشأت بفعل تقارب الصفائح وتضم جبل إلبروس والأنهار الجليدية والوديان العميقة.",
-        "The Greater Caucasus extends between the Black and Caspian seas across Russia, Georgia and Azerbaijan. Plate convergence uplifted the range, which includes Mount Elbrus, glaciers and deep valleys."
-      ],
-      "en": [
+      "ar": "جبال القوقاز الكبرى سلسلة تمتد بين البحر الأسود وبحر قزوين عبر روسيا وجورجيا وأذربيجان. نشأت بفعل تقارب الصفائح وتضم جبل إلبروس والأنهار الجليدية والوديان العميقة.",
+      "en": "The Greater Caucasus extends between the Black and Caspian seas across Russia, Georgia and Azerbaijan. Plate convergence uplifted the range, which includes Mount Elbrus, glaciers and deep valleys.",
+      "factsAr": [
         [
           "الموقع",
           "بين البحر الأسود وبحر قزوين"
@@ -5368,7 +5348,7 @@
           "إلبروس، نحو 5,642 مترًا"
         ]
       ],
-      "factsAr": [
+      "factsEn": [
         [
           "Location",
           "Between Black and Caspian seas"
@@ -5378,7 +5358,7 @@
           "Elbrus, about 5,642 m"
         ]
       ],
-      "factsEn": [
+      "mountainPoints": [
         [
           [
             "تمتد بين البحر الأسود وبحر قزوين عبر روسيا وجورجيا وأذربيجان.",
@@ -5422,11 +5402,9 @@
       ]
     },
     "Simien Mountains": {
-      "ar": [
-        "جبال سيمين مرتفعات بركانية قديمة في شمال إثيوبيا، نحتتها التعرية إلى حافات صخرية وأودية عميقة. تضم موائل عالية الارتفاع لحيوانات متوطنة مثل الوعل الواليا والجيلادا.",
-        "The Simien Mountains are ancient volcanic highlands in northern Ethiopia, deeply eroded into escarpments and valleys. Their high habitats shelter endemic wildlife such as the Walia ibex and gelada."
-      ],
-      "en": [
+      "ar": "جبال سيمين مرتفعات بركانية قديمة في شمال إثيوبيا، نحتتها التعرية إلى حافات صخرية وأودية عميقة. تضم موائل عالية الارتفاع لحيوانات متوطنة مثل الوعل الواليا والجيلادا.",
+      "en": "The Simien Mountains are ancient volcanic highlands in northern Ethiopia, deeply eroded into escarpments and valleys. Their high habitats shelter endemic wildlife such as the Walia ibex and gelada.",
+      "factsAr": [
         [
           "الموقع",
           "شمال إثيوبيا"
@@ -5436,7 +5414,7 @@
           "مرتفعات بركانية متآكلة"
         ]
       ],
-      "factsAr": [
+      "factsEn": [
         [
           "Location",
           "Northern Ethiopia"
@@ -5446,7 +5424,7 @@
           "Eroded volcanic highlands"
         ]
       ],
-      "factsEn": [
+      "mountainPoints": [
         [
           [
             "تقع في شمال إثيوبيا ضمن المرتفعات الإثيوبية.",
@@ -5490,11 +5468,9 @@
       ]
     },
     "Southern Alps (New Zealand)": {
-      "ar": [
-        "جبال الألب الجنوبية سلسلة مرتفعة تمتد على الجزيرة الجنوبية بنيوزيلندا، وتضم أوراكي/جبل كوك. يرتبط ارتفاعها بالصدع الألبي، وتظهر فيها فروق واضحة بين الغرب الرطب والشرق الواقع في ظل المطر.",
-        "New Zealand's Southern Alps run along the South Island and include Aoraki/Mount Cook. Uplift along the Alpine Fault creates sharp contrasts between the wet west and rain-shadowed east."
-      ],
-      "en": [
+      "ar": "جبال الألب الجنوبية سلسلة مرتفعة تمتد على الجزيرة الجنوبية بنيوزيلندا، وتضم أوراكي/جبل كوك. يرتبط ارتفاعها بالصدع الألبي، وتظهر فيها فروق واضحة بين الغرب الرطب والشرق الواقع في ظل المطر.",
+      "en": "New Zealand's Southern Alps run along the South Island and include Aoraki/Mount Cook. Uplift along the Alpine Fault creates sharp contrasts between the wet west and rain-shadowed east.",
+      "factsAr": [
         [
           "الموقع",
           "الجزيرة الجنوبية، نيوزيلندا"
@@ -5504,7 +5480,7 @@
           "سلسلة جبلية تكتونية"
         ]
       ],
-      "factsAr": [
+      "factsEn": [
         [
           "Location",
           "South Island, New Zealand"
@@ -5514,7 +5490,7 @@
           "Tectonically uplifted range"
         ]
       ],
-      "factsEn": [
+      "mountainPoints": [
         [
           [
             "تمتد على طول الجزيرة الجنوبية في نيوزيلندا.",
