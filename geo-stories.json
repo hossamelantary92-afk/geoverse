@@ -279,6 +279,48 @@
           "النشاط الجيولوجي",
           "حزام النار حول أجزاء واسعة من حواف المحيط"
         ]
+      ],
+      "oceanPoints": [
+        [
+          [
+            "أكبر محيطات الأرض بين آسيا وأستراليا والأمريكتين.",
+            "Earth's largest ocean, between Asia, Australia and the Americas."
+          ],
+          [
+            "يمتد على جانبي خط التاريخ الدولي.",
+            "Spans both sides of the International Date Line."
+          ]
+        ],
+        [
+          [
+            "يضم خندق ماريانا، أعمق منطقة محيطية معروفة.",
+            "Contains the Mariana Trench, the deepest known oceanic region."
+          ],
+          [
+            "تطوق أطرافه مناطق نشطة من الصفائح وحزام النار.",
+            "Active plate boundaries and the Ring of Fire rim its margins."
+          ]
+        ],
+        [
+          [
+            "تتحرك فيه تيارات استوائية وباردة واسعة.",
+            "Vast tropical and cold currents circulate through it."
+          ],
+          [
+            "تؤثر ظاهرتا إل نينيو ولا نينيا في المناخ العالمي.",
+            "El Niño and La Niña influence global climate."
+          ]
+        ],
+        [
+          [
+            "تنتشر فيه جزر وشعاب مرجانية وموائل عميقة.",
+            "It contains islands, coral reefs and deep-sea habitats."
+          ],
+          [
+            "يصل طرق التجارة بين آسيا والأمريكتين.",
+            "It connects major trade routes between Asia and the Americas."
+          ]
+        ]
       ]
     },
     "Atlantic Ocean": {
@@ -293,6 +335,48 @@
           "تيار شهير",
           "تيار الخليج يساعد على نقل مياه دافئة شمالًا"
         ]
+      ],
+      "oceanPoints": [
+        [
+          [
+            "يقع بين الأمريكتين وأوروبا وأفريقيا.",
+            "Lies between the Americas, Europe and Africa."
+          ],
+          [
+            "يمتد من المياه الشمالية إلى المحيط الجنوبي.",
+            "Extends from northern waters toward the Southern Ocean."
+          ]
+        ],
+        [
+          [
+            "يمر في وسطه حيد منتصف الأطلسي البركاني.",
+            "The volcanic Mid-Atlantic Ridge runs through its center."
+          ],
+          [
+            "يتسع قاعه تدريجيًا بفعل تباعد الصفائح.",
+            "Seafloor spreading gradually widens its basin."
+          ]
+        ],
+        [
+          [
+            "ينقل تيار الخليج المياه الدافئة شمال شرقًا.",
+            "The Gulf Stream carries warm water northeastward."
+          ],
+          [
+            "تسهم دورته العميقة في نقل الحرارة والملوحة.",
+            "Its overturning circulation transports heat and salt."
+          ]
+        ],
+        [
+          [
+            "يضم مصبات أنهار كبرى وموائل بحرية متنوعة.",
+            "It contains major river estuaries and diverse habitats."
+          ],
+          [
+            "محور تاريخي للملاحة والتجارة العابرة للمحيطات.",
+            "A historic corridor for transoceanic navigation and trade."
+          ]
+        ]
       ]
     },
     "Indian Ocean": {
@@ -306,6 +390,48 @@
         [
           "السمة البارزة",
           "رياح موسمية تغيّر اتجاه بعض التيارات شمالًا"
+        ]
+      ],
+      "oceanPoints": [
+        [
+          [
+            "يقع بين أفريقيا وآسيا وأستراليا والمحيط الجنوبي.",
+            "Lies between Africa, Asia, Australia and the Southern Ocean."
+          ],
+          [
+            "ثالث أكبر محيطات الأرض مساحةً.",
+            "It is Earth's third-largest ocean by area."
+          ]
+        ],
+        [
+          [
+            "تتصل تضاريس قاعه بحيود وصفائح متحركة.",
+            "Its seabed contains ridges and active plate boundaries."
+          ],
+          [
+            "تنتشر أحواض عميقة وسلاسل جبلية تحت الماء.",
+            "Deep basins and submarine ridges shape its floor."
+          ]
+        ],
+        [
+          [
+            "تغير الرياح الموسمية اتجاه بعض التيارات شمالًا.",
+            "Monsoons reverse some northern currents seasonally."
+          ],
+          [
+            "تؤثر حرارة مياهه في أمطار جنوب آسيا وشرق أفريقيا.",
+            "Its water temperatures influence South Asian and East African rains."
+          ]
+        ],
+        [
+          [
+            "يضم شعابًا مرجانية ومناطق صعود مياه غنية بالمغذيات.",
+            "It has coral reefs and nutrient-rich upwelling zones."
+          ],
+          [
+            "تمر به طرق بحرية تربط آسيا وأفريقيا والشرق الأوسط.",
+            "Major sea routes connect Asia, Africa and the Middle East."
+          ]
         ]
       ]
     },
@@ -1612,6 +1738,48 @@
           "البيئة",
           "الجليد البحري والكريل جزءان مهمان من النظام البيئي"
         ]
+      ],
+      "oceanPoints": [
+        [
+          [
+            "يحيط بالقارة القطبية الجنوبية.",
+            "Encircles Antarctica."
+          ],
+          [
+            "يربط مياه الأطلسي والهادئ والهندي.",
+            "Connects Atlantic, Pacific and Indian waters."
+          ]
+        ],
+        [
+          [
+            "يدور فيه التيار المحيطي القطبي الجنوبي حول القارة.",
+            "The Antarctic Circumpolar Current circles the continent."
+          ],
+          [
+            "تتكون فيه مياه عميقة مهمة للدوران العالمي.",
+            "It forms deep waters important to global circulation."
+          ]
+        ],
+        [
+          [
+            "تتغير مساحة الجليد البحري كثيرًا بين الفصول.",
+            "Sea-ice extent changes greatly by season."
+          ],
+          [
+            "تدعم مياهه الكريل والحيتان والبطاريق.",
+            "Its waters support krill, whales and penguins."
+          ]
+        ],
+        [
+          [
+            "يمتص حرارة وكربونًا من الغلاف الجوي.",
+            "It absorbs heat and carbon from the atmosphere."
+          ],
+          [
+            "تؤثر تغيراته في المناخ ومستوى البحر عالميًا.",
+            "Its changes affect global climate and sea level."
+          ]
+        ]
       ]
     },
     "Arctic Ocean": {
@@ -1625,6 +1793,48 @@
         [
           "التميّز",
           "جليد بحري عائم يتوسع وينكمش حسب الموسم"
+        ]
+      ],
+      "oceanPoints": [
+        [
+          [
+            "أصغر محيطات الأرض ويحيط بالقطب الشمالي.",
+            "Earth's smallest ocean, surrounding the North Pole."
+          ],
+          [
+            "تحيط به سواحل آسيا وأوروبا وأمريكا الشمالية.",
+            "Bordered by Asia, Europe and North America."
+          ]
+        ],
+        [
+          [
+            "تغطيه طبقة جليد بحري تتبدل موسميًا.",
+            "Seasonally changing sea ice covers much of it."
+          ],
+          [
+            "تضم أطرافه رفوفًا قارية ضحلة واسعة.",
+            "Its margins contain extensive shallow continental shelves."
+          ]
+        ],
+        [
+          [
+            "تؤثر فيه مياه الأنهار والاختلافات في الملوحة.",
+            "River inflow and salinity differences shape its waters."
+          ],
+          [
+            "يتراجع الجليد الصيفي مع الاحترار المناخي.",
+            "Summer sea ice declines with climate warming."
+          ]
+        ],
+        [
+          [
+            "تعيش فيه كائنات متكيفة مع البرودة والجليد.",
+            "Cold- and ice-adapted species inhabit its waters."
+          ],
+          [
+            "تتزايد تحديات الملاحة وحماية النظم القطبية.",
+            "Navigation and polar conservation pose growing challenges."
+          ]
         ]
       ]
     },
