@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-14",
+  "scope": "Tourism homepage-only source audit batch 02",
+  "status": "reference candidates only; production content untouched",
+  "candidates": [
+    {
+      "code": "IN",
+      "name": "Golden Temple",
+      "url": "https://sgpc.net/sri-harmandir-sahib-2/",
+      "note": "official management history",
+      "status": "specific_source_identified; claim-level match pending"
+    },
+    {
+      "code": "AE",
+      "name": "Al Fahidi Historical Neighbourhood",
+      "url": "https://www.visitdubai.com/en/places-to-visit/al-fahidi-historical-neighbourhood",
+      "note": "official destination detail",
+      "status": "specific_source_identified; claim-level match pending"
+    },
+    {
+      "code": "TH",
+      "name": "Wat Phra That Doi Suthep",
+      "url": "https://www.tourismthailand.org/Attraction/wat-phra-that-doi-suthep",
+      "note": "official attraction detail",
+      "status": "specific_source_identified; claim-level match pending"
+    },
+    {
+      "code": "TH",
+      "name": "Railay Beach",
+      "url": "https://thai.tourismthailand.org/Attraction/%E0%B8%AD%E0%B9%88%E0%B8%B2%E0%B8%A7%E0%B9%84%E0%B8%A3%E0%B9%88%E0%B9%80%E0%B8%A5%E0%B8%A2%E0%B9%8C",
+      "note": "official Thai-language attraction detail",
+      "status": "specific_source_identified; claim-level match pending"
+    },
+    {
+      "code": "VN",
+      "name": "Marble Mountains (Vietnam)",
+      "url": "https://vietnam.travel/things-to-do/around-marble-mountains/",
+      "note": "official detailed destination article",
+      "status": "specific_source_identified; claim-level match pending"
+    }
+  ],
+  "remainingFlaggedEntries": 82
+}
