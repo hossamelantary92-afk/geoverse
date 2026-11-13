@@ -205,7 +205,7 @@ function uniqueCategoryPlaceIndices(id){
  return [...firstIndices.values()];
 }
 function categoryPlaceCount(id){
- return id==='forests'||id==='gulfs'?uniqueCategoryPlaceIndices(id).length:geo[id]?.length||0;
+ return ['forests','gulfs','lakes','islands'].includes(id)?uniqueCategoryPlaceIndices(id).length:geo[id]?.length||0;
 }
 function categoryPage(){
  const c=cats.find(x=>x.id===state.category),items=geo[c.id]||[];
@@ -216,7 +216,7 @@ function categoryPage(){
  '<input class="search-input" id="categoryFilter" placeholder="'+lang('ابحث عن دولة أو معلم داخل القسم...','Search places in this topic...')+'" value="'+escapeHTML(state.filter)+'"><div class="items-grid" id="categoryItems">'+itemCards(items)+'</div>';
 }
 
-function itemCards(items){let filtered=items.map((v,i)=>({v,i})).filter(({v})=>`${v[0]} ${v[1]}`.toLowerCase().includes(state.filter.toLowerCase()));return filtered.length?filtered.map(({v,i})=>`<button class="item-card" data-item="${state.category}:${i}"><span class="item-icon">${cats.find(c=>c.id===state.category).emoji}</span><strong>${escapeHTML(lang(v[0],v[1]))}</strong><small>${escapeHTML(lang(v[2],v[3]))}</small></button>`).join(''):`<div class="empty">${lang('لا توجد نتائج','No results')}</div>`}
+function itemCards(items){let filtered=items.map((v,i)=>({v,i})).filter(({v,i})=>!['forests','gulfs','lakes','islands'].includes(state.category)||uniqueCategoryPlaceIndices(state.category).includes(i)).filter(({v})=>`${v[0]} ${v[1]}`.toLowerCase().includes(state.filter.toLowerCase()));return filtered.length?filtered.map(({v,i})=>`<button class="item-card" data-item="${state.category}:${i}"><span class="item-icon">${cats.find(c=>c.id===state.category).emoji}</span><strong>${escapeHTML(lang(v[0],v[1]))}</strong><small>${escapeHTML(lang(v[2],v[3]))}</small></button>`).join(''):`<div class="empty">${lang('لا توجد نتائج','No results')}</div>`}
 function detail(){let c=cats.find(x=>x.id===state.category),v=geo[c.id][state.item],seen=!!saved()[`${c.id}_${state.item}`];return `<button class="back" data-cat="${c.id}">→ ${lang('العودة للقسم','Back to topic')}</button><div class="category-detail-banner" style="background-image:linear-gradient(0deg,#061b2aee,#061b2a00),url('${(window.GeoVersePremiumCovers?.get(c.id,1150)||im(c.img,1150))}')"><div><span class="eyebrow">${escapeHTML(label(c))}</span><h1>${c.emoji} ${escapeHTML(lang(v[0],v[1]))}</h1></div></div><div class="detail-card"><h2>${lang('معلومات جغرافية','Geographic Facts')}</h2><p style="font-size:16px;line-height:2">${escapeHTML(lang(v[2],v[3]))}</p><div class="detail-meta"><div><b>${lang('التصنيف','Category')}</b>${escapeHTML(label(c))}</div><div><b>${lang('الإحداثيات التقريبية','Approximate Coordinates')}</b><span dir="ltr">${v[4].toFixed(2)}°, ${v[5].toFixed(2)}°</span></div></div><div class="actions"><button id="toggleSeen" class="primary">${seen?lang('✓ تمت إضافته لمعرفتي','✓ Marked as learned'):lang('✓ تعلمت هذا المكان','✓ Mark as Learned')}</button><button class="secondary" id="showMapPoint">${lang('شاهد على الخريطة','View on Map')} 🗺️</button></div></div><div id="detailMap" class="map-container" style="height:310px;margin-top:15px"></div>`}
 
 function learn(){
