@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-14",
+  "scope": "Tourism scientific/editorial audit; image work explicitly excluded",
+  "totalLandmarks": 523,
+  "sourceUrlFields": 523,
+  "distinctSourceUrls": 440,
+  "unescoSourceEntries": 191,
+  "reviewed": [
+    {
+      "code": "EG",
+      "landmark": "Pyramids of Giza",
+      "source": "https://whc.unesco.org/en/list/86",
+      "status": "core historical and UNESCO significance claims corroborated",
+      "checked": [
+        "Memphis necropolis includes Giza pyramids and related funerary monuments",
+        "Great Pyramid only surviving ancient wonder"
+      ],
+      "notChecked": [
+        "All individual details and bilingual nuance"
+      ]
+    },
+    {
+      "code": "SA",
+      "landmark": "Hegra",
+      "source": "https://whc.unesco.org/en/list/1293",
+      "status": "core historical and UNESCO inscription claims corroborated",
+      "checked": [
+        "Nabataean heritage and monumental rock-cut tombs",
+        "First Saudi World Heritage property, inscribed 2008"
+      ],
+      "notChecked": [
+        "All individual details and bilingual nuance"
+      ]
+    }
+  ],
+  "outstanding": "521 profiles have not yet received this independent claim-level review; previously authored work remains intact",
+  "changes": "No encyclopedia prose modified because no supported correction was identified in this batch."
+}
