@@ -2102,6 +2102,48 @@
           "التكوّن",
           "التعرية النهرية"
         ]
+      ],
+      "valleyPoints": [
+        [
+          [
+            "يقع في شمال ولاية أريزونا بالولايات المتحدة",
+            "Located in northern Arizona, United States"
+          ],
+          [
+            "يمتد عبر هضبة كولورادو",
+            "Cuts through the Colorado Plateau"
+          ]
+        ],
+        [
+          [
+            "نحته نهر كولورادو وروافده عبر زمن جيولوجي طويل",
+            "Carved by the Colorado River and tributaries over geologic time"
+          ],
+          [
+            "تكشف جدرانه طبقات صخرية من عصور مختلفة",
+            "Its walls expose rocks from different geological periods"
+          ]
+        ],
+        [
+          [
+            "تتنوع درجات الحرارة بين الحافة والقاع",
+            "Temperatures differ markedly between rim and floor"
+          ],
+          [
+            "تؤثر السيول والتجوية في المنحدرات الجانبية",
+            "Flash floods and weathering shape side slopes"
+          ]
+        ],
+        [
+          [
+            "يوفر موائل صحراوية ونهرية متعددة",
+            "Supports varied desert and river habitats"
+          ],
+          [
+            "تُدار مسارات الزيارة لحماية الزوار والبيئة",
+            "Visitor routes are managed for safety and conservation"
+          ]
+        ]
       ]
     },
     "Death Valley": {
@@ -2115,6 +2157,48 @@
         [
           "الطبيعة",
           "حوض صحراوي حار"
+        ]
+      ],
+      "valleyPoints": [
+        [
+          [
+            "يقع أساسًا في شرق كاليفورنيا قرب نيفادا",
+            "Lies mainly in eastern California near Nevada"
+          ],
+          [
+            "يضم حوض بادووتر المنخفض تحت مستوى سطح البحر",
+            "Contains Badwater Basin below sea level"
+          ]
+        ],
+        [
+          [
+            "تشكل حوضه بفعل التصدعات والهبوط التكتوني",
+            "Its basin formed through faulting and tectonic subsidence"
+          ],
+          [
+            "تحيط به سلاسل جبلية وأحواض ملحية",
+            "Mountain ranges and salt flats surround it"
+          ]
+        ],
+        [
+          [
+            "من أشد مناطق الأرض حرارة صيفًا",
+            "Among Earth's hottest regions in summer"
+          ],
+          [
+            "الأمطار نادرة لكن السيول المفاجئة ممكنة",
+            "Rainfall is scarce but flash floods occur"
+          ]
+        ],
+        [
+          [
+            "تعيش فيه نباتات وحيوانات متكيفة مع الجفاف",
+            "Hosts plants and animals adapted to aridity"
+          ],
+          [
+            "تتطلب الزيارة احتياطات خاصة ضد الحر والجفاف",
+            "Visits require precautions against heat and dehydration"
+          ]
         ]
       ]
     },
@@ -3609,6 +3693,48 @@
           "الطبيعة",
           "أودية وجبال صخرية"
         ]
+      ],
+      "valleyPoints": [
+        [
+          [
+            "يقع في جنوب الأردن قرب العقبة",
+            "Located in southern Jordan near Aqaba"
+          ],
+          [
+            "يضم أودية رملية وكتلًا جبلية شاهقة",
+            "Contains sandy valleys and towering rock massifs"
+          ]
+        ],
+        [
+          [
+            "تتكون تضاريسه من الحجر الرملي والصخور الأقدم",
+            "Its terrain includes sandstone and older bedrock"
+          ],
+          [
+            "نحتت الرياح والسيول الشقوق والأقواس الصخرية",
+            "Wind and floods carved fissures and rock arches"
+          ]
+        ],
+        [
+          [
+            "مناخه صحراوي جاف مع تفاوت حراري يومي",
+            "Its arid climate has large day–night temperature changes"
+          ],
+          [
+            "تظهر آثار السيول في المجاري الجافة",
+            "Flash-flood traces appear in dry channels"
+          ]
+        ],
+        [
+          [
+            "يضم نقوشًا وآثارًا بشرية قديمة",
+            "Contains ancient inscriptions and human traces"
+          ],
+          [
+            "موقع تراث عالمي يجمع القيمة الطبيعية والثقافية",
+            "A World Heritage site with natural and cultural value"
+          ]
+        ]
       ]
     },
     "Valley of the Kings": {
@@ -3622,6 +3748,48 @@
         [
           "الأهمية",
           "موقع أثري"
+        ]
+      ],
+      "valleyPoints": [
+        [
+          [
+            "يقع على الضفة الغربية للنيل قرب الأقصر بمصر",
+            "On the Nile's west bank near Luxor, Egypt"
+          ],
+          [
+            "وادٍ صخري جاف داخل تلال طيبة",
+            "A dry rocky valley in the Theban hills"
+          ]
+        ],
+        [
+          [
+            "نحتت السيول والتعرية مجاريه عبر الزمن",
+            "Floods and erosion carved its channels over time"
+          ],
+          [
+            "تتكون تلاله من صخور رسوبية بينها الحجر الجيري",
+            "Its hills include sedimentary rocks such as limestone"
+          ]
+        ],
+        [
+          [
+            "الجو جاف لكن الأمطار النادرة قد تسبب سيولًا",
+            "Climate is arid, but rare rain can cause flash floods"
+          ],
+          [
+            "تؤثر الرطوبة والسيول في حفظ المقابر",
+            "Moisture and floods affect tomb preservation"
+          ]
+        ],
+        [
+          [
+            "يضم مقابر ملوك من الدولة الحديثة",
+            "Contains royal tombs of Egypt's New Kingdom"
+          ],
+          [
+            "تتطلب حماية النقوش إدارة دقيقة للزيارات",
+            "Protecting wall art requires careful visitor management"
+          ]
         ]
       ]
     },
@@ -4859,11 +5027,53 @@
       "factsAr": [
         [
           "الموقع",
-          "وادي كولكا"
+          "جنوب بيرو"
         ],
         [
           "النوع",
-          "معلم جغرافي طبيعي"
+          "أخدود نهري جبلي"
+        ]
+      ],
+      "valleyPoints": [
+        [
+          [
+            "يقع في جنوب بيرو ضمن جبال الأنديز",
+            "Located in southern Peru's Andes"
+          ],
+          [
+            "تحيط به قرى ومدرجات زراعية قديمة",
+            "Surrounded by villages and historic terraces"
+          ]
+        ],
+        [
+          [
+            "ساهم نهر كولكا في نحت الوادي العميق",
+            "The Colca River helped carve the deep canyon"
+          ],
+          [
+            "ترتبط تضاريس المنطقة برفع الأنديز والنشاط البركاني",
+            "Its terrain reflects Andean uplift and volcanism"
+          ]
+        ],
+        [
+          [
+            "تتفاوت الحرارة مع الارتفاع والانحدار",
+            "Temperature varies with elevation and slope"
+          ],
+          [
+            "تؤثر الأمطار الموسمية في تدفق النهر",
+            "Seasonal rains influence river flow"
+          ]
+        ],
+        [
+          [
+            "تُشاهد طيور الكوندور الأندية قرب الجروف",
+            "Andean condors are seen near canyon cliffs"
+          ],
+          [
+            "تجمع المنطقة الزراعة الجبلية والسياحة الطبيعية",
+            "The area combines mountain farming and nature tourism"
+          ]
         ]
       ]
     },
@@ -4873,11 +5083,53 @@
       "factsAr": [
         [
           "الموقع",
-          "أخدود نهر السمك"
+          "جنوب ناميبيا"
         ],
         [
           "النوع",
-          "معلم جغرافي طبيعي"
+          "أخدود نهري"
+        ]
+      ],
+      "valleyPoints": [
+        [
+          [
+            "يقع في جنوب ناميبيا ضمن بيئة شديدة الجفاف",
+            "Located in arid southern Namibia"
+          ],
+          [
+            "يمتد على طول مجرى نهر السمك",
+            "Extends along the Fish River"
+          ]
+        ],
+        [
+          [
+            "نحته النهر مع تأثير الرفع والتصدعات القديمة",
+            "Carved by the river alongside older uplift and faulting"
+          ],
+          [
+            "تكشف الجدران طبقات صخرية وتاريخًا جيولوجيًا طويلًا",
+            "Its walls expose strata and a long geological history"
+          ]
+        ],
+        [
+          [
+            "جريان النهر موسمي ويتأثر بالأمطار",
+            "River flow is seasonal and rainfall-dependent"
+          ],
+          [
+            "الحرارة والجفاف يحددان ظروف الرحلات",
+            "Heat and aridity shape hiking conditions"
+          ]
+        ],
+        [
+          [
+            "توجد كائنات متكيفة مع البيئة شبه الصحراوية",
+            "Supports wildlife adapted to semi-desert conditions"
+          ],
+          [
+            "تخضع مسارات المشي لقيود موسمية وسلامة",
+            "Hiking routes have seasonal and safety restrictions"
+          ]
         ]
       ]
     },
