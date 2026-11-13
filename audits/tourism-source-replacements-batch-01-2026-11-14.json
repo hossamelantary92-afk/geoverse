@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-14",
+  "scope": "Homepage-only tourism references, first evidence batch",
+  "status": "candidate_source_urls_verified_by_page_content; production source records not yet changed",
+  "candidates": [
+    {
+      "code": "EG",
+      "name": "Citadel of Qaitbay",
+      "url": "https://egymonuments.gov.eg/monuments/qaitbay-fort/",
+      "note": "Arabic and English ministry pages disagree on stated area; do not assert area without resolution"
+    },
+    {
+      "code": "EG",
+      "name": "Egyptian Museum",
+      "url": "https://egymonuments.gov.eg/museums/egyptian-museum/"
+    },
+    {
+      "code": "EG",
+      "name": "Hanging Church",
+      "url": "https://egymonuments.gov.eg/monuments/the-hanging-church/"
+    },
+    {
+      "code": "EG",
+      "name": "Great Sphinx of Giza",
+      "url": "https://egymonuments.gov.eg/monuments/the-great-sphinx/"
+    },
+    {
+      "code": "EG",
+      "name": "Wadi El Rayan",
+      "url": "https://www.eeaa.gov.eg/Uploads/Topics/Files/20221213131818469.pdf",
+      "note": "Official EEAA park brochure, historical document; do not use its hours as current"
+    },
+    {
+      "code": "SA",
+      "name": "Masmak Fortress",
+      "url": "https://www.visitsaudi.com/ar/see-do/destinations/riyadh/al-masmak-palace-in-riyadh"
+    },
+    {
+      "code": "SA",
+      "name": "Asir National Park",
+      "url": "https://www.visitsaudi.com/ar/destinations/aseer",
+      "note": "Regional overview mentions park; not dedicated park page"
+    }
+  ],
+  "remainingFlaggedSourceEntries": 87
+}
