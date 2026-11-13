@@ -1,0 +1,837 @@
+{
+  "date": "2026-11-14",
+  "batch": 4,
+  "range": "301–400",
+  "total": 100,
+  "sourceOrder": "tourism-deep-enrichment-v597.js",
+  "status": "Structural and bilingual screening complete; independent scientific claim verification pending",
+  "results": {
+    "screened": 100,
+    "flagged": 19,
+    "missingBilingualProfiles": 0
+  },
+  "checks": [
+    "Matching bilingual keys and populated content",
+    "Source URL syntax",
+    "Generic homepage source",
+    "Exact duplicated main fields"
+  ],
+  "flagged": [
+    {
+      "index": 329,
+      "code": "OM",
+      "name": "Sultan Qaboos Grand Mosque",
+      "source": "https://experienceoman.om/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 330,
+      "code": "OM",
+      "name": "Nizwa Fort",
+      "source": "https://experienceoman.om/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 331,
+      "code": "OM",
+      "name": "Jebel Akhdar",
+      "source": "https://experienceoman.om/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 332,
+      "code": "OM",
+      "name": "Wadi Shab",
+      "source": "https://experienceoman.om/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 334,
+      "code": "OM",
+      "name": "Wahiba Sands",
+      "source": "https://experienceoman.om/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 335,
+      "code": "OM",
+      "name": "Muttrah Souq",
+      "source": "https://experienceoman.om/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 340,
+      "code": "PE",
+      "name": "Lake Titicaca",
+      "source": "https://www.peru.travel/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 341,
+      "code": "PE",
+      "name": "Colca Canyon",
+      "source": "https://www.peru.travel/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 342,
+      "code": "PE",
+      "name": "Sacred Valley of the Incas",
+      "source": "https://www.peru.travel/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 344,
+      "code": "PE",
+      "name": "Vinicunca Rainbow Mountain",
+      "source": "https://www.peru.travel/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 362,
+      "code": "IS",
+      "name": "Gullfoss",
+      "source": "https://www.visiticeland.com/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 363,
+      "code": "IS",
+      "name": "Geysir Geothermal Area",
+      "source": "https://www.visiticeland.com/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 364,
+      "code": "IS",
+      "name": "Skógafoss",
+      "source": "https://www.visiticeland.com/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 368,
+      "code": "IS",
+      "name": "Lake Mývatn",
+      "source": "https://www.visiticeland.com/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 386,
+      "code": "KE",
+      "name": "Amboseli National Park",
+      "source": "https://www.kws.go.ke/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 389,
+      "code": "KE",
+      "name": "Lake Nakuru National Park",
+      "source": "https://www.kws.go.ke/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 390,
+      "code": "KE",
+      "name": "Nairobi National Park",
+      "source": "https://www.kws.go.ke/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 391,
+      "code": "KE",
+      "name": "Karuru Falls",
+      "source": "https://www.kws.go.ke/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 392,
+      "code": "KE",
+      "name": "Watamu Marine National Park",
+      "source": "https://www.kws.go.ke/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    }
+  ],
+  "reviewed": [
+    {
+      "index": 301,
+      "code": "CZ",
+      "name": "Sedlec Ossuary",
+      "flags": []
+    },
+    {
+      "index": 302,
+      "code": "CZ",
+      "name": "Karlštejn Castle",
+      "flags": []
+    },
+    {
+      "index": 303,
+      "code": "CZ",
+      "name": "Lednice–Valtice Cultural Landscape",
+      "flags": []
+    },
+    {
+      "index": 304,
+      "code": "CZ",
+      "name": "Bohemian Switzerland National Park",
+      "flags": []
+    },
+    {
+      "index": 305,
+      "code": "CA",
+      "name": "Niagara Falls",
+      "flags": []
+    },
+    {
+      "index": 306,
+      "code": "CA",
+      "name": "Banff National Park",
+      "flags": []
+    },
+    {
+      "index": 307,
+      "code": "CA",
+      "name": "Lake Louise",
+      "flags": []
+    },
+    {
+      "index": 308,
+      "code": "CA",
+      "name": "Historic District of Old Québec",
+      "flags": []
+    },
+    {
+      "index": 309,
+      "code": "CA",
+      "name": "CN Tower",
+      "flags": []
+    },
+    {
+      "index": 310,
+      "code": "CA",
+      "name": "Jasper National Park",
+      "flags": []
+    },
+    {
+      "index": 311,
+      "code": "CA",
+      "name": "Stanley Park",
+      "flags": []
+    },
+    {
+      "index": 312,
+      "code": "CA",
+      "name": "Gros Morne National Park",
+      "flags": []
+    },
+    {
+      "index": 313,
+      "code": "NZ",
+      "name": "Milford Sound",
+      "flags": []
+    },
+    {
+      "index": 314,
+      "code": "NZ",
+      "name": "Hobbiton Movie Set",
+      "flags": []
+    },
+    {
+      "index": 315,
+      "code": "NZ",
+      "name": "Wai-O-Tapu Thermal Wonderland",
+      "flags": []
+    },
+    {
+      "index": 316,
+      "code": "NZ",
+      "name": "Tongariro National Park",
+      "flags": []
+    },
+    {
+      "index": 317,
+      "code": "NZ",
+      "name": "Aoraki / Mount Cook National Park",
+      "flags": []
+    },
+    {
+      "index": 318,
+      "code": "NZ",
+      "name": "Waitomo Glowworm Caves",
+      "flags": []
+    },
+    {
+      "index": 319,
+      "code": "NZ",
+      "name": "Bay of Islands",
+      "flags": []
+    },
+    {
+      "index": 320,
+      "code": "NZ",
+      "name": "Abel Tasman National Park",
+      "flags": []
+    },
+    {
+      "index": 321,
+      "code": "JO",
+      "name": "Petra",
+      "flags": []
+    },
+    {
+      "index": 322,
+      "code": "JO",
+      "name": "Wadi Rum Protected Area",
+      "flags": []
+    },
+    {
+      "index": 323,
+      "code": "JO",
+      "name": "Jerash",
+      "flags": []
+    },
+    {
+      "index": 324,
+      "code": "JO",
+      "name": "Dead Sea",
+      "flags": []
+    },
+    {
+      "index": 325,
+      "code": "JO",
+      "name": "Amman Citadel",
+      "flags": []
+    },
+    {
+      "index": 326,
+      "code": "JO",
+      "name": "Mount Nebo",
+      "flags": []
+    },
+    {
+      "index": 327,
+      "code": "JO",
+      "name": "Baptism Site Bethany Beyond the Jordan",
+      "flags": []
+    },
+    {
+      "index": 328,
+      "code": "JO",
+      "name": "Umm Qais (Gadara)",
+      "flags": []
+    },
+    {
+      "index": 329,
+      "code": "OM",
+      "name": "Sultan Qaboos Grand Mosque",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 330,
+      "code": "OM",
+      "name": "Nizwa Fort",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 331,
+      "code": "OM",
+      "name": "Jebel Akhdar",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 332,
+      "code": "OM",
+      "name": "Wadi Shab",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 333,
+      "code": "OM",
+      "name": "Bahla Fort",
+      "flags": []
+    },
+    {
+      "index": 334,
+      "code": "OM",
+      "name": "Wahiba Sands",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 335,
+      "code": "OM",
+      "name": "Muttrah Souq",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 336,
+      "code": "OM",
+      "name": "Ras al Jinz Turtle Reserve",
+      "flags": []
+    },
+    {
+      "index": 337,
+      "code": "PE",
+      "name": "Machu Picchu",
+      "flags": []
+    },
+    {
+      "index": 338,
+      "code": "PE",
+      "name": "Historic Centre of Cusco",
+      "flags": []
+    },
+    {
+      "index": 339,
+      "code": "PE",
+      "name": "Nazca Lines",
+      "flags": []
+    },
+    {
+      "index": 340,
+      "code": "PE",
+      "name": "Lake Titicaca",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 341,
+      "code": "PE",
+      "name": "Colca Canyon",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 342,
+      "code": "PE",
+      "name": "Sacred Valley of the Incas",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 343,
+      "code": "PE",
+      "name": "Chan Chan Archaeological Zone",
+      "flags": []
+    },
+    {
+      "index": 344,
+      "code": "PE",
+      "name": "Vinicunca Rainbow Mountain",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 345,
+      "code": "KH",
+      "name": "Angkor Wat",
+      "flags": []
+    },
+    {
+      "index": 346,
+      "code": "KH",
+      "name": "Bayon Temple",
+      "flags": []
+    },
+    {
+      "index": 347,
+      "code": "KH",
+      "name": "Ta Prohm",
+      "flags": []
+    },
+    {
+      "index": 348,
+      "code": "KH",
+      "name": "Temple of Preah Vihear",
+      "flags": []
+    },
+    {
+      "index": 349,
+      "code": "KH",
+      "name": "Banteay Srei",
+      "flags": []
+    },
+    {
+      "index": 350,
+      "code": "KH",
+      "name": "Tonlé Sap Lake",
+      "flags": []
+    },
+    {
+      "index": 351,
+      "code": "KH",
+      "name": "Royal Palace of Phnom Penh",
+      "flags": []
+    },
+    {
+      "index": 352,
+      "code": "KH",
+      "name": "Koh Ker Archaeological Site",
+      "flags": []
+    },
+    {
+      "index": 353,
+      "code": "NO",
+      "name": "Geirangerfjord",
+      "flags": []
+    },
+    {
+      "index": 354,
+      "code": "NO",
+      "name": "Lofoten Islands",
+      "flags": []
+    },
+    {
+      "index": 355,
+      "code": "NO",
+      "name": "Arctic Cathedral",
+      "flags": []
+    },
+    {
+      "index": 356,
+      "code": "NO",
+      "name": "Preikestolen",
+      "flags": []
+    },
+    {
+      "index": 357,
+      "code": "NO",
+      "name": "Bryggen",
+      "flags": []
+    },
+    {
+      "index": 358,
+      "code": "NO",
+      "name": "Longyearbyen",
+      "flags": []
+    },
+    {
+      "index": 359,
+      "code": "NO",
+      "name": "Vigeland Sculpture Park",
+      "flags": []
+    },
+    {
+      "index": 360,
+      "code": "NO",
+      "name": "Vøringsfossen",
+      "flags": []
+    },
+    {
+      "index": 361,
+      "code": "IS",
+      "name": "Þingvellir National Park",
+      "flags": []
+    },
+    {
+      "index": 362,
+      "code": "IS",
+      "name": "Gullfoss",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 363,
+      "code": "IS",
+      "name": "Geysir Geothermal Area",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 364,
+      "code": "IS",
+      "name": "Skógafoss",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 365,
+      "code": "IS",
+      "name": "Reynisfjara Black Sand Beach",
+      "flags": []
+    },
+    {
+      "index": 366,
+      "code": "IS",
+      "name": "Jökulsárlón Glacier Lagoon",
+      "flags": []
+    },
+    {
+      "index": 367,
+      "code": "IS",
+      "name": "Kirkjufell",
+      "flags": []
+    },
+    {
+      "index": 368,
+      "code": "IS",
+      "name": "Lake Mývatn",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 369,
+      "code": "NP",
+      "name": "Sagarmatha National Park",
+      "flags": []
+    },
+    {
+      "index": 370,
+      "code": "NP",
+      "name": "Kathmandu Durbar Square",
+      "flags": []
+    },
+    {
+      "index": 371,
+      "code": "NP",
+      "name": "Phewa Lake",
+      "flags": []
+    },
+    {
+      "index": 372,
+      "code": "NP",
+      "name": "Lumbini",
+      "flags": []
+    },
+    {
+      "index": 373,
+      "code": "NP",
+      "name": "Bhaktapur Durbar Square",
+      "flags": []
+    },
+    {
+      "index": 374,
+      "code": "NP",
+      "name": "Boudhanath Stupa",
+      "flags": []
+    },
+    {
+      "index": 375,
+      "code": "NP",
+      "name": "Annapurna Conservation Area",
+      "flags": []
+    },
+    {
+      "index": 376,
+      "code": "NP",
+      "name": "Chitwan National Park",
+      "flags": []
+    },
+    {
+      "index": 377,
+      "code": "LK",
+      "name": "Sigiriya",
+      "flags": []
+    },
+    {
+      "index": 378,
+      "code": "LK",
+      "name": "Temple of the Tooth",
+      "flags": []
+    },
+    {
+      "index": 379,
+      "code": "LK",
+      "name": "Galle Fort",
+      "flags": []
+    },
+    {
+      "index": 380,
+      "code": "LK",
+      "name": "Sacred City of Anuradhapura",
+      "flags": []
+    },
+    {
+      "index": 381,
+      "code": "LK",
+      "name": "Dambulla Cave Temple",
+      "flags": []
+    },
+    {
+      "index": 382,
+      "code": "LK",
+      "name": "Nuwara Eliya Tea Country",
+      "flags": []
+    },
+    {
+      "index": 383,
+      "code": "LK",
+      "name": "Nine Arch Bridge",
+      "flags": []
+    },
+    {
+      "index": 384,
+      "code": "LK",
+      "name": "Yala National Park",
+      "flags": []
+    },
+    {
+      "index": 385,
+      "code": "KE",
+      "name": "Maasai Mara National Reserve",
+      "flags": []
+    },
+    {
+      "index": 386,
+      "code": "KE",
+      "name": "Amboseli National Park",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 387,
+      "code": "KE",
+      "name": "Mount Kenya National Park",
+      "flags": []
+    },
+    {
+      "index": 388,
+      "code": "KE",
+      "name": "Lamu Old Town",
+      "flags": []
+    },
+    {
+      "index": 389,
+      "code": "KE",
+      "name": "Lake Nakuru National Park",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 390,
+      "code": "KE",
+      "name": "Nairobi National Park",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 391,
+      "code": "KE",
+      "name": "Karuru Falls",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 392,
+      "code": "KE",
+      "name": "Watamu Marine National Park",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 393,
+      "code": "TZ",
+      "name": "Serengeti National Park",
+      "flags": []
+    },
+    {
+      "index": 394,
+      "code": "TZ",
+      "name": "Mount Kilimanjaro",
+      "flags": []
+    },
+    {
+      "index": 395,
+      "code": "TZ",
+      "name": "Ngorongoro Crater",
+      "flags": []
+    },
+    {
+      "index": 396,
+      "code": "TZ",
+      "name": "Stone Town of Zanzibar",
+      "flags": []
+    },
+    {
+      "index": 397,
+      "code": "TZ",
+      "name": "Lake Manyara National Park",
+      "flags": []
+    },
+    {
+      "index": 398,
+      "code": "TZ",
+      "name": "Nyerere National Park",
+      "flags": []
+    },
+    {
+      "index": 399,
+      "code": "TZ",
+      "name": "Pemba Island",
+      "flags": []
+    },
+    {
+      "index": 400,
+      "code": "TZ",
+      "name": "Tarangire National Park",
+      "flags": []
+    }
+  ],
+  "caveats": [
+    "Source page validity and factual claims not independently verified for all 100.",
+    "Images excluded as requested.",
+    "No article content modified."
+  ]
+}
