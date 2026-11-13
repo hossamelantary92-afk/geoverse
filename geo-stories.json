@@ -1582,6 +1582,48 @@
           "النوع",
           "بركان نشط"
         ]
+      ],
+      "volcanoPoints": [
+        [
+          [
+            "يقع على الساحل الشرقي لصقلية في إيطاليا",
+            "On the east coast of Sicily, Italy"
+          ],
+          [
+            "من أكثر البراكين الأوروبية نشاطًا",
+            "One of Europe's most active volcanoes"
+          ]
+        ],
+        [
+          [
+            "بركان طبقي تغذيه صهارة متكررة الصعود",
+            "A stratovolcano fed by recurring magma ascent"
+          ],
+          [
+            "تظهر فيه فوهات قمية ومخاريط جانبية",
+            "Features summit craters and flank cones"
+          ]
+        ],
+        [
+          [
+            "تتنوع ثوراته بين تدفقات الحمم وقذف الرماد",
+            "Eruptions range from lava flows to ash emissions"
+          ],
+          [
+            "تراقَب الزلازل والغازات وتشوهات السطح",
+            "Seismicity, gases and ground deformation are monitored"
+          ]
+        ],
+        [
+          [
+            "تبني الحمم تضاريس جديدة على السفوح",
+            "Lava flows build new terrain on the slopes"
+          ],
+          [
+            "قد يهدد الرماد والحمم الطرق والتجمعات القريبة",
+            "Ash and lava can threaten roads and nearby settlements"
+          ]
+        ]
       ]
     },
     "Mount Fuji": {
@@ -1646,6 +1688,48 @@
           [
             "يساعد شكل المخروط على فهم كيفية بناء البراكين الطبقية.",
             "Its cone illustrates how stratovolcanoes grow."
+          ]
+        ]
+      ],
+      "volcanoPoints": [
+        [
+          [
+            "يقع في جزيرة هونشو غرب طوكيو",
+            "On Honshu Island west of Tokyo"
+          ],
+          [
+            "أعلى جبل في اليابان بارتفاع نحو 3776 مترًا",
+            "Japan's highest mountain at about 3,776 meters"
+          ]
+        ],
+        [
+          [
+            "بركان طبقي بُني من طبقات الحمم والرماد",
+            "A stratovolcano built from lava and ash layers"
+          ],
+          [
+            "شكله المخروطي نتج عن ثورات متعاقبة",
+            "Its conical shape formed through successive eruptions"
+          ]
+        ],
+        [
+          [
+            "آخر ثوران معروف وقع في 1707–1708",
+            "Its last known eruption occurred in 1707–1708"
+          ],
+          [
+            "يُعد نشطًا جيولوجيًا رغم فترة السكون الطويلة",
+            "Considered geologically active despite prolonged quiet"
+          ]
+        ],
+        [
+          [
+            "تغطي الغابات السفوح السفلى والصخور القمة",
+            "Forests cover lower slopes and rocks dominate the summit"
+          ],
+          [
+            "الرماد البركاني المحتمل يمثل خطرًا على المناطق المأهولة",
+            "Potential ashfall poses risks to populated areas"
           ]
         ]
       ]
@@ -2959,6 +3043,48 @@
           "النوع",
           "جزر بركانية"
         ]
+      ],
+      "volcanoPoints": [
+        [
+          [
+            "يقع في مضيق سوندا بين جاوة وسومطرة",
+            "In the Sunda Strait between Java and Sumatra"
+          ],
+          [
+            "يتكون من جزر بركانية في إندونيسيا",
+            "Comprises volcanic islands in Indonesia"
+          ]
+        ],
+        [
+          [
+            "يقع ضمن منطقة اندساس تكتوني نشطة",
+            "Lies within an active subduction zone"
+          ],
+          [
+            "أعاد ثوران 1883 تشكيل أجزاء من الجزيرة",
+            "The 1883 eruption reshaped parts of the island"
+          ]
+        ],
+        [
+          [
+            "نشأ بركان أناك كراكاتاو بعد الثوران التاريخي",
+            "Anak Krakatau grew after the historic eruption"
+          ],
+          [
+            "قد يصاحب النشاط رماد وتدفقات وانهيارات",
+            "Activity may involve ash, flows and slope collapse"
+          ]
+        ],
+        [
+          [
+            "أحدث ثوران 1883 موجات تسونامي مدمرة",
+            "The 1883 eruption generated devastating tsunamis"
+          ],
+          [
+            "تتطلب المنطقة مراقبة بركانية وبحرية مستمرة",
+            "The area requires ongoing volcanic and marine monitoring"
+          ]
+        ]
       ]
     },
     "Kīlauea": {
@@ -2972,6 +3098,48 @@
         [
           "النوع",
           "بركان نشط"
+        ]
+      ],
+      "volcanoPoints": [
+        [
+          [
+            "يقع على جزيرة هاواي الكبرى في الولايات المتحدة",
+            "On Hawaiʻi Island in the United States"
+          ],
+          [
+            "من البراكين الدرعية النشطة في هاواي",
+            "An active shield volcano in Hawaiʻi"
+          ]
+        ],
+        [
+          [
+            "تكوّن من حمم بازلتية قليلة اللزوجة نسبيًا",
+            "Built by relatively fluid basaltic lava"
+          ],
+          [
+            "يضم كالديرا قمية ومناطق تصدع جانبية",
+            "Has a summit caldera and flank rift zones"
+          ]
+        ],
+        [
+          [
+            "قد تحدث ثورات شقية وتدفقات حمم واسعة",
+            "Eruptions can open fissures and produce broad lava flows"
+          ],
+          [
+            "تراقب المراصد الزلازل والغازات وتشوه الأرض",
+            "Observatories monitor earthquakes, gases and deformation"
+          ]
+        ],
+        [
+          [
+            "قد تنشئ الحمم أراضي جديدة وتغطي طرقًا ومنازل",
+            "Lava can create new land and cover roads or homes"
+          ],
+          [
+            "الغازات البركانية تؤثر في جودة الهواء محليًا",
+            "Volcanic gases can affect local air quality"
+          ]
         ]
       ]
     },
@@ -4111,11 +4279,53 @@
       "factsAr": [
         [
           "الموقع",
-          "ماونا لوا"
+          "هاواي، الولايات المتحدة"
         ],
         [
           "النوع",
-          "معلم جغرافي طبيعي"
+          "بركان درعي نشط"
+        ]
+      ],
+      "volcanoPoints": [
+        [
+          [
+            "يشغل جزءًا كبيرًا من جزيرة هاواي الكبرى",
+            "Occupies much of Hawaiʻi Island"
+          ],
+          [
+            "من أكبر البراكين الدرعية النشطة على الأرض",
+            "Among Earth's largest active shield volcanoes"
+          ]
+        ],
+        [
+          [
+            "بُني من تدفقات متكررة من الحمم البازلتية",
+            "Built by repeated basaltic lava flows"
+          ],
+          [
+            "منحدراته واسعة ولطيفة مقارنة بالبراكين الطبقية",
+            "Its slopes are broad and gentle compared with stratovolcanoes"
+          ]
+        ],
+        [
+          [
+            "شهد ثورانًا في عام 2022",
+            "It erupted in 2022"
+          ],
+          [
+            "تراقَب الزلازل وانتفاخ الأرض والغازات",
+            "Earthquakes, ground swelling and gases are monitored"
+          ]
+        ],
+        [
+          [
+            "قد تصل الحمم إلى طرق ومناطق مأهولة",
+            "Lava flows can reach roads and inhabited areas"
+          ],
+          [
+            "يساعد تاريخ تدفقاته في رسم خرائط المخاطر",
+            "Past flows help map future hazards"
+          ]
         ]
       ]
     },
@@ -4125,11 +4335,53 @@
       "factsAr": [
         [
           "الموقع",
-          "كالديرا يلوستون"
+          "وايومنغ والولايات المجاورة، الولايات المتحدة"
         ],
         [
           "النوع",
-          "معلم جغرافي طبيعي"
+          "كالديرا ونظام حراري مائي"
+        ]
+      ],
+      "volcanoPoints": [
+        [
+          [
+            "يقع النظام البركاني في شمال غرب الولايات المتحدة",
+            "The volcanic system lies in the northwestern United States"
+          ],
+          [
+            "تتركز معالمه في متنزه يلوستون الوطني",
+            "Its features are centered on Yellowstone National Park"
+          ]
+        ],
+        [
+          [
+            "كالديرا تشكلت عبر ثورات بركانية قديمة كبيرة",
+            "A caldera formed by large ancient eruptions"
+          ],
+          [
+            "تغذي الحرارة الجوفية الينابيع والنوافير الحارة",
+            "Geothermal heat powers hot springs and geysers"
+          ]
+        ],
+        [
+          [
+            "لا يوجد ثوران صهاري جارٍ حاليًا",
+            "There is no ongoing magmatic eruption"
+          ],
+          [
+            "تراقَب الزلازل وحركة الأرض والحرارة المائية",
+            "Earthquakes, ground movement and hydrothermal activity are monitored"
+          ]
+        ],
+        [
+          [
+            "تعيش حول الينابيع كائنات دقيقة محبة للحرارة",
+            "Heat-loving microbes inhabit geothermal features"
+          ],
+          [
+            "تتطلب المناطق الحارة الالتزام بممرات السلامة",
+            "Hot geothermal areas require staying on safe paths"
+          ]
         ]
       ]
     },
@@ -4139,11 +4391,53 @@
       "factsAr": [
         [
           "الموقع",
-          "بركان بيناتوبو"
+          "لوزون، الفلبين"
         ],
         [
           "النوع",
-          "معلم جغرافي طبيعي"
+          "بركان طبقي"
+        ]
+      ],
+      "volcanoPoints": [
+        [
+          [
+            "يقع في جزيرة لوزون بالفلبين",
+            "Located on Luzon Island in the Philippines"
+          ],
+          [
+            "جزء من قوس بركاني مرتبط باندساس الصفائح",
+            "Part of a volcanic arc associated with subduction"
+          ]
+        ],
+        [
+          [
+            "بركان طبقي شهد ثورانًا انفجاريًا كبيرًا سنة 1991",
+            "A stratovolcano with a major explosive eruption in 1991"
+          ],
+          [
+            "تكونت بحيرة داخل فوهته بعد الثوران",
+            "A crater lake formed after the eruption"
+          ]
+        ],
+        [
+          [
+            "أطلق ثوران 1991 رمادًا وغازات إلى الغلاف الجوي",
+            "The 1991 eruption injected ash and gases into the atmosphere"
+          ],
+          [
+            "ساهمت هباءات الكبريت في تبريد عالمي مؤقت",
+            "Sulfur aerosols contributed to temporary global cooling"
+          ]
+        ],
+        [
+          [
+            "تسببت السيول الطينية البركانية بأضرار لسنوات",
+            "Volcanic mudflows caused damage for years"
+          ],
+          [
+            "ساعد الرصد والإنذار والإخلاء في تقليل الخسائر",
+            "Monitoring, warnings and evacuations reduced losses"
+          ]
         ]
       ]
     },
