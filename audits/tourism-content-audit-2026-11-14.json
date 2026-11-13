@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-14",
+  "section": "Tourist attractions",
+  "status": "editorial depth and image QA pending",
+  "countryCount": 72,
+  "estimatedEntriesFromStaticBatches": 523,
+  "entryCountNote": "523 is the sum of 64 initial entries and 459 later batch rows, before runtime deduplication; not a verified final rendered count.",
+  "staticExpansionRows": 459,
+  "staticExpansionDuplicateCountryEnglishNames": 0,
+  "staticExpansionMissingCoordinatesOrBilingualDescriptions": 0,
+  "contentArchitecture": {
+    "source": "tourism-country-guide-v170.js",
+    "initialCountries": 12,
+    "asianCountries": 4,
+    "additionalCountries": 56,
+    "editorialOverlayFiles": [
+      "tourism-editorial-phase1-v505.js",
+      "tourism-editorial-phase2-v506.js",
+      "tourism-editorial-phase3-v507.js",
+      "tourism-editorial-phase4-v508.js",
+      "tourism-editorial-phase5-v509.js"
+    ]
+  },
+  "nextSteps": [
+    "Verify final runtime item count and overlay coverage before reporting precise completeness.",
+    "Prioritize generic descriptions and inconsistent landmark fields for editorial enrichment.",
+    "Check image match between cards and detail pages, image cropping and attribution.",
+    "Run mobile Safari QA after content normalization."
+  ],
+  "qualityCaveat": "Static inspection only; not independent scientific or photo validation."
+}
