@@ -1,0 +1,1069 @@
+{
+  "date": "2026-11-14",
+  "batch": 5,
+  "range": "401–500",
+  "total": 100,
+  "sourceOrder": "tourism-deep-enrichment-v597.js",
+  "status": "Structural and bilingual screening complete; claim-level scientific verification pending",
+  "results": {
+    "screened": 100,
+    "flagged": 40,
+    "missingBilingualProfiles": 0
+  },
+  "checks": [
+    "Matching bilingual keys and populated content",
+    "Source URL syntax",
+    "Domain-root homepage source (broader heuristic)",
+    "Exact duplicated main fields"
+  ],
+  "flagged": [
+    {
+      "index": 401,
+      "code": "CL",
+      "name": "Torres del Paine National Park",
+      "source": "https://www.conaf.cl/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 402,
+      "code": "CL",
+      "name": "Valle de la Luna",
+      "source": "https://chile.travel/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 408,
+      "code": "CL",
+      "name": "General Carrera Lake",
+      "source": "https://chile.travel/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 412,
+      "code": "CO",
+      "name": "Tayrona National Natural Park",
+      "source": "https://www.parquesnacionales.gov.co/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 416,
+      "code": "CO",
+      "name": "Los Nevados National Natural Park",
+      "source": "https://www.parquesnacionales.gov.co/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 417,
+      "code": "SG",
+      "name": "Marina Bay Sands",
+      "source": "https://www.marinabaysands.com/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 418,
+      "code": "SG",
+      "name": "Gardens by the Bay",
+      "source": "https://www.gardensbythebay.com.sg/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 419,
+      "code": "SG",
+      "name": "Sentosa Island",
+      "source": "https://www.sentosa.com.sg/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 420,
+      "code": "SG",
+      "name": "Singapore Chinatown",
+      "source": "https://www.visitsingapore.com/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 422,
+      "code": "SG",
+      "name": "Merlion Park",
+      "source": "https://www.visitsingapore.com/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 423,
+      "code": "SG",
+      "name": "Sultan Mosque",
+      "source": "https://www.visitsingapore.com/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 424,
+      "code": "SG",
+      "name": "Jewel Changi Airport",
+      "source": "https://www.jewelchangiairport.com/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 425,
+      "code": "PH",
+      "name": "Chocolate Hills",
+      "source": "https://philippines.travel/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 426,
+      "code": "PH",
+      "name": "Kayangan Lake",
+      "source": "https://philippines.travel/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 428,
+      "code": "PH",
+      "name": "Intramuros",
+      "source": "https://intramuros.gov.ph/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 430,
+      "code": "PH",
+      "name": "Boracay White Beach",
+      "source": "https://philippines.travel/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 431,
+      "code": "PH",
+      "name": "Taal Volcano",
+      "source": "https://www.phivolcs.dost.gov.ph/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 432,
+      "code": "PH",
+      "name": "Mayon Volcano",
+      "source": "https://www.phivolcs.dost.gov.ph/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 443,
+      "code": "HU",
+      "name": "Fisherman's Bastion",
+      "source": "https://www.budapestinfo.hu/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 444,
+      "code": "HU",
+      "name": "Széchenyi Thermal Bath",
+      "source": "https://www.szechenyibath.hu/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 445,
+      "code": "HU",
+      "name": "Széchenyi Chain Bridge",
+      "source": "https://www.budapestinfo.hu/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 446,
+      "code": "HU",
+      "name": "Heroes' Square Budapest",
+      "source": "https://www.budapestinfo.hu/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 447,
+      "code": "HU",
+      "name": "Eger Castle",
+      "source": "https://www.visithungary.com/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 450,
+      "code": "BE",
+      "name": "Atomium",
+      "source": "https://atomium.be/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 453,
+      "code": "DK",
+      "name": "Nyhavn",
+      "source": "https://www.visitcopenhagen.com/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 454,
+      "code": "DK",
+      "name": "The Little Mermaid Statue",
+      "source": "https://www.visitcopenhagen.com/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 457,
+      "code": "SE",
+      "name": "Gamla Stan",
+      "source": "https://visitsweden.com/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 463,
+      "code": "FI",
+      "name": "Santa Claus Village",
+      "source": "https://www.visitrovaniemi.fi/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 465,
+      "code": "IE",
+      "name": "Cliffs of Moher",
+      "source": "https://www.cliffsofmoher.ie/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 467,
+      "code": "IE",
+      "name": "Rock of Cashel",
+      "source": "https://heritageireland.ie/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 472,
+      "code": "PL",
+      "name": "Gdańsk Main Town",
+      "source": "https://visitgdansk.com/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 473,
+      "code": "RO",
+      "name": "Bran Castle",
+      "source": "https://bran-castle.com/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 474,
+      "code": "RO",
+      "name": "Peleș Castle",
+      "source": "https://peles.ro/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 481,
+      "code": "GE",
+      "name": "Old Tbilisi",
+      "source": "https://georgia.travel/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 482,
+      "code": "GE",
+      "name": "Gergeti Trinity Church",
+      "source": "https://georgia.travel/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 484,
+      "code": "AM",
+      "name": "Temple of Garni",
+      "source": "https://armenia.travel/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 486,
+      "code": "AM",
+      "name": "Lake Sevan",
+      "source": "https://armenia.travel/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 489,
+      "code": "AZ",
+      "name": "Flame Towers",
+      "source": "https://azerbaijan.travel/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 499,
+      "code": "KW",
+      "name": "Kuwait Towers",
+      "source": "https://www.kuwaittourism.gov.kw/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 500,
+      "code": "KW",
+      "name": "Grand Mosque of Kuwait",
+      "source": "https://www.awqaf.gov.kw/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    }
+  ],
+  "reviewed": [
+    {
+      "index": 401,
+      "code": "CL",
+      "name": "Torres del Paine National Park",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 402,
+      "code": "CL",
+      "name": "Valle de la Luna",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 403,
+      "code": "CL",
+      "name": "Rapa Nui National Park",
+      "flags": []
+    },
+    {
+      "index": 404,
+      "code": "CL",
+      "name": "Historic Quarter of Valparaíso",
+      "flags": []
+    },
+    {
+      "index": 405,
+      "code": "CL",
+      "name": "Chiloé Island",
+      "flags": []
+    },
+    {
+      "index": 406,
+      "code": "CL",
+      "name": "Salto del Laja",
+      "flags": []
+    },
+    {
+      "index": 407,
+      "code": "CL",
+      "name": "Chajnantor Plateau",
+      "flags": []
+    },
+    {
+      "index": 408,
+      "code": "CL",
+      "name": "General Carrera Lake",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 409,
+      "code": "CO",
+      "name": "Walled City of Cartagena",
+      "flags": []
+    },
+    {
+      "index": 410,
+      "code": "CO",
+      "name": "Cocora Valley",
+      "flags": []
+    },
+    {
+      "index": 411,
+      "code": "CO",
+      "name": "Ciudad Perdida",
+      "flags": []
+    },
+    {
+      "index": 412,
+      "code": "CO",
+      "name": "Tayrona National Natural Park",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 413,
+      "code": "CO",
+      "name": "Gold Museum Bogotá",
+      "flags": []
+    },
+    {
+      "index": 414,
+      "code": "CO",
+      "name": "El Peñón de Guatapé",
+      "flags": []
+    },
+    {
+      "index": 415,
+      "code": "CO",
+      "name": "Chicamocha National Park",
+      "flags": []
+    },
+    {
+      "index": 416,
+      "code": "CO",
+      "name": "Los Nevados National Natural Park",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 417,
+      "code": "SG",
+      "name": "Marina Bay Sands",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 418,
+      "code": "SG",
+      "name": "Gardens by the Bay",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 419,
+      "code": "SG",
+      "name": "Sentosa Island",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 420,
+      "code": "SG",
+      "name": "Singapore Chinatown",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 421,
+      "code": "SG",
+      "name": "Singapore Botanic Gardens",
+      "flags": []
+    },
+    {
+      "index": 422,
+      "code": "SG",
+      "name": "Merlion Park",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 423,
+      "code": "SG",
+      "name": "Sultan Mosque",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 424,
+      "code": "SG",
+      "name": "Jewel Changi Airport",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 425,
+      "code": "PH",
+      "name": "Chocolate Hills",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 426,
+      "code": "PH",
+      "name": "Kayangan Lake",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 427,
+      "code": "PH",
+      "name": "Batad Rice Terraces",
+      "flags": []
+    },
+    {
+      "index": 428,
+      "code": "PH",
+      "name": "Intramuros",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 429,
+      "code": "PH",
+      "name": "Puerto Princesa Underground River",
+      "flags": []
+    },
+    {
+      "index": 430,
+      "code": "PH",
+      "name": "Boracay White Beach",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 431,
+      "code": "PH",
+      "name": "Taal Volcano",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 432,
+      "code": "PH",
+      "name": "Mayon Volcano",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 433,
+      "code": "HR",
+      "name": "Old City of Dubrovnik",
+      "flags": []
+    },
+    {
+      "index": 434,
+      "code": "HR",
+      "name": "Plitvice Lakes National Park",
+      "flags": []
+    },
+    {
+      "index": 435,
+      "code": "HR",
+      "name": "Diocletian's Palace",
+      "flags": []
+    },
+    {
+      "index": 436,
+      "code": "HR",
+      "name": "Hvar Island",
+      "flags": []
+    },
+    {
+      "index": 437,
+      "code": "HR",
+      "name": "Krka National Park",
+      "flags": []
+    },
+    {
+      "index": 438,
+      "code": "HR",
+      "name": "Ban Jelačić Square",
+      "flags": []
+    },
+    {
+      "index": 439,
+      "code": "HR",
+      "name": "Pula Arena",
+      "flags": []
+    },
+    {
+      "index": 440,
+      "code": "HR",
+      "name": "Historic City of Trogir",
+      "flags": []
+    },
+    {
+      "index": 441,
+      "code": "HU",
+      "name": "Hungarian Parliament Building",
+      "flags": []
+    },
+    {
+      "index": 442,
+      "code": "HU",
+      "name": "Buda Castle",
+      "flags": []
+    },
+    {
+      "index": 443,
+      "code": "HU",
+      "name": "Fisherman's Bastion",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 444,
+      "code": "HU",
+      "name": "Széchenyi Thermal Bath",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 445,
+      "code": "HU",
+      "name": "Széchenyi Chain Bridge",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 446,
+      "code": "HU",
+      "name": "Heroes' Square Budapest",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 447,
+      "code": "HU",
+      "name": "Eger Castle",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 448,
+      "code": "HU",
+      "name": "Hortobágy National Park",
+      "flags": []
+    },
+    {
+      "index": 449,
+      "code": "BE",
+      "name": "Grand-Place Brussels",
+      "flags": []
+    },
+    {
+      "index": 450,
+      "code": "BE",
+      "name": "Atomium",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 451,
+      "code": "BE",
+      "name": "Historic Centre of Bruges",
+      "flags": []
+    },
+    {
+      "index": 452,
+      "code": "BE",
+      "name": "Gravensteen Castle",
+      "flags": []
+    },
+    {
+      "index": 453,
+      "code": "DK",
+      "name": "Nyhavn",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 454,
+      "code": "DK",
+      "name": "The Little Mermaid Statue",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 455,
+      "code": "DK",
+      "name": "Kronborg Castle",
+      "flags": []
+    },
+    {
+      "index": 456,
+      "code": "DK",
+      "name": "Roskilde Cathedral",
+      "flags": []
+    },
+    {
+      "index": 457,
+      "code": "SE",
+      "name": "Gamla Stan",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 458,
+      "code": "SE",
+      "name": "Vasa Museum",
+      "flags": []
+    },
+    {
+      "index": 459,
+      "code": "SE",
+      "name": "Drottningholm Palace",
+      "flags": []
+    },
+    {
+      "index": 460,
+      "code": "SE",
+      "name": "Skansen Open-Air Museum",
+      "flags": []
+    },
+    {
+      "index": 461,
+      "code": "FI",
+      "name": "Suomenlinna",
+      "flags": []
+    },
+    {
+      "index": 462,
+      "code": "FI",
+      "name": "Helsinki Cathedral",
+      "flags": []
+    },
+    {
+      "index": 463,
+      "code": "FI",
+      "name": "Santa Claus Village",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 464,
+      "code": "FI",
+      "name": "Oulanka National Park",
+      "flags": []
+    },
+    {
+      "index": 465,
+      "code": "IE",
+      "name": "Cliffs of Moher",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 466,
+      "code": "IE",
+      "name": "Trinity College Old Library",
+      "flags": []
+    },
+    {
+      "index": 467,
+      "code": "IE",
+      "name": "Rock of Cashel",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 468,
+      "code": "IE",
+      "name": "Killarney National Park",
+      "flags": []
+    },
+    {
+      "index": 469,
+      "code": "PL",
+      "name": "Historic Centre of Kraków",
+      "flags": []
+    },
+    {
+      "index": 470,
+      "code": "PL",
+      "name": "Wawel Royal Castle",
+      "flags": []
+    },
+    {
+      "index": 471,
+      "code": "PL",
+      "name": "Wieliczka Salt Mine",
+      "flags": []
+    },
+    {
+      "index": 472,
+      "code": "PL",
+      "name": "Gdańsk Main Town",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 473,
+      "code": "RO",
+      "name": "Bran Castle",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 474,
+      "code": "RO",
+      "name": "Peleș Castle",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 475,
+      "code": "RO",
+      "name": "Danube Delta",
+      "flags": []
+    },
+    {
+      "index": 476,
+      "code": "SI",
+      "name": "Lake Bled",
+      "flags": []
+    },
+    {
+      "index": 477,
+      "code": "SI",
+      "name": "Postojna Cave",
+      "flags": []
+    },
+    {
+      "index": 478,
+      "code": "SI",
+      "name": "Ljubljana Old Town",
+      "flags": []
+    },
+    {
+      "index": 479,
+      "code": "AL",
+      "name": "Historic Centre of Berat",
+      "flags": []
+    },
+    {
+      "index": 480,
+      "code": "AL",
+      "name": "Butrint Archaeological Site",
+      "flags": []
+    },
+    {
+      "index": 481,
+      "code": "GE",
+      "name": "Old Tbilisi",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 482,
+      "code": "GE",
+      "name": "Gergeti Trinity Church",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 483,
+      "code": "GE",
+      "name": "Historical Monuments of Mtskheta",
+      "flags": []
+    },
+    {
+      "index": 484,
+      "code": "AM",
+      "name": "Temple of Garni",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 485,
+      "code": "AM",
+      "name": "Geghard Monastery",
+      "flags": []
+    },
+    {
+      "index": 486,
+      "code": "AM",
+      "name": "Lake Sevan",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 487,
+      "code": "AZ",
+      "name": "Walled City of Baku",
+      "flags": []
+    },
+    {
+      "index": 488,
+      "code": "AZ",
+      "name": "Gobustan Rock Art Cultural Landscape",
+      "flags": []
+    },
+    {
+      "index": 489,
+      "code": "AZ",
+      "name": "Flame Towers",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 490,
+      "code": "TN",
+      "name": "Archaeological Site of Carthage",
+      "flags": []
+    },
+    {
+      "index": 491,
+      "code": "TN",
+      "name": "Amphitheatre of El Jem",
+      "flags": []
+    },
+    {
+      "index": 492,
+      "code": "TN",
+      "name": "Sidi Bou Said",
+      "flags": []
+    },
+    {
+      "index": 493,
+      "code": "QA",
+      "name": "Souq Waqif",
+      "flags": []
+    },
+    {
+      "index": 494,
+      "code": "QA",
+      "name": "Museum of Islamic Art Doha",
+      "flags": []
+    },
+    {
+      "index": 495,
+      "code": "QA",
+      "name": "National Museum of Qatar",
+      "flags": []
+    },
+    {
+      "index": 496,
+      "code": "BH",
+      "name": "Qal'at al-Bahrain",
+      "flags": []
+    },
+    {
+      "index": 497,
+      "code": "BH",
+      "name": "Al Fateh Grand Mosque",
+      "flags": []
+    },
+    {
+      "index": 498,
+      "code": "BH",
+      "name": "Tree of Life Bahrain",
+      "flags": []
+    },
+    {
+      "index": 499,
+      "code": "KW",
+      "name": "Kuwait Towers",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 500,
+      "code": "KW",
+      "name": "Grand Mosque of Kuwait",
+      "flags": [
+        "homepage_only_source"
+      ]
+    }
+  ],
+  "caveats": [
+    "No source pages fetched or factual claims independently verified for all 100.",
+    "Images excluded.",
+    "No article content modified.",
+    "Homepage heuristic is broader than prior batches; aggregate issue counts should not be compared directly without harmonizing criteria."
+  ]
+}
