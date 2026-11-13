@@ -64,8 +64,8 @@ const main=document.getElementById('main');
 if(main)new MutationObserver(scan).observe(main,{childList:true});
 scan();
 Promise.allSettled([
- fetch('./photo-manifest-v13.json?v=gv164-card-images').then(r=>{if(!r.ok)throw Error('photos');return r.json()}),
- fetch('./geo-stories.json?v=gv164-card-facts').then(r=>{if(!r.ok)throw Error('stories');return r.json()})
+ fetch('./photo-manifest-v13.json?v=gv669-desert-expansion').then(r=>{if(!r.ok)throw Error('photos');return r.json()}),
+ fetch('./geo-stories.json?v=gv669-desert-expansion').then(r=>{if(!r.ok)throw Error('stories');return r.json()})
 ]).then(results=>{
  if(results[0].status==='fulfilled')photos=results[0].value.photos||{};
  if(results[1].status==='fulfilled')stories=results[1].value.stories||{};

@@ -318,7 +318,7 @@ function wikiTitle(v){return String(v[1]||'').replace(/^Mount /,'Mount ').trim()
 const gvStories=new Map();
 async function loadCuratedStories(){
  try{
-  const r=await fetch('./geo-stories.json?v=gv668-desert-guides');
+  const r=await fetch('./geo-stories.json?v=gv669-desert-expansion');
   if(!r.ok)throw Error('No curriculum file');
   const j=await r.json();
   for(const [name,entry] of Object.entries(j.stories||{}))gvStories.set(norm(name),entry);
