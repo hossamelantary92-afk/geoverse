@@ -203,8 +203,9 @@ categoryPage=function(){
  // Eliminate the image URL in the section banner itself, not merely by CSS.
  const doc=new DOMParser().parseFromString('<main>'+html+'</main>','text/html');
  // Navigation is contextual: country first, then the wider topics catalogue.
+ const country=selected();
  const topBack=doc.querySelector('button.back[data-page="all"]');
- if(topBack&&selected()){
+ if(topBack&&country){
   topBack.removeAttribute('data-page');
   topBack.setAttribute('data-gv181-back','1');
   topBack.textContent=(ar()?'↩ العودة لكل الدول':'↩ Back to all countries');
@@ -214,12 +215,20 @@ categoryPage=function(){
  if(banner){
   banner.removeAttribute('style');
   banner.classList.add('gv196-category-banner');
+  const count=banner.querySelector('.banner-count');
+  if(count)count.textContent=catalogue().length+' '+t('معلمًا','landmarks');
   const cover=window.GeoVersePremiumCovers?.get('tourism',1600);
   if(cover){
    banner.style.setProperty('background-image','linear-gradient(90deg,rgba(3,21,36,.86),rgba(3,25,42,.55) 55%,rgba(3,21,36,.18)),url("'+cover+'")','important');
    banner.style.setProperty('background-size','cover','important');
    banner.style.setProperty('background-position','center 52%','important');
   }
+ }
+ const search=doc.querySelector('#categoryFilter');
+ if(search){
+  const label=country?t('ابحث عن معلم في هذه الدولة','Search landmarks in this country'):t('ابحث باسم دولة أو معلم','Search by country or landmark');
+  search.placeholder=label;
+  search.setAttribute('aria-label',label);
  }
  // Tourism has its own country/landmark navigation below; remove redundant
  // instructional tip and explore action bar, without touching other topics.

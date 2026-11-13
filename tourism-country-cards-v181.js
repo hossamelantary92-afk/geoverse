@@ -42,7 +42,7 @@ function countryCards(){
     '<span class="gv203-country-count">'+landmarks.length+' '+t('مزارات سياحية','tourist attractions')+'</span></span>'+
    '</button>';
  }).filter(Boolean).join('');
- return '<div class="gv181-overview"><div class="gv181-heading"><strong>'+t('استكشف المزارات حسب الدولة','Discover attractions by country')+'</strong><span>'+t('اختر دولة لعرض أبرز مزاراتها','Choose a country to discover its landmarks')+'</span></div>'+
+ return '<div class="gv181-overview"><div class="gv181-heading"><strong>'+t('تصفّح المزارات حسب الدولة','Browse landmarks by country')+'</strong></div>'+
   '<div class="gv181-country-grid">'+(cards||'<p class="gv181-empty">'+t('لا توجد دول أو مزارات مطابقة للبحث','No matching countries or landmarks')+'</p>')+'</div></div>';
 }
 itemCards=function(list){
