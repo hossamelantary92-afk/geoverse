@@ -24,17 +24,27 @@ function sentence(text,max=250){
  const sliced=s.slice(0,max),cut=Math.max(sliced.lastIndexOf('؛'),sliced.lastIndexOf('.'),sliced.lastIndexOf('،'),sliced.lastIndexOf(' '));
  return (cut>max*.55?sliced.slice(0,cut):sliced).trim()+'…';
 }
+function overviewText(item,story){
+ const text=(story&&t(story.ar,story.en))||t(item[2],item[3]);
+ return story?.factsEn?tidy(text):sentence(text,520);
+}
 function factRows(story){
- if(!story||state.lang!=='ar'||!Array.isArray(story.factsAr))return '';
- const rows=story.factsAr.filter(r=>Array.isArray(r)&&r.length===2&&r[0]&&r[1]).slice(0,4);
+ const facts=t(story?.factsAr,story?.factsEn);
+ if(!Array.isArray(facts))return '';
+ const rows=facts.filter(r=>Array.isArray(r)&&r.length===2&&r[0]&&r[1]).slice(0,4);
  if(!rows.length)return '';
  return '<div class="gv14-facts">'+rows.map(([label,value])=>'<div class="gv14-fact"><small>'+esc(label)+'</small><strong>'+esc(value)+'</strong></div>').join('')+'</div>';
 }
 function singlePage(){
  const cat=cats.find(c=>c.id===state.category),v=geo[state.category]?.[state.item];
  if(!cat||!v)return earlierDetail();
- const title=t(v[0],v[1]),story=storyFor(v),overview=sentence((story&&t(story.ar,story.en))||t(v[2],v[3]),520),done=seen();
- const same=geo[state.category]||[],next=same.length>1?(state.item+1)%same.length:null;
+ const title=t(v[0],v[1]),story=storyFor(v),overview=overviewText(v,story),done=seen();
+ const same=geo[state.category]||[];
+ const indices=state.category==='forests'||state.category==='gulfs'?uniqueCategoryPlaceIndices(state.category):null;
+ const currentIndex=indices?.findIndex(index=>same[index][1]===v[1]);
+ const next=indices
+  ?(indices.length>1?indices[(currentIndex+1)%indices.length]:null)
+  :(same.length>1?(state.item+1)%same.length:null);
  return '<div class="gv14-detail">'+
  '<button class="back gv14-back" data-cat="'+cat.id+'">← '+t('العودة إلى '+cat.ar,'Back to '+cat.en)+'</button>'+
  '<section class="gv14-head" aria-labelledby="gv14Name">'+
@@ -87,7 +97,7 @@ function hydrate(){
  if(state.page!=='detail'||state.category==='continents')return;
  const v=geo[state.category]?.[state.item],story=storyFor(v),target=document.getElementById('gv14Description');
  if(!v||!target)return;
- if(story){target.textContent=sentence(t(story.ar,story.en)||t(v[2],v[3]),520);
+ if(story){target.textContent=overviewText(v,story);
   const el=document.getElementById('gv14Facts');if(el)el.innerHTML=factRows(story);
  }
  // The tourist catalogue supplies one authoritative image for cards and details.
@@ -153,7 +163,7 @@ render=function(){
  else if(state.page==='detail')hydrate();
  else if(state.page==='country-v4')tidyCountry();
 };
-Promise.allSettled([fetch('./geo-stories.json?v=gv296-ocean-audit').then(r=>{if(!r.ok)throw Error('stories');return r.json()}),fetch('./photo-manifest-v13.json?v=gv332-three-approved-seas-med-red-caspian',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('photos');return r.json()})])
+Promise.allSettled([fetch('./geo-stories.json?v=gv667-forest-gulf-guides').then(r=>{if(!r.ok)throw Error('stories');return r.json()}),fetch('./photo-manifest-v13.json?v=gv332-three-approved-seas-med-red-caspian',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('photos');return r.json()})])
 .then(result=>{
  if(result[0].status==='fulfilled')content.stories=result[0].value.stories||{};
  if(result[1].status==='fulfilled')content.photos=result[1].value.photos||{};

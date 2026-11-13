@@ -176,10 +176,21 @@ function gvTopicLessonHtml(id){
   '<article class="gv-lesson-card"><h3>'+escapeHTML(lang(item[0],item[1]))+'</h3><p>'+escapeHTML(lang(item[2],item[3]))+'</p></article>'
  ).join('')+'</div>';
 }
+function uniqueCategoryPlaceIndices(id){
+ // Keep legacy duplicate indices for existing links and saved learning.
+ const firstIndices=new Map();
+ (geo[id]||[]).forEach((item,index)=>{
+  if(!firstIndices.has(item[1]))firstIndices.set(item[1],index);
+ });
+ return [...firstIndices.values()];
+}
+function categoryPlaceCount(id){
+ return id==='forests'||id==='gulfs'?uniqueCategoryPlaceIndices(id).length:geo[id]?.length||0;
+}
 function categoryPage(){
  const c=cats.find(x=>x.id===state.category),items=geo[c.id]||[];
  return '<button class="back" data-page="all">→ '+lang('جميع الأقسام','All topics')+'</button>'+
- '<div class="category-detail-banner" style="background-image:linear-gradient(0deg,#061b2af5,#051b2b29),url(\''+(window.GeoVersePremiumCovers?.get(c.id,1400)||im(c.img,1400))+'\')"><div><span class="eyebrow">GEOVERSE FIELD GUIDE</span><h1>'+c.emoji+' '+escapeHTML(label(c))+'</h1><p>'+escapeHTML(lang(c.descAr,c.descEn))+'</p><span class="banner-count">'+items.length+' '+lang('مكانًا ومعلمًا لاستكشافه','places to explore')+'</span></div></div>'+
+ '<div class="category-detail-banner" style="background-image:linear-gradient(0deg,#061b2af5,#051b2b29),url(\''+(window.GeoVersePremiumCovers?.get(c.id,1400)||im(c.img,1400))+'\')"><div><span class="eyebrow">GEOVERSE FIELD GUIDE</span><h1>'+c.emoji+' '+escapeHTML(label(c))+'</h1><p>'+escapeHTML(lang(c.descAr,c.descEn))+'</p><span class="banner-count">'+categoryPlaceCount(c.id)+' '+lang('مكانًا ومعلمًا لاستكشافه','places to explore')+'</span></div></div>'+
  '<div class="topic-intro"><span class="intro-eyebrow">📖 '+lang('أساسيات الجغرافيا · GEOGRAPHY 101','GEOGRAPHY 101 · THE BASICS')+'</span><h2>'+lang('ما المقصود بـ','What are')+' '+escapeHTML(label(c))+'؟</h2><p>'+escapeHTML(lang(...(topicDefinitions[c.id]||[c.descAr||'',c.descEn||''])))+'</p>'+gvTopicLessonHtml(c.id)+'</div>'+
  // The interactive atlas is accessible from the dedicated Map tab only.
  '<input class="search-input" id="categoryFilter" placeholder="'+lang('ابحث عن دولة أو معلم داخل القسم...','Search places in this topic...')+'" value="'+escapeHTML(state.filter)+'"><div class="items-grid" id="categoryItems">'+itemCards(items)+'</div>';

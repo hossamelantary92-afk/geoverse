@@ -41,7 +41,7 @@ function urlFor(c,size){
  const u=PHOTO[c.id]||c.img;return u.startsWith('https://')?u:im(u,size||840);
 }
 function topicCard(c){
- const name=labelFor(c),n=geo[c.id]?.length||0,theme=THEMES[c.id]||'aqua';
+ const name=labelFor(c),n=categoryPlaceCount(c.id),theme=THEMES[c.id]||'aqua';
  return '<button type="button" class="gv12-card gv12-'+theme+'" data-cat="'+c.id+'" aria-label="'+escapeHTML(name)+'">'+
   '<img class="gv12-image" loading="lazy" decoding="async" src="'+urlFor(c,840)+'" alt="'+escapeHTML(tx('صورة فوتوغرافية: '+name,'Real photograph: '+name))+'">'+
   '<span class="gv12-card-bg" aria-hidden="true"></span>'+
