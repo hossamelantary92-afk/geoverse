@@ -59,6 +59,7 @@ const lakeHeadings=[
  ['المياه والحياة','Water and wildlife'],
  ['معلم يوضح الفكرة','Landscape in focus']
 ];
+const valleyHeadings=[['الموقع والتضاريس','Location and terrain'],['التكوين الجيولوجي','Geological formation'],['المناخ والمياه','Climate and water'],['الطبيعة والأهمية','Nature and significance']];
 const glacierHeadings=[['الموقع والنوع','Location and type'],['التكوين والحركة','Formation and movement'],['الجليد والتغيرات','Ice and changes'],['الأهمية والمخاطر','Significance and risks']];
 const volcanoHeadings=[['الموقع والخصائص','Location and features'],['التكوين الجيولوجي','Geological formation'],['النشاط والمراقبة','Activity and monitoring'],['الآثار والمخاطر','Impacts and hazards']];
 const straitHeadings=[['الموقع والاتصال','Location and connections'],['التكوين والهندسة','Formation and engineering'],['المياه والملاحة','Waters and navigation'],['الأهمية والتحديات','Significance and challenges']];
@@ -74,9 +75,9 @@ const islandHeadings=[
  ['معلم يوضح الفكرة','Landscape in focus']
 ];
 function guideBody(item,story){
- const points=state.category==='deserts'?story?.desertPoints:state.category==='forests'?story?.forestPoints:state.category==='mountains'?story?.mountainPoints:state.category==='lakes'?story?.lakePoints:state.category==='islands'?story?.islandPoints:state.category==='rivers'?story?.riverPoints:state.category==='waterfalls'?story?.waterfallPoints:state.category==='oceans'?story?.oceanPoints:state.category==='seas'?story?.seaPoints:state.category==='gulfs'?story?.gulfPoints:state.category==='straits'?story?.straitPoints:state.category==='volcanoes'?story?.volcanoPoints:state.category==='glaciers'?story?.glacierPoints:null;
+ const points=state.category==='deserts'?story?.desertPoints:state.category==='forests'?story?.forestPoints:state.category==='mountains'?story?.mountainPoints:state.category==='lakes'?story?.lakePoints:state.category==='islands'?story?.islandPoints:state.category==='rivers'?story?.riverPoints:state.category==='waterfalls'?story?.waterfallPoints:state.category==='oceans'?story?.oceanPoints:state.category==='seas'?story?.seaPoints:state.category==='gulfs'?story?.gulfPoints:state.category==='straits'?story?.straitPoints:state.category==='volcanoes'?story?.volcanoPoints:state.category==='glaciers'?story?.glacierPoints:state.category==='valleys'?story?.valleyPoints:null;
  if(!points)return '<p id="gv14Description">'+esc(overviewText(item,story))+'</p>';
- return '<div class="gv14-desert-guide">'+(state.category==='forests'?forestHeadings:state.category==='mountains'?mountainHeadings:state.category==='lakes'?lakeHeadings:state.category==='islands'?islandHeadings:state.category==='rivers'?riverHeadings:state.category==='waterfalls'?waterfallHeadings:state.category==='oceans'?oceanHeadings:state.category==='seas'?seaHeadings:state.category==='gulfs'?gulfHeadings:state.category==='straits'?straitHeadings:state.category==='volcanoes'?volcanoHeadings:state.category==='glaciers'?glacierHeadings:desertHeadings).map(([ar,en],i)=>
+ return '<div class="gv14-desert-guide">'+(state.category==='forests'?forestHeadings:state.category==='mountains'?mountainHeadings:state.category==='lakes'?lakeHeadings:state.category==='islands'?islandHeadings:state.category==='rivers'?riverHeadings:state.category==='waterfalls'?waterfallHeadings:state.category==='oceans'?oceanHeadings:state.category==='seas'?seaHeadings:state.category==='gulfs'?gulfHeadings:state.category==='straits'?straitHeadings:state.category==='volcanoes'?volcanoHeadings:state.category==='glaciers'?glacierHeadings:state.category==='valleys'?valleyHeadings:desertHeadings).map(([ar,en],i)=>
   '<section><h3>'+esc(t(ar,en))+'</h3><ul>'+points[i].map(([a,e])=>
    '<li>'+esc(t(a,e))+'</li>').join('')+'</ul></section>').join('')+'</div>';
 }
