@@ -977,16 +977,16 @@
       ]
     },
     "Greenland": {
-      "ar": "جرينلاند أكبر جزيرة في العالم إذا استُبعدت القارات. يغطي الجليد معظم مساحتها، وتحيط بها مياه المحيط الأطلسي الشمالي والقطب الشمالي.",
-      "en": "Greenland is the world's largest island excluding continents. A vast ice sheet covers most of it.",
+      "ar": "جرينلاند أكبر جزيرة في العالم باستثناء القارات، وهي إقليم يتمتع بالحكم الذاتي ضمن مملكة الدنمارك. يغطي غطاء جليدي هائل معظم سطحها، وتكشف سواحلها عن مضايق وجبال وبيئات قطبية متغيرة.",
+      "en": "Greenland is the world's largest island excluding continents and an autonomous territory within the Kingdom of Denmark. Its vast ice sheet, fjords and mountains define a changing Arctic landscape.",
       "factsAr": [
         [
           "الموقع",
-          "شمال الأطلسي"
+          "شمال الأطلسي والقطب الشمالي"
         ],
         [
-          "الطبيعة",
-          "غطاء جليدي واسع"
+          "النوع",
+          "جزيرة قارية قطبية"
         ]
       ],
       "factsEn": [
@@ -996,63 +996,63 @@
         ],
         [
           "Type",
-          "World's largest island excluding continents"
+          "Polar continental island"
         ]
       ],
       "islandPoints": [
         [
           [
-            "تقع في شمال المحيط الأطلسي والقطب الشمالي.",
-            "Located in North Atlantic and Arctic."
+            "تقع شمال شرق كندا بين المحيط المتجمد الشمالي وشمال الأطلسي.",
+            "Lies northeast of Canada between the Arctic Ocean and North Atlantic."
           ],
           [
-            "أكبر جزيرة في العالم باستثناء القارات",
-            "World's largest island excluding continents"
+            "تتمتع بحكم ذاتي ضمن مملكة الدنمارك، وعاصمتها نوك.",
+            "An autonomous territory within the Kingdom of Denmark; its capital is Nuuk."
           ]
         ],
         [
           [
-            "تغطي صفيحة جليدية معظم مساحتها.",
-            "An ice sheet covers most of its area."
+            "تغطي الصفيحة الجليدية معظم الجزيرة، ويبلغ سُمكها في بعض المواضع عدة كيلومترات.",
+            "An ice sheet covers most of the island and is several kilometres thick in places."
           ],
           [
-            "يسود مناخ قطبي وشبه قطبي.",
-            "Polar and subpolar climates prevail."
+            "يسود المناخ القطبي وشبه القطبي، بينما تخفف التأثيرات البحرية بعض درجات الحرارة الساحلية.",
+            "Polar and subpolar climates dominate, with maritime influences moderating some coastal temperatures."
           ]
         ],
         [
           [
-            "تظهر خلجان جليدية ومضايق بحرية.",
-            "Glacial fjords and inlets shape the coasts."
+            "تنحت الأنهار الجليدية مضايق بحرية عميقة على السواحل.",
+            "Glaciers carve deep fjords along the coast."
           ],
           [
-            "تختلف البيئات المحلية باختلاف التضاريس والمناخ.",
-            "Local habitats vary with terrain and climate."
+            "تعيش في بيئاتها حيوانات مثل ثور المسك والرنة، وتنتشر الثدييات البحرية في المياه المحيطة.",
+            "Musk oxen and reindeer inhabit parts of the island, while marine mammals occur offshore."
           ]
         ],
         [
           [
-            "تؤثر خسارة الجليد في مستوى البحار عالميًا.",
-            "Ice loss contributes to global sea-level rise."
+            "ذوبان الجليد القاري يضيف مياهًا إلى المحيط ويساهم في ارتفاع مستوى البحر.",
+            "Melting land ice adds water to the oceans and contributes to sea-level rise."
           ],
           [
-            "يوضح موقع الجزيرة علاقتها بالمحيط واليابسة المجاورة.",
-            "Its location shows its relationship with ocean and nearby land."
+            "تساعد دراسة لبّ الجليد على إعادة بناء سجل المناخ القديم.",
+            "Ice cores help reconstruct past climate conditions."
           ]
         ]
       ]
     },
     "Madagascar": {
-      "ar": "مدغشقر جزيرة كبيرة في المحيط الهندي قبالة الساحل الشرقي لأفريقيا. انفصالها الجغرافي سمح بظهور أنواع نباتية وحيوانية مميزة.",
-      "en": "Madagascar lies in the Indian Ocean off eastern Africa. Long geographic isolation has fostered unique wildlife.",
+      "ar": "مدغشقر جزيرة قارية كبيرة شرق أفريقيا، اشتهرت بتنوع حيوي متوطن نشأ عبر ملايين السنين من العزلة. تجمع بين غابات مطيرة ومرتفعات وهضاب جافة وغابات شوكية.",
+      "en": "Madagascar is a large continental island east of Africa. Long isolation fostered remarkable endemic wildlife across rainforests, highlands, dry forests and spiny thickets.",
       "factsAr": [
         [
           "الموقع",
-          "شرق أفريقيا"
+          "المحيط الهندي شرق أفريقيا"
         ],
         [
-          "التميّز",
-          "تنوع حيوي خاص"
+          "النوع",
+          "جزيرة قارية"
         ]
       ],
       "factsEn": [
@@ -1062,48 +1062,48 @@
         ],
         [
           "Type",
-          "Large island with distinctive endemic biodiversity"
+          "Continental island"
         ]
       ],
       "islandPoints": [
         [
           [
-            "تقع في المحيط الهندي شرق أفريقيا.",
-            "Located in Indian Ocean east of Africa."
+            "يفصلها عن موزمبيق مضيق موزمبيق في غرب المحيط الهندي.",
+            "The Mozambique Channel separates it from Mozambique in the western Indian Ocean."
           ],
           [
-            "جزيرة كبيرة ذات تنوع حيوي متوطن",
-            "Large island with distinctive endemic biodiversity"
+            "تشكل الجزيرة معظم أراضي دولة مدغشقر وعاصمتها أنتاناناريفو.",
+            "The island forms most of Madagascar, whose capital is Antananarivo."
           ]
         ],
         [
           [
-            "انفصلت جيولوجيًا عن كتل قارية قديمة.",
-            "It became isolated through ancient continental breakup."
+            "انفصلت عن كتل قارية قديمة خلال تفكك غوندوانا.",
+            "It separated from ancient continental landmasses during the breakup of Gondwana."
           ],
           [
-            "تختلف الأمطار بين الشرق الرطب والغرب الأجف.",
-            "Rainfall contrasts between the wetter east and drier west."
+            "تواجه المرتفعات الشرقية رياحًا رطبة، بينما تكون أجزاء من الغرب والجنوب أكثر جفافًا.",
+            "Eastern uplands receive moist winds, while parts of the west and south are drier."
           ]
         ],
         [
           [
-            "تشتهر بالليمور وأشجار الباوباب.",
-            "It is known for lemurs and baobab trees."
+            "تعيش فيها أنواع عديدة من الليمور والحرباء لا توجد طبيعيًا خارجها.",
+            "Many lemur and chameleon species occur naturally nowhere else."
           ],
           [
-            "تختلف البيئات المحلية باختلاف التضاريس والمناخ.",
-            "Local habitats vary with terrain and climate."
+            "تضم غابات مطيرة شرقية وغابات جافة غربية وغابات شوكية جنوبية.",
+            "Its habitats include eastern rainforests, western dry forests and southern spiny thickets."
           ]
         ],
         [
           [
-            "أدى العزل الطويل إلى تطور أنواع فريدة.",
-            "Long isolation fostered unique species."
+            "العزلة الجغرافية الطويلة ساعدت على نشوء أنواع متوطنة كثيرة.",
+            "Long geographic isolation fostered high levels of endemism."
           ],
           [
-            "يوضح موقع الجزيرة علاقتها بالمحيط واليابسة المجاورة.",
-            "Its location shows its relationship with ocean and nearby land."
+            "فقدان الغابات وتجزؤ الموائل من أبرز التحديات أمام تنوعها الحيوي.",
+            "Deforestation and habitat fragmentation threaten its biodiversity."
           ]
         ]
       ]
@@ -1766,16 +1766,16 @@
       ]
     },
     "Borneo": {
-      "ar": "بورنيو جزيرة كبيرة في جنوب شرق آسيا تتقاسمها إندونيسيا وماليزيا وبروناي. تشتهر بغاباتها المطيرة وتنوعها الحيوي الكبير.",
-      "en": "Borneo is a large Southeast Asian island shared by Indonesia, Malaysia and Brunei, known for tropical rainforests and biodiversity.",
+      "ar": "بورنيو إحدى أكبر جزر العالم، تتقاسمها إندونيسيا وماليزيا وبروناي. تشتهر بغابات مطيرة قديمة وأنهار واسعة وموائل لإنسان الغاب والفيل القزم البورنيوي.",
+      "en": "Borneo is one of the world's largest islands, shared by Indonesia, Malaysia and Brunei. Ancient rainforests, great rivers and distinctive wildlife define its tropical landscapes.",
       "factsAr": [
         [
           "الموقع",
           "جنوب شرق آسيا"
         ],
         [
-          "التميّز",
-          "غابات استوائية"
+          "النوع",
+          "جزيرة قارية استوائية"
         ]
       ],
       "factsEn": [
@@ -1785,63 +1785,63 @@
         ],
         [
           "Type",
-          "Island shared by three countries"
+          "Tropical continental island"
         ]
       ],
       "islandPoints": [
         [
           [
-            "تقع في جنوب شرق آسيا.",
-            "Located in Southeast Asia."
+            "تقع في أرخبيل الملايو، ويُعرف الجزء الإندونيسي الكبير منها باسم كاليمانتان.",
+            "Lies in the Malay Archipelago; its large Indonesian portion is known as Kalimantan."
           ],
           [
-            "جزيرة تتقاسمها ثلاث دول",
-            "Island shared by three countries"
+            "تتقاسمها إندونيسيا وماليزيا وبروناي، وتحيط بها عدة بحار استوائية.",
+            "Shared by Indonesia, Malaysia and Brunei and surrounded by tropical seas."
           ]
         ],
         [
           [
-            "تقع على جرف سوندا القاري.",
-            "It lies on the Sunda continental shelf."
+            "تقع على جرف سوندا القاري، وقد اتصلت بأراضٍ آسيوية خلال فترات انخفاض البحر.",
+            "Lies on the Sunda Shelf and was connected to Asian land during periods of lower sea level."
           ],
           [
-            "يسود مناخ استوائي حار ورطب.",
-            "The climate is tropical, warm and humid."
+            "يسودها مناخ استوائي حار ورطب، مع أمطار غزيرة في مناطق واسعة.",
+            "Its hot, humid tropical climate brings abundant rainfall to many areas."
           ]
         ],
         [
           [
-            "تضم غابات مطيرة وأنهارًا كبيرة.",
-            "It contains rainforests and major rivers."
+            "يُعد جبل كينابالو من أبرز قمم الجزيرة، وتنتشر فيها أنهار وغابات مطيرة.",
+            "Mount Kinabalu is a major peak amid extensive rivers and rainforests."
           ],
           [
-            "تختلف البيئات المحلية باختلاف التضاريس والمناخ.",
-            "Local habitats vary with terrain and climate."
+            "تؤوي إنسان الغاب البورنيوي وقرود الململة وأنواعًا نباتية نادرة.",
+            "Home to Bornean orangutans, proboscis monkeys and rare plants."
           ]
         ],
         [
           [
-            "تعيش فيها إنسان الغاب البورنيوي وأنواع متوطنة.",
-            "Bornean orangutans and endemic species live here."
+            "تخزن الغابات والمستنقعات الخثية كميات كبيرة من الكربون.",
+            "Rainforests and peat swamps store substantial carbon."
           ],
           [
-            "يوضح موقع الجزيرة علاقتها بالمحيط واليابسة المجاورة.",
-            "Its location shows its relationship with ocean and nearby land."
+            "إزالة الغابات وتجزئة الموائل تهدد الحياة البرية المتوطنة.",
+            "Deforestation and habitat fragmentation threaten endemic wildlife."
           ]
         ]
       ]
     },
     "Iceland": {
-      "ar": "أيسلندا جزيرة في شمال المحيط الأطلسي، تتكوّن طبيعتها من براكين وأنهار جليدية وينابيع حارة. يرتبط نشاطها البركاني بموقعها فوق منطقة تتباعد فيها الصفائح الأرضية.",
-      "en": "Iceland is a North Atlantic island with volcanoes, glaciers and hot springs, located along a tectonic plate boundary.",
+      "ar": "أيسلندا جزيرة بركانية في شمال الأطلسي تقع فوق حيد وسط الأطلسي وبقعة ساخنة. تلتقي فيها الحمم البركانية والأنهار الجليدية والينابيع الحرارية في مشهد جيولوجي استثنائي.",
+      "en": "Iceland is a North Atlantic volcanic island on the Mid-Atlantic Ridge and a hotspot. Lava fields, glaciers and geothermal springs reveal its active geology.",
       "factsAr": [
         [
           "الموقع",
-          "شمال الأطلسي"
+          "شمال المحيط الأطلسي"
         ],
         [
-          "الطبيعة",
-          "براكين وجليد"
+          "النوع",
+          "جزيرة بركانية"
         ]
       ],
       "factsEn": [
@@ -1851,48 +1851,48 @@
         ],
         [
           "Type",
-          "Volcanic island on the Mid-Atlantic Ridge"
+          "Volcanic island"
         ]
       ],
       "islandPoints": [
         [
           [
-            "تقع في شمال المحيط الأطلسي.",
-            "Located in North Atlantic Ocean."
+            "تقع بين جرينلاند والنرويج، جنوب الدائرة القطبية الشمالية في معظم مساحتها.",
+            "Lies between Greenland and Norway, with most of its land south of the Arctic Circle."
           ],
           [
-            "جزيرة بركانية فوق حيد وسط الأطلسي",
-            "Volcanic island on the Mid-Atlantic Ridge"
+            "هي دولة مستقلة عاصمتها ريكيافيك.",
+            "An independent country with Reykjavík as its capital."
           ]
         ],
         [
           [
-            "تتباعد الصفائح تحت الجزيرة مع نشاط بركاني.",
-            "Plates diverge beneath the island amid volcanism."
+            "يمر بها حيد وسط الأطلسي حيث تتباعد الصفيحتان الأمريكية الشمالية والأوراسية.",
+            "The Mid-Atlantic Ridge crosses Iceland where the North American and Eurasian plates diverge."
           ],
           [
-            "يتأثر المناخ بالمحيط والرياح الشمالية.",
-            "Its climate is shaped by the ocean and northern winds."
+            "يتأثر مناخها بالمحيط الأطلسي والرياح والتيارات البحرية.",
+            "Atlantic winds and ocean currents shape its climate."
           ]
         ],
         [
           [
-            "تضم براكين وأنهارًا جليدية وينابيع حارة.",
-            "It has volcanoes, glaciers and hot springs."
+            "تضم أنهارًا جليدية مثل فاتنايوكوتل وبراكين مثل هيكلا.",
+            "Features glaciers such as Vatnajökull and volcanoes such as Hekla."
           ],
           [
-            "تختلف البيئات المحلية باختلاف التضاريس والمناخ.",
-            "Local habitats vary with terrain and climate."
+            "تنتشر الحقول الحرارية والينابيع الحارة والشلالات والسهول البركانية.",
+            "Geothermal fields, hot springs, waterfalls and lava plains are widespread."
           ]
         ],
         [
           [
-            "تظهر فيها العلاقة بين النار والجليد بوضوح.",
-            "It vividly illustrates the meeting of fire and ice."
+            "يوضح موقعها كيف يمكن أن تبني البراكين أرضًا جديدة فوق حد صفائح متباعد.",
+            "It shows how volcanism builds land along a divergent plate boundary."
           ],
           [
-            "يوضح موقع الجزيرة علاقتها بالمحيط واليابسة المجاورة.",
-            "Its location shows its relationship with ocean and nearby land."
+            "قد يؤدي ثوران تحت الجليد إلى فيضانات جليدية مفاجئة تُعرف باسم يوكولهلوب.",
+            "Subglacial eruptions can trigger sudden glacial outburst floods called jökulhlaups."
           ]
         ]
       ]
@@ -2648,16 +2648,16 @@
       ]
     },
     "Galápagos Islands": {
-      "ar": "تقع جزر غالاباغوس بعيدًا عن الساحل الإكوادوري حيث تتلاقى تيارات بحرية مختلفة. تشتهر بالسلاحف العملاقة والإغوانا البحرية والعصافير التي ساعدت دراستها على تطور فهم التنوع الحيوي. تختلف أعمار الجزر البركانية وبيئاتها.",
-      "en": "The Galápagos lie offshore from Ecuador where ocean currents meet. Giant tortoises, marine iguanas and distinctive finches helped inform studies of biodiversity. Islands of differing volcanic ages support varied habitats.",
+      "ar": "غالاباغوس أرخبيل بركاني إكوادوري في المحيط الهادئ، معروف بسلاحفه العملاقة وإغواناته البحرية وتنوعه المتوطن. ساعدت ملاحظات الكائنات فيه على تطوير أفكار علمية عن التطور.",
+      "en": "The Galápagos are Ecuadorian volcanic islands in the Pacific, famous for giant tortoises, marine iguanas and endemic species. Observations there contributed to the development of evolutionary thought.",
       "factsAr": [
         [
           "الموقع",
-          "جزر غالاباغوس"
+          "المحيط الهادئ غرب الإكوادور"
         ],
         [
           "النوع",
-          "معلم جغرافي طبيعي"
+          "أرخبيل بركاني"
         ]
       ],
       "factsEn": [
@@ -2667,48 +2667,48 @@
         ],
         [
           "Type",
-          "Archipelago of volcanic islands"
+          "Volcanic archipelago"
         ]
       ],
       "islandPoints": [
         [
           [
-            "تقع في المحيط الهادئ غرب الإكوادور.",
-            "Located in Pacific Ocean west of Ecuador."
+            "تقع على خط الاستواء تقريبًا، غرب ساحل الإكوادور في المحيط الهادئ.",
+            "Lies near the equator west of Ecuador's Pacific coast."
           ],
           [
-            "أرخبيل من جزر بركانية",
-            "Archipelago of volcanic islands"
+            "تتبع الإكوادور وتضم جزرًا متعددة تختلف في الحجم والعمر الجيولوجي.",
+            "Belongs to Ecuador and includes islands of different sizes and geological ages."
           ]
         ],
         [
           [
-            "تكون بفعل نشاط بركاني فوق بقعة ساخنة.",
-            "It formed through hotspot volcanism."
+            "نشأت بفعل نشاط بركاني فوق بقعة ساخنة، وتتحرك الجزر مع صفيحة نازكا.",
+            "Formed by hotspot volcanism, with islands carried by the Nazca Plate."
           ],
           [
-            "تؤثر تيارات المحيط في المناخ والحياة البحرية.",
-            "Ocean currents influence climate and marine life."
+            "تؤثر التيارات الباردة والدافئة في درجات الحرارة والإنتاجية البحرية.",
+            "Cold and warm ocean currents influence temperatures and marine productivity."
           ]
         ],
         [
           [
-            "تشتهر بالسلاحف العملاقة والإغوانا البحرية.",
-            "Known for giant tortoises and marine iguanas."
+            "تشتهر بالسلاحف العملاقة والإغوانا البحرية وعصافير داروين.",
+            "Known for giant tortoises, marine iguanas and Darwin's finches."
           ],
           [
-            "تختلف البيئات المحلية باختلاف التضاريس والمناخ.",
-            "Local habitats vary with terrain and climate."
+            "تتباين الموائل بين السواحل الجافة والمرتفعات الأكثر رطوبة.",
+            "Habitats range from dry coasts to wetter highlands."
           ]
         ],
         [
           [
-            "ساعد العزل على تطور أنواع متوطنة.",
-            "Isolation supported the evolution of endemic species."
+            "ساهمت اختلافات الكائنات بين الجزر في دراسة الانتخاب الطبيعي والتكيف.",
+            "Differences among island species informed studies of natural selection and adaptation."
           ],
           [
-            "يوضح موقع الجزيرة علاقتها بالمحيط واليابسة المجاورة.",
-            "Its location shows its relationship with ocean and nearby land."
+            "توضح الجزر أثر العزلة والعمر البركاني والتيارات البحرية في التنوع الحيوي.",
+            "The islands illustrate how isolation, volcanic age and currents shape biodiversity."
           ]
         ]
       ]
@@ -2780,67 +2780,67 @@
       ]
     },
     "New Guinea": {
-      "ar": "غينيا الجديدة من أكبر جزر العالم، وتمتد عبرها سلاسل جبلية مرتفعة وغابات مطيرة كثيفة. يقع غربها ضمن إندونيسيا وشرقها ضمن بابوا غينيا الجديدة. تضم تنوعًا لغويًا وبيولوجيًا كبيرًا، مع طيور الجنة في بعض غاباتها.",
-      "en": "New Guinea is among the world's largest islands, with high mountain ranges and extensive rainforest. Its western half belongs to Indonesia and its eastern half to Papua New Guinea. The island has exceptional linguistic and biological diversity, including birds-of-paradise.",
+      "ar": "غينيا الجديدة جزيرة ضخمة شمال أستراليا، تتقاسمها إندونيسيا وبابوا غينيا الجديدة. تمتد فيها جبال شاهقة وغابات مطيرة ومستنقعات، وتتميز بتنوع حيوي ولغوي استثنائي.",
+      "en": "New Guinea is a vast island north of Australia, divided between Indonesia and Papua New Guinea. High mountains, rainforests and wetlands support exceptional biological and linguistic diversity.",
       "factsAr": [
         [
           "الموقع",
-          "جزيرة غينيا الجديدة"
+          "جنوب غرب المحيط الهادئ"
         ],
         [
           "النوع",
-          "معلم جغرافي طبيعي"
+          "جزيرة قارية جبلية"
         ]
       ],
       "factsEn": [
         [
           "Location",
-          "North of Australia"
+          "Southwest Pacific"
         ],
         [
           "Type",
-          "Large tropical mountainous island"
+          "Mountainous continental island"
         ]
       ],
       "islandPoints": [
         [
           [
-            "تقع في شمال أستراليا.",
-            "Located in North of Australia."
+            "تقع شمال أستراليا، ويفصل مضيق توريس بينهما.",
+            "Lies north of Australia, separated from it by the Torres Strait."
           ],
           [
-            "جزيرة جبلية استوائية كبيرة",
-            "Large tropical mountainous island"
+            "يتبع غربها إندونيسيا، بينما يشكل شرقها الجزء الرئيسي من بابوا غينيا الجديدة.",
+            "Its west belongs to Indonesia, while its east forms the main landmass of Papua New Guinea."
           ]
         ],
         [
           [
-            "تتأثر بتصادمات الصفائح في جنوب غرب الهادئ.",
-            "It is shaped by plate interactions in the southwest Pacific."
+            "نشأت مرتفعاتها عبر عمليات تصادم ورفع تكتوني معقدة.",
+            "Its highlands arose through complex tectonic collision and uplift."
           ],
           [
-            "الأمطار غزيرة في مناطق واسعة مع تغير الارتفاع.",
-            "Rainfall is heavy in many areas and varies with elevation."
+            "يسود المناخ الاستوائي في المنخفضات، وتنخفض الحرارة مع الارتفاع في الجبال.",
+            "Lowlands are tropical, while temperatures decrease with altitude in the mountains."
           ]
         ],
         [
           [
-            "تضم غابات مطيرة وطيور الجنة.",
-            "It has rainforests and birds-of-paradise."
+            "تضم سلاسل جبلية عالية وغابات مطيرة واسعة ومستنقعات ساحلية.",
+            "Contains high mountain ranges, extensive rainforests and coastal wetlands."
           ],
           [
-            "تختلف البيئات المحلية باختلاف التضاريس والمناخ.",
-            "Local habitats vary with terrain and climate."
+            "تعيش فيها طيور الجنة وأنواع كثيرة من النباتات والحيوانات المتوطنة.",
+            "Home to birds-of-paradise and many endemic plants and animals."
           ]
         ],
         [
           [
-            "تختلف البيئات بين السواحل والمرتفعات.",
-            "Habitats differ between coasts and highlands."
+            "يُظهر تدرج الارتفاع انتقالًا من غابات منخفضة إلى بيئات جبلية باردة.",
+            "Elevation creates transitions from lowland forests to cool montane habitats."
           ],
           [
-            "يوضح موقع الجزيرة علاقتها بالمحيط واليابسة المجاورة.",
-            "Its location shows its relationship with ocean and nearby land."
+            "كانت متصلة بأستراليا خلال فترات انخفاض مستوى البحر، ضمن كتلة ساهول القديمة.",
+            "It was connected to Australia during low sea levels as part of ancient Sahul."
           ]
         ]
       ]
