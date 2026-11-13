@@ -1,0 +1,737 @@
+{
+  "date": "2026-11-14",
+  "batch": 2,
+  "range": "101–200",
+  "total": 100,
+  "sourceOrder": "tourism-deep-enrichment-v597.js",
+  "status": "Structural and bilingual screening complete; independent scientific verification pending",
+  "results": {
+    "screened": 100,
+    "flagged": 10,
+    "missingBilingualProfiles": 0
+  },
+  "checks": [
+    "Arabic and English matching keys and nonempty fields",
+    "Source URL format",
+    "Homepage-only source heuristic"
+  ],
+  "flagged": [
+    {
+      "index": 111,
+      "code": "SA",
+      "name": "Marjan Island (Dammam)",
+      "source": "https://www.visitsaudi.com/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 154,
+      "code": "AE",
+      "name": "Palm Jumeirah",
+      "source": "https://www.visitdubai.com/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 161,
+      "code": "TH",
+      "name": "Wat Traimit",
+      "source": "https://www.tourismthailand.org/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 162,
+      "code": "TH",
+      "name": "Wat Rong Khun",
+      "source": "https://www.tourismthailand.org/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 163,
+      "code": "TH",
+      "name": "Wat Rong Suea Ten",
+      "source": "https://www.tourismthailand.org/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 164,
+      "code": "TH",
+      "name": "Phuket Big Buddha",
+      "source": "https://www.tourismthailand.org/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 165,
+      "code": "TH",
+      "name": "Phi Phi Islands",
+      "source": "https://www.tourismthailand.org/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 182,
+      "code": "VN",
+      "name": "Hoàn Kiếm Lake",
+      "source": "https://vietnam.travel/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 187,
+      "code": "VN",
+      "name": "Phú Quốc National Park",
+      "source": "https://vietnam.travel/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 189,
+      "code": "EG",
+      "name": "Great Sphinx of Giza",
+      "source": "https://egymonuments.gov.eg/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    }
+  ],
+  "reviewed": [
+    {
+      "index": 101,
+      "code": "JP",
+      "name": "Arashiyama Bamboo Grove",
+      "flags": []
+    },
+    {
+      "index": 102,
+      "code": "JP",
+      "name": "Himeji Castle",
+      "flags": []
+    },
+    {
+      "index": 103,
+      "code": "JP",
+      "name": "Nikkō Tōshō-gū",
+      "flags": []
+    },
+    {
+      "index": 104,
+      "code": "JP",
+      "name": "Mount Fuji",
+      "flags": []
+    },
+    {
+      "index": 105,
+      "code": "SA",
+      "name": "King Abdulaziz Historical Center",
+      "flags": []
+    },
+    {
+      "index": 106,
+      "code": "SA",
+      "name": "Shubra Palace",
+      "flags": []
+    },
+    {
+      "index": 107,
+      "code": "SA",
+      "name": "King Fahd's Fountain",
+      "flags": []
+    },
+    {
+      "index": 108,
+      "code": "SA",
+      "name": "Al-Ahsa Oasis",
+      "flags": []
+    },
+    {
+      "index": 109,
+      "code": "SA",
+      "name": "Al-Ukhdud",
+      "flags": []
+    },
+    {
+      "index": 110,
+      "code": "SA",
+      "name": "Wadi Al Disah",
+      "flags": []
+    },
+    {
+      "index": 111,
+      "code": "SA",
+      "name": "Marjan Island (Dammam)",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 112,
+      "code": "TR",
+      "name": "Dolmabahçe Palace",
+      "flags": []
+    },
+    {
+      "index": 113,
+      "code": "TR",
+      "name": "Grand Bazaar, Istanbul",
+      "flags": []
+    },
+    {
+      "index": 114,
+      "code": "TR",
+      "name": "Hadrian's Gate",
+      "flags": []
+    },
+    {
+      "index": 115,
+      "code": "TR",
+      "name": "Derinkuyu Underground City",
+      "flags": []
+    },
+    {
+      "index": 116,
+      "code": "TR",
+      "name": "Sumela Monastery",
+      "flags": []
+    },
+    {
+      "index": 117,
+      "code": "TR",
+      "name": "Göbekli Tepe",
+      "flags": []
+    },
+    {
+      "index": 118,
+      "code": "TR",
+      "name": "Grand Mosque of Bursa",
+      "flags": []
+    },
+    {
+      "index": 119,
+      "code": "ES",
+      "name": "Royal Palace of Madrid",
+      "flags": []
+    },
+    {
+      "index": 120,
+      "code": "ES",
+      "name": "El Retiro Park",
+      "flags": []
+    },
+    {
+      "index": 121,
+      "code": "ES",
+      "name": "Casa Batlló",
+      "flags": []
+    },
+    {
+      "index": 122,
+      "code": "ES",
+      "name": "Toledo Cathedral",
+      "flags": []
+    },
+    {
+      "index": 123,
+      "code": "ES",
+      "name": "Guggenheim Museum Bilbao",
+      "flags": []
+    },
+    {
+      "index": 124,
+      "code": "ES",
+      "name": "Alcazaba of Málaga",
+      "flags": []
+    },
+    {
+      "index": 125,
+      "code": "ES",
+      "name": "Santiago de Compostela Cathedral",
+      "flags": []
+    },
+    {
+      "index": 126,
+      "code": "US",
+      "name": "White House",
+      "flags": []
+    },
+    {
+      "index": 127,
+      "code": "US",
+      "name": "Washington Monument",
+      "flags": []
+    },
+    {
+      "index": 128,
+      "code": "US",
+      "name": "Hoover Dam",
+      "flags": []
+    },
+    {
+      "index": 129,
+      "code": "US",
+      "name": "Zion National Park",
+      "flags": []
+    },
+    {
+      "index": 130,
+      "code": "US",
+      "name": "Yosemite National Park",
+      "flags": []
+    },
+    {
+      "index": 131,
+      "code": "US",
+      "name": "Brooklyn Bridge",
+      "flags": []
+    },
+    {
+      "index": 132,
+      "code": "US",
+      "name": "Cloud Gate",
+      "flags": []
+    },
+    {
+      "index": 133,
+      "code": "CN",
+      "name": "Tiananmen Square",
+      "flags": []
+    },
+    {
+      "index": 134,
+      "code": "CN",
+      "name": "Yonghe Temple",
+      "flags": []
+    },
+    {
+      "index": 135,
+      "code": "CN",
+      "name": "West Lake (Hangzhou)",
+      "flags": []
+    },
+    {
+      "index": 136,
+      "code": "CN",
+      "name": "Li River",
+      "flags": []
+    },
+    {
+      "index": 137,
+      "code": "CN",
+      "name": "Potala Palace",
+      "flags": []
+    },
+    {
+      "index": 138,
+      "code": "CN",
+      "name": "Mogao Caves",
+      "flags": []
+    },
+    {
+      "index": 139,
+      "code": "CN",
+      "name": "Jiuzhaigou",
+      "flags": []
+    },
+    {
+      "index": 140,
+      "code": "IN",
+      "name": "Agra Fort",
+      "flags": []
+    },
+    {
+      "index": 141,
+      "code": "IN",
+      "name": "Ellora Caves",
+      "flags": []
+    },
+    {
+      "index": 142,
+      "code": "IN",
+      "name": "Ajanta Caves",
+      "flags": []
+    },
+    {
+      "index": 143,
+      "code": "IN",
+      "name": "Konark Sun Temple",
+      "flags": []
+    },
+    {
+      "index": 144,
+      "code": "IN",
+      "name": "City Palace, Udaipur",
+      "flags": []
+    },
+    {
+      "index": 145,
+      "code": "IN",
+      "name": "Fort Kochi",
+      "flags": []
+    },
+    {
+      "index": 146,
+      "code": "IN",
+      "name": "Darjeeling Himalayan Railway",
+      "flags": []
+    },
+    {
+      "index": 147,
+      "code": "GB",
+      "name": "Palace of Westminster",
+      "flags": []
+    },
+    {
+      "index": 148,
+      "code": "GB",
+      "name": "St Paul's Cathedral",
+      "flags": []
+    },
+    {
+      "index": 149,
+      "code": "GB",
+      "name": "Tower Bridge",
+      "flags": []
+    },
+    {
+      "index": 150,
+      "code": "GB",
+      "name": "York Minster",
+      "flags": []
+    },
+    {
+      "index": 151,
+      "code": "GB",
+      "name": "Bodleian Library",
+      "flags": []
+    },
+    {
+      "index": 152,
+      "code": "GB",
+      "name": "Lake District National Park",
+      "flags": []
+    },
+    {
+      "index": 153,
+      "code": "GB",
+      "name": "Old Man of Storr",
+      "flags": []
+    },
+    {
+      "index": 154,
+      "code": "AE",
+      "name": "Palm Jumeirah",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 155,
+      "code": "AE",
+      "name": "Dubai Miracle Garden",
+      "flags": []
+    },
+    {
+      "index": 156,
+      "code": "AE",
+      "name": "Qasr Al Watan",
+      "flags": []
+    },
+    {
+      "index": 157,
+      "code": "AE",
+      "name": "Qasr al-Hosn",
+      "flags": []
+    },
+    {
+      "index": 158,
+      "code": "AE",
+      "name": "Al Ain Oasis",
+      "flags": []
+    },
+    {
+      "index": 159,
+      "code": "AE",
+      "name": "Jebel Jais",
+      "flags": []
+    },
+    {
+      "index": 160,
+      "code": "AE",
+      "name": "Al Bidya Mosque",
+      "flags": []
+    },
+    {
+      "index": 161,
+      "code": "TH",
+      "name": "Wat Traimit",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 162,
+      "code": "TH",
+      "name": "Wat Rong Khun",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 163,
+      "code": "TH",
+      "name": "Wat Rong Suea Ten",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 164,
+      "code": "TH",
+      "name": "Phuket Big Buddha",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 165,
+      "code": "TH",
+      "name": "Phi Phi Islands",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 166,
+      "code": "TH",
+      "name": "Wat Mahathat (Ayutthaya)",
+      "flags": []
+    },
+    {
+      "index": 167,
+      "code": "TH",
+      "name": "Erawan Falls",
+      "flags": []
+    },
+    {
+      "index": 168,
+      "code": "ID",
+      "name": "Uluwatu Temple",
+      "flags": []
+    },
+    {
+      "index": 169,
+      "code": "ID",
+      "name": "Ulun Danu Beratan Temple",
+      "flags": []
+    },
+    {
+      "index": 170,
+      "code": "ID",
+      "name": "Yogyakarta Palace",
+      "flags": []
+    },
+    {
+      "index": 171,
+      "code": "ID",
+      "name": "Ijen",
+      "flags": []
+    },
+    {
+      "index": 172,
+      "code": "ID",
+      "name": "Tana Toraja",
+      "flags": []
+    },
+    {
+      "index": 173,
+      "code": "ID",
+      "name": "Raja Ampat Islands",
+      "flags": []
+    },
+    {
+      "index": 174,
+      "code": "ID",
+      "name": "Kelimutu",
+      "flags": []
+    },
+    {
+      "index": 175,
+      "code": "KR",
+      "name": "Lotte World Tower",
+      "flags": []
+    },
+    {
+      "index": 176,
+      "code": "KR",
+      "name": "Deoksugung",
+      "flags": []
+    },
+    {
+      "index": 177,
+      "code": "KR",
+      "name": "Namdaemun",
+      "flags": []
+    },
+    {
+      "index": 178,
+      "code": "KR",
+      "name": "Gamcheon Culture Village",
+      "flags": []
+    },
+    {
+      "index": 179,
+      "code": "KR",
+      "name": "Seongsan Ilchulbong",
+      "flags": []
+    },
+    {
+      "index": 180,
+      "code": "KR",
+      "name": "Cheonjiyeon Waterfall",
+      "flags": []
+    },
+    {
+      "index": 181,
+      "code": "KR",
+      "name": "Cheomseongdae",
+      "flags": []
+    },
+    {
+      "index": 182,
+      "code": "VN",
+      "name": "Hoàn Kiếm Lake",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 183,
+      "code": "VN",
+      "name": "Imperial Citadel of Thăng Long",
+      "flags": []
+    },
+    {
+      "index": 184,
+      "code": "VN",
+      "name": "Ho Chi Minh Mausoleum",
+      "flags": []
+    },
+    {
+      "index": 185,
+      "code": "VN",
+      "name": "Tam Cốc-Bích Động",
+      "flags": []
+    },
+    {
+      "index": 186,
+      "code": "VN",
+      "name": "Golden Bridge (Vietnam)",
+      "flags": []
+    },
+    {
+      "index": 187,
+      "code": "VN",
+      "name": "Phú Quốc National Park",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 188,
+      "code": "VN",
+      "name": "Phong Nha Cave",
+      "flags": []
+    },
+    {
+      "index": 189,
+      "code": "EG",
+      "name": "Great Sphinx of Giza",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 190,
+      "code": "EG",
+      "name": "Karnak Temple",
+      "flags": []
+    },
+    {
+      "index": 191,
+      "code": "EG",
+      "name": "Abu Simbel Temples",
+      "flags": []
+    },
+    {
+      "index": 192,
+      "code": "FR",
+      "name": "Louvre Museum",
+      "flags": []
+    },
+    {
+      "index": 193,
+      "code": "FR",
+      "name": "Palace of Versailles",
+      "flags": []
+    },
+    {
+      "index": 194,
+      "code": "FR",
+      "name": "Mont-Saint-Michel",
+      "flags": []
+    },
+    {
+      "index": 195,
+      "code": "IT",
+      "name": "Leaning Tower of Pisa",
+      "flags": []
+    },
+    {
+      "index": 196,
+      "code": "IT",
+      "name": "Trevi Fountain",
+      "flags": []
+    },
+    {
+      "index": 197,
+      "code": "IT",
+      "name": "Milan Cathedral",
+      "flags": []
+    },
+    {
+      "index": 198,
+      "code": "SA",
+      "name": "Masjid al-Haram",
+      "flags": []
+    },
+    {
+      "index": 199,
+      "code": "SA",
+      "name": "Prophet's Mosque",
+      "flags": []
+    },
+    {
+      "index": 200,
+      "code": "SA",
+      "name": "At-Turaif District",
+      "flags": []
+    }
+  ],
+  "caveats": [
+    "No claim-level verification or source page checks performed for all 100.",
+    "No photographs reviewed.",
+    "No article content modified."
+  ]
+}
