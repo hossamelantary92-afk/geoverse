@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-14",
+  "section": "Tourist attractions",
+  "status": "content complete; scientific and visual QA outstanding",
+  "countries": 72,
+  "landmarks": 523,
+  "arabicDeepProfiles": 523,
+  "englishDeepProfiles": 523,
+  "matchedCountryAndEnglishNameKeys": 523,
+  "missingArabicProfiles": 0,
+  "missingEnglishProfiles": 0,
+  "arabicFieldsPresent": [
+    "significanceAr",
+    "visitAr",
+    "source",
+    "storyAr",
+    "factAr"
+  ],
+  "englishFieldsPresent": [
+    "history",
+    "significance",
+    "fact",
+    "visit"
+  ],
+  "sourceFiles": [
+    "tourism-country-guide-v170.js",
+    "tourism-deep-enrichment-v597.js",
+    "tourism-english-profiles-v647.js"
+  ],
+  "note": "Verified static profile coverage and nonempty fields; not a claim that every source link or historical fact has been independently validated.",
+  "remainingQA": [
+    "Independent historical and geographic fact verification",
+    "Check all 523 source URLs and attribution",
+    "Inspect image matches, crops and quality",
+    "Mobile Safari navigation and detail rendering"
+  ]
+}
