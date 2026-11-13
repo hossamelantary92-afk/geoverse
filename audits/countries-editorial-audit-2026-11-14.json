@@ -367,6 +367,51 @@
     "A present source URL is not proof that every claim was independently verified.",
     "Missing source URLs must not be fabricated.",
     "The 245 editorial profiles are distinct from the shorter starter countries array in app.js.",
-    "Keep tourism attraction articles separate from country geography."
+    "Keep tourism attraction articles separate from country geography.",
+    "Batch evidence is stored separately; sourceLinkMissing counts embedded source fields only, not supplementary audit evidence."
+  ],
+  "reviewBatches": [
+    {
+      "batch": 1,
+      "date": "2026-11-14",
+      "status": "geography cross-check only; full six-section verification pending",
+      "profiles": [
+        {
+          "code": "DZ",
+          "source": "https://www.iea.org/reports/national-climate-resilience-assessment-for-algeria",
+          "checkedTopics": [
+            "coastal versus Saharan climate",
+            "regional geography"
+          ]
+        },
+        {
+          "code": "LY",
+          "source": "https://documents1.worldbank.org/curated/en/099151502022339685/pdf/P1722860cde58709908c5909993c5ecb1f1.pdf",
+          "checkedTopics": [
+            "Mediterranean coast",
+            "Saharan interior",
+            "population concentration"
+          ]
+        },
+        {
+          "code": "SD",
+          "source": "https://www.afdb.org/sites/default/files/documents/publications/sudan_country_profile_updated_-13.05.2022.pdf",
+          "checkedTopics": [
+            "Northeastern African location",
+            "Red Sea coast",
+            "desert topography"
+          ]
+        },
+        {
+          "code": "ET",
+          "source": "https://www.gov.uk/government/publications/ethiopia-country-policy-and-information-notes/country-policy-and-information-note-internal-relocation-ethiopia-september-2025-accessible",
+          "checkedTopics": [
+            "Horn of Africa location",
+            "Addis Ababa capital",
+            "neighboring countries"
+          ]
+        }
+      ]
+    }
   ]
 }
