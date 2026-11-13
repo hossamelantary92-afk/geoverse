@@ -2046,6 +2046,48 @@
           "النوع",
           "نهر جليدي"
         ]
+      ],
+      "glacierPoints": [
+        [
+          [
+            "يقع في جبال الألب السويسرية",
+            "Located in the Swiss Alps"
+          ],
+          [
+            "من أشهر وأطول الأنهار الجليدية في الألب",
+            "Among the Alps' best-known and longest glaciers"
+          ]
+        ],
+        [
+          [
+            "تغذيه الثلوج المتراكمة في المناطق المرتفعة",
+            "Fed by accumulated snow at high elevations"
+          ],
+          [
+            "يتحرك الجليد ببطء نحو الوادي تحت الجاذبية",
+            "Ice flows slowly downhill under gravity"
+          ]
+        ],
+        [
+          [
+            "يحفر الوادي وينقل الرواسب والصخور",
+            "Erodes valleys and transports rock debris"
+          ],
+          [
+            "تظهر شقوق ومورينات على امتداده",
+            "Crevasses and moraines occur along it"
+          ]
+        ],
+        [
+          [
+            "يتراجع طوله وتتناقص كتلته مع الاحترار",
+            "Its length and mass decline with warming"
+          ],
+          [
+            "يُستخدم لرصد تغيرات الأنهار الجليدية الألبية",
+            "Used to monitor Alpine glacier change"
+          ]
+        ]
       ]
     },
     "Grand Canyon": {
@@ -3399,6 +3441,48 @@
           "الطبيعة",
           "صفيحة جليدية"
         ]
+      ],
+      "glacierPoints": [
+        [
+          [
+            "تغطي معظم جزيرة جرينلاند",
+            "Covers most of Greenland"
+          ],
+          [
+            "من أكبر الكتل الجليدية الأرضية في العالم",
+            "Among the world's largest land-ice masses"
+          ]
+        ],
+        [
+          [
+            "تتكون من تراكم الثلوج وانضغاطها عبر الزمن",
+            "Forms through long-term snowfall and compaction"
+          ],
+          [
+            "تتحرك عبر أنهار جليدية سريعة نحو السواحل",
+            "Flows through outlet glaciers toward the coast"
+          ]
+        ],
+        [
+          [
+            "تذوب أجزاء سطحية صيفًا وتنفصل جبال جليدية",
+            "Summer surface melt and iceberg calving occur"
+          ],
+          [
+            "يتغير توازن الكتلة بين الثلوج والفقد الجليدي",
+            "Mass balance reflects snowfall versus ice loss"
+          ]
+        ],
+        [
+          [
+            "يساهم فقد كتلتها في ارتفاع مستوى البحر",
+            "Its mass loss contributes to sea-level rise"
+          ],
+          [
+            "تساعد الأقمار الصناعية في قياس تغير سمك الجليد",
+            "Satellites track changes in ice thickness"
+          ]
+        ]
       ]
     },
     "Antarctica": {
@@ -3413,6 +3497,48 @@
           "الطبيعة",
           "قارة جليدية"
         ]
+      ],
+      "glacierPoints": [
+        [
+          [
+            "قارة تحيط بالقطب الجنوبي",
+            "A continent surrounding the South Pole"
+          ],
+          [
+            "تغطي صفيحة جليدية معظم اليابسة",
+            "An ice sheet covers most of its land"
+          ]
+        ],
+        [
+          [
+            "يتراكم الثلج ويتحول بالضغط إلى جليد",
+            "Snow accumulates and compacts into ice"
+          ],
+          [
+            "تتحرك الصفائح والأنهار الجليدية نحو السواحل",
+            "Ice sheets and glaciers flow toward the coasts"
+          ]
+        ],
+        [
+          [
+            "تتصل بها جروف جليدية عائمة ضخمة",
+            "Large floating ice shelves fringe the continent"
+          ],
+          [
+            "تتساقط جبال جليدية من حواف الجروف",
+            "Icebergs calve from ice-shelf fronts"
+          ]
+        ],
+        [
+          [
+            "يؤثر فقد الجليد الأرضي في مستوى البحار",
+            "Loss of land ice contributes to sea-level rise"
+          ],
+          [
+            "تدعم السواحل كائنات قطبية وتخضع لأبحاث مناخية",
+            "Coasts support polar wildlife and climate research"
+          ]
+        ]
       ]
     },
     "Arctic": {
@@ -3426,6 +3552,48 @@
         [
           "الفرق الأساسي",
           "منطقة محيطية قطبية"
+        ]
+      ],
+      "glacierPoints": [
+        [
+          [
+            "منطقة قطبية تضم المحيط المتجمد الشمالي ويابسة محيطة",
+            "A polar region comprising the Arctic Ocean and surrounding lands"
+          ],
+          [
+            "يطفو معظم جليد البحر فوق مياه المحيط",
+            "Most sea ice floats on ocean water"
+          ]
+        ],
+        [
+          [
+            "يتجمد ماء البحر شتاءً ويذوب جزء منه صيفًا",
+            "Sea water freezes in winter and partly melts in summer"
+          ],
+          [
+            "توجد أنهار جليدية على اليابسة المحيطة",
+            "Land glaciers occur around the region"
+          ]
+        ],
+        [
+          [
+            "تتحرك الكتل الجليدية البحرية بفعل الرياح والتيارات",
+            "Sea ice drifts with winds and currents"
+          ],
+          [
+            "يختلف الجليد البحري عن الأنهار الجليدية الأرضية",
+            "Sea ice differs from land-based glaciers"
+          ]
+        ],
+        [
+          [
+            "يتناقص الجليد البحري الصيفي مع الاحترار",
+            "Summer sea ice declines with warming"
+          ],
+          [
+            "تتأثر المواطن القطبية والمجتمعات المحلية بالتغيرات",
+            "Polar habitats and local communities are affected"
+          ]
         ]
       ]
     },
@@ -4579,11 +4747,53 @@
       "factsAr": [
         [
           "الموقع",
-          "نهر بيريتو مورينو الجليدي"
+          "باتاغونيا، الأرجنتين"
         ],
         [
           "النوع",
-          "معلم جغرافي طبيعي"
+          "نهر جليدي"
+        ]
+      ],
+      "glacierPoints": [
+        [
+          [
+            "يقع في باتاغونيا الأرجنتينية بمتنزه لوس غلاسياريس",
+            "In Argentina's Patagonia, within Los Glaciares National Park"
+          ],
+          [
+            "تنتهي جبهته عند بحيرة أرخنتينو",
+            "Its terminus reaches Lake Argentino"
+          ]
+        ],
+        [
+          [
+            "يتغذى من حقل جليد باتاغونيا الجنوبي",
+            "Fed by the Southern Patagonian Ice Field"
+          ],
+          [
+            "يتحرك الجليد نحو البحيرة بفعل الجاذبية",
+            "Ice flows toward the lake under gravity"
+          ]
+        ],
+        [
+          [
+            "تتكسر كتل جليدية من الجبهة إلى الماء",
+            "Ice blocks calve from the front into water"
+          ],
+          [
+            "قد يشكل حاجزًا جليديًا مؤقتًا عبر ممر مائي",
+            "It can form a temporary ice dam across a channel"
+          ]
+        ],
+        [
+          [
+            "قد يؤدي انهيار الحاجز إلى اندفاع مياه البحيرة",
+            "Ice-dam collapse can release impounded lake water"
+          ],
+          [
+            "تُرصد تغيرات جبهته وحركته على المدى الطويل",
+            "Its terminus and flow are monitored over time"
+          ]
         ]
       ]
     },
@@ -4593,11 +4803,53 @@
       "factsAr": [
         [
           "الموقع",
-          "غطاء فاتنايوكوتل الجليدي"
+          "جنوب شرق أيسلندا"
         ],
         [
           "النوع",
-          "معلم جغرافي طبيعي"
+          "غطاء جليدي"
+        ]
+      ],
+      "glacierPoints": [
+        [
+          [
+            "يقع في جنوب شرق أيسلندا",
+            "Located in southeastern Iceland"
+          ],
+          [
+            "من أكبر الأغطية الجليدية الأوروبية مساحة",
+            "Among Europe's largest ice caps by area"
+          ]
+        ],
+        [
+          [
+            "يغطي جبالًا وتضاريس بركانية",
+            "Covers mountains and volcanic terrain"
+          ],
+          [
+            "تنساب منه أنهار جليدية نحو السهول",
+            "Outlet glaciers flow toward lowlands"
+          ]
+        ],
+        [
+          [
+            "قد تذيب الحرارة البركانية جليدًا تحت السطح",
+            "Volcanic heat can melt ice beneath the surface"
+          ],
+          [
+            "قد تحدث فيضانات جليدية مفاجئة تُعرف باسم يوكولهلوب",
+            "Sudden glacial outburst floods, called jökulhlaups, can occur"
+          ]
+        ],
+        [
+          [
+            "يتأثر توازن كتلته بالثلوج والذوبان",
+            "Its mass balance depends on snowfall and melt"
+          ],
+          [
+            "تُراقب فيه البراكين والجليد لحماية المناطق القريبة",
+            "Volcanic and glacial activity are monitored for safety"
+          ]
         ]
       ]
     },
