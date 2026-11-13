@@ -1,0 +1,299 @@
+{
+  "date": "2026-11-14",
+  "batch": 6,
+  "range": "501–523",
+  "total": 23,
+  "sourceOrder": "tourism-deep-enrichment-v597.js",
+  "status": "Structural and bilingual screening complete for all 523 landmarks; independent scientific claim verification pending",
+  "results": {
+    "screened": 23,
+    "flagged": 12,
+    "missingBilingualProfiles": 0
+  },
+  "checks": [
+    "Matching bilingual keys and populated content",
+    "Source URL syntax",
+    "Domain-root homepage source",
+    "Exact duplicated main fields"
+  ],
+  "flagged": [
+    {
+      "index": 504,
+      "code": "MU",
+      "name": "Seven Coloured Earths",
+      "source": "https://mauritiusnow.com/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 505,
+      "code": "MU",
+      "name": "Black River Gorges National Park",
+      "source": "https://www.npcs.govmu.org/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 506,
+      "code": "CR",
+      "name": "Arenal Volcano National Park",
+      "source": "https://www.sinac.go.cr/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 507,
+      "code": "CR",
+      "name": "Manuel Antonio National Park",
+      "source": "https://www.sinac.go.cr/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 508,
+      "code": "CR",
+      "name": "Monteverde Cloud Forest Reserve",
+      "source": "https://cloudforestmonteverde.com/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 511,
+      "code": "EC",
+      "name": "Cotopaxi National Park",
+      "source": "https://www.ambiente.gob.ec/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 512,
+      "code": "BO",
+      "name": "Salar de Uyuni",
+      "source": "https://bolivia.travel/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 514,
+      "code": "BO",
+      "name": "Isla del Sol",
+      "source": "https://bolivia.travel/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 518,
+      "code": "NA",
+      "name": "Sossusvlei",
+      "source": "https://www.namibiatourism.com.na/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 519,
+      "code": "NA",
+      "name": "Etosha National Park",
+      "source": "https://www.namibiatourism.com.na/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 520,
+      "code": "NA",
+      "name": "Skeleton Coast National Park",
+      "source": "https://www.namibiatourism.com.na/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 522,
+      "code": "BW",
+      "name": "Chobe National Park",
+      "source": "https://www.botswanatourism.co.bw/",
+      "flags": [
+        "homepage_only_source"
+      ]
+    }
+  ],
+  "reviewed": [
+    {
+      "index": 501,
+      "code": "MV",
+      "name": "Baa Atoll Biosphere Reserve",
+      "flags": []
+    },
+    {
+      "index": 502,
+      "code": "MV",
+      "name": "Malé Friday Mosque",
+      "flags": []
+    },
+    {
+      "index": 503,
+      "code": "MU",
+      "name": "Le Morne Brabant",
+      "flags": []
+    },
+    {
+      "index": 504,
+      "code": "MU",
+      "name": "Seven Coloured Earths",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 505,
+      "code": "MU",
+      "name": "Black River Gorges National Park",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 506,
+      "code": "CR",
+      "name": "Arenal Volcano National Park",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 507,
+      "code": "CR",
+      "name": "Manuel Antonio National Park",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 508,
+      "code": "CR",
+      "name": "Monteverde Cloud Forest Reserve",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 509,
+      "code": "EC",
+      "name": "Galápagos National Park",
+      "flags": []
+    },
+    {
+      "index": 510,
+      "code": "EC",
+      "name": "Historic Centre of Quito",
+      "flags": []
+    },
+    {
+      "index": 511,
+      "code": "EC",
+      "name": "Cotopaxi National Park",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 512,
+      "code": "BO",
+      "name": "Salar de Uyuni",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 513,
+      "code": "BO",
+      "name": "Tiwanaku Archaeological Site",
+      "flags": []
+    },
+    {
+      "index": 514,
+      "code": "BO",
+      "name": "Isla del Sol",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 515,
+      "code": "CU",
+      "name": "Old Havana",
+      "flags": []
+    },
+    {
+      "index": 516,
+      "code": "CU",
+      "name": "Viñales Valley",
+      "flags": []
+    },
+    {
+      "index": 517,
+      "code": "CU",
+      "name": "Trinidad and the Valley de los Ingenios",
+      "flags": []
+    },
+    {
+      "index": 518,
+      "code": "NA",
+      "name": "Sossusvlei",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 519,
+      "code": "NA",
+      "name": "Etosha National Park",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 520,
+      "code": "NA",
+      "name": "Skeleton Coast National Park",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 521,
+      "code": "BW",
+      "name": "Okavango Delta",
+      "flags": []
+    },
+    {
+      "index": 522,
+      "code": "BW",
+      "name": "Chobe National Park",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 523,
+      "code": "BW",
+      "name": "Tsodilo Hills",
+      "flags": []
+    }
+  ],
+  "caveats": [
+    "Not a claim-by-claim factual audit.",
+    "No sources opened or validated live.",
+    "Images excluded.",
+    "No prose changed."
+  ]
+}
