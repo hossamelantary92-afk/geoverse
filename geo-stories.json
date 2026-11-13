@@ -1714,6 +1714,48 @@
           "Major river",
           "Mississippi"
         ]
+      ],
+      "gulfPoints": [
+        [
+          [
+            "بين جنوب الولايات المتحدة وشرق المكسيك وكوبا",
+            "Between the southern United States, eastern Mexico and Cuba"
+          ],
+          [
+            "يتصل بالأطلسي عبر مضيق فلوريدا وبالكاريبي عبر يوكاتان",
+            "Connects to the Atlantic via Florida Strait and Caribbean via Yucatán Channel"
+          ]
+        ],
+        [
+          [
+            "يضم رفوفًا قارية واسعة وحوضًا مركزيًا عميقًا",
+            "Contains broad continental shelves and a deep central basin"
+          ],
+          [
+            "تراكمت في قاعه رواسب ضخمة من أنهار مثل المسيسيبي",
+            "Large sediment deposits include those from the Mississippi"
+          ]
+        ],
+        [
+          [
+            "تؤثر المياه الدافئة في قوة الأعاصير المدارية",
+            "Warm waters can fuel tropical hurricanes"
+          ],
+          [
+            "يدخل تيار الحلقة ثم يخرج نحو تيار فلوريدا",
+            "The Loop Current feeds the Florida Current"
+          ]
+        ],
+        [
+          [
+            "يضم أراضي رطبة ومصايد ومواطن بحرية متنوعة",
+            "Supports wetlands, fisheries and diverse marine habitats"
+          ],
+          [
+            "يواجه التلوث النفطي ومناطق نقص الأكسجين الموسمية",
+            "Faces oil pollution and seasonal low-oxygen zones"
+          ]
+        ]
       ]
     },
     "Bay of Bengal": {
@@ -1737,6 +1779,48 @@
         [
           "Major delta",
           "Ganges–Brahmaputra–Meghna"
+        ]
+      ],
+      "gulfPoints": [
+        [
+          [
+            "شمال شرق المحيط الهندي بين الهند وبنغلاديش وميانمار",
+            "Northeastern Indian Ocean by India, Bangladesh and Myanmar"
+          ],
+          [
+            "يتصل جنوبًا بالمحيط الهندي المفتوح",
+            "Opens southward into the Indian Ocean"
+          ]
+        ],
+        [
+          [
+            "يضم رفوفًا ساحلية وحوضًا عميقًا",
+            "Contains coastal shelves and a deep basin"
+          ],
+          [
+            "تغذيه رواسب الغانج وبراهمابوترا في مروحة بنغال",
+            "Ganges–Brahmaputra sediments feed the Bengal Fan"
+          ]
+        ],
+        [
+          [
+            "تؤثر الرياح الموسمية في الأمطار والتيارات",
+            "Monsoons influence rainfall and currents"
+          ],
+          [
+            "المياه العذبة السطحية تخفض الملوحة قرب الدلتا",
+            "Fresh surface water reduces salinity near the delta"
+          ]
+        ],
+        [
+          [
+            "يضم غابات مانغروف السندربان ومصايد مهمة",
+            "Supports Sundarbans mangroves and major fisheries"
+          ],
+          [
+            "تتعرض سواحله لأعاصير وارتفاعات خطرة في منسوب البحر",
+            "Its coasts face cyclones and dangerous storm surges"
+          ]
         ]
       ]
     },
@@ -2815,6 +2899,48 @@
           "Eastern connection",
           "Arabian Sea"
         ]
+      ],
+      "gulfPoints": [
+        [
+          [
+            "بين اليمن شمالًا والصومال جنوبًا",
+            "Between Yemen to the north and Somalia to the south"
+          ],
+          [
+            "يربط البحر الأحمر ببحر العرب عبر باب المندب",
+            "Links the Red Sea to the Arabian Sea through Bab el-Mandeb"
+          ]
+        ],
+        [
+          [
+            "يقع ضمن نظام تباعد تكتوني نشط",
+            "Part of an active tectonic rift system"
+          ],
+          [
+            "توجد أحواض عميقة وتضاريس قاع متباينة",
+            "Contains deep basins and varied seafloor relief"
+          ]
+        ],
+        [
+          [
+            "تتغير الرياح والتيارات مع الموسميات",
+            "Winds and currents vary with monsoons"
+          ],
+          [
+            "يحدث صعود مياه غنية بالمغذيات في المنطقة الأوسع",
+            "Nutrient-rich upwelling occurs in the wider region"
+          ]
+        ],
+        [
+          [
+            "توجد مصايد وموائل ساحلية حساسة",
+            "Contains fisheries and sensitive coastal habitats"
+          ],
+          [
+            "ممر ملاحي دولي مهم يواجه مخاطر أمنية وبيئية",
+            "Major shipping route facing security and environmental risks"
+          ]
+        ]
       ]
     },
     "Gulf of Guinea": {
@@ -2838,6 +2964,48 @@
         [
           "Major delta",
           "Niger Delta"
+        ]
+      ],
+      "gulfPoints": [
+        [
+          [
+            "على ساحل غرب أفريقيا قرب خط الاستواء",
+            "Along West Africa near the equator"
+          ],
+          [
+            "يفتح مباشرة على المحيط الأطلسي",
+            "Opens directly into the Atlantic Ocean"
+          ]
+        ],
+        [
+          [
+            "تحده رفوف ساحلية وأحواض عميقة",
+            "Bordered by coastal shelves and deep basins"
+          ],
+          [
+            "تصل إليه رواسب أنهار منها النيجر وفولتا",
+            "Receives sediment from rivers including Niger and Volta"
+          ]
+        ],
+        [
+          [
+            "تؤثر تيارات غينيا والصعود الساحلي في مياهه",
+            "Guinea Current and coastal upwelling affect its waters"
+          ],
+          [
+            "يتفاوت هطول الأمطار والملوحة قرب المصبات",
+            "Rainfall and salinity vary near river mouths"
+          ]
+        ],
+        [
+          [
+            "يدعم مصايد بحرية وغابات مانغروف ساحلية",
+            "Supports fisheries and coastal mangroves"
+          ],
+          [
+            "تؤثر فيه أنشطة الموانئ والنفط والتلوث الساحلي",
+            "Ports, oil activity and coastal pollution affect it"
+          ]
         ]
       ]
     },
@@ -3791,6 +3959,48 @@
           "Endemic species",
           "Vaquita"
         ]
+      ],
+      "gulfPoints": [
+        [
+          [
+            "بين شبه جزيرة باخا كاليفورنيا والبر المكسيكي",
+            "Between Baja California and mainland Mexico"
+          ],
+          [
+            "يتصل بالمحيط الهادئ من الجنوب",
+            "Connects to the Pacific Ocean in the south"
+          ]
+        ],
+        [
+          [
+            "تشكل بفعل حركة الصفائح والصدوع التكتونية",
+            "Formed through plate movement and tectonic faults"
+          ],
+          [
+            "يضم أحواضًا عميقة وجزرًا عديدة",
+            "Contains deep basins and many islands"
+          ]
+        ],
+        [
+          [
+            "تساعد تيارات المد والصعود على تجديد المغذيات",
+            "Tides and upwelling replenish nutrients"
+          ],
+          [
+            "تتفاوت حرارة المياه بين الشمال والجنوب",
+            "Water temperatures vary north to south"
+          ]
+        ],
+        [
+          [
+            "موطن غني بالحيتان وأسماك متنوعة وخنازير البحر",
+            "Rich habitat for whales, fish and porpoises"
+          ],
+          [
+            "تواجه الفاكيتا المهددة بالانقراض خطر الشباك الخيشومية",
+            "Critically endangered vaquitas face gillnet threats"
+          ]
+        ]
       ]
     },
     "Hudson Bay": {
@@ -3814,6 +4024,48 @@
         [
           "Seasonal feature",
           "Sea-ice growth and retreat"
+        ]
+      ],
+      "gulfPoints": [
+        [
+          [
+            "خليج واسع في شمال شرق كندا",
+            "A vast bay in northeastern Canada"
+          ],
+          [
+            "يتصل بالمحيط الأطلسي عبر مضيق هدسون",
+            "Connected to the Atlantic through Hudson Strait"
+          ]
+        ],
+        [
+          [
+            "حوض ضحل نسبيًا شكله الجليد القديم",
+            "A relatively shallow basin shaped by past glaciation"
+          ],
+          [
+            "تغذيه أنهار عديدة بالمياه العذبة",
+            "Numerous rivers bring freshwater"
+          ]
+        ],
+        [
+          [
+            "يتجمد جزء كبير من سطحه شتاءً",
+            "Much of its surface freezes in winter"
+          ],
+          [
+            "تؤثر دورات الجليد في ملوحة المياه وتبادلها",
+            "Ice cycles influence salinity and water exchange"
+          ]
+        ],
+        [
+          [
+            "يوفر موائل للدببة القطبية والفقمات والطيور",
+            "Provides habitat for polar bears, seals and birds"
+          ],
+          [
+            "يتأثر النظام البيئي بتغير توقيت تكون الجليد وذوبانه",
+            "Its ecosystem is affected by shifting ice formation and melt"
+          ]
         ]
       ]
     },
