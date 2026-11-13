@@ -51,6 +51,12 @@ const gvExtraPlaceIntros={"Niger River":["يمر نهر النيجر بقوس و
 for(const group of ['rivers','forests'])for(const entry of geo[group]){
  const extra=gvExtraPlaceIntros[entry[1]];if(extra){entry[2]=extra[0];entry[3]=extra[1]}
 }
+geo.mountains.push(...[
+ ["جبل جومولهاري","Jomolhari",27.82,89.27],
+ ["القوقاز الكبرى","Greater Caucasus",43.3,42.5],
+ ["جبال سيمين","Simien Mountains",13.25,38.1],
+ ["الألب الجنوبية","Southern Alps (New Zealand)",-43.5,170.5]
+].map(v=>[v[0],v[1],'معلم جبلي مميز؛ اضغط لاستكشاف موقعه وتفاصيله.','A distinctive mountain landmark; explore its location and field guide.',v[2],v[3]]));
 geo.mountains.push(...[["كليمنجارو","Kilimanjaro",-3.07,37.35],["كي 2","K2",35.88,76.5],["دينالي","Denali",63.07,-151],["أكونكاغوا","Aconcagua",-32.65,-70],["مون بلان","Mont Blanc",45.83,6.86],["جبل فوجي","Mount Fuji",35.36,138.73],["الأورال","Ural Mountains",59,60],["روكي","Rocky Mountains",40,-106]].map(v=>[v[0],v[1],'معلم جغرافي في '+cats.find(c=>c.id==='mountains').ar+'؛ اضغط للخريطة والتفاصيل.','A geographic feature in '+cats.find(c=>c.id==='mountains').en+'; explore its map position.',v[2],v[3]]));
 geo.lakes.push(...[["بحيرة تنجانيقا","Lake Tanganyika",-6.3,29.5],["بحيرة تيتيكاكا","Lake Titicaca",-15.9,-69.3],["بحيرة مالاوي","Lake Malawi",-12,34.5],["بحيرة جنيف","Lake Geneva",46.4,6.5],["بحيرة ميتشيغان","Lake Michigan",44,-87],["بحيرة توركانا","Lake Turkana",3.5,36]].map(v=>[v[0],v[1],'معلم جغرافي في '+cats.find(c=>c.id==='lakes').ar+'؛ اضغط للخريطة والتفاصيل.','A geographic feature in '+cats.find(c=>c.id==='lakes').en+'; explore its map position.',v[2],v[3]]));
 geo.islands.push(...[["جزيرة بورنيو","Borneo",1,114],["جزيرة سومطرة","Sumatra",-0.5,101],["جزيرة جاوة","Java",-7,110],["أيسلندا","Iceland",65,-18],["هاواي","Hawaii",20,-156],["نيوزيلندا","New Zealand",-41,173]].map(v=>[v[0],v[1],'معلم جغرافي في '+cats.find(c=>c.id==='islands').ar+'؛ اضغط للخريطة والتفاصيل.','A geographic feature in '+cats.find(c=>c.id==='islands').en+'; explore its map position.',v[2],v[3]]));
