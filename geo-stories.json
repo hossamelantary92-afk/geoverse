@@ -6062,8 +6062,8 @@
       ]
     },
     "Sumatra": {
-      "ar": "جزيرة استوائية ضمن أرخبيل سوندا تقع في غرب إندونيسيا. يرتبط نشاطها الزلزالي والبركاني بالاندساس. يسود مناخ استوائي رطب. تضم غابات مطيرة وبراكين وبحيرات.",
-      "en": "Tropical island in the Sunda archipelago in Western Indonesia. Its earthquakes and volcanoes are linked to subduction. The climate is humid and tropical. It has rainforests, volcanoes and lakes.",
+      "ar": "سومطرة جزيرة إندونيسية كبيرة غرب أرخبيل سوندا، تواجه المحيط الهندي ويحدها مضيق ملقا من الشرق. تمتد على طولها جبال باريسان البركانية، وتضم غابات مطيرة موطنًا لإنسان الغاب والنمر السومطريين المهددين.",
+      "en": "Sumatra is a large Indonesian island in western Sunda, facing the Indian Ocean and the Strait of Malacca. The volcanic Barisan Mountains run along its length, while rainforests shelter threatened Sumatran orangutans and tigers.",
       "factsAr": [
         [
           "الموقع",
@@ -6087,49 +6087,49 @@
       "islandPoints": [
         [
           [
-            "تقع في غرب إندونيسيا.",
-            "Located in Western Indonesia."
+            "تقع غرب إندونيسيا بين المحيط الهندي ومضيق ملقا.",
+            "Lies in western Indonesia between the Indian Ocean and Strait of Malacca."
           ],
           [
-            "جزيرة استوائية ضمن أرخبيل سوندا",
-            "Tropical island in the Sunda archipelago"
+            "تُعد من أكبر جزر العالم وتضم سلسلة جبال باريسان الممتدة طولًا.",
+            "One of the world's largest islands, crossed lengthwise by the Barisan Mountains."
           ]
         ],
         [
           [
-            "يرتبط نشاطها الزلزالي والبركاني بالاندساس.",
-            "Its earthquakes and volcanoes are linked to subduction."
+            "تتكون براكينها نتيجة اندساس الصفيحة الهندية الأسترالية تحت صفيحة سوندا.",
+            "Its volcanoes result from Indo-Australian Plate subduction beneath the Sunda Plate."
           ],
           [
-            "يسود مناخ استوائي رطب.",
-            "The climate is humid and tropical."
+            "يسودها مناخ استوائي رطب مع أمطار غزيرة في مناطق عديدة.",
+            "A humid tropical climate brings heavy rainfall to many areas."
           ]
         ],
         [
           [
-            "تضم غابات مطيرة وبراكين وبحيرات.",
-            "It has rainforests, volcanoes and lakes."
+            "تضم غابات مطيرة وبحيرة توبا الضخمة التي تشكلت في حوض بركاني قديم.",
+            "Includes rainforests and vast Lake Toba, formed in an ancient volcanic caldera."
           ],
           [
-            "تختلف البيئات المحلية باختلاف التضاريس والمناخ.",
-            "Local habitats vary with terrain and climate."
+            "تعيش فيها أنواع نادرة مثل إنسان الغاب السومطري والنمر السومطري.",
+            "Rare wildlife includes the Sumatran orangutan and Sumatran tiger."
           ]
         ],
         [
           [
-            "تعيش فيها أنواع مهددة مثل إنسان الغاب السومطري.",
-            "It supports threatened species such as Sumatran orangutans."
+            "توضح البراكين والزلازل ارتباط الجزيرة بنطاق اندساس نشط.",
+            "Volcanoes and earthquakes reveal the island's active subduction setting."
           ],
           [
-            "يوضح موقع الجزيرة علاقتها بالمحيط واليابسة المجاورة.",
-            "Its location shows its relationship with ocean and nearby land."
+            "يهدد فقدان الغابات وتجزئة الموائل كثيرًا من أنواعها المتوطنة.",
+            "Deforestation and habitat fragmentation threaten many endemic species."
           ]
         ]
       ]
     },
     "Java": {
-      "ar": "جزيرة بركانية كثيفة السكان تقع في إندونيسيا جنوب بورنيو. تشكلت براكينها على امتداد نطاق اندساس. تختلف الأمطار بحسب الرياح الموسمية والتضاريس. توجد سهول خصبة ومخاريط بركانية.",
-      "en": "Populous volcanic island in Indonesia south of Borneo. Its volcanoes formed along a subduction zone. Rainfall varies with monsoons and topography. It has fertile plains and volcanic cones.",
+      "ar": "جاوة جزيرة إندونيسية شديدة الكثافة السكانية، تضم جاكرتا ومناطق زراعية واسعة. تشكلت براكينها ضمن قوس سوندا البركاني، وتساعد التربة البركانية الخصبة والأمطار الموسمية على زراعة الأرز.",
+      "en": "Java is a densely populated Indonesian island that includes Jakarta and extensive farmland. Its volcanoes belong to the Sunda volcanic arc, while fertile volcanic soils and monsoon rains support rice cultivation.",
       "factsAr": [
         [
           "الموقع",
@@ -6153,49 +6153,49 @@
       "islandPoints": [
         [
           [
-            "تقع في إندونيسيا جنوب بورنيو.",
-            "Located in Indonesia south of Borneo."
+            "تقع جنوب بورنيو بين بحر جاوة شمالًا والمحيط الهندي جنوبًا.",
+            "Lies south of Borneo between the Java Sea to the north and Indian Ocean to the south."
           ],
           [
-            "جزيرة بركانية كثيفة السكان",
-            "Populous volcanic island"
+            "تضم جاكرتا، وهي من أكثر مناطق إندونيسيا كثافة سكانية.",
+            "Contains Jakarta and some of Indonesia's most densely populated areas."
           ]
         ],
         [
           [
-            "تشكلت براكينها على امتداد نطاق اندساس.",
-            "Its volcanoes formed along a subduction zone."
+            "نشأت براكينها على قوس سوندا نتيجة اندساس الصفائح جنوب الجزيرة.",
+            "Volcanoes formed along the Sunda Arc due to plate subduction south of the island."
           ],
           [
-            "تختلف الأمطار بحسب الرياح الموسمية والتضاريس.",
-            "Rainfall varies with monsoons and topography."
+            "تختلف الأمطار بين الموسم الرطب والجاف مع تأثير الرياح الموسمية.",
+            "Rainfall varies between wet and dry seasons under monsoon influence."
           ]
         ],
         [
           [
-            "توجد سهول خصبة ومخاريط بركانية.",
-            "It has fertile plains and volcanic cones."
+            "تنتشر البراكين الطبقية مثل ميرابي وسيميرو إلى جانب سهول زراعية خصبة.",
+            "Stratovolcanoes such as Merapi and Semeru rise beside fertile agricultural plains."
           ],
           [
-            "تختلف البيئات المحلية باختلاف التضاريس والمناخ.",
-            "Local habitats vary with terrain and climate."
+            "تحتفظ الغابات الجبلية بموائل لحيوانات مهددة مثل وحيد القرن الجاوي.",
+            "Montane forests preserve habitat for threatened species such as the Javan rhinoceros."
           ]
         ],
         [
           [
-            "تدعم التربة البركانية الزراعة في مناطق كثيرة.",
-            "Volcanic soils support farming in many areas."
+            "تساعد الرواسب البركانية على خصوبة التربة، لكنها ترتبط أيضًا بمخاطر الثوران.",
+            "Volcanic deposits enrich soils but also bring eruption hazards."
           ],
           [
-            "يوضح موقع الجزيرة علاقتها بالمحيط واليابسة المجاورة.",
-            "Its location shows its relationship with ocean and nearby land."
+            "يؤدي التوسع العمراني والزراعي إلى ضغط كبير على الغابات الطبيعية.",
+            "Urban and agricultural expansion puts strong pressure on natural forests."
           ]
         ]
       ]
     },
     "Hawaii": {
-      "ar": "أرخبيل بركاني فوق بقعة ساخنة تقع في وسط شمال المحيط الهادئ. نشأت جزره تباعًا مع حركة صفيحة الهادئ. تتفاوت الأمطار بين السفوح المواجهة للرياح والظليلة. تضم براكين درعية وشواطئ وبيئات متوطنة.",
-      "en": "Volcanic archipelago over a hotspot in Central North Pacific. Its islands formed sequentially as the Pacific Plate moved. Rainfall contrasts between windward and leeward slopes. It has shield volcanoes, beaches and endemic habitats.",
+      "ar": "هاواي أرخبيل بركاني أمريكي في شمال المحيط الهادئ نشأ فوق بقعة ساخنة بينما تحركت صفيحة المحيط الهادئ. تضم الجزيرة الكبرى براكين درعية ضخمة، وتختلف أمطار الجزر بشدة بين السفوح المواجهة للرياح والمناطق الواقعة في ظل المطر.",
+      "en": "Hawaii is a volcanic US archipelago in the North Pacific formed as the Pacific Plate moved over a hotspot. The Big Island has immense shield volcanoes, and rainfall contrasts sharply between windward and leeward slopes.",
       "factsAr": [
         [
           "الموقع",
@@ -6219,49 +6219,49 @@
       "islandPoints": [
         [
           [
-            "تقع في وسط شمال المحيط الهادئ.",
-            "Located in Central North Pacific."
+            "تقع جزر هاواي في شمال المحيط الهادئ بعيدًا عن حواف القارات.",
+            "The Hawaiian Islands lie in the North Pacific far from continental margins."
           ],
           [
-            "أرخبيل بركاني فوق بقعة ساخنة",
-            "Volcanic archipelago over a hotspot"
+            "تتكون من جزر بركانية متفاوتة العمر، والجزيرة الكبرى من أحدثها.",
+            "The archipelago consists of volcanic islands of differing ages, with the Big Island among the youngest."
           ]
         ],
         [
           [
-            "نشأت جزره تباعًا مع حركة صفيحة الهادئ.",
-            "Its islands formed sequentially as the Pacific Plate moved."
+            "نشأت فوق بقعة ساخنة تحت صفيحة المحيط الهادئ المتحركة شمال غرب.",
+            "Formed over a hotspot beneath the Pacific Plate moving northwest."
           ],
           [
-            "تتفاوت الأمطار بين السفوح المواجهة للرياح والظليلة.",
-            "Rainfall contrasts between windward and leeward slopes."
+            "تؤدي الرياح التجارية إلى أمطار غزيرة على السفوح المواجهة لها وظل مطري خلف الجبال.",
+            "Trade winds bring heavy rain to windward slopes and rain shadows behind mountains."
           ]
         ],
         [
           [
-            "تضم براكين درعية وشواطئ وبيئات متوطنة.",
-            "It has shield volcanoes, beaches and endemic habitats."
+            "تضم براكين درعية مثل ماونا لوا وكيلاويا.",
+            "Includes shield volcanoes such as Mauna Loa and Kīlauea."
           ],
           [
-            "تختلف البيئات المحلية باختلاف التضاريس والمناخ.",
-            "Local habitats vary with terrain and climate."
+            "تطورت أنواع نباتية وطيور متوطنة نتيجة العزلة الطويلة وسط المحيط.",
+            "Long oceanic isolation fostered endemic plants and birds."
           ]
         ],
         [
           [
-            "يوضح عمر الجزر اتجاه حركة الصفيحة.",
-            "Island ages illustrate plate movement."
+            "يزداد عمر الجزر عمومًا باتجاه الشمال الغربي، ما يكشف حركة الصفيحة.",
+            "Islands generally grow older northwestward, revealing plate motion."
           ],
           [
-            "يوضح موقع الجزيرة علاقتها بالمحيط واليابسة المجاورة.",
-            "Its location shows its relationship with ocean and nearby land."
+            "تجمع بعض الجزر بين غابات مطيرة ومناطق جافة وحقول حمم في مسافات قصيرة.",
+            "Some islands combine rainforest, dry zones and lava fields over short distances."
           ]
         ]
       ]
     },
     "New Zealand": {
-      "ar": "بلد جزري يضم جزيرتين رئيسيتين تقع في جنوب غرب المحيط الهادئ. تتشكل تضاريسه بفعل تفاعل صفيحتين تكتونيتين. يتغير المناخ بين السواحل والجبال. يضم جبالًا وأنهارًا جليدية وغابات.",
-      "en": "Island country with two main islands in Southwest Pacific. Its landforms reflect interaction between two tectonic plates. Climate varies between coasts and mountains. It has mountains, glaciers and forests.",
+      "ar": "نيوزيلندا دولة جزرية في جنوب غرب المحيط الهادئ تضم جزيرتين رئيسيتين وعددًا من الجزر الأصغر. تشكل حركة الصفائح جبال الألب الجنوبية والنشاط البركاني في الجزيرة الشمالية، وتشتهر البلاد بطيورها المتوطنة مثل الكيوي.",
+      "en": "New Zealand is an island country in the southwest Pacific with two main islands and many smaller ones. Plate movement shapes the Southern Alps and North Island volcanism, while endemic birds include the kiwi.",
       "factsAr": [
         [
           "الموقع",
@@ -6285,42 +6285,42 @@
       "islandPoints": [
         [
           [
-            "تقع في جنوب غرب المحيط الهادئ.",
-            "Located in Southwest Pacific."
+            "تقع في جنوب غرب المحيط الهادئ، وتضم الجزيرتين الشمالية والجنوبية.",
+            "Lies in the southwest Pacific and comprises the North and South Islands."
           ],
           [
-            "بلد جزري يضم جزيرتين رئيسيتين",
-            "Island country with two main islands"
+            "يفصل مضيق كوك بين الجزيرتين الرئيسيتين.",
+            "Cook Strait separates the two main islands."
           ]
         ],
         [
           [
-            "تتشكل تضاريسه بفعل تفاعل صفيحتين تكتونيتين.",
-            "Its landforms reflect interaction between two tectonic plates."
+            "تلتقي قربها الصفيحتان الأسترالية والمحيط الهادئ، ما يسبب زلازل ونشاطًا بركانيًا.",
+            "The Australian and Pacific plates meet nearby, causing earthquakes and volcanism."
           ],
           [
-            "يتغير المناخ بين السواحل والجبال.",
-            "Climate varies between coasts and mountains."
+            "تعترض جبال الألب الجنوبية الرياح الرطبة، فيصبح الغرب أغزر مطرًا من الشرق.",
+            "The Southern Alps intercept moist winds, making the west wetter than the east."
           ]
         ],
         [
           [
-            "يضم جبالًا وأنهارًا جليدية وغابات.",
-            "It has mountains, glaciers and forests."
+            "تضم الجزيرة الجنوبية أنهارًا جليدية وفيوردات، بينما تتميز الشمالية بمناطق بركانية وحرارية أرضية.",
+            "The South Island has glaciers and fiords, while the North Island has volcanic and geothermal areas."
           ],
           [
-            "تختلف البيئات المحلية باختلاف التضاريس والمناخ.",
-            "Local habitats vary with terrain and climate."
+            "تعيش فيها طيور متوطنة مثل الكيوي والكيا، وتفتقر طبيعيًا إلى معظم الثدييات البرية الأصلية.",
+            "Endemic birds include kiwi and kea; most native land mammals are absent."
           ]
         ],
         [
           [
-            "تتميز طيوره المتوطنة ومنها الكيوي.",
-            "Its endemic birds include the kiwi."
+            "تُظهر الجبال والصدوع تفاعل الصفائح في منطقة نشطة تكتونيًا.",
+            "Mountains and faults reveal plate interaction in an active tectonic region."
           ],
           [
-            "يوضح موقع الجزيرة علاقتها بالمحيط واليابسة المجاورة.",
-            "Its location shows its relationship with ocean and nearby land."
+            "أدى إدخال مفترسات غير محلية إلى تهديد عدد من الطيور المتوطنة.",
+            "Introduced predators threaten several endemic bird species."
           ]
         ]
       ]
