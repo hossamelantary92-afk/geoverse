@@ -1123,67 +1123,69 @@
       ]
     },
     "Mount Fuji": {
-      "ar": "فوجي جبل بركاني في اليابان، ويُعد رمزًا معروفًا للبلاد. له شكل مخروطي مميز وتغطي الثلوج قمته في جزء من العام.",
-      "en": "Mount Fuji is an iconic volcanic mountain in Japan, known for its symmetrical cone and seasonal snow.",
-      "factsAr": [
+      "ar": [
+        "جبل فوجي بركان طبقي ياباني يبلغ ارتفاعه نحو 3,776 مترًا، ويقع في جزيرة هونشو. شكله المخروطي ناتج عن ثورات متعاقبة، وكان آخر ثوران معروف له عام 1707–1708.",
+        "Mount Fuji is a 3,776 m stratovolcano on Japan's Honshu island. Successive eruptions built its cone; its last known eruption occurred in 1707–1708."
+      ],
+      "en": [
         [
-          "الموقع",
-          "اليابان"
+          "الارتفاع",
+          "نحو 3,776 مترًا"
         ],
         [
           "النوع",
-          "جبل بركاني"
+          "بركان طبقي"
+        ]
+      ],
+      "factsAr": [
+        [
+          "Elevation",
+          "About 3,776 m"
+        ],
+        [
+          "Type",
+          "Stratovolcano"
         ]
       ],
       "factsEn": [
         [
-          "Location",
-          "Honshu island, Japan"
-        ],
-        [
-          "Feature",
-          "Stratovolcano with a distinctive cone"
-        ]
-      ],
-      "mountainPoints": [
-        [
           [
-            "تقع في جزيرة هونشو في اليابان.",
-            "Located in Honshu island, Japan."
+            "يقع غرب طوكيو في جزيرة هونشو، وهو أعلى جبل في اليابان.",
+            "Located west of Tokyo on Honshu, it is Japan's highest mountain."
           ],
           [
-            "بركان طبقي ذو شكل مخروطي مميز",
-            "Stratovolcano with a distinctive cone"
+            "يبلغ ارتفاعه نحو 3,776 مترًا، ويتميز بمخروط بركاني شبه متناظر.",
+            "It rises about 3,776 m and has a nearly symmetrical volcanic cone."
           ]
         ],
         [
           [
-            "بُني من طبقات ناتجة عن ثورات بركانية متعاقبة",
-            "Built by layers from successive eruptions"
+            "تراكمت طبقات الحمم والرماد من ثورات بركانية متعاقبة.",
+            "Successive eruptions built layers of lava and ash."
           ],
           [
-            "تتغير النباتات والحرارة مع الارتفاع",
-            "Vegetation and temperature vary with elevation"
+            "وقع آخر ثوران معروف في 1707–1708 وألقى رمادًا على مناطق بعيدة.",
+            "Its last known eruption in 1707–1708 spread ash over distant areas."
           ]
         ],
         [
           [
-            "تُظهر جوانبه رواسب الحمم والرماد",
-            "Its slopes preserve lava and ash deposits"
+            "تتدرج الغابات في السفوح إلى تضاريس صخرية قرب القمة.",
+            "Forests on lower slopes give way to rocky terrain near the summit."
           ],
           [
-            "تتغير الحياة النباتية والحيوانية بحسب الارتفاع والمناخ.",
-            "Plants and wildlife vary with elevation and climate."
+            "تظهر على جوانبه رواسب حمم ورماد وفوهات مرتبطة بتاريخ الثوران.",
+            "Lava, ash deposits and vents record its eruptive history."
           ]
         ],
         [
           [
-            "توضح تضاريسها أثر القوى الجيولوجية والتعرية.",
-            "Its landforms show the effects of geology and erosion."
+            "يُعد بركانًا نشطًا جيولوجيًا رغم مرور قرون على آخر ثوران.",
+            "It remains geologically active despite centuries without an eruption."
           ],
           [
-            "يمكن ملاحظة تغير المشهد من السفوح إلى القمم.",
-            "The landscape changes from foothills to summit."
+            "يساعد شكل المخروط على فهم كيفية بناء البراكين الطبقية.",
+            "Its cone illustrates how stratovolcanoes grow."
           ]
         ]
       ]
@@ -4808,603 +4810,623 @@
       ]
     },
     "Kilimanjaro": {
-      "ar": "جبل بركاني منفرد نسبيًا، وتقع في شمال تنزانيا. تكون من نشاط بركاني مرتبط بشرق أفريقيا. تتدرج البيئات من السفوح الدافئة إلى القمة الباردة. تضم قممه آثار جليد متقلصة.",
-      "en": "Relatively isolated volcanic mountain, located in Northern Tanzania. Formed by volcanic activity in East Africa. Habitats shift from warm foothills to a cold summit. Its summit has shrinking ice remnants.",
-      "factsAr": [
+      "ar": [
+        "كليمنجارو كتلة بركانية ضخمة في شمال تنزانيا، وتضم قمة أوهورو على مخروط كيبو بارتفاع نحو 5,895 مترًا. وهو أعلى جبل في أفريقيا، وتتنوع بيئاته من الغابات الجبلية إلى المناطق الجليدية المتقلصة.",
+        "Kilimanjaro is a volcanic massif in northern Tanzania, with Uhuru Peak on Kibo reaching about 5,895 m. Africa's highest mountain spans montane forests to shrinking summit ice."
+      ],
+      "en": [
         [
-          "الموقع",
-          "شمال تنزانيا"
+          "الارتفاع",
+          "نحو 5,895 مترًا"
         ],
         [
-          "الطبيعة",
-          "جبل بركاني منفرد نسبيًا"
+          "النوع",
+          "كتلة بركانية"
+        ]
+      ],
+      "factsAr": [
+        [
+          "Elevation",
+          "About 5,895 m"
+        ],
+        [
+          "Type",
+          "Volcanic massif"
         ]
       ],
       "factsEn": [
         [
-          "Location",
-          "Northern Tanzania"
-        ],
-        [
-          "Feature",
-          "Relatively isolated volcanic mountain"
-        ]
-      ],
-      "mountainPoints": [
-        [
           [
-            "تقع في شمال تنزانيا.",
-            "Located in Northern Tanzania."
+            "يقع في شمال تنزانيا قرب الحدود الكينية، ويُعد أعلى جبل في أفريقيا.",
+            "In northern Tanzania near Kenya, it is Africa's highest mountain."
           ],
           [
-            "جبل بركاني منفرد نسبيًا",
-            "Relatively isolated volcanic mountain"
+            "تبلغ قمة أوهورو على كيبو نحو 5,895 مترًا.",
+            "Uhuru Peak on Kibo reaches about 5,895 m."
           ]
         ],
         [
           [
-            "تكون من نشاط بركاني مرتبط بشرق أفريقيا",
-            "Formed by volcanic activity in East Africa"
+            "تضم الكتلة ثلاثة مخاريط بركانية رئيسية: كيبو وماوينزي وشيرا.",
+            "The massif has three main volcanic cones: Kibo, Mawenzi and Shira."
           ],
           [
-            "تتدرج البيئات من السفوح الدافئة إلى القمة الباردة",
-            "Habitats shift from warm foothills to a cold summit"
+            "يخلق الارتفاع تدرجًا من مناخ مداري على السفوح إلى برد شديد قرب القمة.",
+            "Elevation produces a transition from tropical foothills to extreme summit cold."
           ]
         ],
         [
           [
-            "تضم قممه آثار جليد متقلصة",
-            "Its summit has shrinking ice remnants"
+            "تضم غابات جبلية ومروجًا مرتفعة ونطاقات صخرية شبه خالية من النباتات.",
+            "Includes montane forests, high grasslands and sparsely vegetated rocky zones."
           ],
           [
-            "تتغير الحياة النباتية والحيوانية بحسب الارتفاع والمناخ.",
-            "Plants and wildlife vary with elevation and climate."
+            "تراجعت مساحة الجليد قرب القمة بصورة كبيرة خلال القرن الماضي.",
+            "Summit ice has retreated markedly over the past century."
           ]
         ],
         [
           [
-            "توضح تضاريسها أثر القوى الجيولوجية والتعرية.",
-            "Its landforms show the effects of geology and erosion."
+            "يُظهر الجبل تغير البيئات الطبيعية عبر ارتفاعات كبيرة في مساحة محدودة.",
+            "Shows strong ecological zonation across a compact elevation range."
           ],
           [
-            "يمكن ملاحظة تغير المشهد من السفوح إلى القمم.",
-            "The landscape changes from foothills to summit."
+            "كيبو بركان خامد حاليًا، بينما المخروطان الآخران أقدم وأكثر تعرضًا للتعرية.",
+            "Kibo is currently dormant, while the other cones are older and more eroded."
           ]
         ]
       ]
     },
     "K2": {
-      "ar": "ثاني أعلى قمة في العالم، وتقع في سلسلة كاراكورام على حدود باكستان والصين. ارتفعت المنطقة نتيجة تصادم الصفائح. المنحدرات شديدة الانحدار والطقس قاسٍ. تنتشر الأنهار الجليدية حول الكتلة الجبلية.",
-      "en": "World's second-highest summit, located in Karakoram on the Pakistan–China border. The region rose through plate collision. Slopes are steep and weather is severe. Glaciers surround the mountain massif.",
-      "factsAr": [
+      "ar": [
+        "كي 2 ثاني أعلى قمة على الأرض، بارتفاع نحو 8,611 مترًا، وتقع في سلسلة كاراكورام على الحدود بين باكستان والصين. تشتهر بمنحدراتها الشديدة والطقس القاسي والأنهار الجليدية المحيطة بها.",
+        "K2 is Earth's second-highest summit at about 8,611 m, in the Karakoram on the Pakistan–China border. Its steep slopes, severe weather and surrounding glaciers make it formidable."
+      ],
+      "en": [
         [
-          "الموقع",
-          "سلسلة كاراكورام على حدود باكستان والصين"
+          "الارتفاع",
+          "نحو 8,611 مترًا"
         ],
         [
-          "الطبيعة",
-          "ثاني أعلى قمة في العالم"
+          "الترتيب",
+          "ثاني أعلى قمة عالميًا"
+        ]
+      ],
+      "factsAr": [
+        [
+          "Elevation",
+          "About 8,611 m"
+        ],
+        [
+          "Rank",
+          "Second-highest summit"
         ]
       ],
       "factsEn": [
         [
-          "Location",
-          "Karakoram on the Pakistan–China border"
-        ],
-        [
-          "Feature",
-          "World's second-highest summit"
-        ]
-      ],
-      "mountainPoints": [
-        [
           [
-            "تقع في سلسلة كاراكورام على حدود باكستان والصين.",
-            "Located in Karakoram on the Pakistan–China border."
+            "تقع في كاراكورام عند الحدود بين باكستان والصين.",
+            "Lies in the Karakoram on the Pakistan–China border."
           ],
           [
-            "ثاني أعلى قمة في العالم",
-            "World's second-highest summit"
+            "يبلغ ارتفاعها نحو 8,611 مترًا، وهي ثاني أعلى قمة فوق سطح البحر.",
+            "At about 8,611 m, it is the second-highest summit above sea level."
           ]
         ],
         [
           [
-            "ارتفعت المنطقة نتيجة تصادم الصفائح",
-            "The region rose through plate collision"
+            "نشأت المنطقة بفعل تصادم الصفائح الهندية والأوراسية ورفع القشرة.",
+            "Plate collision between India and Eurasia uplifted the region."
           ],
           [
-            "المنحدرات شديدة الانحدار والطقس قاسٍ",
-            "Slopes are steep and weather is severe"
+            "تتسم المرتفعات برياح شديدة ودرجات حرارة منخفضة جدًا.",
+            "High elevations face strong winds and extremely low temperatures."
           ]
         ],
         [
           [
-            "تنتشر الأنهار الجليدية حول الكتلة الجبلية",
-            "Glaciers surround the mountain massif"
+            "تحيط بالقمة أنهار جليدية كبرى ضمن منظومة كاراكورام.",
+            "Major glaciers of the Karakoram surround the mountain."
           ],
           [
-            "تتغير الحياة النباتية والحيوانية بحسب الارتفاع والمناخ.",
-            "Plants and wildlife vary with elevation and climate."
+            "تتميز بمنحدرات حادة وحواف صخرية وجليدية معقدة.",
+            "Features steep slopes and complex rock-and-ice ridges."
           ]
         ],
         [
           [
-            "توضح تضاريسها أثر القوى الجيولوجية والتعرية.",
-            "Its landforms show the effects of geology and erosion."
+            "تجعل الانهيارات الثلجية والطقس المتقلب التسلق شديد الخطورة.",
+            "Avalanches and volatile weather make climbing especially hazardous."
           ],
           [
-            "يمكن ملاحظة تغير المشهد من السفوح إلى القمم.",
-            "The landscape changes from foothills to summit."
+            "توضح القمة استمرار بناء الجبال والتعرية الجليدية في آسيا العليا.",
+            "Shows ongoing mountain building and glacial erosion in High Asia."
           ]
         ]
       ]
     },
     "Denali": {
-      "ar": "أعلى قمة في أمريكا الشمالية، وتقع في ألاسكا بالولايات المتحدة. ترتبط جبال ألاسكا بقوى تكتونية نشطة. الارتفاع الكبير وخط العرض الشمالي يسببان بردًا شديدًا. تغطي الثلوج والأنهار الجليدية جوانب الجبل.",
-      "en": "Highest summit in North America, located in Alaska, United States. Alaska's ranges reflect active tectonic forces. High elevation and northern latitude bring intense cold. Snow and glaciers cover mountain flanks.",
-      "factsAr": [
+      "ar": [
+        "دينالي أعلى قمة في أمريكا الشمالية، وتقع في سلسلة ألاسكا بالولايات المتحدة بارتفاع نحو 6,190 مترًا. يجمع الجبل بين ارتفاع كبير من القاعدة إلى القمة ومناخ شديد البرودة وأنهار جليدية واسعة.",
+        "Denali is North America's highest summit, at about 6,190 m in Alaska, USA. Its great local relief, severe cold and extensive glaciers define the mountain."
+      ],
+      "en": [
         [
-          "الموقع",
-          "ألاسكا بالولايات المتحدة"
+          "الارتفاع",
+          "نحو 6,190 مترًا"
         ],
         [
-          "الطبيعة",
+          "التميّز",
           "أعلى قمة في أمريكا الشمالية"
+        ]
+      ],
+      "factsAr": [
+        [
+          "Elevation",
+          "About 6,190 m"
+        ],
+        [
+          "Distinction",
+          "North America's highest peak"
         ]
       ],
       "factsEn": [
         [
-          "Location",
-          "Alaska, United States"
-        ],
-        [
-          "Feature",
-          "Highest summit in North America"
-        ]
-      ],
-      "mountainPoints": [
-        [
           [
-            "تقع في ألاسكا بالولايات المتحدة.",
-            "Located in Alaska, United States."
+            "يقع في سلسلة ألاسكا داخل متنزه دينالي الوطني.",
+            "Lies in the Alaska Range within Denali National Park."
           ],
           [
-            "أعلى قمة في أمريكا الشمالية",
-            "Highest summit in North America"
+            "يبلغ ارتفاعه نحو 6,190 مترًا فوق سطح البحر.",
+            "Its elevation is about 6,190 m above sea level."
           ]
         ],
         [
           [
-            "ترتبط جبال ألاسكا بقوى تكتونية نشطة",
-            "Alaska's ranges reflect active tectonic forces"
+            "ارتفعت جبال ألاسكا بفعل قوى تكتونية مرتبطة باندساس صفيحة المحيط الهادئ.",
+            "The Alaska Range rose through tectonics associated with Pacific Plate subduction."
           ],
           [
-            "الارتفاع الكبير وخط العرض الشمالي يسببان بردًا شديدًا",
-            "High elevation and northern latitude bring intense cold"
+            "يزيد خط العرض الشمالي والارتفاع من شدة البرد والعواصف.",
+            "Northern latitude and elevation intensify cold and storms."
           ]
         ],
         [
           [
-            "تغطي الثلوج والأنهار الجليدية جوانب الجبل",
-            "Snow and glaciers cover mountain flanks"
+            "تغطي الأنهار الجليدية والثلوج مساحات واسعة من السفوح.",
+            "Glaciers and snow cover extensive mountain slopes."
           ],
           [
-            "تتغير الحياة النباتية والحيوانية بحسب الارتفاع والمناخ.",
-            "Plants and wildlife vary with elevation and climate."
+            "تنتقل الموائل من غابات التايغا والتندرا إلى الصخور والجليد.",
+            "Habitats shift from taiga and tundra to rock and ice."
           ]
         ],
         [
           [
-            "توضح تضاريسها أثر القوى الجيولوجية والتعرية.",
-            "Its landforms show the effects of geology and erosion."
+            "يتميز بفرق ارتفاع كبير بين الأودية المحيطة والقمة.",
+            "Has exceptional vertical relief from surrounding valleys to the summit."
           ],
           [
-            "يمكن ملاحظة تغير المشهد من السفوح إلى القمم.",
-            "The landscape changes from foothills to summit."
+            "تساعد دراسة أنهاره الجليدية على رصد تغير المناخ في ألاسكا.",
+            "Its glaciers help researchers track climate change in Alaska."
           ]
         ]
       ]
     },
     "Aconcagua": {
-      "ar": "أعلى قمة في أمريكا الجنوبية، وتقع في جبال الأنديز في الأرجنتين. تكوّن الارتفاع ضمن عمليات بناء الأنديز. الهواء جاف وبارد في المرتفعات. تظهر منحدرات صخرية وثلوج موسمية.",
-      "en": "Highest summit in South America, located in Andes in Argentina. Uplift occurred during Andean mountain building. High elevations are cold and dry. Rocky slopes and seasonal snow occur.",
-      "factsAr": [
+      "ar": [
+        "أكونكاغوا أعلى قمة في الأمريكتين، وتقع في جبال الأنديز بالأرجنتين بارتفاع نحو 6,961 مترًا. تشكلت خلال بناء الأنديز التكتوني وتتميز بظروف عالية وجافة ورياح قوية.",
+        "Aconcagua is the highest summit in the Americas, at about 6,961 m in Argentina's Andes. Uplifted during Andean mountain building, it has cold, dry high-altitude conditions and strong winds."
+      ],
+      "en": [
         [
-          "الموقع",
-          "جبال الأنديز في الأرجنتين"
+          "الارتفاع",
+          "نحو 6,961 مترًا"
         ],
         [
-          "الطبيعة",
-          "أعلى قمة في أمريكا الجنوبية"
+          "التميّز",
+          "أعلى قمة في الأمريكتين"
+        ]
+      ],
+      "factsAr": [
+        [
+          "Elevation",
+          "About 6,961 m"
+        ],
+        [
+          "Distinction",
+          "Highest peak in the Americas"
         ]
       ],
       "factsEn": [
         [
-          "Location",
-          "Andes in Argentina"
-        ],
-        [
-          "Feature",
-          "Highest summit in South America"
-        ]
-      ],
-      "mountainPoints": [
-        [
           [
-            "تقع في جبال الأنديز في الأرجنتين.",
-            "Located in Andes in Argentina."
+            "يقع في غرب الأرجنتين قرب الحدود مع تشيلي ضمن جبال الأنديز.",
+            "Located in western Argentina near Chile within the Andes."
           ],
           [
-            "أعلى قمة في أمريكا الجنوبية",
-            "Highest summit in South America"
+            "يبلغ ارتفاعه نحو 6,961 مترًا، وهو أعلى قمة خارج آسيا.",
+            "At about 6,961 m, it is the highest summit outside Asia."
           ]
         ],
         [
           [
-            "تكوّن الارتفاع ضمن عمليات بناء الأنديز",
-            "Uplift occurred during Andean mountain building"
+            "ارتفع خلال عمليات بناء الأنديز المرتبطة بحركة الصفائح.",
+            "Uplifted during Andean mountain building associated with plate movement."
           ],
           [
-            "الهواء جاف وبارد في المرتفعات",
-            "High elevations are cold and dry"
+            "الهواء جاف وبارد في المرتفعات، والرياح القوية شائعة.",
+            "High elevations are cold and dry, with frequent strong winds."
           ]
         ],
         [
           [
-            "تظهر منحدرات صخرية وثلوج موسمية",
-            "Rocky slopes and seasonal snow occur"
+            "تغطي الثلوج أجزاء من الجبل وتوجد أنهار جليدية في محيطه.",
+            "Snow covers parts of the mountain and glaciers occur nearby."
           ],
           [
-            "تتغير الحياة النباتية والحيوانية بحسب الارتفاع والمناخ.",
-            "Plants and wildlife vary with elevation and climate."
+            "تسود منحدرات صخرية وبيئات جبلية قليلة الغطاء النباتي.",
+            "Rocky slopes and sparse alpine vegetation dominate."
           ]
         ],
         [
           [
-            "توضح تضاريسها أثر القوى الجيولوجية والتعرية.",
-            "Its landforms show the effects of geology and erosion."
+            "يُعد أحد القمم السبع التي تمثل أعلى قمة في كل قارة وفق تصنيف شائع.",
+            "One of the Seven Summits, representing the highest peak of a continent under a common definition."
           ],
           [
-            "يمكن ملاحظة تغير المشهد من السفوح إلى القمم.",
-            "The landscape changes from foothills to summit."
+            "يتطلب الصعود التأقلم مع نقص الأكسجين رغم أن المسار العادي لا يتطلب تسلقًا تقنيًا معقدًا.",
+            "Ascent requires altitude acclimatization, even though the normal route is not highly technical."
           ]
         ]
       ]
     },
     "Mont Blanc": {
-      "ar": "من أبرز قمم أوروبا الغربية، وتقع في جبال الألب بين فرنسا وإيطاليا. جزء من منظومة الألب التي رفعتها حركة الصفائح. الارتفاع يخلق ظروفًا باردة وجليدية. تحيط به أنهار جليدية وأودية عميقة.",
-      "en": "One of Western Europe's notable peaks, located in Alps on the France–Italy border. Part of the Alps uplifted by plate movements. Elevation creates cold, icy conditions. Glaciers and deep valleys surround it.",
-      "factsAr": [
+      "ar": [
+        "مون بلان قمة بارزة في جبال الألب على الحدود الفرنسية الإيطالية، ويبلغ ارتفاعها نحو 4,806 أمتار مع تغير القياسات بسبب الغطاء الثلجي. تحيط بها أنهار جليدية وأودية عميقة.",
+        "Mont Blanc is a prominent Alpine summit on the France–Italy border, roughly 4,806 m high, with measurements varying as its snowcap changes. Glaciers and deep valleys surround it."
+      ],
+      "en": [
         [
-          "الموقع",
-          "جبال الألب بين فرنسا وإيطاليا"
+          "الارتفاع",
+          "نحو 4,806 أمتار (متغير)"
         ],
         [
-          "الطبيعة",
-          "من أبرز قمم أوروبا الغربية"
+          "الموقع",
+          "الألب الفرنسية الإيطالية"
+        ]
+      ],
+      "factsAr": [
+        [
+          "Elevation",
+          "About 4,806 m (variable)"
+        ],
+        [
+          "Location",
+          "French–Italian Alps"
         ]
       ],
       "factsEn": [
         [
-          "Location",
-          "Alps on the France–Italy border"
-        ],
-        [
-          "Feature",
-          "One of Western Europe's notable peaks"
-        ]
-      ],
-      "mountainPoints": [
-        [
           [
-            "تقع في جبال الألب بين فرنسا وإيطاليا.",
-            "Located in Alps on the France–Italy border."
+            "يقع ضمن كتلة مون بلان الجبلية على الحدود بين فرنسا وإيطاليا.",
+            "Lies in the Mont Blanc massif on the France–Italy border."
           ],
           [
-            "من أبرز قمم أوروبا الغربية",
-            "One of Western Europe's notable peaks"
+            "يُعد من أعلى قمم الألب، ويتغير الارتفاع المقاس قليلًا مع تراكم الثلج.",
+            "Among the Alps' highest peaks; measured elevation varies with summit snow."
           ]
         ],
         [
           [
-            "جزء من منظومة الألب التي رفعتها حركة الصفائح",
-            "Part of the Alps uplifted by plate movements"
+            "نشأت كتلة الألب بفعل تقارب وتصادم كتل قارية.",
+            "The Alpine massif formed through convergence and collision of continental blocks."
           ],
           [
-            "الارتفاع يخلق ظروفًا باردة وجليدية",
-            "Elevation creates cold, icy conditions"
+            "تسود درجات حرارة منخفضة وعواصف وثلوج في المرتفعات.",
+            "Cold temperatures, storms and snow dominate high elevations."
           ]
         ],
         [
           [
-            "تحيط به أنهار جليدية وأودية عميقة",
-            "Glaciers and deep valleys surround it"
+            "تجاور الكتلة أنهار جليدية مثل مير دو جلاس وأودية شديدة الانحدار.",
+            "The massif includes glaciers such as Mer de Glace and steep valleys."
           ],
           [
-            "تتغير الحياة النباتية والحيوانية بحسب الارتفاع والمناخ.",
-            "Plants and wildlife vary with elevation and climate."
+            "تتدرج النباتات من الغابات إلى المروج الألبية ثم الجليد والصخور.",
+            "Vegetation transitions from forests to alpine meadows, ice and rock."
           ]
         ],
         [
           [
-            "توضح تضاريسها أثر القوى الجيولوجية والتعرية.",
-            "Its landforms show the effects of geology and erosion."
+            "تُظهر الأنهار الجليدية أثر التعرية وتغير المناخ في تضاريس الألب.",
+            "Glaciers show how erosion and climate change shape Alpine terrain."
           ],
           [
-            "يمكن ملاحظة تغير المشهد من السفوح إلى القمم.",
-            "The landscape changes from foothills to summit."
+            "يؤثر ذوبان الجليد الدائم في استقرار بعض المنحدرات الصخرية.",
+            "Thawing permafrost affects the stability of some rock slopes."
           ]
         ]
       ]
     },
     "Ural Mountains": {
-      "ar": "سلسلة جبلية قديمة بين أوروبا وآسيا جغرافيًا، وتقع في روسيا وتمتد نحو كازاخستان. تعود نشأتها إلى تصادم قاري قديم. تختلف الغابات والسهوب بحسب خط العرض. تعرّضت القمم لتعرية طويلة خفّضت ارتفاعاتها.",
-      "en": "Ancient range conventionally dividing Europe and Asia, located in Russia extending toward Kazakhstan. Originated in an ancient continental collision. Forests and steppes vary with latitude. Long erosion has lowered the peaks.",
-      "factsAr": [
+      "ar": [
+        "جبال الأورال سلسلة قديمة تمتد عبر روسيا نحو كازاخستان، وتُستخدم تقليديًا حدًا جغرافيًا بين أوروبا وآسيا. نشأت من تصادم قاري قديم، وخفضت التعرية ارتفاع قممها عبر زمن طويل.",
+        "The Urals are an ancient range extending through Russia toward Kazakhstan, traditionally marking a geographic boundary between Europe and Asia. Ancient continental collision formed them, and erosion lowered their peaks."
+      ],
+      "en": [
         [
           "الموقع",
-          "روسيا وتمتد نحو كازاخستان"
+          "روسيا وكازاخستان"
         ],
         [
-          "الطبيعة",
-          "سلسلة جبلية قديمة بين أوروبا وآسيا جغرافيًا"
+          "النوع",
+          "سلسلة جبلية قديمة"
+        ]
+      ],
+      "factsAr": [
+        [
+          "Location",
+          "Russia and Kazakhstan"
+        ],
+        [
+          "Type",
+          "Ancient mountain range"
         ]
       ],
       "factsEn": [
         [
-          "Location",
-          "Russia extending toward Kazakhstan"
-        ],
-        [
-          "Feature",
-          "Ancient range conventionally dividing Europe and Asia"
-        ]
-      ],
-      "mountainPoints": [
-        [
           [
-            "تقع في روسيا وتمتد نحو كازاخستان.",
-            "Located in Russia extending toward Kazakhstan."
+            "تمتد تقريبًا من المناطق القطبية الروسية جنوبًا نحو شمال كازاخستان.",
+            "Extends roughly from Arctic Russia south toward northern Kazakhstan."
           ],
           [
-            "سلسلة جبلية قديمة بين أوروبا وآسيا جغرافيًا",
-            "Ancient range conventionally dividing Europe and Asia"
+            "تُعد جزءًا من الحد الجغرافي التقليدي بين أوروبا وآسيا.",
+            "Part of the conventional geographic divide between Europe and Asia."
           ]
         ],
         [
           [
-            "تعود نشأتها إلى تصادم قاري قديم",
-            "Originated in an ancient continental collision"
+            "تكونت في تصادم قاري قديم خلال أواخر حقب الحياة القديمة.",
+            "Formed in an ancient continental collision during the late Paleozoic."
           ],
           [
-            "تختلف الغابات والسهوب بحسب خط العرض",
-            "Forests and steppes vary with latitude"
+            "أدت التعرية الطويلة إلى تقليل ارتفاع القمم وتدوير بعض التضاريس.",
+            "Long erosion lowered peaks and rounded parts of the landscape."
           ]
         ],
         [
           [
-            "تعرّضت القمم لتعرية طويلة خفّضت ارتفاعاتها",
-            "Long erosion has lowered the peaks"
+            "تتغير البيئات من التندرا الشمالية إلى غابات التايغا والسهوب جنوبًا.",
+            "Habitats shift from northern tundra to taiga forests and southern steppe."
           ],
           [
-            "تتغير الحياة النباتية والحيوانية بحسب الارتفاع والمناخ.",
-            "Plants and wildlife vary with elevation and climate."
+            "تضم صخورًا ومعادن متنوعة مرتبطة بتاريخها الجيولوجي المعقد.",
+            "Contains varied rocks and mineral resources reflecting complex geology."
           ]
         ],
         [
           [
-            "توضح تضاريسها أثر القوى الجيولوجية والتعرية.",
-            "Its landforms show the effects of geology and erosion."
+            "تُظهر كيف تتغير السلاسل الجبلية القديمة بعد توقف الرفع القوي.",
+            "Shows how old mountain ranges evolve after major uplift slows."
           ],
           [
-            "يمكن ملاحظة تغير المشهد من السفوح إلى القمم.",
-            "The landscape changes from foothills to summit."
+            "تختلف تضاريسها عن الجبال الفتية الأعلى مثل الهيمالايا.",
+            "Its landscapes contrast with younger, higher ranges such as the Himalayas."
           ]
         ]
       ]
     },
     "Rocky Mountains": {
-      "ar": "سلسلة واسعة من كندا إلى الولايات المتحدة، وتقع في غرب أمريكا الشمالية. ارتفعت خلال مراحل من التشوه التكتوني. تتغير الثلوج والغابات حسب الارتفاع وخط العرض. تضم أودية جليدية وقممًا وعرة.",
-      "en": "Broad range extending through Canada and the USA, located in Western North America. Uplifted through episodes of tectonic deformation. Snow and forests vary with elevation and latitude. Includes glacial valleys and rugged peaks.",
-      "factsAr": [
+      "ar": [
+        "جبال روكي سلسلة واسعة في غرب أمريكا الشمالية تمتد عبر كندا والولايات المتحدة. تشكلت خلال مراحل تكتونية معقدة، وتضم قممًا وعرة ووديانًا جليدية وغابات ومراعي جبلية.",
+        "The Rocky Mountains stretch across western North America through Canada and the United States. Complex tectonic uplift created rugged peaks, glacial valleys, forests and alpine grasslands."
+      ],
+      "en": [
         [
           "الموقع",
-          "غرب أمريكا الشمالية"
+          "كندا والولايات المتحدة"
         ],
         [
-          "الطبيعة",
-          "سلسلة واسعة من كندا إلى الولايات المتحدة"
+          "النوع",
+          "سلسلة جبلية قارية"
+        ]
+      ],
+      "factsAr": [
+        [
+          "Location",
+          "Canada and United States"
+        ],
+        [
+          "Type",
+          "Continental mountain range"
         ]
       ],
       "factsEn": [
         [
-          "Location",
-          "Western North America"
-        ],
-        [
-          "Feature",
-          "Broad range extending through Canada and the USA"
-        ]
-      ],
-      "mountainPoints": [
-        [
           [
-            "تقع في غرب أمريكا الشمالية.",
-            "Located in Western North America."
+            "تمتد من غرب كندا جنوبًا إلى جنوب غرب الولايات المتحدة.",
+            "Extends from western Canada into the southwestern United States."
           ],
           [
-            "سلسلة واسعة من كندا إلى الولايات المتحدة",
-            "Broad range extending through Canada and the USA"
+            "تضم قممًا عالية مثل جبل إلبرت في كولورادو.",
+            "Includes high peaks such as Mount Elbert in Colorado."
           ]
         ],
         [
           [
-            "ارتفعت خلال مراحل من التشوه التكتوني",
-            "Uplifted through episodes of tectonic deformation"
+            "ارتفعت أجزاء واسعة خلال حركة بناء الجبال المعروفة بأوروجينية لاراميد.",
+            "Large sections rose during the Laramide orogeny."
           ],
           [
-            "تتغير الثلوج والغابات حسب الارتفاع وخط العرض",
-            "Snow and forests vary with elevation and latitude"
+            "يؤدي اختلاف الارتفاع والاتجاه إلى تفاوت الثلوج والأمطار.",
+            "Elevation and slope aspect create contrasts in snowfall and rainfall."
           ]
         ],
         [
           [
-            "تضم أودية جليدية وقممًا وعرة",
-            "Includes glacial valleys and rugged peaks"
+            "تضم أودية جليدية وبحيرات جبلية وغابات صنوبرية ومروجًا ألبية.",
+            "Contains glacial valleys, alpine lakes, conifer forests and alpine meadows."
           ],
           [
-            "تتغير الحياة النباتية والحيوانية بحسب الارتفاع والمناخ.",
-            "Plants and wildlife vary with elevation and climate."
+            "تعيش فيها حيوانات مثل الأيائل والماعز الجبلي والدببة في مناطق مختلفة.",
+            "Wildlife includes elk, mountain goats and bears in different areas."
           ]
         ],
         [
           [
-            "توضح تضاريسها أثر القوى الجيولوجية والتعرية.",
-            "Its landforms show the effects of geology and erosion."
+            "تشكل حاجزًا يؤثر في توزيع الأمطار وأحواض تصريف الأنهار.",
+            "Forms a barrier influencing rainfall and river drainage basins."
           ],
           [
-            "يمكن ملاحظة تغير المشهد من السفوح إلى القمم.",
-            "The landscape changes from foothills to summit."
+            "توضح الأودية على شكل U دور الأنهار الجليدية القديمة في النحت.",
+            "U-shaped valleys reveal past glacial erosion."
           ]
         ]
       ]
     },
     "Jomolhari": {
-      "ar": "يقع جبل جومولهاري في الهيمالايا على حدود بوتان والتبت، ويُعرف بقمته الحادة المغطاة بالثلوج. نشأ ضمن نطاق جبلي ارتفع بفعل تصادم الصفيحتين الهندية والأوراسية. تتغير النباتات من الغابات والوديان إلى المروج الألبية والثلوج مع الارتفاع، وتغذي الثلوج والأنهار الجليدية مجاري مائية في المنطقة.",
-      "en": "Jomolhari rises in the Himalayas on the Bhutan–Tibet border, with a striking snow-covered summit. The mountain belt formed through collision of the Indian and Eurasian plates. Vegetation shifts from valleys and forests to alpine meadows and snow with elevation, while snow and ice feed local streams.",
-      "factsAr": [
+      "ar": [
+        "جومولهاري قمة حادة في الهيمالايا على حدود بوتان والتبت، يبلغ ارتفاعها نحو 7,326 مترًا. تتميز بمنحدرات جليدية ومروج ألبية في الأودية المحيطة، ولها أهمية ثقافية وروحية محلية.",
+        "Jomolhari is a sharp Himalayan peak on the Bhutan–Tibet border, about 7,326 m high. Glaciated slopes, alpine valleys and local spiritual traditions distinguish it."
+      ],
+      "en": [
+        [
+          "الارتفاع",
+          "نحو 7,326 مترًا"
+        ],
         [
           "الموقع",
           "حدود بوتان والتبت"
+        ]
+      ],
+      "factsAr": [
+        [
+          "Elevation",
+          "About 7,326 m"
         ],
         [
-          "النوع",
-          "قمة في الهيمالايا"
+          "Location",
+          "Bhutan–Tibet border"
         ]
       ],
       "factsEn": [
         [
-          "Location",
-          "Bhutan–Tibet border"
-        ],
-        [
-          "Type",
-          "Himalayan peak"
-        ]
-      ],
-      "mountainPoints": [
-        [
           [
-            "تقع في حدود بوتان والتبت.",
-            "Located in Bhutan–Tibet border."
+            "تقع على الحدود بين بوتان ومنطقة التبت الصينية في الهيمالايا.",
+            "Lies on the Bhutan–Tibet (China) border in the Himalayas."
           ],
           [
-            "قمة في الهيمالايا",
-            "Himalayan peak"
+            "يبلغ ارتفاعها نحو 7,326 مترًا وتتميز بقمة هرمية بارزة.",
+            "Rises about 7,326 m with a prominent pyramidal summit."
           ]
         ],
         [
           [
-            "رفع تصادم الصفائح الجبال عبر ملايين السنين.",
-            "Plate collision uplifted the range over millions of years."
+            "نشأت ضمن الهيمالايا التي رفعها تصادم الصفيحتين الهندية والأوراسية.",
+            "Part of the Himalayas uplifted by collision of the Indian and Eurasian plates."
           ],
           [
-            "تنخفض الحرارة مع الارتفاع وتنتشر الثلوج قرب القمة.",
-            "Temperatures drop with elevation and snow covers the summit."
+            "تنخفض درجات الحرارة مع الارتفاع، وتبقى الثلوج والجليد في المرتفعات.",
+            "Temperatures decrease with elevation and snow and ice persist high up."
           ]
         ],
         [
           [
-            "تتدرج النباتات من الوديان إلى المروج الألبية.",
-            "Vegetation shifts from valleys to alpine meadows."
+            "تغذي الثلوج والأنهار الجليدية مجاري مائية في الوديان المحيطة.",
+            "Snow and glaciers feed streams in surrounding valleys."
           ],
           [
-            "تغذي الثلوج والجليد المجاري المائية المحيطة.",
-            "Snow and ice feed surrounding streams."
+            "تنتشر المروج الألبية في مناطق أقل ارتفاعًا أسفل الجروف الجليدية.",
+            "Alpine meadows occur at lower elevations beneath icy cliffs."
           ]
         ],
         [
           [
-            "توضح القمة الثلجية التباين بين السفوح والمرتفعات.",
-            "The snowy summit contrasts with lower slopes."
+            "للجبل مكانة روحية في تقاليد محلية ببوتان.",
+            "The mountain has spiritual significance in Bhutanese traditions."
           ],
           [
-            "يمثل الجبل جزءًا من التضاريس المرتفعة على حدود بوتان.",
-            "The mountain marks Bhutan's high Himalayan border."
+            "يوضح تدرج التضاريس الانتقال من الوديان النباتية إلى القمم الجليدية.",
+            "Its relief illustrates the transition from vegetated valleys to icy summits."
           ]
         ]
       ]
     },
     "Greater Caucasus": {
-      "ar": "تمتد سلسلة القوقاز الكبرى بين البحر الأسود وبحر قزوين، عبر جورجيا وروسيا وأذربيجان. تكونت تضاريسها من تقارب الصفائح العربية والأوراسية وما يرتبط به من رفع وتشوه. تتفاوت الأمطار بين المنحدرات والمناطق الداخلية، وتضم السلسلة قممًا عالية وأودية عميقة وأنهارًا جليدية، منها نطاق جبل إلبروس البركاني.",
-      "en": "The Greater Caucasus runs between the Black and Caspian seas through Georgia, Russia and Azerbaijan. Its relief reflects convergence involving the Arabian and Eurasian plates. Rainfall varies between slopes and inland areas, and the range includes high summits, deep valleys and glaciers, including the volcanic Mount Elbrus region.",
-      "factsAr": [
+      "ar": [
+        "جبال القوقاز الكبرى سلسلة تمتد بين البحر الأسود وبحر قزوين عبر روسيا وجورجيا وأذربيجان. نشأت بفعل تقارب الصفائح وتضم جبل إلبروس والأنهار الجليدية والوديان العميقة.",
+        "The Greater Caucasus extends between the Black and Caspian seas across Russia, Georgia and Azerbaijan. Plate convergence uplifted the range, which includes Mount Elbrus, glaciers and deep valleys."
+      ],
+      "en": [
         [
           "الموقع",
           "بين البحر الأسود وبحر قزوين"
         ],
         [
-          "النوع",
-          "سلسلة جبلية عابرة للحدود"
+          "أبرز قمة",
+          "إلبروس، نحو 5,642 مترًا"
+        ]
+      ],
+      "factsAr": [
+        [
+          "Location",
+          "Between Black and Caspian seas"
+        ],
+        [
+          "Notable summit",
+          "Elbrus, about 5,642 m"
         ]
       ],
       "factsEn": [
         [
-          "Location",
-          "Between the Black and Caspian seas"
-        ],
-        [
-          "Type",
-          "Transboundary mountain range"
-        ]
-      ],
-      "mountainPoints": [
-        [
           [
-            "تقع في بين البحر الأسود وبحر قزوين.",
-            "Located in Between the Black and Caspian seas."
+            "تمتد بين البحر الأسود وبحر قزوين عبر روسيا وجورجيا وأذربيجان.",
+            "Runs between the Black and Caspian seas across Russia, Georgia and Azerbaijan."
           ],
           [
-            "سلسلة جبلية عابرة للحدود",
-            "Transboundary mountain range"
+            "تضم جبل إلبروس، بارتفاع يقارب 5,642 مترًا.",
+            "Includes Mount Elbrus, about 5,642 m high."
           ]
         ],
         [
           [
-            "أسهم تقارب الصفائح في رفع السلسلة وتشوه صخورها.",
-            "Plate convergence uplifted and deformed the range."
+            "تكونت بفعل تقارب الصفيحتين العربية والأوراسية وتشوه القشرة الإقليمية.",
+            "Formed through convergence of the Arabian and Eurasian plates and regional crustal deformation."
           ],
           [
-            "تتباين الأمطار والثلوج حسب الارتفاع واتجاه المنحدر.",
-            "Rain and snow vary with elevation and slope exposure."
+            "تختلف الأمطار والثلوج باختلاف ارتفاع الجبال واتجاه المنحدرات.",
+            "Rainfall and snowfall vary with elevation and slope exposure."
           ]
         ],
         [
           [
-            "تضم قممًا مرتفعة وأودية عميقة وأنهارًا جليدية.",
-            "It contains high peaks, deep valleys and glaciers."
+            "تضم قممًا ثلجية وأنهارًا جليدية وأودية شديدة الانحدار.",
+            "Contains snow-covered peaks, glaciers and steep valleys."
           ],
           [
-            "تتنوع الغابات والمروج الجبلية عبر الارتفاعات.",
-            "Forests and mountain meadows vary with elevation."
+            "تتدرج الموائل من غابات جبلية إلى مروج ألبية وصخور مرتفعة.",
+            "Habitats range from mountain forests to alpine meadows and high rock."
           ]
         ],
         [
           [
-            "يبرز جبل إلبروس ضمن قمم القوقاز الكبرى.",
-            "Mount Elbrus stands among the range's prominent summits."
+            "تشكّل حاجزًا جغرافيًا ومناخيًا مهمًا في المنطقة.",
+            "Forms a major geographic and climatic barrier."
           ],
           [
-            "توضح الأودية الجليدية أثر الجليد والتعرية.",
-            "Glacial valleys show the effects of ice and erosion."
+            "تكشف الأودية الجليدية عن دور الجليد في نحت التضاريس.",
+            "Glacial valleys reveal the role of ice in sculpting terrain."
           ]
         ]
       ]
     },
     "Simien Mountains": {
-      "ar": "تقع جبال سيمين في المرتفعات الإثيوبية شمال البلاد. تشكلت من طبقات بركانية قديمة نحتتها الأنهار والتعرية إلى حافات شديدة الانحدار وأودية عميقة. يسود مناخ جبلي أبرد من المناطق المنخفضة، وتضم المروج والمرتفعات موائل لحيوانات متوطنة مثل قرد الجيلادا والوعل الواليا.",
-      "en": "The Simien Mountains lie in Ethiopia's northern highlands. Ancient volcanic layers were carved by rivers and erosion into steep escarpments and deep valleys. The highland climate is cooler than surrounding lowlands, and alpine grasslands support distinctive wildlife such as geladas and the Walia ibex.",
-      "factsAr": [
+      "ar": [
+        "جبال سيمين مرتفعات بركانية قديمة في شمال إثيوبيا، نحتتها التعرية إلى حافات صخرية وأودية عميقة. تضم موائل عالية الارتفاع لحيوانات متوطنة مثل الوعل الواليا والجيلادا.",
+        "The Simien Mountains are ancient volcanic highlands in northern Ethiopia, deeply eroded into escarpments and valleys. Their high habitats shelter endemic wildlife such as the Walia ibex and gelada."
+      ],
+      "en": [
         [
           "الموقع",
           "شمال إثيوبيا"
@@ -5414,7 +5436,7 @@
           "مرتفعات بركانية متآكلة"
         ]
       ],
-      "factsEn": [
+      "factsAr": [
         [
           "Location",
           "Northern Ethiopia"
@@ -5424,111 +5446,113 @@
           "Eroded volcanic highlands"
         ]
       ],
-      "mountainPoints": [
+      "factsEn": [
         [
           [
-            "تقع في شمال إثيوبيا.",
-            "Located in Northern Ethiopia."
+            "تقع في شمال إثيوبيا ضمن المرتفعات الإثيوبية.",
+            "Lies in northern Ethiopia within the Ethiopian Highlands."
           ],
           [
-            "مرتفعات بركانية متآكلة",
-            "Eroded volcanic highlands"
+            "تضم قمة رأس داشن التي يبلغ ارتفاعها نحو 4,550 مترًا.",
+            "Includes Ras Dashen, about 4,550 m high."
           ]
         ],
         [
           [
-            "تراكمت طبقات بركانية قديمة ثم نحتتها التعرية.",
-            "Ancient volcanic layers were later sculpted by erosion."
+            "تراكمت تدفقات بركانية قديمة ثم نحتتها الأنهار والتعرية.",
+            "Ancient lava flows accumulated before rivers and erosion carved them."
           ],
           [
-            "تتميز المرتفعات بمناخ أبرد من السهول المجاورة.",
-            "Highlands are cooler than nearby lowlands."
+            "المرتفعات أبرد من السهول المحيطة، وتتفاوت الأمطار موسميًا.",
+            "The highlands are cooler than surrounding lowlands, with seasonal rainfall."
           ]
         ],
         [
           [
-            "تنتشر حافات صخرية وأودية عميقة ومروج مرتفعة.",
-            "Steep escarpments, deep valleys and high meadows occur."
+            "تتميز بحافات شاهقة وأودية عميقة ومروج جبلية مرتفعة.",
+            "Features towering escarpments, deep valleys and high mountain grasslands."
           ],
           [
-            "تعيش فيها حيوانات مثل الجيلادا والوعل الواليا.",
-            "Wildlife includes geladas and the Walia ibex."
+            "تعيش فيها أنواع مميزة مثل الوعل الواليا والجيلادا والذئب الإثيوبي.",
+            "Notable wildlife includes Walia ibex, geladas and Ethiopian wolves."
           ]
         ],
         [
           [
-            "توضح الحافات الصخرية أثر تعرية الصخور البركانية.",
-            "Rocky escarpments reveal erosion of volcanic layers."
+            "متنزه جبال سيمين الوطني مُدرج على قائمة التراث العالمي لليونسكو.",
+            "Simien Mountains National Park is a UNESCO World Heritage Site."
           ],
           [
-            "تتغير الموائل بوضوح بين الأودية والقمم.",
-            "Habitats differ sharply between valleys and summits."
+            "توضح الحافات الصخرية أثر التعرية الطويلة في الهضاب البركانية.",
+            "Escarpments show how long erosion reshapes volcanic plateaus."
           ]
         ]
       ]
     },
     "Southern Alps (New Zealand)": {
-      "ar": "تمتد جبال الألب الجنوبية على طول الجزيرة الجنوبية في نيوزيلندا، وتضم جبل أوراكي/كوك وأودية جليدية واسعة. ترتفع السلسلة بفعل الحركة النسبية للصفيحتين الأسترالية والهادئة على امتداد الصدع الألبي. تعترض الجبال الرياح الرطبة الغربية فتزداد الأمطار غربًا، بينما تكون المناطق الشرقية أكثر جفافًا نسبيًا.",
-      "en": "New Zealand's Southern Alps stretch along the South Island and include Aoraki/Mount Cook and major glacial valleys. Uplift is linked to movement between the Australian and Pacific plates along the Alpine Fault. The mountains intercept moist westerlies, bringing heavy rain to the west and a comparatively drier east.",
-      "factsAr": [
+      "ar": [
+        "جبال الألب الجنوبية سلسلة مرتفعة تمتد على الجزيرة الجنوبية بنيوزيلندا، وتضم أوراكي/جبل كوك. يرتبط ارتفاعها بالصدع الألبي، وتظهر فيها فروق واضحة بين الغرب الرطب والشرق الواقع في ظل المطر.",
+        "New Zealand's Southern Alps run along the South Island and include Aoraki/Mount Cook. Uplift along the Alpine Fault creates sharp contrasts between the wet west and rain-shadowed east."
+      ],
+      "en": [
         [
           "الموقع",
           "الجزيرة الجنوبية، نيوزيلندا"
         ],
         [
           "النوع",
-          "سلسلة جبلية مرتفعة"
+          "سلسلة جبلية تكتونية"
         ]
       ],
-      "factsEn": [
+      "factsAr": [
         [
           "Location",
           "South Island, New Zealand"
         ],
         [
           "Type",
-          "High mountain range"
+          "Tectonically uplifted range"
         ]
       ],
-      "mountainPoints": [
+      "factsEn": [
         [
           [
-            "تقع في الجزيرة الجنوبية، نيوزيلندا.",
-            "Located in South Island, New Zealand."
+            "تمتد على طول الجزيرة الجنوبية في نيوزيلندا.",
+            "Runs along New Zealand's South Island."
           ],
           [
-            "سلسلة جبلية مرتفعة",
-            "High mountain range"
+            "تضم أوراكي/جبل كوك، أعلى قمة في نيوزيلندا.",
+            "Includes Aoraki/Mount Cook, New Zealand's highest summit."
           ]
         ],
         [
           [
-            "يرتبط ارتفاعها بحركة الصفائح على الصدع الألبي.",
+            "يرتبط ارتفاعها بحركة الصفائح على طول الصدع الألبي.",
             "Uplift is linked to plate movement along the Alpine Fault."
           ],
           [
-            "الأمطار غزيرة غربًا والشرق أكثر جفافًا نسبيًا.",
-            "The west is very wet while the east is relatively drier."
+            "تتلقى المنحدرات الغربية أمطارًا غزيرة بينما يكون الشرق أكثر جفافًا نسبيًا.",
+            "Western slopes receive heavy rain, while the east is relatively drier."
           ]
         ],
         [
           [
-            "تضم أنهارًا جليدية ووديانًا وقممًا وعرة.",
-            "It contains glaciers, valleys and rugged summits."
+            "تضم أنهارًا جليدية مثل تاسمان وفوكس وفرانز جوزيف.",
+            "Contains glaciers such as Tasman, Fox and Franz Josef."
           ],
           [
-            "تختلف النباتات من الغابات الرطبة إلى البيئات الألبية.",
-            "Vegetation ranges from wet forests to alpine habitats."
+            "تتنوع الموائل بين غابات رطبة ومروج ألبية وحقول جليدية.",
+            "Habitats range from wet forests to alpine meadows and icefields."
           ]
         ],
         [
           [
-            "يُعد أوراكي/جبل كوك من أبرز قمم السلسلة.",
-            "Aoraki/Mount Cook is a prominent summit."
+            "تُظهر الأودية الجليدية تأثير الجليد في نحت الجبال.",
+            "Glacial valleys reveal how ice sculpts mountains."
           ],
           [
-            "تكشف الأودية الجليدية أثر الجليد في تشكيل التضاريس.",
-            "Glacial valleys show how ice reshapes terrain."
+            "تؤدي حركة الصدع الألبي إلى مخاطر زلزالية مهمة في المنطقة.",
+            "Movement along the Alpine Fault creates significant earthquake hazards."
           ]
         ]
       ]
