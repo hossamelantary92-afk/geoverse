@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-14",
+  "section": "Astronomical Geography",
+  "status": "content-complete; independent science and visual QA outstanding",
+  "inventory": {
+    "coreLessons": 14,
+    "additionalLessons": 24,
+    "totalLessons": 38,
+    "scienceFactStatements": 114,
+    "depthTopics": 15,
+    "duplicateLessonIds": 0,
+    "lessonsMissingBilingualFacts": 0,
+    "coreLessonsWithImageSource": 14,
+    "additionalLessonsWithSource": 24
+  },
+  "verifiedFiles": [
+    "astronomy-v231.js",
+    "astronomy-chapters-v239.js",
+    "astronomy-depth-v242.js",
+    "astronomy-fact-explanations-v277.js"
+  ],
+  "notes": [
+    "Inventory and structural checks only; external links, individual scientific statements and image rendering were not independently validated in this pass.",
+    "Previously authored lessons and scientific edits remain unchanged.",
+    "The section can be considered content-complete without claiming end-to-end scientific or mobile QA."
+  ],
+  "remainingQA": [
+    "Independent claim-level scientific verification",
+    "Source link and image integrity checks",
+    "Arabic text and illustration clarity",
+    "iPhone Safari rendering and navigation"
+  ]
+}
