@@ -7848,6 +7848,495 @@
           ]
         ]
       ]
+    },
+    "Seine": {
+      "ar": "نهر السين من أبرز أنهار شمال فرنسا؛ ينبع من هضبة لانغر ويتجه شمال غرب عبر باريس إلى مصب واسع في القنال الإنجليزي قرب لوهافر. شكّل مجراه محورًا للملاحة والتجارة والتوسع العمراني، بينما تحتاج جودة المياه والفيضانات إلى إدارة مستمرة.",
+      "en": "The Seine is a major river of northern France, rising on the Langres Plateau and flowing northwest through Paris to an estuary on the English Channel near Le Havre. It shaped trade, navigation and urban growth, while water quality and floods require ongoing management.",
+      "factsAr": [
+        [
+          "الموقع",
+          "شمال فرنسا"
+        ],
+        [
+          "المصب",
+          "القنال الإنجليزي قرب لوهافر"
+        ]
+      ],
+      "factsEn": [
+        [
+          "Location",
+          "Northern France"
+        ],
+        [
+          "Mouth",
+          "English Channel near Le Havre"
+        ]
+      ],
+      "riverGeo": {
+        "sourceAr": "هضبة لانغر شرق فرنسا",
+        "sourceEn": "Langres Plateau, eastern France",
+        "mouthAr": "القنال الإنجليزي قرب لوهافر",
+        "mouthEn": "English Channel near Le Havre",
+        "countriesLabelAr": "الدولة التي يمر بها",
+        "countriesAr": "فرنسا",
+        "countriesEn": "France"
+      },
+      "riverPoints": [
+        [
+          [
+            "ينبع من هضبة لانغر ويعبر باريس.",
+            "Rises on the Langres Plateau and passes through Paris."
+          ],
+          [
+            "يصب في القنال الإنجليزي قرب لوهافر.",
+            "Enters the English Channel near Le Havre."
+          ]
+        ],
+        [
+          [
+            "يتميز بتعرجات نهرية واسعة في حوض منخفض.",
+            "Features broad meanders in a lowland basin."
+          ],
+          [
+            "يتأثر منسوبه بالأمطار وروافد مثل المارن.",
+            "Its levels respond to rainfall and tributaries such as the Marne."
+          ]
+        ],
+        [
+          [
+            "تضم ضفافه جزرًا نهرية ومناطق رطبة.",
+            "Its banks include river islands and wetlands."
+          ],
+          [
+            "تؤثر المنشآت العمرانية في حركة المياه والموائل.",
+            "Urban infrastructure influences flow and habitats."
+          ]
+        ],
+        [
+          [
+            "يمثل ممرًا للنقل والتجارة في شمال فرنسا.",
+            "A transport and trade corridor in northern France."
+          ],
+          [
+            "تُعد جودة المياه والفيضانات من تحديات إدارته.",
+            "Water quality and flooding are management challenges."
+          ]
+        ]
+      ]
+    },
+    "Thames": {
+      "ar": "نهر التايمز يجري عبر جنوب إنجلترا مرورًا بأكسفورد ولندن إلى مصب مدّي في بحر الشمال. يتأثر الجزء السفلي بالمد والجزر، وقد أسهم في نمو العاصمة البريطانية وموانئها. تساعد الحواجز والإنذار المبكر في الحد من أخطار الفيضانات.",
+      "en": "The Thames flows through southern England past Oxford and London to a tidal estuary in the North Sea. Tides affect its lower reaches, and the river helped shape London's growth and ports. Flood barriers and warnings help reduce flood risks.",
+      "factsAr": [
+        [
+          "الموقع",
+          "جنوب إنجلترا"
+        ],
+        [
+          "المصب",
+          "مصب مدّي في بحر الشمال"
+        ]
+      ],
+      "factsEn": [
+        [
+          "Location",
+          "Southern England"
+        ],
+        [
+          "Mouth",
+          "Tidal estuary in the North Sea"
+        ]
+      ],
+      "riverGeo": {
+        "sourceAr": "تلال كوتسوولد بجنوب إنجلترا",
+        "sourceEn": "Cotswold Hills, southern England",
+        "mouthAr": "مصب التايمز في بحر الشمال",
+        "mouthEn": "Thames Estuary, North Sea",
+        "countriesLabelAr": "الدولة التي يمر بها",
+        "countriesAr": "المملكة المتحدة (إنجلترا)",
+        "countriesEn": "United Kingdom (England)"
+      },
+      "riverPoints": [
+        [
+          [
+            "يجري عبر أكسفورد ولندن في جنوب إنجلترا.",
+            "Flows past Oxford and London in southern England."
+          ],
+          [
+            "يصل إلى بحر الشمال عبر مصب مدّي واسع.",
+            "Reaches the North Sea through a broad tidal estuary."
+          ]
+        ],
+        [
+          [
+            "تؤثر حركة المد والجزر في الجزء السفلي من النهر.",
+            "Tides influence the lower river."
+          ],
+          [
+            "تزداد مخاطر الفيضانات مع العواصف وارتفاع المياه.",
+            "Storm surges and high water increase flood risk."
+          ]
+        ],
+        [
+          [
+            "تعيش أسماك وطيور مائية في النهر ومصبه.",
+            "Fish and waterbirds inhabit the river and estuary."
+          ],
+          [
+            "تختلف الملوحة تدريجيًا باتجاه المصب.",
+            "Salinity increases toward the estuary."
+          ]
+        ],
+        [
+          [
+            "كان محورًا تاريخيًا لتجارة لندن ونقل البضائع.",
+            "Historically central to London's trade and freight."
+          ],
+          [
+            "يساعد حاجز التايمز في حماية لندن من فيضانات المد.",
+            "The Thames Barrier helps protect London from tidal flooding."
+          ]
+        ]
+      ]
+    },
+    "Dnieper River": {
+      "ar": "نهر الدنيبر من الأنهار الكبرى في شرق أوروبا؛ ينبع من مرتفعات فالداي في روسيا ويمر ببيلاروسيا وأوكرانيا حتى البحر الأسود. تضم مجاريه خزانات وسدودًا تؤثر في التدفق والبيئة، ويُعد موردًا مهمًا للمياه والطاقة والنقل، وقد تضررت بنيته المائية خلال الحرب.",
+      "en": "The Dnieper is a major Eastern European river rising in Russia's Valdai Hills and flowing through Belarus and Ukraine to the Black Sea. Reservoirs and dams influence its flow and ecology; it supports water supply, power and transport, while war has damaged water infrastructure.",
+      "factsAr": [
+        [
+          "الدول",
+          "روسيا وبيلاروسيا وأوكرانيا"
+        ],
+        [
+          "المصب",
+          "البحر الأسود"
+        ]
+      ],
+      "factsEn": [
+        [
+          "Countries",
+          "Russia, Belarus and Ukraine"
+        ],
+        [
+          "Mouth",
+          "Black Sea"
+        ]
+      ],
+      "riverGeo": {
+        "sourceAr": "مرتفعات فالداي في روسيا",
+        "sourceEn": "Valdai Hills, Russia",
+        "mouthAr": "البحر الأسود في جنوب أوكرانيا",
+        "mouthEn": "Black Sea in southern Ukraine",
+        "countriesLabelAr": "الدول التي يمر بها",
+        "countriesAr": "روسيا وبيلاروسيا وأوكرانيا",
+        "countriesEn": "Russia, Belarus and Ukraine"
+      },
+      "riverPoints": [
+        [
+          [
+            "ينبع من مرتفعات فالداي ويتجه جنوبًا.",
+            "Rises in the Valdai Hills and flows south."
+          ],
+          [
+            "يعبر روسيا وبيلاروسيا وأوكرانيا إلى البحر الأسود.",
+            "Crosses Russia, Belarus and Ukraine to the Black Sea."
+          ]
+        ],
+        [
+          [
+            "تؤثر السدود والخزانات في التدفق والرواسب.",
+            "Dams and reservoirs alter flow and sediment."
+          ],
+          [
+            "تتغير مناسيب المياه مع الأمطار وذوبان الثلوج.",
+            "Levels vary with rainfall and snowmelt."
+          ]
+        ],
+        [
+          [
+            "توجد موائل نهرية وأراضٍ رطبة على امتداد الحوض.",
+            "River habitats and wetlands occur across the basin."
+          ],
+          [
+            "أدت تغيرات البنية المائية إلى ضغوط بيئية كبيرة.",
+            "Changes to water infrastructure have created ecological pressures."
+          ]
+        ],
+        [
+          [
+            "يوفر المياه والطاقة وطرق النقل.",
+            "Supplies water, energy and transport routes."
+          ],
+          [
+            "أثرت الحرب في سلامة منشآت مائية داخل الحوض.",
+            "War has affected water infrastructure within the basin."
+          ]
+        ]
+      ]
+    },
+    "Tugela Falls": {
+      "ar": "شلالات توجيلا في جبال دراكنزبرغ بجنوب أفريقيا، وتهبط على مراحل متتابعة من جرف أمفيثياتر في متنزه رويال ناتال. يبلغ مجموع ارتفاع مساقطها نحو 948 مترًا وفق قياسات متداولة، لكن ترتيبها بين أعلى الشلالات يختلف باختلاف طريقة القياس. يتفاوت تدفقها موسميًا.",
+      "en": "Tugela Falls descends in several tiers from the Amphitheatre escarpment in South Africa's Drakensberg, within Royal Natal National Park. Its commonly cited combined drop is about 948 m, though rankings depend on measurement methods. Flow varies seasonally.",
+      "factsAr": [
+        [
+          "الموقع",
+          "جبال دراكنزبرغ، جنوب أفريقيا"
+        ],
+        [
+          "الارتفاع الإجمالي المتداول",
+          "نحو 948 مترًا عبر عدة مساقط"
+        ]
+      ],
+      "factsEn": [
+        [
+          "Location",
+          "Drakensberg, South Africa"
+        ],
+        [
+          "Commonly cited total drop",
+          "About 948 m across several tiers"
+        ]
+      ],
+      "waterfallPoints": [
+        [
+          [
+            "تقع في متنزه رويال ناتال بجنوب أفريقيا.",
+            "Located in South Africa's Royal Natal National Park."
+          ],
+          [
+            "تنحدر من جرف أمفيثياتر بجبال دراكنزبرغ.",
+            "Descends from the Drakensberg Amphitheatre escarpment."
+          ]
+        ],
+        [
+          [
+            "تتكون من مساقط متعددة متتابعة.",
+            "Consists of multiple successive drops."
+          ],
+          [
+            "تزداد غزارة المياه بعد الأمطار.",
+            "Flow increases after rainfall."
+          ]
+        ],
+        [
+          [
+            "تحيط بها مراعي جبلية ووديان صخرية.",
+            "Mountain grasslands and rocky valleys surround it."
+          ],
+          [
+            "تؤثر التعرية في تطور الجروف والمنحدرات.",
+            "Erosion shapes the escarpments and slopes."
+          ]
+        ],
+        [
+          [
+            "يُذكر لها ارتفاع إجمالي يقارب 948 مترًا.",
+            "A combined drop near 948 m is commonly cited."
+          ],
+          [
+            "تختلف المقارنات العالمية بحسب منهجية القياس.",
+            "Global rankings vary with measurement methods."
+          ]
+        ]
+      ]
+    },
+    "Kaieteur Falls": {
+      "ar": "شلال كاييتور على نهر بوتارو في غيانا، داخل متنزه كاييتور الوطني. يتميز بمسقط رئيسي واحد يبلغ نحو 226 مترًا فوق حافة صخرية من الحجر الرملي، وتحيط به غابات مطيرة ضمن مرتفعات غيانا. تتغير غزارته مع الأمطار الاستوائية.",
+      "en": "Kaieteur Falls lies on Guyana's Potaro River in Kaieteur National Park. Its principal single plunge is about 226 m over a sandstone escarpment, surrounded by rainforest in the Guiana Highlands. Flow varies with tropical rainfall.",
+      "factsAr": [
+        [
+          "الموقع",
+          "غيانا، نهر بوتارو"
+        ],
+        [
+          "المسقط الرئيسي",
+          "نحو 226 مترًا"
+        ]
+      ],
+      "factsEn": [
+        [
+          "Location",
+          "Guyana, Potaro River"
+        ],
+        [
+          "Main plunge",
+          "About 226 m"
+        ]
+      ],
+      "waterfallPoints": [
+        [
+          [
+            "يقع على نهر بوتارو وسط غابات غيانا.",
+            "Lies on the Potaro River amid Guyana's rainforest."
+          ],
+          [
+            "يحميه متنزه كاييتور الوطني.",
+            "Protected within Kaieteur National Park."
+          ]
+        ],
+        [
+          [
+            "يهبط مسقطه الرئيسي نحو 226 مترًا.",
+            "Its main plunge drops about 226 m."
+          ],
+          [
+            "تتحكم الأمطار الاستوائية في تغير التدفق.",
+            "Tropical rainfall influences flow."
+          ]
+        ],
+        [
+          [
+            "تنتشر غابات مطيرة وموائل صخرية حول الحافة.",
+            "Rainforest and rocky habitats surround the rim."
+          ],
+          [
+            "تعيش أنواع نباتية وحيوانية متخصصة قرب الشلال.",
+            "Specialized plants and animals inhabit the vicinity."
+          ]
+        ],
+        [
+          [
+            "يتميز بمسقط منفرد شديد الارتفاع.",
+            "Notable for its unusually tall single plunge."
+          ],
+          [
+            "يوضح دور الأنهار في نحت مرتفعات الحجر الرملي.",
+            "Illustrates river erosion of sandstone highlands."
+          ]
+        ]
+      ]
+    },
+    "Gocta Falls": {
+      "ar": "شلال جوجتا في منطقة أمازوناس شمال بيرو، ويتكون من مسقطين رئيسيين على منحدرات مكسوة بالغابات السحابية. يبلغ ارتفاعه الإجمالي المعلن نحو 771 مترًا، مع اختلافات في بعض القياسات. تتأثر غزارته بالأمطار وتحيط به بيئات جبلية رطبة.",
+      "en": "Gocta Falls in northern Peru's Amazonas region has two main drops descending through cloud-forest slopes. Its widely reported total height is about 771 m, though measurements vary. Rainfall influences its flow and the surrounding humid mountain habitats.",
+      "factsAr": [
+        [
+          "الموقع",
+          "أمازوناس، شمال بيرو"
+        ],
+        [
+          "الارتفاع الإجمالي المتداول",
+          "نحو 771 مترًا"
+        ]
+      ],
+      "factsEn": [
+        [
+          "Location",
+          "Amazonas, northern Peru"
+        ],
+        [
+          "Commonly cited total height",
+          "About 771 m"
+        ]
+      ],
+      "waterfallPoints": [
+        [
+          [
+            "يقع قرب كوكاتشيمبا في منطقة أمازوناس ببيرو.",
+            "Located near Cocachimba in Peru's Amazonas region."
+          ],
+          [
+            "يتكون من مسقطين رئيسيين متتابعين.",
+            "Consists of two principal successive drops."
+          ]
+        ],
+        [
+          [
+            "يُذكر له ارتفاع إجمالي يقارب 771 مترًا.",
+            "A total height around 771 m is widely cited."
+          ],
+          [
+            "تتغير غزارته بحسب الأمطار المحلية.",
+            "Its flow varies with local rainfall."
+          ]
+        ],
+        [
+          [
+            "تحيط به غابات سحابية جبلية رطبة.",
+            "Humid montane cloud forests surround it."
+          ],
+          [
+            "تدعم الغابات موائل متنوعة للطيور والنباتات.",
+            "The forests support diverse birds and plants."
+          ]
+        ],
+        [
+          [
+            "أصبح وجهة طبيعية معروفة في شمال بيرو.",
+            "It has become a notable natural destination in northern Peru."
+          ],
+          [
+            "تحتاج مقارنة ارتفاعه بالشلالات الأخرى إلى توحيد القياسات.",
+            "Comparing its height with other falls requires consistent measurement."
+          ]
+        ]
+      ]
+    },
+    "Detian Falls": {
+      "ar": "شلالات دتيان–بان جيوك تقع على نهر كواي سون بين الصين وفيتنام. تنقسم المياه إلى عدة مصاطب ومساقط وسط تضاريس كارستية من الحجر الجيري، وتزداد غزارتها في موسم الأمطار. يمثل الموقع معلمًا طبيعيًا مشتركًا على الحدود.",
+      "en": "Detian–Ban Gioc Falls lies on the Quây Sơn River along the China–Vietnam border. Water cascades over several limestone terraces amid karst scenery, with stronger flow during the rainy season. It is a shared cross-border natural landmark.",
+      "factsAr": [
+        [
+          "الموقع",
+          "الحدود الصينية الفيتنامية"
+        ],
+        [
+          "النهر",
+          "كواي سون"
+        ]
+      ],
+      "factsEn": [
+        [
+          "Location",
+          "China–Vietnam border"
+        ],
+        [
+          "River",
+          "Quây Sơn"
+        ]
+      ],
+      "waterfallPoints": [
+        [
+          [
+            "تقع على الحدود بين الصين وفيتنام.",
+            "Lies on the China–Vietnam border."
+          ],
+          [
+            "تتدفق على نهر كواي سون.",
+            "Flows along the Quây Sơn River."
+          ]
+        ],
+        [
+          [
+            "تتوزع المياه على مصاطب ومساقط متدرجة.",
+            "Water spreads across stepped terraces and cascades."
+          ],
+          [
+            "يزداد التدفق عادة خلال موسم الأمطار.",
+            "Flow is generally stronger in the rainy season."
+          ]
+        ],
+        [
+          [
+            "تحيط بها تلال كارستية من الحجر الجيري.",
+            "Limestone karst hills surround the falls."
+          ],
+          [
+            "تتجاور الأنهار والزراعة والنباتات المدارية.",
+            "River habitats, farms and tropical vegetation coexist nearby."
+          ]
+        ],
+        [
+          [
+            "تمثل معلمًا طبيعيًا مشتركًا بين دولتين.",
+            "A shared natural landmark between two countries."
+          ],
+          [
+            "توضح دور المياه في تشكيل تضاريس الكارست.",
+            "Illustrates how water shapes karst landscapes."
+          ]
+        ]
+      ]
     }
   }
 }
