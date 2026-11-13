@@ -1,0 +1,763 @@
+{
+  "date": "2026-11-14",
+  "batch": 1,
+  "range": "1–100",
+  "total": 100,
+  "sourceOrder": "tourism-deep-enrichment-v597.js",
+  "status": "100 profiles structurally screened; independent fact-by-fact verification not complete",
+  "checks": [
+    "Arabic fields populated",
+    "English matching profile and fields populated",
+    "Source URL syntax",
+    "Exact duplicate text in key fields",
+    "Homepage-only source heuristic"
+  ],
+  "results": {
+    "screened": 100,
+    "flagged": 11,
+    "flagCounts": {
+      "homepage_only_source": 11
+    }
+  },
+  "flagged": [
+    {
+      "index": 15,
+      "code": "EG",
+      "name": "Citadel of Qaitbay",
+      "source": "https://egymonuments.gov.eg/",
+      "flags": [
+        "homepage_only_source"
+      ],
+      "reviewStatus": "automated_structure_and_cross_language_presence_only"
+    },
+    {
+      "index": 25,
+      "code": "SA",
+      "name": "Masmak Fortress",
+      "source": "https://www.visitsaudi.com/",
+      "flags": [
+        "homepage_only_source"
+      ],
+      "reviewStatus": "automated_structure_and_cross_language_presence_only"
+    },
+    {
+      "index": 28,
+      "code": "SA",
+      "name": "Asir National Park",
+      "source": "https://www.visitsaudi.com/",
+      "flags": [
+        "homepage_only_source"
+      ],
+      "reviewStatus": "automated_structure_and_cross_language_presence_only"
+    },
+    {
+      "index": 54,
+      "code": "IN",
+      "name": "Golden Temple",
+      "source": "https://www.sgpc.net/",
+      "flags": [
+        "homepage_only_source"
+      ],
+      "reviewStatus": "automated_structure_and_cross_language_presence_only"
+    },
+    {
+      "index": 59,
+      "code": "AE",
+      "name": "Al Fahidi Historical Neighbourhood",
+      "source": "https://www.visitdubai.com/",
+      "flags": [
+        "homepage_only_source"
+      ],
+      "reviewStatus": "automated_structure_and_cross_language_presence_only"
+    },
+    {
+      "index": 61,
+      "code": "TH",
+      "name": "Wat Phra That Doi Suthep",
+      "source": "https://www.tourismthailand.org/",
+      "flags": [
+        "homepage_only_source"
+      ],
+      "reviewStatus": "automated_structure_and_cross_language_presence_only"
+    },
+    {
+      "index": 63,
+      "code": "TH",
+      "name": "Railay Beach",
+      "source": "https://www.tourismthailand.org/",
+      "flags": [
+        "homepage_only_source"
+      ],
+      "reviewStatus": "automated_structure_and_cross_language_presence_only"
+    },
+    {
+      "index": 73,
+      "code": "VN",
+      "name": "Marble Mountains (Vietnam)",
+      "source": "https://vietnam.travel/",
+      "flags": [
+        "homepage_only_source"
+      ],
+      "reviewStatus": "automated_structure_and_cross_language_presence_only"
+    },
+    {
+      "index": 77,
+      "code": "EG",
+      "name": "Egyptian Museum",
+      "source": "https://egymonuments.gov.eg/",
+      "flags": [
+        "homepage_only_source"
+      ],
+      "reviewStatus": "automated_structure_and_cross_language_presence_only"
+    },
+    {
+      "index": 79,
+      "code": "EG",
+      "name": "Hanging Church",
+      "source": "https://egymonuments.gov.eg/",
+      "flags": [
+        "homepage_only_source"
+      ],
+      "reviewStatus": "automated_structure_and_cross_language_presence_only"
+    },
+    {
+      "index": 82,
+      "code": "EG",
+      "name": "Wadi El Rayan",
+      "source": "https://www.eeaa.gov.eg/",
+      "flags": [
+        "homepage_only_source"
+      ],
+      "reviewStatus": "automated_structure_and_cross_language_presence_only"
+    }
+  ],
+  "reviewed": [
+    {
+      "index": 1,
+      "code": "EG",
+      "name": "Pyramids of Giza",
+      "flags": []
+    },
+    {
+      "index": 2,
+      "code": "FR",
+      "name": "Eiffel Tower",
+      "flags": []
+    },
+    {
+      "index": 3,
+      "code": "IT",
+      "name": "Colosseum",
+      "flags": []
+    },
+    {
+      "index": 4,
+      "code": "SA",
+      "name": "Hegra",
+      "flags": []
+    },
+    {
+      "index": 5,
+      "code": "TR",
+      "name": "Hagia Sophia",
+      "flags": []
+    },
+    {
+      "index": 6,
+      "code": "ES",
+      "name": "Alhambra",
+      "flags": []
+    },
+    {
+      "index": 7,
+      "code": "GB",
+      "name": "Stonehenge",
+      "flags": []
+    },
+    {
+      "index": 8,
+      "code": "US",
+      "name": "Grand Canyon",
+      "flags": []
+    },
+    {
+      "index": 9,
+      "code": "CN",
+      "name": "Great Wall at Badaling",
+      "flags": []
+    },
+    {
+      "index": 10,
+      "code": "IN",
+      "name": "Taj Mahal",
+      "flags": []
+    },
+    {
+      "index": 11,
+      "code": "JP",
+      "name": "Fushimi Inari Shrine",
+      "flags": []
+    },
+    {
+      "index": 12,
+      "code": "AE",
+      "name": "Burj Khalifa",
+      "flags": []
+    },
+    {
+      "index": 13,
+      "code": "EG",
+      "name": "Cairo Citadel",
+      "flags": []
+    },
+    {
+      "index": 14,
+      "code": "EG",
+      "name": "Khan el-Khalili",
+      "flags": []
+    },
+    {
+      "index": 15,
+      "code": "EG",
+      "name": "Citadel of Qaitbay",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 16,
+      "code": "EG",
+      "name": "Valley of the Kings",
+      "flags": []
+    },
+    {
+      "index": 17,
+      "code": "FR",
+      "name": "Notre-Dame de Paris",
+      "flags": []
+    },
+    {
+      "index": 18,
+      "code": "FR",
+      "name": "Arc de Triomphe",
+      "flags": []
+    },
+    {
+      "index": 19,
+      "code": "FR",
+      "name": "Château de Chambord",
+      "flags": []
+    },
+    {
+      "index": 20,
+      "code": "FR",
+      "name": "Verdon Gorge",
+      "flags": []
+    },
+    {
+      "index": 21,
+      "code": "IT",
+      "name": "Roman Forum",
+      "flags": []
+    },
+    {
+      "index": 22,
+      "code": "IT",
+      "name": "Pantheon, Rome",
+      "flags": []
+    },
+    {
+      "index": 23,
+      "code": "IT",
+      "name": "Piazza San Marco",
+      "flags": []
+    },
+    {
+      "index": 24,
+      "code": "IT",
+      "name": "Florence Cathedral",
+      "flags": []
+    },
+    {
+      "index": 25,
+      "code": "SA",
+      "name": "Masmak Fortress",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 26,
+      "code": "SA",
+      "name": "Elephant Rock (AlUla)",
+      "flags": []
+    },
+    {
+      "index": 27,
+      "code": "SA",
+      "name": "Al-Balad, Jeddah",
+      "flags": []
+    },
+    {
+      "index": 28,
+      "code": "SA",
+      "name": "Asir National Park",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 29,
+      "code": "TR",
+      "name": "Galata Tower",
+      "flags": []
+    },
+    {
+      "index": 30,
+      "code": "TR",
+      "name": "Basilica Cistern",
+      "flags": []
+    },
+    {
+      "index": 31,
+      "code": "TR",
+      "name": "Pamukkale",
+      "flags": []
+    },
+    {
+      "index": 32,
+      "code": "TR",
+      "name": "Ephesus",
+      "flags": []
+    },
+    {
+      "index": 33,
+      "code": "JP",
+      "name": "Meiji Shrine",
+      "flags": []
+    },
+    {
+      "index": 34,
+      "code": "JP",
+      "name": "Tōdai-ji",
+      "flags": []
+    },
+    {
+      "index": 35,
+      "code": "JP",
+      "name": "Hiroshima Peace Memorial Park",
+      "flags": []
+    },
+    {
+      "index": 36,
+      "code": "JP",
+      "name": "Lake Ashi",
+      "flags": []
+    },
+    {
+      "index": 37,
+      "code": "ES",
+      "name": "Park Güell",
+      "flags": []
+    },
+    {
+      "index": 38,
+      "code": "ES",
+      "name": "Royal Alcázar of Seville",
+      "flags": []
+    },
+    {
+      "index": 39,
+      "code": "ES",
+      "name": "Aqueduct of Segovia",
+      "flags": []
+    },
+    {
+      "index": 40,
+      "code": "ES",
+      "name": "Teide National Park",
+      "flags": []
+    },
+    {
+      "index": 41,
+      "code": "GB",
+      "name": "Buckingham Palace",
+      "flags": []
+    },
+    {
+      "index": 42,
+      "code": "GB",
+      "name": "Edinburgh Castle",
+      "flags": []
+    },
+    {
+      "index": 43,
+      "code": "GB",
+      "name": "Roman Baths (Bath)",
+      "flags": []
+    },
+    {
+      "index": 44,
+      "code": "GB",
+      "name": "Giant's Causeway",
+      "flags": []
+    },
+    {
+      "index": 45,
+      "code": "US",
+      "name": "Golden Gate Bridge",
+      "flags": []
+    },
+    {
+      "index": 46,
+      "code": "US",
+      "name": "Yellowstone National Park",
+      "flags": []
+    },
+    {
+      "index": 47,
+      "code": "US",
+      "name": "Empire State Building",
+      "flags": []
+    },
+    {
+      "index": 48,
+      "code": "US",
+      "name": "Hawaiʻi Volcanoes National Park",
+      "flags": []
+    },
+    {
+      "index": 49,
+      "code": "CN",
+      "name": "Summer Palace (Beijing)",
+      "flags": []
+    },
+    {
+      "index": 50,
+      "code": "CN",
+      "name": "Zhangjiajie National Forest Park",
+      "flags": []
+    },
+    {
+      "index": 51,
+      "code": "CN",
+      "name": "Yu Garden",
+      "flags": []
+    },
+    {
+      "index": 52,
+      "code": "CN",
+      "name": "Leshan Giant Buddha",
+      "flags": []
+    },
+    {
+      "index": 53,
+      "code": "IN",
+      "name": "Amber Fort",
+      "flags": []
+    },
+    {
+      "index": 54,
+      "code": "IN",
+      "name": "Golden Temple",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 55,
+      "code": "IN",
+      "name": "Gateway of India",
+      "flags": []
+    },
+    {
+      "index": 56,
+      "code": "IN",
+      "name": "Group of Monuments at Hampi",
+      "flags": []
+    },
+    {
+      "index": 57,
+      "code": "AE",
+      "name": "Burj Al Arab",
+      "flags": []
+    },
+    {
+      "index": 58,
+      "code": "AE",
+      "name": "Louvre Abu Dhabi",
+      "flags": []
+    },
+    {
+      "index": 59,
+      "code": "AE",
+      "name": "Al Fahidi Historical Neighbourhood",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 60,
+      "code": "AE",
+      "name": "Sharjah Museum of Islamic Civilization",
+      "flags": []
+    },
+    {
+      "index": 61,
+      "code": "TH",
+      "name": "Wat Phra That Doi Suthep",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 62,
+      "code": "TH",
+      "name": "Sukhothai Historical Park",
+      "flags": []
+    },
+    {
+      "index": 63,
+      "code": "TH",
+      "name": "Railay Beach",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 64,
+      "code": "TH",
+      "name": "Jim Thompson House",
+      "flags": []
+    },
+    {
+      "index": 65,
+      "code": "ID",
+      "name": "Tegallalang Rice Terrace",
+      "flags": []
+    },
+    {
+      "index": 66,
+      "code": "ID",
+      "name": "Komodo National Park",
+      "flags": []
+    },
+    {
+      "index": 67,
+      "code": "ID",
+      "name": "Mount Bromo",
+      "flags": []
+    },
+    {
+      "index": 68,
+      "code": "ID",
+      "name": "Lake Toba",
+      "flags": []
+    },
+    {
+      "index": 69,
+      "code": "KR",
+      "name": "Changdeokgung",
+      "flags": []
+    },
+    {
+      "index": 70,
+      "code": "KR",
+      "name": "Haedong Yonggungsa",
+      "flags": []
+    },
+    {
+      "index": 71,
+      "code": "KR",
+      "name": "Hallasan",
+      "flags": []
+    },
+    {
+      "index": 72,
+      "code": "KR",
+      "name": "Hwaseong_Fortress",
+      "flags": []
+    },
+    {
+      "index": 73,
+      "code": "VN",
+      "name": "Marble Mountains (Vietnam)",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 74,
+      "code": "VN",
+      "name": "Tràng An Scenic Landscape Complex",
+      "flags": []
+    },
+    {
+      "index": 75,
+      "code": "VN",
+      "name": "Sơn Đoòng Cave",
+      "flags": []
+    },
+    {
+      "index": 76,
+      "code": "VN",
+      "name": "Independence Palace",
+      "flags": []
+    },
+    {
+      "index": 77,
+      "code": "EG",
+      "name": "Egyptian Museum",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 78,
+      "code": "EG",
+      "name": "Al-Azhar Mosque",
+      "flags": []
+    },
+    {
+      "index": 79,
+      "code": "EG",
+      "name": "Hanging Church",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 80,
+      "code": "EG",
+      "name": "Luxor Temple",
+      "flags": []
+    },
+    {
+      "index": 81,
+      "code": "EG",
+      "name": "Philae Temple",
+      "flags": []
+    },
+    {
+      "index": 82,
+      "code": "EG",
+      "name": "Wadi El Rayan",
+      "flags": [
+        "homepage_only_source"
+      ]
+    },
+    {
+      "index": 83,
+      "code": "EG",
+      "name": "Saint Catherine's Monastery",
+      "flags": []
+    },
+    {
+      "index": 84,
+      "code": "FR",
+      "name": "Musée d'Orsay",
+      "flags": []
+    },
+    {
+      "index": 85,
+      "code": "FR",
+      "name": "Sacré-Cœur, Paris",
+      "flags": []
+    },
+    {
+      "index": 86,
+      "code": "FR",
+      "name": "Promenade des Anglais",
+      "flags": []
+    },
+    {
+      "index": 87,
+      "code": "FR",
+      "name": "Cité de Carcassonne",
+      "flags": []
+    },
+    {
+      "index": 88,
+      "code": "FR",
+      "name": "Place de la Bourse",
+      "flags": []
+    },
+    {
+      "index": 89,
+      "code": "FR",
+      "name": "Strasbourg Cathedral",
+      "flags": []
+    },
+    {
+      "index": 90,
+      "code": "FR",
+      "name": "Lascaux",
+      "flags": []
+    },
+    {
+      "index": 91,
+      "code": "IT",
+      "name": "Castel Sant'Angelo",
+      "flags": []
+    },
+    {
+      "index": 92,
+      "code": "IT",
+      "name": "Spanish Steps",
+      "flags": []
+    },
+    {
+      "index": 93,
+      "code": "IT",
+      "name": "Uffizi Gallery",
+      "flags": []
+    },
+    {
+      "index": 94,
+      "code": "IT",
+      "name": "Doge's Palace",
+      "flags": []
+    },
+    {
+      "index": 95,
+      "code": "IT",
+      "name": "Pompeii",
+      "flags": []
+    },
+    {
+      "index": 96,
+      "code": "IT",
+      "name": "Cinque Terre",
+      "flags": []
+    },
+    {
+      "index": 97,
+      "code": "IT",
+      "name": "Piazza del Campo",
+      "flags": []
+    },
+    {
+      "index": 98,
+      "code": "JP",
+      "name": "Tokyo Skytree",
+      "flags": []
+    },
+    {
+      "index": 99,
+      "code": "JP",
+      "name": "Shibuya Crossing",
+      "flags": []
+    },
+    {
+      "index": 100,
+      "code": "JP",
+      "name": "Kiyomizu-dera",
+      "flags": []
+    }
+  ],
+  "caveats": [
+    "Automated screening is not scientific verification; source links have not all been opened or checked for claim support.",
+    "Flagged generic homepages require precise references before full signoff.",
+    "No images inspected and no editorial prose modified."
+  ]
+}
