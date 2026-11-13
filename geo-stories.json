@@ -1756,7 +1756,49 @@
         "countriesLabelAr": "الدول",
         "countriesAr": "ألمانيا والنمسا وسلوفاكيا والمجر وكرواتيا وصربيا ورومانيا وبلغاريا ومولدوفا وأوكرانيا؛ يمر ببعضها ويحدّ بعضها",
         "countriesEn": "Germany, Austria, Slovakia, Hungary, Croatia, Serbia, Romania, Bulgaria, Moldova and Ukraine; flows through or borders them"
-      }
+      },
+      "riverPoints": [
+        [
+          [
+            "من الغابة السوداء بألمانيا إلى البحر الأسود.",
+            "From Germany's Black Forest to the Black Sea."
+          ],
+          [
+            "يعبر أو يحد عشر دول أوروبية.",
+            "Flows through or borders ten European countries."
+          ]
+        ],
+        [
+          [
+            "يتلقى روافد من الألب والكاربات.",
+            "Receives tributaries from the Alps and Carpathians."
+          ],
+          [
+            "يتأثر منسوبه بالأمطار وذوبان الثلوج.",
+            "Its level responds to rainfall and snowmelt."
+          ]
+        ],
+        [
+          [
+            "تضم دلتا الدانوب أراضي رطبة واسعة.",
+            "The Danube Delta contains extensive wetlands."
+          ],
+          [
+            "تؤوي الدلتا طيورًا مائية مهاجرة.",
+            "The delta shelters migratory waterbirds."
+          ]
+        ],
+        [
+          [
+            "ممر ملاحي يربط مدن أوروبا الوسطى.",
+            "A navigation corridor linking Central European cities."
+          ],
+          [
+            "تؤثر السدود والتلوث في النظام النهري.",
+            "Dams and pollution affect its ecosystems."
+          ]
+        ]
+      ]
     },
     "Yangtze": {
       "ar": "ينبع نهر اليانغتسي من مرتفعات هضبة التبت في غرب الصين، ويتجه شرقًا حتى يصب في بحر الصين الشرقي قرب شنغهاي. وهو أطول أنهار آسيا، ويمر حوضه بمناطق زراعية وصناعية ومدن كبرى، لذلك تعتمد عليه مجتمعات كثيرة في المياه والنقل والطاقة. يشتهر بمضايقه الثلاثة وسد الممرات الثلاثة، الذي يساعد في توليد الكهرباء والملاحة لكنه غيّر أجزاء من البيئة النهرية. وتحتضن مياهه كائنات مميزة، منها خنزير البحر عديم الزعنفة في اليانغتسي، وتواجه الأنواع المحلية ضغوطًا بيئية.",
@@ -3418,7 +3460,49 @@
         "countriesLabelAr": "الدول",
         "countriesAr": "غينيا ومالي والنيجر وبنين على الحدود ونيجيريا",
         "countriesEn": "Guinea, Mali, Niger, Benin along the border, and Nigeria"
-      }
+      },
+      "riverPoints": [
+        [
+          [
+            "ينبع من مرتفعات غينيا بغرب أفريقيا.",
+            "Rises in Guinea's highlands in West Africa."
+          ],
+          [
+            "يرسم قوسًا كبيرًا ويصب في خليج غينيا.",
+            "Forms a great bend and reaches the Gulf of Guinea."
+          ]
+        ],
+        [
+          [
+            "يتغير تدفقه تبعًا للأمطار الموسمية.",
+            "Its flow follows seasonal rainfall."
+          ],
+          [
+            "تتشكل دلتا داخلية في مالي عند الفيضان.",
+            "An inland delta forms in Mali during floods."
+          ]
+        ],
+        [
+          [
+            "تدعم الدلتا الداخلية الطيور والأسماك والمراعي.",
+            "The inland delta supports birds, fish and grazing."
+          ],
+          [
+            "تضم منطقة المصب دلتا ساحلية واسعة.",
+            "Its mouth forms a large coastal delta."
+          ]
+        ],
+        [
+          [
+            "يدعم الزراعة وصيد الأسماك في الساحل.",
+            "Supports agriculture and fisheries in the Sahel."
+          ],
+          [
+            "تؤثر الجفاف والسدود في المجتمعات النهرية.",
+            "Drought and dams affect river communities."
+          ]
+        ]
+      ]
     },
     "Zambezi River": {
       "ar": "يجري الزامبيزي عبر جنوب أفريقيا من منابع في زامبيا إلى المحيط الهندي في موزمبيق. يمر بشلالات فيكتوريا الشهيرة، وتوجد عليه سدود كبيرة مثل كاريبا وكاهورا باسا. تساعد السدود في الكهرباء لكنها تغيّر بعض أنماط الفيضانات. تتشكل شلالات فيكتوريا عند اندفاع النهر في صدع صخري عميق على حدود زامبيا وزيمبابوي. تؤثر السدود والخزانات الكبرى مثل كاريبا وكاهورا باسا في تنظيم المياه وتوليد الكهرباء، كما تؤثر في حركة الرواسب والأنظمة البيئية أسفل النهر.",
@@ -3441,7 +3525,49 @@
         "countriesLabelAr": "الدول",
         "countriesAr": "زامبيا وأنغولا وناميبيا وزيمبابوي وموزمبيق؛ ويلامس حدود بوتسوانا",
         "countriesEn": "Zambia, Angola, Namibia, Zimbabwe and Mozambique; touches Botswana's border"
-      }
+      },
+      "riverPoints": [
+        [
+          [
+            "ينبع في زامبيا ويصل إلى المحيط الهندي.",
+            "Rises in Zambia and reaches the Indian Ocean."
+          ],
+          [
+            "يمر عبر جنوب أفريقيا النهرية وموزمبيق.",
+            "Flows through southern Africa and Mozambique."
+          ]
+        ],
+        [
+          [
+            "يتغير تدفقه موسميًا مع أمطار الحوض.",
+            "Its flow varies with seasonal basin rainfall."
+          ],
+          [
+            "توجد عليه شلالات فيكتوريا وسد كاريبا.",
+            "Victoria Falls and Kariba Dam lie along its course."
+          ]
+        ],
+        [
+          [
+            "تضم سهوله الفيضية أراضي رطبة غنية.",
+            "Its floodplains contain rich wetlands."
+          ],
+          [
+            "تشكل عند المصب دلتا في موزمبيق.",
+            "Forms a delta in Mozambique."
+          ]
+        ],
+        [
+          [
+            "مورد للطاقة الكهرومائية والسياحة.",
+            "A resource for hydropower and tourism."
+          ],
+          [
+            "تؤثر السدود في الفيضانات والرواسب.",
+            "Dams alter floods and sediment delivery."
+          ]
+        ]
+      ]
     },
     "Rhine River": {
       "ar": "ينحدر الراين من جبال الألب السويسرية حتى بحر الشمال عبر هولندا، ويمر أو يشكل حدودًا بين عدة دول أوروبية. يُعد ممرًا رئيسيًا لنقل البضائع بين الموانئ والمناطق الصناعية، وتوجد مشروعات لحماية جودة مياهه والموائل على ضفافه. تتصل شبكة الراين بموانئ ومراكز صناعية مهمة في أوروبا، وتستخدم فيها سفن الشحن لنقل البضائع لمسافات طويلة. يُعد وادي الراين الأوسط معروفًا بقلاعه وبلداته التاريخية والمنحدرات المغطاة بمزارع الكروم.",
@@ -3464,7 +3590,49 @@
         "countriesLabelAr": "الدول",
         "countriesAr": "سويسرا وألمانيا وهولندا؛ ويشكّل حدودًا مع ليختنشتاين والنمسا وفرنسا",
         "countriesEn": "Switzerland, Germany and the Netherlands; also borders Liechtenstein, Austria and France"
-      }
+      },
+      "riverPoints": [
+        [
+          [
+            "ينبع من الألب السويسرية ويتجه إلى بحر الشمال.",
+            "Rises in the Swiss Alps and flows to the North Sea."
+          ],
+          [
+            "يمر أو يشكل حدودًا بين دول أوروبية.",
+            "Flows through or borders several European countries."
+          ]
+        ],
+        [
+          [
+            "تغذيه أمطار وثلوج وأودية ألبية.",
+            "Rainfall, snowmelt and Alpine tributaries feed it."
+          ],
+          [
+            "توجد على امتداده قطاعات جبلية وسهول.",
+            "Its course includes mountain valleys and plains."
+          ]
+        ],
+        [
+          [
+            "تتصل به سهول فيضية وموائل أسماك.",
+            "Its floodplains provide fish habitats."
+          ],
+          [
+            "تأثرت موائله تاريخيًا بالتقويم الهندسي للمجرى.",
+            "River engineering has historically altered habitats."
+          ]
+        ],
+        [
+          [
+            "ممر رئيسي للنقل والصناعة الأوروبية.",
+            "A major European freight and industrial corridor."
+          ],
+          [
+            "تُبذل جهود لاستعادة الموائل ومرور الأسماك.",
+            "Restoration efforts aim to improve habitats and fish passage."
+          ]
+        ]
+      ]
     },
     "Euphrates River": {
       "ar": "يتكون نهر الفرات في تركيا من التقاء نهري قره صو ومراد صو، ثم يجري عبر سوريا والعراق. ومن روافده في سوريا البليخ والخابور. أسهم النهر منذ عصور قديمة في الزراعة ونشوء مدن حضارات بلاد الرافدين، ويُستخدم اليوم للري وتوليد الكهرباء والمياه. ويلتقي دجلة قرب القرنة ليكوّنا شط العرب. وتتأثر بيئته وتدفقه بالسدود وتقلب الأمطار واستهلاك المياه عبر الحدود.",
@@ -3487,7 +3655,49 @@
         "countriesLabelAr": "الدول",
         "countriesAr": "تركيا وسوريا والعراق",
         "countriesEn": "Turkey, Syria and Iraq"
-      }
+      },
+      "riverPoints": [
+        [
+          [
+            "يتشكل من روافد في تركيا ويمر بسوريا والعراق.",
+            "Forms from Turkish tributaries and crosses Syria and Iraq."
+          ],
+          [
+            "يلتقي دجلة قرب جنوب العراق.",
+            "Meets the Tigris in southern Iraq."
+          ]
+        ],
+        [
+          [
+            "يتأثر بتراكم الثلوج والأمطار في المنابع.",
+            "Snowpack and rainfall in headwaters affect flow."
+          ],
+          [
+            "تُنظم السدود الكبيرة كميات المياه.",
+            "Large dams regulate water discharge."
+          ]
+        ],
+        [
+          [
+            "يرتبط تاريخيًا بأهوار بلاد الرافدين.",
+            "Historically linked to Mesopotamian marshes."
+          ],
+          [
+            "تؤثر التغيرات المائية في الموائل النهرية.",
+            "Water changes affect river habitats."
+          ]
+        ],
+        [
+          [
+            "كان أساسًا للري في حضارات بلاد الرافدين.",
+            "Supported irrigation in Mesopotamian civilizations."
+          ],
+          [
+            "تواجه دول الحوض تحديات تقاسم المياه.",
+            "Basin countries face water-sharing challenges."
+          ]
+        ]
+      ]
     },
     "Tigris River": {
       "ar": "ينبع نهر دجلة من مرتفعات جنوب شرق تركيا ويتجه نحو العراق مرورًا بمدينة بغداد. يستقبل روافد مهمة من جبال زاغروس، منها الزاب الكبير والزاب الصغير وديالى؛ ثم يلتقي نهر الفرات قرب القرنة جنوب العراق لتكوين شط العرب المتجه إلى الخليج. لعب دجلة مع الفرات دورًا محوريًا في حضارات بلاد الرافدين، ولا تزال مياهه مهمة للزراعة والمدن. وتتأثر كميات المياه بالسدود والأمطار وتغيرات المناخ في دول الحوض.",
@@ -3510,7 +3720,49 @@
         "countriesLabelAr": "الدول",
         "countriesAr": "تركيا والعراق؛ ويلامس الحدود السورية لمسافة قصيرة",
         "countriesEn": "Turkey and Iraq; briefly touches the Syrian border"
-      }
+      },
+      "riverPoints": [
+        [
+          [
+            "ينبع من جنوب شرق تركيا ويعبر العراق.",
+            "Rises in southeastern Turkey and crosses Iraq."
+          ],
+          [
+            "يلتقي الفرات ليكوّنا شط العرب.",
+            "Joins the Euphrates to form the Shatt al-Arab."
+          ]
+        ],
+        [
+          [
+            "تغذيه روافد جبلية مثل الزاب.",
+            "Mountain tributaries including the Zab rivers feed it."
+          ],
+          [
+            "يتأثر بالسدود والأمطار الموسمية.",
+            "Dams and seasonal rain affect its flow."
+          ]
+        ],
+        [
+          [
+            "ترتبط به أهوار جنوب العراق.",
+            "Linked to the marshlands of southern Iraq."
+          ],
+          [
+            "تتأثر الأراضي الرطبة بتغير حصص المياه.",
+            "Wetlands respond to changing water availability."
+          ]
+        ],
+        [
+          [
+            "مرّ بمدن تاريخية مثل بغداد.",
+            "Flows through historic cities including Baghdad."
+          ],
+          [
+            "تؤثر ندرة المياه والتلوث في الحوض.",
+            "Water scarcity and pollution affect the basin."
+          ]
+        ]
+      ]
     },
     "Volga River": {
       "ar": "الفولغا أطول أنهار أوروبا؛ ينبع من مرتفعات فالداي بروسيا ويصب في بحر قزوين المغلق. يدعم الملاحة والنقل وتوليد الكهرباء، لكن السدود والخزانات أثرت في تدفقه والبيئة النهرية. يمر النهر بمدن روسية مهمة مثل قازان وسامارا وفولغوغراد، وتنتشر على مجراه خزانات مائية كبيرة. يساعد نظام القنوات المتصل بحوضه في الملاحة الداخلية، لكن السدود وتغير تدفقات المياه يؤثران في بيئات النهر ودلتاه.",
@@ -3533,7 +3785,49 @@
         "countriesLabelAr": "الدول",
         "countriesAr": "روسيا",
         "countriesEn": "Russia"
-      }
+      },
+      "riverPoints": [
+        [
+          [
+            "ينبع من مرتفعات فالداي في روسيا.",
+            "Rises in Russia's Valdai Hills."
+          ],
+          [
+            "يصب في بحر قزوين المغلق.",
+            "Empties into the landlocked Caspian Sea."
+          ]
+        ],
+        [
+          [
+            "يتلقى روافد واسعة مثل كاما وأوكا.",
+            "Receives major tributaries including Kama and Oka."
+          ],
+          [
+            "تتحكم خزانات عديدة في تدفقه.",
+            "Numerous reservoirs regulate its flow."
+          ]
+        ],
+        [
+          [
+            "تضم دلتاه أراضي رطبة مهمة للطيور.",
+            "Its delta contains important bird wetlands."
+          ],
+          [
+            "تتأثر الأسماك بهجرة المياه وتنظيم السدود.",
+            "Fish are affected by flow changes and dams."
+          ]
+        ],
+        [
+          [
+            "أطول أنهار أوروبا ومحور ملاحة روسي.",
+            "Europe's longest river and a Russian navigation artery."
+          ],
+          [
+            "تواجه مياهه ضغوط التلوث وتغير الموائل.",
+            "Its waters face pollution and habitat alteration."
+          ]
+        ]
+      ]
     },
     "Ganges River": {
       "ar": "ينبع الغانج من روافد الهيمالايا ويعبر شمال الهند حتى بنغلاديش، حيث تتصل مياهه بنظام براهمابوترا وميغنا قبل المصب في خليج البنغال. يدعم الزراعة والمدن ويحمل مكانة ثقافية ودينية مهمة، لكنه يواجه ضغوط التلوث والفيضانات. يرتبط النهر بروافد كثيرة أبرزها يامونا، وتغذي الأمطار الموسمية وذوبان الثلوج أجزاء مختلفة من حوضه. تحمل الفيضانات رواسب إلى السهول الخصبة، بينما تواجه بعض مناطقه تحديات تلوث المياه والضغط السكاني.",
@@ -3556,7 +3850,49 @@
         "countriesLabelAr": "الدول",
         "countriesAr": "الهند وبنغلاديش",
         "countriesEn": "India and Bangladesh"
-      }
+      },
+      "riverPoints": [
+        [
+          [
+            "ينبع من الهيمالايا ويجري عبر شمال الهند.",
+            "Rises in the Himalayas and crosses northern India."
+          ],
+          [
+            "يلتقي نظام براهمابوترا وميغنا في بنغلاديش.",
+            "Joins the Brahmaputra–Meghna system in Bangladesh."
+          ]
+        ],
+        [
+          [
+            "تغذيه أمطار الموسميات وذوبان الثلوج.",
+            "Monsoon rains and snowmelt feed it."
+          ],
+          [
+            "تتشكل فيضانات واسعة في السهول والدلتا.",
+            "Extensive floods occur across plains and delta."
+          ]
+        ],
+        [
+          [
+            "تضم منظومته موائل للدلفين النهري.",
+            "Its system supports river dolphin habitats."
+          ],
+          [
+            "تتكون دلتا الغانج براهمابوترا الواسعة.",
+            "Forms the vast Ganges–Brahmaputra delta."
+          ]
+        ],
+        [
+          [
+            "له أهمية ثقافية ودينية وزراعية كبرى.",
+            "Has major cultural, religious and agricultural importance."
+          ],
+          [
+            "يواجه تلوث المياه وضغوط الكثافة السكانية.",
+            "Faces pollution and population pressures."
+          ]
+        ]
+      ]
     },
     "Mekong River": {
       "ar": "يمتد الميكونغ من هضبة التبت عبر الصين وجنوب شرق آسيا حتى دلتا في جنوب فيتنام. يدعم صيد الأسماك وزراعة الأرز، وتتبدل مياهه حسب الرياح والأمطار الموسمية. وتؤثر السدود في الرواسب وحركة الأسماك وتدفقه إلى الدلتا. من أبرز خصائصه ارتفاع المياه موسميًا مع الرياح الموسمية، وهو ما يغذي الأراضي الفيضية والمصايد الطبيعية. يرتبط النهر ببحيرة تونلي ساب في كمبوديا، حيث يتغير اتجاه تدفق المياه في القناة المتصلة بها خلال موسم الفيضان.",
@@ -3579,7 +3915,49 @@
         "countriesLabelAr": "الدول",
         "countriesAr": "الصين وميانمار ولاوس وتايلاند وكمبوديا وفيتنام؛ يمر أو يشكّل حدودًا",
         "countriesEn": "China, Myanmar, Laos, Thailand, Cambodia and Vietnam; flows through or forms borders"
-      }
+      },
+      "riverPoints": [
+        [
+          [
+            "ينبع من هضبة التبت ويصل إلى فيتنام.",
+            "Rises on the Tibetan Plateau and reaches Vietnam."
+          ],
+          [
+            "يمر عبر الصين ودول من جنوب شرق آسيا.",
+            "Flows through China and Southeast Asian countries."
+          ]
+        ],
+        [
+          [
+            "تتغير مياهه بوضوح مع الرياح الموسمية.",
+            "Its flow changes sharply with monsoon seasons."
+          ],
+          [
+            "ترتبط به بحيرة تونلي ساب ونظام فيضانها.",
+            "Linked to Tonlé Sap Lake and its flood pulse."
+          ]
+        ],
+        [
+          [
+            "يحتضن تنوعًا كبيرًا من أسماك المياه العذبة.",
+            "Supports remarkable freshwater fish diversity."
+          ],
+          [
+            "تشكل دلتا الميكونغ أراضي زراعية ورطبة.",
+            "The Mekong Delta contains farmland and wetlands."
+          ]
+        ],
+        [
+          [
+            "مصدر مهم للأسماك والأرز في المنطقة.",
+            "An important source of fish and rice."
+          ],
+          [
+            "تؤثر السدود في هجرة الأسماك ونقل الرواسب.",
+            "Dams affect fish migration and sediment transport."
+          ]
+        ]
+      ]
     },
     "Indus River": {
       "ar": "ينبع نهر السند من مرتفعات قرب هضبة التبت، ويمر عبر مناطق جبلية إلى باكستان قبل أن يصب في بحر العرب. ارتبط بحضارة وادي السند القديمة، ولا تزال شبكة الري فيه أساسية للزراعة. ويتأثر تدفقه بذوبان الثلوج والأمطار الموسمية. تغذيه روافد جبلية مثل جيلوم وتشيناب ورافي وبياس وستلج ضمن شبكة حوض السند. يعتمد جزء كبير من الزراعة المروية في باكستان على شبكة قنوات الحوض، وتتأثر مياهه بذوبان الثلوج والجليد والأمطار الموسمية.",
@@ -3602,7 +3980,49 @@
         "countriesLabelAr": "الدول",
         "countriesAr": "الصين (التبت) والهند (لاداخ) وباكستان",
         "countriesEn": "China (Tibet), India (Ladakh) and Pakistan"
-      }
+      },
+      "riverPoints": [
+        [
+          [
+            "ينبع قرب هضبة التبت ويعبر باكستان.",
+            "Rises near the Tibetan Plateau and crosses Pakistan."
+          ],
+          [
+            "يصب في بحر العرب عبر دلتا السند.",
+            "Reaches the Arabian Sea through the Indus Delta."
+          ]
+        ],
+        [
+          [
+            "تغذيه الثلوج والجليد والأمطار الموسمية.",
+            "Snow, glaciers and monsoon rain feed it."
+          ],
+          [
+            "يمر من وديان جبلية إلى سهول جافة.",
+            "Flows from mountain valleys into arid plains."
+          ]
+        ],
+        [
+          [
+            "تضم دلتا السند غابات مانغروف ساحلية.",
+            "The Indus Delta has coastal mangrove forests."
+          ],
+          [
+            "يتأثر وصول المياه والرواسب للساحل بالسدود.",
+            "Dams alter freshwater and sediment delivery to the coast."
+          ]
+        ],
+        [
+          [
+            "ارتبط بحضارة وادي السند القديمة.",
+            "Associated with the ancient Indus Valley civilization."
+          ],
+          [
+            "تعتمد عليه شبكات ري واسعة في باكستان.",
+            "Extensive irrigation networks in Pakistan depend on it."
+          ]
+        ]
+      ]
     },
     "Murray River": {
       "ar": "يمتد نهر موراي عبر جنوب شرق أستراليا من المرتفعات إلى مناطق ساحلية في جنوب أستراليا. وهو جزء من حوض موراي–دارلينغ الذي تعتمد عليه الزراعة، فيما تؤثر موجات الجفاف وسحب المياه والسدود في تدفقه والملوحة وصحة الأراضي الرطبة. يمر عبر سهول زراعية ومناطق رطبة حساسة لتغير تدفق المياه، ويتصل بنظام نهر دارلينغ. تُستخدم مياه الحوض في الري، لذلك تبرز أهمية إدارة الجفاف والملوحة وحماية الموائل الطبيعية.",
@@ -3625,7 +4045,49 @@
         "countriesLabelAr": "الدول",
         "countriesAr": "أستراليا",
         "countriesEn": "Australia"
-      }
+      },
+      "riverPoints": [
+        [
+          [
+            "ينبع من الألب الأسترالية ويتجه غربًا.",
+            "Rises in the Australian Alps and flows west."
+          ],
+          [
+            "يتصل بحوض موراي دارلينغ في جنوب شرق أستراليا.",
+            "Part of southeastern Australia's Murray–Darling Basin."
+          ]
+        ],
+        [
+          [
+            "يتغير تدفقه مع الجفاف والأمطار وإدارة المياه.",
+            "Flow changes with drought, rain and water management."
+          ],
+          [
+            "يمر عبر سهول منخفضة ومناطق زراعية.",
+            "Passes lowland plains and farming regions."
+          ]
+        ],
+        [
+          [
+            "تضم سهوله الفيضية غابات أوكالبتوس رطبة.",
+            "Its floodplains include river red gum forests."
+          ],
+          [
+            "تؤثر الملوحة والجفاف في صحة الموائل.",
+            "Salinity and drought affect habitat health."
+          ]
+        ],
+        [
+          [
+            "يوفر المياه للزراعة والمدن.",
+            "Supplies water for farming and towns."
+          ],
+          [
+            "تُعد إدارة الحوض بين الولايات تحديًا مهمًا.",
+            "Interstate basin management is a major challenge."
+          ]
+        ]
+      ]
     },
     "Borneo Rainforest": {
       "ar": "تمتد غابات بورنيو عبر أجزاء من إندونيسيا وماليزيا وبروناي. وتختلف غابات الأراضي المنخفضة، التي تبرز فيها أشجار الدبتروكارب الطويلة، عن غابات الجبال ومستنقعات الخث. وفي مواقع مثل وادي دانوم في صباح، توفّر الأشجار المرتفعة طبقات متصلة للحيوانات التي تعتمد على الغطاء الشجري، ومنها إنسان الغاب البورنيوي. وعندما تفصل الطرق أو المزارع رقع الغابة، يصعب على بعض الحيوانات التنقل بينها. لذلك تهمّ الصلات بين الموائل بقدر أهمية مساحة كل رقعة محمية.",
@@ -3986,7 +4448,49 @@
         "countriesLabelAr": "الدول",
         "countriesAr": "الصين والهند وبنغلاديش",
         "countriesEn": "China, India and Bangladesh"
-      }
+      },
+      "riverPoints": [
+        [
+          [
+            "ينبع باسم يارلونغ تسانغبو في التبت.",
+            "Rises as the Yarlung Tsangpo in Tibet."
+          ],
+          [
+            "يمر بالهند وبنغلاديش حيث يسمى جامونا.",
+            "Crosses India and Bangladesh, where it is called Jamuna."
+          ]
+        ],
+        [
+          [
+            "يحمل كميات كبيرة من الرواسب من الهيمالايا.",
+            "Carries heavy sediment loads from the Himalayas."
+          ],
+          [
+            "تسبب أمطار الموسميات فيضانات واسعة.",
+            "Monsoon rains cause extensive floods."
+          ]
+        ],
+        [
+          [
+            "تضم سهوله الفيضية جزرًا نهرية متغيرة.",
+            "Its floodplain has shifting river islands."
+          ],
+          [
+            "تتغير مجاريه بفعل الترسيب والتعرية.",
+            "Deposition and erosion shift its channels."
+          ]
+        ],
+        [
+          [
+            "يدعم الزراعة وصيد الأسماك والنقل.",
+            "Supports farming, fishing and transport."
+          ],
+          [
+            "تؤدي الفيضانات وتآكل الضفاف إلى نزوح محلي.",
+            "Floods and bank erosion displace communities."
+          ]
+        ]
+      ]
     },
     "Yellow River": {
       "ar": "النهر الأصفر أو هوانغ هي يجري عبر شمال الصين إلى بحر بوهاي. يحمل رواسب صفراء من هضبة اللوس، ومن هنا جاءت تسميته. ارتبط بتاريخ الحضارة الصينية، بينما جعلته الحمولة الكبيرة من الطمي والفيضانات بحاجة إلى إدارة مستمرة. تُعد هضبة اللوس مصدرًا رئيسيًا للرواسب التي يحملها النهر، وقد أدت تراكماتها تاريخيًا إلى تغير مجراه وفيضانات شديدة. شُيدت سدود ومنشآت لتنظيم الجريان ومواجهة الفيضانات، وتظل إدارة المياه والرواسب من أهم تحديات حوضه.",
@@ -4009,7 +4513,49 @@
         "countriesLabelAr": "الدول",
         "countriesAr": "الصين",
         "countriesEn": "China"
-      }
+      },
+      "riverPoints": [
+        [
+          [
+            "ينبع من هضبة التبت ويصب في بحر بوهاي.",
+            "Rises on the Tibetan Plateau and reaches the Bohai Sea."
+          ],
+          [
+            "يمر عبر شمال الصين وهضبة اللوس.",
+            "Crosses northern China and the Loess Plateau."
+          ]
+        ],
+        [
+          [
+            "تحمل مياهه رواسب صفراء كثيفة.",
+            "Its waters carry abundant yellowish sediment."
+          ],
+          [
+            "ساهم الترسيب في رفع قاع المجرى ببعض السهول.",
+            "Deposition has raised parts of its channel above nearby plains."
+          ]
+        ],
+        [
+          [
+            "تشكل رواسبه دلتا متغيرة عند المصب.",
+            "Its sediment forms a shifting delta."
+          ],
+          [
+            "تتأثر النظم المائية بتغير التدفق والرواسب.",
+            "Aquatic ecosystems respond to changing flow and sediment."
+          ]
+        ],
+        [
+          [
+            "له دور تاريخي في الزراعة والحضارة الصينية.",
+            "Historically important to Chinese farming and civilization."
+          ],
+          [
+            "تُعد إدارة الفيضانات تحديًا رئيسيًا.",
+            "Flood management is a major challenge."
+          ]
+        ]
+      ]
     },
     "Paraná River": {
       "ar": "يجري بارانا عبر جنوب شرق أمريكا الجنوبية وترفده أنهار مثل باراغواي وإغواسو. يساهم في نظام مصب ريو دي لا بلاتا، ويدعم الملاحة والزراعة والطاقة الكهرومائية، ومنها سد إيتايبو. وتحتضن ضفافه سهولًا فيضية وموائل مائية واسعة. تتصل به أراضٍ رطبة وجزر نهرية واسعة، كما ترتبط به ممرات ملاحة مهمة للتجارة الإقليمية. يوجد على مجراه سد إيتايبو الكهرومائي قرب حدود البرازيل وباراغواي، ضمن أبرز منشآت الطاقة في المنطقة.",
@@ -4032,7 +4578,49 @@
         "countriesLabelAr": "الدول",
         "countriesAr": "البرازيل وباراغواي والأرجنتين؛ يمر أو يشكّل حدودًا",
         "countriesEn": "Brazil, Paraguay and Argentina; flows through or forms borders"
-      }
+      },
+      "riverPoints": [
+        [
+          [
+            "يجري عبر البرازيل وباراغواي والأرجنتين.",
+            "Flows through Brazil, Paraguay and Argentina."
+          ],
+          [
+            "يساهم في نظام مصب ريو دي لا بلاتا.",
+            "Feeds the Río de la Plata estuary system."
+          ]
+        ],
+        [
+          [
+            "يتلقى روافد كبرى منها باراغواي وإغواسو.",
+            "Receives major tributaries including Paraguay and Iguazú."
+          ],
+          [
+            "يتأثر بالأمطار المدارية وشبه المدارية.",
+            "Responds to tropical and subtropical rainfall."
+          ]
+        ],
+        [
+          [
+            "توجد على ضفافه سهول فيضية وجزر نهرية.",
+            "Floodplains and river islands line its course."
+          ],
+          [
+            "تؤثر السدود في الموائل وحركة الأسماك.",
+            "Dams affect habitats and fish movement."
+          ]
+        ],
+        [
+          [
+            "يضم حوضه سد إيتايبو الكهرومائي.",
+            "Its basin includes the Itaipu hydropower dam."
+          ],
+          [
+            "مهم للملاحة والزراعة والطاقة.",
+            "Important for navigation, agriculture and energy."
+          ]
+        ]
+      ]
     },
     "Orinoco River": {
       "ar": "يجري الأورينوكو عبر شمال أمريكا الجنوبية، خصوصًا فنزويلا، ويصل إلى الأطلسي عبر دلتا واسعة. تغمر فيضاناته الموسمية سهول اللانوس، وترتبط شبكة روافده بحوض الأمازون من خلال قناة كاسيكياري الطبيعية المميزة. تتغير مساحات السهول الفيضية الموسمية «ليانوس» مع ارتفاع المياه وانحسارها، فتدعم تنوعًا غنيًا من الكائنات. ترتبط بعض روافده بالمناطق المدارية المطيرة، وتنتشر عند المصب قنوات ودروب مائية كثيرة في دلتا واسعة.",
@@ -4055,7 +4643,49 @@
         "countriesLabelAr": "الدول",
         "countriesAr": "فنزويلا وكولومبيا على أجزاء من الحدود",
         "countriesEn": "Venezuela and Colombia along parts of the border"
-      }
+      },
+      "riverPoints": [
+        [
+          [
+            "يجري في فنزويلا ومناطق حدودية مع كولومبيا.",
+            "Flows through Venezuela and areas bordering Colombia."
+          ],
+          [
+            "يصب في الأطلسي عبر دلتا واسعة.",
+            "Reaches the Atlantic through a broad delta."
+          ]
+        ],
+        [
+          [
+            "تغذيه أمطار استوائية موسمية.",
+            "Seasonal tropical rainfall feeds it."
+          ],
+          [
+            "تغمر الفيضانات سهول اللانوس في مواسم المطر.",
+            "Floods inundate the Llanos plains in wet seasons."
+          ]
+        ],
+        [
+          [
+            "تضم ضفافه غابات ومستنقعات وموائل نهرية.",
+            "Its banks host forests, marshes and river habitats."
+          ],
+          [
+            "يربطه فرع كاسيكياري بحوض الأمازون.",
+            "The Casiquiare channel links it to the Amazon basin."
+          ]
+        ],
+        [
+          [
+            "يدعم الصيد والنقل المحلي.",
+            "Supports fishing and local transport."
+          ],
+          [
+            "تواجه موائله ضغوط التعدين وتغير الأراضي.",
+            "Its habitats face mining and land-use pressures."
+          ]
+        ]
+      ]
     },
     "Jordan River": {
       "ar": "يتكوّن نهر الأردن من روافد تنبع قرب جبل الشيخ وشمال فلسطين التاريخية، ويمر عبر بحيرة طبريا ثم يسير جنوبًا في وادي الأردن إلى البحر الميت، وهو بحيرة مالحة مغلقة لا تصب في البحر. يُعد النهر مهمًا بيئيًا ودينيًا وتاريخيًا، لكنه يواجه تراجعًا في التدفقات الطبيعية بفعل سحب المياه واستخداماتها. وتُعقّد الحدود السياسية وإدارة المياه المشتركة حماية النظام البيئي للنهر.",
@@ -4078,7 +4708,49 @@
         "countriesLabelAr": "الدول والمناطق",
         "countriesAr": "يمر بين إسرائيل والأردن والضفة الغربية الفلسطينية في أجزاء من مجراه",
         "countriesEn": "Runs along Israel, Jordan and the Palestinian West Bank along parts of its course"
-      }
+      },
+      "riverPoints": [
+        [
+          [
+            "يمتد من روافد شمالية إلى البحر الميت.",
+            "Flows from northern tributaries to the Dead Sea."
+          ],
+          [
+            "يمر عبر بحيرة طبريا ووادي الأردن.",
+            "Passes the Sea of Galilee and Jordan Valley."
+          ]
+        ],
+        [
+          [
+            "تتأثر مياهه بتحويلات الري والاستخدام البشري.",
+            "Diversions and human use alter its flow."
+          ],
+          [
+            "يمر في منخفض عميق ضمن صدع البحر الميت.",
+            "Flows through a deep rift valley."
+          ]
+        ],
+        [
+          [
+            "توجد على ضفافه موائل رطبة محدودة.",
+            "Limited wetland habitats persist along its banks."
+          ],
+          [
+            "انخفاض التدفق يؤثر في البيئة المتجهة للبحر الميت.",
+            "Reduced flow affects the Dead Sea-bound ecosystem."
+          ]
+        ],
+        [
+          [
+            "له أهمية تاريخية ودينية كبيرة.",
+            "It has major historical and religious significance."
+          ],
+          [
+            "تُعد استعادة التدفق وتحسين الجودة تحديين.",
+            "Restoring flow and water quality are key challenges."
+          ]
+        ]
+      ]
     },
     "Colorado River": {
       "ar": "ينبع نهر كولورادو من جبال روكي في الولايات المتحدة ويتجه عبر جنوب غرب البلاد ونحو المكسيك. اشتهر بنحت الأخدود العظيم (جراند كانيون) على مدى زمن جيولوجي طويل. تعتمد مدن ومناطق زراعية كثيرة على مياهه، وتتحكم فيه سدود وخزانات كبرى مثل هوفر. تاريخيًا كان يصب في خليج كاليفورنيا، لكن الاستهلاك الكبير للمياه جعل وصول تدفقه إلى البحر نادرًا في العصر الحديث.",
@@ -4101,7 +4773,49 @@
         "countriesLabelAr": "الدول",
         "countriesAr": "الولايات المتحدة والمكسيك",
         "countriesEn": "United States and Mexico"
-      }
+      },
+      "riverPoints": [
+        [
+          [
+            "ينبع من جبال روكي ويتجه نحو المكسيك.",
+            "Rises in the Rockies and flows toward Mexico."
+          ],
+          [
+            "نحت وادي جراند كانيون الشهير.",
+            "Carved the famous Grand Canyon."
+          ]
+        ],
+        [
+          [
+            "يعتمد تدفقه على ثلوج الجبال والأمطار.",
+            "Its flow depends on mountain snow and rainfall."
+          ],
+          [
+            "تتحكم سدود كبرى في كميات المياه.",
+            "Major dams regulate its discharge."
+          ]
+        ],
+        [
+          [
+            "تضم أوديته موائل صحراوية ونهرية.",
+            "Its valleys contain desert and river habitats."
+          ],
+          [
+            "قلّ وصول المياه إلى الدلتا تاريخيًا بسبب السحب.",
+            "Diversions have historically reduced flow to the delta."
+          ]
+        ],
+        [
+          [
+            "يمد مدنًا ومزارع في جنوب غرب أمريكا بالمياه.",
+            "Supplies cities and farms in the US Southwest."
+          ],
+          [
+            "يواجه جفافًا طويلًا وضغطًا على الخزانات.",
+            "Faces prolonged drought and reservoir stress."
+          ]
+        ]
+      ]
     },
     "Lena River": {
       "ar": "ينبع نهر لينا من جبال جنوب سيبيريا قرب بحيرة بايكال، ثم يجري شمالًا عبر روسيا إلى بحر لابتيف المتصل بالمحيط المتجمد الشمالي. يتكون عند مصبه واحد من أكبر أنظمة الدلتا في المناطق القطبية، ويوفر موائل مهمة للطيور والكائنات المائية. يتجمد النهر شتاءً، وقد تؤدي ذوبانات الربيع غير المتزامنة بين الجنوب والشمال إلى فيضانات واسعة في بعض السنوات.",
@@ -4124,7 +4838,49 @@
         "countriesLabelAr": "الدول",
         "countriesAr": "روسيا",
         "countriesEn": "Russia"
-      }
+      },
+      "riverPoints": [
+        [
+          [
+            "ينبع قرب بايكال ويجري شمالًا في سيبيريا.",
+            "Rises near Baikal and flows north across Siberia."
+          ],
+          [
+            "يصب في بحر لابتيف بالمحيط المتجمد الشمالي.",
+            "Reaches the Laptev Sea in the Arctic Ocean."
+          ]
+        ],
+        [
+          [
+            "تتغير تدفقاته مع ذوبان الثلوج والجليد.",
+            "Flow changes with snow and ice melt."
+          ],
+          [
+            "قد تحدث فيضانات بسبب انسداد الجليد الربيعي.",
+            "Spring ice jams can cause floods."
+          ]
+        ],
+        [
+          [
+            "تضم دلتاه أراضي رطبة في التندرا.",
+            "Its delta contains tundra wetlands."
+          ],
+          [
+            "تؤثر التربة الصقيعية في تضاريس ضفافه.",
+            "Permafrost influences its riverbanks."
+          ]
+        ],
+        [
+          [
+            "طريق نقل موسمي لمناطق سيبيرية نائية.",
+            "A seasonal transport route for remote Siberian areas."
+          ],
+          [
+            "يرتبط مستقبل الحوض باحترار القطب الشمالي.",
+            "Its basin is affected by Arctic warming."
+          ]
+        ]
+      ]
     },
     "Yenisei River": {
       "ar": "يعد ينيسي من أعظم أنهار سيبيريا، ويجري شمالًا عبر روسيا إلى بحر كارا في المحيط المتجمد الشمالي. يتلقى مياه روافد كبيرة منها أنغارا القادم من بحيرة بايكال، وتنتشر على حوضه الغابات الشمالية ومناطق التندرا. يُستخدم في توليد الطاقة الكهرومائية ونقل البضائع في أجزاء من مجراه، وتتغير حركة مياهه وجليده مع الفصول.",
@@ -4147,7 +4903,49 @@
         "countriesLabelAr": "الدول",
         "countriesAr": "روسيا؛ وتمتد منابع بعض روافده إلى منغوليا",
         "countriesEn": "Russia; headwaters of some tributaries extend into Mongolia"
-      }
+      },
+      "riverPoints": [
+        [
+          [
+            "يجري شمالًا عبر سيبيريا إلى بحر كارا.",
+            "Flows north through Siberia to the Kara Sea."
+          ],
+          [
+            "يضم نظامه روافد كبيرة مثل أنغارا.",
+            "Its system includes major tributaries such as the Angara."
+          ]
+        ],
+        [
+          [
+            "تغذيه الثلوج والأمطار وروافد بحيرة بايكال.",
+            "Snow, rain and Baikal-linked tributaries feed it."
+          ],
+          [
+            "تؤثر السدود الكهرومائية في بعض قطاعاته.",
+            "Hydropower dams affect parts of its course."
+          ]
+        ],
+        [
+          [
+            "يعبر غابات التايغا نحو التندرا الشمالية.",
+            "Crosses taiga forests toward northern tundra."
+          ],
+          [
+            "يتأثر النهر بتجمد موسمي طويل.",
+            "The river experiences prolonged seasonal ice cover."
+          ]
+        ],
+        [
+          [
+            "مهم لتوليد الطاقة والنقل في روسيا.",
+            "Important for energy and transport in Russia."
+          ],
+          [
+            "تؤثر تغيرات الجليد والمناخ في نظامه.",
+            "Changing ice and climate affect its regime."
+          ]
+        ]
+      ]
     },
     "Ob River": {
       "ar": "ينشأ نهر أوب من التقاء نهري بيا وكاتون في جنوب سيبيريا الغربية، ويتجه شمالًا عبر سهول واسعة ومستنقعات وغابات إلى خليج أوب ثم بحر كارا القطبي. ومن أهم روافده نهر إيرتيش الذي يمتد حوضه عبر آسيا الوسطى. تتغير مستويات المياه والجليد مع المواسم، وتُستخدم أجزاء من النظام للملاحة والموارد المائية، مع تأثر المناطق المنخفضة بالفيضانات.",
@@ -4170,7 +4968,49 @@
         "countriesLabelAr": "الدول",
         "countriesAr": "روسيا؛ وتمتد روافد من حوضه إلى دول مجاورة",
         "countriesEn": "Russia; tributaries in its basin extend to neighboring countries"
-      }
+      },
+      "riverPoints": [
+        [
+          [
+            "ينشأ من التقاء بيا وكاتون في جنوب سيبيريا.",
+            "Forms where the Biya and Katun meet in southern Siberia."
+          ],
+          [
+            "يصب في خليج أوب المتصل ببحر كارا.",
+            "Reaches the Gulf of Ob connected to the Kara Sea."
+          ]
+        ],
+        [
+          [
+            "يتلقى رافد إرتيش الكبير.",
+            "Receives the major Irtysh tributary."
+          ],
+          [
+            "قد تزداد الفيضانات مع ذوبان الثلوج شمالًا.",
+            "Snowmelt and ice conditions can intensify floods."
+          ]
+        ],
+        [
+          [
+            "يعبر مستنقعات واسعة في سهل سيبيريا الغربية.",
+            "Crosses vast wetlands of the West Siberian Plain."
+          ],
+          [
+            "تتغير الموائل من الغابات إلى التندرا.",
+            "Habitats shift from forests to tundra."
+          ]
+        ],
+        [
+          [
+            "يساعد في النقل والوصول إلى مناطق نائية.",
+            "Supports transport to remote areas."
+          ],
+          [
+            "تؤثر الأنشطة الصناعية في بعض أجزاء الحوض.",
+            "Industrial activity affects parts of the basin."
+          ]
+        ]
+      ]
     },
     "Mackenzie River": {
       "ar": "ينساب نهر ماكنزي من البحيرة الكبرى للعبيد في شمال غرب كندا إلى بحر بوفورت في المحيط المتجمد الشمالي. تصب في نظامه روافد كثيرة ويُعد جزءًا من حوض مائي واسع يمتد إلى مناطق جبلية وبحيرات في غرب كندا. يتجمد النهر في الشتاء، ثم تتغير مياهه في الربيع والصيف، ويكوّن عند المصب دلتا كبيرة ذات أراضٍ رطبة مهمة للطيور والأسماك والمجتمعات المحلية.",
@@ -4193,7 +5033,49 @@
         "countriesLabelAr": "الدول",
         "countriesAr": "كندا",
         "countriesEn": "Canada"
-      }
+      },
+      "riverPoints": [
+        [
+          [
+            "ينطلق من البحيرة الكبرى للعبيد في كندا.",
+            "Flows out of Great Slave Lake in Canada."
+          ],
+          [
+            "يصب في بحر بوفورت بالمحيط المتجمد الشمالي.",
+            "Reaches the Beaufort Sea in the Arctic Ocean."
+          ]
+        ],
+        [
+          [
+            "تتغذى شبكته من بحيرات وأنهار شمالية واسعة.",
+            "Its network draws from extensive northern lakes and rivers."
+          ],
+          [
+            "يتأثر بتجمد الشتاء وذوبان الربيع.",
+            "Winter freezing and spring thaw shape its flow."
+          ]
+        ],
+        [
+          [
+            "تضم دلتاه موائل طيور وأسماك قطبية.",
+            "Its delta shelters Arctic birds and fish."
+          ],
+          [
+            "تؤثر التربة الصقيعية في ضفافه ومياهه.",
+            "Permafrost affects its banks and waters."
+          ]
+        ],
+        [
+          [
+            "طريق تقليدي للنقل لمجتمعات الشمال.",
+            "A traditional transport route for northern communities."
+          ],
+          [
+            "يتأثر بارتفاع حرارة المناطق القطبية.",
+            "Affected by warming in Arctic regions."
+          ]
+        ]
+      ]
     },
     "Kalahari Desert": {
       "ar": "تمتد كالاهاري عبر معظم بوتسوانا وأجزاء من ناميبيا وجنوب أفريقيا. تسقط معظم الأمطار في الموسم الدافئ وتتفاوت كميتها كثيرًا بين الأماكن والسنوات. تتجاور كثبان حمراء وسهول رملية ومنخفضات تتجمع فيها المياه لفترة بعد المطر.",
