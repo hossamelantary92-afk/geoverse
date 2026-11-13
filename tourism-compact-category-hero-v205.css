@@ -45,6 +45,7 @@
  line-height:1.45!important;
 }
 #main .gv196-category-banner p{
+ white-space:pre-line;
  margin:0!important;
  font-size:clamp(11px,1.05vw,13px)!important;
  line-height:1.75!important;

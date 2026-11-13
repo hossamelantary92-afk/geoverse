@@ -7,7 +7,7 @@ const attractions=[{"countryAr":"مصر","countryEn":"Egypt","cityAr":"الجي�
 const category='tourism';
 const t=(ar,en)=>document.documentElement.lang==='en'?en:ar;
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const categoryDef={id:category,ar:'المزارات السياحية',en:'Tourist Attractions',emoji:'🏛️',img:'photo-1735446918160-af0b896b7a89',descAr:'من أهرامات الجيزة إلى جبل فوجي، اكتشف قصص معالم شكّلها الإنسان والطبيعة.',descEn:'From the Pyramids of Giza to Mount Fuji, explore the stories behind landmarks shaped by people and nature.'};
+const categoryDef={id:category,ar:'المزارات السياحية',en:'Tourist Attractions',emoji:'🏛️',img:'photo-1735446918160-af0b896b7a89',descAr:'من أهرامات الجيزة إلى جبل فوجي،\nاكتشف قصص معالم شكّلها الإنسان والطبيعة.',descEn:'From the Pyramids of Giza to Mount Fuji, explore the stories behind landmarks shaped by people and nature.'};
 if(typeof cats==='undefined'||typeof geo==='undefined'||typeof explore!=='function')return;
 if(!cats.some(c=>c.id===category))cats.push(categoryDef);
 if(typeof topicDefinitions!=='undefined')topicDefinitions.tourism=[
