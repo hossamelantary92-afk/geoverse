@@ -845,133 +845,133 @@
       ]
     },
     "Lake Baikal": {
-      "ar": "بايكال بحيرة كبيرة في سيبيريا بروسيا. تُعد أعمق بحيرة للمياه العذبة في العالم، وتعيش فيها أنواع لا توجد طبيعيًا في أماكن كثيرة أخرى.",
-      "en": "Baikal is a Siberian lake in Russia and the deepest freshwater lake on Earth, with many distinctive species.",
+      "ar": "بحيرة بايكال في جنوب سيبيريا الروسية أعمق بحيرة عذبة في العالم، بعمق أقصى يقارب 1,642 مترًا. نشأت في حوض صدعي قديم وتضم نحو خُمس المياه العذبة السطحية غير المتجمدة في العالم، وتعيش فيها فقمة بايكال المتوطنة.",
+      "en": "Lake Baikal in southern Siberia is the world's deepest freshwater lake, reaching about 1,642 metres. This ancient rift lake holds roughly one-fifth of Earth's unfrozen surface fresh water and is home to the endemic Baikal seal.",
       "factsAr": [
         [
-          "الموقع",
-          "سيبيريا، روسيا"
+          "أقصى عمق",
+          "نحو 1,642 مترًا"
         ],
         [
-          "التميّز",
-          "أعمق بحيرة عذبة"
+          "النوع",
+          "بحيرة عذبة صدعية"
         ]
       ],
       "factsEn": [
         [
-          "Location",
-          "Southern Siberia, Russia"
+          "Maximum depth",
+          "About 1,642 m"
         ],
         [
           "Type",
-          "Very deep freshwater rift lake"
+          "Freshwater rift lake"
         ]
       ],
       "lakePoints": [
         [
           [
-            "تقع في جنوب سيبيريا في روسيا.",
-            "Located in Southern Siberia, Russia."
+            "تقع في جنوب سيبيريا بروسيا بين مقاطعة إيركوتسك وجمهورية بورياتيا.",
+            "Lies in southern Siberia between Irkutsk Oblast and the Republic of Buryatia, Russia."
           ],
           [
-            "بحيرة عذبة أخدودية شديدة العمق",
-            "Very deep freshwater rift lake"
+            "تُعد أعمق بحيرة عذبة في العالم، بعمق أقصى يقارب 1,642 مترًا.",
+            "It is the world's deepest freshwater lake, with a maximum depth near 1,642 m."
           ]
         ],
         [
           [
-            "تكوّنت في حوض تكتوني ممتد",
-            "Formed in an elongated tectonic basin"
+            "نشأت في حوض صدعي نشط تكتونيًا، ويُقدّر عمرها بعشرات ملايين السنين.",
+            "Formed in an active tectonic rift basin and is tens of millions of years old."
           ],
           [
-            "تتجمد أجزاء واسعة من سطحها شتاءً",
-            "Much of its surface freezes in winter"
+            "يتجمد سطحها عادة في الشتاء، مع اختلاف توقيت التجمد بحسب المنطقة والطقس.",
+            "Its surface typically freezes in winter, with timing varying by location and weather."
           ]
         ],
         [
           [
-            "تضم أنواعًا متوطنة مثل فقمة بايكال",
-            "It supports endemic species such as the Baikal seal"
+            "تحتوي على نحو خُمس المياه العذبة السطحية غير المتجمدة في العالم.",
+            "Contains roughly one-fifth of the world's unfrozen surface fresh water."
           ],
           [
-            "تتأثر بيئتها بتغير المياه والمناخ حولها.",
-            "Its habitats respond to water and climate changes."
+            "تعيش فيها فقمة بايكال، وهي فقمة متوطنة في المياه العذبة.",
+            "Home to the Baikal seal, an endemic freshwater seal."
           ]
         ],
         [
           [
-            "توضح تضاريس الحوض العلاقة بين اليابسة والمياه.",
-            "Its basin shows how landforms shape water bodies."
+            "يكشف عمقها وعمرها الطويلان عن تاريخ جيولوجي ومناخي استثنائي.",
+            "Its great depth and age preserve an exceptional geological and climate record."
           ],
           [
-            "تختلف خصائصها عن البحيرات الأخرى بحسب الموقع والتكوين.",
-            "Its characteristics differ from other lakes by setting and origin."
+            "تُعد موقعًا للتراث العالمي لليونسكو، مع تحديات بيئية تشمل التلوث وتغير المناخ.",
+            "A UNESCO World Heritage Site facing pressures including pollution and climate change."
           ]
         ]
       ]
     },
     "Lake Victoria": {
-      "ar": "بحيرة فيكتوريا تقع بشرق أفريقيا، وتشترك في شواطئها أوغندا وكينيا وتنزانيا. وهي مصدر مهم للمياه والصيد وترتبط بحوض النيل.",
-      "en": "Lake Victoria lies in East Africa, bordered by Uganda, Kenya and Tanzania, and is important for fishing and the Nile Basin.",
+      "ar": "بحيرة فيكتوريا أكبر بحيرات أفريقيا مساحةً، وتقع بين تنزانيا وأوغندا وكينيا. وهي بحيرة عذبة واسعة وضحلة نسبيًا، تؤثر في الصيد والمناخ المحلي وتصب مياهها عبر نيل فيكتوريا ضمن منظومة النيل الأبيض.",
+      "en": "Lake Victoria is Africa's largest lake by surface area, shared by Tanzania, Uganda and Kenya. Broad and relatively shallow, it supports fisheries and drains via the Victoria Nile into the White Nile system.",
       "factsAr": [
         [
-          "الموقع",
-          "شرق أفريقيا"
+          "التميّز",
+          "أكبر بحيرة أفريقية مساحةً"
         ],
         [
-          "الأهمية",
-          "المياه والصيد"
+          "النوع",
+          "بحيرة عذبة ضحلة نسبيًا"
         ]
       ],
       "factsEn": [
         [
-          "Location",
-          "East Africa between Uganda, Tanzania and Kenya"
+          "Distinction",
+          "Africa's largest lake by area"
         ],
         [
           "Type",
-          "Large, relatively shallow freshwater lake"
+          "Relatively shallow freshwater lake"
         ]
       ],
       "lakePoints": [
         [
           [
-            "تقع في شرق أفريقيا بين أوغندا وتنزانيا وكينيا.",
-            "Located in East Africa between Uganda, Tanzania and Kenya."
+            "تقع في شرق أفريقيا وتتقاسم شواطئها تنزانيا وأوغندا وكينيا.",
+            "Shared by Tanzania, Uganda and Kenya in East Africa."
           ],
           [
-            "بحيرة عذبة واسعة وضحلة نسبيًا",
-            "Large, relatively shallow freshwater lake"
+            "تبلغ مساحتها نحو 68 ألف كم²، وهي أكبر بحيرة في أفريقيا من حيث المساحة.",
+            "Covers roughly 68,000 km², making it Africa's largest lake by area."
           ]
         ],
         [
           [
-            "تقع في حوض واسع بين أذرع الأخدود الأفريقي",
-            "Lies in a broad basin between branches of the East African Rift"
+            "يقع حوضها الواسع بين فرعي الأخدود الأفريقي الشرقي والغربي.",
+            "Its broad basin lies between the eastern and western branches of the East African Rift."
           ],
           [
-            "تؤثر الأمطار والتبخر في منسوب مياهها",
-            "Rainfall and evaporation affect its water level"
+            "يتأثر منسوبها بالأمطار والتبخر والتدفقات الداخلة والخارجة.",
+            "Water levels respond to rainfall, evaporation, inflows and outflows."
           ]
         ],
         [
           [
-            "تغذي النيل الأبيض عبر نيل فيكتوريا",
-            "It drains toward the White Nile via the Victoria Nile"
+            "تُعد مصدرًا مهمًا للأسماك ومياه الشرب والنقل للمجتمعات المحيطة.",
+            "Supports fisheries, water supplies and transport for surrounding communities."
           ],
           [
-            "تتأثر بيئتها بتغير المياه والمناخ حولها.",
-            "Its habitats respond to water and climate changes."
+            "تخرج مياهها عند جينجا في أوغندا عبر نيل فيكتوريا ضمن منظومة النيل الأبيض.",
+            "Its outlet near Jinja, Uganda, feeds the Victoria Nile and the White Nile system."
           ]
         ],
         [
           [
-            "توضح تضاريس الحوض العلاقة بين اليابسة والمياه.",
-            "Its basin shows how landforms shape water bodies."
+            "تواجه ضغوطًا بيئية تشمل التلوث والمغذيات الزائدة والأنواع الغازية.",
+            "Faces pollution, nutrient enrichment and invasive species."
           ],
           [
-            "تختلف خصائصها عن البحيرات الأخرى بحسب الموقع والتكوين.",
-            "Its characteristics differ from other lakes by setting and origin."
+            "توضح كيف ترتبط البحيرات الكبيرة بالأنهار والاقتصاد المحلي والبيئة.",
+            "Illustrates links between large lakes, rivers, local economies and ecosystems."
           ]
         ]
       ]
@@ -1634,133 +1634,133 @@
       ]
     },
     "Lake Superior": {
-      "ar": "بحيرة سوبيريور إحدى البحيرات العظمى في أمريكا الشمالية. تقع على حدود كندا والولايات المتحدة، وتُعد من أكبر بحيرات المياه العذبة مساحة.",
-      "en": "Lake Superior is one of North America's Great Lakes, shared by Canada and the United States, and is among the largest freshwater lakes by area.",
+      "ar": "بحيرة سوبيريور إحدى البحيرات العظمى بين كندا والولايات المتحدة، وهي أكبر بحيرة عذبة في العالم من حيث المساحة السطحية. شكّلت الأنهار الجليدية حوضها، وتشتهر بمياهها الباردة والعميقة وعواصفها القوية.",
+      "en": "Lake Superior, shared by Canada and the United States, is the world's largest freshwater lake by surface area. Glaciers shaped its basin, and its cold, deep waters experience powerful storms.",
       "factsAr": [
         [
-          "الموقع",
-          "أمريكا الشمالية"
+          "المساحة",
+          "نحو 82,100 كم²"
         ],
         [
-          "النوع",
-          "بحيرة مياه عذبة"
+          "التميّز",
+          "أكبر بحيرة عذبة مساحةً"
         ]
       ],
       "factsEn": [
         [
-          "Location",
-          "Between Canada and the United States"
+          "Area",
+          "About 82,100 km²"
         ],
         [
-          "Type",
-          "Largest of the Great Lakes by surface area"
+          "Distinction",
+          "Largest freshwater lake by surface area"
         ]
       ],
       "lakePoints": [
         [
           [
-            "تقع في بين كندا والولايات المتحدة.",
-            "Located in Between Canada and the United States."
+            "تقع بين مقاطعة أونتاريو الكندية وولايات مينيسوتا وويسكونسن وميشيغان الأمريكية.",
+            "Borders Ontario in Canada and Minnesota, Wisconsin and Michigan in the United States."
           ],
           [
-            "أكبر البحيرات العظمى مساحة",
-            "Largest of the Great Lakes by surface area"
+            "مساحتها نحو 82,100 كم²، وهي أكبر بحيرة عذبة مساحةً في العالم.",
+            "Its area is about 82,100 km², the largest freshwater lake by surface area."
           ]
         ],
         [
           [
-            "شكّلت الأنهار الجليدية حوضها",
-            "Glaciers shaped its basin"
+            "شكّلت الأنهار الجليدية القارية حوضها خلال العصور الجليدية.",
+            "Continental glaciers sculpted its basin during ice ages."
           ],
           [
-            "تتميز بمياه باردة وعواصف قوية أحيانًا",
-            "Its waters are cold and storms can be strong"
+            "تتميز بمياه باردة وعميقة ومناخ تتأثر به الرياح والعواصف الموسمية.",
+            "Its deep, cold waters are affected by strong winds and seasonal storms."
           ]
         ],
         [
           [
-            "تتصل ببقية البحيرات العظمى عبر مجارٍ مائية",
-            "It connects to other Great Lakes through waterways"
+            "يصل أقصى عمق لها إلى نحو 406 أمتار، وتضم سواحل صخرية وجزرًا.",
+            "Reaches about 406 m deep and has rocky shores and islands."
           ],
           [
-            "تتأثر بيئتها بتغير المياه والمناخ حولها.",
-            "Its habitats respond to water and climate changes."
+            "تدعم أسماك المياه الباردة، مثل تراوت البحيرات، ونظمًا ساحلية متنوعة.",
+            "Supports cold-water fish such as lake trout and diverse coastal habitats."
           ]
         ],
         [
           [
-            "توضح تضاريس الحوض العلاقة بين اليابسة والمياه.",
-            "Its basin shows how landforms shape water bodies."
+            "تصرف مياهها عبر نهر سانت ماري إلى بحيرة هورون.",
+            "Drains through the St. Marys River into Lake Huron."
           ],
           [
-            "تختلف خصائصها عن البحيرات الأخرى بحسب الموقع والتكوين.",
-            "Its characteristics differ from other lakes by setting and origin."
+            "تساعد دراستها على فهم تأثير الاحترار في البحيرات العظمى الباردة.",
+            "Research helps reveal warming impacts on cold Great Lakes."
           ]
         ]
       ]
     },
     "Caspian Sea": {
-      "ar": "بحر قزوين مسطح مائي داخلي ضخم لا يتصل مباشرة بمحيطات العالم، ويُصنف جغرافيًا بحيرة. تطل عليه عدة دول في آسيا وأوروبا.",
-      "en": "The Caspian Sea is a huge enclosed inland water body, geographically classified as a lake, bordering several Eurasian countries.",
+      "ar": "بحر قزوين أكبر مسطح مائي داخلي مغلق في العالم، ويُعد جغرافيًا بحيرة مالحة رغم تسميته بحرًا. تحيط به خمس دول، وتتفاوت ملوحته وأعماقه بشدة بين الشمال الضحل والجنوب العميق.",
+      "en": "The Caspian Sea is the world's largest enclosed inland water body, geographically a saline lake despite its name. Five countries border it, and its depth and salinity vary markedly between the shallow north and deep south.",
       "factsAr": [
         [
-          "الموقع",
-          "آسيا وأوروبا"
+          "النوع",
+          "بحيرة مالحة مغلقة"
         ],
         [
-          "النوع",
-          "بحيرة داخلية مغلقة"
+          "التميّز",
+          "أكبر مسطح مائي داخلي"
         ]
       ],
       "factsEn": [
         [
-          "Location",
-          "Between Europe and Asia"
+          "Type",
+          "Enclosed saline lake"
         ],
         [
-          "Type",
-          "Largest enclosed inland water body"
+          "Distinction",
+          "Largest inland water body"
         ]
       ],
       "lakePoints": [
         [
           [
-            "تقع في بين أوروبا وآسيا.",
-            "Located in Between Europe and Asia."
+            "تطل عليه روسيا وكازاخستان وتركمانستان وإيران وأذربيجان.",
+            "Bordered by Russia, Kazakhstan, Turkmenistan, Iran and Azerbaijan."
           ],
           [
-            "أكبر مسطح مائي داخلي مغلق",
-            "Largest enclosed inland water body"
+            "لا يتصل بالمحيطات اتصالًا طبيعيًا مباشرًا، ولذلك يُصنف جغرافيًا بحيرة.",
+            "Has no natural direct ocean connection and is geographically classified as a lake."
           ]
         ],
         [
           [
-            "حوض داخلي لا يصرف إلى المحيطات",
-            "An inland basin with no outlet to the oceans"
+            "يقع في حوض مغلق، ويستقبل معظم مياهه النهرية من نهر الفولغا.",
+            "Occupies a closed basin and receives much of its river inflow from the Volga."
           ],
           [
-            "تختلف ملوحته من منطقة إلى أخرى",
-            "Salinity varies across the basin"
+            "تتباين أعماقه من شمال ضحل إلى جنوب يتجاوز عمقه ألف متر.",
+            "Depth ranges from a shallow north to a southern basin deeper than 1,000 m."
           ]
         ],
         [
           [
-            "يغذيه نهر الفولغا وروافد أخرى",
-            "The Volga and other rivers feed it"
+            "تعيش فيه أنواع من سمك الحفش وفقمة قزوين المتوطنة.",
+            "Supports sturgeon species and the endemic Caspian seal."
           ],
           [
-            "تتأثر بيئتها بتغير المياه والمناخ حولها.",
-            "Its habitats respond to water and climate changes."
+            "تختلف الملوحة بين أجزائه، وهي عمومًا أقل من ملوحة المحيطات.",
+            "Salinity varies across the basin and is generally below ocean salinity."
           ]
         ],
         [
           [
-            "توضح تضاريس الحوض العلاقة بين اليابسة والمياه.",
-            "Its basin shows how landforms shape water bodies."
+            "يتغير منسوبه مع توازن تدفق الأنهار والتبخر والمناخ.",
+            "Its level changes with river inflow, evaporation and climate."
           ],
           [
-            "تختلف خصائصها عن البحيرات الأخرى بحسب الموقع والتكوين.",
-            "Its characteristics differ from other lakes by setting and origin."
+            "انخفاض المنسوب يهدد بعض الأراضي الرطبة والموائل الساحلية.",
+            "Falling water levels threaten wetlands and coastal habitats."
           ]
         ]
       ]
@@ -2450,88 +2450,88 @@
       ]
     },
     "Lake Tanganyika": {
-      "ar": "تقع بحيرة تنجانيقا ضمن صدع شرق أفريقيا وتشترك في شواطئها تنزانيا والكونغو الديمقراطية وبوروندي وزامبيا. تُعد من أعمق بحيرات العالم، وتشتهر بأسماك السيكليد المتوطنة وتنوع بيئات المياه العذبة.",
-      "en": "Lake Tanganyika lies within the East African Rift and borders Tanzania, DR Congo, Burundi and Zambia. One of Earth's deepest lakes, it contains diverse endemic cichlid fish and freshwater habitats.",
+      "ar": "بحيرة تنجانيقا بحيرة أخدودية عميقة في شرق أفريقيا، وهي ثاني أعمق بحيرة عذبة معروفة بعد بايكال. تشترك فيها تنزانيا والكونغو الديمقراطية وبوروندي وزامبيا، وتضم تنوعًا كبيرًا من الأسماك المتوطنة.",
+      "en": "Lake Tanganyika is a deep East African rift lake, the second-deepest known freshwater lake after Baikal. Shared by Tanzania, DR Congo, Burundi and Zambia, it is home to many endemic fish.",
       "factsAr": [
         [
-          "الموقع",
-          "بحيرة تنجانيقا"
+          "أقصى عمق",
+          "نحو 1,470 مترًا"
         ],
         [
           "النوع",
-          "معلم جغرافي طبيعي"
+          "بحيرة عذبة أخدودية"
         ]
       ],
       "factsEn": [
         [
-          "Location",
-          "East Africa shared by four countries"
+          "Maximum depth",
+          "About 1,470 m"
         ],
         [
           "Type",
-          "Deep rift lake"
+          "Freshwater rift lake"
         ]
       ],
       "lakePoints": [
         [
           [
-            "تقع في شرق أفريقيا بين أربع دول.",
-            "Located in East Africa shared by four countries."
+            "تطل عليها تنزانيا والكونغو الديمقراطية وبوروندي وزامبيا.",
+            "Bordered by Tanzania, the Democratic Republic of the Congo, Burundi and Zambia."
           ],
           [
-            "بحيرة أخدودية عميقة",
-            "Deep rift lake"
+            "تتميز بشكل طويل وضيق نسبيًا ضمن نظام الأخدود الأفريقي.",
+            "Long and relatively narrow within the East African Rift system."
           ]
         ],
         [
           [
-            "نشأت في نطاق التصدع بشرق أفريقيا",
-            "Formed within the East African Rift system"
+            "تكونت في حوض تكتوني بفعل تمدد القشرة الأرضية.",
+            "Formed in a tectonic basin as the crust stretched."
           ],
           [
-            "تختلف خصائص المياه بين السطح والأعماق",
-            "Water conditions differ between surface and depth"
+            "يصل عمقها الأقصى إلى نحو 1,470 مترًا، ما يجعلها ثاني أعمق بحيرة عذبة.",
+            "Its maximum depth is around 1,470 m, making it the second-deepest freshwater lake."
           ]
         ],
         [
           [
-            "تعيش فيها أسماك سيكليد متنوعة",
-            "It hosts diverse cichlid fishes"
+            "تشتهر بمئات الأنواع من أسماك السيكليد، وكثير منها متوطن.",
+            "Known for hundreds of cichlid species, many of them endemic."
           ],
           [
-            "تتأثر بيئتها بتغير المياه والمناخ حولها.",
-            "Its habitats respond to water and climate changes."
+            "تظل المياه العميقة فقيرة بالأكسجين، فتتركز الحياة الأعلى نشاطًا في الطبقات العليا.",
+            "Deep waters are oxygen-poor, concentrating much biological activity in upper layers."
           ]
         ],
         [
           [
-            "توضح تضاريس الحوض العلاقة بين اليابسة والمياه.",
-            "Its basin shows how landforms shape water bodies."
+            "تُعد مختبرًا طبيعيًا لدراسة تطور الأنواع في بيئة منعزلة.",
+            "A natural laboratory for studying evolution in isolated environments."
           ],
           [
-            "تختلف خصائصها عن البحيرات الأخرى بحسب الموقع والتكوين.",
-            "Its characteristics differ from other lakes by setting and origin."
+            "تؤثر حرارة المياه والتغيرات في اختلاط الطبقات على المغذيات والمصايد.",
+            "Water warming and changes in mixing affect nutrients and fisheries."
           ]
         ]
       ]
     },
     "Lake Titicaca": {
-      "ar": "تقع تيتيكاكا على هضبة الألتيبلانو بين بيرو وبوليفيا، وتضم جزرًا ومجتمعات محلية ذات تقاليد مرتبطة بالبحيرة. تشتهر بمسطحات القصب في مناطقها الضحلة، وتؤثر المرتفعات الباردة في بيئتها المائية.",
-      "en": "Lake Titicaca sits on the Altiplano between Peru and Bolivia. Islands and lakeside communities preserve distinctive traditions, while reed beds grow in shallower areas of its cool high-altitude waters.",
+      "ar": "تقع بحيرة تيتيكاكا على هضبة الألتيبلانو بين بيرو وبوليفيا على ارتفاع يقارب 3,812 مترًا. وهي من أعلى البحيرات الكبيرة التي تجري فيها الملاحة التجارية، وتتميز بجزرها ومجتمعاتها المحلية وبيئات القصب.",
+      "en": "Lake Titicaca lies on the Altiplano between Peru and Bolivia at about 3,812 m elevation. Among the highest large lakes used for commercial navigation, it is known for islands, local communities and reed wetlands.",
       "factsAr": [
         [
-          "الموقع",
-          "بحيرة تيتيكاكا"
+          "الارتفاع",
+          "نحو 3,812 مترًا"
         ],
         [
           "النوع",
-          "معلم جغرافي طبيعي"
+          "بحيرة عذبة مرتفعة"
         ]
       ],
       "factsEn": [
         [
-          "Location",
-          "Andes between Peru and Bolivia"
+          "Elevation",
+          "About 3,812 m"
         ],
         [
           "Type",
@@ -2541,108 +2541,108 @@
       "lakePoints": [
         [
           [
-            "تقع في الأنديز بين بيرو وبوليفيا.",
-            "Located in Andes between Peru and Bolivia."
+            "تقع على هضبة الألتيبلانو في جبال الأنديز بين بيرو وبوليفيا.",
+            "Lies on the Andean Altiplano between Peru and Bolivia."
           ],
           [
-            "بحيرة عذبة مرتفعة",
-            "High-altitude freshwater lake"
+            "يرتفع سطحها نحو 3,812 مترًا فوق مستوى البحر.",
+            "Its surface is about 3,812 m above sea level."
           ]
         ],
         [
           [
-            "تقع في حوض هضبة ألتيبلانو",
-            "Occupies a basin on the Altiplano plateau"
+            "يقع حوضها بين سلاسل جبلية عالية وتغذيه أمطار وأنهار محلية.",
+            "Its basin lies among high ranges and is fed by rainfall and local rivers."
           ],
           [
-            "الهواء بارد نسبيًا بسبب الارتفاع",
-            "High elevation brings relatively cool conditions"
+            "يتأثر منسوبها بتقلب الأمطار والتبخر في مناخ المرتفعات.",
+            "Its level responds to rainfall variability and evaporation in the highland climate."
           ]
         ],
         [
           [
-            "تنتشر نباتات القصب قرب بعض الشواطئ",
-            "Reeds grow along parts of its shores"
+            "تضم مناطق من نبات التوتورا الذي تستخدمه مجتمعات محلية في صناعة القوارب والجزر العائمة.",
+            "Totora reeds are used by local communities to make boats and floating islands."
           ],
           [
-            "تتأثر بيئتها بتغير المياه والمناخ حولها.",
-            "Its habitats respond to water and climate changes."
+            "تعيش فيها أنواع مائية متوطنة، منها ضفدع تيتيكاكا المائي.",
+            "Supports endemic aquatic species including the Titicaca water frog."
           ]
         ],
         [
           [
-            "توضح تضاريس الحوض العلاقة بين اليابسة والمياه.",
-            "Its basin shows how landforms shape water bodies."
+            "تُعد من أعلى البحيرات الكبيرة الصالحة للملاحة التجارية في العالم.",
+            "Among the world's highest large lakes used for commercial navigation."
           ],
           [
-            "تختلف خصائصها عن البحيرات الأخرى بحسب الموقع والتكوين.",
-            "Its characteristics differ from other lakes by setting and origin."
+            "تربط بين جغرافيا الأنديز والتراث الثقافي للمجتمعات المحيطة.",
+            "Connects Andean geography with the cultural heritage of surrounding communities."
           ]
         ]
       ]
     },
     "Dead Sea": {
-      "ar": "البحر الميت بحيرة مغلقة شديدة الملوحة في منطقة منخفضة جدًا عن مستوى البحر. تفقد المياه أساسًا بالتبخر، وقد ساهم انخفاض تدفق نهر الأردن والاستخدام البشري للمياه في تراجع منسوبها. تختلف الحدود السياسية حول ضفافها باختلاف المواقع.",
-      "en": "The Dead Sea is a terminal hypersaline lake in a very low basin. Water mainly leaves through evaporation; reduced Jordan River inflow and human water use have contributed to falling water levels. Its shores span politically sensitive areas.",
+      "ar": "البحر الميت بحيرة شديدة الملوحة في حوض مغلق ضمن صدع البحر الميت، ويقع سطحها على واحد من أخفض المواضع المكشوفة على اليابسة. تؤدي شدة التبخر وقلة التدفق الداخل إلى تغير منسوبها وتراجع سواحلها.",
+      "en": "The Dead Sea is an extremely saline terminal lake along the Dead Sea Transform, with a surface among the lowest exposed places on land. High evaporation and reduced inflow contribute to falling levels and retreating shores.",
       "factsAr": [
         [
-          "الموقع",
-          "البحر الميت"
+          "النوع",
+          "بحيرة شديدة الملوحة"
         ],
         [
-          "النوع",
-          "معلم جغرافي طبيعي"
+          "التميّز",
+          "من أخفض مناطق اليابسة"
         ]
       ],
       "factsEn": [
         [
-          "Location",
-          "Between Jordan, the West Bank and Israel"
+          "Type",
+          "Hypersaline terminal lake"
         ],
         [
-          "Type",
-          "Extremely saline terminal lake"
+          "Distinction",
+          "Among Earth's lowest land elevations"
         ]
       ],
       "lakePoints": [
         [
           [
-            "تقع في بين الأردن والضفة الغربية وإسرائيل.",
-            "Located in Between Jordan, the West Bank and Israel."
+            "يقع بين الأردن من الشرق والضفة الغربية وإسرائيل من الغرب.",
+            "Lies between Jordan to the east and the West Bank and Israel to the west."
           ],
           [
-            "بحيرة مغلقة شديدة الملوحة",
-            "Extremely saline terminal lake"
+            "سطحه أدنى من مستوى البحر بأكثر من 400 متر، ويتغير الارتفاع مع انحسار المياه.",
+            "Its surface is more than 400 m below sea level, changing as the water recedes."
           ]
         ],
         [
           [
-            "تقع في منخفض صدعي عميق",
-            "Occupies a deep fault-related depression"
+            "يقع في حوض تكتوني مرتبط بصدع البحر الميت، ولا يوجد له منفذ نهري طبيعي.",
+            "Occupies a tectonic basin along the Dead Sea Transform with no natural river outlet."
           ],
           [
-            "التبخر القوي يركز الأملاح",
-            "Strong evaporation concentrates salts"
+            "التبخر الشديد مع نقص المياه الواردة يرفع الملوحة ويساهم في انخفاض المنسوب.",
+            "Strong evaporation and reduced inflow increase salinity and contribute to falling levels."
           ]
         ],
         [
           [
-            "تنخفض مناسيبها بسبب اختلال الميزان المائي",
-            "Its water level is declining amid water-balance pressures"
+            "ملوحته العالية تجعل الطفو أسهل مقارنة بالمياه العذبة.",
+            "High salinity makes floating easier than in fresh water."
           ],
           [
-            "تتأثر بيئتها بتغير المياه والمناخ حولها.",
-            "Its habitats respond to water and climate changes."
+            "تظهر رواسب ملحية وحفر انهيارية في بعض المناطق الساحلية المتراجعة.",
+            "Salt deposits and sinkholes occur along some retreating shorelines."
           ]
         ],
         [
           [
-            "توضح تضاريس الحوض العلاقة بين اليابسة والمياه.",
-            "Its basin shows how landforms shape water bodies."
+            "ليس بحرًا مفتوحًا رغم اسمه، بل بحيرة نهائية مغلقة.",
+            "Despite its name, it is a closed terminal lake, not an open sea."
           ],
           [
-            "تختلف خصائصها عن البحيرات الأخرى بحسب الموقع والتكوين.",
-            "Its characteristics differ from other lakes by setting and origin."
+            "تراجع الشاطئ يغيّر الموائل والبنية التحتية والسياحة في المنطقة.",
+            "Shoreline retreat affects habitats, infrastructure and tourism."
           ]
         ]
       ]
