@@ -47,10 +47,16 @@ const forestHeadings=[
  ['النباتات والحياة البرية','Plants and wildlife'],
  ['معلم يوضح الفكرة','Landscape in focus']
 ];
+const mountainHeadings=[
+ ['الموقع وطبيعة الجبل','Location and mountain type'],
+ ['التكوين والمناخ','Formation and climate'],
+ ['التضاريس والحياة','Landforms and life'],
+ ['معلم يوضح الفكرة','Landscape in focus']
+];
 function guideBody(item,story){
- const points=state.category==='deserts'?story?.desertPoints:state.category==='forests'?story?.forestPoints:null;
+ const points=state.category==='deserts'?story?.desertPoints:state.category==='forests'?story?.forestPoints:state.category==='mountains'?story?.mountainPoints:null;
  if(!points)return '<p id="gv14Description">'+esc(overviewText(item,story))+'</p>';
- return '<div class="gv14-desert-guide">'+(state.category==='forests'?forestHeadings:desertHeadings).map(([ar,en],i)=>
+ return '<div class="gv14-desert-guide">'+(state.category==='forests'?forestHeadings:state.category==='mountains'?mountainHeadings:desertHeadings).map(([ar,en],i)=>
   '<section><h3>'+esc(t(ar,en))+'</h3><ul>'+points[i].map(([a,e])=>
    '<li>'+esc(t(a,e))+'</li>').join('')+'</ul></section>').join('')+'</div>';
 }
