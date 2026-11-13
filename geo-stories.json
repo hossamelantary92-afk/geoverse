@@ -1662,6 +1662,48 @@
           "يربط",
           "الأطلسي والمتوسط"
         ]
+      ],
+      "straitPoints": [
+        [
+          [
+            "يفصل جنوب إسبانيا عن شمال المغرب",
+            "Separates southern Spain from northern Morocco"
+          ],
+          [
+            "يربط الأطلسي بالبحر المتوسط",
+            "Connects the Atlantic with the Mediterranean"
+          ]
+        ],
+        [
+          [
+            "مضيق طبيعي تشكل عبر تاريخ جيولوجي طويل",
+            "A natural strait shaped by a long geological history"
+          ],
+          [
+            "تتغير أعماقه وتضاريس قاعه عبر الممر",
+            "Depth and seabed relief vary along the passage"
+          ]
+        ],
+        [
+          [
+            "تدخل مياه أطلسية أقل ملوحة قرب السطح",
+            "Less-saline Atlantic water enters near the surface"
+          ],
+          [
+            "تخرج مياه متوسطية أشد ملوحة في العمق",
+            "Saltier Mediterranean water exits at depth"
+          ]
+        ],
+        [
+          [
+            "ممر رئيسي للسفن بين الأطلسي والمتوسط",
+            "Major shipping passage between Atlantic and Mediterranean"
+          ],
+          [
+            "تحتاج حركة السفن وحماية الأحياء البحرية إلى إدارة دقيقة",
+            "Shipping and marine conservation require careful management"
+          ]
+        ]
       ]
     },
     "Strait of Hormuz": {
@@ -1676,6 +1718,48 @@
           "الأهمية",
           "الملاحة البحرية"
         ]
+      ],
+      "straitPoints": [
+        [
+          [
+            "بين الساحل الإيراني وشبه جزيرة مسندم العُمانية",
+            "Between Iran's coast and Oman's Musandam Peninsula"
+          ],
+          [
+            "يربط الخليج العربي بخليج عُمان وبحر العرب",
+            "Links the Arabian Gulf to the Gulf of Oman and Arabian Sea"
+          ]
+        ],
+        [
+          [
+            "ممر طبيعي ضيق نسبيًا بين سواحل وجزر",
+            "A relatively narrow natural passage between coasts and islands"
+          ],
+          [
+            "تتوزع مسارات الملاحة ضمن مياهه العميقة نسبيًا",
+            "Shipping lanes use relatively deep navigable waters"
+          ]
+        ],
+        [
+          [
+            "تدخل مياه بحرية أقل ملوحة إلى الخليج قرب السطح",
+            "Less-saline ocean water enters the gulf near the surface"
+          ],
+          [
+            "تخرج مياه الخليج الأعلى ملوحة في طبقات أعمق",
+            "Saltier gulf water flows outward at greater depth"
+          ]
+        ],
+        [
+          [
+            "من أهم ممرات نقل النفط والغاز المسال عالميًا",
+            "One of the world's key oil and LNG transit routes"
+          ],
+          [
+            "تؤثر سلامة الملاحة والتوترات الإقليمية في حركة السفن",
+            "Navigation safety and regional tensions affect shipping"
+          ]
+        ]
       ]
     },
     "Suez Canal": {
@@ -1689,6 +1773,48 @@
         [
           "النوع",
           "قناة صناعية"
+        ]
+      ],
+      "straitPoints": [
+        [
+          [
+            "تعبر برزخ السويس في جمهورية مصر العربية",
+            "Crosses the Isthmus of Suez in Egypt"
+          ],
+          [
+            "تصل البحر المتوسط بالبحر الأحمر",
+            "Connects the Mediterranean and Red Seas"
+          ]
+        ],
+        [
+          [
+            "قناة صناعية افتُتحت للملاحة سنة 1869",
+            "An artificial canal opened to navigation in 1869"
+          ],
+          [
+            "قناة عند مستوى سطح البحر ولا تستخدم أهوسة",
+            "A sea-level canal that does not use locks"
+          ]
+        ],
+        [
+          [
+            "تتأثر الملاحة بالرياح والتيارات وظروف الرؤية",
+            "Navigation is affected by winds, currents and visibility"
+          ],
+          [
+            "تسمح باتصال مائي بين نظامين بحريين مختلفين",
+            "Creates a water connection between distinct marine systems"
+          ]
+        ],
+        [
+          [
+            "تختصر طريق السفن بين أوروبا وآسيا",
+            "Shortens the shipping route between Europe and Asia"
+          ],
+          [
+            "قد يتيح الاتصال انتقال أنواع بحرية بين البحرين",
+            "The connection can enable species migration between seas"
+          ]
         ]
       ]
     },
@@ -2861,6 +2987,48 @@
           "النوع",
           "قناة صناعية"
         ]
+      ],
+      "straitPoints": [
+        [
+          [
+            "تعبر برزخ بنما في أمريكا الوسطى",
+            "Crosses Panama's isthmus in Central America"
+          ],
+          [
+            "تربط طرق الملاحة بين الأطلسي والهادئ",
+            "Links Atlantic and Pacific shipping routes"
+          ]
+        ],
+        [
+          [
+            "قناة صناعية افتُتحت سنة 1914",
+            "An artificial canal opened in 1914"
+          ],
+          [
+            "ترفع الأهوسة السفن إلى بحيرة جاتون ثم تخفضها",
+            "Locks raise vessels to Gatun Lake and lower them"
+          ]
+        ],
+        [
+          [
+            "يعتمد تشغيل الأهوسة على موارد المياه العذبة",
+            "Lock operations depend on freshwater resources"
+          ],
+          [
+            "قد يؤثر الجفاف في سعة العبور والتشغيل",
+            "Drought can constrain transit capacity and operations"
+          ]
+        ],
+        [
+          [
+            "تختصر الالتفاف البحري حول أمريكا الجنوبية",
+            "Avoids the long sea voyage around South America"
+          ],
+          [
+            "تدير عبور سفن تجارية بأحجام وقدرات مختلفة",
+            "Handles commercial vessels of varying sizes and capacities"
+          ]
+        ]
       ]
     },
     "Bab-el-Mandeb": {
@@ -2874,6 +3042,48 @@
         [
           "يربط",
           "البحر الأحمر وخليج عدن"
+        ]
+      ],
+      "straitPoints": [
+        [
+          [
+            "بين اليمن وجيبوتي وإريتريا عند مدخل البحر الأحمر",
+            "Between Yemen and Djibouti/Eritrea at the Red Sea entrance"
+          ],
+          [
+            "يربط البحر الأحمر بخليج عدن وبحر العرب",
+            "Connects the Red Sea with the Gulf of Aden and Arabian Sea"
+          ]
+        ],
+        [
+          [
+            "مضيق طبيعي تفصله جزيرة بريم إلى قناتين",
+            "A natural strait split into channels by Perim Island"
+          ],
+          [
+            "تختلف أعماق ومساحات الممرين حول الجزيرة",
+            "The channels differ in depth and width"
+          ]
+        ],
+        [
+          [
+            "تتبدل التيارات مع الرياح الموسمية واختلاف الملوحة",
+            "Currents vary with monsoons and salinity contrasts"
+          ],
+          [
+            "يمثل تبادل المياه فيه جزءًا من دورة البحر الأحمر",
+            "Water exchange is part of Red Sea circulation"
+          ]
+        ],
+        [
+          [
+            "حلقة مهمة في طريق الملاحة نحو قناة السويس",
+            "Critical link in shipping routes toward the Suez Canal"
+          ],
+          [
+            "تؤثر مخاطر الملاحة والبيئة في أمن حركة السفن",
+            "Navigation and environmental risks affect safe transit"
+          ]
         ]
       ]
     },
