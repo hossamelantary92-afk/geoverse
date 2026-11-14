@@ -15,8 +15,7 @@
 }
 .gv-country-controls .gv-tabs > button[data-v4-continent="all"]{
  grid-column:1 / -1!important;min-height:57px;
- font-weight:900!important;border-color:#53cfc9;
- background:linear-gradient(110deg,rgba(13,76,94,.72),rgba(8,49,74,.88));
+ font-weight:900!important;
 }
 .gv-country-controls .gv-tabs > button[data-v4-continent="all"].active{
  background:linear-gradient(120deg,#157a87,#0e536c)!important;

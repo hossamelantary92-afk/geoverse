@@ -68,7 +68,7 @@ body:before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;bac
 .gv-country-controls{padding:17px;margin-bottom:17px}
 .gv-tabs{display:flex;gap:8px;flex-wrap:wrap}
 .gv-tabs button{border:1px solid #3970807c;background:#09283c;color:#b7d5dd;padding:8px 14px;font-size:11px;font-weight:800;border-radius:9px}
-.gv-tabs button.active,.gv-tabs button:hover{border-color:#52d9c8;color:#affff3;background:#135263a9}
+.gv-tabs button.active,.gv-tabs button:hover:not(.gv-country-controls .gv-tabs button){border-color:#52d9c8;color:#affff3;background:#135263a9}
 .gv-country-toolbar{display:flex;gap:12px;margin-top:14px}
 .gv-country-toolbar input{flex:1;min-width:0;background:#061a2c;border:1px solid #376c80;color:#eaffff;border-radius:10px;padding:10px 13px}
 .gv-country-toolbar button{border:1px solid #47748e;background:#0e3448;border-radius:10px;padding:8px 14px;color:#e7f9ff;font-weight:800}
