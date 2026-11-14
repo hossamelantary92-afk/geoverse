@@ -41,12 +41,18 @@ function numbers(){
  const valid=ids.filter(k=>{const [c,i]=k.split('_');return Array.isArray(geo[c])&&Number(i)>=0&&Number(i)<geo[c].length});
  return {seen:valid.length,total,percentage:total?Math.min(100,Math.round(valid.length/total*100)):0};
 }
+const homeGameCovers={
+ capitals:'capitals.webp',
+ flags:'flags.webp',
+ silhouette:'country-shape.webp',
+ mapfind:'locate-country.webp'
+};
 function games(){
  const items=recommendedGames.slice(0,4).map(g=>({id:g[0],name:T(g[1],g[2])}));
  return '<div class="gv550-wonders-divider gv551-games-divider" aria-hidden="true"><span></span><i></i><span></span></div>'+
   '<section class="gv17-games" aria-labelledby="gv17GamesTitle">'+
   '<div class="gv17-heading"><div><h2 id="gv17GamesTitle">'+T('الألعاب و التحديات','Games & Challenges')+'</h2><p>'+T('اختبر معرفتك و اكتشف العالم بطريقة ممتعة','Test your knowledge and discover the world in a fun way.')+'</p></div><button type="button" class="gv17-text-action" data-page="play">'+T('جميع الألعاب','All games')+' '+icon('arrow',16)+'</button></div>'+
-  '<div class="gv17-games-grid gv571-home-game-covers">'+items.map(g=>'<button type="button" class="gv17-game gv571-home-card" data-gv17-game="'+g.id+'" data-game="'+g.id+'" aria-label="'+g.name+'"><strong>'+g.name+'</strong></button>').join('')+'</div>'+
+  '<div class="gv17-games-grid gv571-home-game-covers">'+items.map(g=>'<button type="button" class="gv17-game gv571-home-card" data-gv17-game="'+g.id+'" data-game="'+g.id+'" aria-label="'+g.name+'"><img src="./assets/game-covers/'+homeGameCovers[g.id]+'" width="1672" height="941" alt="" loading="lazy"><strong>'+g.name+'</strong></button>').join('')+'</div>'+
   '<div class="gv17-daily"><div class="gv17-daily-mark">'+icon('bolt',29)+'</div><div class="gv17-daily-copy"><span>'+T('تحدّي اليوم · اختيار GeoVerse','TODAY’S CHALLENGE · GEOVERSE PICK')+'</span><strong>'+T(featuredGame[1],featuredGame[2])+'</strong><small>'+T('GeoVerse اختار لك اللعبة دي عشوائيًا. جاهز للتحدي؟','GeoVerse picked this game for you at random. Ready to play?')+'</small></div><button type="button" data-gv17-game="'+featuredGame[0]+'">'+T('ابدأ اللعبة','Start game')+' '+icon('arrow',17)+'</button></div>'+
  '</section>';
 }

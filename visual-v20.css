@@ -151,7 +151,7 @@
 /* gv-mobile-refinement-20261115: compact photographic game cards and progress */
 @media(max-width:700px){
  .gv17-games-grid{gap:10px!important;align-items:stretch!important}
- .gv17-games-grid .gv17-game{
+ .gv17-games-grid .gv17-game:where(:not(.gv571-home-card)){
   min-height:0!important;height:clamp(174px,49vw,205px)!important;
   padding:10px 11px 11px!important;display:flex!important;
   flex-direction:column!important;justify-content:flex-end!important;
@@ -175,4 +175,4 @@
  .gv17-track{height:7px!important}
  .gv17-progress-summary p{font-size:12px!important;line-height:1.7!important}
 }
-@media(max-width:380px){.gv17-games-grid .gv17-game{height:180px!important}.gv17-game strong{font-size:14px!important}}
+@media(max-width:380px){.gv17-games-grid .gv17-game:where(:not(.gv571-home-card)){height:180px!important}.gv17-game strong{font-size:14px!important}}
