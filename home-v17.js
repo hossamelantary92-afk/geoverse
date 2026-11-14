@@ -39,13 +39,13 @@ function numbers(){
  const p=saved();const ids=Object.keys(p).filter(k=>/^[a-z]+_\d+$/.test(k)&&p[k]);
  const total=Object.values(geo).reduce((n,v)=>n+(Array.isArray(v)?v.length:0),0);
  const valid=ids.filter(k=>{const [c,i]=k.split('_');return Array.isArray(geo[c])&&Number(i)>=0&&Number(i)<geo[c].length});
- return {seen:valid.length,total,percentage:total?Math.min(100,Math.round(valid.length/total*100)):0};
+ return {seen:valid.length,total,percentage:total?Math.min(100,valid.length/total*100):0};
 }
 const homeGameCovers={
  capitals:'capitals.webp?v=gv676',
  flags:'flags.webp',
  silhouette:'country-shape.webp',
- mapfind:'locate-country.webp'
+ mapfind:'locate-country.webp?v=gv677'
 };
 function games(){
  const items=recommendedGames.slice(0,4).map(g=>({id:g[0],name:T(g[1],g[2])}));
@@ -58,8 +58,12 @@ function games(){
 }
 function progress(){
  const n=numbers(),ids=['continents','countries','oceans','rivers'];
+ const roundedPercentage=Math.round(n.percentage*10)/10;
+ const percentLabel=n.percentage>0 && roundedPercentage===0
+  ? '<bdi dir="ltr">&lt;0.1%</bdi>'
+  : Math.min(roundedPercentage,n.seen===n.total?100:99.9)+'%';
  return '<section class="gv17-progress" aria-labelledby="gv17ProgressTitle"><div class="gv17-heading"><div><h2 id="gv17ProgressTitle">'+T('أكمل رحلة الاستكشاف','Continue Exploring')+'</h2><p>'+T('كل مكان تتعلمه يقربك من اكتشاف كوكبنا بالكامل.','Every place you learn brings you closer to exploring the planet.')+'</p></div><button type="button" class="gv17-text-action" data-page="progress">'+T('كل تقدمي','My progress')+' '+icon('arrow',16)+'</button></div>'+
- '<div class="gv17-progress-grid"><div class="gv17-progress-main"><div class="gv17-ring" style="--gv17-progress:'+n.percentage+'%"><div><strong>'+n.percentage+'%</strong><small>'+T('مكتمل','Completed')+'</small></div></div><div class="gv17-progress-summary"><span>'+T('إنجازاتك حتى الآن','YOUR EXPLORATION')+'</span><strong class="gv49-progress-count" dir="ltr">'+n.seen+' <small>/ '+n.total+'</small></strong><p>'+T('مكانًا ومعلمًا تم تعلّمها','places & landmarks learned')+'</p><button type="button" data-page="learn">'+T('تابع التعلّم','Continue learning')+' '+icon('arrow',16)+'</button></div></div>'+
+ '<div class="gv17-progress-grid"><div class="gv17-progress-main"><div class="gv17-ring" style="--gv17-progress:'+n.percentage+'%"><div><strong>'+percentLabel+'</strong><small>'+T('مكتمل','Completed')+'</small></div></div><div class="gv17-progress-summary"><span>'+T('إنجازاتك حتى الآن','YOUR EXPLORATION')+'</span><strong class="gv49-progress-count" dir="ltr">'+n.seen+' <small>/ '+n.total+'</small></strong><p>'+T('مكانًا ومعلمًا تم تعلّمها','places & landmarks learned')+'</p><button type="button" data-page="learn">'+T('تابع التعلّم','Continue learning')+' '+icon('arrow',16)+'</button></div></div>'+
  '<div class="gv17-progress-categories">'+ids.map(id=>{const c=cats.find(x=>x.id===id),done=Math.max(0,(saved()[id]||0)),count=geo[id]?.length||0,pct=progressValue(id);return '<button type="button" class="gv17-progress-row" data-cat="'+id+'"><div class="gv17-progress-label"><strong>'+escapeHTML(label(c))+'</strong><span dir="ltr">'+done+' / '+count+'</span></div><div class="gv17-track"><i style="width:'+pct+'%"></i></div></button>'}).join('')+'</div></div></section>';
 }
 home=function(){
