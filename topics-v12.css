@@ -65,7 +65,7 @@
 .gv12-hero-earth{
   position:absolute;z-index:0;pointer-events:none;
   width:clamp(235px,36%,430px);aspect-ratio:1;
-  left:5%;top:50%;transform:translateY(-50%);
+  inset-inline-end:5%;top:50%;transform:translateY(-50%);
   border-radius:50%;
   background:
     radial-gradient(circle at 33% 24%,rgba(250,220,135,.57),transparent 19%),
@@ -85,12 +85,12 @@
 .gv12-head-count strong{font-size:42px}
 @media(max-width:700px){
   .gv12-head{min-height:208px;padding:17px 15px 17px 14px;gap:8px;border-radius:20px}
-  .gv12-hero-earth{left:-7%;width:51%;top:51%;opacity:.78}
+  .gv12-hero-earth{inset-inline-end:-7%;width:51%;top:51%;opacity:.78}
   .gv12-headline{max-width:69%;margin-inline-end:0}
   .gv12-overline{font-size:9px;padding:4px 9px}
   .gv12-head h1{font-size:clamp(25px,6vw,37px);line-height:1.3;margin:11px 0 8px}
   .gv12-head p{font-size:10px;line-height:1.7;max-width:95%}
-  .gv12-head-count{position:absolute;left:12px;bottom:13px;width:67px;height:77px;border-radius:13px;z-index:2}
+  .gv12-head-count{position:absolute;inset-inline-end:12px;bottom:13px;width:67px;height:77px;border-radius:13px;z-index:2}
   .gv12-count-symbol{font-size:14px}
   .gv12-head-count strong{font-size:27px;line-height:1.1}
   .gv12-head-count span:last-child{font-size:8px}
@@ -100,7 +100,7 @@
   .gv12-headline{max-width:72%}
   .gv12-head h1{font-size:24px}
   .gv12-head p{font-size:9px}
-  .gv12-head-count{width:59px;height:72px;left:8px}
+  .gv12-head-count{width:59px;height:72px;inset-inline-end:8px}
 }
 
 /* GV589 — Soften globe edge and remove the oversized orbital outline on mobile. */
@@ -115,14 +115,23 @@
 }
 @media(max-width:700px){
   .gv12-head{min-height:198px}
-  .gv12-hero-earth{left:-4%;width:47%;top:50%;opacity:.83}
+  .gv12-hero-earth{inset-inline-end:-4%;width:47%;top:50%;opacity:.83}
   .gv12-headline{max-width:70%}
   .gv12-head h1{font-size:clamp(26px,6.15vw,37px)}
-  .gv12-head-count{left:10px;bottom:12px}
+  .gv12-head-count{inset-inline-end:10px;bottom:12px}
 }
 
 /* GV592 — Each approved Arabic atlas sentence stays on exactly one line. */
 .gv12-head .gv12-desc-line{display:block;white-space:nowrap}
 @media(max-width:700px){
  .gv12-head .gv12-headline p{max-width:none;font-size:clamp(8px,2.15vw,10px);letter-spacing:-.08px;line-height:1.85}
+}
+
+/* Reserve the opposite side of the mobile banner for the globe and topic count. */
+@media(max-width:700px){
+  html[dir="ltr"] .gv12-headline{max-width:57%}
+  html[dir="ltr"] .gv12-head .gv12-headline p{
+    font-size:clamp(10px,2.6vw,12px);
+    line-height:1.6;
+  }
 }
