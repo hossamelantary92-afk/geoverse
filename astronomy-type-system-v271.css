@@ -167,12 +167,12 @@
  #main .gv235-feature .gv235-picture{height:175px!important;flex-basis:175px!important}
 }
 
-/* v276: compact image-first posters, tuned from installed iPhone screenshot. */
+/* Compact image-first posters use the artwork's wide aspect ratio. */
 @media(max-width:740px){
  #main .gv235-features{gap:11px!important}
  #main button.gv235-feature{min-height:0!important}
  #main .gv235-feature .gv235-picture{
-   height:155px!important;flex:0 0 155px!important;
+   height:auto!important;flex:0 0 auto!important;aspect-ratio:5/2;
    background-size:cover!important;background-position:center center!important;
  }
  #main .gv235-feature .gv235-content{
@@ -189,7 +189,4 @@
    min-height:37px!important;padding:8px 12px!important;margin-top:4px!important;
    font-size:12px!important;
  }
-}
-@media(max-width:380px){
- #main .gv235-feature .gv235-picture{height:145px!important;flex-basis:145px!important}
 }
