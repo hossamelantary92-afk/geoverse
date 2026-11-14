@@ -57,6 +57,7 @@ function snapshot(){
   page:state.page,category:cat,item,
   code:typeof state.v4Code==='string'?state.v4Code:null,
   continent:state.v4Continent||'all',
+  astronomyChapter:window.GeoVerseAstronomyChaptersV239?.current?.()||'overview',
   astronomy:window.GeoVerseAstronomyExperiencesV235?.getView?.()||'overview',
   tourism:window.GeoVerseTourismCountryNavigation?.getSelected?.()||'',
   scroll:Math.max(0,Math.round(window.scrollY||0))
@@ -64,7 +65,7 @@ function snapshot(){
 }
 function categoryView(v){
  if(v.category==='tourism')return v.tourism||'';
- if(v.category==='astronomy')return v.astronomy||'overview';
+ if(v.category==='astronomy')return v.astronomy&&v.astronomy!=='overview'?v.astronomy:(v.astronomyChapter||'overview');
  return '';
 }
 function same(a,b){
@@ -138,7 +139,8 @@ function fallback(){
  if(state.page==='category'&&categoryView(snapshot())!==categoryView({category:state.category})){
   return {page:'category',category:state.category,item:null,scroll:0};
  }
- if(state.page==='detail')return {page:'category',category:state.category,item:null,scroll:0};
+ if(state.page==='detail')return {page:'category',category:state.category,item:null,scroll:0,
+  astronomyChapter:state.category==='astronomy'?snapshot().astronomyChapter:undefined};
  if(state.page==='country-v4')return {page:'countries-v4',category:'countries',item:null,scroll:0,continent:'all'};
  if(state.page==='category'||state.page==='countries-v4')return {page:'all',category:null,item:null,scroll:0};
  return {page:'home',category:null,item:null,scroll:0};
@@ -149,7 +151,10 @@ function goBackTo(target){
  restoreOverride=Math.max(0,target.scroll??pagePositions.get(pageKey(target))??0);
  try{
   if(target.page==='countries-v4'&&target.continent)state.v4Continent=target.continent;
-  if(target.page==='category'&&target.category==='astronomy')window.GeoVerseAstronomyExperiencesV235?.setView?.(target.astronomy);
+  if(target.category==='astronomy'){
+   window.GeoVerseAstronomyExperiencesV235?.setView?.(target.astronomy);
+   window.GeoVerseAstronomyChaptersV239?.setView?.(target.astronomyChapter);
+  }
   const tourism=window.GeoVerseTourismCountryNavigation;
   if(target.page==='category'&&target.category==='tourism'&&tourism){
    // The tourism page initializer resets the selection on entrance.
@@ -177,8 +182,8 @@ function smartBack(){
  const target=stack.length?stack.pop():fallback();
  goBackTo(target);
 }
-function returnToCategory(category){
- const parent={page:'category',category,item:null};
+function returnToCategory(category,astronomyChapter){
+ const parent={page:'category',category,item:null,astronomyChapter};
  let index=stack.length-1;
  while(index>=0&&!same(stack[index],parent))index--;
  if(index>=0){
@@ -210,7 +215,9 @@ document.addEventListener('click',event=>{
   event.preventDefault();
   event.stopImmediatePropagation();
   clickOrigin=snapshot();
-  setPage('category',categoryButton.dataset.gvOpenCategory);
+  const category=categoryButton.dataset.gvOpenCategory;
+  if(category==='astronomy')returnToCategory(category,snapshot().astronomyChapter);
+  else setPage('category',category);
   return;
  }
  const button=event.target.closest?.('button.back');

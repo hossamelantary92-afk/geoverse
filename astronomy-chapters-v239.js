@@ -76,28 +76,23 @@ function lessonCard(id){
 function chapter(id){
  const g=sections.find(x=>x.id===id);if(!g)return overview();
  const st=stats(g);
- return '<section class="gv239-single"><button type="button" class="gv239-back" data-gv239-chapter="overview">→ '+T('العودة إلى أقسام الجغرافيا الفلكية','Back to astronomy chapters')+'</button>'+
+ return '<section class="gv239-single" data-gv239-active-chapter="'+esc(id)+'">'+
  '<header class="gv239-chapter-hero"><span class="gv246-hero-image" aria-hidden="true"><img class="gv246-cover-img" src="'+esc(coverStarter(g))+'" data-gv248-official="'+esc(g.officialImage)+'" data-gv246-cover-fallback="'+esc('https://images.unsplash.com/'+g.image+'?auto=format&fit=crop&w=1100&q=80')+'" alt="" loading="eager" decoding="async"></span><h2>'+g.icon+' '+T(g.ar,g.en)+'</h2><p>'+T(g.descAr,g.descEn)+'</p><div>'+st.total+' / '+st.target+' '+T('موضوعات متاحة','available topics')+' · '+st.count+' '+T('تعلمتها','learned')+'</div></header>'+
  '<div class="gv239-topic-grid">'+g.ids.map(lessonCard).join('')+'</div>'+
  ''+'</section>';
 }
 const previousCategory=categoryPage;
 categoryPage=function(){
+ if(state.category==='astronomy'&&current!=='overview'&&
+    window.GeoVerseAstronomyExperiencesV235?.getView?.()==='overview'){
+  return '<div class="gv231-wrap">'+chapter(current)+'</div>';
+ }
  const html=previousCategory.apply(this,arguments);
- if(state.category!=='astronomy')return html;
- if(html.includes('gv235-experience-page')){current='overview';return html;}
+ if(state.category!=='astronomy'||html.includes('gv235-experience-page'))return html;
  const start=html.indexOf('<div class="gv231-section-title">');
  const end=html.indexOf('<div class="gv270-end-marker"',start);
  if(start<0||end<=start)return html;
- let base=html.slice(0,start);
- if(current!=='overview'){
-  // Each chapter has its own title and back button: keep the category introduction only in the directory.
-  base=base
-   .replace(/<section class="gv235-feature-hub">[\s\S]*?<\/section>/,'')
-   .replace(/<header class="gv231-hero">[\s\S]*?<\/header>/,'')
-   .replace(/<button class="back gv231-back" data-page="all">[\s\S]*?<\/button>/,'');
- }
- return base+(current==='overview'?overview():chapter(current))+html.slice(end);
+ return html.slice(0,start)+overview()+html.slice(end);
 };
 const redundantWow=new Set(["sun","venus","moon","jupiter","saturn","uranus","seasons","eclipses","galaxy","tides","star-life","comets","meteors","aurora","human-spaceflight","space-station","webb-telescope","galaxy-types","moon-phases","system","universe","telescopes","jupiter-moons"]);
 function article(e){
@@ -124,15 +119,14 @@ detail=function(){
   const credit='<div class="gv244-credit"><span>'+kind+' · '+T('المصدر: ','Credit: ')+esc(['moon-phases','seasons','tides','star-life','galaxy-types'].includes(e.id)&&state.lang==='ar'?'GeoVerse · رسم تعليمي بالعربية مستند إلى مراجع NASA':e.imageCredit)+'</span><a href="'+esc(e.imageSource)+'" target="_blank" rel="noopener noreferrer">'+T(['tides','galaxy-types'].includes(e.id)?'المرجع العلمي':'تفاصيل الصورة الأصلية','Original image details')+' ↗</a></div>';
   enriched=enriched.replace('<nav class="gv231-next">',credit+'<nav class="gv231-next">');
  }
- /* Return readers to the chapter they came from, without losing their progress. */
- if(sections.some(g=>g.id===current&&g.ids.includes(e.id))){
-  enriched=enriched.replace('data-cat="astronomy"','data-gv239-chapter="'+current+'"');
-  enriched=enriched.replace(T('كل موضوعات الفلك','All astronomy topics'),T('العودة إلى القسم','Back to this chapter'));
- }
  return enriched;
 };
+function setView(view){
+ current=sections.some(section=>section.id===view)?view:'overview';
+}
 function go(view){
- current=view;
+ window.GeoVerseAstronomyExperiencesV235?.setView?.('overview');
+ setView(view);
  setPage('category','astronomy');
 }
 /* NASA images fall back gracefully if a CDN or image format fails on a device. */
@@ -163,6 +157,6 @@ render=function(){
  upgradeChapterCovers();
  return result;
 };
-window.GeoVerseAstronomyChaptersV239={sections,additions,current:()=>current,go,stats};
+window.GeoVerseAstronomyChaptersV239={sections,additions,current:()=>current,setView,go,stats};
 if(state.page==='category'&&state.category==='astronomy'&&window.GeoVerseAstronomyExperiencesV235?.getView?.()==='overview')render();
 })();

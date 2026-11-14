@@ -43,7 +43,12 @@ function addMainNavigation(){
    const link=bar.querySelector('[data-gv-open-category]');
    const cat=typeof cats!=='undefined'?cats.find(c=>c.id===state.category):null;
    if(back)back.textContent=state.category==='tourism'?txt('رجوع','Back'):txt('رجوع','Back');
-   if(link)link.textContent=txt('العودة إلى '+(cat?.ar||'القسم'),'Back to '+(cat?.en||'section'));
+   if(link){
+    const chapter=window.GeoVerseAstronomyChaptersV239?.current?.();
+    link.textContent=state.category==='astronomy'&&chapter&&chapter!=='overview'
+     ?txt('العودة إلى الفصل','Back to chapter')
+     :txt('العودة إلى '+(cat?.ar||'القسم'),'Back to '+(cat?.en||'section'));
+   }
   }else if(!root.querySelector('.gv388-nav')){
    const nav=row();nav.append(button(txt('رجوع','Back'),'back'));
    nav.append(button(txt('العودة إلى القسم','Back to section'),'section'));
@@ -72,13 +77,16 @@ function addMainNavigation(){
   }
   return;
  }
- const experience=root.querySelector('.gv235-experience-page');
- if(state.page==='category'&&state.category==='astronomy'&&experience){
+ const astronomyView=root.querySelector('.gv235-experience-page,.gv239-single');
+ if(state.page==='category'&&state.category==='astronomy'&&astronomyView){
   const target=window.GeoVerseSmartBack?.peek?.();
-  const parentIsPrevious=target?.page==='category'&&target.category==='astronomy'&&(!target.astronomy||target.astronomy==='overview');
+  const parentIsPrevious=target?.page==='category'&&target.category==='astronomy'&&(!target.astronomy||target.astronomy==='overview')&&(!target.astronomyChapter||target.astronomyChapter==='overview');
+  const parentLabel=astronomyView.matches('.gv239-single')
+   ?txt('أقسام الجغرافيا الفلكية','Astronomy chapters')
+   :txt('إلى الجغرافيا الفلكية','Astronomical Geography');
   const nav=row();
-  nav.append(button(parentIsPrevious?txt('إلى الجغرافيا الفلكية','Astronomical Geography'):txt('رجوع','Back'),'back'));
-  if(!parentIsPrevious)nav.append(button(txt('إلى الجغرافيا الفلكية','Astronomical Geography'),'astronomy'));
+  nav.append(button(parentIsPrevious?parentLabel:txt('رجوع','Back'),'back'));
+  if(!parentIsPrevious)nav.append(button(parentLabel,'astronomy'));
   nav.append(button(txt('كل الأقسام','All sections'),'all'));
   root.prepend(nav);
   return;
@@ -111,7 +119,8 @@ function removeDuplicateShortcuts(){
  }
  const target=window.GeoVerseSmartBack?.peek?.();
  if(!target)return;
- if(state.page==='detail'&&target.page==='category'&&target.category===state.category){
+ if(state.page==='detail'&&target.page==='category'&&target.category===state.category&&
+    (state.category!=='astronomy'||target.astronomyChapter===window.GeoVerseAstronomyChaptersV239?.current?.())){
   root.querySelector('.gv-landmark-back-row [data-gv-open-category]')?.remove();
   root.querySelector('.gv388-nav [data-gv388-action="section"]')?.remove();
  }
