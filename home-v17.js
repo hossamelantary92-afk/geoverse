@@ -42,7 +42,7 @@ function numbers(){
  return {seen:valid.length,total,percentage:total?Math.min(100,Math.round(valid.length/total*100)):0};
 }
 const homeGameCovers={
- capitals:'capitals.webp',
+ capitals:'capitals.webp?v=gv676',
  flags:'flags.webp',
  silhouette:'country-shape.webp',
  mapfind:'locate-country.webp'
