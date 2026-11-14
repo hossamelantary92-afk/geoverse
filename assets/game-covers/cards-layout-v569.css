@@ -147,3 +147,20 @@ body #main .gv17-games .gv17-games-grid.gv571-home-game-covers>.gv17-game[data-g
   font-size:clamp(11px,3.5vw,16px)!important;
  }
 }
+
+/* v670: compact homepage game artwork on phones without cropping the approved covers. */
+@media(max-width:900px){
+ body #main .gv17-games .gv17-games-grid.gv571-home-game-covers>.gv17-game[data-game]::before{
+  aspect-ratio:16/9!important;
+  background-size:100% 100%,contain!important;
+  background-position:center,center!important;
+ }
+ body #main .gv17-games .gv17-games-grid.gv571-home-game-covers>.gv17-game[data-game]>strong{
+  min-height:46px!important;
+ }
+}
+@media(max-width:700px){
+ body #main .gv17-games .gv17-games-grid.gv571-home-game-covers>.gv17-game[data-game]>strong{
+  min-height:43px!important;padding:7px 5px!important;
+ }
+}
