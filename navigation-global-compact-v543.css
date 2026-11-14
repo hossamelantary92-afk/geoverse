@@ -180,16 +180,30 @@ html[lang="en"] #app #main :is(
 
 /* Keep three contextual actions together when all three destinations differ. */
 @media(max-width:540px){
- #app #main :is(.gv388-nav,.gv387-country-nav,.gv-landmark-back-row):has(> button:nth-child(3)){
+ #app #main :is(.gv388-nav,.gv-landmark-back-row):has(> button:nth-child(3)){
   display:grid!important;
   grid-template-columns:repeat(3,minmax(0,1fr))!important;
   gap:6px!important;
   align-items:stretch!important;
  }
- #app #main :is(.gv388-nav,.gv387-country-nav,.gv-landmark-back-row):has(> button:nth-child(3)) > button{
+ #app #main :is(.gv388-nav,.gv-landmark-back-row):has(> button:nth-child(3)) > button{
   align-self:stretch!important;
   width:100%!important;
   padding-inline:6px!important;
   gap:4px!important;
+ }
+}
+
+/* Country profiles keep the shared Back size and give the two destinations equal space. */
+@media(max-width:540px){
+ #app #main .gv387-country-nav:has(> button:nth-child(3)){
+  display:grid!important;
+  grid-template-columns:max-content repeat(2,minmax(0,1fr))!important;
+  gap:6px!important;
+ }
+ #app #main .gv387-country-nav:has(> button:nth-child(3)) > button:not(.gv387-back){
+  align-self:stretch!important;
+  width:100%!important;
+  padding-inline:6px!important;
  }
 }
