@@ -69,3 +69,9 @@
  #app > .topbar > .brand small{font-size:6px!important;}
  #app > .topbar > .head-actions{gap:3px!important;}
 }
+
+/* Keep the logo transparent and let the halo fade before the icon box edges. */
+#app > .topbar > .brand .brand-icon{
+  filter:none!important;
+  background:radial-gradient(circle closest-side,rgba(34,225,206,.12),transparent);
+}
