@@ -182,3 +182,17 @@ body #main .gv17-games .gv17-games-grid.gv571-home-game-covers>.gv17-game[data-g
   font-size:clamp(13px,3.6vw,16px)!important;line-height:1.35!important;
  }
 }
+
+/* gv672 — target actual pseudo-element media slot, not obsolete gv20 image */
+@media(max-width:900px){
+ body #main .gv17-games .gv17-games-grid.gv571-home-game-covers>.gv17-game[data-game]::before{
+  aspect-ratio:16/9!important;
+  background-size:100% 100%,cover!important;
+  background-position:center,center!important;
+  min-height:0!important;
+ }
+ body #main .gv17-games .gv17-games-grid.gv571-home-game-covers>.gv17-game[data-game]>strong{
+  min-height:42px!important;max-height:none!important;padding:7px 5px!important;
+  font-size:clamp(13px,3.6vw,16px)!important;
+ }
+}
