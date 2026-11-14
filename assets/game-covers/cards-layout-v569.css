@@ -148,51 +148,25 @@ body #main .gv17-games .gv17-games-grid.gv571-home-game-covers>.gv17-game[data-g
  }
 }
 
-/* v670: compact homepage game artwork on phones without cropping the approved covers. */
+/* gv673: one authoritative mobile layout. Preserve full 4:3 approved cover artwork.
+   Do not use cover: it crops the embedded artwork and its text. */
 @media(max-width:900px){
+ #main .gv17-games .gv17-games-grid.gv571-home-game-covers{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;
+ }
+ body #main .gv17-games .gv17-games-grid.gv571-home-game-covers>.gv17-game[data-game]{
+  min-height:0!important;height:auto!important;aspect-ratio:auto!important;
+  padding:0!important;gap:0!important;overflow:hidden!important;border-radius:16px!important;
+ }
  body #main .gv17-games .gv17-games-grid.gv571-home-game-covers>.gv17-game[data-game]::before{
-  aspect-ratio:16/9!important;
+  display:block!important;flex:none!important;width:100%!important;
+  aspect-ratio:4/3!important;min-height:0!important;
   background-size:100% 100%,contain!important;
   background-position:center,center!important;
+  background-repeat:no-repeat,no-repeat!important;
  }
  body #main .gv17-games .gv17-games-grid.gv571-home-game-covers>.gv17-game[data-game]>strong{
-  min-height:46px!important;
- }
-}
-@media(max-width:700px){
- body #main .gv17-games .gv17-games-grid.gv571-home-game-covers>.gv17-game[data-game]>strong{
-  min-height:43px!important;padding:7px 5px!important;
- }
-}
-
-/* gv671: actual homepage cover-card polish, replacing the obsolete v20 overrides.
-   Keep approved full image, remove 16:9 letterboxing, compact title and spacing. */
-@media(max-width:900px){
- #main .gv17-games .gv17-games-grid.gv571-home-game-covers{gap:10px!important}
- body #main .gv17-games .gv17-games-grid.gv571-home-game-covers>.gv17-game[data-game]{
-  height:auto!important;min-height:0!important;padding:0!important;
-  border-radius:15px!important;
- }
- body #main .gv17-games .gv17-games-grid.gv571-home-game-covers>.gv17-game[data-game]::before{
-  aspect-ratio:4/3!important;background-size:100% 100%,contain!important;
-  background-position:center,center!important;
- }
- body #main .gv17-games .gv17-games-grid.gv571-home-game-covers>.gv17-game[data-game]>strong{
-  min-height:40px!important;padding:6px 5px!important;
+  min-height:42px!important;padding:7px 5px!important;
   font-size:clamp(13px,3.6vw,16px)!important;line-height:1.35!important;
- }
-}
-
-/* gv672 — target actual pseudo-element media slot, not obsolete gv20 image */
-@media(max-width:900px){
- body #main .gv17-games .gv17-games-grid.gv571-home-game-covers>.gv17-game[data-game]::before{
-  aspect-ratio:16/9!important;
-  background-size:100% 100%,cover!important;
-  background-position:center,center!important;
-  min-height:0!important;
- }
- body #main .gv17-games .gv17-games-grid.gv571-home-game-covers>.gv17-game[data-game]>strong{
-  min-height:42px!important;max-height:none!important;padding:7px 5px!important;
-  font-size:clamp(13px,3.6vw,16px)!important;
  }
 }
