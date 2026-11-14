@@ -500,6 +500,40 @@ const earthTexture='https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-b
 const earthBump='https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-topology.png';
 function isGlobeAvailable(){return !!G.Globe}
 function continentZoom(key){return ({Asia:{lat:38,lng:91,altitude:1.72},Africa:{lat:3,lng:20,altitude:1.7},Europe:{lat:50,lng:15,altitude:1.65},'North America':{lat:41,lng:-104,altitude:1.74},'South America':{lat:-18,lng:-63,altitude:1.72},Oceania:{lat:-23,lng:133,altitude:1.8},Antarctica:{lat:-79,lng:30,altitude:2.1}})[key]||{lat:16,lng:22,altitude:2.3}}
+// The projected edge of a sphere is the tangent to the camera, not its equator.
+function explorerGlobeFocalLength(camera,height){
+ return height/(2*Math.tan(camera.getEffectiveFOV()*Math.PI/360));
+}
+function bindExplorerScrollArea(node,globe,controls){
+ const ns='http://www.w3.org/2000/svg';
+ const overlay=document.createElementNS(ns,'svg');
+ const outside=document.createElementNS(ns,'path');
+ overlay.classList.add('gv117-scroll-area');
+ overlay.setAttribute('aria-hidden','true');
+ outside.setAttribute('fill-rule','evenodd');
+ overlay.appendChild(outside);
+ node.appendChild(overlay);
+ const camera=globe.camera();
+ const radius=globe.getGlobeRadius();
+ let previous='';
+ function update(){
+  const width=globe.width(),height=globe.height();
+  const distance=camera.position.length();
+  const key=[width,height,distance.toFixed(3)].join(':');
+  if(key===previous)return;
+  previous=key;
+  overlay.setAttribute('viewBox','0 0 '+width+' '+height);
+  const edge=explorerGlobeFocalLength(camera,height)*radius/
+   Math.sqrt(Math.max(1,distance*distance-radius*radius));
+  const x=width/2,y=height/2;
+  outside.setAttribute('d',
+   'M0 0H'+width+'V'+height+'H0Z '+
+   'M'+(x-edge)+' '+y+'a'+edge+' '+edge+' 0 1 0 '+(edge*2)+' 0a'+edge+' '+edge+' 0 1 0 '+(-edge*2)+' 0Z');
+ }
+ controls.addEventListener('change',update);
+ update();
+ return update;
+}
 function initGlobe(){
  const node=document.getElementById(state.page==='home'?'gvHomeGlobe':state.page==='explore'?'gvExploreGlobe':state.page==='detail'&&state.category==='continents'?'gvContinentGlobe':'gvDetailGlobe');
  if(!node||node===globeNode)return;
@@ -518,7 +552,7 @@ function initGlobe(){
  if(isCont){const v=geo.continents[state.item];selectedContinent=v?.[1];target=continentZoom(selectedContinent)}
  else if(isCountry){const r=store.byCode.get(state.v4Code);selectedFeature=store.featLookup.get(r?.code);const p=selectedFeature&&window.d3?d3.geoCentroid(selectedFeature):[0,0];target={lat:p[1],lng:p[0],altitude:1.8}}
  else if(state.page==='detail'){const v=geo[state.category]?.[state.item];if(v)target={lat:v[4],lng:v[5],altitude:state.category==='tourism'?2.35:1.7}}
- if(isExplorer)target={lat:21,lng:15,altitude:1.28};
+
  try{
  const w=node.clientWidth||550,h=node.clientHeight||400;
  // Preserve the proven Globe.gl initialization sequence.
@@ -644,7 +678,12 @@ function initGlobe(){
    }
   }
  }
- g.pointOfView(target,isHero?0:1200);
+ if(isExplorer){
+  const edge=Math.min(w*.52,h*.43);
+  const focalLength=explorerGlobeFocalLength(g.camera(),h);
+  target={lat:21,lng:15,altitude:Math.hypot(1,focalLength/edge)-1};
+ }
+ g.pointOfView(target,isHero||isExplorer?0:1200);
  const ctrl=g.controls();
  ctrl.autoRotate=isHero&&!reducedMotion;
  ctrl.autoRotateSpeed=.16;
@@ -652,21 +691,22 @@ function initGlobe(){
  ctrl.dampingFactor=isExplorer?.085:(isHero?.08:.13);
  ctrl.enablePan=false;
  ctrl.rotateSpeed=isExplorer?.43:(isHero?.65:.55);
- ctrl.zoomSpeed=isExplorer?.62:(isHero?.85:.55);
+ ctrl.zoomSpeed=isExplorer?.92:(isHero?.85:.55);
  ctrl.enableZoom=true;
  ctrl.zoomToCursor=false;
- ctrl.minDistance=isExplorer?124:(isCountry?185:160);
+ ctrl.minDistance=isExplorer?g.getGlobeRadius()*1.025:(isCountry?185:160);
  ctrl.maxDistance=isExplorer?550:(isCountry?540:700);
  // On touch screens keep drag/pinch inside the globe rather than scrolling the page.
- if(!isHero&&node){node.style.touchAction='none';const canvas=node.querySelector('canvas');if(canvas)canvas.style.touchAction='none'}
- // Don't mix two-finger orbit rotation with pinch zoom on mobile.
- if(ctrl.touches&&typeof THREE!=='undefined'&&THREE.TOUCH){ctrl.touches.ONE=THREE.TOUCH.ROTATE;ctrl.touches.TWO=THREE.TOUCH.DOLLY}
+ if(!isHero&&!isExplorer){node.style.touchAction='none';const canvas=node.querySelector('canvas');if(canvas)canvas.style.touchAction='none'}
+ // Explorer uses OrbitControls' native two-finger dolly. Panning is disabled above.
+ if(!isExplorer&&ctrl.touches&&typeof THREE!=='undefined'&&THREE.TOUCH){ctrl.touches.ONE=THREE.TOUCH.ROTATE;ctrl.touches.TWO=THREE.TOUCH.DOLLY}
  try{
   // Cap device pixel ratio to preserve GPU memory on high-density iPhones.
   const renderer=g.renderer?.();
   renderer?.setPixelRatio?.(Math.min(window.devicePixelRatio||1,window.innerWidth<750?1.35:1.75));
  }catch(e){console.debug('Adaptive resolution unavailable',e)}
  globeInstance=g;node.classList.add('gv-3d-loaded');
+ const updateExplorerScroll=isExplorer?bindExplorerScrollArea(node,g,ctrl):null;
  if(isExplorer){
   node.classList.add('gv117-explorer');
   exploreNameLabel=document.createElement('div');
@@ -683,6 +723,7 @@ function initGlobe(){
   if(width>0&&height>0&&
      (Math.round(g.width())!==width||Math.round(g.height())!==height))
    g.width(width).height(height);
+  updateExplorerScroll?.();
   return true;
  };
  if(typeof ResizeObserver==='function'){
