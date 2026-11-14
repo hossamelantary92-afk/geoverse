@@ -116,3 +116,34 @@
  .gv17-game{min-height:200px!important}
 }
 @media(prefers-reduced-motion:reduce){.gv20-game-photo{transition:none!important}}
+
+/* gv-ui-polish-20261114 — home games, typography, progress and touch polish.
+   Scoped to home components; globe, maps, game logic and dock untouched. */
+.gv17-games-grid{align-items:stretch!important;gap:clamp(10px,1.4vw,16px)!important}
+.gv17-game{height:100%;box-sizing:border-box!important;border-radius:18px!important;min-width:0!important}
+.gv17-game strong{font-size:clamp(16px,1.45vw,19px)!important;line-height:1.5!important;overflow-wrap:anywhere}
+.gv17-game small{font-size:clamp(11px,.95vw,13px)!important;line-height:1.7!important;min-height:0!important;overflow-wrap:anywhere}
+.gv17-game-launch{font-size:12px!important;min-height:32px;align-items:center}
+.gv17-heading h2{font-size:clamp(22px,2.2vw,29px)!important;line-height:1.4!important}
+.gv17-heading p{font-size:clamp(12px,1vw,14px)!important;line-height:1.75!important}
+.gv17-progress-row{min-height:100px;box-sizing:border-box}
+.gv17-progress-label{font-size:clamp(12px,1vw,14px)!important}
+.gv17-progress-summary p{font-size:13px!important;line-height:1.75!important}
+.gv17-game:focus-visible,.gv17-progress-row:focus-visible,.gv17-daily button:focus-visible{outline:3px solid #8ff5df!important;outline-offset:3px}
+@media(hover:hover) and (pointer:fine){.gv17-game:hover{transform:translateY(-3px)}}
+@media(max-width:700px){
+ .gv17-games-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+ .gv17-game{min-height:220px!important;padding:12px!important;border-radius:15px!important}
+ .gv17-game strong{font-size:15px!important;line-height:1.5!important}
+ .gv17-game small{font-size:11px!important;line-height:1.65!important}
+ .gv17-game-launch{font-size:11px!important;min-height:32px}
+ .gv17-heading h2{font-size:clamp(21px,5.5vw,25px)!important}
+ .gv17-heading p{font-size:12px!important}
+ .gv17-progress-row{min-height:92px;padding:12px!important}
+ .gv17-progress-label{font-size:12px!important}
+ .gv17-progress-summary p{font-size:12px!important}
+ .gv17-daily-copy small{font-size:11px!important;line-height:1.65}
+ .gv17-daily button{min-height:44px!important}
+}
+@media(max-width:360px){.gv17-game{min-height:224px!important}.gv17-game strong{font-size:14px!important}}
+@media(prefers-reduced-motion:reduce){.gv17-game,.gv17-game *{transition:none!important}}
