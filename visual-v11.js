@@ -41,7 +41,7 @@ const featuredPhotos={
 };
 const motifs={astronomy:'home',oceans:'waves',rivers:'rivers',volcanoes:'volcanoes',forests:'forests',mountains:'mountains',deserts:'deserts'};
 function categories(){
- return '<section class="gv11-categories"><div class="gv11-section-title"><h2>'+t('استكشف الأقسام','Explore categories')+'</h2><button type="button" data-page="all">'+t('عرض الكل','View all')+' ↗</button></div><div class="gv11-grid">'+featured.map(id=>{
+ return '<section class="gv11-categories"><div class="gv11-section-title"><h2>'+t('الموسوعة','Encyclopedia')+'</h2><button type="button" data-page="all">'+t('عرض الكل','View all')+' ↗</button></div><div class="gv11-grid">'+featured.map(id=>{
  const c=cats.find(x=>x.id===id);return '<button type="button" data-cat="'+id+'" class="gv11-card gv11-'+id+' gv174-card"><img loading="lazy" src="'+(window.GeoVersePremiumCovers?.get(id,900)||im(featuredPhotos[id]||c.img,900))+'" alt="'+escapeHTML(label(c))+'"><span class="gv11-card-gradient"></span><span class="gv11-card-icon">'+icon(motifs[id],24)+'</span><strong>'+escapeHTML(label(c))+'</strong><small>'+geo[id].length+' '+t('معلمًا','places')+'</small><span class="gv11-card-chevron">‹</span></button>';
  }).join('')+'</div></section>'+
  '<div class="gv550-wonders-divider" aria-hidden="true"><span></span><i></i><span></span></div>'+
