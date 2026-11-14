@@ -17,9 +17,7 @@
 .gv235-launch b{font-size:18px;line-height:1}
 .gv235-feature:hover{transform:translateY(-4px);border-color:#9cebdc;box-shadow:0 24px 41px #0007}
 .gv235-feature:hover .gv235-picture{transform:scale(1.045)}
-.gv235-feature:focus-visible,.gv235-back:focus-visible{outline:3px solid #9dffea;outline-offset:3px}
-.gv235-back{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(105,216,223,.65);background:#0c3a52;color:#dffffb;font-size:12px;font-weight:900;border-radius:12px;padding:11px 15px;margin:0 0 20px;cursor:pointer}
-.gv235-back span{font-size:19px;line-height:1}
+.gv235-feature:focus-visible{outline:3px solid #9dffea;outline-offset:3px}
 .gv235-context{margin:0 0 14px}.gv235-context h1{font-size:clamp(26px,3.1vw,40px);line-height:1.35;margin:6px 0}
 .gv235-experience-page .gv232-shell,.gv235-experience-page .gv234-root{margin:0 0 22px}
 .gv235-foot{padding:8px 0 30px;text-align:center}.gv235-foot button{border:1px solid rgba(96,180,195,.7);background:#103e56;color:#e6ffff;border-radius:12px;padding:12px 20px;font-weight:800;cursor:pointer}

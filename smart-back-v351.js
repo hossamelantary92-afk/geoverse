@@ -16,7 +16,7 @@ function pageKey(v){
  if(!v)return '';
  if(v.page==='country-v4')return 'country:'+String(v.code||'');
  if(v.page==='countries-v4')return 'countries:'+String(v.continent||'all');
- if(v.page==='category')return 'category:'+String(v.category||'')+(v.category==='tourism'?':'+String(v.tourism||''):'');
+ if(v.page==='category')return 'category:'+String(v.category||'')+':'+categoryView(v);
  if(v.page==='detail')return 'detail:'+String(v.category||'')+':'+String(v.item??'');
  return String(v.page||'');
 }
@@ -57,12 +57,19 @@ function snapshot(){
   page:state.page,category:cat,item,
   code:typeof state.v4Code==='string'?state.v4Code:null,
   continent:state.v4Continent||'all',
+  astronomy:window.GeoVerseAstronomyExperiencesV235?.getView?.()||'overview',
   tourism:window.GeoVerseTourismCountryNavigation?.getSelected?.()||'',
   scroll:Math.max(0,Math.round(window.scrollY||0))
  };
 }
+function categoryView(v){
+ if(v.category==='tourism')return v.tourism||'';
+ if(v.category==='astronomy')return v.astronomy||'overview';
+ return '';
+}
 function same(a,b){
  return !!a&&!!b&&a.page===b.page&&a.category===b.category&&a.item===b.item&&
+  (a.page!=='category'||categoryView(a)===categoryView(b))&&
   (a.page!=='country-v4'||a.code===b.code)&&
   (a.page!=='countries-v4'||a.continent===b.continent);
 }
@@ -128,6 +135,9 @@ render=function(){
  return result;
 };
 function fallback(){
+ if(state.page==='category'&&categoryView(snapshot())!==categoryView({category:state.category})){
+  return {page:'category',category:state.category,item:null,scroll:0};
+ }
  if(state.page==='detail')return {page:'category',category:state.category,item:null,scroll:0};
  if(state.page==='country-v4')return {page:'countries-v4',category:'countries',item:null,scroll:0,continent:'all'};
  if(state.page==='category'||state.page==='countries-v4')return {page:'all',category:null,item:null,scroll:0};
@@ -139,7 +149,16 @@ function goBackTo(target){
  restoreOverride=Math.max(0,target.scroll??pagePositions.get(pageKey(target))??0);
  try{
   if(target.page==='countries-v4'&&target.continent)state.v4Continent=target.continent;
-  if(target.page==='category'&&target.category==='tourism')window.GeoVerseTourismCountryNavigation?.setSelected?.(target.tourism||'');
+  if(target.page==='category'&&target.category==='astronomy')window.GeoVerseAstronomyExperiencesV235?.setView?.(target.astronomy);
+  const tourism=window.GeoVerseTourismCountryNavigation;
+  if(target.page==='category'&&target.category==='tourism'&&tourism){
+   // The tourism page initializer resets the selection on entrance.
+   if(state.category!=='tourism'&&target.tourism){
+    setPage('category','tourism');
+    restoreOverride=Math.max(0,target.scroll||0);
+   }
+   tourism.setSelected(target.tourism||'');
+  }
   setPage(target.page,target.page==='country-v4'?target.code:target.category,target.item);
   previous=snapshot();
  }finally{suppress=false;clickOrigin=null;restoreOverride=null;}
@@ -153,8 +172,22 @@ function smartBack(){
   goBackTo(target);
   return;
  }
+ const current=snapshot();
+ while(stack.length&&same(stack[stack.length-1],current))stack.pop();
  const target=stack.length?stack.pop():fallback();
  goBackTo(target);
+}
+function returnToCategory(category){
+ const parent={page:'category',category,item:null};
+ let index=stack.length-1;
+ while(index>=0&&!same(stack[index],parent))index--;
+ if(index>=0){
+  const target=stack[index];
+  stack.length=index;
+  goBackTo(target);
+ }else{
+  goBackTo(parent);
+ }
 }
 function returnToCountry(){
  if(!countryReferral)return smartBack();
@@ -187,9 +220,9 @@ document.addEventListener('click',event=>{
   smartBack();
   return;
  }
- if(event.target.closest?.('[data-page],[data-cat],[data-item],[data-v4-country],[data-atlas-open],[data-gv17-game],.gv-knowledge-link')){
+ if(event.target.closest?.('[data-gv181-country],[data-page],[data-cat],[data-item],[data-v4-country],[data-atlas-open],[data-gv17-game],.gv-knowledge-link')){
   clickOrigin=snapshot();
  }
 },true);
-window.GeoVerseSmartBack={back:smartBack,returnCountry:returnToCountry,depth:()=>stack.length,peek:()=>{if(state.page==='country-v4'&&immediateCountryOrigin)return {...immediateCountryOrigin};return stack.length?{...stack[stack.length-1]}:fallback();}};
+window.GeoVerseSmartBack={back:smartBack,returnToCategory,returnCountry:returnToCountry,depth:()=>stack.length,peek:()=>{if(state.page==='country-v4'&&immediateCountryOrigin)return {...immediateCountryOrigin};return stack.length?{...stack[stack.length-1]}:fallback();}};
 })();

@@ -96,6 +96,10 @@ document.addEventListener('click',event=>{
  const b=event.target.closest?.('[data-gv181-country],[data-gv181-back]');
  if(!b)return;
  event.preventDefault();event.stopImmediatePropagation();
+ if(b.hasAttribute('data-gv181-back')&&window.GeoVerseSmartBack?.returnToCategory){
+  window.GeoVerseSmartBack.returnToCategory('tourism');
+  return;
+ }
  if(b.hasAttribute('data-gv181-back'))selected='';
  else selected=b.dataset.gv181Country;
  state.filter='';

@@ -72,6 +72,17 @@ function addMainNavigation(){
   }
   return;
  }
+ const experience=root.querySelector('.gv235-experience-page');
+ if(state.page==='category'&&state.category==='astronomy'&&experience){
+  const target=window.GeoVerseSmartBack?.peek?.();
+  const parentIsPrevious=target?.page==='category'&&target.category==='astronomy'&&(!target.astronomy||target.astronomy==='overview');
+  const nav=row();
+  nav.append(button(parentIsPrevious?txt('إلى الجغرافيا الفلكية','Astronomical Geography'):txt('رجوع','Back'),'back'));
+  if(!parentIsPrevious)nav.append(button(txt('إلى الجغرافيا الفلكية','Astronomical Geography'),'astronomy'));
+  nav.append(button(txt('كل الأقسام','All sections'),'all'));
+  root.prepend(nav);
+  return;
+ }
  if(root.querySelector('.gv388-nav'))return;
  // Section landing pages: contextual Back plus a predictable atlas directory shortcut.
  if(state.page==='category'||state.page==='countries-v4'){
@@ -113,7 +124,6 @@ function removeDuplicateShortcuts(){
  }
  if(state.page==='category'&&state.category==='tourism'&&window.GeoVerseTourismCountryNavigation?.getSelected?.()&&target.page==='category'&&target.category==='tourism'){
   root.querySelector('.gv388-nav [data-gv388-action="tourism-back"]')?.remove();
-  root.querySelector('[data-gv181-back]')?.remove();
  }
 }
 const priorRender=render;
@@ -125,6 +135,7 @@ document.addEventListener('click',function(e){
  const action=trigger.dataset.gv388Action;
  if(action==='back'){if(window.GeoVerseSmartBack?.back)window.GeoVerseSmartBack.back();else setPage('all');}
  else if(action==='all')setPage('all');
+ else if(action==='astronomy')window.GeoVerseSmartBack?.returnToCategory('astronomy');
  else if(action==='section')setPage('category',state.category);
  else if(action==='continent-back')document.querySelector('#main [data-gv-c5-back]')?.click();
  else if(action==='tourism-back')document.querySelector('#main [data-gv181-back]')?.click();

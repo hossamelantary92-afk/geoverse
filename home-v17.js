@@ -44,7 +44,7 @@ function numbers(){
 const homeGameCovers={
  capitals:'capitals.webp?v=gv676',
  flags:'flags.webp',
- silhouette:'country-shape.webp',
+ silhouette:'country-shape.webp?v=gv678',
  mapfind:'locate-country.webp?v=gv677'
 };
 function games(){
