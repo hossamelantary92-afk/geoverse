@@ -619,3 +619,38 @@
  #main .gv557-game-detail .gv565-time{grid-column:auto!important}
  #main .gv557-game-detail .gv565-field{padding:13px!important}
 }
+
+/* v690 — four primary game-setting cards in a clean 2×2 desktop grid.
+   Timer sits directly beside game mode; optional player names follow below. */
+@media(min-width:821px){
+ #main .gv557-game-detail .gv565-setup-fields{
+   grid-template-columns:repeat(2,minmax(0,1fr))!important;
+   gap:14px 18px!important;align-items:stretch!important;
+ }
+ #main .gv557-game-detail .gv565-difficulty{order:1}
+ #main .gv557-game-detail .gv565-area{order:2}
+ #main .gv557-game-detail .gv565-mode{order:3}
+ #main .gv557-game-detail .gv565-time{
+   order:4;grid-column:auto!important;
+ }
+ #main .gv557-game-detail .gv565-players{
+   order:5;grid-column:1/-1!important;
+ }
+ #main .gv557-game-detail .gv565-setup-fields>.gv565-field{
+   align-self:stretch!important;
+ }
+ #main .gv557-game-detail .gv565-time .gv558-time-options{
+   grid-template-columns:repeat(4,minmax(0,1fr))!important;
+ }
+}
+@media(min-width:821px) and (max-width:1050px){
+ #main .gv557-game-detail .gv565-setup-fields{
+   grid-template-columns:repeat(2,minmax(0,1fr))!important;
+ }
+ #main .gv557-game-detail .gv565-time{
+   grid-column:auto!important;
+ }
+ #main .gv557-game-detail .gv565-time .gv558-time-options{
+   grid-template-columns:repeat(2,minmax(0,1fr))!important;
+ }
+}
